@@ -1,0 +1,1155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:2
+msgid ":mod:`enum` --- Support for enumerations"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:14
+msgid "**Source code:** :source:`Lib/enum.py`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:18
+msgid ""
+"An enumeration is a set of symbolic names (members) bound to unique, "
+"constant values.  Within an enumeration, the members can be compared by "
+"identity, and the enumeration itself can be iterated over."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:24
+msgid "Module Contents"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:26
+msgid ""
+"This module defines two enumeration classes that can be used to define "
+"unique sets of names and values: :class:`Enum` and :class:`IntEnum`.  It "
+"also defines one decorator, :func:`unique`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:32
+msgid ""
+"Base class for creating enumerated constants.  See section `Functional API`_ "
+"for an alternate construction syntax."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:37
+msgid ""
+"Base class for creating enumerated constants that are also subclasses of :"
+"class:`int`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:42
+msgid ""
+"Enum class decorator that ensures only one name is bound to any one value."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:46
+msgid "Creating an Enum"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:48
+msgid ""
+"Enumerations are created using the :keyword:`class` syntax, which makes them "
+"easy to read and write.  An alternative creation method is described in "
+"`Functional API`_.  To define an enumeration, subclass :class:`Enum` as "
+"follows::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:53
+msgid ""
+">>> from enum import Enum\n"
+">>> class Color(Enum):\n"
+"...     red = 1\n"
+"...     green = 2\n"
+"...     blue = 3\n"
+"..."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:60
+msgid "Nomenclature"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:62
+msgid "The class :class:`Color` is an *enumeration* (or *enum*)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:63
+msgid ""
+"The attributes :attr:`Color.red`, :attr:`Color.green`, etc., are "
+"*enumeration members* (or *enum members*)."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:65
+msgid ""
+"The enum members have *names* and *values* (the name of :attr:`Color.red` is "
+"``red``, the value of :attr:`Color.blue` is ``3``, etc.)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:71
+msgid ""
+"Even though we use the :keyword:`class` syntax to create Enums, Enums are "
+"not normal Python classes.  See `How are Enums different?`_ for more details."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:75
+msgid "Enumeration members have human readable string representations::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:77
+msgid ""
+">>> print(Color.red)\n"
+"Color.red"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:80
+msgid "...while their ``repr`` has more information::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:82
+msgid ""
+">>> print(repr(Color.red))\n"
+"<Color.red: 1>"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:85
+msgid "The *type* of an enumeration member is the enumeration it belongs to::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:87
+msgid ""
+">>> type(Color.red)\n"
+"<enum 'Color'>\n"
+">>> isinstance(Color.green, Color)\n"
+"True\n"
+">>>"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:93
+msgid "Enum members also have a property that contains just their item name::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:95
+msgid ""
+">>> print(Color.red.name)\n"
+"red"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:98
+msgid "Enumerations support iteration, in definition order::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:100
+msgid ""
+">>> class Shake(Enum):\n"
+"...     vanilla = 7\n"
+"...     chocolate = 4\n"
+"...     cookies = 9\n"
+"...     mint = 3\n"
+"...\n"
+">>> for shake in Shake:\n"
+"...     print(shake)\n"
+"...\n"
+"Shake.vanilla\n"
+"Shake.chocolate\n"
+"Shake.cookies\n"
+"Shake.mint"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:114
+msgid ""
+"Enumeration members are hashable, so they can be used in dictionaries and "
+"sets::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:116
+msgid ""
+">>> apples = {}\n"
+">>> apples[Color.red] = 'red delicious'\n"
+">>> apples[Color.green] = 'granny smith'\n"
+">>> apples == {Color.red: 'red delicious', Color.green: 'granny smith'}\n"
+"True"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:124
+msgid "Programmatic access to enumeration members and their attributes"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:126
+msgid ""
+"Sometimes it's useful to access members in enumerations programmatically (i."
+"e. situations where ``Color.red`` won't do because the exact color is not "
+"known at program-writing time).  ``Enum`` allows such access::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:130
+msgid ""
+">>> Color(1)\n"
+"<Color.red: 1>\n"
+">>> Color(3)\n"
+"<Color.blue: 3>"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:135
+msgid "If you want to access enum members by *name*, use item access::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:137
+msgid ""
+">>> Color['red']\n"
+"<Color.red: 1>\n"
+">>> Color['green']\n"
+"<Color.green: 2>"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:142
+msgid "If you have an enum member and need its :attr:`name` or :attr:`value`::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:144
+msgid ""
+">>> member = Color.red\n"
+">>> member.name\n"
+"'red'\n"
+">>> member.value\n"
+"1"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:152
+msgid "Duplicating enum members and values"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:154
+msgid "Having two enum members with the same name is invalid::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:156
+msgid ""
+">>> class Shape(Enum):\n"
+"...     square = 2\n"
+"...     square = 3\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"TypeError: Attempted to reuse key: 'square'"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:164
+msgid ""
+"However, two enum members are allowed to have the same value.  Given two "
+"members A and B with the same value (and A defined first), B is an alias to "
+"A.  By-value lookup of the value of A and B will return A.  By-name lookup "
+"of B will also return A::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:169
+msgid ""
+">>> class Shape(Enum):\n"
+"...     square = 2\n"
+"...     diamond = 1\n"
+"...     circle = 3\n"
+"...     alias_for_square = 2\n"
+"...\n"
+">>> Shape.square\n"
+"<Shape.square: 2>\n"
+">>> Shape.alias_for_square\n"
+"<Shape.square: 2>\n"
+">>> Shape(2)\n"
+"<Shape.square: 2>"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:184
+msgid ""
+"Attempting to create a member with the same name as an already defined "
+"attribute (another member, a method, etc.) or attempting to create an "
+"attribute with the same name as a member is not allowed."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:190
+msgid "Ensuring unique enumeration values"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:192
+msgid ""
+"By default, enumerations allow multiple names as aliases for the same value. "
+"When this behavior isn't desired, the following decorator can be used to "
+"ensure each value is used only once in the enumeration:"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:198
+msgid ""
+"A :keyword:`class` decorator specifically for enumerations.  It searches an "
+"enumeration's :attr:`__members__` gathering any aliases it finds; if any are "
+"found :exc:`ValueError` is raised with the details::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:202
+msgid ""
+">>> from enum import Enum, unique\n"
+">>> @unique\n"
+"... class Mistake(Enum):\n"
+"...     one = 1\n"
+"...     two = 2\n"
+"...     three = 3\n"
+"...     four = 3\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"ValueError: duplicate values found in <enum 'Mistake'>: four -> three"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:216
+msgid "Iteration"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:218
+msgid "Iterating over the members of an enum does not provide the aliases::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:220
+msgid ""
+">>> list(Shape)\n"
+"[<Shape.square: 2>, <Shape.diamond: 1>, <Shape.circle: 3>]"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:223
+msgid ""
+"The special attribute ``__members__`` is an ordered dictionary mapping names "
+"to members.  It includes all names defined in the enumeration, including the "
+"aliases::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:227
+msgid ""
+">>> for name, member in Shape.__members__.items():\n"
+"...     name, member\n"
+"...\n"
+"('square', <Shape.square: 2>)\n"
+"('diamond', <Shape.diamond: 1>)\n"
+"('circle', <Shape.circle: 3>)\n"
+"('alias_for_square', <Shape.square: 2>)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:235
+msgid ""
+"The ``__members__`` attribute can be used for detailed programmatic access "
+"to the enumeration members.  For example, finding all the aliases::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:238
+msgid ""
+">>> [name for name, member in Shape.__members__.items() if member.name != "
+"name]\n"
+"['alias_for_square']"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:243
+msgid "Comparisons"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:245
+msgid "Enumeration members are compared by identity::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:247
+msgid ""
+">>> Color.red is Color.red\n"
+"True\n"
+">>> Color.red is Color.blue\n"
+"False\n"
+">>> Color.red is not Color.blue\n"
+"True"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:254
+msgid ""
+"Ordered comparisons between enumeration values are *not* supported.  Enum "
+"members are not integers (but see `IntEnum`_ below)::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:257
+msgid ""
+">>> Color.red < Color.blue\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"TypeError: unorderable types: Color() < Color()"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:262
+msgid "Equality comparisons are defined though::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:264
+msgid ""
+">>> Color.blue == Color.red\n"
+"False\n"
+">>> Color.blue != Color.red\n"
+"True\n"
+">>> Color.blue == Color.blue\n"
+"True"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:271
+msgid ""
+"Comparisons against non-enumeration values will always compare not equal "
+"(again, :class:`IntEnum` was explicitly designed to behave differently, see "
+"below)::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:275
+msgid ""
+">>> Color.blue == 2\n"
+"False"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:280
+msgid "Allowed members and attributes of enumerations"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:282
+msgid ""
+"The examples above use integers for enumeration values.  Using integers is "
+"short and handy (and provided by default by the `Functional API`_), but not "
+"strictly enforced.  In the vast majority of use-cases, one doesn't care what "
+"the actual value of an enumeration is.  But if the value *is* important, "
+"enumerations can have arbitrary values."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:288
+msgid ""
+"Enumerations are Python classes, and can have methods and special methods as "
+"usual.  If we have this enumeration::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:291
+msgid ""
+">>> class Mood(Enum):\n"
+"...     funky = 1\n"
+"...     happy = 3\n"
+"...\n"
+"...     def describe(self):\n"
+"...         # self is the member here\n"
+"...         return self.name, self.value\n"
+"...\n"
+"...     def __str__(self):\n"
+"...         return 'my custom str! {0}'.format(self.value)\n"
+"...\n"
+"...     @classmethod\n"
+"...     def favorite_mood(cls):\n"
+"...         # cls here is the enumeration\n"
+"...         return cls.happy\n"
+"..."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:308
+msgid "Then::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:310
+msgid ""
+">>> Mood.favorite_mood()\n"
+"<Mood.happy: 3>\n"
+">>> Mood.happy.describe()\n"
+"('happy', 3)\n"
+">>> str(Mood.funky)\n"
+"'my custom str! 1'"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:317
+msgid ""
+"The rules for what is allowed are as follows: names that start and end with "
+"a single underscore are reserved by enum and cannot be used; all other "
+"attributes defined within an enumeration will become members of this "
+"enumeration, with the exception of special methods (:meth:`__str__`, :meth:"
+"`__add__`, etc.) and descriptors (methods are also descriptors)."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:323
+msgid ""
+"Note:  if your enumeration defines :meth:`__new__` and/or :meth:`__init__` "
+"then whatever value(s) were given to the enum member will be passed into "
+"those methods.  See `Planet`_ for an example."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:329
+msgid "Restricted subclassing of enumerations"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:331
+msgid ""
+"Subclassing an enumeration is allowed only if the enumeration does not "
+"define any members.  So this is forbidden::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:334
+msgid ""
+">>> class MoreColor(Color):\n"
+"...     pink = 17\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"TypeError: Cannot extend enumerations"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:341
+msgid "But this is allowed::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:343
+msgid ""
+">>> class Foo(Enum):\n"
+"...     def some_behavior(self):\n"
+"...         pass\n"
+"...\n"
+">>> class Bar(Foo):\n"
+"...     happy = 1\n"
+"...     sad = 2\n"
+"..."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:352
+msgid ""
+"Allowing subclassing of enums that define members would lead to a violation "
+"of some important invariants of types and instances.  On the other hand, it "
+"makes sense to allow sharing some common behavior between a group of "
+"enumerations. (See `OrderedEnum`_ for an example.)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:359
+msgid "Pickling"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:361
+msgid "Enumerations can be pickled and unpickled::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:363
+msgid ""
+">>> from test.test_enum import Fruit\n"
+">>> from pickle import dumps, loads\n"
+">>> Fruit.tomato is loads(dumps(Fruit.tomato))\n"
+"True"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:368
+msgid ""
+"The usual restrictions for pickling apply: picklable enums must be defined "
+"in the top level of a module, since unpickling requires them to be "
+"importable from that module."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:374
+msgid ""
+"With pickle protocol version 4 it is possible to easily pickle enums nested "
+"in other classes."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:377
+msgid ""
+"It is possible to modify how Enum members are pickled/unpickled by defining :"
+"meth:`__reduce_ex__` in the enumeration class."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:382
+msgid "Functional API"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:384
+msgid ""
+"The :class:`Enum` class is callable, providing the following functional API::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:386
+msgid ""
+">>> Animal = Enum('Animal', 'ant bee cat dog')\n"
+">>> Animal\n"
+"<enum 'Animal'>\n"
+">>> Animal.ant\n"
+"<Animal.ant: 1>\n"
+">>> Animal.ant.value\n"
+"1\n"
+">>> list(Animal)\n"
+"[<Animal.ant: 1>, <Animal.bee: 2>, <Animal.cat: 3>, <Animal.dog: 4>]"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:396
+msgid ""
+"The semantics of this API resemble :class:`~collections.namedtuple`. The "
+"first argument of the call to :class:`Enum` is the name of the enumeration."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:399
+msgid ""
+"The second argument is the *source* of enumeration member names.  It can be "
+"a whitespace-separated string of names, a sequence of names, a sequence of 2-"
+"tuples with key/value pairs, or a mapping (e.g. dictionary) of names to "
+"values.  The last two options enable assigning arbitrary values to "
+"enumerations; the others auto-assign increasing integers starting with 1 "
+"(use the ``start`` parameter to specify a different starting value).  A new "
+"class derived from :class:`Enum` is returned.  In other words, the above "
+"assignment to :class:`Animal` is equivalent to::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:408
+msgid ""
+">>> class Animal(Enum):\n"
+"...     ant = 1\n"
+"...     bee = 2\n"
+"...     cat = 3\n"
+"...     dog = 4\n"
+"..."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:415
+msgid ""
+"The reason for defaulting to ``1`` as the starting number and not ``0`` is "
+"that ``0`` is ``False`` in a boolean sense, but enum members all evaluate to "
+"``True``."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:419
+msgid ""
+"Pickling enums created with the functional API can be tricky as frame stack "
+"implementation details are used to try and figure out which module the "
+"enumeration is being created in (e.g. it will fail if you use a utility "
+"function in separate module, and also may not work on IronPython or Jython). "
+"The solution is to specify the module name explicitly as follows::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:425
+msgid ">>> Animal = Enum('Animal', 'ant bee cat dog', module=__name__)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:429
+msgid ""
+"If ``module`` is not supplied, and Enum cannot determine what it is, the new "
+"Enum members will not be unpicklable; to keep errors closer to the source, "
+"pickling will be disabled."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:433
+msgid ""
+"The new pickle protocol 4 also, in some circumstances, relies on :attr:"
+"`~definition.__qualname__` being set to the location where pickle will be "
+"able to find the class.  For example, if the class was made available in "
+"class SomeData in the global scope::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:438
+msgid ""
+">>> Animal = Enum('Animal', 'ant bee cat dog', qualname='SomeData.Animal')"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:440
+msgid "The complete signature is::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:442
+msgid ""
+"Enum(value='NewEnumName', names=<...>, *, module='...', qualname='...', "
+"type=<mixed-in class>, start=1)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:0
+msgid "value"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:444
+msgid "What the new Enum class will record as its name."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:0
+msgid "names"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:446
+msgid ""
+"The Enum members.  This can be a whitespace or comma separated string "
+"(values will start at 1 unless otherwise specified)::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:449
+msgid "'red green blue' | 'red,green,blue' | 'red, green, blue'"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:451
+msgid "or an iterator of names::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:453
+msgid "['red', 'green', 'blue']"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:455
+msgid "or an iterator of (name, value) pairs::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:457
+msgid "[('cyan', 4), ('magenta', 5), ('yellow', 6)]"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:459
+msgid "or a mapping::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:461
+msgid "{'chartreuse': 7, 'sea_green': 11, 'rosemary': 42}"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:0
+msgid "module"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:463
+msgid "name of module where new Enum class can be found."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:0
+msgid "qualname"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:465
+msgid "where in module new Enum class can be found."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:0
+msgid "type"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:467
+msgid "type to mix in to new Enum class."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:0
+msgid "start"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:469
+msgid "number to start counting at if only names are passed in."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:471
+msgid "The *start* parameter was added."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:476
+msgid "Derived Enumerations"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:479
+msgid "IntEnum"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:481
+msgid ""
+"A variation of :class:`Enum` is provided which is also a subclass of :class:"
+"`int`.  Members of an :class:`IntEnum` can be compared to integers; by "
+"extension, integer enumerations of different types can also be compared to "
+"each other::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:486
+msgid ""
+">>> from enum import IntEnum\n"
+">>> class Shape(IntEnum):\n"
+"...     circle = 1\n"
+"...     square = 2\n"
+"...\n"
+">>> class Request(IntEnum):\n"
+"...     post = 1\n"
+"...     get = 2\n"
+"...\n"
+">>> Shape == 1\n"
+"False\n"
+">>> Shape.circle == 1\n"
+"True\n"
+">>> Shape.circle == Request.post\n"
+"True"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:502
+msgid ""
+"However, they still can't be compared to standard :class:`Enum` "
+"enumerations::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:504
+msgid ""
+">>> class Shape(IntEnum):\n"
+"...     circle = 1\n"
+"...     square = 2\n"
+"...\n"
+">>> class Color(Enum):\n"
+"...     red = 1\n"
+"...     green = 2\n"
+"...\n"
+">>> Shape.circle == Color.red\n"
+"False"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:515
+msgid ""
+":class:`IntEnum` values behave like integers in other ways you'd expect::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:517
+msgid ""
+">>> int(Shape.circle)\n"
+"1\n"
+">>> ['a', 'b', 'c'][Shape.circle]\n"
+"'b'\n"
+">>> [i for i in range(Shape.square)]\n"
+"[0, 1]"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:524
+msgid ""
+"For the vast majority of code, :class:`Enum` is strongly recommended, since :"
+"class:`IntEnum` breaks some semantic promises of an enumeration (by being "
+"comparable to integers, and thus by transitivity to other unrelated "
+"enumerations).  It should be used only in special cases where there's no "
+"other choice; for example, when integer constants are replaced with "
+"enumerations and backwards compatibility is required with code that still "
+"expects integers."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:534
+msgid "Others"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:536
+msgid ""
+"While :class:`IntEnum` is part of the :mod:`enum` module, it would be very "
+"simple to implement independently::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:539
+msgid ""
+"class IntEnum(int, Enum):\n"
+"    pass"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:542
+msgid ""
+"This demonstrates how similar derived enumerations can be defined; for "
+"example a :class:`StrEnum` that mixes in :class:`str` instead of :class:"
+"`int`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:545
+msgid "Some rules:"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:547
+msgid ""
+"When subclassing :class:`Enum`, mix-in types must appear before :class:"
+"`Enum` itself in the sequence of bases, as in the :class:`IntEnum` example "
+"above."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:550
+msgid ""
+"While :class:`Enum` can have members of any type, once you mix in an "
+"additional type, all the members must have values of that type, e.g. :class:"
+"`int` above.  This restriction does not apply to mix-ins which only add "
+"methods and don't specify another data type such as :class:`int` or :class:"
+"`str`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:555
+msgid ""
+"When another data type is mixed in, the :attr:`value` attribute is *not the "
+"same* as the enum member itself, although it is equivalent and will compare "
+"equal."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:558
+msgid ""
+"%-style formatting:  `%s` and `%r` call the :class:`Enum` class's :meth:"
+"`__str__` and :meth:`__repr__` respectively; other codes (such as `%i` or "
+"`%h` for IntEnum) treat the enum member as its mixed-in type."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:561
+msgid ""
+":meth:`str.format` (or :func:`format`) will use the mixed-in type's :meth:"
+"`__format__`.  If the :class:`Enum` class's :func:`str` or :func:`repr` is "
+"desired, use the `!s` or `!r` format codes."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:567
+msgid "Interesting examples"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:569
+msgid ""
+"While :class:`Enum` and :class:`IntEnum` are expected to cover the majority "
+"of use-cases, they cannot cover them all.  Here are recipes for some "
+"different types of enumerations that can be used directly, or as examples "
+"for creating one's own."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:576
+msgid "AutoNumber"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:578
+msgid "Avoids having to specify the value for each enumeration member::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:580
+msgid ""
+">>> class AutoNumber(Enum):\n"
+"...     def __new__(cls):\n"
+"...         value = len(cls.__members__) + 1\n"
+"...         obj = object.__new__(cls)\n"
+"...         obj._value_ = value\n"
+"...         return obj\n"
+"...\n"
+">>> class Color(AutoNumber):\n"
+"...     red = ()\n"
+"...     green = ()\n"
+"...     blue = ()\n"
+"...\n"
+">>> Color.green.value == 2\n"
+"True"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:597
+msgid ""
+"The :meth:`__new__` method, if defined, is used during creation of the Enum "
+"members; it is then replaced by Enum's :meth:`__new__` which is used after "
+"class creation for lookup of existing members."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:603
+msgid "OrderedEnum"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:605
+msgid ""
+"An ordered enumeration that is not based on :class:`IntEnum` and so "
+"maintains the normal :class:`Enum` invariants (such as not being comparable "
+"to other enumerations)::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:609
+msgid ""
+">>> class OrderedEnum(Enum):\n"
+"...     def __ge__(self, other):\n"
+"...         if self.__class__ is other.__class__:\n"
+"...             return self.value >= other.value\n"
+"...         return NotImplemented\n"
+"...     def __gt__(self, other):\n"
+"...         if self.__class__ is other.__class__:\n"
+"...             return self.value > other.value\n"
+"...         return NotImplemented\n"
+"...     def __le__(self, other):\n"
+"...         if self.__class__ is other.__class__:\n"
+"...             return self.value <= other.value\n"
+"...         return NotImplemented\n"
+"...     def __lt__(self, other):\n"
+"...         if self.__class__ is other.__class__:\n"
+"...             return self.value < other.value\n"
+"...         return NotImplemented\n"
+"...\n"
+">>> class Grade(OrderedEnum):\n"
+"...     A = 5\n"
+"...     B = 4\n"
+"...     C = 3\n"
+"...     D = 2\n"
+"...     F = 1\n"
+"...\n"
+">>> Grade.C < Grade.A\n"
+"True"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:639
+msgid "DuplicateFreeEnum"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:641
+msgid ""
+"Raises an error if a duplicate member name is found instead of creating an "
+"alias::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:644
+msgid ""
+">>> class DuplicateFreeEnum(Enum):\n"
+"...     def __init__(self, *args):\n"
+"...         cls = self.__class__\n"
+"...         if any(self.value == e.value for e in cls):\n"
+"...             a = self.name\n"
+"...             e = cls(self.value).name\n"
+"...             raise ValueError(\n"
+"...                 \"aliases not allowed in DuplicateFreeEnum:  %r --> "
+"%r\"\n"
+"...                 % (a, e))\n"
+"...\n"
+">>> class Color(DuplicateFreeEnum):\n"
+"...     red = 1\n"
+"...     green = 2\n"
+"...     blue = 3\n"
+"...     grene = 2\n"
+"...\n"
+"Traceback (most recent call last):\n"
+"...\n"
+"ValueError: aliases not allowed in DuplicateFreeEnum:  'grene' --> 'green'"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:666
+msgid ""
+"This is a useful example for subclassing Enum to add or change other "
+"behaviors as well as disallowing aliases.  If the only desired change is "
+"disallowing aliases, the :func:`unique` decorator can be used instead."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:672
+msgid "Planet"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:674
+msgid ""
+"If :meth:`__new__` or :meth:`__init__` is defined the value of the enum "
+"member will be passed to those methods::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:677
+msgid ""
+">>> class Planet(Enum):\n"
+"...     MERCURY = (3.303e+23, 2.4397e6)\n"
+"...     VENUS   = (4.869e+24, 6.0518e6)\n"
+"...     EARTH   = (5.976e+24, 6.37814e6)\n"
+"...     MARS    = (6.421e+23, 3.3972e6)\n"
+"...     JUPITER = (1.9e+27,   7.1492e7)\n"
+"...     SATURN  = (5.688e+26, 6.0268e7)\n"
+"...     URANUS  = (8.686e+25, 2.5559e7)\n"
+"...     NEPTUNE = (1.024e+26, 2.4746e7)\n"
+"...     def __init__(self, mass, radius):\n"
+"...         self.mass = mass       # in kilograms\n"
+"...         self.radius = radius   # in meters\n"
+"...     @property\n"
+"...     def surface_gravity(self):\n"
+"...         # universal gravitational constant  (m3 kg-1 s-2)\n"
+"...         G = 6.67300E-11\n"
+"...         return G * self.mass / (self.radius * self.radius)\n"
+"...\n"
+">>> Planet.EARTH.value\n"
+"(5.976e+24, 6378140.0)\n"
+">>> Planet.EARTH.surface_gravity\n"
+"9.802652743337129"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:702
+msgid "How are Enums different?"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:704
+msgid ""
+"Enums have a custom metaclass that affects many aspects of both derived Enum "
+"classes and their instances (members)."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:709
+msgid "Enum Classes"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:711
+msgid ""
+"The :class:`EnumMeta` metaclass is responsible for providing the :meth:"
+"`__contains__`, :meth:`__dir__`, :meth:`__iter__` and other methods that "
+"allow one to do things with an :class:`Enum` class that fail on a typical "
+"class, such as `list(Color)` or `some_var in Color`.  :class:`EnumMeta` is "
+"responsible for ensuring that various other methods on the final :class:"
+"`Enum` class are correct (such as :meth:`__new__`, :meth:`__getnewargs__`, :"
+"meth:`__str__` and :meth:`__repr__`)."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:721
+msgid "Enum Members (aka instances)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:723
+msgid ""
+"The most interesting thing about Enum members is that they are singletons. :"
+"class:`EnumMeta` creates them all while it is creating the :class:`Enum` "
+"class itself, and then puts a custom :meth:`__new__` in place to ensure that "
+"no new ones are ever instantiated by returning only the existing member "
+"instances."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:731
+msgid "Finer Points"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:733
+msgid ""
+":class:`Enum` members are instances of an :class:`Enum` class, and even "
+"though they are accessible as `EnumClass.member`, they should not be "
+"accessed directly from the member as that lookup may fail or, worse, return "
+"something besides the :class:`Enum` member you looking for::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:738
+msgid ""
+">>> class FieldTypes(Enum):\n"
+"...     name = 0\n"
+"...     value = 1\n"
+"...     size = 2\n"
+"...\n"
+">>> FieldTypes.value.size\n"
+"<FieldTypes.size: 2>\n"
+">>> FieldTypes.size.value\n"
+"2"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:750
+msgid "The :attr:`__members__` attribute is only available on the class."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:752
+msgid ""
+"If you give your :class:`Enum` subclass extra methods, like the `Planet`_ "
+"class above, those methods will show up in a :func:`dir` of the member, but "
+"not of the class::"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:756
+msgid ""
+">>> dir(Planet)\n"
+"['EARTH', 'JUPITER', 'MARS', 'MERCURY', 'NEPTUNE', 'SATURN', 'URANUS', "
+"'VENUS', '__class__', '__doc__', '__members__', '__module__']\n"
+">>> dir(Planet.EARTH)\n"
+"['__class__', '__doc__', '__module__', 'name', 'surface_gravity', 'value']"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:761
+msgid ""
+"The :meth:`__new__` method will only be used for the creation of the :class:"
+"`Enum` members -- after that it is replaced.  Any custom :meth:`__new__` "
+"method must create the object and set the :attr:`_value_` attribute "
+"appropriately."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/enum.rst:766
+msgid ""
+"If you wish to change how :class:`Enum` members are looked up you should "
+"either write a helper function or a :func:`classmethod` for the :class:"
+"`Enum` subclass."
+msgstr ""
