@@ -1,0 +1,440 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/http.server.rst:2
+msgid ":mod:`http.server` --- HTTP servers"
+msgstr ""
+
+#: ../../../library/http.server.rst:14
+msgid ""
+"This module defines classes for implementing HTTP servers (Web servers)."
+msgstr ""
+
+#: ../../../library/http.server.rst:16
+msgid ""
+"One class, :class:`HTTPServer`, is a :class:`socketserver.TCPServer` "
+"subclass. It creates and listens at the HTTP socket, dispatching the "
+"requests to a handler.  Code to create and run the server looks like this::"
+msgstr ""
+
+#: ../../../library/http.server.rst:20
+msgid ""
+"def run(server_class=HTTPServer, handler_class=BaseHTTPRequestHandler):\n"
+"    server_address = ('', 8000)\n"
+"    httpd = server_class(server_address, handler_class)\n"
+"    httpd.serve_forever()"
+msgstr ""
+
+#: ../../../library/http.server.rst:28
+msgid ""
+"This class builds on the :class:`TCPServer` class by storing the server "
+"address as instance variables named :attr:`server_name` and :attr:"
+"`server_port`. The server is accessible by the handler, typically through "
+"the handler's :attr:`server` instance variable."
+msgstr ""
+
+#: ../../../library/http.server.rst:34
+msgid ""
+"The :class:`HTTPServer` must be given a *RequestHandlerClass* on "
+"instantiation, of which this module provides three different variants:"
+msgstr ""
+
+#: ../../../library/http.server.rst:39
+msgid ""
+"This class is used to handle the HTTP requests that arrive at the server.  "
+"By itself, it cannot respond to any actual HTTP requests; it must be "
+"subclassed to handle each request method (e.g. GET or POST). :class:"
+"`BaseHTTPRequestHandler` provides a number of class and instance variables, "
+"and methods for use by subclasses."
+msgstr ""
+
+#: ../../../library/http.server.rst:45
+msgid ""
+"The handler will parse the request and the headers, then call a method "
+"specific to the request type. The method name is constructed from the "
+"request. For example, for the request method ``SPAM``, the :meth:`do_SPAM` "
+"method will be called with no arguments. All of the relevant information is "
+"stored in instance variables of the handler.  Subclasses should not need to "
+"override or extend the :meth:`__init__` method."
+msgstr ""
+
+#: ../../../library/http.server.rst:52
+msgid ":class:`BaseHTTPRequestHandler` has the following instance variables:"
+msgstr ""
+
+#: ../../../library/http.server.rst:56
+msgid ""
+"Contains a tuple of the form ``(host, port)`` referring to the client's "
+"address."
+msgstr ""
+
+#: ../../../library/http.server.rst:61
+msgid "Contains the server instance."
+msgstr ""
+
+#: ../../../library/http.server.rst:66
+msgid "Contains the command (request type). For example, ``'GET'``."
+msgstr ""
+
+#: ../../../library/http.server.rst:70
+msgid "Contains the request path."
+msgstr ""
+
+#: ../../../library/http.server.rst:74
+msgid ""
+"Contains the version string from the request. For example, ``'HTTP/1.0'``."
+msgstr ""
+
+#: ../../../library/http.server.rst:78
+msgid ""
+"Holds an instance of the class specified by the :attr:`MessageClass` class "
+"variable. This instance parses and manages the headers in the HTTP request."
+msgstr ""
+
+#: ../../../library/http.server.rst:84
+msgid ""
+"Contains an input stream, positioned at the start of the optional input data."
+msgstr ""
+
+#: ../../../library/http.server.rst:89
+msgid ""
+"Contains the output stream for writing a response back to the client. Proper "
+"adherence to the HTTP protocol must be used when writing to this stream."
+msgstr ""
+
+#: ../../../library/http.server.rst:93
+msgid ":class:`BaseHTTPRequestHandler` has the following class variables:"
+msgstr ""
+
+#: ../../../library/http.server.rst:97
+msgid ""
+"Specifies the server software version.  You may want to override this. The "
+"format is multiple whitespace-separated strings, where each string is of the "
+"form name[/version]. For example, ``'BaseHTTP/0.2'``."
+msgstr ""
+
+#: ../../../library/http.server.rst:103
+msgid ""
+"Contains the Python system version, in a form usable by the :attr:"
+"`version_string` method and the :attr:`server_version` class variable. For "
+"example, ``'Python/1.4'``."
+msgstr ""
+
+#: ../../../library/http.server.rst:109
+msgid ""
+"Specifies a format string for building an error response to the client. It "
+"uses parenthesized, keyed format specifiers, so the format operand must be a "
+"dictionary. The *code* key should be an integer, specifying the numeric HTTP "
+"error code value. *message* should be a string containing a (detailed) error "
+"message of what occurred, and *explain* should be an explanation of the "
+"error code number. Default *message* and *explain* values can found in the "
+"*responses* class variable."
+msgstr ""
+
+#: ../../../library/http.server.rst:119
+msgid ""
+"Specifies the Content-Type HTTP header of error responses sent to the "
+"client.  The default value is ``'text/html'``."
+msgstr ""
+
+#: ../../../library/http.server.rst:124
+msgid ""
+"This specifies the HTTP protocol version used in responses.  If set to "
+"``'HTTP/1.1'``, the server will permit HTTP persistent connections; however, "
+"your server *must* then include an accurate ``Content-Length`` header "
+"(using :meth:`send_header`) in all of its responses to clients. For "
+"backwards compatibility, the setting defaults to ``'HTTP/1.0'``."
+msgstr ""
+
+#: ../../../library/http.server.rst:132
+msgid ""
+"Specifies an :class:`email.message.Message`\\ -like class to parse HTTP "
+"headers.  Typically, this is not overridden, and it defaults to :class:`http."
+"client.HTTPMessage`."
+msgstr ""
+
+#: ../../../library/http.server.rst:138
+msgid ""
+"This variable contains a mapping of error code integers to two-element "
+"tuples containing a short and long message. For example, ``{code: "
+"(shortmessage, longmessage)}``. The *shortmessage* is usually used as the "
+"*message* key in an error response, and *longmessage* as the *explain* key "
+"(see the :attr:`error_message_format` class variable)."
+msgstr ""
+
+#: ../../../library/http.server.rst:144
+msgid "A :class:`BaseHTTPRequestHandler` instance has the following methods:"
+msgstr ""
+
+#: ../../../library/http.server.rst:148
+msgid ""
+"Calls :meth:`handle_one_request` once (or, if persistent connections are "
+"enabled, multiple times) to handle incoming HTTP requests. You should never "
+"need to override it; instead, implement appropriate :meth:`do_\\*` methods."
+msgstr ""
+
+#: ../../../library/http.server.rst:155
+msgid ""
+"This method will parse and dispatch the request to the appropriate :meth:"
+"`do_\\*` method.  You should never need to override it."
+msgstr ""
+
+#: ../../../library/http.server.rst:160
+msgid ""
+"Sends and logs a complete error reply to the client. The numeric *code* "
+"specifies the HTTP error code, with *message* as optional, more specific "
+"text. A complete set of headers is sent, followed by text composed using "
+"the :attr:`error_message_format` class variable."
+msgstr ""
+
+#: ../../../library/http.server.rst:167
+msgid ""
+"Sends a response header and logs the accepted request. The HTTP response "
+"line is sent, followed by *Server* and *Date* headers. The values for these "
+"two headers are picked up from the :meth:`version_string` and :meth:"
+"`date_time_string` methods, respectively."
+msgstr ""
+
+#: ../../../library/http.server.rst:174
+msgid ""
+"Writes a specific HTTP header to the output stream. *keyword* should specify "
+"the header keyword, with *value* specifying its value."
+msgstr ""
+
+#: ../../../library/http.server.rst:179
+msgid ""
+"Sends a blank line, indicating the end of the HTTP headers in the response."
+msgstr ""
+
+#: ../../../library/http.server.rst:184
+msgid ""
+"Logs an accepted (successful) request. *code* should specify the numeric "
+"HTTP code associated with the response. If a size of the response is "
+"available, then it should be passed as the *size* parameter."
+msgstr ""
+
+#: ../../../library/http.server.rst:190
+msgid ""
+"Logs an error when a request cannot be fulfilled. By default, it passes the "
+"message to :meth:`log_message`, so it takes the same arguments (*format* and "
+"additional values)."
+msgstr ""
+
+#: ../../../library/http.server.rst:197
+msgid ""
+"Logs an arbitrary message to ``sys.stderr``. This is typically overridden to "
+"create custom error logging mechanisms. The *format* argument is a standard "
+"printf-style format string, where the additional arguments to :meth:"
+"`log_message` are applied as inputs to the formatting. The client address "
+"and current date and time are prefixed to every message logged."
+msgstr ""
+
+#: ../../../library/http.server.rst:205
+msgid ""
+"Returns the server software's version string. This is a combination of the :"
+"attr:`server_version` and :attr:`sys_version` class variables."
+msgstr ""
+
+#: ../../../library/http.server.rst:210
+msgid ""
+"Returns the date and time given by *timestamp* (which must be in the format "
+"returned by :func:`time.time`), formatted for a message header. If "
+"*timestamp* is omitted, it uses the current date and time."
+msgstr ""
+
+#: ../../../library/http.server.rst:214
+msgid "The result looks like ``'Sun, 06 Nov 1994 08:49:37 GMT'``."
+msgstr ""
+
+#: ../../../library/http.server.rst:218
+msgid "Returns the current date and time, formatted for logging."
+msgstr ""
+
+#: ../../../library/http.server.rst:222
+msgid ""
+"Returns the client address, formatted for logging. A name lookup is "
+"performed on the client's IP address."
+msgstr ""
+
+#: ../../../library/http.server.rst:228
+msgid ""
+"This class serves files from the current directory and below, directly "
+"mapping the directory structure to HTTP requests."
+msgstr ""
+
+#: ../../../library/http.server.rst:231
+msgid ""
+"A lot of the work, such as parsing the request, is done by the base class :"
+"class:`BaseHTTPRequestHandler`.  This class implements the :func:`do_GET` "
+"and :func:`do_HEAD` functions."
+msgstr ""
+
+#: ../../../library/http.server.rst:235
+msgid ""
+"The following are defined as class-level attributes of :class:"
+"`SimpleHTTPRequestHandler`:"
+msgstr ""
+
+#: ../../../library/http.server.rst:240
+msgid ""
+"This will be ``\"SimpleHTTP/\" + __version__``, where ``__version__`` is "
+"defined at the module level."
+msgstr ""
+
+#: ../../../library/http.server.rst:245
+msgid ""
+"A dictionary mapping suffixes into MIME types. The default is signified by "
+"an empty string, and is considered to be ``application/octet-stream``. The "
+"mapping is used case-insensitively, and so should contain only lower-cased "
+"keys."
+msgstr ""
+
+#: ../../../library/http.server.rst:250
+msgid ""
+"The :class:`SimpleHTTPRequestHandler` class defines the following methods:"
+msgstr ""
+
+#: ../../../library/http.server.rst:254
+msgid ""
+"This method serves the ``'HEAD'`` request type: it sends the headers it "
+"would send for the equivalent ``GET`` request. See the :meth:`do_GET` method "
+"for a more complete explanation of the possible headers."
+msgstr ""
+
+#: ../../../library/http.server.rst:260
+msgid ""
+"The request is mapped to a local file by interpreting the request as a path "
+"relative to the current working directory."
+msgstr ""
+
+#: ../../../library/http.server.rst:263
+msgid ""
+"If the request was mapped to a directory, the directory is checked for a "
+"file named ``index.html`` or ``index.htm`` (in that order). If found, the "
+"file's contents are returned; otherwise a directory listing is generated by "
+"calling the :meth:`list_directory` method. This method uses :func:`os."
+"listdir` to scan the directory, and returns a ``404`` error response if the :"
+"func:`listdir` fails."
+msgstr ""
+
+#: ../../../library/http.server.rst:270
+msgid ""
+"If the request was mapped to a file, it is opened and the contents are "
+"returned.  Any :exc:`IOError` exception in opening the requested file is "
+"mapped to a ``404``, ``'File not found'`` error. Otherwise, the content type "
+"is guessed by calling the :meth:`guess_type` method, which in turn uses the "
+"*extensions_map* variable."
+msgstr ""
+
+#: ../../../library/http.server.rst:276
+msgid ""
+"A ``'Content-type:'`` header with the guessed content type is output, "
+"followed by a ``'Content-Length:'`` header with the file's size and a "
+"``'Last-Modified:'`` header with the file's modification time."
+msgstr ""
+
+#: ../../../library/http.server.rst:280
+msgid ""
+"Then follows a blank line signifying the end of the headers, and then the "
+"contents of the file are output. If the file's MIME type starts with ``text/"
+"`` the file is opened in text mode; otherwise binary mode is used."
+msgstr ""
+
+#: ../../../library/http.server.rst:284
+msgid "For example usage, see the implementation of the :func:`test` function."
+msgstr ""
+
+#: ../../../library/http.server.rst:289
+msgid ""
+"This class is used to serve either files or output of CGI scripts from the "
+"current directory and below. Note that mapping HTTP hierarchic structure to "
+"local directory structure is exactly as in :class:`SimpleHTTPRequestHandler`."
+msgstr ""
+
+#: ../../../library/http.server.rst:295
+msgid ""
+"CGI scripts run by the :class:`CGIHTTPRequestHandler` class cannot execute "
+"redirects (HTTP code 302), because code 200 (script output follows) is sent "
+"prior to execution of the CGI script.  This pre-empts the status code."
+msgstr ""
+
+#: ../../../library/http.server.rst:300
+msgid ""
+"The class will however, run the CGI script, instead of serving it as a file, "
+"if it guesses it to be a CGI script.  Only directory-based CGI are used --- "
+"the other common server configuration is to treat special extensions as "
+"denoting CGI scripts."
+msgstr ""
+
+#: ../../../library/http.server.rst:305
+msgid ""
+"The :func:`do_GET` and :func:`do_HEAD` functions are modified to run CGI "
+"scripts and serve the output, instead of serving files, if the request leads "
+"to somewhere below the ``cgi_directories`` path."
+msgstr ""
+
+#: ../../../library/http.server.rst:309
+msgid "The :class:`CGIHTTPRequestHandler` defines the following data member:"
+msgstr ""
+
+#: ../../../library/http.server.rst:313
+msgid ""
+"This defaults to ``['/cgi-bin', '/htbin']`` and describes directories to "
+"treat as containing CGI scripts."
+msgstr ""
+
+#: ../../../library/http.server.rst:316
+msgid "The :class:`CGIHTTPRequestHandler` defines the following method:"
+msgstr ""
+
+#: ../../../library/http.server.rst:320
+msgid ""
+"This method serves the ``'POST'`` request type, only allowed for CGI "
+"scripts.  Error 501, \"Can only POST to CGI scripts\", is output when trying "
+"to POST to a non-CGI url."
+msgstr ""
+
+#: ../../../library/http.server.rst:324
+msgid ""
+"Note that CGI scripts will be run with UID of user nobody, for security "
+"reasons.  Problems with the CGI script will be translated to error 403."
+msgstr ""
+
+#: ../../../library/http.server.rst:8
+msgid "WWW"
+msgstr ""
+
+#: ../../../library/http.server.rst:8
+msgid "server"
+msgstr ""
+
+#: ../../../library/http.server.rst:8
+msgid "HTTP"
+msgstr ""
+
+#: ../../../library/http.server.rst:8
+msgid "protocol"
+msgstr ""
+
+#: ../../../library/http.server.rst:8
+msgid "URL"
+msgstr ""
+
+#: ../../../library/http.server.rst:8
+msgid "httpd"
+msgstr ""
