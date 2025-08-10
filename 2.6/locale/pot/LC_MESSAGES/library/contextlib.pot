@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/contextlib.rst:2
+msgid ""
+":mod:`contextlib` --- Utilities for :keyword:`with`\\ -statement contexts"
+msgstr ""
+
+#: ../../../library/contextlib.rst:10
+msgid ""
+"This module provides utilities for common tasks involving the :keyword:"
+"`with` statement. For more information see also :ref:`typecontextmanager` "
+"and :ref:`context-managers`."
+msgstr ""
+
+#: ../../../library/contextlib.rst:14
+msgid "Functions provided:"
+msgstr ""
+
+#: ../../../library/contextlib.rst:19
+msgid ""
+"This function is a :term:`decorator` that can be used to define a factory "
+"function for :keyword:`with` statement context managers, without needing to "
+"create a class or separate :meth:`__enter__` and :meth:`__exit__` methods."
+msgstr ""
+
+#: ../../../library/contextlib.rst:23
+msgid ""
+"A simple example (this is not recommended as a real way of generating "
+"HTML!)::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:25
+msgid ""
+"from contextlib import contextmanager\n"
+"\n"
+"@contextmanager\n"
+"def tag(name):\n"
+"    print \"<%s>\" % name\n"
+"    yield\n"
+"    print \"</%s>\" % name\n"
+"\n"
+">>> with tag(\"h1\"):\n"
+"...    print \"foo\"\n"
+"...\n"
+"<h1>\n"
+"foo\n"
+"</h1>"
+msgstr ""
+
+#: ../../../library/contextlib.rst:40
+msgid ""
+"The function being decorated must return a :term:`generator`-iterator when "
+"called. This iterator must yield exactly one value, which will be bound to "
+"the targets in the :keyword:`with` statement's :keyword:`as` clause, if any."
+msgstr ""
+
+#: ../../../library/contextlib.rst:44
+msgid ""
+"At the point where the generator yields, the block nested in the :keyword:"
+"`with` statement is executed.  The generator is then resumed after the block "
+"is exited. If an unhandled exception occurs in the block, it is reraised "
+"inside the generator at the point where the yield occurred.  Thus, you can "
+"use a :keyword:`try`...\\ :keyword:`except`...\\ :keyword:`finally` "
+"statement to trap the error (if any), or ensure that some cleanup takes "
+"place. If an exception is trapped merely in order to log it or to perform "
+"some action (rather than to suppress it entirely), the generator must "
+"reraise that exception. Otherwise the generator context manager will "
+"indicate to the :keyword:`with` statement that the exception has been "
+"handled, and execution will resume with the statement immediately following "
+"the :keyword:`with` statement."
+msgstr ""
+
+#: ../../../library/contextlib.rst:59
+msgid "Combine multiple context managers into a single nested context manager."
+msgstr ""
+
+#: ../../../library/contextlib.rst:61
+msgid "Code like this::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:63
+msgid ""
+"from contextlib import nested\n"
+"\n"
+"with nested(A(), B(), C()) as (X, Y, Z):\n"
+"    do_something()"
+msgstr ""
+
+#: ../../../library/contextlib.rst:68
+msgid "is equivalent to this::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:70
+msgid ""
+"m1, m2, m3 = A(), B(), C()\n"
+"with m1 as X:\n"
+"    with m2 as Y:\n"
+"        with m3 as Z:\n"
+"            do_something()"
+msgstr ""
+
+#: ../../../library/contextlib.rst:76
+msgid ""
+"Note that if the :meth:`__exit__` method of one of the nested context "
+"managers indicates an exception should be suppressed, no exception "
+"information will be passed to any remaining outer context managers. "
+"Similarly, if the :meth:`__exit__` method of one of the nested managers "
+"raises an exception, any previous exception state will be lost; the new "
+"exception will be passed to the :meth:`__exit__` methods of any remaining "
+"outer context managers. In general, :meth:`__exit__` methods should avoid "
+"raising exceptions, and in particular they should not re-raise a passed-in "
+"exception."
+msgstr ""
+
+#: ../../../library/contextlib.rst:88
+msgid ""
+"Return a context manager that closes *thing* upon completion of the block.  "
+"This is basically equivalent to::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:91
+msgid ""
+"from contextlib import contextmanager\n"
+"\n"
+"@contextmanager\n"
+"def closing(thing):\n"
+"    try:\n"
+"        yield thing\n"
+"    finally:\n"
+"        thing.close()"
+msgstr ""
+
+#: ../../../library/contextlib.rst:100
+msgid "And lets you write code like this::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:102
+msgid ""
+"from contextlib import closing\n"
+"import urllib\n"
+"\n"
+"with closing(urllib.urlopen('http://www.python.org')) as page:\n"
+"    for line in page:\n"
+"        print line"
+msgstr ""
+
+#: ../../../library/contextlib.rst:109
+msgid ""
+"without needing to explicitly close ``page``.  Even if an error occurs, "
+"``page.close()`` will be called when the :keyword:`with` block is exited."
+msgstr ""
+
+#: ../../../library/contextlib.rst:116
+msgid ":pep:`0343` - The \"with\" statement"
+msgstr ""
+
+#: ../../../library/contextlib.rst:116
+msgid ""
+"The specification, background, and examples for the Python :keyword:`with` "
+"statement."
+msgstr ""
