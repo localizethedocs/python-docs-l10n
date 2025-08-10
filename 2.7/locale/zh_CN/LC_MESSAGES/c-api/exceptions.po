@@ -1,0 +1,1274 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 2.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:8
+msgid "Exception Handling"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:10
+msgid ""
+"The functions described in this chapter will let you handle and raise Python "
+"exceptions.  It is important to understand some of the basics of Python "
+"exception handling.  It works somewhat like the Unix :c:data:`errno` "
+"variable: there is a global indicator (per thread) of the last error that "
+"occurred.  Most functions don't clear this on success, but will set it to "
+"indicate the cause of the error on failure.  Most functions also return an "
+"error indicator, usually *NULL* if they are supposed to return a pointer, or "
+"``-1`` if they return an integer (exception: the :c:func:`PyArg_\\*` "
+"functions return ``1`` for success and ``0`` for failure)."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:20
+msgid ""
+"When a function must fail because some function it called failed, it "
+"generally doesn't set the error indicator; the function it called already "
+"set it.  It is responsible for either handling the error and clearing the "
+"exception or returning after cleaning up any resources it holds (such as "
+"object references or memory allocations); it should *not* continue normally "
+"if it is not prepared to handle the error.  If returning due to an error, it "
+"is important to indicate to the caller that an error has been set.  If the "
+"error is not handled or carefully propagated, additional calls into the "
+"Python/C API may not behave as intended and may fail in mysterious ways."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:35
+msgid ""
+"The error indicator consists of three Python objects corresponding to   the "
+"Python variables ``sys.exc_type``, ``sys.exc_value`` and ``sys."
+"exc_traceback``. API functions exist to interact with the error indicator in "
+"various ways.  There is a separate error indicator for each thread."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:46
+msgid ""
+"Print a standard traceback to ``sys.stderr`` and clear the error indicator. "
+"**Unless** the error is a ``SystemExit``.  In that case the no traceback is "
+"printed and Python process will exit with the error code specified by the "
+"``SystemExit`` instance."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:51
+msgid ""
+"Call this function **only** when the error indicator is set.  Otherwise it "
+"will cause a fatal error!"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:54
+msgid ""
+"If *set_sys_last_vars* is nonzero, the variables :data:`sys.last_type`, :"
+"data:`sys.last_value` and :data:`sys.last_traceback` will be set to the "
+"type, value and traceback of the printed exception, respectively."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:61
+msgid "Alias for ``PyErr_PrintEx(1)``."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:66
+msgid ""
+"Test whether the error indicator is set.  If set, return the exception "
+"*type* (the first argument to the last call to one of the :c:func:"
+"`PyErr_Set\\*` functions or to :c:func:`PyErr_Restore`).  If not set, return "
+"*NULL*.  You do not own a reference to the return value, so you do not need "
+"to :c:func:`Py_DECREF` it."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:74
+msgid ""
+"Do not compare the return value to a specific exception; use :c:func:"
+"`PyErr_ExceptionMatches` instead, shown below.  (The comparison could easily "
+"fail since the exception may be an instance instead of a class, in the case "
+"of a class exception, or it may be a subclass of the expected exception.)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:82
+msgid ""
+"Equivalent to ``PyErr_GivenExceptionMatches(PyErr_Occurred(), exc)``.  This "
+"should only be called when an exception is actually set; a memory access "
+"violation will occur if no exception has been raised."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:89
+msgid ""
+"Return true if the *given* exception matches the exception in *exc*.  If "
+"*exc* is a class object, this also returns true when *given* is an instance "
+"of a subclass.  If *exc* is a tuple, all exceptions in the tuple (and "
+"recursively in subtuples) are searched for a match."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:97
+msgid ""
+"Under certain circumstances, the values returned by :c:func:`PyErr_Fetch` "
+"below can be \"unnormalized\", meaning that ``*exc`` is a class object but "
+"``*val`` is not an instance of the  same class.  This function can be used "
+"to instantiate the class in that case.  If the values are already "
+"normalized, nothing happens. The delayed normalization is implemented to "
+"improve performance."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:106
+msgid ""
+"Clear the error indicator.  If the error indicator is not set, there is no "
+"effect."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:112
+msgid ""
+"Retrieve the error indicator into three variables whose addresses are "
+"passed. If the error indicator is not set, set all three variables to "
+"*NULL*.  If it is set, it will be cleared and you own a reference to each "
+"object retrieved.  The value and traceback object may be *NULL* even when "
+"the type object is not."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:119
+msgid ""
+"This function is normally only used by code that needs to handle exceptions "
+"or by code that needs to save and restore the error indicator temporarily."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:125
+msgid ""
+"Set  the error indicator from the three objects.  If the error indicator is "
+"already set, it is cleared first.  If the objects are *NULL*, the error "
+"indicator is cleared.  Do not pass a *NULL* type and non-*NULL* value or "
+"traceback.  The exception type should be a class.  Do not pass an invalid "
+"exception type or value. (Violating these rules will cause subtle problems "
+"later.)  This call takes away a reference to each object: you must own a "
+"reference to each object before the call and after the call you no longer "
+"own these references.  (If you don't understand this, don't use this "
+"function.  I warned you.)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:137
+msgid ""
+"This function is normally only used by code that needs to save and restore "
+"the error indicator temporarily; use :c:func:`PyErr_Fetch` to save the "
+"current exception state."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:144
+msgid ""
+"This is the most common way to set the error indicator.  The first argument "
+"specifies the exception type; it is normally one of the standard exceptions, "
+"e.g. :c:data:`PyExc_RuntimeError`.  You need not increment its reference "
+"count. The second argument is an error message; it is converted to a string "
+"object."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:152
+msgid ""
+"This function is similar to :c:func:`PyErr_SetString` but lets you specify "
+"an arbitrary Python object for the \"value\" of the exception."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:158
+msgid ""
+"This function sets the error indicator and returns *NULL*.  *exception* "
+"should be a Python exception class.  The *format* and subsequent parameters "
+"help format the error message; they have the same meaning and values as in :"
+"c:func:`PyString_FromFormat`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:166
+msgid "This is a shorthand for ``PyErr_SetObject(type, Py_None)``."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:171
+msgid ""
+"This is a shorthand for ``PyErr_SetString(PyExc_TypeError, message)``, where "
+"*message* indicates that a built-in operation was invoked with an illegal "
+"argument.  It is mostly for internal use."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:178
+msgid ""
+"This is a shorthand for ``PyErr_SetNone(PyExc_MemoryError)``; it returns "
+"*NULL* so an object allocation function can write ``return PyErr_NoMemory();"
+"`` when it runs out of memory."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:187
+msgid ""
+"This is a convenience function to raise an exception when a C library "
+"function has returned an error and set the C variable :c:data:`errno`.  It "
+"constructs a tuple object whose first item is the integer :c:data:`errno` "
+"value and whose second item is the corresponding error message (gotten from :"
+"c:func:`strerror`), and then calls ``PyErr_SetObject(type, object)``.  On "
+"Unix, when the :c:data:`errno` value is :const:`EINTR`, indicating an "
+"interrupted system call, this calls :c:func:`PyErr_CheckSignals`, and if "
+"that set the error indicator, leaves it set to that.  The function always "
+"returns *NULL*, so a wrapper function around a system call can write "
+"``return PyErr_SetFromErrno(type);`` when the system call returns an error."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:201
+msgid ""
+"Similar to :c:func:`PyErr_SetFromErrno`, with the additional behavior that "
+"if *filenameObject* is not *NULL*, it is passed to the constructor of *type* "
+"as a third parameter.  In the case of exceptions such as :exc:`IOError` and :"
+"exc:`OSError`, this is used to define the :attr:`filename` attribute of the "
+"exception instance."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:210
+msgid ""
+"Similar to :c:func:`PyErr_SetFromErrnoWithFilenameObject`, but the filename "
+"is given as a C string."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:216
+msgid ""
+"This is a convenience function to raise :exc:`WindowsError`. If called with "
+"*ierr* of :c:data:`0`, the error code returned by a call to :c:func:"
+"`GetLastError` is used instead.  It calls the Win32 function :c:func:"
+"`FormatMessage` to retrieve the Windows description of error code given by "
+"*ierr* or :c:func:`GetLastError`, then it constructs a tuple object whose "
+"first item is the *ierr* value and whose second item is the corresponding "
+"error message (gotten from :c:func:`FormatMessage`), and then calls "
+"``PyErr_SetObject(PyExc_WindowsError, object)``. This function always "
+"returns *NULL*. Availability: Windows."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:228
+msgid ""
+"Similar to :c:func:`PyErr_SetFromWindowsErr`, with an additional parameter "
+"specifying the exception type to be raised. Availability: Windows."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:236
+msgid ""
+"Similar to :c:func:`PyErr_SetFromWindowsErr`, with the additional behavior "
+"that if *filenameObject* is not *NULL*, it is passed to the constructor of :"
+"exc:`WindowsError` as a third parameter. Availability: Windows."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:243
+msgid ""
+"Similar to :c:func:`PyErr_SetFromWindowsErrWithFilenameObject`, but the "
+"filename is given as a C string. Availability: Windows."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:249
+msgid ""
+"Similar to :c:func:`PyErr_SetFromWindowsErrWithFilenameObject`, with an "
+"additional parameter specifying the exception type to be raised. "
+"Availability: Windows."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:258
+msgid ""
+"Similar to :c:func:`PyErr_SetFromWindowsErrWithFilename`, with an additional "
+"parameter specifying the exception type to be raised. Availability: Windows."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:266
+msgid ""
+"This is a shorthand for ``PyErr_SetString(PyExc_SystemError, message)``, "
+"where *message* indicates that an internal operation (e.g. a Python/C API "
+"function) was invoked with an illegal argument.  It is mostly for internal "
+"use."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:274
+msgid ""
+"Issue a warning message.  The *category* argument is a warning category (see "
+"below) or *NULL*; the *message* argument is a message string.  *stacklevel* "
+"is a positive number giving a number of stack frames; the warning will be "
+"issued from the  currently executing line of code in that stack frame.  A "
+"*stacklevel* of 1 is the function calling :c:func:`PyErr_WarnEx`, 2 is  the "
+"function above that, and so forth."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:281
+msgid ""
+"This function normally prints a warning message to *sys.stderr*; however, it "
+"is also possible that the user has specified that warnings are to be turned "
+"into errors, and in that case this will raise an exception.  It is also "
+"possible that the function raises an exception because of a problem with the "
+"warning machinery (the implementation imports the :mod:`warnings` module to "
+"do the heavy lifting). The return value is ``0`` if no exception is raised, "
+"or ``-1`` if an exception is raised.  (It is not possible to determine "
+"whether a warning message is actually printed, nor what the reason is for "
+"the exception; this is intentional.)  If an exception is raised, the caller "
+"should do its normal exception handling (for example, :c:func:`Py_DECREF` "
+"owned references and return an error value)."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:293
+msgid ""
+"Warning categories must be subclasses of :c:data:`PyExc_Warning`; :c:data:"
+"`PyExc_Warning` is a subclass of :c:data:`PyExc_Exception`; the default "
+"warning category is :c:data:`PyExc_RuntimeWarning`. The standard Python "
+"warning categories are available as global variables whose names are "
+"enumerated at :ref:`standardwarningcategories`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:299
+msgid ""
+"For information about warning control, see the documentation for the :mod:"
+"`warnings` module and the :option:`-W` option in the command line "
+"documentation.  There is no C API for warning control."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:306
+msgid ""
+"Issue a warning message.  The *category* argument is a warning category (see "
+"below) or *NULL*; the *message* argument is a message string.  The warning "
+"will appear to be issued from the function calling :c:func:`PyErr_Warn`, "
+"equivalent to calling :c:func:`PyErr_WarnEx` with a *stacklevel* of 1."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:311
+msgid "Deprecated; use :c:func:`PyErr_WarnEx` instead."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:316
+msgid ""
+"Issue a warning message with explicit control over all warning attributes.  "
+"This is a straightforward wrapper around the Python function :func:`warnings."
+"warn_explicit`, see there for more information.  The *module* and *registry* "
+"arguments may be set to *NULL* to get the default effect described there."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:325
+msgid ""
+"Issue a :exc:`DeprecationWarning` with the given *message* and *stacklevel* "
+"if the :c:data:`Py_Py3kWarningFlag` flag is enabled."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:338
+msgid ""
+"This function interacts with Python's signal handling.  It checks whether a "
+"signal has been sent to the processes and if so, invokes the corresponding "
+"signal handler.  If the :mod:`signal` module is supported, this can invoke a "
+"signal handler written in Python.  In all cases, the default effect for :"
+"const:`SIGINT` is to raise the  :exc:`KeyboardInterrupt` exception.  If an "
+"exception is raised the error indicator is set and the function returns "
+"``-1``; otherwise the function returns ``0``.  The error indicator may or "
+"may not be cleared if it was previously set."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:354
+msgid ""
+"This function simulates the effect of a :const:`SIGINT` signal arriving --- "
+"the next time :c:func:`PyErr_CheckSignals` is called,  :exc:"
+"`KeyboardInterrupt` will be raised.  It may be called without holding the "
+"interpreter lock."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:364
+msgid ""
+"This utility function specifies a file descriptor to which a ``'\\0'`` byte "
+"will be written whenever a signal is received.  It returns the previous such "
+"file descriptor.  The value ``-1`` disables the feature; this is the initial "
+"state. This is equivalent to :func:`signal.set_wakeup_fd` in Python, but "
+"without any error checking.  *fd* should be a valid file descriptor.  The "
+"function should only be called from the main thread."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:376
+msgid ""
+"This utility function creates and returns a new exception class. The *name* "
+"argument must be the name of the new exception, a C string of the form "
+"``module.classname``.  The *base* and *dict* arguments are normally *NULL*. "
+"This creates a class object derived from :exc:`Exception` (accessible in C "
+"as :c:data:`PyExc_Exception`)."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:382
+msgid ""
+"The :attr:`__module__` attribute of the new class is set to the first part "
+"(up to the last dot) of the *name* argument, and the class name is set to "
+"the last part (after the last dot).  The *base* argument can be used to "
+"specify alternate base classes; it can either be only one class or a tuple "
+"of classes. The *dict* argument can be used to specify a dictionary of class "
+"variables and methods."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:391
+msgid ""
+"Same as :c:func:`PyErr_NewException`, except that the new exception class "
+"can easily be given a docstring: If *doc* is non-*NULL*, it will be used as "
+"the docstring for the exception class."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:400
+msgid ""
+"This utility function prints a warning message to ``sys.stderr`` when an "
+"exception has been set but it is impossible for the interpreter to actually "
+"raise the exception.  It is used, for example, when an exception occurs in "
+"an :meth:`__del__` method."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:405
+msgid ""
+"The function is called with a single argument *obj* that identifies the "
+"context in which the unraisable exception occurred. If possible, the repr of "
+"*obj* will be printed in the warning message."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:413
+msgid "Unicode Exception Objects"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:415
+msgid ""
+"The following functions are used to create and modify Unicode exceptions "
+"from C."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:419
+msgid ""
+"Create a :class:`UnicodeDecodeError` object with the attributes *encoding*, "
+"*object*, *length*, *start*, *end* and *reason*."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:424
+msgid ""
+"Create a :class:`UnicodeEncodeError` object with the attributes *encoding*, "
+"*object*, *length*, *start*, *end* and *reason*."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:429
+msgid ""
+"Create a :class:`UnicodeTranslateError` object with the attributes *object*, "
+"*length*, *start*, *end* and *reason*."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:435
+msgid "Return the *encoding* attribute of the given exception object."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:441
+msgid "Return the *object* attribute of the given exception object."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:447
+msgid ""
+"Get the *start* attribute of the given exception object and place it into "
+"*\\*start*.  *start* must not be *NULL*.  Return ``0`` on success, ``-1`` on "
+"failure."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:455
+msgid ""
+"Set the *start* attribute of the given exception object to *start*.  Return "
+"``0`` on success, ``-1`` on failure."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:462
+msgid ""
+"Get the *end* attribute of the given exception object and place it into "
+"*\\*end*.  *end* must not be *NULL*.  Return ``0`` on success, ``-1`` on "
+"failure."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:470
+msgid ""
+"Set the *end* attribute of the given exception object to *end*.  Return "
+"``0`` on success, ``-1`` on failure."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:477
+msgid "Return the *reason* attribute of the given exception object."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:483
+msgid ""
+"Set the *reason* attribute of the given exception object to *reason*.  "
+"Return ``0`` on success, ``-1`` on failure."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:488
+msgid "Recursion Control"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:490
+msgid ""
+"These two functions provide a way to perform safe recursive calls at the C "
+"level, both in the core and in extension modules.  They are needed if the "
+"recursive code does not necessarily invoke Python code (which tracks its "
+"recursion depth automatically)."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:497
+msgid "Marks a point where a recursive C-level call is about to be performed."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:499
+msgid ""
+"If :const:`USE_STACKCHECK` is defined, this function checks if the OS stack "
+"overflowed using :c:func:`PyOS_CheckStack`.  In this is the case, it sets a :"
+"exc:`MemoryError` and returns a nonzero value."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:503
+msgid ""
+"The function then checks if the recursion limit is reached.  If this is the "
+"case, a :exc:`RuntimeError` is set and a nonzero value is returned. "
+"Otherwise, zero is returned."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:507
+msgid ""
+"*where* should be a string such as ``\" in instance check\"`` to be "
+"concatenated to the :exc:`RuntimeError` message caused by the recursion "
+"depth limit."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:513
+msgid ""
+"Ends a :c:func:`Py_EnterRecursiveCall`.  Must be called once for each "
+"*successful* invocation of :c:func:`Py_EnterRecursiveCall`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:520
+msgid "Standard Exceptions"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:522
+msgid ""
+"All standard Python exceptions are available as global variables whose names "
+"are ``PyExc_`` followed by the Python exception name.  These have the type :"
+"c:type:`PyObject\\*`; they are all class objects.  For completeness, here "
+"are all the variables:"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:570
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:695
+msgid "C Name"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:570
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:695
+msgid "Python Name"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:570
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:695
+msgid "Notes"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:572
+msgid ":c:data:`PyExc_BaseException`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:572
+msgid ":exc:`BaseException`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:572
+msgid "(1), (4)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:574
+msgid ":c:data:`PyExc_Exception`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:574
+msgid ":exc:`Exception`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:574
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:576
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:578
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:586
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:606
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:697
+msgid "\\(1)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:576
+msgid ":c:data:`PyExc_StandardError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:576
+msgid ":exc:`StandardError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:578
+msgid ":c:data:`PyExc_ArithmeticError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:578
+msgid ":exc:`ArithmeticError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:580
+msgid ":c:data:`PyExc_AssertionError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:580
+msgid ":exc:`AssertionError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:582
+msgid ":c:data:`PyExc_AttributeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:582
+msgid ":exc:`AttributeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:584
+msgid ":c:data:`PyExc_BufferError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:584
+msgid ":exc:`BufferError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:586
+msgid ":c:data:`PyExc_EnvironmentError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:586
+msgid ":exc:`EnvironmentError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:588
+msgid ":c:data:`PyExc_EOFError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:588
+msgid ":exc:`EOFError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:590
+msgid ":c:data:`PyExc_FloatingPointError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:590
+msgid ":exc:`FloatingPointError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:592
+msgid ":c:data:`PyExc_GeneratorExit`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:592
+msgid ":exc:`GeneratorExit`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:594
+msgid ":c:data:`PyExc_ImportError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:594
+msgid ":exc:`ImportError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:596
+msgid ":c:data:`PyExc_IndentationError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:596
+msgid ":exc:`IndentationError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:598
+msgid ":c:data:`PyExc_IndexError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:598
+msgid ":exc:`IndexError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:600
+msgid ":c:data:`PyExc_IOError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:600
+msgid ":exc:`IOError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:602
+msgid ":c:data:`PyExc_KeyError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:602
+msgid ":exc:`KeyError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:604
+msgid ":c:data:`PyExc_KeyboardInterrupt`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:604
+msgid ":exc:`KeyboardInterrupt`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:606
+msgid ":c:data:`PyExc_LookupError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:606
+msgid ":exc:`LookupError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:608
+msgid ":c:data:`PyExc_MemoryError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:608
+msgid ":exc:`MemoryError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:610
+msgid ":c:data:`PyExc_NameError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:610
+msgid ":exc:`NameError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:612
+msgid ":c:data:`PyExc_NotImplementedError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:612
+msgid ":exc:`NotImplementedError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:614
+msgid ":c:data:`PyExc_OSError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:614
+msgid ":exc:`OSError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:616
+msgid ":c:data:`PyExc_OverflowError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:616
+msgid ":exc:`OverflowError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:618
+msgid ":c:data:`PyExc_ReferenceError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:618
+msgid ":exc:`ReferenceError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:618
+msgid "\\(2)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:620
+msgid ":c:data:`PyExc_RuntimeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:620
+msgid ":exc:`RuntimeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:622
+msgid ":c:data:`PyExc_StopIteration`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:622
+msgid ":exc:`StopIteration`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:624
+msgid ":c:data:`PyExc_SyntaxError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:624
+msgid ":exc:`SyntaxError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:626
+msgid ":c:data:`PyExc_SystemError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:626
+msgid ":exc:`SystemError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:628
+msgid ":c:data:`PyExc_SystemExit`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:628
+msgid ":exc:`SystemExit`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:630
+msgid ":c:data:`PyExc_TabError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:630
+msgid ":exc:`TabError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:632
+msgid ":c:data:`PyExc_TypeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:632
+msgid ":exc:`TypeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:634
+msgid ":c:data:`PyExc_UnboundLocalError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:634
+msgid ":exc:`UnboundLocalError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:636
+msgid ":c:data:`PyExc_UnicodeDecodeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:636
+msgid ":exc:`UnicodeDecodeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:638
+msgid ":c:data:`PyExc_UnicodeEncodeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:638
+msgid ":exc:`UnicodeEncodeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:640
+msgid ":c:data:`PyExc_UnicodeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:640
+msgid ":exc:`UnicodeError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:642
+msgid ":c:data:`PyExc_UnicodeTranslateError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:642
+msgid ":exc:`UnicodeTranslateError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:644
+msgid ":c:data:`PyExc_VMSError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:644
+msgid ":exc:`VMSError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:644
+msgid "\\(5)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:646
+msgid ":c:data:`PyExc_ValueError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:646
+msgid ":exc:`ValueError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:648
+msgid ":c:data:`PyExc_WindowsError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:648
+msgid ":exc:`WindowsError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:648
+msgid "\\(3)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:650
+msgid ":c:data:`PyExc_ZeroDivisionError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:650
+msgid ":exc:`ZeroDivisionError`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:653
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:718
+msgid "Notes:"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:656
+msgid "This is a base class for other standard exceptions."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:659
+msgid "This is the same as :exc:`weakref.ReferenceError`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:662
+msgid ""
+"Only defined on Windows; protect code that uses this by testing that the "
+"preprocessor macro ``MS_WINDOWS`` is defined."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:669
+msgid ""
+"Only defined on VMS; protect code that uses this by testing that the "
+"preprocessor macro ``__VMS`` is defined."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:675
+msgid "Standard Warning Categories"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:677
+msgid ""
+"All standard Python warning categories are available as global variables "
+"whose names are ``PyExc_`` followed by the Python exception name. These have "
+"the type :c:type:`PyObject\\*`; they are all class objects. For "
+"completeness, here are all the variables:"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:697
+msgid ":c:data:`PyExc_Warning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:697
+msgid ":exc:`Warning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:699
+msgid ":c:data:`PyExc_BytesWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:699
+msgid ":exc:`BytesWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:701
+msgid ":c:data:`PyExc_DeprecationWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:701
+msgid ":exc:`DeprecationWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:703
+msgid ":c:data:`PyExc_FutureWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:703
+msgid ":exc:`FutureWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:705
+msgid ":c:data:`PyExc_ImportWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:705
+msgid ":exc:`ImportWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:707
+msgid ":c:data:`PyExc_PendingDeprecationWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:707
+msgid ":exc:`PendingDeprecationWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:709
+msgid ":c:data:`PyExc_RuntimeWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:709
+msgid ":exc:`RuntimeWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:711
+msgid ":c:data:`PyExc_SyntaxWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:711
+msgid ":exc:`SyntaxWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:713
+msgid ":c:data:`PyExc_UnicodeWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:713
+msgid ":exc:`UnicodeWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:715
+msgid ":c:data:`PyExc_UserWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:715
+msgid ":exc:`UserWarning`"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:721
+msgid "This is a base class for other standard warning categories."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:724
+msgid "String Exceptions"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:726
+msgid ""
+"All exceptions to be raised or caught must be derived from :exc:"
+"`BaseException`. Trying to raise a string exception now raises :exc:"
+"`TypeError`."
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:30
+msgid "exc_type (in module sys)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:30
+msgid "exc_value (in module sys)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:30
+msgid "exc_traceback (in module sys)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:185
+msgid "strerror()"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:333
+msgid "signal"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:333
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:350
+msgid "SIGINT"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:333
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:350
+msgid "KeyboardInterrupt (built-in exception)"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_BaseException"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_Exception"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_StandardError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_ArithmeticError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_AssertionError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_AttributeError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_BufferError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_EnvironmentError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_EOFError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_FloatingPointError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_GeneratorExit"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_ImportError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_IndentationError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_IndexError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_IOError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_KeyError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_KeyboardInterrupt"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_LookupError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_MemoryError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_NameError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_NotImplementedError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_OSError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_OverflowError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_ReferenceError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_RuntimeError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_StopIteration"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_SyntaxError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_SystemError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_SystemExit"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_TabError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_TypeError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_UnboundLocalError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_UnicodeDecodeError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_UnicodeEncodeError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_UnicodeError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_UnicodeTranslateError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_VMSError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_ValueError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_WindowsError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:527
+msgid "PyExc_ZeroDivisionError"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_Warning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_BytesWarning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_DeprecationWarning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_FutureWarning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_ImportWarning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_PendingDeprecationWarning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_RuntimeWarning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_SyntaxWarning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_UnicodeWarning"
+msgstr ""
+
+#: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/exceptions.rst:682
+msgid "PyExc_UserWarning"
+msgstr ""
