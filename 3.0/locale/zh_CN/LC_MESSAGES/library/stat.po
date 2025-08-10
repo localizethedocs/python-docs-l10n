@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/stat.rst:3
+msgid ":mod:`stat` --- Interpreting :func:`stat` results"
+msgstr ""
+
+#: ../../../library/stat.rst:10
+msgid ""
+"The :mod:`stat` module defines constants and functions for interpreting the "
+"results of :func:`os.stat`, :func:`os.fstat` and :func:`os.lstat` (if they "
+"exist).  For complete details about the :cfunc:`stat`, :cfunc:`fstat` and :"
+"cfunc:`lstat` calls, consult the documentation for your system."
+msgstr ""
+
+#: ../../../library/stat.rst:15
+msgid ""
+"The :mod:`stat` module defines the following functions to test for specific "
+"file types:"
+msgstr ""
+
+#: ../../../library/stat.rst:21
+msgid "Return non-zero if the mode is from a directory."
+msgstr ""
+
+#: ../../../library/stat.rst:26
+msgid "Return non-zero if the mode is from a character special device file."
+msgstr ""
+
+#: ../../../library/stat.rst:31
+msgid "Return non-zero if the mode is from a block special device file."
+msgstr ""
+
+#: ../../../library/stat.rst:36
+msgid "Return non-zero if the mode is from a regular file."
+msgstr ""
+
+#: ../../../library/stat.rst:41
+msgid "Return non-zero if the mode is from a FIFO (named pipe)."
+msgstr ""
+
+#: ../../../library/stat.rst:46
+msgid "Return non-zero if the mode is from a symbolic link."
+msgstr ""
+
+#: ../../../library/stat.rst:51
+msgid "Return non-zero if the mode is from a socket."
+msgstr ""
+
+#: ../../../library/stat.rst:53
+msgid ""
+"Two additional functions are defined for more general manipulation of the "
+"file's mode:"
+msgstr ""
+
+#: ../../../library/stat.rst:59
+msgid ""
+"Return the portion of the file's mode that can be set by :func:`os.chmod`\\ "
+"---that is, the file's permission bits, plus the sticky bit, set-group-id, "
+"and set-user-id bits (on systems that support them)."
+msgstr ""
+
+#: ../../../library/stat.rst:66
+msgid ""
+"Return the portion of the file's mode that describes the file type (used by "
+"the :func:`S_IS\\*` functions above)."
+msgstr ""
+
+#: ../../../library/stat.rst:69
+msgid ""
+"Normally, you would use the :func:`os.path.is\\*` functions for testing the "
+"type of a file; the functions here are useful when you are doing multiple "
+"tests of the same file and wish to avoid the overhead of the :cfunc:`stat` "
+"system call for each test.  These are also useful when checking for "
+"information about a file that isn't handled by :mod:`os.path`, like the "
+"tests for block and character devices."
+msgstr ""
+
+#: ../../../library/stat.rst:76
+msgid ""
+"All the variables below are simply symbolic indexes into the 10-tuple "
+"returned by :func:`os.stat`, :func:`os.fstat` or :func:`os.lstat`."
+msgstr ""
+
+#: ../../../library/stat.rst:82
+msgid "Inode protection mode."
+msgstr ""
+
+#: ../../../library/stat.rst:87
+msgid "Inode number."
+msgstr ""
+
+#: ../../../library/stat.rst:92
+msgid "Device inode resides on."
+msgstr ""
+
+#: ../../../library/stat.rst:97
+msgid "Number of links to the inode."
+msgstr ""
+
+#: ../../../library/stat.rst:102
+msgid "User id of the owner."
+msgstr ""
+
+#: ../../../library/stat.rst:107
+msgid "Group id of the owner."
+msgstr ""
+
+#: ../../../library/stat.rst:112
+msgid ""
+"Size in bytes of a plain file; amount of data waiting on some special files."
+msgstr ""
+
+#: ../../../library/stat.rst:117
+msgid "Time of last access."
+msgstr ""
+
+#: ../../../library/stat.rst:122
+msgid "Time of last modification."
+msgstr ""
+
+#: ../../../library/stat.rst:127
+msgid ""
+"The \"ctime\" as reported by the operating system.  On some systems (like "
+"Unix) is the time of the last metadata change, and, on others (like "
+"Windows), is the creation time (see platform documentation for details)."
+msgstr ""
+
+#: ../../../library/stat.rst:131
+msgid ""
+"The interpretation of \"file size\" changes according to the file type.  For "
+"plain files this is the size of the file in bytes.  For FIFOs and sockets "
+"under most flavors of Unix (including Linux in particular), the \"size\" is "
+"the number of bytes waiting to be read at the time of the call to :func:`os."
+"stat`, :func:`os.fstat`, or :func:`os.lstat`; this can sometimes be useful, "
+"especially for polling one of these special files after a non-blocking "
+"open.  The meaning of the size field for other character and block devices "
+"varies more, depending on the implementation of the underlying system call."
+msgstr ""
+
+#: ../../../library/stat.rst:140
+msgid "Example::"
+msgstr ""
+
+#: ../../../library/stat.rst:142
+msgid ""
+"import os, sys\n"
+"from stat import *\n"
+"\n"
+"def walktree(top, callback):\n"
+"    '''recursively descend the directory tree rooted at top,\n"
+"       calling the callback function for each regular file'''\n"
+"\n"
+"    for f in os.listdir(top):\n"
+"        pathname = os.path.join(top, f)\n"
+"        mode = os.stat(pathname)[ST_MODE]\n"
+"        if S_ISDIR(mode):\n"
+"            # It's a directory, recurse into it\n"
+"            walktree(pathname, callback)\n"
+"        elif S_ISREG(mode):\n"
+"            # It's a file, call the callback function\n"
+"            callback(pathname)\n"
+"        else:\n"
+"            # Unknown file type, print a message\n"
+"            print('Skipping %s' % pathname)\n"
+"\n"
+"def visitfile(file):\n"
+"    print('visiting', file)\n"
+"\n"
+"if __name__ == '__main__':\n"
+"    walktree(sys.argv[1], visitfile)"
+msgstr ""

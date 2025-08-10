@@ -1,0 +1,514 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/configparser.rst:2
+msgid ":mod:`configparser` --- Configuration file parser"
+msgstr ""
+
+#: ../../../library/configparser.rst:18
+msgid ""
+"This module defines the class :class:`ConfigParser`.   The :class:"
+"`ConfigParser` class implements a basic configuration file parser language "
+"which provides a structure similar to what you would find on Microsoft "
+"Windows INI files.  You can use this to write Python programs which can be "
+"customized by end users easily."
+msgstr ""
+
+#: ../../../library/configparser.rst:26
+msgid ""
+"This library does *not* interpret or write the value-type prefixes used in "
+"the Windows Registry extended version of INI syntax."
+msgstr ""
+
+#: ../../../library/configparser.rst:29
+msgid ""
+"The configuration file consists of sections, led by a ``[section]`` header "
+"and followed by ``name: value`` entries, with continuations in the style of :"
+"rfc:`822` (see section 3.1.1, \"LONG HEADER FIELDS\"); ``name=value`` is "
+"also accepted.  Note that leading whitespace is removed from values. The "
+"optional values can contain format strings which refer to other values in "
+"the same section, or values in a special ``DEFAULT`` section.  Additional "
+"defaults can be provided on initialization and retrieval.  Lines beginning "
+"with ``'#'`` or ``';'`` are ignored and may be used to provide comments."
+msgstr ""
+
+#: ../../../library/configparser.rst:38
+msgid "For example::"
+msgstr ""
+
+#: ../../../library/configparser.rst:40
+msgid ""
+"[My Section]\n"
+"foodir: %(dir)s/whatever\n"
+"dir=frob\n"
+"long: this value continues\n"
+"   in the next line"
+msgstr ""
+
+#: ../../../library/configparser.rst:46
+msgid ""
+"would resolve the ``%(dir)s`` to the value of ``dir`` (``frob`` in this "
+"case). All reference expansions are done on demand."
+msgstr ""
+
+#: ../../../library/configparser.rst:49
+msgid ""
+"Default values can be specified by passing them into the :class:"
+"`ConfigParser` constructor as a dictionary.  Additional defaults  may be "
+"passed into the :meth:`get` method which will override all others."
+msgstr ""
+
+#: ../../../library/configparser.rst:53
+msgid ""
+"Sections are normally stored in a builtin dictionary. An alternative "
+"dictionary type can be passed to the :class:`ConfigParser` constructor. For "
+"example, if a dictionary type is passed that sorts its keys, the sections "
+"will be sorted on write-back, as will be the keys within each section."
+msgstr ""
+
+#: ../../../library/configparser.rst:61
+msgid ""
+"The basic configuration object.  When *defaults* is given, it is initialized "
+"into the dictionary of intrinsic defaults.  When *dict_type* is given, it "
+"will be used to create the dictionary objects for the list of sections, for "
+"the options within a section, and for the default values. This class does "
+"not support the magical interpolation behavior."
+msgstr ""
+
+#: ../../../library/configparser.rst:70
+msgid ""
+"Derived class of :class:`RawConfigParser` that implements the magical "
+"interpolation feature and adds optional arguments to the :meth:`get` and :"
+"meth:`items` methods.  The values in *defaults* must be appropriate for the "
+"``%()s`` string interpolation.  Note that *__name__* is an intrinsic "
+"default; its value is the section name, and will override any value provided "
+"in *defaults*."
+msgstr ""
+
+#: ../../../library/configparser.rst:77
+msgid ""
+"All option names used in interpolation will be passed through the :meth:"
+"`optionxform` method just like any other option name reference.  For "
+"example, using the default implementation of :meth:`optionxform` (which "
+"converts option names to lower case), the values ``foo %(bar)s`` and ``foo "
+"%(BAR)s`` are equivalent."
+msgstr ""
+
+#: ../../../library/configparser.rst:86
+msgid ""
+"Derived class of :class:`ConfigParser` that implements a more-sane variant "
+"of the magical interpolation feature.  This implementation is more "
+"predictable as well. New applications should prefer this version if they "
+"don't need to be compatible with older versions of Python."
+msgstr ""
+
+#: ../../../library/configparser.rst:96
+msgid "Exception raised when a specified section is not found."
+msgstr ""
+
+#: ../../../library/configparser.rst:101
+msgid ""
+"Exception raised if :meth:`add_section` is called with the name of a section "
+"that is already present."
+msgstr ""
+
+#: ../../../library/configparser.rst:107
+msgid ""
+"Exception raised when a specified option is not found in the specified  "
+"section."
+msgstr ""
+
+#: ../../../library/configparser.rst:112
+msgid ""
+"Base class for exceptions raised when problems occur performing string "
+"interpolation."
+msgstr ""
+
+#: ../../../library/configparser.rst:118
+msgid ""
+"Exception raised when string interpolation cannot be completed because the "
+"number of iterations exceeds :const:`MAX_INTERPOLATION_DEPTH`. Subclass of :"
+"exc:`InterpolationError`."
+msgstr ""
+
+#: ../../../library/configparser.rst:125
+msgid ""
+"Exception raised when an option referenced from a value does not exist. "
+"Subclass of :exc:`InterpolationError`."
+msgstr ""
+
+#: ../../../library/configparser.rst:131
+msgid ""
+"Exception raised when the source text into which substitutions are made does "
+"not conform to the required syntax. Subclass of :exc:`InterpolationError`."
+msgstr ""
+
+#: ../../../library/configparser.rst:137
+msgid ""
+"Exception raised when attempting to parse a file which has no section "
+"headers."
+msgstr ""
+
+#: ../../../library/configparser.rst:142
+msgid "Exception raised when errors occur attempting to parse a file."
+msgstr ""
+
+#: ../../../library/configparser.rst:147
+msgid ""
+"The maximum depth for recursive interpolation for :meth:`get` when the *raw* "
+"parameter is false.  This is relevant only for the :class:`ConfigParser` "
+"class."
+msgstr ""
+
+#: ../../../library/configparser.rst:154
+msgid "Module :mod:`shlex`"
+msgstr ""
+
+#: ../../../library/configparser.rst:154
+msgid ""
+"Support for a creating Unix shell-like mini-languages which can be used as "
+"an alternate format for application configuration files."
+msgstr ""
+
+#: ../../../library/configparser.rst:161
+msgid "RawConfigParser Objects"
+msgstr ""
+
+#: ../../../library/configparser.rst:163
+msgid ":class:`RawConfigParser` instances have the following methods:"
+msgstr ""
+
+#: ../../../library/configparser.rst:168
+msgid "Return a dictionary containing the instance-wide defaults."
+msgstr ""
+
+#: ../../../library/configparser.rst:173
+msgid ""
+"Return a list of the sections available; ``DEFAULT`` is not included in the "
+"list."
+msgstr ""
+
+#: ../../../library/configparser.rst:179
+msgid ""
+"Add a section named *section* to the instance.  If a section by the given "
+"name already exists, :exc:`DuplicateSectionError` is raised. If the name "
+"``DEFAULT`` (or any of it's case-insensitive variants) is passed, :exc:"
+"`ValueError` is raised."
+msgstr ""
+
+#: ../../../library/configparser.rst:186
+msgid ""
+"Indicates whether the named section is present in the configuration. The "
+"``DEFAULT`` section is not acknowledged."
+msgstr ""
+
+#: ../../../library/configparser.rst:192
+msgid "Returns a list of options available in the specified *section*."
+msgstr ""
+
+#: ../../../library/configparser.rst:197
+msgid ""
+"If the given section exists, and contains the given option, return :const:"
+"`True`; otherwise return :const:`False`."
+msgstr ""
+
+#: ../../../library/configparser.rst:203
+msgid ""
+"Attempt to read and parse a list of filenames, returning a list of filenames "
+"which were successfully parsed.  If *filenames* is a string, it is treated "
+"as a single filename. If a file named in *filenames* cannot be opened, that "
+"file will be ignored.  This is designed so that you can specify a list of "
+"potential configuration file locations (for example, the current directory, "
+"the user's home directory, and some system-wide directory), and all existing "
+"configuration files in the list will be read.  If none of the named files "
+"exist, the :class:`ConfigParser` instance will contain an empty dataset. An "
+"application which requires initial values to be loaded from a file should "
+"load the required file or files using :meth:`readfp` before calling :meth:"
+"`read` for any optional files::"
+msgstr ""
+
+#: ../../../library/configparser.rst:215
+msgid ""
+"import configparser, os\n"
+"\n"
+"config = configparser.ConfigParser()\n"
+"config.readfp(open('defaults.cfg'))\n"
+"config.read(['site.cfg', os.path.expanduser('~/.myapp.cfg')])"
+msgstr ""
+
+#: ../../../library/configparser.rst:224
+msgid ""
+"Read and parse configuration data from the file or file-like object in *fp* "
+"(only the :meth:`readline` method is used).  If *filename* is omitted and "
+"*fp* has a :attr:`name` attribute, that is used for *filename*; the default "
+"is ``<???>``."
+msgstr ""
+
+#: ../../../library/configparser.rst:232
+msgid "Get an *option* value for the named *section*."
+msgstr ""
+
+#: ../../../library/configparser.rst:237
+msgid ""
+"A convenience method which coerces the *option* in the specified *section* "
+"to an integer."
+msgstr ""
+
+#: ../../../library/configparser.rst:243
+msgid ""
+"A convenience method which coerces the *option* in the specified *section* "
+"to a floating point number."
+msgstr ""
+
+#: ../../../library/configparser.rst:249
+msgid ""
+"A convenience method which coerces the *option* in the specified *section* "
+"to a Boolean value.  Note that the accepted values for the option are "
+"``\"1\"``, ``\"yes\"``, ``\"true\"``, and ``\"on\"``, which cause this "
+"method to return ``True``, and ``\"0\"``, ``\"no\"``, ``\"false\"``, and "
+"``\"off\"``, which cause it to return ``False``.  These string values are "
+"checked in a case-insensitive manner.  Any other value will cause it to "
+"raise :exc:`ValueError`."
+msgstr ""
+
+#: ../../../library/configparser.rst:259
+msgid ""
+"Return a list of ``(name, value)`` pairs for each option in the given "
+"*section*."
+msgstr ""
+
+#: ../../../library/configparser.rst:264
+msgid ""
+"If the given section exists, set the given option to the specified value; "
+"otherwise raise :exc:`NoSectionError`.  While it is possible to use :class:"
+"`RawConfigParser` (or :class:`ConfigParser` with *raw* parameters set to "
+"true) for *internal* storage of non-string values, full functionality "
+"(including interpolation and output to files) can only be achieved using "
+"string values."
+msgstr ""
+
+#: ../../../library/configparser.rst:273
+msgid ""
+"Write a representation of the configuration to the specified file object.  "
+"This representation can be parsed by a future :meth:`read` call."
+msgstr ""
+
+#: ../../../library/configparser.rst:279
+msgid ""
+"Remove the specified *option* from the specified *section*. If the section "
+"does not exist, raise :exc:`NoSectionError`.  If the option existed to be "
+"removed, return :const:`True`; otherwise return :const:`False`."
+msgstr ""
+
+#: ../../../library/configparser.rst:286
+msgid ""
+"Remove the specified *section* from the configuration. If the section in "
+"fact existed, return ``True``. Otherwise return ``False``."
+msgstr ""
+
+#: ../../../library/configparser.rst:292
+msgid ""
+"Transforms the option name *option* as found in an input file or as passed "
+"in by client code to the form that should be used in the internal "
+"structures.  The default implementation returns a lower-case version of "
+"*option*; subclasses may override this or client code can set an attribute "
+"of this name on instances to affect this behavior.  Setting this to :func:"
+"`str`, for example, would make option names case sensitive."
+msgstr ""
+
+#: ../../../library/configparser.rst:303
+msgid "ConfigParser Objects"
+msgstr ""
+
+#: ../../../library/configparser.rst:305
+msgid ""
+"The :class:`ConfigParser` class extends some methods of the :class:"
+"`RawConfigParser` interface, adding some optional arguments."
+msgstr ""
+
+#: ../../../library/configparser.rst:311
+msgid ""
+"Get an *option* value for the named *section*.  All the ``'%'`` "
+"interpolations are expanded in the return values, based on the defaults "
+"passed into the constructor, as well as the options *vars* provided, unless "
+"the *raw* argument is true."
+msgstr ""
+
+#: ../../../library/configparser.rst:319
+msgid ""
+"Return a list of ``(name, value)`` pairs for each option in the given "
+"*section*. Optional arguments have the same meaning as for the :meth:`get` "
+"method."
+msgstr ""
+
+#: ../../../library/configparser.rst:326
+msgid "SafeConfigParser Objects"
+msgstr ""
+
+#: ../../../library/configparser.rst:328
+msgid ""
+"The :class:`SafeConfigParser` class implements the same extended interface "
+"as :class:`ConfigParser`, with the following addition:"
+msgstr ""
+
+#: ../../../library/configparser.rst:334
+msgid ""
+"If the given section exists, set the given option to the specified value; "
+"otherwise raise :exc:`NoSectionError`.  *value* must be a string; if it is "
+"not, :exc:`TypeError` is raised."
+msgstr ""
+
+#: ../../../library/configparser.rst:340
+msgid "Examples"
+msgstr ""
+
+#: ../../../library/configparser.rst:342
+msgid "An example of writing to a configuration file::"
+msgstr ""
+
+#: ../../../library/configparser.rst:344
+msgid ""
+"import configparser\n"
+"\n"
+"config = configparser.RawConfigParser()\n"
+"\n"
+"# When adding sections or items, add them in the reverse order of\n"
+"# how you want them to be displayed in the actual file.\n"
+"# In addition, please note that using RawConfigParser's and the raw\n"
+"# mode of ConfigParser's respective set functions, you can assign\n"
+"# non-string values to keys internally, but will receive an error\n"
+"# when attempting to write to a file or when you get it in non-raw\n"
+"# mode. SafeConfigParser does not allow such assignments to take place.\n"
+"config.add_section('Section1')\n"
+"config.set('Section1', 'int', '15')\n"
+"config.set('Section1', 'bool', 'true')\n"
+"config.set('Section1', 'float', '3.1415')\n"
+"config.set('Section1', 'baz', 'fun')\n"
+"config.set('Section1', 'bar', 'Python')\n"
+"config.set('Section1', 'foo', '%(bar)s is %(baz)s!')\n"
+"\n"
+"# Writing our configuration file to 'example.cfg'\n"
+"with open('example.cfg', 'wb') as configfile:\n"
+"    config.write(configfile)"
+msgstr ""
+
+#: ../../../library/configparser.rst:367
+msgid "An example of reading the configuration file again::"
+msgstr ""
+
+#: ../../../library/configparser.rst:369
+msgid ""
+"import configparser\n"
+"\n"
+"config = configparser.RawConfigParser()\n"
+"config.read('example.cfg')\n"
+"\n"
+"# getfloat() raises an exception if the value is not a float\n"
+"# getint() and getboolean() also do this for their respective types\n"
+"float = config.getfloat('Section1', 'float')\n"
+"int = config.getint('Section1', 'int')\n"
+"print(float + int)\n"
+"\n"
+"# Notice that the next output does not interpolate '%(bar)s' or '%(baz)s'.\n"
+"# This is because we are using a RawConfigParser().\n"
+"if config.getboolean('Section1', 'bool'):\n"
+"    print(config.get('Section1', 'foo'))"
+msgstr ""
+
+#: ../../../library/configparser.rst:385
+msgid ""
+"To get interpolation, you will need to use a :class:`ConfigParser` or :class:"
+"`SafeConfigParser`::"
+msgstr ""
+
+#: ../../../library/configparser.rst:388
+msgid ""
+"import configparser\n"
+"\n"
+"config = configparser.ConfigParser()\n"
+"config.read('example.cfg')\n"
+"\n"
+"# Set the third, optional argument of get to 1 if you wish to use raw mode.\n"
+"print(config.get('Section1', 'foo', 0)) # -> \"Python is fun!\"\n"
+"print(config.get('Section1', 'foo', 1)) # -> \"%(bar)s is %(baz)s!\"\n"
+"\n"
+"# The optional fourth argument is a dict with members that will take\n"
+"# precedence in interpolation.\n"
+"print(config.get('Section1', 'foo', 0, {'bar': 'Documentation',\n"
+"                                        'baz': 'evil'}))"
+msgstr ""
+
+#: ../../../library/configparser.rst:402
+msgid ""
+"Defaults are available in all three types of ConfigParsers. They are used in "
+"interpolation if an option used is not defined elsewhere. ::"
+msgstr ""
+
+#: ../../../library/configparser.rst:405
+msgid ""
+"import configparser\n"
+"\n"
+"# New instance with 'bar' and 'baz' defaulting to 'Life' and 'hard' each\n"
+"config = configparser.SafeConfigParser({'bar': 'Life', 'baz': 'hard'})\n"
+"config.read('example.cfg')\n"
+"\n"
+"print(config.get('Section1', 'foo')) # -> \"Python is fun!\"\n"
+"config.remove_option('Section1', 'bar')\n"
+"config.remove_option('Section1', 'baz')\n"
+"print(config.get('Section1', 'foo')) # -> \"Life is hard!\""
+msgstr ""
+
+#: ../../../library/configparser.rst:416
+msgid ""
+"The function ``opt_move`` below can be used to move options between "
+"sections::"
+msgstr ""
+
+#: ../../../library/configparser.rst:418
+msgid ""
+"def opt_move(config, section1, section2, option):\n"
+"    try:\n"
+"        config.set(section2, option, config.get(section1, option, 1))\n"
+"    except configparser.NoSectionError:\n"
+"        # Create non-existent section\n"
+"        config.add_section(section2)\n"
+"        opt_move(config, section1, section2, option)\n"
+"    else:\n"
+"        config.remove_option(section1, option)"
+msgstr ""
+
+#: ../../../library/configparser.rst:12
+msgid ".ini"
+msgstr ""
+
+#: ../../../library/configparser.rst:12
+msgid "file"
+msgstr ""
+
+#: ../../../library/configparser.rst:12
+msgid "configuration"
+msgstr ""
+
+#: ../../../library/configparser.rst:12
+msgid "ini file"
+msgstr ""
+
+#: ../../../library/configparser.rst:12
+msgid "Windows ini file"
+msgstr ""

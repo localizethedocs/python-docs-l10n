@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../c-api/conversion.rst:6
+msgid "String conversion and formatting"
+msgstr ""
+
+#: ../../../c-api/conversion.rst:8
+msgid "Functions for number conversion and formatted string output."
+msgstr ""
+
+#: ../../../c-api/conversion.rst:23
+msgid ""
+":cfunc:`PyOS_snprintf` and :cfunc:`PyOS_vsnprintf` wrap the Standard C "
+"library functions :cfunc:`snprintf` and :cfunc:`vsnprintf`. Their purpose is "
+"to guarantee consistent behavior in corner cases, which the Standard C "
+"functions do not."
+msgstr ""
+
+#: ../../../c-api/conversion.rst:28
+msgid ""
+"The wrappers ensure that *str*[*size*-1] is always ``'\\0'`` upon return. "
+"They never write more than *size* bytes (including the trailing ``'\\0'``) "
+"into str. Both functions require that ``str != NULL``, ``size > 0`` and "
+"``format != NULL``."
+msgstr ""
+
+#: ../../../c-api/conversion.rst:33
+msgid ""
+"If the platform doesn't have :cfunc:`vsnprintf` and the buffer size needed "
+"to avoid truncation exceeds *size* by more than 512 bytes, Python aborts "
+"with a *Py_FatalError*."
+msgstr ""
+
+#: ../../../c-api/conversion.rst:37
+msgid ""
+"The return value (*rv*) for these functions should be interpreted as follows:"
+msgstr ""
+
+#: ../../../c-api/conversion.rst:39
+msgid ""
+"When ``0 <= rv < size``, the output conversion was successful and *rv* "
+"characters were written to *str* (excluding the trailing ``'\\0'`` byte at "
+"*str*[*rv*])."
+msgstr ""
+
+#: ../../../c-api/conversion.rst:43
+msgid ""
+"When ``rv >= size``, the output conversion was truncated and a buffer with "
+"``rv + 1`` bytes would have been needed to succeed. *str*[*size*-1] is "
+"``'\\0'`` in this case."
+msgstr ""
+
+#: ../../../c-api/conversion.rst:47
+msgid ""
+"When ``rv < 0``, \"something bad happened.\" *str*[*size*-1] is ``'\\0'`` in "
+"this case too, but the rest of *str* is undefined. The exact cause of the "
+"error depends on the underlying platform."
+msgstr ""
+
+#: ../../../c-api/conversion.rst:51
+msgid ""
+"The following functions provide locale-independent string to number "
+"conversions."
+msgstr ""
