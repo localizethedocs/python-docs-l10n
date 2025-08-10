@@ -1,0 +1,665 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/winreg.rst:2
+msgid ":mod:`winreg` -- Windows registry access"
+msgstr ""
+
+#: ../../../library/winreg.rst:10
+msgid ""
+"These functions expose the Windows registry API to Python.  Instead of using "
+"an integer as the registry handle, a handle object is used to ensure that "
+"the handles are closed correctly, even if the programmer neglects to "
+"explicitly close them."
+msgstr ""
+
+#: ../../../library/winreg.rst:15
+msgid ""
+"This module exposes a very low-level interface to the Windows registry; it "
+"is expected that in the future a new ``winreg``  module will be created "
+"offering a higher-level interface to the registry API."
+msgstr ""
+
+#: ../../../library/winreg.rst:19
+msgid "This module offers the following functions:"
+msgstr ""
+
+#: ../../../library/winreg.rst:24
+msgid ""
+"Closes a previously opened registry key. The hkey argument specifies a "
+"previously opened key."
+msgstr ""
+
+#: ../../../library/winreg.rst:27
+msgid ""
+"Note that if *hkey* is not closed using this method (or via :meth:`handle."
+"Close`), it is closed when the *hkey* object is destroyed by Python."
+msgstr ""
+
+#: ../../../library/winreg.rst:34
+msgid ""
+"Establishes a connection to a predefined registry handle on  another "
+"computer, and returns a :dfn:`handle object`"
+msgstr ""
+
+#: ../../../library/winreg.rst:37
+msgid ""
+"*computer_name* is the name of the remote computer, of the  form ``r\"\\"
+"\\computername\"``.  If ``None``, the local computer is used."
+msgstr ""
+
+#: ../../../library/winreg.rst:40
+msgid "*key* is the predefined handle to connect to."
+msgstr ""
+
+#: ../../../library/winreg.rst:42 ../../../library/winreg.rst:60
+msgid ""
+"The return value is the handle of the opened key. If the function fails, an :"
+"exc:`EnvironmentError` exception is  raised."
+msgstr ""
+
+#: ../../../library/winreg.rst:48
+msgid "Creates or opens the specified key, returning a :dfn:`handle object`"
+msgstr ""
+
+#: ../../../library/winreg.rst:50 ../../../library/winreg.rst:84
+#: ../../../library/winreg.rst:145 ../../../library/winreg.rst:215
+#: ../../../library/winreg.rst:239 ../../../library/winreg.rst:256
+#: ../../../library/winreg.rst:277 ../../../library/winreg.rst:298
+#: ../../../library/winreg.rst:324
+msgid ""
+"*key* is an already open key, or one of the predefined  :const:`HKEY_\\*` "
+"constants."
+msgstr ""
+
+#: ../../../library/winreg.rst:53
+msgid "*sub_key* is a string that names the key this method opens  or creates."
+msgstr ""
+
+#: ../../../library/winreg.rst:55
+msgid ""
+"If *key* is one of the predefined keys, *sub_key* may  be ``None``. In that "
+"case, the handle returned is the same key handle  passed in to the function."
+msgstr ""
+
+#: ../../../library/winreg.rst:58
+msgid "If the key already exists, this function opens the existing key."
+msgstr ""
+
+#: ../../../library/winreg.rst:66
+msgid "Deletes the specified key."
+msgstr ""
+
+#: ../../../library/winreg.rst:68 ../../../library/winreg.rst:94
+#: ../../../library/winreg.rst:108
+msgid ""
+"*key* is an already open key, or any one of the predefined  :const:"
+"`HKEY_\\*` constants."
+msgstr ""
+
+#: ../../../library/winreg.rst:71
+msgid ""
+"*sub_key* is a string that must be a subkey of the key  identified by the "
+"*key* parameter.  This value must not be  ``None``, and the key may not have "
+"subkeys."
+msgstr ""
+
+#: ../../../library/winreg.rst:74
+msgid "*This method can not delete keys with subkeys.*"
+msgstr ""
+
+#: ../../../library/winreg.rst:76
+msgid ""
+"If the method succeeds, the entire key, including all of its values, is "
+"removed. If the method fails, an :exc:`EnvironmentError`  exception is "
+"raised."
+msgstr ""
+
+#: ../../../library/winreg.rst:82
+msgid "Removes a named value from a registry key."
+msgstr ""
+
+#: ../../../library/winreg.rst:87
+msgid "*value* is a string that identifies the value to remove."
+msgstr ""
+
+#: ../../../library/winreg.rst:92
+msgid "Enumerates subkeys of an open registry key, returning a string."
+msgstr ""
+
+#: ../../../library/winreg.rst:97
+msgid ""
+"*index* is an integer that identifies the index of the key to  retrieve."
+msgstr ""
+
+#: ../../../library/winreg.rst:99
+msgid ""
+"The function retrieves the name of one subkey each time it  is called.  It "
+"is typically called repeatedly until an  :exc:`EnvironmentError` exception  "
+"is raised, indicating, no more values are available."
+msgstr ""
+
+#: ../../../library/winreg.rst:106
+msgid "Enumerates values of an open registry key, returning a tuple."
+msgstr ""
+
+#: ../../../library/winreg.rst:111
+msgid ""
+"*index* is an integer that identifies the index of the value  to retrieve."
+msgstr ""
+
+#: ../../../library/winreg.rst:113
+msgid ""
+"The function retrieves the name of one subkey each time it is  called. It is "
+"typically called repeatedly, until an  :exc:`EnvironmentError` exception is "
+"raised, indicating  no more values."
+msgstr ""
+
+#: ../../../library/winreg.rst:117 ../../../library/winreg.rst:218
+msgid "The result is a tuple of 3 items:"
+msgstr ""
+
+#: ../../../library/winreg.rst:120 ../../../library/winreg.rst:221
+#: ../../../library/winreg.rst:264
+msgid "Index"
+msgstr ""
+
+#: ../../../library/winreg.rst:120 ../../../library/winreg.rst:221
+#: ../../../library/winreg.rst:264 ../../../library/winreg.rst:334
+msgid "Meaning"
+msgstr ""
+
+#: ../../../library/winreg.rst:122 ../../../library/winreg.rst:223
+#: ../../../library/winreg.rst:266
+msgid "``0``"
+msgstr ""
+
+#: ../../../library/winreg.rst:122
+msgid "A string that identifies the value name"
+msgstr ""
+
+#: ../../../library/winreg.rst:124 ../../../library/winreg.rst:226
+#: ../../../library/winreg.rst:268
+msgid "``1``"
+msgstr ""
+
+#: ../../../library/winreg.rst:124
+msgid ""
+"An object that holds the value data, and whose type depends on the "
+"underlying registry type"
+msgstr ""
+
+#: ../../../library/winreg.rst:128 ../../../library/winreg.rst:229
+msgid "``2``"
+msgstr ""
+
+#: ../../../library/winreg.rst:128
+msgid "An integer that identifies the type of the value data"
+msgstr ""
+
+#: ../../../library/winreg.rst:135
+msgid ""
+"Expands environment strings %NAME% in unicode string like const:"
+"`REG_EXPAND_SZ`::"
+msgstr ""
+
+#: ../../../library/winreg.rst:137
+msgid ""
+">>> ExpandEnvironmentStrings(u\"%windir%\")\n"
+"u\"C:\\\\Windows\""
+msgstr ""
+
+#: ../../../library/winreg.rst:143
+msgid "Writes all the attributes of a key to the registry."
+msgstr ""
+
+#: ../../../library/winreg.rst:148
+msgid ""
+"It is not necessary to call :func:`FlushKey` to change a key. Registry "
+"changes are flushed to disk by the registry using its lazy  flusher.  "
+"Registry changes are also flushed to disk at system  shutdown.  Unlike :func:"
+"`CloseKey`, the :func:`FlushKey` method  returns only when all the data has "
+"been written to the registry. An application should only call :func:"
+"`FlushKey` if it requires absolute  certainty that registry changes are on "
+"disk."
+msgstr ""
+
+#: ../../../library/winreg.rst:157
+msgid ""
+"If you don't know whether a :func:`FlushKey` call is required, it  probably "
+"isn't."
+msgstr ""
+
+#: ../../../library/winreg.rst:163
+msgid ""
+"Creates a subkey under the specified key and stores registration  "
+"information from a specified file into that subkey."
+msgstr ""
+
+#: ../../../library/winreg.rst:166
+msgid ""
+"*key* is an already open key, or any of the predefined :const:`HKEY_\\*` "
+"constants."
+msgstr ""
+
+#: ../../../library/winreg.rst:169
+msgid "*sub_key* is a string that identifies the sub_key to load."
+msgstr ""
+
+#: ../../../library/winreg.rst:171
+msgid ""
+"*file_name* is the name of the file to load registry data from. This file "
+"must have been created with the :func:`SaveKey` function. Under the file "
+"allocation table (FAT) file system, the filename may not have an extension."
+msgstr ""
+
+#: ../../../library/winreg.rst:175
+msgid ""
+"A call to LoadKey() fails if the calling process does not have the :const:"
+"`SE_RESTORE_PRIVILEGE` privilege. Note that privileges are different than "
+"permissions - see the Win32 documentation for more details."
+msgstr ""
+
+#: ../../../library/winreg.rst:179
+msgid ""
+"If *key* is a handle returned by :func:`ConnectRegistry`,  then the path "
+"specified in *fileName* is relative to the  remote computer."
+msgstr ""
+
+#: ../../../library/winreg.rst:182
+msgid ""
+"The Win32 documentation implies *key* must be in the  :const:`HKEY_USER` or :"
+"const:`HKEY_LOCAL_MACHINE` tree. This may or may not be true."
+msgstr ""
+
+#: ../../../library/winreg.rst:188
+msgid "Opens the specified key, returning a :dfn:`handle object`"
+msgstr ""
+
+#: ../../../library/winreg.rst:190
+msgid ""
+"*key* is an already open key, or any one of the predefined :const:`HKEY_\\*` "
+"constants."
+msgstr ""
+
+#: ../../../library/winreg.rst:193
+msgid "*sub_key* is a string that identifies the sub_key to open."
+msgstr ""
+
+#: ../../../library/winreg.rst:195
+msgid "*res* is a reserved integer, and must be zero.  The default is zero."
+msgstr ""
+
+#: ../../../library/winreg.rst:197
+msgid ""
+"*sam* is an integer that specifies an access mask that describes  the "
+"desired security access for the key.  Default is :const:`KEY_READ`"
+msgstr ""
+
+#: ../../../library/winreg.rst:200
+msgid "The result is a new handle to the specified key."
+msgstr ""
+
+#: ../../../library/winreg.rst:202
+msgid "If the function fails, :exc:`EnvironmentError` is raised."
+msgstr ""
+
+#: ../../../library/winreg.rst:207
+msgid ""
+"The functionality of :func:`OpenKeyEx` is provided via :func:`OpenKey`, by "
+"the use of default arguments."
+msgstr ""
+
+#: ../../../library/winreg.rst:213
+msgid "Returns information about a key, as a tuple."
+msgstr ""
+
+#: ../../../library/winreg.rst:223
+msgid "An integer giving the number of sub keys this key has."
+msgstr ""
+
+#: ../../../library/winreg.rst:226
+msgid "An integer giving the number of values this key has."
+msgstr ""
+
+#: ../../../library/winreg.rst:229
+msgid ""
+"An integer giving when the key was last modified (if available) as 100's of "
+"nanoseconds since Jan 1, 1600."
+msgstr ""
+
+#: ../../../library/winreg.rst:237
+msgid "Retrieves the unnamed value for a key, as a string"
+msgstr ""
+
+#: ../../../library/winreg.rst:242
+msgid ""
+"*sub_key* is a string that holds the name of the subkey with which  the "
+"value is associated.  If this parameter is ``None`` or empty, the  function "
+"retrieves the value set by the :func:`SetValue` method  for the key "
+"identified by *key*."
+msgstr ""
+
+#: ../../../library/winreg.rst:246
+msgid ""
+"Values in the registry have name, type, and data components. This  method "
+"retrieves the data for a key's first value that has a NULL name. But the "
+"underlying API call doesn't return the type, Lame Lame Lame, DO NOT USE "
+"THIS!!!"
+msgstr ""
+
+#: ../../../library/winreg.rst:253
+msgid ""
+"Retrieves the type and data for a specified value name associated with  an "
+"open registry key."
+msgstr ""
+
+#: ../../../library/winreg.rst:259
+msgid "*value_name* is a string indicating the value to query."
+msgstr ""
+
+#: ../../../library/winreg.rst:261
+msgid "The result is a tuple of 2 items:"
+msgstr ""
+
+#: ../../../library/winreg.rst:266
+msgid "The value of the registry item."
+msgstr ""
+
+#: ../../../library/winreg.rst:268
+msgid "An integer giving the registry type for this value."
+msgstr ""
+
+#: ../../../library/winreg.rst:275
+msgid "Saves the specified key, and all its subkeys to the specified file."
+msgstr ""
+
+#: ../../../library/winreg.rst:280
+msgid ""
+"*file_name* is the name of the file to save registry data to. This file "
+"cannot already exist. If this filename includes an extension, it cannot be "
+"used on file allocation table (FAT) file systems by the :meth:`LoadKey`, :"
+"meth:`ReplaceKey` or  :meth:`RestoreKey` methods."
+msgstr ""
+
+#: ../../../library/winreg.rst:285
+msgid ""
+"If *key* represents a key on a remote computer, the path  described by "
+"*file_name* is relative to the remote computer. The caller of this method "
+"must possess the :const:`SeBackupPrivilege`  security privilege.  Note that "
+"privileges are different than permissions  - see the Win32 documentation for "
+"more details."
+msgstr ""
+
+#: ../../../library/winreg.rst:291
+msgid "This function passes NULL for *security_attributes* to the API."
+msgstr ""
+
+#: ../../../library/winreg.rst:296
+msgid "Associates a value with a specified key."
+msgstr ""
+
+#: ../../../library/winreg.rst:301
+msgid ""
+"*sub_key* is a string that names the subkey with which the value  is "
+"associated."
+msgstr ""
+
+#: ../../../library/winreg.rst:303
+msgid ""
+"*type* is an integer that specifies the type of the data. Currently this "
+"must be :const:`REG_SZ`, meaning only strings are supported.  Use the :func:"
+"`SetValueEx` function for support for other data types."
+msgstr ""
+
+#: ../../../library/winreg.rst:307 ../../../library/winreg.rst:363
+msgid "*value* is a string that specifies the new value."
+msgstr ""
+
+#: ../../../library/winreg.rst:309
+msgid ""
+"If the key specified by the *sub_key* parameter does not exist, the SetValue "
+"function creates it."
+msgstr ""
+
+#: ../../../library/winreg.rst:312 ../../../library/winreg.rst:371
+msgid ""
+"Value lengths are limited by available memory. Long values (more than 2048 "
+"bytes) should be stored as files with the filenames stored in the "
+"configuration registry.  This helps the registry perform efficiently."
+msgstr ""
+
+#: ../../../library/winreg.rst:316
+msgid ""
+"The key identified by the *key* parameter must have been  opened with :const:"
+"`KEY_SET_VALUE` access."
+msgstr ""
+
+#: ../../../library/winreg.rst:322
+msgid "Stores data in the value field of an open registry key."
+msgstr ""
+
+#: ../../../library/winreg.rst:327
+msgid ""
+"*value_name* is a string that names the subkey with which the  value is "
+"associated."
+msgstr ""
+
+#: ../../../library/winreg.rst:330
+msgid ""
+"*type* is an integer that specifies the type of the data.   This should be "
+"one of the following constants defined in this module:"
+msgstr ""
+
+#: ../../../library/winreg.rst:334
+msgid "Constant"
+msgstr ""
+
+#: ../../../library/winreg.rst:336
+msgid ":const:`REG_BINARY`"
+msgstr ""
+
+#: ../../../library/winreg.rst:336
+msgid "Binary data in any form."
+msgstr ""
+
+#: ../../../library/winreg.rst:338
+msgid ":const:`REG_DWORD`"
+msgstr ""
+
+#: ../../../library/winreg.rst:338
+msgid "A 32-bit number."
+msgstr ""
+
+#: ../../../library/winreg.rst:340
+msgid ":const:`REG_DWORD_LITTLE_ENDIAN`"
+msgstr ""
+
+#: ../../../library/winreg.rst:340
+msgid "A 32-bit number in little-endian format."
+msgstr ""
+
+#: ../../../library/winreg.rst:342
+msgid ":const:`REG_DWORD_BIG_ENDIAN`"
+msgstr ""
+
+#: ../../../library/winreg.rst:342
+msgid "A 32-bit number in big-endian format."
+msgstr ""
+
+#: ../../../library/winreg.rst:344
+msgid ":const:`REG_EXPAND_SZ`"
+msgstr ""
+
+#: ../../../library/winreg.rst:344
+msgid ""
+"Null-terminated string containing references to environment variables "
+"(``%PATH%``)."
+msgstr ""
+
+#: ../../../library/winreg.rst:348
+msgid ":const:`REG_LINK`"
+msgstr ""
+
+#: ../../../library/winreg.rst:348
+msgid "A Unicode symbolic link."
+msgstr ""
+
+#: ../../../library/winreg.rst:350
+msgid ":const:`REG_MULTI_SZ`"
+msgstr ""
+
+#: ../../../library/winreg.rst:350
+msgid ""
+"A sequence of null-terminated strings, terminated by two null characters.  "
+"(Python handles  this termination automatically.)"
+msgstr ""
+
+#: ../../../library/winreg.rst:354
+msgid ":const:`REG_NONE`"
+msgstr ""
+
+#: ../../../library/winreg.rst:354
+msgid "No defined value type."
+msgstr ""
+
+#: ../../../library/winreg.rst:356
+msgid ":const:`REG_RESOURCE_LIST`"
+msgstr ""
+
+#: ../../../library/winreg.rst:356
+msgid "A device-driver resource list."
+msgstr ""
+
+#: ../../../library/winreg.rst:358
+msgid ":const:`REG_SZ`"
+msgstr ""
+
+#: ../../../library/winreg.rst:358
+msgid "A null-terminated string."
+msgstr ""
+
+#: ../../../library/winreg.rst:361
+msgid "*reserved* can be anything - zero is always passed to the  API."
+msgstr ""
+
+#: ../../../library/winreg.rst:365
+msgid ""
+"This method can also set additional value and type information for the "
+"specified key.  The key identified by the key parameter must have been "
+"opened with :const:`KEY_SET_VALUE` access."
+msgstr ""
+
+#: ../../../library/winreg.rst:369
+msgid ""
+"To open the key, use the :func:`CreateKeyEx` or  :func:`OpenKey` methods."
+msgstr ""
+
+#: ../../../library/winreg.rst:379
+msgid "Registry Handle Objects"
+msgstr ""
+
+#: ../../../library/winreg.rst:381
+msgid ""
+"This object wraps a Windows HKEY object, automatically closing it when the "
+"object is destroyed.  To guarantee cleanup, you can call either the :meth:"
+"`Close` method on the object, or the  :func:`CloseKey` function."
+msgstr ""
+
+#: ../../../library/winreg.rst:385
+msgid "All registry functions in this module return one of these objects."
+msgstr ""
+
+#: ../../../library/winreg.rst:387
+msgid ""
+"All registry functions in this module which accept a handle object  also "
+"accept an integer, however, use of the handle object is  encouraged."
+msgstr ""
+
+#: ../../../library/winreg.rst:390
+msgid "Handle objects provide semantics for :meth:`__bool__` - thus  ::"
+msgstr ""
+
+#: ../../../library/winreg.rst:392
+msgid ""
+"if handle:\n"
+"    print(\"Yes\")"
+msgstr ""
+
+#: ../../../library/winreg.rst:395
+msgid ""
+"will print ``Yes`` if the handle is currently valid (has not been closed or "
+"detached)."
+msgstr ""
+
+#: ../../../library/winreg.rst:398
+msgid ""
+"The object also support comparison semantics, so handle objects will compare "
+"true if they both reference the same underlying Windows handle value."
+msgstr ""
+
+#: ../../../library/winreg.rst:401
+msgid ""
+"Handle objects can be converted to an integer (e.g., using the builtin :func:"
+"`int` function), in which case the underlying Windows handle value is "
+"returned.  You can also use the  :meth:`Detach` method to return the integer "
+"handle, and also disconnect the Windows handle from the handle object."
+msgstr ""
+
+#: ../../../library/winreg.rst:409
+msgid "Closes the underlying Windows handle."
+msgstr ""
+
+#: ../../../library/winreg.rst:411
+msgid "If the handle is already closed, no error is raised."
+msgstr ""
+
+#: ../../../library/winreg.rst:416
+msgid "Detaches the Windows handle from the handle object."
+msgstr ""
+
+#: ../../../library/winreg.rst:418
+msgid ""
+"The result is an integer that holds the value of the handle before it is "
+"detached.  If the handle is already detached or closed, this will return "
+"zero."
+msgstr ""
+
+#: ../../../library/winreg.rst:422
+msgid ""
+"After calling this function, the handle is effectively invalidated, but the "
+"handle is not closed.  You would call this function when  you need the "
+"underlying Win32 handle to exist beyond the lifetime  of the handle object."
+msgstr ""
+
+#: ../../../library/winreg.rst:429
+msgid ""
+"The HKEY object implements :meth:`__enter__` and :meth:`__exit__` and thus "
+"supports the context protocol for the :keyword:`with` statement::"
+msgstr ""
+
+#: ../../../library/winreg.rst:432
+msgid ""
+"with OpenKey(HKEY_LOCAL_MACHINE, \"foo\") as key:\n"
+"    # ... work with key ..."
+msgstr ""
+
+#: ../../../library/winreg.rst:435
+msgid ""
+"will automatically close *key* when control leaves the :keyword:`with` block."
+msgstr ""

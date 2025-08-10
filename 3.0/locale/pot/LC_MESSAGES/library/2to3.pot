@@ -1,0 +1,177 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/2to3.rst:4
+msgid "2to3 - Automated Python 2 to 3 code translation"
+msgstr ""
+
+#: ../../../library/2to3.rst:8
+msgid ""
+"2to3 is a Python program that reads Python 2.x source code and applies a "
+"series of *fixers* to transform it into valid Python 3.x code.  The standard "
+"library contains a rich set of fixers that will handle almost all code.  "
+"2to3 supporting library :mod:`lib2to3` is, however, a flexible and generic "
+"library, so it is possible to write your own fixers for 2to3.  :mod:"
+"`lib2to3` could also be adapted to custom applications in which Python code "
+"needs to be edited automatically."
+msgstr ""
+
+#: ../../../library/2to3.rst:18
+msgid "Using 2to3"
+msgstr ""
+
+#: ../../../library/2to3.rst:20
+msgid ""
+"2to3 will usually be installed with the Python interpreter as a script.  It "
+"is also located in the :file:`Tools/scripts` directory of the Python root."
+msgstr ""
+
+#: ../../../library/2to3.rst:23
+msgid ""
+"2to3's basic arguments are a list of files or directories to transform.  The "
+"directories are to recursively traversed for Python sources."
+msgstr ""
+
+#: ../../../library/2to3.rst:26
+msgid "Here is a sample Python 2.x source file, :file:`example.py`::"
+msgstr ""
+
+#: ../../../library/2to3.rst:28
+msgid ""
+"def greet(name):\n"
+"    print \"Hello, {0}!\".format(name)\n"
+"print \"What's your name?\"\n"
+"name = raw_input()\n"
+"greet(name)"
+msgstr ""
+
+#: ../../../library/2to3.rst:34
+msgid "It can be converted to Python 3.x code via 2to3 on the command line::"
+msgstr ""
+
+#: ../../../library/2to3.rst:36
+msgid "$ 2to3 example.py"
+msgstr ""
+
+#: ../../../library/2to3.rst:38
+msgid ""
+"A diff against the original source file is printed.  2to3 can also write the "
+"needed modifications right back to the source file.  (Of course, a backup of "
+"the original is also be made unless :option:`-n` is also given.)  Writing "
+"the changes back is enabled with the :option:`-w` flag::"
+msgstr ""
+
+#: ../../../library/2to3.rst:43
+msgid "$ 2to3 -w example.py"
+msgstr ""
+
+#: ../../../library/2to3.rst:45
+msgid "After transformation, :file:`example.py` looks like this::"
+msgstr ""
+
+#: ../../../library/2to3.rst:47
+msgid ""
+"def greet(name):\n"
+"    print(\"Hello, {0}!\".format(name))\n"
+"print(\"What's your name?\")\n"
+"name = input()\n"
+"greet(name)"
+msgstr ""
+
+#: ../../../library/2to3.rst:53
+msgid ""
+"Comments and exact indentation are preserved throughout the translation "
+"process."
+msgstr ""
+
+#: ../../../library/2to3.rst:55
+msgid ""
+"By default, 2to3 runs a set of predefined fixers.  The :option:`-l` flag "
+"lists all available fixers.  An explicit set of fixers to run can be given "
+"with :option:`-f`.  Likewise the :option:`-x` explicitly disables a fixer.  "
+"The following example runs only the ``imports`` and ``has_key`` fixers::"
+msgstr ""
+
+#: ../../../library/2to3.rst:60
+msgid "$ 2to3 -f imports -f has_key example.py"
+msgstr ""
+
+#: ../../../library/2to3.rst:62
+msgid "This command runs every fixer except the ``apply`` fixer::"
+msgstr ""
+
+#: ../../../library/2to3.rst:64
+msgid "$ 2to3 -x apply example.py"
+msgstr ""
+
+#: ../../../library/2to3.rst:66
+msgid ""
+"Some fixers are *explicit*, meaning they aren't run by default and must be "
+"listed on the command line to be run.  Here, in addition to the default "
+"fixers, the ``idioms`` fixer is run::"
+msgstr ""
+
+#: ../../../library/2to3.rst:70
+msgid "$ 2to3 -f all -f idioms example.py"
+msgstr ""
+
+#: ../../../library/2to3.rst:72
+msgid "Notice how passing ``all`` enables all default fixers."
+msgstr ""
+
+#: ../../../library/2to3.rst:74
+msgid ""
+"Sometimes 2to3 will find a place in your source code that needs to be "
+"changed, but 2to3 cannot fix automatically.  In this case, 2to3 will print a "
+"warning beneath the diff for a file.  You should address the warning in "
+"order to have compliant 3.x code."
+msgstr ""
+
+#: ../../../library/2to3.rst:79
+msgid ""
+"2to3 can also refactor doctests.  To enable this mode, use the :option:`-d` "
+"flag.  Note that *only* doctests will be refactored.  This also doesn't "
+"require the module to be valid Python.  For example, doctest like examples "
+"in a reST document could also be refactored with this option."
+msgstr ""
+
+#: ../../../library/2to3.rst:84
+msgid ""
+"The :option:`-v` option enables output of more information on the "
+"translation process."
+msgstr ""
+
+#: ../../../library/2to3.rst:87
+msgid ""
+"When the :option:`-p` is passed, 2to3 treats ``print`` as a function instead "
+"of a statement.  This is useful when ``from __future__ import "
+"print_function`` is being used.  If this option is not given, the print "
+"fixer will surround print calls in an extra set of parentheses because it "
+"cannot differentiate between the print statement with parentheses (such as "
+"``print (\"a\" + \"b\" + \"c\")``) and a true function call."
+msgstr ""
+
+#: ../../../library/2to3.rst:96
+msgid ":mod:`lib2to3` - 2to3's library"
+msgstr ""
+
+#: ../../../library/2to3.rst:106
+msgid ""
+"The :mod:`lib2to3` API should be considered unstable and may change "
+"drastically in the future."
+msgstr ""
