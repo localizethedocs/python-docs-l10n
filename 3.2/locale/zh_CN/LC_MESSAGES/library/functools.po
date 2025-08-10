@@ -1,0 +1,342 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/functools.rst:2
+msgid ""
+":mod:`functools` --- Higher-order functions and operations on callable "
+"objects"
+msgstr ""
+
+#: ../../../library/functools.rst:11
+msgid "**Source code:** :source:`Lib/functools.py`"
+msgstr ""
+
+#: ../../../library/functools.rst:15
+msgid ""
+"The :mod:`functools` module is for higher-order functions: functions that "
+"act on or return other functions. In general, any callable object can be "
+"treated as a function for the purposes of this module."
+msgstr ""
+
+#: ../../../library/functools.rst:19
+msgid "The :mod:`functools` module defines the following functions:"
+msgstr ""
+
+#: ../../../library/functools.rst:23
+msgid ""
+"Transform an old-style comparison function to a key function.  Used with "
+"tools that accept key functions (such as :func:`sorted`, :func:`min`, :func:"
+"`max`, :func:`heapq.nlargest`, :func:`heapq.nsmallest`, :func:`itertools."
+"groupby`).  This function is primarily used as a transition tool for "
+"programs being converted from Python 2 which supported the use of comparison "
+"functions."
+msgstr ""
+
+#: ../../../library/functools.rst:30
+msgid ""
+"A comparison function is any callable that accept two arguments, compares "
+"them, and returns a negative number for less-than, zero for equality, or a "
+"positive number for greater-than.  A key function is a callable that accepts "
+"one argument and returns another value indicating the position in the "
+"desired collation sequence."
+msgstr ""
+
+#: ../../../library/functools.rst:36
+msgid "Example::"
+msgstr ""
+
+#: ../../../library/functools.rst:38
+msgid ""
+"sorted(iterable, key=cmp_to_key(locale.strcoll))  # locale-aware sort order"
+msgstr ""
+
+#: ../../../library/functools.rst:45
+msgid ""
+"Decorator to wrap a function with a memoizing callable that saves up to the "
+"*maxsize* most recent calls.  It can save time when an expensive or I/O "
+"bound function is periodically called with the same arguments."
+msgstr ""
+
+#: ../../../library/functools.rst:49
+msgid ""
+"Since a dictionary is used to cache results, the positional and keyword "
+"arguments to the function must be hashable."
+msgstr ""
+
+#: ../../../library/functools.rst:52
+msgid ""
+"If *maxsize* is set to None, the LRU feature is disabled and the cache can "
+"grow without bound."
+msgstr ""
+
+#: ../../../library/functools.rst:55
+msgid ""
+"To help measure the effectiveness of the cache and tune the *maxsize* "
+"parameter, the wrapped function is instrumented with a :func:`cache_info` "
+"function that returns a :term:`named tuple` showing *hits*, *misses*, "
+"*maxsize* and *currsize*.  In a multi-threaded environment, the hits and "
+"misses are approximate."
+msgstr ""
+
+#: ../../../library/functools.rst:61
+msgid ""
+"The decorator also provides a :func:`cache_clear` function for clearing or "
+"invalidating the cache."
+msgstr ""
+
+#: ../../../library/functools.rst:64
+msgid ""
+"The original underlying function is accessible through the :attr:"
+"`__wrapped__` attribute.  This is useful for introspection, for bypassing "
+"the cache, or for rewrapping the function with a different cache."
+msgstr ""
+
+#: ../../../library/functools.rst:68
+msgid ""
+"An `LRU (least recently used) cache <http://en.wikipedia.org/wiki/"
+"Cache_algorithms#Least_Recently_Used>`_ works best when more recent calls "
+"are the best predictors of upcoming calls (for example, the most popular "
+"articles on a news server tend to change daily). The cache's size limit "
+"assures that the cache does not grow without bound on long-running processes "
+"such as web servers."
+msgstr ""
+
+#: ../../../library/functools.rst:75
+msgid "Example of an LRU cache for static web content::"
+msgstr ""
+
+#: ../../../library/functools.rst:77
+msgid ""
+"@lru_cache(maxsize=20)\n"
+"def get_pep(num):\n"
+"    'Retrieve text of a Python Enhancement Proposal'\n"
+"    resource = 'http://www.python.org/dev/peps/pep-%04d/' % num\n"
+"    try:\n"
+"        with urllib.request.urlopen(resource) as s:\n"
+"            return s.read()\n"
+"    except urllib.error.HTTPError:\n"
+"        return 'Not Found'\n"
+"\n"
+">>> for n in 8, 290, 308, 320, 8, 218, 320, 279, 289, 320, 9991:\n"
+"...     pep = get_pep(n)\n"
+"...     print(n, len(pep))\n"
+"\n"
+">>> print(get_pep.cache_info())\n"
+"CacheInfo(hits=3, misses=8, maxsize=20, currsize=8)"
+msgstr ""
+
+#: ../../../library/functools.rst:94
+msgid ""
+"Example of efficiently computing `Fibonacci numbers <http://en.wikipedia.org/"
+"wiki/Fibonacci_number>`_ using a cache to implement a `dynamic programming "
+"<http://en.wikipedia.org/wiki/Dynamic_programming>`_ technique::"
+msgstr ""
+
+#: ../../../library/functools.rst:100
+msgid ""
+"@lru_cache(maxsize=None)\n"
+"def fib(n):\n"
+"    if n < 2:\n"
+"        return n\n"
+"    return fib(n-1) + fib(n-2)\n"
+"\n"
+">>> print([fib(n) for n in range(16)])\n"
+"[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610]\n"
+"\n"
+">>> print(fib.cache_info())\n"
+"CacheInfo(hits=28, misses=16, maxsize=None, currsize=16)"
+msgstr ""
+
+#: ../../../library/functools.rst:116
+msgid ""
+"Given a class defining one or more rich comparison ordering methods, this "
+"class decorator supplies the rest.  This simplifies the effort involved in "
+"specifying all of the possible rich comparison operations:"
+msgstr ""
+
+#: ../../../library/functools.rst:120
+msgid ""
+"The class must define one of :meth:`__lt__`, :meth:`__le__`, :meth:`__gt__`, "
+"or :meth:`__ge__`. In addition, the class should supply an :meth:`__eq__` "
+"method."
+msgstr ""
+
+#: ../../../library/functools.rst:124
+msgid "For example::"
+msgstr ""
+
+#: ../../../library/functools.rst:126
+msgid ""
+"@total_ordering\n"
+"class Student:\n"
+"    def __eq__(self, other):\n"
+"        return ((self.lastname.lower(), self.firstname.lower()) ==\n"
+"                (other.lastname.lower(), other.firstname.lower()))\n"
+"    def __lt__(self, other):\n"
+"        return ((self.lastname.lower(), self.firstname.lower()) <\n"
+"                (other.lastname.lower(), other.firstname.lower()))"
+msgstr ""
+
+#: ../../../library/functools.rst:140
+msgid ""
+"Return a new :class:`partial` object which when called will behave like "
+"*func* called with the positional arguments *args* and keyword arguments "
+"*keywords*. If more arguments are supplied to the call, they are appended to "
+"*args*. If additional keyword arguments are supplied, they extend and "
+"override *keywords*. Roughly equivalent to::"
+msgstr ""
+
+#: ../../../library/functools.rst:146
+msgid ""
+"def partial(func, *args, **keywords):\n"
+"    def newfunc(*fargs, **fkeywords):\n"
+"        newkeywords = keywords.copy()\n"
+"        newkeywords.update(fkeywords)\n"
+"        return func(*(args + fargs), **newkeywords)\n"
+"    newfunc.func = func\n"
+"    newfunc.args = args\n"
+"    newfunc.keywords = keywords\n"
+"    return newfunc"
+msgstr ""
+
+#: ../../../library/functools.rst:156
+msgid ""
+"The :func:`partial` is used for partial function application which "
+"\"freezes\" some portion of a function's arguments and/or keywords resulting "
+"in a new object with a simplified signature.  For example, :func:`partial` "
+"can be used to create a callable that behaves like the :func:`int` function "
+"where the *base* argument defaults to two:"
+msgstr ""
+
+#: ../../../library/functools.rst:171
+msgid ""
+"Apply *function* of two arguments cumulatively to the items of *sequence*, "
+"from left to right, so as to reduce the sequence to a single value.  For "
+"example, ``reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])`` calculates "
+"``((((1+2)+3)+4)+5)``. The left argument, *x*, is the accumulated value and "
+"the right argument, *y*, is the update value from the *sequence*.  If the "
+"optional *initializer* is present, it is placed before the items of the "
+"sequence in the calculation, and serves as a default when the sequence is "
+"empty.  If *initializer* is not given and *sequence* contains only one item, "
+"the first item is returned."
+msgstr ""
+
+#: ../../../library/functools.rst:183
+msgid ""
+"Update a *wrapper* function to look like the *wrapped* function. The "
+"optional arguments are tuples to specify which attributes of the original "
+"function are assigned directly to the matching attributes on the wrapper "
+"function and which attributes of the wrapper function are updated with the "
+"corresponding attributes from the original function. The default values for "
+"these arguments are the module level constants *WRAPPER_ASSIGNMENTS* (which "
+"assigns to the wrapper function's *__name__*, *__module__*, "
+"*__annotations__* and *__doc__*, the documentation string) and "
+"*WRAPPER_UPDATES* (which updates the wrapper function's *__dict__*, i.e. the "
+"instance dictionary)."
+msgstr ""
+
+#: ../../../library/functools.rst:193
+msgid ""
+"To allow access to the original function for introspection and other "
+"purposes (e.g. bypassing a caching decorator such as :func:`lru_cache`), "
+"this function automatically adds a __wrapped__ attribute to the wrapper that "
+"refers to the original function."
+msgstr ""
+
+#: ../../../library/functools.rst:198
+msgid ""
+"The main intended use for this function is in :term:`decorator` functions "
+"which wrap the decorated function and return the wrapper. If the wrapper "
+"function is not updated, the metadata of the returned function will reflect "
+"the wrapper definition rather than the original function definition, which "
+"is typically less than helpful."
+msgstr ""
+
+#: ../../../library/functools.rst:204
+msgid ""
+":func:`update_wrapper` may be used with callables other than functions. Any "
+"attributes named in *assigned* or *updated* that are missing from the object "
+"being wrapped are ignored (i.e. this function will not attempt to set them "
+"on the wrapper function). :exc:`AttributeError` is still raised if the "
+"wrapper function itself is missing any attributes named in *updated*."
+msgstr ""
+
+#: ../../../library/functools.rst:210
+msgid "Automatic addition of the ``__wrapped__`` attribute."
+msgstr ""
+
+#: ../../../library/functools.rst:213
+msgid "Copying of the ``__annotations__`` attribute by default."
+msgstr ""
+
+#: ../../../library/functools.rst:216
+msgid "Missing attributes no longer trigger an :exc:`AttributeError`."
+msgstr ""
+
+#: ../../../library/functools.rst:222
+msgid ""
+"This is a convenience function for invoking ``partial(update_wrapper, "
+"wrapped=wrapped, assigned=assigned, updated=updated)`` as a function "
+"decorator when defining a wrapper function. For example:"
+msgstr ""
+
+#: ../../../library/functools.rst:247
+msgid ""
+"Without the use of this decorator factory, the name of the example function "
+"would have been ``'wrapper'``, and the docstring of the original :func:"
+"`example` would have been lost."
+msgstr ""
+
+#: ../../../library/functools.rst:255
+msgid ":class:`partial` Objects"
+msgstr ""
+
+#: ../../../library/functools.rst:257
+msgid ""
+":class:`partial` objects are callable objects created by :func:`partial`. "
+"They have three read-only attributes:"
+msgstr ""
+
+#: ../../../library/functools.rst:263
+msgid ""
+"A callable object or function.  Calls to the :class:`partial` object will be "
+"forwarded to :attr:`func` with new arguments and keywords."
+msgstr ""
+
+#: ../../../library/functools.rst:269
+msgid ""
+"The leftmost positional arguments that will be prepended to the positional "
+"arguments provided to a :class:`partial` object call."
+msgstr ""
+
+#: ../../../library/functools.rst:275
+msgid ""
+"The keyword arguments that will be supplied when the :class:`partial` object "
+"is called."
+msgstr ""
+
+#: ../../../library/functools.rst:278
+msgid ""
+":class:`partial` objects are like :class:`function` objects in that they are "
+"callable, weak referencable, and can have attributes.  There are some "
+"important differences.  For instance, the :attr:`__name__` and :attr:"
+"`__doc__` attributes are not created automatically.  Also, :class:`partial` "
+"objects defined in classes behave like static methods and do not transform "
+"into bound methods during instance attribute look-up."
+msgstr ""

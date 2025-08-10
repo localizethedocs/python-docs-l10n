@@ -1,0 +1,2605 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/os.rst:2
+msgid ":mod:`os` --- Miscellaneous operating system interfaces"
+msgstr ""
+
+#: ../../../library/os.rst:8
+msgid ""
+"This module provides a portable way of using operating system dependent "
+"functionality.  If you just want to read or write a file see :func:`open`, "
+"if you want to manipulate paths, see the :mod:`os.path` module, and if you "
+"want to read all the lines in all the files on the command line see the :mod:"
+"`fileinput` module.  For creating temporary files and directories see the :"
+"mod:`tempfile` module, and for high-level file and directory handling see "
+"the :mod:`shutil` module."
+msgstr ""
+
+#: ../../../library/os.rst:16
+msgid "Notes on the availability of these functions:"
+msgstr ""
+
+#: ../../../library/os.rst:18
+msgid ""
+"The design of all built-in operating system dependent modules of Python is "
+"such that as long as the same functionality is available, it uses the same "
+"interface; for example, the function ``os.stat(path)`` returns stat "
+"information about *path* in the same format (which happens to have "
+"originated with the POSIX interface)."
+msgstr ""
+
+#: ../../../library/os.rst:24
+msgid ""
+"Extensions peculiar to a particular operating system are also available "
+"through the :mod:`os` module, but using them is of course a threat to "
+"portability."
+msgstr ""
+
+#: ../../../library/os.rst:28
+msgid ""
+"All functions accepting path or file names accept both bytes and string "
+"objects, and result in an object of the same type, if a path or file name is "
+"returned."
+msgstr ""
+
+#: ../../../library/os.rst:32
+msgid ""
+"An \"Availability: Unix\" note means that this function is commonly found on "
+"Unix systems.  It does not make any claims about its existence on a specific "
+"operating system."
+msgstr ""
+
+#: ../../../library/os.rst:36
+msgid ""
+"If not separately noted, all functions that claim \"Availability: Unix\" are "
+"supported on Mac OS X, which builds on a Unix core."
+msgstr ""
+
+#: ../../../library/os.rst:44
+msgid ""
+"All functions in this module raise :exc:`OSError` in the case of invalid or "
+"inaccessible file names and paths, or other arguments that have the correct "
+"type, but are not accepted by the operating system."
+msgstr ""
+
+#: ../../../library/os.rst:50
+msgid "An alias for the built-in :exc:`OSError` exception."
+msgstr ""
+
+#: ../../../library/os.rst:55
+msgid ""
+"The name of the operating system dependent module imported.  The following "
+"names have currently been registered: ``'posix'``, ``'nt'``, ``'mac'``, "
+"``'os2'``, ``'ce'``, ``'java'``."
+msgstr ""
+
+#: ../../../library/os.rst:60
+msgid ""
+":attr:`sys.platform` has a finer granularity.  :func:`os.uname` gives system-"
+"dependent version information."
+msgstr ""
+
+#: ../../../library/os.rst:63
+msgid ""
+"The :mod:`platform` module provides detailed checks for the system's "
+"identity."
+msgstr ""
+
+#: ../../../library/os.rst:70
+msgid "File Names, Command Line Arguments, and Environment Variables"
+msgstr ""
+
+#: ../../../library/os.rst:72
+msgid ""
+"In Python, file names, command line arguments, and environment variables are "
+"represented using the string type. On some systems, decoding these strings "
+"to and from bytes is necessary before passing them to the operating system. "
+"Python uses the file system encoding to perform this conversion (see :func:"
+"`sys.getfilesystemencoding`)."
+msgstr ""
+
+#: ../../../library/os.rst:78
+msgid ""
+"On some systems, conversion using the file system encoding may fail. In this "
+"case, Python uses the ``surrogateescape`` encoding error handler, which "
+"means that undecodable bytes are replaced by a Unicode character U+DCxx on "
+"decoding, and these are again translated to the original byte on encoding."
+msgstr ""
+
+#: ../../../library/os.rst:85
+msgid ""
+"The file system encoding must guarantee to successfully decode all bytes "
+"below 128. If the file system encoding fails to provide this guarantee, API "
+"functions may raise UnicodeErrors."
+msgstr ""
+
+#: ../../../library/os.rst:93
+msgid "Process Parameters"
+msgstr ""
+
+#: ../../../library/os.rst:95
+msgid ""
+"These functions and data items provide information and operate on the "
+"current process and user."
+msgstr ""
+
+#: ../../../library/os.rst:101
+msgid ""
+"A :term:`mapping` object representing the string environment. For example, "
+"``environ['HOME']`` is the pathname of your home directory (on some "
+"platforms), and is equivalent to ``getenv(\"HOME\")`` in C."
+msgstr ""
+
+#: ../../../library/os.rst:105
+msgid ""
+"This mapping is captured the first time the :mod:`os` module is imported, "
+"typically during Python startup as part of processing :file:`site.py`.  "
+"Changes to the environment made after this time are not reflected in ``os."
+"environ``, except for changes made by modifying ``os.environ`` directly."
+msgstr ""
+
+#: ../../../library/os.rst:110
+msgid ""
+"If the platform supports the :func:`putenv` function, this mapping may be "
+"used to modify the environment as well as query the environment.  :func:"
+"`putenv` will be called automatically when the mapping is modified."
+msgstr ""
+
+#: ../../../library/os.rst:114
+msgid ""
+"On Unix, keys and values use :func:`sys.getfilesystemencoding` and "
+"``'surrogateescape'`` error handler. Use :data:`environb` if you would like "
+"to use a different encoding."
+msgstr ""
+
+#: ../../../library/os.rst:120
+msgid ""
+"Calling :func:`putenv` directly does not change ``os.environ``, so it's "
+"better to modify ``os.environ``."
+msgstr ""
+
+#: ../../../library/os.rst:125
+msgid ""
+"On some platforms, including FreeBSD and Mac OS X, setting ``environ`` may "
+"cause memory leaks.  Refer to the system documentation for :c:func:`putenv`."
+msgstr ""
+
+#: ../../../library/os.rst:129
+msgid ""
+"If :func:`putenv` is not provided, a modified copy of this mapping  may be "
+"passed to the appropriate process-creation functions to cause  child "
+"processes to use a modified environment."
+msgstr ""
+
+#: ../../../library/os.rst:133
+msgid ""
+"If the platform supports the :func:`unsetenv` function, you can delete items "
+"in this mapping to unset environment variables. :func:`unsetenv` will be "
+"called automatically when an item is deleted from ``os.environ``, and when "
+"one of the :meth:`pop` or :meth:`clear` methods is called."
+msgstr ""
+
+#: ../../../library/os.rst:141
+msgid ""
+"Bytes version of :data:`environ`: a :term:`mapping` object representing the "
+"environment as byte strings. :data:`environ` and :data:`environb` are "
+"synchronized (modify :data:`environb` updates :data:`environ`, and vice "
+"versa)."
+msgstr ""
+
+#: ../../../library/os.rst:146
+msgid ""
+":data:`environb` is only available if :data:`supports_bytes_environ` is True."
+msgstr ""
+
+#: ../../../library/os.rst:157
+msgid "These functions are described in :ref:`os-file-dir`."
+msgstr ""
+
+#: ../../../library/os.rst:162
+msgid ""
+"Encode *filename* to the filesystem encoding with ``'surrogateescape'`` "
+"error handler, or ``'strict'`` on Windows; return :class:`bytes` unchanged."
+msgstr ""
+
+#: ../../../library/os.rst:165
+msgid ":func:`fsdecode` is the reverse function."
+msgstr ""
+
+#: ../../../library/os.rst:172
+msgid ""
+"Decode *filename* from the filesystem encoding with ``'surrogateescape'`` "
+"error handler, or ``'strict'`` on Windows; return :class:`str` unchanged."
+msgstr ""
+
+#: ../../../library/os.rst:175
+msgid ":func:`fsencode` is the reverse function."
+msgstr ""
+
+#: ../../../library/os.rst:182
+msgid ""
+"Returns the list of directories that will be searched for a named "
+"executable, similar to a shell, when launching a process. *env*, when "
+"specified, should be an environment variable dictionary to lookup the PATH "
+"in. By default, when *env* is None, :data:`environ` is used."
+msgstr ""
+
+#: ../../../library/os.rst:193
+msgid ""
+"Return the filename corresponding to the controlling terminal of the process."
+msgstr ""
+
+#: ../../../library/os.rst:195 ../../../library/os.rst:203
+#: ../../../library/os.rst:212 ../../../library/os.rst:221
+#: ../../../library/os.rst:228 ../../../library/os.rst:251
+#: ../../../library/os.rst:272 ../../../library/os.rst:280
+#: ../../../library/os.rst:310 ../../../library/os.rst:320
+#: ../../../library/os.rst:331 ../../../library/os.rst:381
+#: ../../../library/os.rst:388 ../../../library/os.rst:395
+#: ../../../library/os.rst:404 ../../../library/os.rst:416
+#: ../../../library/os.rst:425 ../../../library/os.rst:432
+#: ../../../library/os.rst:439 ../../../library/os.rst:448
+#: ../../../library/os.rst:457 ../../../library/os.rst:464
+#: ../../../library/os.rst:471 ../../../library/os.rst:480
+#: ../../../library/os.rst:628 ../../../library/os.rst:636
+#: ../../../library/os.rst:644 ../../../library/os.rst:665
+#: ../../../library/os.rst:680 ../../../library/os.rst:700
+#: ../../../library/os.rst:708 ../../../library/os.rst:793
+#: ../../../library/os.rst:801 ../../../library/os.rst:810
+#: ../../../library/os.rst:975 ../../../library/os.rst:1010
+#: ../../../library/os.rst:1060 ../../../library/os.rst:1068
+#: ../../../library/os.rst:1077 ../../../library/os.rst:1085
+#: ../../../library/os.rst:1135 ../../../library/os.rst:1227
+#: ../../../library/os.rst:1435 ../../../library/os.rst:1682
+#: ../../../library/os.rst:1690 ../../../library/os.rst:1697
+#: ../../../library/os.rst:1704 ../../../library/os.rst:1711
+#: ../../../library/os.rst:1718 ../../../library/os.rst:1725
+#: ../../../library/os.rst:1732 ../../../library/os.rst:1740
+#: ../../../library/os.rst:1748 ../../../library/os.rst:1755
+#: ../../../library/os.rst:1762 ../../../library/os.rst:1771
+#: ../../../library/os.rst:1779 ../../../library/os.rst:1787
+#: ../../../library/os.rst:1794 ../../../library/os.rst:1801
+#: ../../../library/os.rst:1816 ../../../library/os.rst:1859
+#: ../../../library/os.rst:1866 ../../../library/os.rst:1874
+#: ../../../library/os.rst:2055 ../../../library/os.rst:2094
+#: ../../../library/os.rst:2105 ../../../library/os.rst:2113
+#: ../../../library/os.rst:2129 ../../../library/os.rst:2141
+#: ../../../library/os.rst:2149 ../../../library/os.rst:2157
+#: ../../../library/os.rst:2165 ../../../library/os.rst:2173
+#: ../../../library/os.rst:2181 ../../../library/os.rst:2188
+#: ../../../library/os.rst:2195 ../../../library/os.rst:2231
+#: ../../../library/os.rst:2240 ../../../library/os.rst:2250
+#: ../../../library/os.rst:2259
+msgid "Availability: Unix."
+msgstr ""
+
+#: ../../../library/os.rst:200
+msgid ""
+"Return the effective group id of the current process.  This corresponds to "
+"the \"set id\" bit on the file being executed in the current process."
+msgstr ""
+
+#: ../../../library/os.rst:210
+msgid "Return the current process's effective user id."
+msgstr ""
+
+#: ../../../library/os.rst:219
+msgid "Return the real group id of the current process."
+msgstr ""
+
+#: ../../../library/os.rst:226
+msgid ""
+"Return list of supplemental group ids associated with the current process."
+msgstr ""
+
+#: ../../../library/os.rst:230
+msgid ""
+"On Mac OS X, :func:`getgroups` behavior differs somewhat from other Unix "
+"platforms. If the Python interpreter was built with a deployment target of :"
+"const:`10.5` or earlier, :func:`getgroups` returns the list of effective "
+"group ids associated with the current user process; this list is limited to "
+"a system-defined number of entries, typically 16, and may be modified by "
+"calls to :func:`setgroups` if suitably privileged. If built with a "
+"deployment target greater than :const:`10.5`, :func:`getgroups` returns the "
+"current group access list for the user associated with the effective user id "
+"of the process; the group access list may change over the lifetime of the "
+"process, it is not affected by calls to :func:`setgroups`, and its length is "
+"not limited to 16.  The deployment target value, :const:"
+"`MACOSX_DEPLOYMENT_TARGET`, can be obtained with :func:`sysconfig."
+"get_config_var`."
+msgstr ""
+
+#: ../../../library/os.rst:247
+msgid ""
+"Call the system initgroups() to initialize the group access list with all of "
+"the groups of which the specified username is a member, plus the specified "
+"group id."
+msgstr ""
+
+#: ../../../library/os.rst:258
+msgid ""
+"Return the name of the user logged in on the controlling terminal of the "
+"process.  For most purposes, it is more useful to use the environment "
+"variables :envvar:`LOGNAME` or :envvar:`USERNAME` to find out who the user "
+"is, or ``pwd.getpwuid(os.getuid())[0]`` to get the login name of the "
+"currently effective user id."
+msgstr ""
+
+#: ../../../library/os.rst:264 ../../../library/os.rst:289
+#: ../../../library/os.rst:490 ../../../library/os.rst:505
+#: ../../../library/os.rst:579 ../../../library/os.rst:600
+#: ../../../library/os.rst:613 ../../../library/os.rst:620
+#: ../../../library/os.rst:672 ../../../library/os.rst:719
+#: ../../../library/os.rst:742 ../../../library/os.rst:768
+#: ../../../library/os.rst:777 ../../../library/os.rst:818
+#: ../../../library/os.rst:901 ../../../library/os.rst:966
+#: ../../../library/os.rst:982 ../../../library/os.rst:989
+#: ../../../library/os.rst:1045 ../../../library/os.rst:1092
+#: ../../../library/os.rst:1107 ../../../library/os.rst:1176
+#: ../../../library/os.rst:1264 ../../../library/os.rst:1292
+#: ../../../library/os.rst:1314 ../../../library/os.rst:1390
+#: ../../../library/os.rst:1465 ../../../library/os.rst:1477
+#: ../../../library/os.rst:1493 ../../../library/os.rst:1603
+#: ../../../library/os.rst:1652 ../../../library/os.rst:1660
+#: ../../../library/os.rst:1957 ../../../library/os.rst:1968
+#: ../../../library/os.rst:2032
+msgid "Availability: Unix, Windows."
+msgstr ""
+
+#: ../../../library/os.rst:269
+msgid ""
+"Return the process group id of the process with process id *pid*. If *pid* "
+"is 0, the process group id of the current process is returned."
+msgstr ""
+
+#: ../../../library/os.rst:278
+msgid "Return the id of the current process group."
+msgstr ""
+
+#: ../../../library/os.rst:287
+msgid "Return the current process id."
+msgstr ""
+
+#: ../../../library/os.rst:296
+msgid ""
+"Return the parent's process id.  When the parent process has exited, on Unix "
+"the id returned is the one of the init process (1), on Windows it is still "
+"the same id, which may be already reused by another process."
+msgstr ""
+
+#: ../../../library/os.rst:300 ../../../library/os.rst:1249
+#: ../../../library/os.rst:2044
+msgid "Availability: Unix, Windows"
+msgstr ""
+
+#: ../../../library/os.rst:302
+msgid "Added support for Windows."
+msgstr ""
+
+#: ../../../library/os.rst:307
+msgid ""
+"Return a tuple (ruid, euid, suid) denoting the current process's real, "
+"effective, and saved user ids."
+msgstr ""
+
+#: ../../../library/os.rst:317
+msgid ""
+"Return a tuple (rgid, egid, sgid) denoting the current process's real, "
+"effective, and saved group ids."
+msgstr ""
+
+#: ../../../library/os.rst:329
+msgid "Return the current process's user id."
+msgstr ""
+
+#: ../../../library/os.rst:336
+msgid ""
+"Return the value of the environment variable *key* if it exists, or "
+"*default* if it doesn't. *key*, *default* and the result are str."
+msgstr ""
+
+#: ../../../library/os.rst:339
+msgid ""
+"On Unix, keys and values are decoded with :func:`sys.getfilesystemencoding` "
+"and ``'surrogateescape'`` error handler. Use :func:`os.getenvb` if you would "
+"like to use a different encoding."
+msgstr ""
+
+#: ../../../library/os.rst:343 ../../../library/os.rst:364
+#: ../../../library/os.rst:537
+msgid "Availability: most flavors of Unix, Windows."
+msgstr ""
+
+#: ../../../library/os.rst:348
+msgid ""
+"Return the value of the environment variable *key* if it exists, or "
+"*default* if it doesn't. *key*, *default* and the result are bytes."
+msgstr ""
+
+#: ../../../library/os.rst:351
+msgid "Availability: most flavors of Unix."
+msgstr ""
+
+#: ../../../library/os.rst:360
+msgid ""
+"Set the environment variable named *key* to the string *value*.  Such "
+"changes to the environment affect subprocesses started with :func:`os."
+"system`, :func:`popen` or :func:`fork` and :func:`execv`."
+msgstr ""
+
+#: ../../../library/os.rst:368
+msgid ""
+"On some platforms, including FreeBSD and Mac OS X, setting ``environ`` may "
+"cause memory leaks. Refer to the system documentation for putenv."
+msgstr ""
+
+#: ../../../library/os.rst:371
+msgid ""
+"When :func:`putenv` is supported, assignments to items in ``os.environ`` are "
+"automatically translated into corresponding calls to :func:`putenv`; "
+"however, calls to :func:`putenv` don't update ``os.environ``, so it is "
+"actually preferable to assign to items of ``os.environ``."
+msgstr ""
+
+#: ../../../library/os.rst:379
+msgid "Set the current process's effective group id."
+msgstr ""
+
+#: ../../../library/os.rst:386
+msgid "Set the current process's effective user id."
+msgstr ""
+
+#: ../../../library/os.rst:393
+msgid "Set the current process' group id."
+msgstr ""
+
+#: ../../../library/os.rst:400
+msgid ""
+"Set the list of supplemental group ids associated with the current process "
+"to *groups*. *groups* must be a sequence, and each element must be an "
+"integer identifying a group. This operation is typically available only to "
+"the superuser."
+msgstr ""
+
+#: ../../../library/os.rst:406
+msgid ""
+"On Mac OS X, the length of *groups* may not exceed the system-defined "
+"maximum number of effective group ids, typically 16. See the documentation "
+"for :func:`getgroups` for cases where it may not return the same group list "
+"set by calling setgroups()."
+msgstr ""
+
+#: ../../../library/os.rst:413
+msgid ""
+"Call the system call :c:func:`setpgrp` or :c:func:`setpgrp(0, 0)` depending "
+"on which version is implemented (if any).  See the Unix manual for the "
+"semantics."
+msgstr ""
+
+#: ../../../library/os.rst:421
+msgid ""
+"Call the system call :c:func:`setpgid` to set the process group id of the "
+"process with id *pid* to the process group with id *pgrp*.  See the Unix "
+"manual for the semantics."
+msgstr ""
+
+#: ../../../library/os.rst:430
+msgid "Set the current process's real and effective group ids."
+msgstr ""
+
+#: ../../../library/os.rst:437
+msgid "Set the current process's real, effective, and saved group ids."
+msgstr ""
+
+#: ../../../library/os.rst:446
+msgid "Set the current process's real, effective, and saved user ids."
+msgstr ""
+
+#: ../../../library/os.rst:455
+msgid "Set the current process's real and effective user ids."
+msgstr ""
+
+#: ../../../library/os.rst:462
+msgid ""
+"Call the system call :c:func:`getsid`.  See the Unix manual for the "
+"semantics."
+msgstr ""
+
+#: ../../../library/os.rst:469
+msgid ""
+"Call the system call :c:func:`setsid`.  See the Unix manual for the "
+"semantics."
+msgstr ""
+
+#: ../../../library/os.rst:478
+msgid "Set the current process's user id."
+msgstr ""
+
+#: ../../../library/os.rst:486
+msgid ""
+"Return the error message corresponding to the error code in *code*. On "
+"platforms where :c:func:`strerror` returns ``NULL`` when given an unknown "
+"error number, :exc:`ValueError` is raised."
+msgstr ""
+
+#: ../../../library/os.rst:495
+msgid ""
+"True if the native OS type of the environment is bytes (eg. False on "
+"Windows)."
+msgstr ""
+
+#: ../../../library/os.rst:503
+msgid "Set the current numeric umask and return the previous umask."
+msgstr ""
+
+#: ../../../library/os.rst:514
+msgid ""
+"Return a 5-tuple containing information identifying the current operating "
+"system.  The tuple contains 5 strings: ``(sysname, nodename, release, "
+"version, machine)``.  Some systems truncate the nodename to 8 characters or "
+"to the leading component; a better way to get the hostname is :func:`socket."
+"gethostname`  or even ``socket.gethostbyaddr(socket.gethostname())``."
+msgstr ""
+
+#: ../../../library/os.rst:521
+msgid "Availability: recent flavors of Unix."
+msgstr ""
+
+#: ../../../library/os.rst:528
+msgid ""
+"Unset (delete) the environment variable named *key*. Such changes to the "
+"environment affect subprocesses started with :func:`os.system`, :func:"
+"`popen` or :func:`fork` and :func:`execv`."
+msgstr ""
+
+#: ../../../library/os.rst:532
+msgid ""
+"When :func:`unsetenv` is supported, deletion of items in ``os.environ`` is "
+"automatically translated into a corresponding call to :func:`unsetenv`; "
+"however, calls to :func:`unsetenv` don't update ``os.environ``, so it is "
+"actually preferable to delete items of ``os.environ``."
+msgstr ""
+
+#: ../../../library/os.rst:543
+msgid "File Object Creation"
+msgstr ""
+
+#: ../../../library/os.rst:545
+msgid ""
+"These functions create new :term:`file objects <file object>`. (See also :"
+"func:`open`.)"
+msgstr ""
+
+#: ../../../library/os.rst:550
+msgid ""
+"Return an open file object connected to the file descriptor *fd*. This is an "
+"alias of :func:`open` and accepts the same arguments. The only difference is "
+"that the first argument of :func:`fdopen` must always be an integer."
+msgstr ""
+
+#: ../../../library/os.rst:559
+msgid "File Descriptor Operations"
+msgstr ""
+
+#: ../../../library/os.rst:561
+msgid ""
+"These functions operate on I/O streams referenced using file descriptors."
+msgstr ""
+
+#: ../../../library/os.rst:563
+msgid ""
+"File descriptors are small integers corresponding to a file that has been "
+"opened by the current process.  For example, standard input is usually file "
+"descriptor 0, standard output is 1, and standard error is 2.  Further files "
+"opened by a process will then be assigned 3, 4, 5, and so forth.  The name "
+"\"file descriptor\" is slightly deceptive; on Unix platforms, sockets and "
+"pipes are also referenced by file descriptors."
+msgstr ""
+
+#: ../../../library/os.rst:570
+msgid ""
+"The :meth:`~file.fileno` method can be used to obtain the file descriptor "
+"associated with a :term:`file object` when required.  Note that using the "
+"file descriptor directly will bypass the file object methods, ignoring "
+"aspects such as internal buffering of data."
+msgstr ""
+
+#: ../../../library/os.rst:577
+msgid "Close file descriptor *fd*."
+msgstr ""
+
+#: ../../../library/os.rst:583
+msgid ""
+"This function is intended for low-level I/O and must be applied to a file "
+"descriptor as returned by :func:`os.open` or :func:`pipe`.  To close a "
+"\"file object\" returned by the built-in function :func:`open` or by :func:"
+"`popen` or :func:`fdopen`, use its :meth:`~file.close` method."
+msgstr ""
+
+#: ../../../library/os.rst:591
+msgid ""
+"Close all file descriptors from *fd_low* (inclusive) to *fd_high* "
+"(exclusive), ignoring errors. Equivalent to::"
+msgstr ""
+
+#: ../../../library/os.rst:594
+msgid ""
+"for fd in range(fd_low, fd_high):\n"
+"    try:\n"
+"        os.close(fd)\n"
+"    except OSError:\n"
+"        pass"
+msgstr ""
+
+#: ../../../library/os.rst:605
+msgid ""
+"Return a string describing the encoding of the device associated with *fd* "
+"if it is connected to a terminal; else return :const:`None`."
+msgstr ""
+
+#: ../../../library/os.rst:611
+msgid "Return a duplicate of file descriptor *fd*."
+msgstr ""
+
+#: ../../../library/os.rst:618
+msgid ""
+"Duplicate file descriptor *fd* to *fd2*, closing the latter first if "
+"necessary."
+msgstr ""
+
+#: ../../../library/os.rst:625
+msgid ""
+"Change the mode of the file given by *fd* to the numeric *mode*.  See the "
+"docs for :func:`chmod` for possible values of *mode*."
+msgstr ""
+
+#: ../../../library/os.rst:633
+msgid ""
+"Change the owner and group id of the file given by *fd* to the numeric *uid* "
+"and *gid*.  To leave one of the ids unchanged, set it to -1."
+msgstr ""
+
+#: ../../../library/os.rst:641
+msgid ""
+"Force write of file with filedescriptor *fd* to disk. Does not force update "
+"of metadata."
+msgstr ""
+
+#: ../../../library/os.rst:647
+msgid "This function is not available on MacOS."
+msgstr ""
+
+#: ../../../library/os.rst:652
+msgid ""
+"Return system configuration information relevant to an open file. *name* "
+"specifies the configuration value to retrieve; it may be a string which is "
+"the name of a defined system value; these names are specified in a number of "
+"standards (POSIX.1, Unix 95, Unix 98, and others).  Some platforms define "
+"additional names as well.  The names known to the host operating system are "
+"given in the ``pathconf_names`` dictionary.  For configuration variables not "
+"included in that mapping, passing an integer for *name* is also accepted."
+msgstr ""
+
+#: ../../../library/os.rst:660 ../../../library/os.rst:1222
+msgid ""
+"If *name* is a string and is not known, :exc:`ValueError` is raised.  If a "
+"specific value for *name* is not supported by the host system, even if it is "
+"included in ``pathconf_names``, an :exc:`OSError` is raised with :const:"
+"`errno.EINVAL` for the error number."
+msgstr ""
+
+#: ../../../library/os.rst:670
+msgid "Return status for file descriptor *fd*, like :func:`~os.stat`."
+msgstr ""
+
+#: ../../../library/os.rst:677
+msgid ""
+"Return information about the filesystem containing the file associated with "
+"file descriptor *fd*, like :func:`statvfs`."
+msgstr ""
+
+#: ../../../library/os.rst:685
+msgid ""
+"Force write of file with filedescriptor *fd* to disk.  On Unix, this calls "
+"the native :c:func:`fsync` function; on Windows, the MS :c:func:`_commit` "
+"function."
+msgstr ""
+
+#: ../../../library/os.rst:688
+msgid ""
+"If you're starting with a buffered Python :term:`file object` *f*, first do "
+"``f.flush()``, and then do ``os.fsync(f.fileno())``, to ensure that all "
+"internal buffers associated with *f* are written to disk."
+msgstr ""
+
+#: ../../../library/os.rst:692
+msgid "Availability: Unix, and Windows."
+msgstr ""
+
+#: ../../../library/os.rst:697
+msgid ""
+"Truncate the file corresponding to file descriptor *fd*, so that it is at "
+"most *length* bytes in size."
+msgstr ""
+
+#: ../../../library/os.rst:705
+msgid ""
+"Return ``True`` if the file descriptor *fd* is open and connected to a tty(-"
+"like) device, else ``False``."
+msgstr ""
+
+#: ../../../library/os.rst:713
+msgid ""
+"Set the current position of file descriptor *fd* to position *pos*, modified "
+"by *how*: :const:`SEEK_SET` or ``0`` to set the position relative to the "
+"beginning of the file; :const:`SEEK_CUR` or ``1`` to set it relative to the "
+"current position; :const:`os.SEEK_END` or ``2`` to set it relative to the "
+"end of the file. Return the new cursor position in bytes, starting from the "
+"beginning."
+msgstr ""
+
+#: ../../../library/os.rst:726
+msgid ""
+"Parameters to the :func:`lseek` function. Their values are 0, 1, and 2, "
+"respectively. Availability: Windows, Unix."
+msgstr ""
+
+#: ../../../library/os.rst:732
+msgid ""
+"Open the file *file* and set various flags according to *flags* and possibly "
+"its mode according to *mode*.  The default *mode* is ``0o777`` (octal), and "
+"the current umask value is first masked out.  Return the file descriptor for "
+"the newly opened file."
+msgstr ""
+
+#: ../../../library/os.rst:737
+msgid ""
+"For a description of the flag and mode values, see the C run-time "
+"documentation; flag constants (like :const:`O_RDONLY` and :const:`O_WRONLY`) "
+"are defined in this module too (see :ref:`open-constants`).  In particular, "
+"on Windows adding :const:`O_BINARY` is needed to open files in binary mode."
+msgstr ""
+
+#: ../../../library/os.rst:746
+msgid ""
+"This function is intended for low-level I/O.  For normal usage, use the "
+"built-in function :func:`open`, which returns a :term:`file object` with :"
+"meth:`~file.read` and :meth:`~file.write` methods (and many more).  To wrap "
+"a file descriptor in a file object, use :func:`fdopen`."
+msgstr ""
+
+#: ../../../library/os.rst:756
+msgid ""
+"Open a new pseudo-terminal pair. Return a pair of file descriptors "
+"``(master, slave)`` for the pty and the tty, respectively. For a (slightly) "
+"more portable approach, use the :mod:`pty` module."
+msgstr ""
+
+#: ../../../library/os.rst:760 ../../../library/os.rst:1827
+msgid "Availability: some flavors of Unix."
+msgstr ""
+
+#: ../../../library/os.rst:765
+msgid ""
+"Create a pipe.  Return a pair of file descriptors ``(r, w)`` usable for "
+"reading and writing, respectively."
+msgstr ""
+
+#: ../../../library/os.rst:773
+msgid ""
+"Read at most *n* bytes from file descriptor *fd*. Return a bytestring "
+"containing the bytes read.  If the end of the file referred to by *fd* has "
+"been reached, an empty bytes object is returned."
+msgstr ""
+
+#: ../../../library/os.rst:781
+msgid ""
+"This function is intended for low-level I/O and must be applied to a file "
+"descriptor as returned by :func:`os.open` or :func:`pipe`.  To read a \"file "
+"object\" returned by the built-in function :func:`open` or by :func:`popen` "
+"or :func:`fdopen`, or :data:`sys.stdin`, use its :meth:`~file.read` or :meth:"
+"`~file.readline` methods."
+msgstr ""
+
+#: ../../../library/os.rst:790
+msgid ""
+"Return the process group associated with the terminal given by *fd* (an open "
+"file descriptor as returned by :func:`os.open`)."
+msgstr ""
+
+#: ../../../library/os.rst:798
+msgid ""
+"Set the process group associated with the terminal given by *fd* (an open "
+"file descriptor as returned by :func:`os.open`) to *pg*."
+msgstr ""
+
+#: ../../../library/os.rst:806
+msgid ""
+"Return a string which specifies the terminal device associated with file "
+"descriptor *fd*.  If *fd* is not associated with a terminal device, an "
+"exception is raised."
+msgstr ""
+
+#: ../../../library/os.rst:815
+msgid ""
+"Write the bytestring in *str* to file descriptor *fd*. Return the number of "
+"bytes actually written."
+msgstr ""
+
+#: ../../../library/os.rst:822
+msgid ""
+"This function is intended for low-level I/O and must be applied to a file "
+"descriptor as returned by :func:`os.open` or :func:`pipe`.  To write a "
+"\"file object\" returned by the built-in function :func:`open` or by :func:"
+"`popen` or :func:`fdopen`, or :data:`sys.stdout` or :data:`sys.stderr`, use "
+"its :meth:`~file.write` method."
+msgstr ""
+
+#: ../../../library/os.rst:832
+msgid "``open()`` flag constants"
+msgstr ""
+
+#: ../../../library/os.rst:834
+msgid ""
+"The following constants are options for the *flags* parameter to the :func:"
+"`~os.open` function.  They can be combined using the bitwise OR operator ``|"
+"``.  Some of them are not available on all platforms.  For descriptions of "
+"their availability and use, consult the :manpage:`open(2)` manual page on "
+"Unix or `the MSDN <http://msdn.microsoft.com/en-us/library/z0kc8e3z.aspx>`_ "
+"on Windows."
+msgstr ""
+
+#: ../../../library/os.rst:849
+msgid "These constants are available on Unix and Windows."
+msgstr ""
+
+#: ../../../library/os.rst:861
+msgid "These constants are only available on Unix."
+msgstr ""
+
+#: ../../../library/os.rst:872
+msgid "These constants are only available on Windows."
+msgstr ""
+
+#: ../../../library/os.rst:881
+msgid ""
+"These constants are GNU extensions and not present if they are not defined "
+"by the C library."
+msgstr ""
+
+#: ../../../library/os.rst:888
+msgid "Files and Directories"
+msgstr ""
+
+#: ../../../library/os.rst:892
+msgid ""
+"Use the real uid/gid to test for access to *path*.  Note that most "
+"operations will use the effective uid/gid, therefore this routine can be "
+"used in a suid/sgid environment to test if the invoking user has the "
+"specified access to *path*.  *mode* should be :const:`F_OK` to test the "
+"existence of *path*, or it can be the inclusive OR of one or more of :const:"
+"`R_OK`, :const:`W_OK`, and :const:`X_OK` to test permissions.  Return :const:"
+"`True` if access is allowed, :const:`False` if not. See the Unix man page :"
+"manpage:`access(2)` for more information."
+msgstr ""
+
+#: ../../../library/os.rst:905
+msgid ""
+"Using :func:`access` to check if a user is authorized to e.g. open a file "
+"before actually doing so using :func:`open` creates a security hole, because "
+"the user might exploit the short time interval between checking and opening "
+"the file to manipulate it. It's preferable to use :term:`EAFP` techniques. "
+"For example::"
+msgstr ""
+
+#: ../../../library/os.rst:911
+msgid ""
+"if os.access(\"myfile\", os.R_OK):\n"
+"    with open(\"myfile\") as fp:\n"
+"        return fp.read()\n"
+"return \"some default data\""
+msgstr ""
+
+#: ../../../library/os.rst:916
+msgid "is better written as::"
+msgstr ""
+
+#: ../../../library/os.rst:918
+msgid ""
+"try:\n"
+"    fp = open(\"myfile\")\n"
+"except IOError as e:\n"
+"    if e.errno == errno.EACCES:\n"
+"        return \"some default data\"\n"
+"    # Not a permission error.\n"
+"    raise\n"
+"else:\n"
+"    with fp:\n"
+"        return fp.read()"
+msgstr ""
+
+#: ../../../library/os.rst:931
+msgid ""
+"I/O operations may fail even when :func:`access` indicates that they would "
+"succeed, particularly for operations on network filesystems which may have "
+"permissions semantics beyond the usual POSIX permission-bit model."
+msgstr ""
+
+#: ../../../library/os.rst:938
+msgid ""
+"Value to pass as the *mode* parameter of :func:`access` to test the "
+"existence of *path*."
+msgstr ""
+
+#: ../../../library/os.rst:944
+msgid ""
+"Value to include in the *mode* parameter of :func:`access` to test the "
+"readability of *path*."
+msgstr ""
+
+#: ../../../library/os.rst:950
+msgid ""
+"Value to include in the *mode* parameter of :func:`access` to test the "
+"writability of *path*."
+msgstr ""
+
+#: ../../../library/os.rst:956
+msgid ""
+"Value to include in the *mode* parameter of :func:`access` to determine if "
+"*path* can be executed."
+msgstr ""
+
+#: ../../../library/os.rst:964
+msgid "Change the current working directory to *path*."
+msgstr ""
+
+#: ../../../library/os.rst:971
+msgid ""
+"Change the current working directory to the directory represented by the "
+"file descriptor *fd*.  The descriptor must refer to an opened directory, not "
+"an open file."
+msgstr ""
+
+#: ../../../library/os.rst:980
+msgid "Return a string representing the current working directory."
+msgstr ""
+
+#: ../../../library/os.rst:987
+msgid "Return a bytestring representing the current working directory."
+msgstr ""
+
+#: ../../../library/os.rst:994
+msgid ""
+"Set the flags of *path* to the numeric *flags*. *flags* may take a "
+"combination (bitwise OR) of the following values (as defined in the :mod:"
+"`stat` module):"
+msgstr ""
+
+#: ../../../library/os.rst:997
+msgid ":data:`stat.UF_NODUMP`"
+msgstr ""
+
+#: ../../../library/os.rst:998
+msgid ":data:`stat.UF_IMMUTABLE`"
+msgstr ""
+
+#: ../../../library/os.rst:999
+msgid ":data:`stat.UF_APPEND`"
+msgstr ""
+
+#: ../../../library/os.rst:1000
+msgid ":data:`stat.UF_OPAQUE`"
+msgstr ""
+
+#: ../../../library/os.rst:1001
+msgid ":data:`stat.UF_NOUNLINK`"
+msgstr ""
+
+#: ../../../library/os.rst:1002
+msgid ":data:`stat.UF_COMPRESSED`"
+msgstr ""
+
+#: ../../../library/os.rst:1003
+msgid ":data:`stat.UF_HIDDEN`"
+msgstr ""
+
+#: ../../../library/os.rst:1004
+msgid ":data:`stat.SF_ARCHIVED`"
+msgstr ""
+
+#: ../../../library/os.rst:1005
+msgid ":data:`stat.SF_IMMUTABLE`"
+msgstr ""
+
+#: ../../../library/os.rst:1006
+msgid ":data:`stat.SF_APPEND`"
+msgstr ""
+
+#: ../../../library/os.rst:1007
+msgid ":data:`stat.SF_NOUNLINK`"
+msgstr ""
+
+#: ../../../library/os.rst:1008
+msgid ":data:`stat.SF_SNAPSHOT`"
+msgstr ""
+
+#: ../../../library/os.rst:1015
+msgid ""
+"Change the root directory of the current process to *path*. Availability: "
+"Unix."
+msgstr ""
+
+#: ../../../library/os.rst:1021
+msgid ""
+"Change the mode of *path* to the numeric *mode*. *mode* may take one of the "
+"following values (as defined in the :mod:`stat` module) or bitwise ORed "
+"combinations of them:"
+msgstr ""
+
+#: ../../../library/os.rst:1025
+msgid ":data:`stat.S_ISUID`"
+msgstr ""
+
+#: ../../../library/os.rst:1026
+msgid ":data:`stat.S_ISGID`"
+msgstr ""
+
+#: ../../../library/os.rst:1027
+msgid ":data:`stat.S_ENFMT`"
+msgstr ""
+
+#: ../../../library/os.rst:1028
+msgid ":data:`stat.S_ISVTX`"
+msgstr ""
+
+#: ../../../library/os.rst:1029
+msgid ":data:`stat.S_IREAD`"
+msgstr ""
+
+#: ../../../library/os.rst:1030
+msgid ":data:`stat.S_IWRITE`"
+msgstr ""
+
+#: ../../../library/os.rst:1031
+msgid ":data:`stat.S_IEXEC`"
+msgstr ""
+
+#: ../../../library/os.rst:1032
+msgid ":data:`stat.S_IRWXU`"
+msgstr ""
+
+#: ../../../library/os.rst:1033
+msgid ":data:`stat.S_IRUSR`"
+msgstr ""
+
+#: ../../../library/os.rst:1034
+msgid ":data:`stat.S_IWUSR`"
+msgstr ""
+
+#: ../../../library/os.rst:1035
+msgid ":data:`stat.S_IXUSR`"
+msgstr ""
+
+#: ../../../library/os.rst:1036
+msgid ":data:`stat.S_IRWXG`"
+msgstr ""
+
+#: ../../../library/os.rst:1037
+msgid ":data:`stat.S_IRGRP`"
+msgstr ""
+
+#: ../../../library/os.rst:1038
+msgid ":data:`stat.S_IWGRP`"
+msgstr ""
+
+#: ../../../library/os.rst:1039
+msgid ":data:`stat.S_IXGRP`"
+msgstr ""
+
+#: ../../../library/os.rst:1040
+msgid ":data:`stat.S_IRWXO`"
+msgstr ""
+
+#: ../../../library/os.rst:1041
+msgid ":data:`stat.S_IROTH`"
+msgstr ""
+
+#: ../../../library/os.rst:1042
+msgid ":data:`stat.S_IWOTH`"
+msgstr ""
+
+#: ../../../library/os.rst:1043
+msgid ":data:`stat.S_IXOTH`"
+msgstr ""
+
+#: ../../../library/os.rst:1049
+msgid ""
+"Although Windows supports :func:`chmod`, you can only  set the file's read-"
+"only flag with it (via the ``stat.S_IWRITE``  and ``stat.S_IREAD`` constants "
+"or a corresponding integer value).  All other bits are ignored."
+msgstr ""
+
+#: ../../../library/os.rst:1057
+msgid ""
+"Change the owner and group id of *path* to the numeric *uid* and *gid*. To "
+"leave one of the ids unchanged, set it to -1."
+msgstr ""
+
+#: ../../../library/os.rst:1065
+msgid ""
+"Set the flags of *path* to the numeric *flags*, like :func:`chflags`, but do "
+"not follow symbolic links."
+msgstr ""
+
+#: ../../../library/os.rst:1073
+msgid ""
+"Change the mode of *path* to the numeric *mode*. If path is a symlink, this "
+"affects the symlink rather than the target. See the docs for :func:`chmod` "
+"for possible values of *mode*."
+msgstr ""
+
+#: ../../../library/os.rst:1082
+msgid ""
+"Change the owner and group id of *path* to the numeric *uid* and *gid*. This "
+"function will not follow symbolic links."
+msgstr ""
+
+#: ../../../library/os.rst:1090
+msgid "Create a hard link pointing to *source* named *link_name*."
+msgstr ""
+
+#: ../../../library/os.rst:1094
+msgid "Added Windows support."
+msgstr ""
+
+#: ../../../library/os.rst:1100
+msgid ""
+"Return a list containing the names of the entries in the directory given by "
+"*path* (default: ``'.'``).  The list is in arbitrary order.  It does not "
+"include the special entries ``'.'`` and ``'..'`` even if they are present in "
+"the directory."
+msgstr ""
+
+#: ../../../library/os.rst:1104
+msgid ""
+"This function can be called with a bytes or string argument, and returns "
+"filenames of the same datatype."
+msgstr ""
+
+#: ../../../library/os.rst:1109
+msgid "The *path* parameter became optional."
+msgstr ""
+
+#: ../../../library/os.rst:1114
+msgid ""
+"Perform the equivalent of an :c:func:`lstat` system call on the given path. "
+"Similar to :func:`~os.stat`, but does not follow symbolic links.  On "
+"platforms that do not support symbolic links, this is an alias for :func:"
+"`~os.stat`."
+msgstr ""
+
+#: ../../../library/os.rst:1119 ../../../library/os.rst:1251
+#: ../../../library/os.rst:1467
+msgid "Added support for Windows 6.0 (Vista) symbolic links."
+msgstr ""
+
+#: ../../../library/os.rst:1125
+msgid ""
+"Create a FIFO (a named pipe) named *path* with numeric mode *mode*.  The "
+"default *mode* is ``0o666`` (octal).  The current umask value is first "
+"masked out from the mode."
+msgstr ""
+
+#: ../../../library/os.rst:1129
+msgid ""
+"FIFOs are pipes that can be accessed like regular files.  FIFOs exist until "
+"they are deleted (for example with :func:`os.unlink`). Generally, FIFOs are "
+"used as rendezvous between \"client\" and \"server\" type processes: the "
+"server opens the FIFO for reading, and the client opens it for writing.  "
+"Note that :func:`mkfifo` doesn't open the FIFO --- it just creates the "
+"rendezvous point."
+msgstr ""
+
+#: ../../../library/os.rst:1140
+msgid ""
+"Create a filesystem node (file, device special file or named pipe) named "
+"*filename*. *mode* specifies both the permissions to use and the type of "
+"node to be created, being combined (bitwise OR) with one of ``stat."
+"S_IFREG``, ``stat.S_IFCHR``, ``stat.S_IFBLK``, and ``stat.S_IFIFO`` (those "
+"constants are available in :mod:`stat`).  For ``stat.S_IFCHR`` and ``stat."
+"S_IFBLK``, *device* defines the newly created device special file (probably "
+"using :func:`os.makedev`), otherwise it is ignored."
+msgstr ""
+
+#: ../../../library/os.rst:1151
+msgid ""
+"Extract the device major number from a raw device number (usually the :attr:"
+"`st_dev` or :attr:`st_rdev` field from :c:type:`stat`)."
+msgstr ""
+
+#: ../../../library/os.rst:1157
+msgid ""
+"Extract the device minor number from a raw device number (usually the :attr:"
+"`st_dev` or :attr:`st_rdev` field from :c:type:`stat`)."
+msgstr ""
+
+#: ../../../library/os.rst:1163
+msgid "Compose a raw device number from the major and minor device numbers."
+msgstr ""
+
+#: ../../../library/os.rst:1168
+msgid ""
+"Create a directory named *path* with numeric mode *mode*. The default *mode* "
+"is ``0o777`` (octal).  On some systems, *mode* is ignored.  Where it is "
+"used, the current umask value is first masked out.  If the directory already "
+"exists, :exc:`OSError` is raised."
+msgstr ""
+
+#: ../../../library/os.rst:1173
+msgid ""
+"It is also possible to create temporary directories; see the :mod:`tempfile` "
+"module's :func:`tempfile.mkdtemp` function."
+msgstr ""
+
+#: ../../../library/os.rst:1185
+msgid ""
+"Recursive directory creation function.  Like :func:`mkdir`, but makes all "
+"intermediate-level directories needed to contain the leaf directory."
+msgstr ""
+
+#: ../../../library/os.rst:1188
+msgid ""
+"The default *mode* is ``0o777`` (octal).  On some systems, *mode* is "
+"ignored.  Where it is used, the current umask value is first masked out."
+msgstr ""
+
+#: ../../../library/os.rst:1191
+msgid ""
+"If *exist_ok* is ``False`` (the default), an :exc:`OSError` is raised if the "
+"target directory already exists."
+msgstr ""
+
+#: ../../../library/os.rst:1196
+msgid ""
+":func:`makedirs` will become confused if the path elements to create "
+"include :data:`pardir` (eg. \"..\" on UNIX systems)."
+msgstr ""
+
+#: ../../../library/os.rst:1199
+msgid "This function handles UNC paths correctly."
+msgstr ""
+
+#: ../../../library/os.rst:1201
+msgid "The *exist_ok* parameter."
+msgstr ""
+
+#: ../../../library/os.rst:1206
+msgid ""
+"Before Python 3.2.6, if *exist_ok* was ``True`` and the directory existed, :"
+"func:`makedirs` would still raise an error if *mode* did not match the mode "
+"of the existing directory. Since this behavior was impossible to implement "
+"safely, it was removed in Python 3.2.6. See :issue:`21082`."
+msgstr ""
+
+#: ../../../library/os.rst:1214
+msgid ""
+"Return system configuration information relevant to a named file. *name* "
+"specifies the configuration value to retrieve; it may be a string which is "
+"the name of a defined system value; these names are specified in a number of "
+"standards (POSIX.1, Unix 95, Unix 98, and others).  Some platforms define "
+"additional names as well.  The names known to the host operating system are "
+"given in the ``pathconf_names`` dictionary.  For configuration variables not "
+"included in that mapping, passing an integer for *name* is also accepted."
+msgstr ""
+
+#: ../../../library/os.rst:1232
+msgid ""
+"Dictionary mapping names accepted by :func:`pathconf` and :func:`fpathconf` "
+"to the integer values defined for those names by the host operating system.  "
+"This can be used to determine the set of names known to the system. "
+"Availability: Unix."
+msgstr ""
+
+#: ../../../library/os.rst:1240
+msgid ""
+"Return a string representing the path to which the symbolic link points.  "
+"The result may be either an absolute or relative pathname; if it is "
+"relative, it may be converted to an absolute pathname using ``os.path."
+"join(os.path.dirname(path), result)``."
+msgstr ""
+
+#: ../../../library/os.rst:1245
+msgid ""
+"If the *path* is a string object, the result will also be a string object, "
+"and the call may raise an UnicodeDecodeError. If the *path* is a bytes "
+"object, the result will be a bytes object."
+msgstr ""
+
+#: ../../../library/os.rst:1257
+msgid ""
+"Remove (delete) the file *path*.  If *path* is a directory, :exc:`OSError` "
+"is raised; see :func:`rmdir` below to remove a directory.  This is identical "
+"to the :func:`unlink` function documented below.  On Windows, attempting to "
+"remove a file that is in use causes an exception to be raised; on Unix, the "
+"directory entry is removed but the storage allocated to the file is not made "
+"available until the original file is no longer in use."
+msgstr ""
+
+#: ../../../library/os.rst:1271
+msgid ""
+"Remove directories recursively.  Works like :func:`rmdir` except that, if "
+"the leaf directory is successfully removed, :func:`removedirs`  tries to "
+"successively remove every parent directory mentioned in  *path* until an "
+"error is raised (which is ignored, because it generally means that a parent "
+"directory is not empty). For example, ``os.removedirs('foo/bar/baz')`` will "
+"first remove the directory ``'foo/bar/baz'``, and then remove ``'foo/bar'`` "
+"and ``'foo'`` if they are empty. Raises :exc:`OSError` if the leaf directory "
+"could not be successfully removed."
+msgstr ""
+
+#: ../../../library/os.rst:1283
+msgid ""
+"Rename the file or directory *src* to *dst*.  If *dst* is a directory, :exc:"
+"`OSError` will be raised.  On Unix, if *dst* exists and is a file, it will "
+"be replaced silently if the user has permission.  The operation may fail on "
+"some Unix flavors if *src* and *dst* are on different filesystems.  If "
+"successful, the renaming will be an atomic operation (this is a POSIX "
+"requirement).  On Windows, if *dst* already exists, :exc:`OSError` will be "
+"raised even if it is a file; there may be no way to implement an atomic "
+"rename when *dst* names an existing file."
+msgstr ""
+
+#: ../../../library/os.rst:1297
+msgid ""
+"Recursive directory or file renaming function. Works like :func:`rename`, "
+"except creation of any intermediate directories needed to make the new "
+"pathname good is attempted first. After the rename, directories "
+"corresponding to rightmost path segments of the old name will be pruned away "
+"using :func:`removedirs`."
+msgstr ""
+
+#: ../../../library/os.rst:1304
+msgid ""
+"This function can fail with the new directory structure made if you lack "
+"permissions needed to remove the leaf directory or file."
+msgstr ""
+
+#: ../../../library/os.rst:1310
+msgid ""
+"Remove (delete) the directory *path*.  Only works when the directory is "
+"empty, otherwise, :exc:`OSError` is raised.  In order to remove whole "
+"directory trees, :func:`shutil.rmtree` can be used."
+msgstr ""
+
+#: ../../../library/os.rst:1319
+msgid ""
+"Perform the equivalent of a :c:func:`stat` system call on the given path. "
+"(This function follows symlinks; to stat a symlink use :func:`lstat`.)"
+msgstr ""
+
+#: ../../../library/os.rst:1322
+msgid ""
+"The return value is an object whose attributes correspond to the members of "
+"the :c:type:`stat` structure, namely:"
+msgstr ""
+
+#: ../../../library/os.rst:1325
+msgid ":attr:`st_mode` - protection bits,"
+msgstr ""
+
+#: ../../../library/os.rst:1326
+msgid ":attr:`st_ino` - inode number,"
+msgstr ""
+
+#: ../../../library/os.rst:1327
+msgid ":attr:`st_dev` - device,"
+msgstr ""
+
+#: ../../../library/os.rst:1328
+msgid ":attr:`st_nlink` - number of hard links,"
+msgstr ""
+
+#: ../../../library/os.rst:1329
+msgid ":attr:`st_uid` - user id of owner,"
+msgstr ""
+
+#: ../../../library/os.rst:1330
+msgid ":attr:`st_gid` - group id of owner,"
+msgstr ""
+
+#: ../../../library/os.rst:1331
+msgid ":attr:`st_size` - size of file, in bytes,"
+msgstr ""
+
+#: ../../../library/os.rst:1332
+msgid ":attr:`st_atime` - time of most recent access,"
+msgstr ""
+
+#: ../../../library/os.rst:1333
+msgid ":attr:`st_mtime` - time of most recent content modification,"
+msgstr ""
+
+#: ../../../library/os.rst:1334
+msgid ""
+":attr:`st_ctime` - platform dependent; time of most recent metadata change "
+"on Unix, or the time of creation on Windows)"
+msgstr ""
+
+#: ../../../library/os.rst:1337
+msgid ""
+"On some Unix systems (such as Linux), the following attributes may also be "
+"available:"
+msgstr ""
+
+#: ../../../library/os.rst:1340
+msgid ":attr:`st_blocks` - number of blocks allocated for file"
+msgstr ""
+
+#: ../../../library/os.rst:1341
+msgid ":attr:`st_blksize` - filesystem blocksize"
+msgstr ""
+
+#: ../../../library/os.rst:1342
+msgid ":attr:`st_rdev` - type of device if an inode device"
+msgstr ""
+
+#: ../../../library/os.rst:1343
+msgid ":attr:`st_flags` - user defined flags for file"
+msgstr ""
+
+#: ../../../library/os.rst:1345
+msgid ""
+"On other Unix systems (such as FreeBSD), the following attributes may be "
+"available (but may be only filled out if root tries to use them):"
+msgstr ""
+
+#: ../../../library/os.rst:1348
+msgid ":attr:`st_gen` - file generation number"
+msgstr ""
+
+#: ../../../library/os.rst:1349
+msgid ":attr:`st_birthtime` - time of file creation"
+msgstr ""
+
+#: ../../../library/os.rst:1351
+msgid "On Mac OS systems, the following attributes may also be available:"
+msgstr ""
+
+#: ../../../library/os.rst:1353
+msgid ":attr:`st_rsize`"
+msgstr ""
+
+#: ../../../library/os.rst:1354
+msgid ":attr:`st_creator`"
+msgstr ""
+
+#: ../../../library/os.rst:1355
+msgid ":attr:`st_type`"
+msgstr ""
+
+#: ../../../library/os.rst:1359
+msgid ""
+"The exact meaning and resolution of the :attr:`st_atime`, :attr:`st_mtime`, "
+"and :attr:`st_ctime` attributes depend on the operating system and the file "
+"system. For example, on Windows systems using the FAT or FAT32 file "
+"systems, :attr:`st_mtime` has 2-second resolution, and :attr:`st_atime` has "
+"only 1-day resolution.  See your operating system documentation for details."
+msgstr ""
+
+#: ../../../library/os.rst:1366
+msgid ""
+"For backward compatibility, the return value of :func:`~os.stat` is also "
+"accessible as a tuple of at least 10 integers giving the most important (and "
+"portable) members of the :c:type:`stat` structure, in the order :attr:"
+"`st_mode`, :attr:`st_ino`, :attr:`st_dev`, :attr:`st_nlink`, :attr:"
+"`st_uid`, :attr:`st_gid`, :attr:`st_size`, :attr:`st_atime`, :attr:"
+"`st_mtime`, :attr:`st_ctime`. More items may be added at the end by some "
+"implementations."
+msgstr ""
+
+#: ../../../library/os.rst:1375
+msgid ""
+"The standard module :mod:`stat` defines functions and constants that are "
+"useful for extracting information from a :c:type:`stat` structure. (On "
+"Windows, some items are filled with dummy values.)"
+msgstr ""
+
+#: ../../../library/os.rst:1379
+msgid "Example::"
+msgstr ""
+
+#: ../../../library/os.rst:1381
+msgid ""
+">>> import os\n"
+">>> statinfo = os.stat('somefile.txt')\n"
+">>> statinfo\n"
+"posix.stat_result(st_mode=33188, st_ino=7876932, st_dev=234881026,\n"
+"st_nlink=1, st_uid=501, st_gid=501, st_size=264, st_atime=1297230295,\n"
+"st_mtime=1297230027, st_ctime=1297230027)\n"
+">>> statinfo.st_size\n"
+"264"
+msgstr ""
+
+#: ../../../library/os.rst:1395
+msgid ""
+"Determine whether :class:`stat_result` represents time stamps as float "
+"objects. If *newvalue* is ``True``, future calls to :func:`~os.stat` return "
+"floats, if it is ``False``, future calls return ints. If *newvalue* is "
+"omitted, return the current setting."
+msgstr ""
+
+#: ../../../library/os.rst:1400
+msgid ""
+"For compatibility with older Python versions, accessing :class:`stat_result` "
+"as a tuple always returns integers."
+msgstr ""
+
+#: ../../../library/os.rst:1403
+msgid ""
+"Python now returns float values by default. Applications which do not work "
+"correctly with floating point time stamps can use this function to restore "
+"the old behaviour."
+msgstr ""
+
+#: ../../../library/os.rst:1407
+msgid ""
+"The resolution of the timestamps (that is the smallest possible fraction) "
+"depends on the system. Some systems only support second resolution; on these "
+"systems, the fraction will always be zero."
+msgstr ""
+
+#: ../../../library/os.rst:1411
+msgid ""
+"It is recommended that this setting is only changed at program startup time "
+"in the *__main__* module; libraries should never change this setting. If an "
+"application uses a library that works incorrectly if floating point time "
+"stamps are processed, this application should turn the feature off until the "
+"library has been corrected."
+msgstr ""
+
+#: ../../../library/os.rst:1420
+msgid ""
+"Perform a :c:func:`statvfs` system call on the given path.  The return value "
+"is an object whose attributes describe the filesystem on the given path, and "
+"correspond to the members of the :c:type:`statvfs` structure, namely: :attr:"
+"`f_bsize`, :attr:`f_frsize`, :attr:`f_blocks`, :attr:`f_bfree`, :attr:"
+"`f_bavail`, :attr:`f_files`, :attr:`f_ffree`, :attr:`f_favail`, :attr:"
+"`f_flag`, :attr:`f_namemax`."
+msgstr ""
+
+#: ../../../library/os.rst:1427
+msgid ""
+"Two module-level constants are defined for the :attr:`f_flag` attribute's "
+"bit-flags: if :const:`ST_RDONLY` is set, the filesystem is mounted read-"
+"only, and if :const:`ST_NOSUID` is set, the semantics of setuid/setgid bits "
+"are disabled or not supported."
+msgstr ""
+
+#: ../../../library/os.rst:1432
+msgid "The :const:`ST_RDONLY` and :const:`ST_NOSUID` constants were added."
+msgstr ""
+
+#: ../../../library/os.rst:1441
+msgid "Create a symbolic link pointing to *source* named *link_name*."
+msgstr ""
+
+#: ../../../library/os.rst:1443
+msgid ""
+"On Windows, symlink version takes an additional optional parameter, "
+"*target_is_directory*, which defaults to ``False``."
+msgstr ""
+
+#: ../../../library/os.rst:1446
+msgid ""
+"On Windows, a symlink represents a file or a directory, and does not morph "
+"to the target dynamically.  If *target_is_directory* is set to ``True``, the "
+"symlink will be created as a directory symlink, otherwise as a file symlink "
+"(the default)."
+msgstr ""
+
+#: ../../../library/os.rst:1451
+msgid ""
+"Symbolic link support was introduced in Windows 6.0 (Vista).  :func:"
+"`symlink` will raise a :exc:`NotImplementedError` on Windows versions "
+"earlier than 6.0."
+msgstr ""
+
+#: ../../../library/os.rst:1456
+msgid ""
+"The *SeCreateSymbolicLinkPrivilege* is required in order to successfully "
+"create symlinks. This privilege is not typically granted to regular users "
+"but is available to accounts which can escalate privileges to the "
+"administrator level. Either obtaining the privilege or running your "
+"application as an administrator are ways to successfully create symlinks."
+msgstr ""
+
+#: ../../../library/os.rst:1462
+msgid ""
+":exc:`OSError` is raised when the function is called by an unprivileged user."
+msgstr ""
+
+#: ../../../library/os.rst:1473
+msgid ""
+"Remove (delete) the file *path*.  This is the same function as :func:"
+"`remove`; the :func:`unlink` name is its traditional Unix name."
+msgstr ""
+
+#: ../../../library/os.rst:1482
+msgid ""
+"Set the access and modified times of the file specified by *path*. If "
+"*times* is ``None``, then the file's access and modified times are set to "
+"the current time. (The effect is similar to running the Unix program :"
+"program:`touch` on the path.)  Otherwise, *times* must be a 2-tuple of "
+"numbers, of the form ``(atime, mtime)`` which is used to set the access and "
+"modified times, respectively. Whether a directory can be given for *path* "
+"depends on whether the operating system implements directories as files (for "
+"example, Windows does not).  Note that the exact times you set here may not "
+"be returned by a subsequent :func:`~os.stat` call, depending on the "
+"resolution with which your operating system records access and modification "
+"times; see :func:`~os.stat`."
+msgstr ""
+
+#: ../../../library/os.rst:1502
+msgid ""
+"Generate the file names in a directory tree by walking the tree either top-"
+"down or bottom-up. For each directory in the tree rooted at directory *top* "
+"(including *top* itself), it yields a 3-tuple ``(dirpath, dirnames, "
+"filenames)``."
+msgstr ""
+
+#: ../../../library/os.rst:1507
+msgid ""
+"*dirpath* is a string, the path to the directory.  *dirnames* is a list of "
+"the names of the subdirectories in *dirpath* (excluding ``'.'`` and "
+"``'..'``). *filenames* is a list of the names of the non-directory files in "
+"*dirpath*. Note that the names in the lists contain no path components.  To "
+"get a full path (which begins with *top*) to a file or directory in "
+"*dirpath*, do ``os.path.join(dirpath, name)``."
+msgstr ""
+
+#: ../../../library/os.rst:1514
+msgid ""
+"If optional argument *topdown* is ``True`` or not specified, the triple for "
+"a directory is generated before the triples for any of its subdirectories "
+"(directories are generated top-down).  If *topdown* is ``False``, the triple "
+"for a directory is generated after the triples for all of its subdirectories "
+"(directories are generated bottom-up)."
+msgstr ""
+
+#: ../../../library/os.rst:1520
+msgid ""
+"When *topdown* is ``True``, the caller can modify the *dirnames* list in-"
+"place (perhaps using :keyword:`del` or slice assignment), and :func:`walk` "
+"will only recurse into the subdirectories whose names remain in *dirnames*; "
+"this can be used to prune the search, impose a specific order of visiting, "
+"or even to inform :func:`walk` about directories the caller creates or "
+"renames before it resumes :func:`walk` again.  Modifying *dirnames* when "
+"*topdown* is ``False`` is ineffective, because in bottom-up mode the "
+"directories in *dirnames* are generated before *dirpath* itself is generated."
+msgstr ""
+
+#: ../../../library/os.rst:1529
+msgid ""
+"By default, errors from the :func:`listdir` call are ignored.  If optional "
+"argument *onerror* is specified, it should be a function; it will be called "
+"with one argument, an :exc:`OSError` instance.  It can report the error to "
+"continue with the walk, or raise the exception to abort the walk.  Note that "
+"the filename is available as the ``filename`` attribute of the exception "
+"object."
+msgstr ""
+
+#: ../../../library/os.rst:1535
+msgid ""
+"By default, :func:`walk` will not walk down into symbolic links that resolve "
+"to directories. Set *followlinks* to ``True`` to visit directories pointed "
+"to by symlinks, on systems that support them."
+msgstr ""
+
+#: ../../../library/os.rst:1541
+msgid ""
+"Be aware that setting *followlinks* to ``True`` can lead to infinite "
+"recursion if a link points to a parent directory of itself. :func:`walk` "
+"does not keep track of the directories it visited already."
+msgstr ""
+
+#: ../../../library/os.rst:1547
+msgid ""
+"If you pass a relative pathname, don't change the current working directory "
+"between resumptions of :func:`walk`.  :func:`walk` never changes the current "
+"directory, and assumes that its caller doesn't either."
+msgstr ""
+
+#: ../../../library/os.rst:1551
+msgid ""
+"This example displays the number of bytes taken by non-directory files in "
+"each directory under the starting directory, except that it doesn't look "
+"under any CVS subdirectory::"
+msgstr ""
+
+#: ../../../library/os.rst:1555
+msgid ""
+"import os\n"
+"from os.path import join, getsize\n"
+"for root, dirs, files in os.walk('python/Lib/email'):\n"
+"    print(root, \"consumes\", end=\" \")\n"
+"    print(sum(getsize(join(root, name)) for name in files), end=\" \")\n"
+"    print(\"bytes in\", len(files), \"non-directory files\")\n"
+"    if 'CVS' in dirs:\n"
+"        dirs.remove('CVS')  # don't visit CVS directories"
+msgstr ""
+
+#: ../../../library/os.rst:1564
+msgid ""
+"In the next example, walking the tree bottom-up is essential: :func:`rmdir` "
+"doesn't allow deleting a directory before the directory is empty::"
+msgstr ""
+
+#: ../../../library/os.rst:1567
+msgid ""
+"# Delete everything reachable from the directory named in \"top\",\n"
+"# assuming there are no symbolic links.\n"
+"# CAUTION:  This is dangerous!  For example, if top == '/', it\n"
+"# could delete all your disk files.\n"
+"import os\n"
+"for root, dirs, files in os.walk(top, topdown=False):\n"
+"    for name in files:\n"
+"        os.remove(os.path.join(root, name))\n"
+"    for name in dirs:\n"
+"        os.rmdir(os.path.join(root, name))"
+msgstr ""
+
+#: ../../../library/os.rst:1582
+msgid "Process Management"
+msgstr ""
+
+#: ../../../library/os.rst:1584
+msgid "These functions may be used to create and manage processes."
+msgstr ""
+
+#: ../../../library/os.rst:1586
+msgid ""
+"The various :func:`exec\\*` functions take a list of arguments for the new "
+"program loaded into the process.  In each case, the first of these arguments "
+"is passed to the new program as its own name rather than as an argument a "
+"user may have typed on a command line.  For the C programmer, this is the "
+"``argv[0]`` passed to a program's :c:func:`main`.  For example, ``os.execv('/"
+"bin/echo', ['foo', 'bar'])`` will only print ``bar`` on standard output; "
+"``foo`` will seem to be ignored."
+msgstr ""
+
+#: ../../../library/os.rst:1597
+msgid ""
+"Generate a :const:`SIGABRT` signal to the current process.  On Unix, the "
+"default behavior is to produce a core dump; on Windows, the process "
+"immediately returns an exit code of ``3``.  Be aware that calling this "
+"function will not call the Python signal handler registered for :const:"
+"`SIGABRT` with :func:`signal.signal`."
+msgstr ""
+
+#: ../../../library/os.rst:1615
+msgid ""
+"These functions all execute a new program, replacing the current process; "
+"they do not return.  On Unix, the new executable is loaded into the current "
+"process, and will have the same process id as the caller.  Errors will be "
+"reported as :exc:`OSError` exceptions."
+msgstr ""
+
+#: ../../../library/os.rst:1620
+msgid ""
+"The current process is replaced immediately. Open file objects and "
+"descriptors are not flushed, so if there may be data buffered on these open "
+"files, you should flush them using :func:`sys.stdout.flush` or :func:`os."
+"fsync` before calling an :func:`exec\\*` function."
+msgstr ""
+
+#: ../../../library/os.rst:1626
+msgid ""
+"The \"l\" and \"v\" variants of the :func:`exec\\*` functions differ in how "
+"command-line arguments are passed.  The \"l\" variants are perhaps the "
+"easiest to work with if the number of parameters is fixed when the code is "
+"written; the individual parameters simply become additional parameters to "
+"the :func:`execl\\*` functions.  The \"v\" variants are good when the number "
+"of parameters is variable, with the arguments being passed in a list or "
+"tuple as the *args* parameter.  In either case, the arguments to the child "
+"process should start with the name of the command being run, but this is not "
+"enforced."
+msgstr ""
+
+#: ../../../library/os.rst:1635
+msgid ""
+"The variants which include a \"p\" near the end (:func:`execlp`, :func:"
+"`execlpe`, :func:`execvp`, and :func:`execvpe`) will use the :envvar:`PATH` "
+"environment variable to locate the program *file*.  When the environment is "
+"being replaced (using one of the :func:`exec\\*e` variants, discussed in the "
+"next paragraph), the new environment is used as the source of the :envvar:"
+"`PATH` variable. The other variants, :func:`execl`, :func:`execle`, :func:"
+"`execv`, and :func:`execve`, will not use the :envvar:`PATH` variable to "
+"locate the executable; *path* must contain an appropriate absolute or "
+"relative path."
+msgstr ""
+
+#: ../../../library/os.rst:1645
+msgid ""
+"For :func:`execle`, :func:`execlpe`, :func:`execve`, and :func:`execvpe` "
+"(note that these all end in \"e\"), the *env* parameter must be a mapping "
+"which is used to define the environment variables for the new process (these "
+"are used instead of the current process' environment); the functions :func:"
+"`execl`, :func:`execlp`, :func:`execv`, and :func:`execvp` all cause the new "
+"process to inherit the environment of the current process."
+msgstr ""
+
+#: ../../../library/os.rst:1657
+msgid ""
+"Exit the process with status *n*, without calling cleanup handlers, flushing "
+"stdio buffers, etc."
+msgstr ""
+
+#: ../../../library/os.rst:1664
+msgid ""
+"The standard way to exit is ``sys.exit(n)``.  :func:`_exit` should normally "
+"only be used in the child process after a :func:`fork`."
+msgstr ""
+
+#: ../../../library/os.rst:1667
+msgid ""
+"The following exit codes are defined and can be used with :func:`_exit`, "
+"although they are not required.  These are typically used for system "
+"programs written in Python, such as a mail server's external command "
+"delivery program."
+msgstr ""
+
+#: ../../../library/os.rst:1673
+msgid ""
+"Some of these may not be available on all Unix platforms, since there is "
+"some variation.  These constants are defined where they are defined by the "
+"underlying platform."
+msgstr ""
+
+#: ../../../library/os.rst:1680
+msgid "Exit code that means no error occurred."
+msgstr ""
+
+#: ../../../library/os.rst:1687
+msgid ""
+"Exit code that means the command was used incorrectly, such as when the "
+"wrong number of arguments are given."
+msgstr ""
+
+#: ../../../library/os.rst:1695
+msgid "Exit code that means the input data was incorrect."
+msgstr ""
+
+#: ../../../library/os.rst:1702
+msgid "Exit code that means an input file did not exist or was not readable."
+msgstr ""
+
+#: ../../../library/os.rst:1709
+msgid "Exit code that means a specified user did not exist."
+msgstr ""
+
+#: ../../../library/os.rst:1716
+msgid "Exit code that means a specified host did not exist."
+msgstr ""
+
+#: ../../../library/os.rst:1723
+msgid "Exit code that means that a required service is unavailable."
+msgstr ""
+
+#: ../../../library/os.rst:1730
+msgid "Exit code that means an internal software error was detected."
+msgstr ""
+
+#: ../../../library/os.rst:1737
+msgid ""
+"Exit code that means an operating system error was detected, such as the "
+"inability to fork or create a pipe."
+msgstr ""
+
+#: ../../../library/os.rst:1745
+msgid ""
+"Exit code that means some system file did not exist, could not be opened, or "
+"had some other kind of error."
+msgstr ""
+
+#: ../../../library/os.rst:1753
+msgid "Exit code that means a user specified output file could not be created."
+msgstr ""
+
+#: ../../../library/os.rst:1760
+msgid ""
+"Exit code that means that an error occurred while doing I/O on some file."
+msgstr ""
+
+#: ../../../library/os.rst:1767
+msgid ""
+"Exit code that means a temporary failure occurred.  This indicates something "
+"that may not really be an error, such as a network connection that couldn't "
+"be made during a retryable operation."
+msgstr ""
+
+#: ../../../library/os.rst:1776
+msgid ""
+"Exit code that means that a protocol exchange was illegal, invalid, or not "
+"understood."
+msgstr ""
+
+#: ../../../library/os.rst:1784
+msgid ""
+"Exit code that means that there were insufficient permissions to perform the "
+"operation (but not intended for file system problems)."
+msgstr ""
+
+#: ../../../library/os.rst:1792
+msgid "Exit code that means that some kind of configuration error occurred."
+msgstr ""
+
+#: ../../../library/os.rst:1799
+msgid "Exit code that means something like \"an entry was not found\"."
+msgstr ""
+
+#: ../../../library/os.rst:1806
+msgid ""
+"Fork a child process.  Return ``0`` in the child and the child's process id "
+"in the parent.  If an error occurs :exc:`OSError` is raised."
+msgstr ""
+
+#: ../../../library/os.rst:1809
+msgid ""
+"Note that some platforms including FreeBSD <= 6.3, Cygwin and OS/2 EMX have "
+"known issues when using fork() from a thread."
+msgstr ""
+
+#: ../../../library/os.rst:1814
+msgid "See :mod:`ssl` for applications that use the SSL module with fork()."
+msgstr ""
+
+#: ../../../library/os.rst:1821
+msgid ""
+"Fork a child process, using a new pseudo-terminal as the child's controlling "
+"terminal. Return a pair of ``(pid, fd)``, where *pid* is ``0`` in the child, "
+"the new child's process id in the parent, and *fd* is the file descriptor of "
+"the master end of the pseudo-terminal.  For a more portable approach, use "
+"the :mod:`pty` module.  If an error occurs :exc:`OSError` is raised."
+msgstr ""
+
+#: ../../../library/os.rst:1836
+msgid ""
+"Send signal *sig* to the process *pid*.  Constants for the specific signals "
+"available on the host platform are defined in the :mod:`signal` module."
+msgstr ""
+
+#: ../../../library/os.rst:1839
+msgid ""
+"Windows: The :data:`signal.CTRL_C_EVENT` and :data:`signal.CTRL_BREAK_EVENT` "
+"signals are special signals which can only be sent to console processes "
+"which share a common console window, e.g., some subprocesses. Any other "
+"value for *sig* will cause the process to be unconditionally killed by the "
+"TerminateProcess API, and the exit code will be set to *sig*. The Windows "
+"version of :func:`kill` additionally takes process handles to be killed."
+msgstr ""
+
+#: ../../../library/os.rst:1847
+msgid "Windows support."
+msgstr ""
+
+#: ../../../library/os.rst:1857
+msgid "Send the signal *sig* to the process group *pgid*."
+msgstr ""
+
+#: ../../../library/os.rst:1864
+msgid ""
+"Add *increment* to the process's \"niceness\".  Return the new niceness."
+msgstr ""
+
+#: ../../../library/os.rst:1871
+msgid ""
+"Lock program segments into memory.  The value of *op* (defined in ``<sys/"
+"lock.h>``) determines which segments are locked."
+msgstr ""
+
+#: ../../../library/os.rst:1880
+msgid ""
+"Run child processes, returning opened pipes for communications.  These "
+"functions are described in section :ref:`os-newstreams`."
+msgstr ""
+
+#: ../../../library/os.rst:1893
+msgid "Execute the program *path* in a new process."
+msgstr ""
+
+#: ../../../library/os.rst:1895
+msgid ""
+"(Note that the :mod:`subprocess` module provides more powerful facilities "
+"for spawning new processes and retrieving their results; using that module "
+"is preferable to using these functions.  Check especially the :ref:"
+"`subprocess-replacements` section.)"
+msgstr ""
+
+#: ../../../library/os.rst:1900
+msgid ""
+"If *mode* is :const:`P_NOWAIT`, this function returns the process id of the "
+"new process; if *mode* is :const:`P_WAIT`, returns the process's exit code "
+"if it exits normally, or ``-signal``, where *signal* is the signal that "
+"killed the process.  On Windows, the process id will actually be the process "
+"handle, so can be used with the :func:`waitpid` function."
+msgstr ""
+
+#: ../../../library/os.rst:1906
+msgid ""
+"The \"l\" and \"v\" variants of the :func:`spawn\\*` functions differ in how "
+"command-line arguments are passed.  The \"l\" variants are perhaps the "
+"easiest to work with if the number of parameters is fixed when the code is "
+"written; the individual parameters simply become additional parameters to "
+"the :func:`spawnl\\*` functions.  The \"v\" variants are good when the "
+"number of parameters is variable, with the arguments being passed in a list "
+"or tuple as the *args* parameter.  In either case, the arguments to the "
+"child process must start with the name of the command being run."
+msgstr ""
+
+#: ../../../library/os.rst:1915
+msgid ""
+"The variants which include a second \"p\" near the end (:func:`spawnlp`, :"
+"func:`spawnlpe`, :func:`spawnvp`, and :func:`spawnvpe`) will use the :envvar:"
+"`PATH` environment variable to locate the program *file*.  When the "
+"environment is being replaced (using one of the :func:`spawn\\*e` variants, "
+"discussed in the next paragraph), the new environment is used as the source "
+"of the :envvar:`PATH` variable.  The other variants, :func:`spawnl`, :func:"
+"`spawnle`, :func:`spawnv`, and :func:`spawnve`, will not use the :envvar:"
+"`PATH` variable to locate the executable; *path* must contain an appropriate "
+"absolute or relative path."
+msgstr ""
+
+#: ../../../library/os.rst:1925
+msgid ""
+"For :func:`spawnle`, :func:`spawnlpe`, :func:`spawnve`, and :func:`spawnvpe` "
+"(note that these all end in \"e\"), the *env* parameter must be a mapping "
+"which is used to define the environment variables for the new process (they "
+"are used instead of the current process' environment); the functions :func:"
+"`spawnl`, :func:`spawnlp`, :func:`spawnv`, and :func:`spawnvp` all cause the "
+"new process to inherit the environment of the current process.  Note that "
+"keys and values in the *env* dictionary must be strings; invalid keys or "
+"values will cause the function to fail, with a return value of ``127``."
+msgstr ""
+
+#: ../../../library/os.rst:1934
+msgid ""
+"As an example, the following calls to :func:`spawnlp` and :func:`spawnvpe` "
+"are equivalent::"
+msgstr ""
+
+#: ../../../library/os.rst:1937
+msgid ""
+"import os\n"
+"os.spawnlp(os.P_WAIT, 'cp', 'cp', 'index.html', '/dev/null')\n"
+"\n"
+"L = ['cp', 'index.html', '/dev/null']\n"
+"os.spawnvpe(os.P_WAIT, 'cp', L, os.environ)"
+msgstr ""
+
+#: ../../../library/os.rst:1943
+msgid ""
+"Availability: Unix, Windows.  :func:`spawnlp`, :func:`spawnlpe`, :func:"
+"`spawnvp` and :func:`spawnvpe` are not available on Windows.  :func:"
+"`spawnle` and :func:`spawnve` are not thread-safe on Windows; we advise you "
+"to use the :mod:`subprocess` module instead."
+msgstr ""
+
+#: ../../../library/os.rst:1952
+msgid ""
+"Possible values for the *mode* parameter to the :func:`spawn\\*` family of "
+"functions.  If either of these values is given, the :func:`spawn\\*` "
+"functions will return as soon as the new process has been created, with the "
+"process id as the return value."
+msgstr ""
+
+#: ../../../library/os.rst:1962
+msgid ""
+"Possible value for the *mode* parameter to the :func:`spawn\\*` family of "
+"functions.  If this is given as *mode*, the :func:`spawn\\*` functions will "
+"not return until the new process has run to completion and will return the "
+"exit code of the process the run is successful, or ``-signal`` if a signal "
+"kills the process."
+msgstr ""
+
+#: ../../../library/os.rst:1974
+msgid ""
+"Possible values for the *mode* parameter to the :func:`spawn\\*` family of "
+"functions.  These are less portable than those listed above. :const:"
+"`P_DETACH` is similar to :const:`P_NOWAIT`, but the new process is detached "
+"from the console of the calling process. If :const:`P_OVERLAY` is used, the "
+"current process will be replaced; the :func:`spawn\\*` function will not "
+"return."
+msgstr ""
+
+#: ../../../library/os.rst:1980 ../../../library/os.rst:2005
+msgid "Availability: Windows."
+msgstr ""
+
+#: ../../../library/os.rst:1985
+msgid "Start a file with its associated application."
+msgstr ""
+
+#: ../../../library/os.rst:1987
+msgid ""
+"When *operation* is not specified or ``'open'``, this acts like double-"
+"clicking the file in Windows Explorer, or giving the file name as an "
+"argument to the :program:`start` command from the interactive command shell: "
+"the file is opened with whatever application (if any) its extension is "
+"associated."
+msgstr ""
+
+#: ../../../library/os.rst:1992
+msgid ""
+"When another *operation* is given, it must be a \"command verb\" that "
+"specifies what should be done with the file. Common verbs documented by "
+"Microsoft are ``'print'`` and  ``'edit'`` (to be used on files) as well as "
+"``'explore'`` and ``'find'`` (to be used on directories)."
+msgstr ""
+
+#: ../../../library/os.rst:1997
+msgid ""
+":func:`startfile` returns as soon as the associated application is launched. "
+"There is no option to wait for the application to close, and no way to "
+"retrieve the application's exit status.  The *path* parameter is relative to "
+"the current directory.  If you want to use an absolute path, make sure the "
+"first character is not a slash (``'/'``); the underlying Win32 :c:func:"
+"`ShellExecute` function doesn't work if it is.  Use the :func:`os.path."
+"normpath` function to ensure that the path is properly encoded for Win32."
+msgstr ""
+
+#: ../../../library/os.rst:2010
+msgid ""
+"Execute the command (a string) in a subshell.  This is implemented by "
+"calling the Standard C function :c:func:`system`, and has the same "
+"limitations. Changes to :data:`sys.stdin`, etc. are not reflected in the "
+"environment of the executed command. If *command* generates any output, it "
+"will be sent to the interpreter standard output stream."
+msgstr ""
+
+#: ../../../library/os.rst:2016
+msgid ""
+"On Unix, the return value is the exit status of the process encoded in the "
+"format specified for :func:`wait`.  Note that POSIX does not specify the "
+"meaning of the return value of the C :c:func:`system` function, so the "
+"return value of the Python function is system-dependent."
+msgstr ""
+
+#: ../../../library/os.rst:2021
+msgid ""
+"On Windows, the return value is that returned by the system shell after "
+"running *command*.  The shell is given by the Windows environment variable :"
+"envvar:`COMSPEC`: it is usually :program:`cmd.exe`, which returns the exit "
+"status of the command run; on systems using a non-native shell, consult your "
+"shell documentation."
+msgstr ""
+
+#: ../../../library/os.rst:2027
+msgid ""
+"The :mod:`subprocess` module provides more powerful facilities for spawning "
+"new processes and retrieving their results; using that module is preferable "
+"to using this function.  See the :ref:`subprocess-replacements` section in "
+"the :mod:`subprocess` documentation for some helpful recipes."
+msgstr ""
+
+#: ../../../library/os.rst:2037
+msgid ""
+"Return a 5-tuple of floating point numbers indicating accumulated (processor "
+"or other) times, in seconds.  The items are: user time, system time, "
+"children's user time, children's system time, and elapsed real time since a "
+"fixed point in the past, in that order.  See the Unix manual page :manpage:"
+"`times(2)` or the corresponding Windows Platform API documentation. On "
+"Windows, only the first two items are filled, the others are zero."
+msgstr ""
+
+#: ../../../library/os.rst:2049
+msgid ""
+"Wait for completion of a child process, and return a tuple containing its "
+"pid and exit status indication: a 16-bit number, whose low byte is the "
+"signal number that killed the process, and whose high byte is the exit "
+"status (if the signal number is zero); the high bit of the low byte is set "
+"if a core file was produced."
+msgstr ""
+
+#: ../../../library/os.rst:2060
+msgid "The details of this function differ on Unix and Windows."
+msgstr ""
+
+#: ../../../library/os.rst:2062
+msgid ""
+"On Unix: Wait for completion of a child process given by process id *pid*, "
+"and return a tuple containing its process id and exit status indication "
+"(encoded as for :func:`wait`).  The semantics of the call are affected by "
+"the value of the integer *options*, which should be ``0`` for normal "
+"operation."
+msgstr ""
+
+#: ../../../library/os.rst:2067
+msgid ""
+"If *pid* is greater than ``0``, :func:`waitpid` requests status information "
+"for that specific process.  If *pid* is ``0``, the request is for the status "
+"of any child in the process group of the current process.  If *pid* is "
+"``-1``, the request pertains to any child of the current process.  If *pid* "
+"is less than ``-1``, status is requested for any process in the process "
+"group ``-pid`` (the absolute value of *pid*)."
+msgstr ""
+
+#: ../../../library/os.rst:2074
+msgid ""
+"An :exc:`OSError` is raised with the value of errno when the syscall returns "
+"-1."
+msgstr ""
+
+#: ../../../library/os.rst:2077
+msgid ""
+"On Windows: Wait for completion of a process given by process handle *pid*, "
+"and return a tuple containing *pid*, and its exit status shifted left by 8 "
+"bits (shifting makes cross-platform use of the function easier). A *pid* "
+"less than or equal to ``0`` has no special meaning on Windows, and raises an "
+"exception. The value of integer *options* has no effect. *pid* can refer to "
+"any process whose id is known, not necessarily a child process. The :func:"
+"`spawn` functions called with :const:`P_NOWAIT` return suitable process "
+"handles."
+msgstr ""
+
+#: ../../../library/os.rst:2088
+msgid ""
+"Similar to :func:`waitpid`, except no process id argument is given and a 3-"
+"element tuple containing the child's process id, exit status indication, and "
+"resource usage information is returned.  Refer to :mod:`resource`.\\ :func:"
+"`getrusage` for details on resource usage information.  The option argument "
+"is the same as that provided to :func:`waitpid` and :func:`wait4`."
+msgstr ""
+
+#: ../../../library/os.rst:2099
+msgid ""
+"Similar to :func:`waitpid`, except a 3-element tuple, containing the child's "
+"process id, exit status indication, and resource usage information is "
+"returned. Refer to :mod:`resource`.\\ :func:`getrusage` for details on "
+"resource usage information.  The arguments to :func:`wait4` are the same as "
+"those provided to :func:`waitpid`."
+msgstr ""
+
+#: ../../../library/os.rst:2110
+msgid ""
+"The option for :func:`waitpid` to return immediately if no child process "
+"status is available immediately. The function returns ``(0, 0)`` in this "
+"case."
+msgstr ""
+
+#: ../../../library/os.rst:2118
+msgid ""
+"This option causes child processes to be reported if they have been "
+"continued from a job control stop since their status was last reported."
+msgstr ""
+
+#: ../../../library/os.rst:2121
+msgid "Availability: Some Unix systems."
+msgstr ""
+
+#: ../../../library/os.rst:2126
+msgid ""
+"This option causes child processes to be reported if they have been stopped "
+"but their current state has not been reported since they were stopped."
+msgstr ""
+
+#: ../../../library/os.rst:2132
+msgid ""
+"The following functions take a process status code as returned by :func:"
+"`system`, :func:`wait`, or :func:`waitpid` as a parameter.  They may be used "
+"to determine the disposition of a process."
+msgstr ""
+
+#: ../../../library/os.rst:2138
+msgid ""
+"Return ``True`` if a core dump was generated for the process, otherwise "
+"return ``False``."
+msgstr ""
+
+#: ../../../library/os.rst:2146
+msgid ""
+"Return ``True`` if the process has been continued from a job control stop, "
+"otherwise return ``False``."
+msgstr ""
+
+#: ../../../library/os.rst:2154
+msgid ""
+"Return ``True`` if the process has been stopped, otherwise return ``False``."
+msgstr ""
+
+#: ../../../library/os.rst:2162
+msgid ""
+"Return ``True`` if the process exited due to a signal, otherwise return "
+"``False``."
+msgstr ""
+
+#: ../../../library/os.rst:2170
+msgid ""
+"Return ``True`` if the process exited using the :manpage:`exit(2)` system "
+"call, otherwise return ``False``."
+msgstr ""
+
+#: ../../../library/os.rst:2178
+msgid ""
+"If ``WIFEXITED(status)`` is true, return the integer parameter to the :"
+"manpage:`exit(2)` system call.  Otherwise, the return value is meaningless."
+msgstr ""
+
+#: ../../../library/os.rst:2186
+msgid "Return the signal which caused the process to stop."
+msgstr ""
+
+#: ../../../library/os.rst:2193
+msgid "Return the signal which caused the process to exit."
+msgstr ""
+
+#: ../../../library/os.rst:2201
+msgid "Miscellaneous System Information"
+msgstr ""
+
+#: ../../../library/os.rst:2206
+msgid ""
+"Return string-valued system configuration values. *name* specifies the "
+"configuration value to retrieve; it may be a string which is the name of a "
+"defined system value; these names are specified in a number of standards "
+"(POSIX, Unix 95, Unix 98, and others).  Some platforms define additional "
+"names as well. The names known to the host operating system are given as the "
+"keys of the ``confstr_names`` dictionary.  For configuration variables not "
+"included in that mapping, passing an integer for *name* is also accepted."
+msgstr ""
+
+#: ../../../library/os.rst:2214
+msgid ""
+"If the configuration value specified by *name* isn't defined, ``None`` is "
+"returned."
+msgstr ""
+
+#: ../../../library/os.rst:2217
+msgid ""
+"If *name* is a string and is not known, :exc:`ValueError` is raised.  If a "
+"specific value for *name* is not supported by the host system, even if it is "
+"included in ``confstr_names``, an :exc:`OSError` is raised with :const:"
+"`errno.EINVAL` for the error number."
+msgstr ""
+
+#: ../../../library/os.rst:2222
+msgid "Availability: Unix"
+msgstr ""
+
+#: ../../../library/os.rst:2227
+msgid ""
+"Dictionary mapping names accepted by :func:`confstr` to the integer values "
+"defined for those names by the host operating system. This can be used to "
+"determine the set of names known to the system."
+msgstr ""
+
+#: ../../../library/os.rst:2236
+msgid ""
+"Return the number of processes in the system run queue averaged over the "
+"last 1, 5, and 15 minutes or raises :exc:`OSError` if the load average was "
+"unobtainable."
+msgstr ""
+
+#: ../../../library/os.rst:2245
+msgid ""
+"Return integer-valued system configuration values. If the configuration "
+"value specified by *name* isn't defined, ``-1`` is returned.  The comments "
+"regarding the *name* parameter for :func:`confstr` apply here as well; the "
+"dictionary that provides information on the known names is given by "
+"``sysconf_names``."
+msgstr ""
+
+#: ../../../library/os.rst:2255
+msgid ""
+"Dictionary mapping names accepted by :func:`sysconf` to the integer values "
+"defined for those names by the host operating system. This can be used to "
+"determine the set of names known to the system."
+msgstr ""
+
+#: ../../../library/os.rst:2261
+msgid ""
+"The following data values are used to support path manipulation operations.  "
+"These are defined for all platforms."
+msgstr ""
+
+#: ../../../library/os.rst:2264
+msgid ""
+"Higher-level operations on pathnames are defined in the :mod:`os.path` "
+"module."
+msgstr ""
+
+#: ../../../library/os.rst:2269
+msgid ""
+"The constant string used by the operating system to refer to the current "
+"directory. This is ``'.'`` for Windows and POSIX. Also available via :mod:"
+"`os.path`."
+msgstr ""
+
+#: ../../../library/os.rst:2276
+msgid ""
+"The constant string used by the operating system to refer to the parent "
+"directory. This is ``'..'`` for Windows and POSIX. Also available via :mod:"
+"`os.path`."
+msgstr ""
+
+#: ../../../library/os.rst:2283
+msgid ""
+"The character used by the operating system to separate pathname components. "
+"This is ``'/'`` for POSIX and ``'\\\\'`` for Windows.  Note that knowing "
+"this is not sufficient to be able to parse or concatenate pathnames --- use :"
+"func:`os.path.split` and :func:`os.path.join` --- but it is occasionally "
+"useful. Also available via :mod:`os.path`."
+msgstr ""
+
+#: ../../../library/os.rst:2292
+msgid ""
+"An alternative character used by the operating system to separate pathname "
+"components, or ``None`` if only one separator character exists.  This is set "
+"to ``'/'`` on Windows systems where ``sep`` is a backslash. Also available "
+"via :mod:`os.path`."
+msgstr ""
+
+#: ../../../library/os.rst:2300
+msgid ""
+"The character which separates the base filename from the extension; for "
+"example, the ``'.'`` in :file:`os.py`. Also available via :mod:`os.path`."
+msgstr ""
+
+#: ../../../library/os.rst:2306
+msgid ""
+"The character conventionally used by the operating system to separate search "
+"path components (as in :envvar:`PATH`), such as ``':'`` for POSIX or ``';'`` "
+"for Windows. Also available via :mod:`os.path`."
+msgstr ""
+
+#: ../../../library/os.rst:2313
+msgid ""
+"The default search path used by :func:`exec\\*p\\*` and :func:`spawn\\*p\\*` "
+"if the environment doesn't have a ``'PATH'`` key. Also available via :mod:"
+"`os.path`."
+msgstr ""
+
+#: ../../../library/os.rst:2319
+msgid ""
+"The string used to separate (or, rather, terminate) lines on the current "
+"platform.  This may be a single character, such as ``'\\n'`` for POSIX, or "
+"multiple characters, for example, ``'\\r\\n'`` for Windows. Do not use *os."
+"linesep* as a line terminator when writing files opened in text mode (the "
+"default); use a single ``'\\n'`` instead, on all platforms."
+msgstr ""
+
+#: ../../../library/os.rst:2328
+msgid ""
+"The file path of the null device. For example: ``'/dev/null'`` for POSIX, "
+"``'nul'`` for Windows.  Also available via :mod:`os.path`."
+msgstr ""
+
+#: ../../../library/os.rst:2335
+msgid "Miscellaneous Functions"
+msgstr ""
+
+#: ../../../library/os.rst:2340
+msgid "Return a string of *n* random bytes suitable for cryptographic use."
+msgstr ""
+
+#: ../../../library/os.rst:2342
+msgid ""
+"This function returns random bytes from an OS-specific randomness source.  "
+"The returned data should be unpredictable enough for cryptographic "
+"applications, though its exact quality depends on the OS implementation.  On "
+"a UNIX-like system this will query /dev/urandom, and on Windows it will use "
+"CryptGenRandom. If a randomness source is not found, :exc:"
+"`NotImplementedError` will be raised."
+msgstr ""
+
+#: ../../../library/os.rst:208 ../../../library/os.rst:327
+#: ../../../library/os.rst:476
+msgid "user"
+msgstr ""
+
+#: ../../../library/os.rst:208
+msgid "effective id"
+msgstr ""
+
+#: ../../../library/os.rst:217 ../../../library/os.rst:276
+#: ../../../library/os.rst:285 ../../../library/os.rst:294
+#: ../../../library/os.rst:1832 ../../../library/os.rst:1853
+msgid "process"
+msgstr ""
+
+#: ../../../library/os.rst:217 ../../../library/os.rst:276
+msgid "group"
+msgstr ""
+
+#: ../../../library/os.rst:285 ../../../library/os.rst:327
+msgid "id"
+msgstr ""
+
+#: ../../../library/os.rst:294
+msgid "id of parent"
+msgstr ""
+
+#: ../../../library/os.rst:358 ../../../library/os.rst:526
+msgid "environment variables"
+msgstr ""
+
+#: ../../../library/os.rst:358
+msgid "setting"
+msgstr ""
+
+#: ../../../library/os.rst:476
+msgid "id, setting"
+msgstr ""
+
+#: ../../../library/os.rst:510
+msgid "gethostname() (in module socket)"
+msgstr ""
+
+#: ../../../library/os.rst:510
+msgid "gethostbyaddr() (in module socket)"
+msgstr ""
+
+#: ../../../library/os.rst:526 ../../../library/os.rst:1269
+msgid "deleting"
+msgstr ""
+
+#: ../../../library/os.rst:754
+msgid "pty"
+msgstr ""
+
+#: ../../../library/os.rst:962 ../../../library/os.rst:1181
+#: ../../../library/os.rst:1269 ../../../library/os.rst:1498
+msgid "directory"
+msgstr ""
+
+#: ../../../library/os.rst:962
+msgid "changing"
+msgstr ""
+
+#: ../../../library/os.rst:1181
+msgid "creating"
+msgstr ""
+
+#: ../../../library/os.rst:1181
+msgid "UNC paths"
+msgstr ""
+
+#: ../../../library/os.rst:1181
+msgid "and os.makedirs()"
+msgstr ""
+
+#: ../../../library/os.rst:1373
+msgid "stat"
+msgstr ""
+
+#: ../../../library/os.rst:1498
+msgid "walking"
+msgstr ""
+
+#: ../../../library/os.rst:1498
+msgid "traversal"
+msgstr ""
+
+#: ../../../library/os.rst:1832 ../../../library/os.rst:1853
+msgid "killing"
+msgstr ""
+
+#: ../../../library/os.rst:1832 ../../../library/os.rst:1853
+msgid "signalling"
+msgstr ""
