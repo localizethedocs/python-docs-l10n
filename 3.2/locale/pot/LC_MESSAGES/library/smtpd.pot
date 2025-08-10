@@ -1,0 +1,269 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/smtpd.rst:2
+msgid ":mod:`smtpd` --- SMTP Server"
+msgstr ""
+
+#: ../../../library/smtpd.rst:10
+msgid "**Source code:** :source:`Lib/smtpd.py`"
+msgstr ""
+
+#: ../../../library/smtpd.rst:14
+msgid "This module offers several classes to implement SMTP (email) servers."
+msgstr ""
+
+#: ../../../library/smtpd.rst:16
+msgid ""
+"Several server implementations are present; one is a generic do-nothing "
+"implementation, which can be overridden, while the other two offer specific "
+"mail-sending strategies."
+msgstr ""
+
+#: ../../../library/smtpd.rst:20
+msgid ""
+"Additionally the SMTPChannel may be extended to implement very specific "
+"interaction behaviour with SMTP clients."
+msgstr ""
+
+#: ../../../library/smtpd.rst:24
+msgid "SMTPServer Objects"
+msgstr ""
+
+#: ../../../library/smtpd.rst:29
+msgid ""
+"Create a new :class:`SMTPServer` object, which binds to local address "
+"*localaddr*.  It will treat *remoteaddr* as an upstream SMTP relayer.  It "
+"inherits from :class:`asyncore.dispatcher`, and so will insert itself into :"
+"mod:`asyncore`'s event loop on instantiation."
+msgstr ""
+
+#: ../../../library/smtpd.rst:36
+msgid ""
+"Raise :exc:`NotImplementedError` exception. Override this in subclasses to "
+"do something useful with this message. Whatever was passed in the "
+"constructor as *remoteaddr* will be available as the :attr:`_remoteaddr` "
+"attribute. *peer* is the remote host's address, *mailfrom* is the envelope "
+"originator, *rcpttos* are the envelope recipients and *data* is a string "
+"containing the contents of the e-mail (which should be in :rfc:`2822` "
+"format)."
+msgstr ""
+
+#: ../../../library/smtpd.rst:46
+msgid ""
+"Override this in subclasses to use a custom :class:`SMTPChannel` for "
+"managing SMTP clients."
+msgstr ""
+
+#: ../../../library/smtpd.rst:51
+msgid "DebuggingServer Objects"
+msgstr ""
+
+#: ../../../library/smtpd.rst:56
+msgid ""
+"Create a new debugging server.  Arguments are as per :class:`SMTPServer`. "
+"Messages will be discarded, and printed on stdout."
+msgstr ""
+
+#: ../../../library/smtpd.rst:61
+msgid "PureProxy Objects"
+msgstr ""
+
+#: ../../../library/smtpd.rst:66
+msgid ""
+"Create a new pure proxy server. Arguments are as per :class:`SMTPServer`. "
+"Everything will be relayed to *remoteaddr*.  Note that running this has a "
+"good chance to make you into an open relay, so please be careful."
+msgstr ""
+
+#: ../../../library/smtpd.rst:72
+msgid "MailmanProxy Objects"
+msgstr ""
+
+#: ../../../library/smtpd.rst:77
+msgid ""
+"Create a new pure proxy server. Arguments are as per :class:`SMTPServer`. "
+"Everything will be relayed to *remoteaddr*, unless local mailman "
+"configurations knows about an address, in which case it will be handled via "
+"mailman.  Note that running this has a good chance to make you into an open "
+"relay, so please be careful."
+msgstr ""
+
+#: ../../../library/smtpd.rst:84
+msgid "SMTPChannel Objects"
+msgstr ""
+
+#: ../../../library/smtpd.rst:88
+msgid ""
+"Create a new :class:`SMTPChannel` object which manages the communication "
+"between the server and a single SMTP client."
+msgstr ""
+
+#: ../../../library/smtpd.rst:91
+msgid ""
+"To use a custom SMTPChannel implementation you need to override the :attr:"
+"`SMTPServer.channel_class` of your :class:`SMTPServer`."
+msgstr ""
+
+#: ../../../library/smtpd.rst:94
+msgid "The :class:`SMTPChannel` has the following instance variables:"
+msgstr ""
+
+#: ../../../library/smtpd.rst:98
+msgid "Holds the :class:`SMTPServer` that spawned this channel."
+msgstr ""
+
+#: ../../../library/smtpd.rst:102
+msgid "Holds the socket object connecting to the client."
+msgstr ""
+
+#: ../../../library/smtpd.rst:106
+msgid ""
+"Holds the address of the client, the second value returned by :func:`socket."
+"accept <socket.socket.accept>`"
+msgstr ""
+
+#: ../../../library/smtpd.rst:111
+msgid ""
+"Holds a list of the line strings (decoded using UTF-8) received from the "
+"client. The lines have their ``\"\\r\\n\"`` line ending translated to "
+"``\"\\n\"``."
+msgstr ""
+
+#: ../../../library/smtpd.rst:117
+msgid ""
+"Holds the current state of the channel. This will be either :attr:`COMMAND` "
+"initially and then :attr:`DATA` after the client sends a \"DATA\" line."
+msgstr ""
+
+#: ../../../library/smtpd.rst:123
+msgid ""
+"Holds a string containing the greeting sent by the client in its \"HELO\"."
+msgstr ""
+
+#: ../../../library/smtpd.rst:127
+msgid ""
+"Holds a string containing the address identified in the \"MAIL FROM:\" line "
+"from the client."
+msgstr ""
+
+#: ../../../library/smtpd.rst:132
+msgid ""
+"Holds a list of strings containing the addresses identified in the \"RCPT TO:"
+"\" lines from the client."
+msgstr ""
+
+#: ../../../library/smtpd.rst:137
+msgid ""
+"Holds a string containing all of the data sent by the client during the DATA "
+"state, up to but not including the terminating ``\"\\r\\n.\\r\\n\"``."
+msgstr ""
+
+#: ../../../library/smtpd.rst:142
+msgid ""
+"Holds the fully-qualified domain name of the server as returned by :func:"
+"`socket.getfqdn`."
+msgstr ""
+
+#: ../../../library/smtpd.rst:147
+msgid ""
+"Holds the name of the client peer as returned by ``conn.getpeername()`` "
+"where ``conn`` is :attr:`conn`."
+msgstr ""
+
+#: ../../../library/smtpd.rst:150
+msgid ""
+"The :class:`SMTPChannel` operates by invoking methods named "
+"``smtp_<command>`` upon reception of a command line from the client. Built "
+"into the base :class:`SMTPChannel` class are methods for handling the "
+"following commands (and responding to them appropriately):"
+msgstr ""
+
+#: ../../../library/smtpd.rst:156
+msgid "Command"
+msgstr ""
+
+#: ../../../library/smtpd.rst:156
+msgid "Action taken"
+msgstr ""
+
+#: ../../../library/smtpd.rst:158
+msgid "HELO"
+msgstr ""
+
+#: ../../../library/smtpd.rst:158
+msgid ""
+"Accepts the greeting from the client and stores it in :attr:`seen_greeting`."
+msgstr ""
+
+#: ../../../library/smtpd.rst:160
+msgid "NOOP"
+msgstr ""
+
+#: ../../../library/smtpd.rst:160
+msgid "Takes no action."
+msgstr ""
+
+#: ../../../library/smtpd.rst:161
+msgid "QUIT"
+msgstr ""
+
+#: ../../../library/smtpd.rst:161
+msgid "Closes the connection cleanly."
+msgstr ""
+
+#: ../../../library/smtpd.rst:162
+msgid "MAIL"
+msgstr ""
+
+#: ../../../library/smtpd.rst:162
+msgid ""
+"Accepts the \"MAIL FROM:\" syntax and stores the supplied address as :attr:"
+"`mailfrom`."
+msgstr ""
+
+#: ../../../library/smtpd.rst:164
+msgid "RCPT"
+msgstr ""
+
+#: ../../../library/smtpd.rst:164
+msgid ""
+"Accepts the \"RCPT TO:\" syntax and stores the supplied addresses in the :"
+"attr:`rcpttos` list."
+msgstr ""
+
+#: ../../../library/smtpd.rst:166
+msgid "RSET"
+msgstr ""
+
+#: ../../../library/smtpd.rst:166
+msgid ""
+"Resets the :attr:`mailfrom`, :attr:`rcpttos`, and :attr:`received_data`, but "
+"not the greeting."
+msgstr ""
+
+#: ../../../library/smtpd.rst:168
+msgid "DATA"
+msgstr ""
+
+#: ../../../library/smtpd.rst:168
+msgid ""
+"Sets the internal state to :attr:`DATA` and stores remaining lines from the "
+"client in :attr:`received_data` until the terminator ``\"\\r\\n.\\r\\n\"`` "
+"is received."
+msgstr ""
