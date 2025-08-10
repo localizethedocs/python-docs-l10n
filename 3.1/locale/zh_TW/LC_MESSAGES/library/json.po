@@ -1,0 +1,585 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/json.rst:2
+msgid ":mod:`json` --- JSON encoder and decoder"
+msgstr ""
+
+#: ../../../library/json.rst:9
+msgid ""
+"JSON (JavaScript Object Notation) <http://json.org> is a subset of "
+"JavaScript syntax (ECMA-262 3rd edition) used as a lightweight data "
+"interchange format."
+msgstr ""
+
+#: ../../../library/json.rst:12
+msgid ""
+":mod:`json` exposes an API familiar to users of the standard library :mod:"
+"`marshal` and :mod:`pickle` modules."
+msgstr ""
+
+#: ../../../library/json.rst:15
+msgid "Encoding basic Python object hierarchies::"
+msgstr ""
+
+#: ../../../library/json.rst:17
+msgid ""
+">>> import json\n"
+">>> json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])\n"
+"'[\"foo\", {\"bar\": [\"baz\", null, 1.0, 2]}]'\n"
+">>> print(json.dumps(\"\\\"foo\\bar\"))\n"
+"\"\\\"foo\\bar\"\n"
+">>> print(json.dumps('\\u1234'))\n"
+"\"\\u1234\"\n"
+">>> print(json.dumps('\\\\'))\n"
+"\"\\\\\"\n"
+">>> print(json.dumps({\"c\": 0, \"b\": 0, \"a\": 0}, sort_keys=True))\n"
+"{\"a\": 0, \"b\": 0, \"c\": 0}\n"
+">>> from io import StringIO\n"
+">>> io = StringIO()\n"
+">>> json.dump(['streaming API'], io)\n"
+">>> io.getvalue()\n"
+"'[\"streaming API\"]'"
+msgstr ""
+
+#: ../../../library/json.rst:34
+msgid "Compact encoding::"
+msgstr ""
+
+#: ../../../library/json.rst:36
+msgid ""
+">>> import json\n"
+">>> json.dumps([1,2,3,{'4': 5, '6': 7}], separators=(',', ':'))\n"
+"'[1,2,3,{\"4\":5,\"6\":7}]'"
+msgstr ""
+
+#: ../../../library/json.rst:40
+msgid "Pretty printing::"
+msgstr ""
+
+#: ../../../library/json.rst:42
+msgid ""
+">>> import json\n"
+">>> print(json.dumps({'4': 5, '6': 7}, sort_keys=True, indent=4))\n"
+"{\n"
+"    \"4\": 5,\n"
+"    \"6\": 7\n"
+"}"
+msgstr ""
+
+#: ../../../library/json.rst:49
+msgid "Decoding JSON::"
+msgstr ""
+
+#: ../../../library/json.rst:51
+msgid ""
+">>> import json\n"
+">>> json.loads('[\"foo\", {\"bar\":[\"baz\", null, 1.0, 2]}]')\n"
+"['foo', {'bar': ['baz', None, 1.0, 2]}]\n"
+">>> json.loads('\"\\\\\"foo\\\\bar\"')\n"
+"'\"foo\\x08ar'\n"
+">>> from io import StringIO\n"
+">>> io = StringIO('[\"streaming API\"]')\n"
+">>> json.load(io)\n"
+"['streaming API']"
+msgstr ""
+
+#: ../../../library/json.rst:61
+msgid "Specializing JSON object decoding::"
+msgstr ""
+
+#: ../../../library/json.rst:63
+msgid ""
+">>> import json\n"
+">>> def as_complex(dct):\n"
+"...     if '__complex__' in dct:\n"
+"...         return complex(dct['real'], dct['imag'])\n"
+"...     return dct\n"
+"...\n"
+">>> json.loads('{\"__complex__\": true, \"real\": 1, \"imag\": 2}',\n"
+"...     object_hook=as_complex)\n"
+"(1+2j)\n"
+">>> import decimal\n"
+">>> json.loads('1.1', parse_float=decimal.Decimal)\n"
+"Decimal('1.1')"
+msgstr ""
+
+#: ../../../library/json.rst:76
+msgid "Extending :class:`JSONEncoder`::"
+msgstr ""
+
+#: ../../../library/json.rst:78
+msgid ""
+">>> import json\n"
+">>> class ComplexEncoder(json.JSONEncoder):\n"
+"...     def default(self, obj):\n"
+"...         if isinstance(obj, complex):\n"
+"...             return [obj.real, obj.imag]\n"
+"...         return json.JSONEncoder.default(self, obj)\n"
+"...\n"
+">>> json.dumps(2 + 1j, cls=ComplexEncoder)\n"
+"'[2.0, 1.0]'\n"
+">>> ComplexEncoder().encode(2 + 1j)\n"
+"'[2.0, 1.0]'\n"
+">>> list(ComplexEncoder().iterencode(2 + 1j))\n"
+"['[2.0', ', 1.0', ']']"
+msgstr ""
+
+#: ../../../library/json.rst:95
+msgid "Using json.tool from the shell to validate and pretty-print::"
+msgstr ""
+
+#: ../../../library/json.rst:97
+msgid ""
+"$ echo '{\"json\":\"obj\"}' | python -mjson.tool\n"
+"{\n"
+"    \"json\": \"obj\"\n"
+"}\n"
+"$ echo '{ 1.2:3.4}' | python -mjson.tool\n"
+"Expecting property name: line 1 column 2 (char 2)"
+msgstr ""
+
+#: ../../../library/json.rst:108
+msgid ""
+"The JSON produced by this module's default settings is a subset of YAML, so "
+"it may be used as a serializer for that as well."
+msgstr ""
+
+#: ../../../library/json.rst:113
+msgid "Basic Usage"
+msgstr ""
+
+#: ../../../library/json.rst:117
+msgid ""
+"Serialize *obj* as a JSON formatted stream to *fp* (a ``.write()``-"
+"supporting file-like object)."
+msgstr ""
+
+#: ../../../library/json.rst:120
+msgid ""
+"If *skipkeys* is ``True`` (default: ``False``), then dict keys that are not "
+"of a basic type (:class:`str`, :class:`int`, :class:`float`, :class:`bool`, "
+"``None``) will be skipped instead of raising a :exc:`TypeError`."
+msgstr ""
+
+#: ../../../library/json.rst:124
+msgid ""
+"The :mod:`json` module always produces :class:`str` objects, not :class:"
+"`bytes` objects. Therefore, ``fp.write()`` must support :class:`str` input."
+msgstr ""
+
+#: ../../../library/json.rst:128
+msgid ""
+"If *check_circular* is ``False`` (default: ``True``), then the circular "
+"reference check for container types will be skipped and a circular reference "
+"will result in an :exc:`OverflowError` (or worse)."
+msgstr ""
+
+#: ../../../library/json.rst:132
+msgid ""
+"If *allow_nan* is ``False`` (default: ``True``), then it will be a :exc:"
+"`ValueError` to serialize out of range :class:`float` values (``nan``, "
+"``inf``, ``-inf``) in strict compliance of the JSON specification, instead "
+"of using the JavaScript equivalents (``NaN``, ``Infinity``, ``-Infinity``)."
+msgstr ""
+
+#: ../../../library/json.rst:137
+msgid ""
+"If *indent* is a non-negative integer, then JSON array elements and object "
+"members will be pretty-printed with that indent level.  An indent level of "
+"0, or negative, will only insert newlines.  ``None`` (the default) selects "
+"the most compact representation."
+msgstr ""
+
+#: ../../../library/json.rst:142
+msgid ""
+"If *separators* is an ``(item_separator, dict_separator)`` tuple, then it "
+"will be used instead of the default ``(', ', ': ')`` separators.  ``(',', "
+"':')`` is the most compact JSON representation."
+msgstr ""
+
+#: ../../../library/json.rst:146
+msgid ""
+"*default(obj)* is a function that should return a serializable version of "
+"*obj* or raise :exc:`TypeError`.  The default simply raises :exc:`TypeError`."
+msgstr ""
+
+#: ../../../library/json.rst:149
+msgid ""
+"To use a custom :class:`JSONEncoder` subclass (e.g. one that overrides the :"
+"meth:`default` method to serialize additional types), specify it with the "
+"*cls* kwarg; otherwise :class:`JSONEncoder` is used."
+msgstr ""
+
+#: ../../../library/json.rst:156
+msgid ""
+"Serialize *obj* to a JSON formatted :class:`str`.  The arguments have the "
+"same meaning as in :func:`dump`."
+msgstr ""
+
+#: ../../../library/json.rst:161
+msgid ""
+"Unlike :mod:`pickle` and :mod:`marshal`, JSON is not a framed protocol, so "
+"trying to serialize multiple objects with repeated calls to :func:`dump` "
+"using the same *fp* will result in an invalid JSON file."
+msgstr ""
+
+#: ../../../library/json.rst:168
+msgid ""
+"Deserialize *fp* (a ``.read()``-supporting file-like object containing a "
+"JSON document) to a Python object."
+msgstr ""
+
+#: ../../../library/json.rst:171
+msgid ""
+"*object_hook* is an optional function that will be called with the result of "
+"any object literal decoded (a :class:`dict`).  The return value of "
+"*object_hook* will be used instead of the :class:`dict`.  This feature can "
+"be used to implement custom decoders (e.g. JSON-RPC class hinting)."
+msgstr ""
+
+#: ../../../library/json.rst:176
+msgid ""
+"*object_pairs_hook* is an optional function that will be called with the "
+"result of any object literal decoded with an ordered list of pairs.  The "
+"return value of *object_pairs_hook* will be used instead of the :class:"
+"`dict`.  This feature can be used to implement custom decoders that rely on "
+"the order that the key and value pairs are decoded (for example, :func:"
+"`collections.OrderedDict` will remember the order of insertion). If "
+"*object_hook* is also defined, the *object_pairs_hook* takes priority."
+msgstr ""
+
+#: ../../../library/json.rst:184 ../../../library/json.rst:261
+msgid "Added support for *object_pairs_hook*."
+msgstr ""
+
+#: ../../../library/json.rst:187 ../../../library/json.rst:264
+msgid ""
+"*parse_float*, if specified, will be called with the string of every JSON "
+"float to be decoded.  By default, this is equivalent to ``float(num_str)``. "
+"This can be used to use another datatype or parser for JSON floats (e.g. :"
+"class:`decimal.Decimal`)."
+msgstr ""
+
+#: ../../../library/json.rst:192 ../../../library/json.rst:269
+msgid ""
+"*parse_int*, if specified, will be called with the string of every JSON int "
+"to be decoded.  By default, this is equivalent to ``int(num_str)``.  This "
+"can be used to use another datatype or parser for JSON integers (e.g. :class:"
+"`float`)."
+msgstr ""
+
+#: ../../../library/json.rst:197 ../../../library/json.rst:274
+msgid ""
+"*parse_constant*, if specified, will be called with one of the following "
+"strings: ``'-Infinity'``, ``'Infinity'``, ``'NaN'``, ``'null'``, ``'true'``, "
+"``'false'``.  This can be used to raise an exception if invalid JSON numbers "
+"are encountered."
+msgstr ""
+
+#: ../../../library/json.rst:202
+msgid ""
+"To use a custom :class:`JSONDecoder` subclass, specify it with the ``cls`` "
+"kwarg; otherwise :class:`JSONDecoder` is used.  Additional keyword arguments "
+"will be passed to the constructor of the class."
+msgstr ""
+
+#: ../../../library/json.rst:209
+msgid ""
+"Deserialize *s* (a :class:`str` instance containing a JSON document) to a "
+"Python object."
+msgstr ""
+
+#: ../../../library/json.rst:212
+msgid ""
+"The other arguments have the same meaning as in :func:`load`, except "
+"*encoding* which is ignored and deprecated."
+msgstr ""
+
+#: ../../../library/json.rst:217
+msgid "Encoders and decoders"
+msgstr ""
+
+#: ../../../library/json.rst:221
+msgid "Simple JSON decoder."
+msgstr ""
+
+#: ../../../library/json.rst:223
+msgid "Performs the following translations in decoding by default:"
+msgstr ""
+
+#: ../../../library/json.rst:226 ../../../library/json.rst:307
+msgid "JSON"
+msgstr ""
+
+#: ../../../library/json.rst:226 ../../../library/json.rst:307
+msgid "Python"
+msgstr ""
+
+#: ../../../library/json.rst:228 ../../../library/json.rst:309
+msgid "object"
+msgstr ""
+
+#: ../../../library/json.rst:228 ../../../library/json.rst:309
+msgid "dict"
+msgstr ""
+
+#: ../../../library/json.rst:230 ../../../library/json.rst:311
+msgid "array"
+msgstr ""
+
+#: ../../../library/json.rst:230
+msgid "list"
+msgstr ""
+
+#: ../../../library/json.rst:232 ../../../library/json.rst:313
+msgid "string"
+msgstr ""
+
+#: ../../../library/json.rst:232 ../../../library/json.rst:313
+msgid "str"
+msgstr ""
+
+#: ../../../library/json.rst:234
+msgid "number (int)"
+msgstr ""
+
+#: ../../../library/json.rst:234
+msgid "int"
+msgstr ""
+
+#: ../../../library/json.rst:236
+msgid "number (real)"
+msgstr ""
+
+#: ../../../library/json.rst:236
+msgid "float"
+msgstr ""
+
+#: ../../../library/json.rst:238 ../../../library/json.rst:317
+msgid "true"
+msgstr ""
+
+#: ../../../library/json.rst:238 ../../../library/json.rst:317
+msgid "True"
+msgstr ""
+
+#: ../../../library/json.rst:240 ../../../library/json.rst:319
+msgid "false"
+msgstr ""
+
+#: ../../../library/json.rst:240 ../../../library/json.rst:319
+msgid "False"
+msgstr ""
+
+#: ../../../library/json.rst:242 ../../../library/json.rst:321
+msgid "null"
+msgstr ""
+
+#: ../../../library/json.rst:242 ../../../library/json.rst:321
+msgid "None"
+msgstr ""
+
+#: ../../../library/json.rst:245
+msgid ""
+"It also understands ``NaN``, ``Infinity``, and ``-Infinity`` as their "
+"corresponding ``float`` values, which is outside the JSON spec."
+msgstr ""
+
+#: ../../../library/json.rst:248
+msgid ""
+"*object_hook*, if specified, will be called with the result of every JSON "
+"object decoded and its return value will be used in place of the given :"
+"class:`dict`.  This can be used to provide custom deserializations (e.g. to "
+"support JSON-RPC class hinting)."
+msgstr ""
+
+#: ../../../library/json.rst:253
+msgid ""
+"*object_pairs_hook*, if specified will be called with the result of every "
+"JSON object decoded with an ordered list of pairs.  The return value of "
+"*object_pairs_hook* will be used instead of the :class:`dict`.  This feature "
+"can be used to implement custom decoders that rely on the order that the key "
+"and value pairs are decoded (for example, :func:`collections.OrderedDict` "
+"will remember the order of insertion). If *object_hook* is also defined, the "
+"*object_pairs_hook* takes priority."
+msgstr ""
+
+#: ../../../library/json.rst:279
+msgid ""
+"If *strict* is ``False`` (``True`` is the default), then control characters "
+"will be allowed inside strings.  Control characters in this context are "
+"those with character codes in the 0-31 range, including ``'\\t'`` (tab), "
+"``'\\n'``, ``'\\r'`` and ``'\\0'``."
+msgstr ""
+
+#: ../../../library/json.rst:287
+msgid ""
+"Return the Python representation of *s* (a :class:`str` instance containing "
+"a JSON document)"
+msgstr ""
+
+#: ../../../library/json.rst:292
+msgid ""
+"Decode a JSON document from *s* (a :class:`str` beginning with a JSON "
+"document) and return a 2-tuple of the Python representation and the index in "
+"*s* where the document ended."
+msgstr ""
+
+#: ../../../library/json.rst:296
+msgid ""
+"This can be used to decode a JSON document from a string that may have "
+"extraneous data at the end."
+msgstr ""
+
+#: ../../../library/json.rst:302
+msgid "Extensible JSON encoder for Python data structures."
+msgstr ""
+
+#: ../../../library/json.rst:304
+msgid "Supports the following objects and types by default:"
+msgstr ""
+
+#: ../../../library/json.rst:311
+msgid "list, tuple"
+msgstr ""
+
+#: ../../../library/json.rst:315
+msgid "int, float"
+msgstr ""
+
+#: ../../../library/json.rst:315
+msgid "number"
+msgstr ""
+
+#: ../../../library/json.rst:324
+msgid ""
+"To extend this to recognize other objects, subclass and implement a :meth:"
+"`default` method with another method that returns a serializable object for "
+"``o`` if possible, otherwise it should call the superclass implementation "
+"(to raise :exc:`TypeError`)."
+msgstr ""
+
+#: ../../../library/json.rst:329
+msgid ""
+"If *skipkeys* is ``False`` (the default), then it is a :exc:`TypeError` to "
+"attempt encoding of keys that are not str, int, float or None.  If "
+"*skipkeys* is ``True``, such items are simply skipped."
+msgstr ""
+
+#: ../../../library/json.rst:333
+msgid ""
+"If *ensure_ascii* is ``True`` (the default), the output is guaranteed to "
+"have all incoming non-ASCII characters escaped.  If *ensure_ascii* is "
+"``False``, these characters will be output as-is."
+msgstr ""
+
+#: ../../../library/json.rst:337
+msgid ""
+"If *check_circular* is ``True`` (the default), then lists, dicts, and custom "
+"encoded objects will be checked for circular references during encoding to "
+"prevent an infinite recursion (which would cause an :exc:`OverflowError`). "
+"Otherwise, no such check takes place."
+msgstr ""
+
+#: ../../../library/json.rst:342
+msgid ""
+"If *allow_nan* is ``True`` (the default), then ``NaN``, ``Infinity``, and ``-"
+"Infinity`` will be encoded as such.  This behavior is not JSON specification "
+"compliant, but is consistent with most JavaScript based encoders and "
+"decoders.  Otherwise, it will be a :exc:`ValueError` to encode such floats."
+msgstr ""
+
+#: ../../../library/json.rst:348
+msgid ""
+"If *sort_keys* is ``True`` (default ``False``), then the output of "
+"dictionaries will be sorted by key; this is useful for regression tests to "
+"ensure that JSON serializations can be compared on a day-to-day basis."
+msgstr ""
+
+#: ../../../library/json.rst:352
+msgid ""
+"If *indent* is a non-negative integer (it is ``None`` by default), then JSON "
+"array elements and object members will be pretty-printed with that indent "
+"level.  An indent level of 0 will only insert newlines.  ``None`` is the "
+"most compact representation."
+msgstr ""
+
+#: ../../../library/json.rst:357
+msgid ""
+"If specified, *separators* should be an ``(item_separator, key_separator)`` "
+"tuple.  The default is ``(', ', ': ')``.  To get the most compact JSON "
+"representation, you should specify ``(',', ':')`` to eliminate whitespace."
+msgstr ""
+
+#: ../../../library/json.rst:361
+msgid ""
+"If specified, *default* is a function that gets called for objects that "
+"can't otherwise be serialized.  It should return a JSON encodable version of "
+"the object or raise a :exc:`TypeError`."
+msgstr ""
+
+#: ../../../library/json.rst:368
+msgid ""
+"Implement this method in a subclass such that it returns a serializable "
+"object for *o*, or calls the base implementation (to raise a :exc:"
+"`TypeError`)."
+msgstr ""
+
+#: ../../../library/json.rst:372
+msgid ""
+"For example, to support arbitrary iterators, you could implement default "
+"like this::"
+msgstr ""
+
+#: ../../../library/json.rst:375
+msgid ""
+"def default(self, o):\n"
+"   try:\n"
+"       iterable = iter(o)\n"
+"   except TypeError:\n"
+"       pass\n"
+"   else:\n"
+"       return list(iterable)\n"
+"   return json.JSONEncoder.default(self, o)"
+msgstr ""
+
+#: ../../../library/json.rst:387
+msgid ""
+"Return a JSON string representation of a Python data structure, *o*.  For "
+"example::"
+msgstr ""
+
+#: ../../../library/json.rst:390
+msgid ""
+">>> json.JSONEncoder().encode({\"foo\": [\"bar\", \"baz\"]})\n"
+"'{\"foo\": [\"bar\", \"baz\"]}'"
+msgstr ""
+
+#: ../../../library/json.rst:396
+msgid ""
+"Encode the given object, *o*, and yield each string representation as "
+"available.  For example::"
+msgstr ""
+
+#: ../../../library/json.rst:399
+msgid ""
+"for chunk in json.JSONEncoder().iterencode(bigobject):\n"
+"    mysocket.write(chunk)"
+msgstr ""

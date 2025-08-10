@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/site.rst:3
+msgid ":mod:`site` --- Site-specific configuration hook"
+msgstr ""
+
+#: ../../../library/site.rst:9
+msgid ""
+"**This module is automatically imported during initialization.** The "
+"automatic import can be suppressed using the interpreter's :option:`-S` "
+"option."
+msgstr ""
+
+#: ../../../library/site.rst:14
+msgid ""
+"Importing this module will append site-specific paths to the module search "
+"path."
+msgstr ""
+
+#: ../../../library/site.rst:20
+msgid ""
+"It starts by constructing up to four directories from a head and a tail "
+"part. For the head part, it uses ``sys.prefix`` and ``sys.exec_prefix``; "
+"empty heads are skipped.  For the tail part, it uses the empty string and "
+"then :file:`lib/site-packages` (on Windows) or :file:`lib/python|version|/"
+"site-packages` and then :file:`lib/site-python` (on Unix and Macintosh).  "
+"For each of the distinct head-tail combinations, it sees if it refers to an "
+"existing directory, and if so, adds it to ``sys.path`` and also inspects the "
+"newly added path for configuration files."
+msgstr ""
+
+#: ../../../library/site.rst:29
+msgid ""
+"A path configuration file is a file whose name has the form :file:`package."
+"pth` and exists in one of the four directories mentioned above; its contents "
+"are additional items (one per line) to be added to ``sys.path``.  Non-"
+"existing items are never added to ``sys.path``, but no check is made that "
+"the item refers to a directory (rather than a file).  No item is added to "
+"``sys.path`` more than once.  Blank lines and lines beginning with ``#`` are "
+"skipped.  Lines starting with ``import`` (followed by space or tab) are "
+"executed."
+msgstr ""
+
+#: ../../../library/site.rst:41
+msgid ""
+"For example, suppose ``sys.prefix`` and ``sys.exec_prefix`` are set to :file:"
+"`/usr/local`.  The Python X.Y library is then installed in :file:`/usr/local/"
+"lib/python{X.Y}` (where only the first three characters of ``sys.version`` "
+"are used to form the installation path name).  Suppose this has a "
+"subdirectory :file:`/usr/local/lib/python{X.Y}/site-packages` with three "
+"subsubdirectories, :file:`foo`, :file:`bar` and :file:`spam`, and two path "
+"configuration files, :file:`foo.pth` and :file:`bar.pth`.  Assume :file:`foo."
+"pth` contains the following::"
+msgstr ""
+
+#: ../../../library/site.rst:50
+msgid ""
+"# foo package configuration\n"
+"\n"
+"foo\n"
+"bar\n"
+"bletch"
+msgstr ""
+
+#: ../../../library/site.rst:56
+msgid "and :file:`bar.pth` contains::"
+msgstr ""
+
+#: ../../../library/site.rst:58
+msgid ""
+"# bar package configuration\n"
+"\n"
+"bar"
+msgstr ""
+
+#: ../../../library/site.rst:62
+msgid ""
+"Then the following version-specific directories are added to ``sys.path``, "
+"in this order::"
+msgstr ""
+
+#: ../../../library/site.rst:65
+msgid ""
+"/usr/local/lib/pythonX.Y/site-packages/bar\n"
+"/usr/local/lib/pythonX.Y/site-packages/foo"
+msgstr ""
+
+#: ../../../library/site.rst:68
+msgid ""
+"Note that :file:`bletch` is omitted because it doesn't exist; the :file:"
+"`bar` directory precedes the :file:`foo` directory because :file:`bar.pth` "
+"comes alphabetically before :file:`foo.pth`; and :file:`spam` is omitted "
+"because it is not mentioned in either path configuration file."
+msgstr ""
+
+#: ../../../library/site.rst:75
+msgid ""
+"After these path manipulations, an attempt is made to import a module named :"
+"mod:`sitecustomize`, which can perform arbitrary site-specific "
+"customizations. If this import fails with an :exc:`ImportError` exception, "
+"it is silently ignored."
+msgstr ""
+
+#: ../../../library/site.rst:82
+msgid ""
+"Note that for some non-Unix systems, ``sys.prefix`` and ``sys.exec_prefix`` "
+"are empty, and the path manipulations are skipped; however the import of :"
+"mod:`sitecustomize` is still attempted."
+msgstr ""
+
+#: ../../../library/site.rst:89
+msgid "A list of prefixes for site package directories"
+msgstr ""
+
+#: ../../../library/site.rst:94
+msgid ""
+"Flag showing the status of the user site directory. True means the user site "
+"directory is enabled and added to sys.path. When the flag is None the user "
+"site directory is disabled for security reasons."
+msgstr ""
+
+#: ../../../library/site.rst:101
+msgid "Path to the user site directory for the current Python version or None"
+msgstr ""
+
+#: ../../../library/site.rst:106
+msgid "Path to the base directory for user site directories"
+msgstr ""
+
+#: ../../../library/site.rst:117
+msgid "Adds a directory to sys.path and processes its pth files."
+msgstr ""
+
+#: ../../../library/site.rst:12
+msgid "module"
+msgstr ""
+
+#: ../../../library/site.rst:12
+msgid "search"
+msgstr ""
+
+#: ../../../library/site.rst:12 ../../../library/site.rst:37
+msgid "path"
+msgstr ""
+
+#: ../../../library/site.rst:16
+msgid "site-python"
+msgstr ""
+
+#: ../../../library/site.rst:16
+msgid "directory"
+msgstr ""
+
+#: ../../../library/site.rst:16
+msgid "site-packages"
+msgstr ""
+
+#: ../../../library/site.rst:37
+msgid "package"
+msgstr ""
+
+#: ../../../library/site.rst:37
+msgid "configuration"
+msgstr ""
+
+#: ../../../library/site.rst:37
+msgid "file"
+msgstr ""
+
+#: ../../../library/site.rst:73 ../../../library/site.rst:80
+msgid "sitecustomize"
+msgstr ""

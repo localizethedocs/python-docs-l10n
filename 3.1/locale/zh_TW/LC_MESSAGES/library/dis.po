@@ -1,0 +1,815 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/dis.rst:2
+msgid ":mod:`dis` --- Disassembler for Python bytecode"
+msgstr ""
+
+#: ../../../library/dis.rst:8
+msgid ""
+"The :mod:`dis` module supports the analysis of CPython :term:`bytecode` by "
+"disassembling it. The CPython bytecode which this module takes as an input "
+"is defined in the file :file:`Include/opcode.h` and used by the compiler and "
+"the interpreter."
+msgstr ""
+
+#: ../../../library/dis.rst:15
+msgid ""
+"Bytecode is an implementation detail of the CPython interpreter!  No "
+"guarantees are made that bytecode will not be added, removed, or changed "
+"between versions of Python.  Use of this module should not be considered to "
+"work across Python VMs or Python releases."
+msgstr ""
+
+#: ../../../library/dis.rst:21
+msgid "Example: Given the function :func:`myfunc`::"
+msgstr ""
+
+#: ../../../library/dis.rst:23
+msgid ""
+"def myfunc(alist):\n"
+"    return len(alist)"
+msgstr ""
+
+#: ../../../library/dis.rst:26
+msgid ""
+"the following command can be used to get the disassembly of :func:`myfunc`::"
+msgstr ""
+
+#: ../../../library/dis.rst:28
+msgid ""
+">>> dis.dis(myfunc)\n"
+"  2           0 LOAD_GLOBAL              0 (len)\n"
+"              3 LOAD_FAST                0 (alist)\n"
+"              6 CALL_FUNCTION            1\n"
+"              9 RETURN_VALUE"
+msgstr ""
+
+#: ../../../library/dis.rst:34
+msgid "(The \"2\" is a line number)."
+msgstr ""
+
+#: ../../../library/dis.rst:36
+msgid "The :mod:`dis` module defines the following functions and constants:"
+msgstr ""
+
+#: ../../../library/dis.rst:41
+msgid ""
+"Disassemble the *x* object.  *x* can denote either a module, a class, a "
+"method, a function, a code object, a string of source code or a byte "
+"sequence of raw bytecode.  For a module, it disassembles all functions.  For "
+"a class, it disassembles all methods.  For a code object or sequence of raw "
+"bytecode, it prints one line per bytecode instruction.  Strings are first "
+"compiled to code objects with the :func:`compile` built-in function before "
+"being disassembled.  If no object is provided, this function disassembles "
+"the last traceback."
+msgstr ""
+
+#: ../../../library/dis.rst:53
+msgid ""
+"Disassemble the top-of-stack function of a traceback, using the last "
+"traceback if none was passed.  The instruction causing the exception is "
+"indicated."
+msgstr ""
+
+#: ../../../library/dis.rst:61
+msgid ""
+"Disassemble a code object, indicating the last instruction if *lasti* was "
+"provided.  The output is divided in the following columns:"
+msgstr ""
+
+#: ../../../library/dis.rst:64
+msgid "the line number, for the first instruction of each line"
+msgstr ""
+
+#: ../../../library/dis.rst:65
+msgid "the current instruction, indicated as ``-->``,"
+msgstr ""
+
+#: ../../../library/dis.rst:66
+msgid "a labelled instruction, indicated with ``>>``,"
+msgstr ""
+
+#: ../../../library/dis.rst:67
+msgid "the address of the instruction,"
+msgstr ""
+
+#: ../../../library/dis.rst:68
+msgid "the operation code name,"
+msgstr ""
+
+#: ../../../library/dis.rst:69
+msgid "operation parameters, and"
+msgstr ""
+
+#: ../../../library/dis.rst:70
+msgid "interpretation of the parameters in parentheses."
+msgstr ""
+
+#: ../../../library/dis.rst:72
+msgid ""
+"The parameter interpretation recognizes local and global variable names, "
+"constant values, branch targets, and compare operators."
+msgstr ""
+
+#: ../../../library/dis.rst:78
+msgid ""
+"This generator function uses the ``co_firstlineno`` and ``co_lnotab`` "
+"attributes of the code object *code* to find the offsets which are starts of "
+"lines in the source code.  They are generated as ``(offset, lineno)`` pairs."
+msgstr ""
+
+#: ../../../library/dis.rst:85
+msgid ""
+"Detect all offsets in the code object *code* which are jump targets, and "
+"return a list of these offsets."
+msgstr ""
+
+#: ../../../library/dis.rst:91
+msgid "Sequence of operation names, indexable using the bytecode."
+msgstr ""
+
+#: ../../../library/dis.rst:96
+msgid "Dictionary mapping operation names to bytecodes."
+msgstr ""
+
+#: ../../../library/dis.rst:101
+msgid "Sequence of all compare operation names."
+msgstr ""
+
+#: ../../../library/dis.rst:106
+msgid "Sequence of bytecodes that have a constant parameter."
+msgstr ""
+
+#: ../../../library/dis.rst:111
+msgid "Sequence of bytecodes that access a free variable."
+msgstr ""
+
+#: ../../../library/dis.rst:116
+msgid "Sequence of bytecodes that access an attribute by name."
+msgstr ""
+
+#: ../../../library/dis.rst:121
+msgid "Sequence of bytecodes that have a relative jump target."
+msgstr ""
+
+#: ../../../library/dis.rst:126
+msgid "Sequence of bytecodes that have an absolute jump target."
+msgstr ""
+
+#: ../../../library/dis.rst:131
+msgid "Sequence of bytecodes that access a local variable."
+msgstr ""
+
+#: ../../../library/dis.rst:136
+msgid "Sequence of bytecodes of Boolean operations."
+msgstr ""
+
+#: ../../../library/dis.rst:142
+msgid "Python Bytecode Instructions"
+msgstr ""
+
+#: ../../../library/dis.rst:144
+msgid ""
+"The Python compiler currently generates the following bytecode instructions."
+msgstr ""
+
+#: ../../../library/dis.rst:147
+msgid "**General instructions**"
+msgstr ""
+
+#: ../../../library/dis.rst:151
+msgid "Indicates end-of-code to the compiler, not used by the interpreter."
+msgstr ""
+
+#: ../../../library/dis.rst:156
+msgid "Do nothing code.  Used as a placeholder by the bytecode optimizer."
+msgstr ""
+
+#: ../../../library/dis.rst:161
+msgid "Removes the top-of-stack (TOS) item."
+msgstr ""
+
+#: ../../../library/dis.rst:166
+msgid "Swaps the two top-most stack items."
+msgstr ""
+
+#: ../../../library/dis.rst:171
+msgid ""
+"Lifts second and third stack item one position up, moves top down to "
+"position three."
+msgstr ""
+
+#: ../../../library/dis.rst:177
+msgid ""
+"Lifts second, third and forth stack item one position up, moves top down to "
+"position four."
+msgstr ""
+
+#: ../../../library/dis.rst:183
+msgid "Duplicates the reference on top of the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:186
+msgid "**Unary operations**"
+msgstr ""
+
+#: ../../../library/dis.rst:188
+msgid ""
+"Unary operations take the top of the stack, apply the operation, and push "
+"the result back on the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:193
+msgid "Implements ``TOS = +TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:198
+msgid "Implements ``TOS = -TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:203
+msgid "Implements ``TOS = not TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:208
+msgid "Implements ``TOS = ~TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:213
+msgid "Implements ``TOS = iter(TOS)``."
+msgstr ""
+
+#: ../../../library/dis.rst:216
+msgid "**Binary operations**"
+msgstr ""
+
+#: ../../../library/dis.rst:218
+msgid ""
+"Binary operations remove the top of the stack (TOS) and the second top-most "
+"stack item (TOS1) from the stack.  They perform the operation, and put the "
+"result back on the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:224
+msgid "Implements ``TOS = TOS1 ** TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:229
+msgid "Implements ``TOS = TOS1 * TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:234
+msgid "Implements ``TOS = TOS1 // TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:239
+msgid "Implements ``TOS = TOS1 / TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:244
+msgid "Implements ``TOS = TOS1 % TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:249
+msgid "Implements ``TOS = TOS1 + TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:254
+msgid "Implements ``TOS = TOS1 - TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:259
+msgid "Implements ``TOS = TOS1[TOS]``."
+msgstr ""
+
+#: ../../../library/dis.rst:264
+msgid "Implements ``TOS = TOS1 << TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:269
+msgid "Implements ``TOS = TOS1 >> TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:274
+msgid "Implements ``TOS = TOS1 & TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:279
+msgid "Implements ``TOS = TOS1 ^ TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:284
+msgid "Implements ``TOS = TOS1 | TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:287
+msgid "**In-place operations**"
+msgstr ""
+
+#: ../../../library/dis.rst:289
+msgid ""
+"In-place operations are like binary operations, in that they remove TOS and "
+"TOS1, and push the result back on the stack, but the operation is done in-"
+"place when TOS1 supports it, and the resulting TOS may be (but does not have "
+"to be) the original TOS1."
+msgstr ""
+
+#: ../../../library/dis.rst:296
+msgid "Implements in-place ``TOS = TOS1 ** TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:301
+msgid "Implements in-place ``TOS = TOS1 * TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:306
+msgid "Implements in-place ``TOS = TOS1 // TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:311
+msgid "Implements in-place ``TOS = TOS1 / TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:316
+msgid "Implements in-place ``TOS = TOS1 % TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:321
+msgid "Implements in-place ``TOS = TOS1 + TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:326
+msgid "Implements in-place ``TOS = TOS1 - TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:331
+msgid "Implements in-place ``TOS = TOS1 << TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:336
+msgid "Implements in-place ``TOS = TOS1 >> TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:341
+msgid "Implements in-place ``TOS = TOS1 & TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:346
+msgid "Implements in-place ``TOS = TOS1 ^ TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:351
+msgid "Implements in-place ``TOS = TOS1 | TOS``."
+msgstr ""
+
+#: ../../../library/dis.rst:356
+msgid "Implements ``TOS1[TOS] = TOS2``."
+msgstr ""
+
+#: ../../../library/dis.rst:361
+msgid "Implements ``del TOS1[TOS]``."
+msgstr ""
+
+#: ../../../library/dis.rst:364
+msgid "**Miscellaneous opcodes**"
+msgstr ""
+
+#: ../../../library/dis.rst:368
+msgid ""
+"Implements the expression statement for the interactive mode.  TOS is "
+"removed from the stack and printed.  In non-interactive mode, an expression "
+"statement is terminated with ``POP_STACK``."
+msgstr ""
+
+#: ../../../library/dis.rst:375
+msgid "Terminates a loop due to a :keyword:`break` statement."
+msgstr ""
+
+#: ../../../library/dis.rst:380
+msgid ""
+"Continues a loop due to a :keyword:`continue` statement.  *target* is the "
+"address to jump to (which should be a ``FOR_ITER`` instruction)."
+msgstr ""
+
+#: ../../../library/dis.rst:386
+msgid ""
+"Calls ``set.add(TOS1[-i], TOS)``.  Used to implement set comprehensions."
+msgstr ""
+
+#: ../../../library/dis.rst:391
+msgid ""
+"Calls ``list.append(TOS[-i], TOS)``.  Used to implement list comprehensions."
+msgstr ""
+
+#: ../../../library/dis.rst:396
+msgid ""
+"Calls ``dict.setitem(TOS1[-i], TOS, TOS1)``.  Used to implement dict "
+"comprehensions."
+msgstr ""
+
+#: ../../../library/dis.rst:399
+msgid ""
+"For all of the SET_ADD, LIST_APPEND and MAP_ADD instructions, while the "
+"added value or key/value pair is popped off, the container object remains on "
+"the stack so that it is available for further iterations of the loop."
+msgstr ""
+
+#: ../../../library/dis.rst:406
+msgid "Returns with TOS to the caller of the function."
+msgstr ""
+
+#: ../../../library/dis.rst:411
+msgid "Pops ``TOS`` and yields it from a :term:`generator`."
+msgstr ""
+
+#: ../../../library/dis.rst:416
+msgid ""
+"Loads all symbols not starting with ``'_'`` directly from the module TOS to "
+"the local namespace. The module is popped after loading all names. This "
+"opcode implements ``from module import *``."
+msgstr ""
+
+#: ../../../library/dis.rst:423
+msgid ""
+"Removes one block from the block stack.  Per frame, there is a  stack of "
+"blocks, denoting nested loops, try statements, and such."
+msgstr ""
+
+#: ../../../library/dis.rst:429
+msgid ""
+"Removes one block from the block stack. The popped block must be an "
+"exception handler block, as implicitly created when entering an except "
+"handler. In addition to popping extraneous values from the frame stack, the "
+"last three popped values are used to restore the exception state."
+msgstr ""
+
+#: ../../../library/dis.rst:437
+msgid ""
+"Terminates a :keyword:`finally` clause.  The interpreter recalls whether the "
+"exception has to be re-raised, or whether the function returns, and "
+"continues with the outer-next block."
+msgstr ""
+
+#: ../../../library/dis.rst:444
+msgid ""
+"Pushes :func:`builtins.__build_class__` onto the stack.  It is later called "
+"by ``CALL_FUNCTION`` to construct a class."
+msgstr ""
+
+#: ../../../library/dis.rst:450
+msgid ""
+"Cleans up the stack when a :keyword:`with` statement block exits.  TOS is "
+"the context manager's :meth:`__exit__` bound method. Below TOS are 1--3 "
+"values indicating how/why the finally clause was entered:"
+msgstr ""
+
+#: ../../../library/dis.rst:454
+msgid "SECOND = ``None``"
+msgstr ""
+
+#: ../../../library/dis.rst:455
+msgid "(SECOND, THIRD) = (``WHY_{RETURN,CONTINUE}``), retval"
+msgstr ""
+
+#: ../../../library/dis.rst:456
+msgid "SECOND = ``WHY_*``; no retval below it"
+msgstr ""
+
+#: ../../../library/dis.rst:457
+msgid "(SECOND, THIRD, FOURTH) = exc_info()"
+msgstr ""
+
+#: ../../../library/dis.rst:459
+msgid ""
+"In the last case, ``TOS(SECOND, THIRD, FOURTH)`` is called, otherwise "
+"``TOS(None, None, None)``.  In addition, TOS is removed from the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:462
+msgid ""
+"If the stack represents an exception, *and* the function call returns a "
+"'true' value, this information is \"zapped\" and replaced with a single "
+"``WHY_SILENCED`` to prevent ``END_FINALLY`` from re-raising the exception. "
+"(But non-local gotos will still be resumed.)"
+msgstr ""
+
+#: ../../../library/dis.rst:472
+msgid ""
+"Pops TOS from the stack and stores it as the current frame's ``f_locals``. "
+"This is used in class construction."
+msgstr ""
+
+#: ../../../library/dis.rst:476
+msgid ""
+"All of the following opcodes expect arguments.  An argument is two bytes, "
+"with the more significant byte last."
+msgstr ""
+
+#: ../../../library/dis.rst:481
+msgid ""
+"Implements ``name = TOS``. *namei* is the index of *name* in the attribute :"
+"attr:`co_names` of the code object. The compiler tries to use ``STORE_FAST`` "
+"or ``STORE_GLOBAL`` if possible."
+msgstr ""
+
+#: ../../../library/dis.rst:488
+msgid ""
+"Implements ``del name``, where *namei* is the index into :attr:`co_names` "
+"attribute of the code object."
+msgstr ""
+
+#: ../../../library/dis.rst:494
+msgid ""
+"Unpacks TOS into *count* individual values, which are put onto the stack "
+"right-to-left."
+msgstr ""
+
+#: ../../../library/dis.rst:500
+msgid ""
+"Implements assignment with a starred target: Unpacks an iterable in TOS into "
+"individual values, where the total number of values can be smaller than the "
+"number of items in the iterable: one the new values will be a list of all "
+"leftover items."
+msgstr ""
+
+#: ../../../library/dis.rst:505
+msgid ""
+"The low byte of *counts* is the number of values before the list value, the "
+"high byte of *counts* the number of values after it.  The resulting values "
+"are put onto the stack right-to-left."
+msgstr ""
+
+#: ../../../library/dis.rst:512
+msgid ""
+"Duplicate *count* items, keeping them in the same order. Due to "
+"implementation limits, *count* should be between 1 and 5 inclusive."
+msgstr ""
+
+#: ../../../library/dis.rst:518
+msgid ""
+"Implements ``TOS.name = TOS1``, where *namei* is the index of name in :attr:"
+"`co_names`."
+msgstr ""
+
+#: ../../../library/dis.rst:524
+msgid ""
+"Implements ``del TOS.name``, using *namei* as index into :attr:`co_names`."
+msgstr ""
+
+#: ../../../library/dis.rst:529
+msgid "Works as ``STORE_NAME``, but stores the name as a global."
+msgstr ""
+
+#: ../../../library/dis.rst:534
+msgid "Works as ``DELETE_NAME``, but deletes a global name."
+msgstr ""
+
+#: ../../../library/dis.rst:539
+msgid "Pushes ``co_consts[consti]`` onto the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:544
+msgid "Pushes the value associated with ``co_names[namei]`` onto the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:549
+msgid ""
+"Creates a tuple consuming *count* items from the stack, and pushes the "
+"resulting tuple onto the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:555
+msgid "Works as ``BUILD_TUPLE``, but creates a list."
+msgstr ""
+
+#: ../../../library/dis.rst:560
+msgid "Works as ``BUILD_TUPLE``, but creates a set."
+msgstr ""
+
+#: ../../../library/dis.rst:565
+msgid ""
+"Pushes a new dictionary object onto the stack.  The dictionary is pre-sized "
+"to hold *count* entries."
+msgstr ""
+
+#: ../../../library/dis.rst:571
+msgid "Replaces TOS with ``getattr(TOS, co_names[namei])``."
+msgstr ""
+
+#: ../../../library/dis.rst:576
+msgid ""
+"Performs a Boolean operation.  The operation name can be found in "
+"``cmp_op[opname]``."
+msgstr ""
+
+#: ../../../library/dis.rst:582
+msgid ""
+"Imports the module ``co_names[namei]``.  TOS and TOS1 are popped and provide "
+"the *fromlist* and *level* arguments of :func:`__import__`.  The module "
+"object is pushed onto the stack.  The current namespace is not affected: for "
+"a proper import statement, a subsequent ``STORE_FAST`` instruction modifies "
+"the namespace."
+msgstr ""
+
+#: ../../../library/dis.rst:591
+msgid ""
+"Loads the attribute ``co_names[namei]`` from the module found in TOS. The "
+"resulting object is pushed onto the stack, to be subsequently stored by a "
+"``STORE_FAST`` instruction."
+msgstr ""
+
+#: ../../../library/dis.rst:598
+msgid "Increments bytecode counter by *delta*."
+msgstr ""
+
+#: ../../../library/dis.rst:603
+msgid "If TOS is true, sets the bytecode counter to *target*.  TOS is popped."
+msgstr ""
+
+#: ../../../library/dis.rst:608
+msgid "If TOS is false, sets the bytecode counter to *target*.  TOS is popped."
+msgstr ""
+
+#: ../../../library/dis.rst:613
+msgid ""
+"If TOS is true, sets the bytecode counter to *target* and leaves TOS on the "
+"stack.  Otherwise (TOS is false), TOS is popped."
+msgstr ""
+
+#: ../../../library/dis.rst:619
+msgid ""
+"If TOS is false, sets the bytecode counter to *target* and leaves TOS on the "
+"stack.  Otherwise (TOS is true), TOS is popped."
+msgstr ""
+
+#: ../../../library/dis.rst:625
+msgid "Set bytecode counter to *target*."
+msgstr ""
+
+#: ../../../library/dis.rst:630
+msgid ""
+"``TOS`` is an :term:`iterator`.  Call its :meth:`__next__` method.  If this "
+"yields a new value, push it on the stack (leaving the iterator below it).  "
+"If the iterator indicates it is exhausted ``TOS`` is popped, and the byte "
+"code counter is incremented by *delta*."
+msgstr ""
+
+#: ../../../library/dis.rst:638
+msgid "Loads the global named ``co_names[namei]`` onto the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:643
+msgid ""
+"Pushes a block for a loop onto the block stack.  The block spans from the "
+"current instruction with a size of *delta* bytes."
+msgstr ""
+
+#: ../../../library/dis.rst:649
+msgid ""
+"Pushes a try block from a try-except clause onto the block stack. *delta* "
+"points to the first except block."
+msgstr ""
+
+#: ../../../library/dis.rst:655
+msgid ""
+"Pushes a try block from a try-except clause onto the block stack. *delta* "
+"points to the finally block."
+msgstr ""
+
+#: ../../../library/dis.rst:660
+msgid ""
+"Store a key and value pair in a dictionary.  Pops the key and value while "
+"leaving the dictionary on the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:665
+msgid ""
+"Pushes a reference to the local ``co_varnames[var_num]`` onto the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:670
+msgid "Stores TOS into the local ``co_varnames[var_num]``."
+msgstr ""
+
+#: ../../../library/dis.rst:675
+msgid "Deletes local ``co_varnames[var_num]``."
+msgstr ""
+
+#: ../../../library/dis.rst:680
+msgid ""
+"Pushes a reference to the cell contained in slot *i* of the cell and free "
+"variable storage.  The name of the variable is  ``co_cellvars[i]`` if *i* is "
+"less than the length of *co_cellvars*.  Otherwise it is  ``co_freevars[i - "
+"len(co_cellvars)]``."
+msgstr ""
+
+#: ../../../library/dis.rst:688
+msgid ""
+"Loads the cell contained in slot *i* of the cell and free variable storage. "
+"Pushes a reference to the object the cell contains on the stack."
+msgstr ""
+
+#: ../../../library/dis.rst:694
+msgid ""
+"Stores TOS into the cell contained in slot *i* of the cell and free variable "
+"storage."
+msgstr ""
+
+#: ../../../library/dis.rst:700
+msgid ""
+"Raises an exception. *argc* indicates the number of parameters to the raise "
+"statement, ranging from 0 to 3.  The handler will find the traceback as "
+"TOS2, the parameter as TOS1, and the exception as TOS."
+msgstr ""
+
+#: ../../../library/dis.rst:707
+msgid ""
+"Calls a function.  The low byte of *argc* indicates the number of positional "
+"parameters, the high byte the number of keyword parameters. On the stack, "
+"the opcode finds the keyword parameters first.  For each keyword argument, "
+"the value is on top of the key.  Below the keyword parameters, the "
+"positional parameters are on the stack, with the right-most parameter on "
+"top.  Below the parameters, the function object to call is on the stack.  "
+"Pops all function arguments, and the function itself off the stack, and "
+"pushes the return value."
+msgstr ""
+
+#: ../../../library/dis.rst:718
+msgid ""
+"Pushes a new function object on the stack.  TOS is the code associated with "
+"the function.  The function object is defined to have *argc* default "
+"parameters, which are found below TOS."
+msgstr ""
+
+#: ../../../library/dis.rst:725
+msgid ""
+"Creates a new function object, sets its *__closure__* slot, and pushes it on "
+"the stack.  TOS is the code associated with the function, TOS1 the tuple "
+"containing cells for the closure's free variables.  The function also has "
+"*argc* default parameters, which are found below the cells."
+msgstr ""
+
+#: ../../../library/dis.rst:735
+msgid ""
+"Pushes a slice object on the stack.  *argc* must be 2 or 3.  If it is 2, "
+"``slice(TOS1, TOS)`` is pushed; if it is 3, ``slice(TOS2, TOS1, TOS)`` is "
+"pushed. See the :func:`slice` built-in function for more information."
+msgstr ""
+
+#: ../../../library/dis.rst:742
+msgid ""
+"Prefixes any opcode which has an argument too big to fit into the default "
+"two bytes.  *ext* holds two additional bytes which, taken together with the "
+"subsequent opcode's argument, comprise a four-byte argument, *ext* being the "
+"two most-significant bytes."
+msgstr ""
+
+#: ../../../library/dis.rst:750
+msgid ""
+"Calls a function. *argc* is interpreted as in ``CALL_FUNCTION``. The top "
+"element on the stack contains the variable argument list, followed by "
+"keyword and positional arguments."
+msgstr ""
+
+#: ../../../library/dis.rst:757
+msgid ""
+"Calls a function. *argc* is interpreted as in ``CALL_FUNCTION``. The top "
+"element on the stack contains the keyword arguments dictionary,  followed by "
+"explicit keyword and positional arguments."
+msgstr ""
+
+#: ../../../library/dis.rst:764
+msgid ""
+"Calls a function. *argc* is interpreted as in ``CALL_FUNCTION``.  The top "
+"element on the stack contains the keyword arguments dictionary, followed by "
+"the variable-arguments tuple, followed by explicit keyword and positional "
+"arguments."
+msgstr ""
+
+#: ../../../library/dis.rst:771
+msgid ""
+"This is not really an opcode.  It identifies the dividing line between "
+"opcodes which don't take arguments ``< HAVE_ARGUMENT`` and those which do "
+"``>= HAVE_ARGUMENT``."
+msgstr ""
+
+#: ../../../library/dis.rst:733
+msgid "slice"
+msgstr ""

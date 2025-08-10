@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:08+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/email.errors.rst:2
+msgid ":mod:`email`: Exception and Defect classes"
+msgstr ""
+
+#: ../../../library/email.errors.rst:8
+msgid ""
+"The following exception classes are defined in the :mod:`email.errors` "
+"module:"
+msgstr ""
+
+#: ../../../library/email.errors.rst:13
+msgid ""
+"This is the base class for all exceptions that the :mod:`email` package can "
+"raise.  It is derived from the standard :exc:`Exception` class and defines "
+"no additional methods."
+msgstr ""
+
+#: ../../../library/email.errors.rst:20
+msgid ""
+"This is the base class for exceptions raised by the :class:`~email.parser."
+"Parser` class.  It is derived from :exc:`MessageError`."
+msgstr ""
+
+#: ../../../library/email.errors.rst:26 ../../../library/email.errors.rst:38
+msgid ""
+"Raised under some error conditions when parsing the :rfc:`2822` headers of a "
+"message, this class is derived from :exc:`MessageParseError`. It can be "
+"raised from the :meth:`Parser.parse` or :meth:`Parser.parsestr` methods."
+msgstr ""
+
+#: ../../../library/email.errors.rst:30
+msgid ""
+"Situations where it can be raised include finding an envelope header after "
+"the first :rfc:`2822` header of the message, finding a continuation line "
+"before the first :rfc:`2822` header is found, or finding a line in the "
+"headers which is neither a header or a continuation line."
+msgstr ""
+
+#: ../../../library/email.errors.rst:42
+msgid ""
+"Situations where it can be raised include not being able to find the "
+"starting or terminating boundary in a :mimetype:`multipart/\\*` message when "
+"strict parsing is used."
+msgstr ""
+
+#: ../../../library/email.errors.rst:49
+msgid ""
+"Raised when a payload is added to a :class:`Message` object using :meth:"
+"`add_payload`, but the payload is already a scalar and the message's :"
+"mailheader:`Content-Type` main type is not either :mimetype:`multipart` or "
+"missing.  :exc:`MultipartConversionError` multiply inherits from :exc:"
+"`MessageError` and the built-in :exc:`TypeError`."
+msgstr ""
+
+#: ../../../library/email.errors.rst:55
+msgid ""
+"Since :meth:`Message.add_payload` is deprecated, this exception is rarely "
+"raised in practice.  However the exception may also be raised if the :meth:"
+"`attach` method is called on an instance of a class derived from :class:"
+"`~email.mime.nonmultipart.MIMENonMultipart` (e.g. :class:`~email.mime.image."
+"MIMEImage`)."
+msgstr ""
+
+#: ../../../library/email.errors.rst:61
+msgid ""
+"Here's the list of the defects that the :class:`~email.mime.parser."
+"FeedParser` can find while parsing messages.  Note that the defects are "
+"added to the message where the problem was found, so for example, if a "
+"message nested inside a :mimetype:`multipart/alternative` had a malformed "
+"header, that nested message object would have a defect, but the containing "
+"messages would not."
+msgstr ""
+
+#: ../../../library/email.errors.rst:67
+msgid ""
+"All defect classes are subclassed from :class:`email.errors.MessageDefect`, "
+"but this class is *not* an exception!"
+msgstr ""
+
+#: ../../../library/email.errors.rst:70
+msgid ""
+":class:`NoBoundaryInMultipartDefect` -- A message claimed to be a multipart, "
+"but had no :mimetype:`boundary` parameter."
+msgstr ""
+
+#: ../../../library/email.errors.rst:73
+msgid ""
+":class:`StartBoundaryNotFoundDefect` -- The start boundary claimed in the :"
+"mailheader:`Content-Type` header was never found."
+msgstr ""
+
+#: ../../../library/email.errors.rst:76
+msgid ""
+":class:`FirstHeaderLineIsContinuationDefect` -- The message had a "
+"continuation line as its first header line."
+msgstr ""
+
+#: ../../../library/email.errors.rst:79
+msgid ""
+":class:`MisplacedEnvelopeHeaderDefect` - A \"Unix From\" header was found in "
+"the middle of a header block."
+msgstr ""
+
+#: ../../../library/email.errors.rst:82
+msgid ""
+":class:`MalformedHeaderDefect` -- A header was found that was missing a "
+"colon, or was otherwise malformed."
+msgstr ""
+
+#: ../../../library/email.errors.rst:85
+msgid ""
+":class:`MultipartInvariantViolationDefect` -- A message claimed to be a :"
+"mimetype:`multipart`, but no subparts were found.  Note that when a message "
+"has this defect, its :meth:`is_multipart` method may return false even "
+"though its content type claims to be :mimetype:`multipart`."
+msgstr ""
