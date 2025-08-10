@@ -1,0 +1,1013 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tutorial/introduction.rst:5
+msgid "An Informal Introduction to Python"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:7
+msgid ""
+"In the following examples, input and output are distinguished by the "
+"presence or absence of prompts (``>>>`` and ``...``): to repeat the example, "
+"you must type everything after the prompt, when the prompt appears; lines "
+"that do not begin with a prompt are output from the interpreter. Note that a "
+"secondary prompt on a line by itself in an example means you must type a "
+"blank line; this is used to end a multi-line command."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:14
+msgid ""
+"Many of the examples in this manual, even those entered at the interactive "
+"prompt, include comments.  Comments in Python start with the hash character, "
+"``#``, and extend to the end of the physical line.  A comment may appear at "
+"the start of a line or following whitespace or code, but not within a string "
+"literal.  A hash character within a string literal is just a hash character. "
+"Since comments are to clarify code and are not interpreted by Python, they "
+"may be omitted when typing in examples."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:22
+msgid "Some examples::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:24
+msgid ""
+"# this is the first comment\n"
+"SPAM = 1                 # and this is the second comment\n"
+"                         # ... and now a third!\n"
+"STRING = \"# This is not a comment.\""
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:33
+msgid "Using Python as a Calculator"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:35
+msgid ""
+"Let's try some simple Python commands.  Start the interpreter and wait for "
+"the primary prompt, ``>>>``.  (It shouldn't take long.)"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:42
+msgid "Numbers"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:44
+msgid ""
+"The interpreter acts as a simple calculator: you can type an expression at "
+"it and it will write the value.  Expression syntax is straightforward: the "
+"operators ``+``, ``-``, ``*`` and ``/`` work just like in most other "
+"languages (for example, Pascal or C); parentheses can be used for grouping.  "
+"For example::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:49
+msgid ""
+">>> 2+2\n"
+"4\n"
+">>> # This is a comment\n"
+"... 2+2\n"
+"4\n"
+">>> 2+2  # and a comment on the same line as code\n"
+"4\n"
+">>> (50-5*6)/4\n"
+"5\n"
+">>> # Integer division returns the floor:\n"
+"... 7/3\n"
+"2\n"
+">>> 7/-3\n"
+"-3"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:64
+msgid ""
+"The equal sign (``'='``) is used to assign a value to a variable. "
+"Afterwards, no result is displayed before the next interactive prompt::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:67
+msgid ""
+">>> width = 20\n"
+">>> height = 5*9\n"
+">>> width * height\n"
+"900"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:72
+msgid "A value can be assigned to several variables simultaneously::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:74
+msgid ""
+">>> x = y = z = 0  # Zero x, y and z\n"
+">>> x\n"
+"0\n"
+">>> y\n"
+"0\n"
+">>> z\n"
+"0"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:82
+msgid ""
+"Variables must be \"defined\" (assigned a value) before they can be used, or "
+"an error will occur::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:85
+msgid ""
+">>> # try to access an undefined variable\n"
+"... n\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in <module>\n"
+"NameError: name 'n' is not defined"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:91
+msgid ""
+"There is full support for floating point; operators with mixed type operands "
+"convert the integer operand to floating point::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:94
+msgid ""
+">>> 3 * 3.75 / 1.5\n"
+"7.5\n"
+">>> 7.0 / 2\n"
+"3.5"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:99
+msgid ""
+"Complex numbers are also supported; imaginary numbers are written with a "
+"suffix of ``j`` or ``J``.  Complex numbers with a nonzero real component are "
+"written as ``(real+imagj)``, or can be created with the ``complex(real, "
+"imag)`` function. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:104
+msgid ""
+">>> 1j * 1J\n"
+"(-1+0j)\n"
+">>> 1j * complex(0,1)\n"
+"(-1+0j)\n"
+">>> 3+1j*3\n"
+"(3+3j)\n"
+">>> (3+1j)*3\n"
+"(9+3j)\n"
+">>> (1+2j)/(1+1j)\n"
+"(1.5+0.5j)"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:115
+msgid ""
+"Complex numbers are always represented as two floating point numbers, the "
+"real and imaginary part.  To extract these parts from a complex number *z*, "
+"use ``z.real`` and ``z.imag``.   ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:119
+msgid ""
+">>> a=1.5+0.5j\n"
+">>> a.real\n"
+"1.5\n"
+">>> a.imag\n"
+"0.5"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:125
+msgid ""
+"The conversion functions to floating point and integer (:func:`float`, :func:"
+"`int` and :func:`long`) don't work for complex numbers --- there is no one "
+"correct way to convert a complex number to a real number.  Use ``abs(z)`` to "
+"get its magnitude (as a float) or ``z.real`` to get its real part. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:130
+msgid ""
+">>> a=3.0+4.0j\n"
+">>> float(a)\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in ?\n"
+"TypeError: can't convert complex to float; use abs(z)\n"
+">>> a.real\n"
+"3.0\n"
+">>> a.imag\n"
+"4.0\n"
+">>> abs(a)  # sqrt(a.real**2 + a.imag**2)\n"
+"5.0"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:142
+msgid ""
+"In interactive mode, the last printed expression is assigned to the variable "
+"``_``.  This means that when you are using Python as a desk calculator, it "
+"is somewhat easier to continue calculations, for example::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:146
+msgid ""
+">>> tax = 12.5 / 100\n"
+">>> price = 100.50\n"
+">>> price * tax\n"
+"12.5625\n"
+">>> price + _\n"
+"113.0625\n"
+">>> round(_, 2)\n"
+"113.06"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:155
+msgid ""
+"This variable should be treated as read-only by the user.  Don't explicitly "
+"assign a value to it --- you would create an independent local variable with "
+"the same name masking the built-in variable with its magic behavior."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:163
+msgid "Strings"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:165
+msgid ""
+"Besides numbers, Python can also manipulate strings, which can be expressed "
+"in several ways.  They can be enclosed in single quotes or double quotes::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:168
+msgid ""
+">>> 'spam eggs'\n"
+"'spam eggs'\n"
+">>> 'doesn\\'t'\n"
+"\"doesn't\"\n"
+">>> \"doesn't\"\n"
+"\"doesn't\"\n"
+">>> '\"Yes,\" he said.'\n"
+"'\"Yes,\" he said.'\n"
+">>> \"\\\"Yes,\\\" he said.\"\n"
+"'\"Yes,\" he said.'\n"
+">>> '\"Isn\\'t,\" she said.'\n"
+"'\"Isn\\'t,\" she said.'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:181
+msgid ""
+"String literals can span multiple lines in several ways.  Continuation lines "
+"can be used, with a backslash as the last character on the line indicating "
+"that the next line is a logical continuation of the line::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:185
+msgid ""
+"hello = \"This is a rather long string containing\\n\\\n"
+"several lines of text just as you would do in C.\\n\\\n"
+"    Note that whitespace at the beginning of the line is\\\n"
+" significant.\"\n"
+"\n"
+"print hello"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:192
+msgid ""
+"Note that newlines still need to be embedded in the string using ``\\n``; "
+"the newline following the trailing backslash is discarded.  This example "
+"would print the following:"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:196
+msgid ""
+"This is a rather long string containing\n"
+"several lines of text just as you would do in C.\n"
+"    Note that whitespace at the beginning of the line is significant."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:202
+msgid ""
+"Or, strings can be surrounded in a pair of matching triple-quotes: "
+"``\"\"\"`` or ``'''``.  End of lines do not need to be escaped when using "
+"triple-quotes, but they will be included in the string. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:206
+msgid ""
+"print \"\"\"\n"
+"Usage: thingy [OPTIONS]\n"
+"     -h                        Display this usage message\n"
+"     -H hostname               Hostname to connect to\n"
+"\"\"\""
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:212
+msgid "produces the following output:"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:214
+msgid ""
+"Usage: thingy [OPTIONS]\n"
+"     -h                        Display this usage message\n"
+"     -H hostname               Hostname to connect to"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:220
+msgid ""
+"If we make the string literal a \"raw\" string, ``\\n`` sequences are not "
+"converted to newlines, but the backslash at the end of the line, and the "
+"newline character in the source, are both included in the string as data.  "
+"Thus, the example::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:224
+msgid ""
+"hello = r\"This is a rather long string containing\\n\\\n"
+"several lines of text much as you would do in C.\"\n"
+"\n"
+"print hello"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:229
+msgid "would print:"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:231
+msgid ""
+"This is a rather long string containing\\n\\\n"
+"several lines of text much as you would do in C."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:236
+msgid ""
+"The interpreter prints the result of string operations in the same way as "
+"they are typed for input: inside quotes, and with quotes and other funny "
+"characters escaped by backslashes, to show the precise value.  The string is "
+"enclosed in double quotes if the string contains a single quote and no "
+"double quotes, else it's enclosed in single quotes.  (The :keyword:`print` "
+"statement, described later, can be used to write strings without quotes or "
+"escapes.)"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:243
+msgid ""
+"Strings can be concatenated (glued together) with the ``+`` operator, and "
+"repeated with ``*``::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:246
+msgid ""
+">>> word = 'Help' + 'A'\n"
+">>> word\n"
+"'HelpA'\n"
+">>> '<' + word*5 + '>'\n"
+"'<HelpAHelpAHelpAHelpAHelpA>'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:252
+msgid ""
+"Two string literals next to each other are automatically concatenated; the "
+"first line above could also have been written ``word = 'Help' 'A'``; this "
+"only works with two literals, not with arbitrary string expressions::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:256
+msgid ""
+">>> 'str' 'ing'                   #  <-  This is ok\n"
+"'string'\n"
+">>> 'str'.strip() + 'ing'   #  <-  This is ok\n"
+"'string'\n"
+">>> 'str'.strip() 'ing'     #  <-  This is invalid\n"
+"  File \"<stdin>\", line 1, in ?\n"
+"    'str'.strip() 'ing'\n"
+"                      ^\n"
+"SyntaxError: invalid syntax"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:266
+msgid ""
+"Strings can be subscripted (indexed); like in C, the first character of a "
+"string has subscript (index) 0.  There is no separate character type; a "
+"character is simply a string of size one.  Like in Icon, substrings can be "
+"specified with the *slice notation*: two indices separated by a colon. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:271
+msgid ""
+">>> word[4]\n"
+"'A'\n"
+">>> word[0:2]\n"
+"'He'\n"
+">>> word[2:4]\n"
+"'lp'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:278
+msgid ""
+"Slice indices have useful defaults; an omitted first index defaults to zero, "
+"an omitted second index defaults to the size of the string being sliced. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:281
+msgid ""
+">>> word[:2]    # The first two characters\n"
+"'He'\n"
+">>> word[2:]    # Everything except the first two characters\n"
+"'lpA'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:286
+msgid ""
+"Unlike a C string, Python strings cannot be changed.  Assigning to an "
+"indexed position in the string results in an error::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:289
+msgid ""
+">>> word[0] = 'x'\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in ?\n"
+"TypeError: object does not support item assignment\n"
+">>> word[:1] = 'Splat'\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in ?\n"
+"TypeError: object does not support slice assignment"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:298
+msgid ""
+"However, creating a new string with the combined content is easy and "
+"efficient::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:300
+msgid ""
+">>> 'x' + word[1:]\n"
+"'xelpA'\n"
+">>> 'Splat' + word[4]\n"
+"'SplatA'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:305
+msgid ""
+"Here's a useful invariant of slice operations: ``s[:i] + s[i:]`` equals "
+"``s``. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:308
+msgid ""
+">>> word[:2] + word[2:]\n"
+"'HelpA'\n"
+">>> word[:3] + word[3:]\n"
+"'HelpA'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:313
+msgid ""
+"Degenerate slice indices are handled gracefully: an index that is too large "
+"is replaced by the string size, an upper bound smaller than the lower bound "
+"returns an empty string. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:317
+msgid ""
+">>> word[1:100]\n"
+"'elpA'\n"
+">>> word[10:]\n"
+"''\n"
+">>> word[2:1]\n"
+"''"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:324
+msgid ""
+"Indices may be negative numbers, to start counting from the right. For "
+"example::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:326
+msgid ""
+">>> word[-1]     # The last character\n"
+"'A'\n"
+">>> word[-2]     # The last-but-one character\n"
+"'p'\n"
+">>> word[-2:]    # The last two characters\n"
+"'pA'\n"
+">>> word[:-2]    # Everything except the last two characters\n"
+"'Hel'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:335
+msgid ""
+"But note that -0 is really the same as 0, so it does not count from the "
+"right! ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:338
+msgid ""
+">>> word[-0]     # (since -0 equals 0)\n"
+"'H'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:341
+msgid ""
+"Out-of-range negative slice indices are truncated, but don't try this for "
+"single-element (non-slice) indices::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:344
+msgid ""
+">>> word[-100:]\n"
+"'HelpA'\n"
+">>> word[-10]    # error\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in ?\n"
+"IndexError: string index out of range"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:351
+msgid ""
+"One way to remember how slices work is to think of the indices as pointing "
+"*between* characters, with the left edge of the first character numbered 0. "
+"Then the right edge of the last character of a string of *n* characters has "
+"index *n*, for example::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:356
+msgid ""
+" +---+---+---+---+---+\n"
+" | H | e | l | p | A |\n"
+" +---+---+---+---+---+\n"
+" 0   1   2   3   4   5\n"
+"-5  -4  -3  -2  -1"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:362
+msgid ""
+"The first row of numbers gives the position of the indices 0...5 in the "
+"string; the second row gives the corresponding negative indices. The slice "
+"from *i* to *j* consists of all characters between the edges labeled *i* and "
+"*j*, respectively."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:367
+msgid ""
+"For non-negative indices, the length of a slice is the difference of the "
+"indices, if both are within bounds.  For example, the length of "
+"``word[1:3]`` is 2."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:371
+msgid "The built-in function :func:`len` returns the length of a string::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:373
+msgid ""
+">>> s = 'supercalifragilisticexpialidocious'\n"
+">>> len(s)\n"
+"34"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:383
+msgid ":ref:`typesseq`"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:381
+msgid ""
+"Strings, and the Unicode strings described in the next section, are examples "
+"of *sequence types*, and support the common operations supported by such "
+"types."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:387
+msgid ":ref:`string-methods`"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:386
+msgid ""
+"Both strings and Unicode strings support a large number of methods for basic "
+"transformations and searching."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:391
+msgid ":ref:`new-string-formatting`"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:390
+msgid ""
+"Information about string formatting with :meth:`str.format` is described "
+"here."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:394
+msgid ":ref:`string-formatting`"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:394
+msgid ""
+"The old formatting operations invoked when strings and Unicode strings are "
+"the left operand of the ``%`` operator are described in more detail here."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:401
+msgid "Unicode Strings"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:406
+msgid ""
+"Starting with Python 2.0 a new data type for storing text data is available "
+"to the programmer: the Unicode object. It can be used to store and "
+"manipulate Unicode data (see http://www.unicode.org/) and integrates well "
+"with the existing string objects, providing auto-conversions where necessary."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:411
+msgid ""
+"Unicode has the advantage of providing one ordinal for every character in "
+"every script used in modern and ancient texts. Previously, there were only "
+"256 possible ordinals for script characters. Texts were typically bound to a "
+"code page which mapped the ordinals to script characters. This lead to very "
+"much confusion especially with respect to internationalization (usually "
+"written as ``i18n`` --- ``'i'`` + 18 characters + ``'n'``) of software.  "
+"Unicode solves these problems by defining one code page for all scripts."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:419
+msgid ""
+"Creating Unicode strings in Python is just as simple as creating normal "
+"strings::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:422
+msgid ""
+">>> u'Hello World !'\n"
+"u'Hello World !'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:425
+msgid ""
+"The small ``'u'`` in front of the quote indicates that a Unicode string is "
+"supposed to be created. If you want to include special characters in the "
+"string, you can do so by using the Python *Unicode-Escape* encoding. The "
+"following example shows how::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:430
+msgid ""
+">>> u'Hello\\u0020World !'\n"
+"u'Hello World !'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:433
+msgid ""
+"The escape sequence ``\\u0020`` indicates to insert the Unicode character "
+"with the ordinal value 0x0020 (the space character) at the given position."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:436
+msgid ""
+"Other characters are interpreted by using their respective ordinal values "
+"directly as Unicode ordinals.  If you have literal strings in the standard "
+"Latin-1 encoding that is used in many Western countries, you will find it "
+"convenient that the lower 256 characters of Unicode are the same as the 256 "
+"characters of Latin-1."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:442
+msgid ""
+"For experts, there is also a raw mode just like the one for normal strings. "
+"You have to prefix the opening quote with 'ur' to have Python use the *Raw-"
+"Unicode-Escape* encoding. It will only apply the above ``\\uXXXX`` "
+"conversion if there is an uneven number of backslashes in front of the small "
+"'u'. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:448
+msgid ""
+">>> ur'Hello\\u0020World !'\n"
+"u'Hello World !'\n"
+">>> ur'Hello\\\\u0020World !'\n"
+"u'Hello\\\\\\\\u0020World !'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:453
+msgid ""
+"The raw mode is most useful when you have to enter lots of backslashes, as "
+"can be necessary in regular expressions."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:456
+msgid ""
+"Apart from these standard encodings, Python provides a whole set of other "
+"ways of creating Unicode strings on the basis of a known encoding."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:461
+msgid ""
+"The built-in function :func:`unicode` provides access to all registered "
+"Unicode codecs (COders and DECoders). Some of the more well known encodings "
+"which these codecs can convert are *Latin-1*, *ASCII*, *UTF-8*, and "
+"*UTF-16*. The latter two are variable-length encodings that store each "
+"Unicode character in one or more bytes. The default encoding is normally set "
+"to ASCII, which passes through characters in the range 0 to 127 and rejects "
+"any other characters with an error. When a Unicode string is printed, "
+"written to a file, or converted with :func:`str`, conversion takes place "
+"using this default encoding. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:470
+msgid ""
+">>> u\"abc\"\n"
+"u'abc'\n"
+">>> str(u\"abc\")\n"
+"'abc'\n"
+">>> u\"äöü\"\n"
+"u'\\xe4\\xf6\\xfc'\n"
+">>> str(u\"äöü\")\n"
+"Traceback (most recent call last):\n"
+"  File \"<stdin>\", line 1, in ?\n"
+"UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-2: "
+"ordinal not in range(128)"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:481
+msgid ""
+"To convert a Unicode string into an 8-bit string using a specific encoding, "
+"Unicode objects provide an :func:`encode` method that takes one argument, "
+"the name of the encoding.  Lowercase names for encodings are preferred. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:485
+msgid ""
+">>> u\"äöü\".encode('utf-8')\n"
+"'\\xc3\\xa4\\xc3\\xb6\\xc3\\xbc'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:488
+msgid ""
+"If you have data in a specific encoding and want to produce a corresponding "
+"Unicode string from it, you can use the :func:`unicode` function with the "
+"encoding name as the second argument. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:492
+msgid ""
+">>> unicode('\\xc3\\xa4\\xc3\\xb6\\xc3\\xbc', 'utf-8')\n"
+"u'\\xe4\\xf6\\xfc'"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:499
+msgid "Lists"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:501
+msgid ""
+"Python knows a number of *compound* data types, used to group together other "
+"values.  The most versatile is the *list*, which can be written as a list of "
+"comma-separated values (items) between square brackets.  List items need not "
+"all have the same type. ::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:506
+msgid ""
+">>> a = ['spam', 'eggs', 100, 1234]\n"
+">>> a\n"
+"['spam', 'eggs', 100, 1234]"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:510
+msgid ""
+"Like string indices, list indices start at 0, and lists can be sliced, "
+"concatenated and so on::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:513
+msgid ""
+">>> a[0]\n"
+"'spam'\n"
+">>> a[3]\n"
+"1234\n"
+">>> a[-2]\n"
+"100\n"
+">>> a[1:-1]\n"
+"['eggs', 100]\n"
+">>> a[:2] + ['bacon', 2*2]\n"
+"['spam', 'eggs', 'bacon', 4]\n"
+">>> 3*a[:3] + ['Boo!']\n"
+"['spam', 'eggs', 100, 'spam', 'eggs', 100, 'spam', 'eggs', 100, 'Boo!']"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:526
+msgid ""
+"All slice operations return a new list containing the requested elements.  "
+"This means that the following slice returns a shallow copy of the list *a*::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:529
+msgid ""
+">>> a[:]\n"
+"['spam', 'eggs', 100, 1234]"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:532
+msgid ""
+"Unlike strings, which are *immutable*, it is possible to change individual "
+"elements of a list::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:535
+msgid ""
+">>> a\n"
+"['spam', 'eggs', 100, 1234]\n"
+">>> a[2] = a[2] + 23\n"
+">>> a\n"
+"['spam', 'eggs', 123, 1234]"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:541
+msgid ""
+"Assignment to slices is also possible, and this can even change the size of "
+"the list or clear it entirely::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:544
+msgid ""
+">>> # Replace some items:\n"
+"... a[0:2] = [1, 12]\n"
+">>> a\n"
+"[1, 12, 123, 1234]\n"
+">>> # Remove some:\n"
+"... a[0:2] = []\n"
+">>> a\n"
+"[123, 1234]\n"
+">>> # Insert some:\n"
+"... a[1:1] = ['bletch', 'xyzzy']\n"
+">>> a\n"
+"[123, 'bletch', 'xyzzy', 1234]\n"
+">>> # Insert (a copy of) itself at the beginning\n"
+">>> a[:0] = a\n"
+">>> a\n"
+"[123, 'bletch', 'xyzzy', 1234, 123, 'bletch', 'xyzzy', 1234]\n"
+">>> # Clear the list: replace all items with an empty list\n"
+">>> a[:] = []\n"
+">>> a\n"
+"[]"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:565
+msgid "The built-in function :func:`len` also applies to lists::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:567
+msgid ""
+">>> a = ['a', 'b', 'c', 'd']\n"
+">>> len(a)\n"
+"4"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:571
+msgid ""
+"It is possible to nest lists (create lists containing other lists), for "
+"example::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:574
+msgid ""
+">>> q = [2, 3]\n"
+">>> p = [1, q, 4]\n"
+">>> len(p)\n"
+"3\n"
+">>> p[1]\n"
+"[2, 3]\n"
+">>> p[1][0]\n"
+"2\n"
+">>> p[1].append('xtra')     # See section 5.1\n"
+">>> p\n"
+"[1, [2, 3, 'xtra'], 4]\n"
+">>> q\n"
+"[2, 3, 'xtra']"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:588
+msgid ""
+"Note that in the last example, ``p[1]`` and ``q`` really refer to the same "
+"object!  We'll come back to *object semantics* later."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:595
+msgid "First Steps Towards Programming"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:597
+msgid ""
+"Of course, we can use Python for more complicated tasks than adding two and "
+"two together.  For instance, we can write an initial sub-sequence of the "
+"*Fibonacci* series as follows::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:601
+msgid ""
+">>> # Fibonacci series:\n"
+"... # the sum of two elements defines the next\n"
+"... a, b = 0, 1\n"
+">>> while b < 10:\n"
+"...     print b\n"
+"...     a, b = b, a+b\n"
+"...\n"
+"1\n"
+"1\n"
+"2\n"
+"3\n"
+"5\n"
+"8"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:615
+msgid "This example introduces several new features."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:617
+msgid ""
+"The first line contains a *multiple assignment*: the variables ``a`` and "
+"``b`` simultaneously get the new values 0 and 1.  On the last line this is "
+"used again, demonstrating that the expressions on the right-hand side are "
+"all evaluated first before any of the assignments take place.  The right-"
+"hand side expressions are evaluated  from the left to the right."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:623
+msgid ""
+"The :keyword:`while` loop executes as long as the condition (here: ``b < "
+"10``) remains true.  In Python, like in C, any non-zero integer value is "
+"true; zero is false.  The condition may also be a string or list value, in "
+"fact any sequence; anything with a non-zero length is true, empty sequences "
+"are false.  The test used in the example is a simple comparison.  The "
+"standard comparison operators are written the same as in C: ``<`` (less "
+"than), ``>`` (greater than), ``==`` (equal to), ``<=`` (less than or equal "
+"to), ``>=`` (greater than or equal to) and ``!=`` (not equal to)."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:632
+msgid ""
+"The *body* of the loop is *indented*: indentation is Python's way of "
+"grouping statements.  Python does not (yet!) provide an intelligent input "
+"line editing facility, so you have to type a tab or space(s) for each "
+"indented line.  In practice you will prepare more complicated input for "
+"Python with a text editor; most text editors have an auto-indent facility.  "
+"When a compound statement is entered interactively, it must be followed by a "
+"blank line to indicate completion (since the parser cannot guess when you "
+"have typed the last line). Note that each line within a basic block must be "
+"indented by the same amount."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:641
+msgid ""
+"The :keyword:`print` statement writes the value of the expression(s) it is "
+"given.  It differs from just writing the expression you want to write (as we "
+"did earlier in the calculator examples) in the way it handles multiple "
+"expressions and strings.  Strings are printed without quotes, and a space is "
+"inserted between items, so you can format things nicely, like this::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:647
+msgid ""
+">>> i = 256*256\n"
+">>> print 'The value of i is', i\n"
+"The value of i is 65536"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:651
+msgid "A trailing comma avoids the newline after the output::"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:653
+msgid ""
+">>> a, b = 0, 1\n"
+">>> while b < 1000:\n"
+"...     print b,\n"
+"...     a, b = b, a+b\n"
+"...\n"
+"1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987"
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:660
+msgid ""
+"Note that the interpreter inserts a newline before it prints the next prompt "
+"if the last line was not completed."
+msgstr ""
+
+#: ../../../tutorial/introduction.rst:459
+msgid "unicode"
+msgstr ""

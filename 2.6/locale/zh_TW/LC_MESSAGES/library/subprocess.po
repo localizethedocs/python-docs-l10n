@@ -1,0 +1,742 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-10 15:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/subprocess.rst:3
+msgid ":mod:`subprocess` --- Subprocess management"
+msgstr ""
+
+#: ../../../library/subprocess.rst:13
+msgid ""
+"The :mod:`subprocess` module allows you to spawn new processes, connect to "
+"their input/output/error pipes, and obtain their return codes.  This module "
+"intends to replace several other, older modules and functions, such as::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:17
+msgid ""
+"os.system\n"
+"os.spawn*\n"
+"os.popen*\n"
+"popen2.*\n"
+"commands.*"
+msgstr ""
+
+#: ../../../library/subprocess.rst:23
+msgid ""
+"Information about how the :mod:`subprocess` module can be used to replace "
+"these modules and functions can be found in the following sections."
+msgstr ""
+
+#: ../../../library/subprocess.rst:28
+msgid ":pep:`324` -- PEP proposing the subprocess module"
+msgstr ""
+
+#: ../../../library/subprocess.rst:32
+msgid "Using the subprocess Module"
+msgstr ""
+
+#: ../../../library/subprocess.rst:34
+msgid "This module defines one class called :class:`Popen`:"
+msgstr ""
+
+#: ../../../library/subprocess.rst:39
+msgid "Arguments are:"
+msgstr ""
+
+#: ../../../library/subprocess.rst:41
+msgid ""
+"*args* should be a string, or a sequence of program arguments.  The program "
+"to execute is normally the first item in the args sequence or the string if "
+"a string is given, but can be explicitly set by using the *executable* "
+"argument.  When *executable* is given, the first item in the args sequence "
+"is still treated by most programs as the command name, which can then be "
+"different from the actual executable name.  On Unix, it becomes the display "
+"name for the executing program in utilities such as :program:`ps`."
+msgstr ""
+
+#: ../../../library/subprocess.rst:49
+msgid ""
+"On Unix, with *shell=False* (default): In this case, the Popen class uses :"
+"meth:`os.execvp` to execute the child program. *args* should normally be a "
+"sequence.  If a string is specified for *args*, it will be used as the name "
+"or path of the program to execute; this will only work if the program is "
+"being given no arguments."
+msgstr ""
+
+#: ../../../library/subprocess.rst:57
+msgid ""
+":meth:`shlex.split` can be useful when determining the correct tokenization "
+"for *args*, especially in complex cases::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:60
+msgid ""
+">>> import shlex, subprocess\n"
+">>> command_line = raw_input()\n"
+"/bin/vikings -input eggs.txt -output \"spam spam.txt\" -cmd \"echo "
+"'$MONEY'\"\n"
+">>> args = shlex.split(command_line)\n"
+">>> print args\n"
+"['/bin/vikings', '-input', 'eggs.txt', '-output', 'spam spam.txt', '-cmd', "
+"\"echo '$MONEY'\"]\n"
+">>> p = subprocess.Popen(args) # Success!"
+msgstr ""
+
+#: ../../../library/subprocess.rst:68
+msgid ""
+"Note in particular that options (such as *-input*) and arguments (such as "
+"*eggs.txt*) that are separated by whitespace in the shell go in separate "
+"list elements, while arguments that need quoting or backslash escaping when "
+"used in the shell (such as filenames containing spaces or the *echo* command "
+"shown above) are single list elements."
+msgstr ""
+
+#: ../../../library/subprocess.rst:74
+msgid ""
+"On Unix, with *shell=True*: If args is a string, it specifies the command "
+"string to execute through the shell.  This means that the string must be "
+"formatted exactly as it would be when typed at the shell prompt.  This "
+"includes, for example, quoting or backslash escaping filenames with spaces "
+"in them.  If *args* is a sequence, the first item specifies the command "
+"string, and any additional items will be treated as additional arguments to "
+"the shell itself.  That is to say, *Popen* does the equivalent of::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:82
+msgid "Popen(['/bin/sh', '-c', args[0], args[1], ...])"
+msgstr ""
+
+#: ../../../library/subprocess.rst:84
+msgid ""
+"On Windows: the :class:`Popen` class uses CreateProcess() to execute the "
+"child program, which operates on strings.  If *args* is a sequence, it will "
+"be converted to a string using the :meth:`list2cmdline` method.  Please note "
+"that not all MS Windows applications interpret the command line the same "
+"way: :meth:`list2cmdline` is designed for applications using the same rules "
+"as the MS C runtime."
+msgstr ""
+
+#: ../../../library/subprocess.rst:91
+msgid ""
+"*bufsize*, if given, has the same meaning as the corresponding argument to "
+"the built-in open() function: :const:`0` means unbuffered, :const:`1` means "
+"line buffered, any other positive value means use a buffer of "
+"(approximately) that size.  A negative *bufsize* means to use the system "
+"default, which usually means fully buffered.  The default value for "
+"*bufsize* is :const:`0` (unbuffered)."
+msgstr ""
+
+#: ../../../library/subprocess.rst:99
+msgid ""
+"If you experience performance issues, it is recommended that you try to "
+"enable buffering by setting *bufsize* to either -1 or a large enough "
+"positive value (such as 4096)."
+msgstr ""
+
+#: ../../../library/subprocess.rst:103
+msgid ""
+"The *executable* argument specifies the program to execute. It is very "
+"seldom needed: Usually, the program to execute is defined by the *args* "
+"argument. If ``shell=True``, the *executable* argument specifies which shell "
+"to use. On Unix, the default shell is :file:`/bin/sh`.  On Windows, the "
+"default shell is specified by the :envvar:`COMSPEC` environment variable. "
+"The only reason you would need to specify ``shell=True`` on Windows is where "
+"the command you wish to execute is actually built in to the shell, eg "
+"``dir``, ``copy``. You don't need ``shell=True`` to run a batch file, nor to "
+"run a console-based executable."
+msgstr ""
+
+#: ../../../library/subprocess.rst:113
+msgid ""
+"*stdin*, *stdout* and *stderr* specify the executed programs' standard "
+"input, standard output and standard error file handles, respectively.  Valid "
+"values are :data:`PIPE`, an existing file descriptor (a positive integer), "
+"an existing file object, and ``None``.  :data:`PIPE` indicates that a new "
+"pipe to the child should be created.  With ``None``, no redirection will "
+"occur; the child's file handles will be inherited from the parent.  "
+"Additionally, *stderr* can be :data:`STDOUT`, which indicates that the "
+"stderr data from the applications should be captured into the same file "
+"handle as for stdout."
+msgstr ""
+
+#: ../../../library/subprocess.rst:122
+msgid ""
+"If *preexec_fn* is set to a callable object, this object will be called in "
+"the child process just before the child is executed. (Unix only)"
+msgstr ""
+
+#: ../../../library/subprocess.rst:125
+msgid ""
+"If *close_fds* is true, all file descriptors except :const:`0`, :const:`1` "
+"and :const:`2` will be closed before the child process is executed. (Unix "
+"only). Or, on Windows, if *close_fds* is true then no handles will be "
+"inherited by the child process.  Note that on Windows, you cannot set "
+"*close_fds* to true and also redirect the standard handles by setting "
+"*stdin*, *stdout* or *stderr*."
+msgstr ""
+
+#: ../../../library/subprocess.rst:131
+msgid ""
+"If *shell* is :const:`True`, the specified command will be executed through "
+"the shell."
+msgstr ""
+
+#: ../../../library/subprocess.rst:134
+msgid ""
+"If *cwd* is not ``None``, the child's current directory will be changed to "
+"*cwd* before it is executed.  Note that this directory is not considered "
+"when searching the executable, so you can't specify the program's path "
+"relative to *cwd*."
+msgstr ""
+
+#: ../../../library/subprocess.rst:139
+msgid ""
+"If *env* is not ``None``, it must be a mapping that defines the environment "
+"variables for the new process; these are used instead of inheriting the "
+"current process' environment, which is the default behavior."
+msgstr ""
+
+#: ../../../library/subprocess.rst:145
+msgid ""
+"If specified, *env* must provide any variables required for the program to "
+"execute.  On Windows, in order to run a `side-by-side assembly`_ the "
+"specified *env* **must** include a valid :envvar:`SystemRoot`."
+msgstr ""
+
+#: ../../../library/subprocess.rst:152
+msgid ""
+"If *universal_newlines* is :const:`True`, the file objects stdout and stderr "
+"are opened as text files, but lines may be terminated by any of ``'\\n'``, "
+"the Unix end-of-line convention, ``'\\r'``, the old Macintosh convention or "
+"``'\\r\\n'``, the Windows convention. All of these external representations "
+"are seen as ``'\\n'`` by the Python program."
+msgstr ""
+
+#: ../../../library/subprocess.rst:160
+msgid ""
+"This feature is only available if Python is built with universal newline "
+"support (the default).  Also, the newlines attribute of the file objects :"
+"attr:`stdout`, :attr:`stdin` and :attr:`stderr` are not updated by the "
+"communicate() method."
+msgstr ""
+
+#: ../../../library/subprocess.rst:165
+msgid ""
+"The *startupinfo* and *creationflags*, if given, will be passed to the "
+"underlying CreateProcess() function.  They can specify things such as "
+"appearance of the main window and priority for the new process.  (Windows "
+"only)"
+msgstr ""
+
+#: ../../../library/subprocess.rst:172
+msgid ""
+"Special value that can be used as the *stdin*, *stdout* or *stderr* argument "
+"to :class:`Popen` and indicates that a pipe to the standard stream should be "
+"opened."
+msgstr ""
+
+#: ../../../library/subprocess.rst:179
+msgid ""
+"Special value that can be used as the *stderr* argument to :class:`Popen` "
+"and indicates that standard error should go into the same handle as standard "
+"output."
+msgstr ""
+
+#: ../../../library/subprocess.rst:185
+msgid "Convenience Functions"
+msgstr ""
+
+#: ../../../library/subprocess.rst:187
+msgid "This module also defines two shortcut functions:"
+msgstr ""
+
+#: ../../../library/subprocess.rst:192
+msgid ""
+"Run command with arguments.  Wait for command to complete, then return the :"
+"attr:`returncode` attribute."
+msgstr ""
+
+#: ../../../library/subprocess.rst:195 ../../../library/subprocess.rst:207
+msgid ""
+"The arguments are the same as for the :class:`Popen` constructor.  Example::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:197
+msgid ">>> retcode = subprocess.call([\"ls\", \"-l\"])"
+msgstr ""
+
+#: ../../../library/subprocess.rst:202
+msgid ""
+"Run command with arguments.  Wait for command to complete. If the exit code "
+"was zero then return, otherwise raise :exc:`CalledProcessError`. The :exc:"
+"`CalledProcessError` object will have the return code in the :attr:"
+"`returncode` attribute."
+msgstr ""
+
+#: ../../../library/subprocess.rst:209
+msgid ""
+">>> subprocess.check_call([\"ls\", \"-l\"])\n"
+"0"
+msgstr ""
+
+#: ../../../library/subprocess.rst:216
+msgid "Exceptions"
+msgstr ""
+
+#: ../../../library/subprocess.rst:218
+msgid ""
+"Exceptions raised in the child process, before the new program has started "
+"to execute, will be re-raised in the parent.  Additionally, the exception "
+"object will have one extra attribute called :attr:`child_traceback`, which "
+"is a string containing traceback information from the childs point of view."
+msgstr ""
+
+#: ../../../library/subprocess.rst:223
+msgid ""
+"The most common exception raised is :exc:`OSError`.  This occurs, for "
+"example, when trying to execute a non-existent file.  Applications should "
+"prepare for :exc:`OSError` exceptions."
+msgstr ""
+
+#: ../../../library/subprocess.rst:227
+msgid ""
+"A :exc:`ValueError` will be raised if :class:`Popen` is called with invalid "
+"arguments."
+msgstr ""
+
+#: ../../../library/subprocess.rst:230
+msgid ""
+"check_call() will raise :exc:`CalledProcessError`, if the called process "
+"returns a non-zero return code."
+msgstr ""
+
+#: ../../../library/subprocess.rst:235
+msgid "Security"
+msgstr ""
+
+#: ../../../library/subprocess.rst:237
+msgid ""
+"Unlike some other popen functions, this implementation will never call /bin/"
+"sh implicitly.  This means that all characters, including shell "
+"metacharacters, can safely be passed to child processes."
+msgstr ""
+
+#: ../../../library/subprocess.rst:243
+msgid "Popen Objects"
+msgstr ""
+
+#: ../../../library/subprocess.rst:245
+msgid "Instances of the :class:`Popen` class have the following methods:"
+msgstr ""
+
+#: ../../../library/subprocess.rst:250
+msgid ""
+"Check if child process has terminated.  Set and return :attr:`returncode` "
+"attribute."
+msgstr ""
+
+#: ../../../library/subprocess.rst:256
+msgid ""
+"Wait for child process to terminate.  Set and return :attr:`returncode` "
+"attribute."
+msgstr ""
+
+#: ../../../library/subprocess.rst:261
+msgid ""
+"This will deadlock if the child process generates enough output to a stdout "
+"or stderr pipe such that it blocks waiting for the OS pipe buffer to accept "
+"more data.  Use :meth:`communicate` to avoid that."
+msgstr ""
+
+#: ../../../library/subprocess.rst:268
+msgid ""
+"Interact with process: Send data to stdin.  Read data from stdout and "
+"stderr, until end-of-file is reached.  Wait for process to terminate. The "
+"optional *input* argument should be a string to be sent to the child "
+"process, or ``None``, if no data should be sent to the child."
+msgstr ""
+
+#: ../../../library/subprocess.rst:273
+msgid ":meth:`communicate` returns a tuple ``(stdoutdata, stderrdata)``."
+msgstr ""
+
+#: ../../../library/subprocess.rst:275
+msgid ""
+"Note that if you want to send data to the process's stdin, you need to "
+"create the Popen object with ``stdin=PIPE``.  Similarly, to get anything "
+"other than ``None`` in the result tuple, you need to give ``stdout=PIPE`` "
+"and/or ``stderr=PIPE`` too."
+msgstr ""
+
+#: ../../../library/subprocess.rst:282
+msgid ""
+"The data read is buffered in memory, so do not use this method if the data "
+"size is large or unlimited."
+msgstr ""
+
+#: ../../../library/subprocess.rst:288
+msgid "Sends the signal *signal* to the child."
+msgstr ""
+
+#: ../../../library/subprocess.rst:292
+msgid ""
+"On Windows only SIGTERM is supported so far. It's an alias for :meth:"
+"`terminate`."
+msgstr ""
+
+#: ../../../library/subprocess.rst:300
+msgid ""
+"Stop the child. On Posix OSs the method sends SIGTERM to the child. On "
+"Windows the Win32 API function :cfunc:`TerminateProcess` is called to stop "
+"the child."
+msgstr ""
+
+#: ../../../library/subprocess.rst:309
+msgid ""
+"Kills the child. On Posix OSs the function sends SIGKILL to the child. On "
+"Windows :meth:`kill` is an alias for :meth:`terminate`."
+msgstr ""
+
+#: ../../../library/subprocess.rst:315
+msgid "The following attributes are also available:"
+msgstr ""
+
+#: ../../../library/subprocess.rst:319
+msgid ""
+"Use :meth:`communicate` rather than :attr:`.stdin.write <stdin>`, :attr:`."
+"stdout.read <stdout>` or :attr:`.stderr.read <stderr>` to avoid deadlocks "
+"due to any of the other OS pipe buffers filling up and blocking the child "
+"process."
+msgstr ""
+
+#: ../../../library/subprocess.rst:327
+msgid ""
+"If the *stdin* argument was :data:`PIPE`, this attribute is a file object "
+"that provides input to the child process.  Otherwise, it is ``None``."
+msgstr ""
+
+#: ../../../library/subprocess.rst:333
+msgid ""
+"If the *stdout* argument was :data:`PIPE`, this attribute is a file object "
+"that provides output from the child process.  Otherwise, it is ``None``."
+msgstr ""
+
+#: ../../../library/subprocess.rst:339
+msgid ""
+"If the *stderr* argument was :data:`PIPE`, this attribute is a file object "
+"that provides error output from the child process.  Otherwise, it is "
+"``None``."
+msgstr ""
+
+#: ../../../library/subprocess.rst:346
+msgid "The process ID of the child process."
+msgstr ""
+
+#: ../../../library/subprocess.rst:348
+msgid ""
+"Note that if you set the *shell* argument to ``True``, this is the process "
+"ID of the spawned shell."
+msgstr ""
+
+#: ../../../library/subprocess.rst:354
+msgid ""
+"The child return code, set by :meth:`poll` and :meth:`wait` (and indirectly "
+"by :meth:`communicate`).  A ``None`` value indicates that the process hasn't "
+"terminated yet."
+msgstr ""
+
+#: ../../../library/subprocess.rst:358
+msgid ""
+"A negative value ``-N`` indicates that the child was terminated by signal "
+"``N`` (Unix only)."
+msgstr ""
+
+#: ../../../library/subprocess.rst:365
+msgid "Replacing Older Functions with the subprocess Module"
+msgstr ""
+
+#: ../../../library/subprocess.rst:367
+msgid ""
+"In this section, \"a ==> b\" means that b can be used as a replacement for a."
+msgstr ""
+
+#: ../../../library/subprocess.rst:371
+msgid ""
+"All functions in this section fail (more or less) silently if the executed "
+"program cannot be found; this module raises an :exc:`OSError` exception."
+msgstr ""
+
+#: ../../../library/subprocess.rst:374
+msgid ""
+"In the following examples, we assume that the subprocess module is imported "
+"with \"from subprocess import \\*\"."
+msgstr ""
+
+#: ../../../library/subprocess.rst:379
+msgid "Replacing /bin/sh shell backquote"
+msgstr ""
+
+#: ../../../library/subprocess.rst:383
+msgid ""
+"output=`mycmd myarg`\n"
+"==>\n"
+"output = Popen([\"mycmd\", \"myarg\"], stdout=PIPE).communicate()[0]"
+msgstr ""
+
+#: ../../../library/subprocess.rst:389
+msgid "Replacing shell pipeline"
+msgstr ""
+
+#: ../../../library/subprocess.rst:393
+msgid ""
+"output=`dmesg | grep hda`\n"
+"==>\n"
+"p1 = Popen([\"dmesg\"], stdout=PIPE)\n"
+"p2 = Popen([\"grep\", \"hda\"], stdin=p1.stdout, stdout=PIPE)\n"
+"output = p2.communicate()[0]"
+msgstr ""
+
+#: ../../../library/subprocess.rst:401
+msgid "Replacing :func:`os.system`"
+msgstr ""
+
+#: ../../../library/subprocess.rst:405
+msgid ""
+"sts = os.system(\"mycmd\" + \" myarg\")\n"
+"==>\n"
+"p = Popen(\"mycmd\" + \" myarg\", shell=True)\n"
+"sts = os.waitpid(p.pid, 0)[1]"
+msgstr ""
+
+#: ../../../library/subprocess.rst:410
+msgid "Notes:"
+msgstr ""
+
+#: ../../../library/subprocess.rst:412
+msgid "Calling the program through the shell is usually not required."
+msgstr ""
+
+#: ../../../library/subprocess.rst:414
+msgid ""
+"It's easier to look at the :attr:`returncode` attribute than the exit status."
+msgstr ""
+
+#: ../../../library/subprocess.rst:416
+msgid "A more realistic example would look like this::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:418
+msgid ""
+"try:\n"
+"    retcode = call(\"mycmd\" + \" myarg\", shell=True)\n"
+"    if retcode < 0:\n"
+"        print >>sys.stderr, \"Child was terminated by signal\", -retcode\n"
+"    else:\n"
+"        print >>sys.stderr, \"Child returned\", retcode\n"
+"except OSError, e:\n"
+"    print >>sys.stderr, \"Execution failed:\", e"
+msgstr ""
+
+#: ../../../library/subprocess.rst:429
+msgid "Replacing the :func:`os.spawn <os.spawnl>` family"
+msgstr ""
+
+#: ../../../library/subprocess.rst:431
+msgid "P_NOWAIT example::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:433
+msgid ""
+"pid = os.spawnlp(os.P_NOWAIT, \"/bin/mycmd\", \"mycmd\", \"myarg\")\n"
+"==>\n"
+"pid = Popen([\"/bin/mycmd\", \"myarg\"]).pid"
+msgstr ""
+
+#: ../../../library/subprocess.rst:437
+msgid "P_WAIT example::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:439
+msgid ""
+"retcode = os.spawnlp(os.P_WAIT, \"/bin/mycmd\", \"mycmd\", \"myarg\")\n"
+"==>\n"
+"retcode = call([\"/bin/mycmd\", \"myarg\"])"
+msgstr ""
+
+#: ../../../library/subprocess.rst:443
+msgid "Vector example::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:445
+msgid ""
+"os.spawnvp(os.P_NOWAIT, path, args)\n"
+"==>\n"
+"Popen([path] + args[1:])"
+msgstr ""
+
+#: ../../../library/subprocess.rst:449
+msgid "Environment example::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:451
+msgid ""
+"os.spawnlpe(os.P_NOWAIT, \"/bin/mycmd\", \"mycmd\", \"myarg\", env)\n"
+"==>\n"
+"Popen([\"/bin/mycmd\", \"myarg\"], env={\"PATH\": \"/usr/bin\"})"
+msgstr ""
+
+#: ../../../library/subprocess.rst:457
+msgid "Replacing :func:`os.popen`, :func:`os.popen2`, :func:`os.popen3`"
+msgstr ""
+
+#: ../../../library/subprocess.rst:461
+msgid ""
+"pipe = os.popen(\"cmd\", 'r', bufsize)\n"
+"==>\n"
+"pipe = Popen(\"cmd\", shell=True, bufsize=bufsize, stdout=PIPE).stdout"
+msgstr ""
+
+#: ../../../library/subprocess.rst:467
+msgid ""
+"pipe = os.popen(\"cmd\", 'w', bufsize)\n"
+"==>\n"
+"pipe = Popen(\"cmd\", shell=True, bufsize=bufsize, stdin=PIPE).stdin"
+msgstr ""
+
+#: ../../../library/subprocess.rst:473
+msgid ""
+"(child_stdin, child_stdout) = os.popen2(\"cmd\", mode, bufsize)\n"
+"==>\n"
+"p = Popen(\"cmd\", shell=True, bufsize=bufsize,\n"
+"          stdin=PIPE, stdout=PIPE, close_fds=True)\n"
+"(child_stdin, child_stdout) = (p.stdin, p.stdout)"
+msgstr ""
+
+#: ../../../library/subprocess.rst:481
+msgid ""
+"(child_stdin,\n"
+" child_stdout,\n"
+" child_stderr) = os.popen3(\"cmd\", mode, bufsize)\n"
+"==>\n"
+"p = Popen(\"cmd\", shell=True, bufsize=bufsize,\n"
+"          stdin=PIPE, stdout=PIPE, stderr=PIPE, close_fds=True)\n"
+"(child_stdin,\n"
+" child_stdout,\n"
+" child_stderr) = (p.stdin, p.stdout, p.stderr)"
+msgstr ""
+
+#: ../../../library/subprocess.rst:493
+msgid ""
+"(child_stdin, child_stdout_and_stderr) = os.popen4(\"cmd\", mode,\n"
+"                                                   bufsize)\n"
+"==>\n"
+"p = Popen(\"cmd\", shell=True, bufsize=bufsize,\n"
+"          stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)\n"
+"(child_stdin, child_stdout_and_stderr) = (p.stdin, p.stdout)"
+msgstr ""
+
+#: ../../../library/subprocess.rst:500
+msgid ""
+"On Unix, os.popen2, os.popen3 and os.popen4 also accept a sequence as the "
+"command to execute, in which case arguments will be passed directly to the "
+"program without shell intervention.  This usage can be replaced as follows::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:505
+msgid ""
+"(child_stdin, child_stdout) = os.popen2([\"/bin/ls\", \"-l\"], mode,\n"
+"                                        bufsize)\n"
+"==>\n"
+"p = Popen([\"/bin/ls\", \"-l\"], bufsize=bufsize, stdin=PIPE, stdout=PIPE)\n"
+"(child_stdin, child_stdout) = (p.stdin, p.stdout)"
+msgstr ""
+
+#: ../../../library/subprocess.rst:511
+msgid "Return code handling translates as follows::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:513
+msgid ""
+"pipe = os.popen(\"cmd\", 'w')\n"
+"...\n"
+"rc = pipe.close()\n"
+"if rc is not None and rc >> 8:\n"
+"    print \"There were some errors\"\n"
+"==>\n"
+"process = Popen(\"cmd\", 'w', shell=True, stdin=PIPE)\n"
+"...\n"
+"process.stdin.close()\n"
+"if process.wait() != 0:\n"
+"    print \"There were some errors\""
+msgstr ""
+
+#: ../../../library/subprocess.rst:527
+msgid "Replacing functions from the :mod:`popen2` module"
+msgstr ""
+
+#: ../../../library/subprocess.rst:531
+msgid ""
+"(child_stdout, child_stdin) = popen2.popen2(\"somestring\", bufsize, mode)\n"
+"==>\n"
+"p = Popen([\"somestring\"], shell=True, bufsize=bufsize,\n"
+"          stdin=PIPE, stdout=PIPE, close_fds=True)\n"
+"(child_stdout, child_stdin) = (p.stdout, p.stdin)"
+msgstr ""
+
+#: ../../../library/subprocess.rst:537
+msgid ""
+"On Unix, popen2 also accepts a sequence as the command to execute, in which "
+"case arguments will be passed directly to the program without shell "
+"intervention.  This usage can be replaced as follows::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:541
+msgid ""
+"(child_stdout, child_stdin) = popen2.popen2([\"mycmd\", \"myarg\"], "
+"bufsize,\n"
+"                                            mode)\n"
+"==>\n"
+"p = Popen([\"mycmd\", \"myarg\"], bufsize=bufsize,\n"
+"          stdin=PIPE, stdout=PIPE, close_fds=True)\n"
+"(child_stdout, child_stdin) = (p.stdout, p.stdin)"
+msgstr ""
+
+#: ../../../library/subprocess.rst:548
+msgid ""
+":class:`popen2.Popen3` and :class:`popen2.Popen4` basically work as :class:"
+"`subprocess.Popen`, except that:"
+msgstr ""
+
+#: ../../../library/subprocess.rst:551
+msgid ":class:`Popen` raises an exception if the execution fails."
+msgstr ""
+
+#: ../../../library/subprocess.rst:553
+msgid "the *capturestderr* argument is replaced with the *stderr* argument."
+msgstr ""
+
+#: ../../../library/subprocess.rst:555
+msgid "``stdin=PIPE`` and ``stdout=PIPE`` must be specified."
+msgstr ""
+
+#: ../../../library/subprocess.rst:557
+msgid ""
+"popen2 closes all file descriptors by default, but you have to specify "
+"``close_fds=True`` with :class:`Popen`."
+msgstr ""
