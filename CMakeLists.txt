@@ -83,7 +83,7 @@ set(SPHINX_GETTEXT_COMPACT "0"
     # Passed to sphinx-build as -Dgettext_compact=${SPHINX_GETTEXT_COMPACT}.
     # See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-gettext_compact for details.
 
-set(SPHINX_GETTEXT_TARGETS "index,literal-block,raw"
+set(SPHINX_GETTEXT_TARGETS "index,raw"
     CACHE STRING "The additional targets for Sphinx with gettext builder.")
     # Possible values are a comma-separated list of the following targets:
     # "index", "literal-block", "doctest-block", "raw", and "image".
