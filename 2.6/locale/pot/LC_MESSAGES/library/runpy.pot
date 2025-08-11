@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/runpy.rst:2
+msgid ":mod:`runpy` --- Locating and executing Python modules"
+msgstr ""
+
+#: ../../../library/runpy.rst:11
+msgid ""
+"The :mod:`runpy` module is used to locate and run Python modules without "
+"importing them first. Its main use is to implement the :option:`-m` command "
+"line switch that allows scripts to be located using the Python module "
+"namespace rather than the filesystem."
+msgstr ""
+
+#: ../../../library/runpy.rst:16
+msgid "When executed as a script, the module effectively operates as follows::"
+msgstr ""
+
+#: ../../../library/runpy.rst:21
+msgid "The :mod:`runpy` module provides a single function:"
+msgstr ""
+
+#: ../../../library/runpy.rst:26
+msgid ""
+"Execute the code of the specified module and return the resulting module "
+"globals dictionary. The module's code is first located using the standard "
+"import mechanism (refer to :pep:`302` for details) and then executed in a "
+"fresh module namespace."
+msgstr ""
+
+#: ../../../library/runpy.rst:31
+msgid ""
+"The optional dictionary argument *init_globals* may be used to pre-populate "
+"the globals dictionary before the code is executed. The supplied dictionary "
+"will not be modified. If any of the special global variables below are "
+"defined in the supplied dictionary, those definitions are overridden by the "
+"``run_module`` function."
+msgstr ""
+
+#: ../../../library/runpy.rst:37
+msgid ""
+"The special global variables ``__name__``, ``__file__``, ``__loader__`` and "
+"``__builtins__`` are set in the globals dictionary before the module code is "
+"executed."
+msgstr ""
+
+#: ../../../library/runpy.rst:41
+msgid ""
+"``__name__`` is set to *run_name* if this optional argument is supplied, and "
+"the *mod_name* argument otherwise."
+msgstr ""
+
+#: ../../../library/runpy.rst:44
+msgid ""
+"``__loader__`` is set to the :pep:`302` module loader used to retrieve the "
+"code for the module (This loader may be a wrapper around the standard import "
+"mechanism)."
+msgstr ""
+
+#: ../../../library/runpy.rst:47
+msgid ""
+"``__file__`` is set to the name provided by the module loader. If the loader "
+"does not make filename information available, this variable is set to "
+"``None``."
+msgstr ""
+
+#: ../../../library/runpy.rst:50
+msgid ""
+"``__builtins__`` is automatically initialised with a reference to the top "
+"level namespace of the :mod:`__builtin__` module."
+msgstr ""
+
+#: ../../../library/runpy.rst:53
+msgid ""
+"If the argument *alter_sys* is supplied and evaluates to ``True``, then "
+"``sys.argv[0]`` is updated with the value of ``__file__`` and ``sys."
+"modules[__name__]`` is updated with a temporary module object for the module "
+"being executed. Both ``sys.argv[0]`` and ``sys.modules[__name__]`` are "
+"restored to their original values before the function returns."
+msgstr ""
+
+#: ../../../library/runpy.rst:59
+msgid ""
+"Note that this manipulation of :mod:`sys` is not thread-safe. Other threads "
+"may see the partially initialised module, as well as the altered list of "
+"arguments. It is recommended that the :mod:`sys` module be left alone when "
+"invoking this function from threaded code."
+msgstr ""
+
+#: ../../../library/runpy.rst:67
+msgid ":pep:`338` - Executing modules as scripts"
+msgstr ""
+
+#: ../../../library/runpy.rst:68
+msgid "PEP written and  implemented by Nick Coghlan."
+msgstr ""
