@@ -1,0 +1,291 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/email.parser.rst:2
+msgid ":mod:`email`: Parsing email messages"
+msgstr ""
+
+#: ../../../library/email.parser.rst:8
+msgid ""
+"Message object structures can be created in one of two ways: they can be "
+"created from whole cloth by instantiating :class:`~email.message.Message` "
+"objects and stringing them together via :meth:`attach` and :meth:"
+"`set_payload` calls, or they can be created by parsing a flat text "
+"representation of the email message."
+msgstr ""
+
+#: ../../../library/email.parser.rst:13
+msgid ""
+"The :mod:`email` package provides a standard parser that understands most "
+"email document structures, including MIME documents.  You can pass the "
+"parser a string or a file object, and the parser will return to you the "
+"root :class:`~email.message.Message` instance of the object structure.  For "
+"simple, non-MIME messages the payload of this root object will likely be a "
+"string containing the text of the message.  For MIME messages, the root "
+"object will return ``True`` from its :meth:`is_multipart` method, and the "
+"subparts can be accessed via the :meth:`get_payload` and :meth:`walk` "
+"methods."
+msgstr ""
+
+#: ../../../library/email.parser.rst:22
+msgid ""
+"There are actually two parser interfaces available for use, the classic :"
+"class:`Parser` API and the incremental :class:`FeedParser` API.  The "
+"classic :class:`Parser` API is fine if you have the entire text of the "
+"message in memory as a string, or if the entire message lives in a file on "
+"the file system. :class:`FeedParser` is more appropriate for when you're "
+"reading the message from a stream which might block waiting for more input "
+"(e.g. reading an email message from a socket).  The :class:`FeedParser` can "
+"consume and parse the message incrementally, and only returns the root "
+"object when you close the parser [#]_."
+msgstr ""
+
+#: ../../../library/email.parser.rst:31
+msgid ""
+"Note that the parser can be extended in limited ways, and of course you can "
+"implement your own parser completely from scratch.  There is no magical "
+"connection between the :mod:`email` package's bundled parser and the :class:"
+"`~email.message.Message` class, so your custom parser can create message "
+"object trees any way it finds necessary."
+msgstr ""
+
+#: ../../../library/email.parser.rst:39
+msgid "FeedParser API"
+msgstr ""
+
+#: ../../../library/email.parser.rst:43
+msgid ""
+"The :class:`FeedParser`, imported from the :mod:`email.feedparser` module, "
+"provides an API that is conducive to incremental parsing of email messages, "
+"such as would be necessary when reading the text of an email message from a "
+"source that can block (e.g. a socket).  The :class:`FeedParser` can of "
+"course be used to parse an email message fully contained in a string or a "
+"file, but the classic :class:`Parser` API may be more convenient for such "
+"use cases.  The semantics and results of the two parser APIs are identical."
+msgstr ""
+
+#: ../../../library/email.parser.rst:51
+msgid ""
+"The :class:`FeedParser`'s API is simple; you create an instance, feed it a "
+"bunch of text until there's no more to feed it, then close the parser to "
+"retrieve the root message object.  The :class:`FeedParser` is extremely "
+"accurate when parsing standards-compliant messages, and it does a very good "
+"job of parsing non-compliant messages, providing information about how a "
+"message was deemed broken.  It will populate a message object's *defects* "
+"attribute with a list of any problems it found in a message.  See the :mod:"
+"`email.errors` module for the list of defects that it can find."
+msgstr ""
+
+#: ../../../library/email.parser.rst:60
+msgid "Here is the API for the :class:`FeedParser`:"
+msgstr ""
+
+#: ../../../library/email.parser.rst:65
+msgid ""
+"Create a :class:`FeedParser` instance.  Optional *_factory* is a no-argument "
+"callable that will be called whenever a new message object is needed.  It "
+"defaults to the :class:`email.message.Message` class."
+msgstr ""
+
+#: ../../../library/email.parser.rst:72
+msgid ""
+"Feed the :class:`FeedParser` some more data.  *data* should be a string "
+"containing one or more lines.  The lines can be partial and the :class:"
+"`FeedParser` will stitch such partial lines together properly.  The lines in "
+"the string can have any of the common three line endings, carriage return, "
+"newline, or carriage return and newline (they can even be mixed)."
+msgstr ""
+
+#: ../../../library/email.parser.rst:82
+msgid ""
+"Closing a :class:`FeedParser` completes the parsing of all previously fed "
+"data, and returns the root message object.  It is undefined what happens if "
+"you feed more data to a closed :class:`FeedParser`."
+msgstr ""
+
+#: ../../../library/email.parser.rst:88
+msgid "Parser class API"
+msgstr ""
+
+#: ../../../library/email.parser.rst:90
+msgid ""
+"The :class:`Parser` class, imported from the :mod:`email.parser` module, "
+"provides an API that can be used to parse a message when the complete "
+"contents of the message are available in a string or file.  The :mod:`email."
+"parser` module also provides a second class, called :class:`HeaderParser` "
+"which can be used if you're only interested in the headers of the message. :"
+"class:`HeaderParser` can be much faster in these situations, since it does "
+"not attempt to parse the message body, instead setting the payload to the "
+"raw body as a string. :class:`HeaderParser` has the same API as the :class:"
+"`Parser` class."
+msgstr ""
+
+#: ../../../library/email.parser.rst:103
+msgid ""
+"The constructor for the :class:`Parser` class takes an optional argument "
+"*_class*.  This must be a callable factory (such as a function or a class), "
+"and it is used whenever a sub-message object needs to be created.  It "
+"defaults to :class:`~email.message.Message` (see :mod:`email.message`).  The "
+"factory will be called without arguments."
+msgstr ""
+
+#: ../../../library/email.parser.rst:109
+msgid "The optional *strict* flag is ignored."
+msgstr ""
+
+#: ../../../library/email.parser.rst:111
+msgid ""
+"Because the :class:`Parser` class is a backward compatible API wrapper "
+"around the new-in-Python 2.4 :class:`FeedParser`, *all* parsing is "
+"effectively non-strict.  You should simply stop passing a *strict* flag to "
+"the :class:`Parser` constructor."
+msgstr ""
+
+#: ../../../library/email.parser.rst:117 ../../../library/email.parser.rst:170
+#: ../../../library/email.parser.rst:180
+msgid "The *strict* flag was added."
+msgstr ""
+
+#: ../../../library/email.parser.rst:120
+msgid "The *strict* flag was deprecated."
+msgstr ""
+
+#: ../../../library/email.parser.rst:123
+msgid "The other public :class:`Parser` methods are:"
+msgstr ""
+
+#: ../../../library/email.parser.rst:128
+msgid ""
+"Read all the data from the file-like object *fp*, parse the resulting text, "
+"and return the root message object.  *fp* must support both the :meth:"
+"`readline` and the :meth:`read` methods on file-like objects."
+msgstr ""
+
+#: ../../../library/email.parser.rst:132
+msgid ""
+"The text contained in *fp* must be formatted as a block of :rfc:`2822` style "
+"headers and header continuation lines, optionally preceded by a envelope "
+"header.  The header block is terminated either by the end of the data or by "
+"a blank line.  Following the header block is the body of the message (which "
+"may contain MIME-encoded subparts)."
+msgstr ""
+
+#: ../../../library/email.parser.rst:138
+msgid "Optional *headersonly* is as with the :meth:`parse` method."
+msgstr ""
+
+#: ../../../library/email.parser.rst:140 ../../../library/email.parser.rst:155
+msgid "The *headersonly* flag was added."
+msgstr ""
+
+#: ../../../library/email.parser.rst:146
+msgid ""
+"Similar to the :meth:`parse` method, except it takes a string object instead "
+"of a file-like object.  Calling this method on a string is exactly "
+"equivalent to wrapping *text* in a :class:`StringIO` instance first and "
+"calling :meth:`parse`."
+msgstr ""
+
+#: ../../../library/email.parser.rst:151
+msgid ""
+"Optional *headersonly* is a flag specifying whether to stop parsing after "
+"reading the headers or not.  The default is ``False``, meaning it parses the "
+"entire contents of the file."
+msgstr ""
+
+#: ../../../library/email.parser.rst:158
+msgid ""
+"Since creating a message object structure from a string or a file object is "
+"such a common task, two functions are provided as a convenience.  They are "
+"available in the top-level :mod:`email` package namespace."
+msgstr ""
+
+#: ../../../library/email.parser.rst:166
+msgid ""
+"Return a message object structure from a string.  This is exactly equivalent "
+"to ``Parser().parsestr(s)``.  Optional *_class* and *strict* are interpreted "
+"as with the :class:`Parser` class constructor."
+msgstr ""
+
+#: ../../../library/email.parser.rst:176
+msgid ""
+"Return a message object structure tree from an open file object.  This is "
+"exactly equivalent to ``Parser().parse(fp)``.  Optional *_class* and "
+"*strict* are interpreted as with the :class:`Parser` class constructor."
+msgstr ""
+
+#: ../../../library/email.parser.rst:183
+msgid ""
+"Here's an example of how you might use this at an interactive Python prompt::"
+msgstr ""
+
+#: ../../../library/email.parser.rst:190
+msgid "Additional notes"
+msgstr ""
+
+#: ../../../library/email.parser.rst:192
+msgid "Here are some notes on the parsing semantics:"
+msgstr ""
+
+#: ../../../library/email.parser.rst:194
+msgid ""
+"Most non-\\ :mimetype:`multipart` type messages are parsed as a single "
+"message object with a string payload.  These objects will return ``False`` "
+"for :meth:`is_multipart`.  Their :meth:`get_payload` method will return a "
+"string object."
+msgstr ""
+
+#: ../../../library/email.parser.rst:199
+msgid ""
+"All :mimetype:`multipart` type messages will be parsed as a container "
+"message object with a list of sub-message objects for their payload.  The "
+"outer container message will return ``True`` for :meth:`is_multipart` and "
+"their :meth:`get_payload` method will return the list of :class:`~email."
+"message.Message` subparts."
+msgstr ""
+
+#: ../../../library/email.parser.rst:205
+msgid ""
+"Most messages with a content type of :mimetype:`message/\\*` (e.g. :mimetype:"
+"`message/delivery-status` and :mimetype:`message/rfc822`) will also be "
+"parsed as container object containing a list payload of length 1.  Their :"
+"meth:`is_multipart` method will return ``True``.  The single element in the "
+"list payload will be a sub-message object."
+msgstr ""
+
+#: ../../../library/email.parser.rst:211
+msgid ""
+"Some non-standards compliant messages may not be internally consistent about "
+"their :mimetype:`multipart`\\ -edness.  Such messages may have a :mailheader:"
+"`Content-Type` header of type :mimetype:`multipart`, but their :meth:"
+"`is_multipart` method may return ``False``.  If such messages were parsed "
+"with the :class:`FeedParser`, they will have an instance of the :class:"
+"`MultipartInvariantViolationDefect` class in their *defects* attribute "
+"list.  See :mod:`email.errors` for details."
+msgstr ""
+
+#: ../../../library/email.parser.rst:220
+msgid "Footnotes"
+msgstr ""
+
+#: ../../../library/email.parser.rst:221
+msgid ""
+"As of email package version 3.0, introduced in Python 2.4, the classic :"
+"class:`Parser` was re-implemented in terms of the :class:`FeedParser`, so "
+"the semantics and results are identical between the two parsers."
+msgstr ""
