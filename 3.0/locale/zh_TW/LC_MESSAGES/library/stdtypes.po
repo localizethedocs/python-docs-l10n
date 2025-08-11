@@ -1,0 +1,3925 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/stdtypes.rst:8
+msgid "Built-in Types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:10
+msgid ""
+"The following sections describe the standard types that are built into the "
+"interpreter."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:15
+msgid ""
+"The principal built-in types are numerics, sequences, mappings, files, "
+"classes, instances and exceptions."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:18
+msgid ""
+"Some operations are supported by several object types; in particular, "
+"practically all objects can be compared, tested for truth value, and "
+"converted to a string (with the :func:`repr` function or the slightly "
+"different :func:`str` function).  The latter function is implicitly used "
+"when an object is written by the :func:`print` function."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:28
+msgid "Truth Value Testing"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:37
+msgid ""
+"Any object can be tested for truth value, for use in an :keyword:`if` or :"
+"keyword:`while` condition or as operand of the Boolean operations below. The "
+"following values are considered false:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:43
+msgid "``None``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:47
+msgid "``False``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:49
+msgid "zero of any numeric type, for example, ``0``, ``0.0``, ``0j``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:51
+msgid "any empty sequence, for example, ``''``, ``()``, ``[]``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:53
+msgid "any empty mapping, for example, ``{}``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:55
+msgid ""
+"instances of user-defined classes, if the class defines a :meth:`__bool__` "
+"or :meth:`__len__` method, when that method returns the integer zero or :"
+"class:`bool` value ``False``. [#]_"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:61
+msgid ""
+"All other values are considered true --- so objects of many types are always "
+"true."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:70
+msgid ""
+"Operations and built-in functions that have a Boolean result always return "
+"``0`` or ``False`` for false and ``1`` or ``True`` for true, unless "
+"otherwise stated. (Important exception: the Boolean operations ``or`` and "
+"``and`` always return one of their operands.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:79
+msgid "Boolean Operations --- :keyword:`and`, :keyword:`or`, :keyword:`not`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:83
+msgid "These are the Boolean operations, ordered by ascending priority:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:86 ../../../library/stdtypes.rst:145
+#: ../../../library/stdtypes.rst:264 ../../../library/stdtypes.rst:347
+#: ../../../library/stdtypes.rst:385 ../../../library/stdtypes.rst:660
+#: ../../../library/stdtypes.rst:1373
+msgid "Operation"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:86 ../../../library/stdtypes.rst:264
+#: ../../../library/stdtypes.rst:347 ../../../library/stdtypes.rst:385
+#: ../../../library/stdtypes.rst:660 ../../../library/stdtypes.rst:1373
+msgid "Result"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:86 ../../../library/stdtypes.rst:264
+#: ../../../library/stdtypes.rst:347 ../../../library/stdtypes.rst:385
+#: ../../../library/stdtypes.rst:660 ../../../library/stdtypes.rst:1242
+#: ../../../library/stdtypes.rst:1373
+msgid "Notes"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:88
+msgid "``x or y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:88
+msgid "if *x* is false, then *y*, else *x*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:88 ../../../library/stdtypes.rst:274
+#: ../../../library/stdtypes.rst:662 ../../../library/stdtypes.rst:665
+#: ../../../library/stdtypes.rst:1248 ../../../library/stdtypes.rst:1384
+msgid "\\(1)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:91
+msgid "``x and y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:91
+msgid "if *x* is false, then *x*, else *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:91 ../../../library/stdtypes.rst:277
+#: ../../../library/stdtypes.rst:297 ../../../library/stdtypes.rst:671
+#: ../../../library/stdtypes.rst:1252 ../../../library/stdtypes.rst:1254
+#: ../../../library/stdtypes.rst:1393
+msgid "\\(2)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:94
+msgid "``not x``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:94
+msgid "if *x* is false, then ``True``, else ``False``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:94 ../../../library/stdtypes.rst:286
+#: ../../../library/stdtypes.rst:674 ../../../library/stdtypes.rst:1256
+#: ../../../library/stdtypes.rst:1258 ../../../library/stdtypes.rst:1260
+#: ../../../library/stdtypes.rst:1262 ../../../library/stdtypes.rst:1399
+#: ../../../library/stdtypes.rst:1408
+msgid "\\(3)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:103 ../../../library/stdtypes.rst:308
+#: ../../../library/stdtypes.rst:409 ../../../library/stdtypes.rst:706
+#: ../../../library/stdtypes.rst:1285 ../../../library/stdtypes.rst:1432
+msgid "Notes:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:106
+msgid ""
+"This is a short-circuit operator, so it only evaluates the second argument "
+"if the first one is :const:`False`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:110
+msgid ""
+"This is a short-circuit operator, so it only evaluates the second argument "
+"if the first one is :const:`True`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:114
+msgid ""
+"``not`` has a lower priority than non-Boolean operators, so ``not a == b`` "
+"is interpreted as ``not (a == b)``, and ``a == not b`` is a syntax error."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:121
+msgid "Comparisons"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:125
+msgid ""
+"There are eight comparison operations in Python.  They all have the same "
+"priority (which is higher than that of the Boolean operations).  Comparisons "
+"can be chained arbitrarily; for example, ``x < y <= z`` is equivalent to ``x "
+"< y and y <= z``, except that *y* is evaluated only once (but in both cases "
+"*z* is not evaluated at all when ``x < y`` is found to be false)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:142
+msgid "This table summarizes the comparison operations:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:145 ../../../library/stdtypes.rst:1219
+#: ../../../library/stdtypes.rst:1242
+msgid "Meaning"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:147
+msgid "``<``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:147
+msgid "strictly less than"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:149
+msgid "``<=``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:149
+msgid "less than or equal"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:151
+msgid "``>``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:151
+msgid "strictly greater than"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:153
+msgid "``>=``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:153
+msgid "greater than or equal"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:155
+msgid "``==``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:155
+msgid "equal"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:157
+msgid "``!=``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:157
+msgid "not equal"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:159
+msgid "``is``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:159
+msgid "object identity"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:161
+msgid "``is not``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:161
+msgid "negated object identity"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:168
+msgid ""
+"Objects of different types, except different numeric types, never compare "
+"equal. Furthermore, some types (for example, file objects) support only a "
+"degenerate notion of comparison where any two objects of that type are "
+"unequal.  The ``<``, ``<=``, ``>`` and ``>=`` operators will raise a :exc:"
+"`TypeError` exception when any operand is a complex number, the objects are "
+"of different types that cannot be compared, or other cases where there is no "
+"defined ordering."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:183
+msgid ""
+"Non-identical instances of a class normally compare as non-equal unless the "
+"class defines the :meth:`__eq__` method."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:186
+msgid ""
+"Instances of a class cannot be ordered with respect to other instances of "
+"the same class, or other types of object, unless the class defines enough of "
+"the methods :meth:`__lt__`, :meth:`__le__`, :meth:`__gt__`, and :meth:"
+"`__ge__` (in general, :meth:`__lt__` and :meth:`__eq__` are sufficient, if "
+"you want the conventional meanings of the comparison operators)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:192
+msgid ""
+"The behavior of the :keyword:`is` and :keyword:`is not` operators cannot be "
+"customized; also they can be applied to any two objects and never raise an "
+"exception."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:200
+msgid ""
+"Two more operations with the same syntactic priority, ``in`` and ``not in``, "
+"are supported only by sequence types (below)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:207
+msgid "Numeric Types --- :class:`int`, :class:`float`, :class:`complex`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:217
+msgid ""
+"There are three distinct numeric types: :dfn:`integers`, :dfn:`floating "
+"point numbers`, and :dfn:`complex numbers`.  In addition, Booleans are a "
+"subtype of integers.  Integers have unlimited precision.  Floating point "
+"numbers are implemented using :ctype:`double` in C---all bets on their "
+"precision are off unless you happen to know the machine you are working "
+"with. Complex numbers have a real and imaginary part, which are each "
+"implemented using :ctype:`double` in C.  To extract these parts from a "
+"complex number *z*, use ``z.real`` and ``z.imag``. (The standard library "
+"includes additional numeric types, :mod:`fractions` that hold rationals, "
+"and :mod:`decimal` that hold floating-point numbers with user-definable "
+"precision.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:238
+msgid ""
+"Numbers are created by numeric literals or as the result of built-in "
+"functions and operators.  Unadorned integer literals (including hex, octal "
+"and binary numbers) yield integers.  Numeric literals containing a decimal "
+"point or an exponent sign yield floating point numbers.  Appending ``'j'`` "
+"or ``'J'`` to a numeric literal yields an imaginary number (a complex number "
+"with a zero real part) which you can add to an integer or float to get a "
+"complex number with real and imaginary parts."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:252
+msgid ""
+"Python fully supports mixed arithmetic: when a binary arithmetic operator "
+"has operands of different numeric types, the operand with the \"narrower\" "
+"type is widened to that of the other, where integer is narrower than "
+"floating point, which is narrower than complex.  Comparisons between numbers "
+"of mixed type use the same rule. [#]_ The constructors :func:`int`, :func:"
+"`float`, and :func:`complex` can be used to produce numbers of a specific "
+"type."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:259
+msgid ""
+"All numeric types (except complex) support the following operations, sorted "
+"by ascending priority (operations in the same box have the same priority; "
+"all numeric operations have a higher priority than comparison operations):"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:264
+msgid "Full documentation"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:266
+msgid "``x + y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:266
+msgid "sum of *x* and *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:268
+msgid "``x - y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:268
+msgid "difference of *x* and *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:270
+msgid "``x * y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:270
+msgid "product of *x* and *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:272
+msgid "``x / y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:272
+msgid "quotient of *x* and *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:274
+msgid "``x // y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:274
+msgid "floored quotient of *x* and *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:277
+msgid "``x % y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:277
+msgid "remainder of ``x / y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:279
+msgid "``-x``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:279
+msgid "*x* negated"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:281
+msgid "``+x``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:281
+msgid "*x* unchanged"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:283
+msgid "``abs(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:283
+msgid "absolute value or magnitude of *x*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:283
+msgid ":func:`abs`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:286
+msgid "``int(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:286
+msgid "*x* converted to integer"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:286
+msgid ":func:`int`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:288
+msgid "``float(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:288
+msgid "*x* converted to floating point"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:288 ../../../library/stdtypes.rst:1264
+#: ../../../library/stdtypes.rst:1268 ../../../library/stdtypes.rst:1403
+msgid "\\(4)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:288
+msgid ":func:`float`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:290
+msgid "``complex(re, im)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:290
+msgid ""
+"a complex number with real part *re*, imaginary part *im*. *im* defaults to "
+"zero."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:290
+msgid ":func:`complex`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:294
+msgid "``c.conjugate()``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:294
+msgid "conjugate of the complex number *c*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:297
+msgid "``divmod(x, y)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:297
+msgid "the pair ``(x // y, x % y)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:297
+msgid ":func:`divmod`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:299
+msgid "``pow(x, y)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:299 ../../../library/stdtypes.rst:301
+msgid "*x* to the power *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:299 ../../../library/stdtypes.rst:301
+#: ../../../library/stdtypes.rst:1275 ../../../library/stdtypes.rst:1405
+msgid "\\(5)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:299
+msgid ":func:`pow`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:301
+msgid "``x ** y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:311
+msgid ""
+"Also referred to as integer division.  The resultant value is a whole "
+"integer, though the result's type is not necessarily int.  The result is "
+"always rounded towards minus infinity: ``1//2`` is ``0``, ``(-1)//2`` is "
+"``-1``, ``1//(-2)`` is ``-1``, and ``(-1)//(-2)`` is ``0``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:317
+msgid ""
+"Not for complex numbers.  Instead convert to floats using :func:`abs` if "
+"appropriate."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:329
+msgid ""
+"Conversion from floating point to integer may round or truncate as in C; see "
+"functions :func:`floor` and :func:`ceil` in the :mod:`math` module for well-"
+"defined conversions."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:334
+msgid ""
+"float also accepts the strings \"nan\" and \"inf\" with an optional prefix "
+"\"+\" or \"-\" for Not a Number (NaN) and positive or negative infinity."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:338
+msgid ""
+"Python defines ``pow(0, 0)`` and ``0 ** 0`` to be ``1``, as is common for "
+"programming languages."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:343
+msgid ""
+"All :class:`numbers.Real` types (:class:`int` and :class:`float`) also "
+"include the following operations:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:349
+msgid "``math.trunc(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:349
+msgid "*x* truncated to Integral"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:351
+msgid "``round(x[, n])``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:351
+msgid ""
+"*x* rounded to n digits, rounding half to even. If n is omitted, it defaults "
+"to 0."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:355
+msgid "``math.floor(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:355
+msgid "the greatest integral float <= *x*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:357
+msgid "``math.ceil(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:357
+msgid "the least integral float >= *x*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:360
+msgid ""
+"For additional numeric operations see the :mod:`math` and :mod:`cmath` "
+"modules."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:369
+msgid "Bit-string Operations on Integer Types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:373
+msgid ""
+"Integers support additional operations that make sense only for bit-strings. "
+"Negative numbers are treated as their 2's complement value (this assumes a "
+"sufficiently large number of bits that no overflow occurs during the "
+"operation)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:377
+msgid ""
+"The priorities of the binary bitwise operations are all lower than the "
+"numeric operations and higher than the comparisons; the unary operation "
+"``~`` has the same priority as the other unary numeric operations (``+`` and "
+"``-``)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:381
+msgid ""
+"This table lists the bit-string operations sorted in ascending priority "
+"(operations in the same box have the same priority):"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:387
+msgid "``x | y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:387
+msgid "bitwise :dfn:`or` of *x* and *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:390
+msgid "``x ^ y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:390
+msgid "bitwise :dfn:`exclusive or` of *x* and *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:393
+msgid "``x & y``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:393
+msgid "bitwise :dfn:`and` of *x* and *y*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:396
+msgid "``x << n``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:396
+msgid "*x* shifted left by *n* bits"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:396
+msgid "(1)(2)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:398
+msgid "``x >> n``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:398
+msgid "*x* shifted right by *n* bits"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:398
+msgid "(1)(3)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:400
+msgid "``~x``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:400
+msgid "the bits of *x* inverted"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:412
+msgid ""
+"Negative shift counts are illegal and cause a :exc:`ValueError` to be raised."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:415
+msgid ""
+"A left shift by *n* bits is equivalent to multiplication by ``pow(2, n)`` "
+"without overflow check."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:419
+msgid ""
+"A right shift by *n* bits is equivalent to division by ``pow(2, n)`` without "
+"overflow check."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:424
+msgid "Additional Methods on Integer Types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:428
+msgid ""
+"Return the number of bits necessary to represent an integer in binary, "
+"excluding the sign and leading zeros::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:437
+msgid ""
+"More precisely, if ``x`` is nonzero, then ``x.bit_length()`` is the unique "
+"positive integer ``k`` such that ``2**(k-1) <= abs(x) < 2**k``. "
+"Equivalently, when ``abs(x)`` is small enough to have a correctly rounded "
+"logarithm, then ``k = 1 + int(log(abs(x), 2))``. If ``x`` is zero, then ``x."
+"bit_length()`` returns ``0``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:443
+msgid "Equivalent to::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:454
+msgid "Additional Methods on Float"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:456
+msgid "The float type has some additional methods."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:460
+msgid ""
+"Return a pair of integers whose ratio is exactly equal to the original float "
+"and with a positive denominator.  Raises :exc:`OverflowError` on infinities "
+"and a :exc:`ValueError` on NaNs."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:465
+msgid ""
+"Two methods support conversion to and from hexadecimal strings.  Since "
+"Python's floats are stored internally as binary numbers, converting a float "
+"to or from a *decimal* string usually involves a small rounding error.  In "
+"contrast, hexadecimal strings allow exact representation and specification "
+"of floating-point numbers.  This can be useful when debugging, and in "
+"numerical work."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:476
+msgid ""
+"Return a representation of a floating-point number as a hexadecimal string.  "
+"For finite floating-point numbers, this representation will always include a "
+"leading ``0x`` and a trailing ``p`` and exponent."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:484
+msgid ""
+"Class method to return the float represented by a hexadecimal string *s*.  "
+"The string *s* may have leading and trailing whitespace."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:489
+msgid ""
+"Note that :meth:`float.hex` is an instance method, while :meth:`float."
+"fromhex` is a class method."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:492
+msgid "A hexadecimal string takes the form::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:496
+msgid ""
+"where the optional ``sign`` may by either ``+`` or ``-``, ``integer`` and "
+"``fraction`` are strings of hexadecimal digits, and ``exponent`` is a "
+"decimal integer with an optional leading sign.  Case is not significant, and "
+"there must be at least one hexadecimal digit in either the integer or the "
+"fraction.  This syntax is similar to the syntax specified in section 6.4.4.2 "
+"of the C99 standard, and also to the syntax used in Java 1.5 onwards.  In "
+"particular, the output of :meth:`float.hex` is usable as a hexadecimal "
+"floating-point literal in C or Java code, and hexadecimal strings produced "
+"by C's ``%a`` format character or Java's ``Double.toHexString`` are accepted "
+"by :meth:`float.fromhex`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:509
+msgid ""
+"Note that the exponent is written in decimal rather than hexadecimal, and "
+"that it gives the power of 2 by which to multiply the coefficient. For "
+"example, the hexadecimal string ``0x3.a7p10`` represents the floating-point "
+"number ``(3 + 10./16 + 7./16**2) * 2.0**10``, or ``3740.0``::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:519
+msgid ""
+"Applying the reverse conversion to ``3740.0`` gives a different hexadecimal "
+"string representing the same number::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:529
+msgid "Iterator Types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:537
+msgid ""
+"Python supports a concept of iteration over containers.  This is implemented "
+"using two distinct methods; these are used to allow user-defined classes to "
+"support iteration.  Sequences, described below in more detail, always "
+"support the iteration methods."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:542
+msgid ""
+"One method needs to be defined for container objects to provide iteration "
+"support:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:549
+msgid ""
+"Return an iterator object.  The object is required to support the iterator "
+"protocol described below.  If a container supports different types of "
+"iteration, additional methods can be provided to specifically request "
+"iterators for those iteration types.  (An example of an object supporting "
+"multiple forms of iteration would be a tree structure which supports both "
+"breadth-first and depth-first traversal.)  This method corresponds to the :"
+"attr:`tp_iter` slot of the type structure for Python objects in the Python/C "
+"API."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:558
+msgid ""
+"The iterator objects themselves are required to support the following two "
+"methods, which together form the :dfn:`iterator protocol`:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:564
+msgid ""
+"Return the iterator object itself.  This is required to allow both "
+"containers and iterators to be used with the :keyword:`for` and :keyword:"
+"`in` statements. This method corresponds to the :attr:`tp_iter` slot of the "
+"type structure for Python objects in the Python/C API."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:572
+msgid ""
+"Return the next item from the container.  If there are no further items, "
+"raise the :exc:`StopIteration` exception.  This method corresponds to the :"
+"attr:`tp_iternext` slot of the type structure for Python objects in the "
+"Python/C API."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:577
+msgid ""
+"Python defines several iterator objects to support iteration over general "
+"and specific sequence types, dictionaries, and other more specialized "
+"forms.  The specific types are not important beyond their implementation of "
+"the iterator protocol."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:582
+msgid ""
+"Once an iterator's :meth:`__next__` method raises :exc:`StopIteration`, it "
+"must continue to do so on subsequent calls.  Implementations that do not "
+"obey this property are deemed broken."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:586
+msgid ""
+"Python's :term:`generator`\\s provide a convenient way to implement the "
+"iterator protocol.  If a container object's :meth:`__iter__` method is "
+"implemented as a generator, it will automatically return an iterator object "
+"(technically, a generator object) supplying the :meth:`__iter__` and :meth:"
+"`__next__` methods."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:595
+msgid ""
+"Sequence Types --- :class:`str`, :class:`bytes`, :class:`bytearray`, :class:"
+"`list`, :class:`tuple`, :class:`range`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:597
+msgid ""
+"There are six sequence types: strings, byte sequences (:class:`bytes` "
+"objects), byte arrays (:class:`bytearray` objects), lists, tuples, and range "
+"objects.  For other containers see the built in :class:`dict` and :class:"
+"`set` classes, and the :mod:`collections` module."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:612
+msgid ""
+"Strings contain Unicode characters.  Their literals are written in single or "
+"double quotes: ``'xyzzy'``, ``\"frobozz\"``.  See :ref:`strings` for more "
+"about string literals.  In addition to the functionality described here, "
+"there are also string-specific methods described in the :ref:`string-"
+"methods` section."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:617
+msgid ""
+"Bytes and bytearray objects contain single bytes -- the former is immutable "
+"while the latter is a mutable sequence.  Bytes objects can be constructed "
+"the constructor, :func:`bytes`, and from literals; use a ``b`` prefix with "
+"normal string syntax: ``b'xyzzy'``.  To construct byte arrays, use the :func:"
+"`bytearray` function."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:625
+msgid ""
+"While string objects are sequences of characters (represented by strings of "
+"length 1), bytes and bytearray objects are sequences of *integers* (between "
+"0 and 255), representing the ASCII value of single bytes.  That means that "
+"for a bytes or bytearray object *b*, ``b[0]`` will be an integer, while "
+"``b[0:1]`` will be a bytes or bytearray object of length 1.  The "
+"representation of bytes objects uses the literal format (``b'...'``) since "
+"it is generally more useful than e.g. ``bytes([50, 19, 100])``.  You can "
+"always convert a bytes object into a list of integers using ``list(b)``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:634
+msgid ""
+"Also, while in previous Python versions, byte strings and Unicode strings "
+"could be exchanged for each other rather freely (barring encoding issues), "
+"strings and bytes are now completely separate concepts.  There's no implicit "
+"en-/decoding if you pass and object of the wrong type.  A string always "
+"compares unequal to a bytes or bytearray object."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:640
+msgid ""
+"Lists are constructed with square brackets, separating items with commas: "
+"``[a, b, c]``.  Tuples are constructed by the comma operator (not within "
+"square brackets), with or without enclosing parentheses, but an empty tuple "
+"must have the enclosing parentheses, such as ``a, b, c`` or ``()``.  A "
+"single item tuple must have a trailing comma, such as ``(d,)``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:646
+msgid ""
+"Objects of type range are created using the :func:`range` function.  They "
+"don't support slicing, concatenation or repetition, and using ``in``, ``not "
+"in``, :func:`min` or :func:`max` on them is inefficient."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:650
+msgid ""
+"Most sequence types support the following operations.  The ``in`` and ``not "
+"in`` operations have the same priorities as the comparison operations.  The "
+"``+`` and ``*`` operations have the same priority as the corresponding "
+"numeric operations. [#]_ Additional methods are provided for :ref:`typesseq-"
+"mutable`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:655
+msgid ""
+"This table lists the sequence operations sorted in ascending priority "
+"(operations in the same box have the same priority).  In the table, *s* and "
+"*t* are sequences of the same type; *n*, *i* and *j* are integers:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:662
+msgid "``x in s``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:662
+msgid "``True`` if an item of *s* is equal to *x*, else ``False``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:665
+msgid "``x not in s``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:665
+msgid "``False`` if an item of *s* is equal to *x*, else ``True``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:668
+msgid "``s + t``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:668
+msgid "the concatenation of *s* and *t*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:668 ../../../library/stdtypes.rst:1410
+msgid "\\(6)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:671
+msgid "``s * n, n * s``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:671
+msgid "*n* shallow copies of *s* concatenated"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:674
+msgid "``s[i]``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:674
+msgid "*i*'th item of *s*, origin 0"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:676
+msgid "``s[i:j]``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:676
+msgid "slice of *s* from *i* to *j*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:676
+msgid "(3)(4)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:678
+msgid "``s[i:j:k]``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:678
+msgid "slice of *s* from *i* to *j* with step *k*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:678
+msgid "(3)(5)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:681
+msgid "``len(s)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:681
+msgid "length of *s*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:683
+msgid "``min(s)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:683
+msgid "smallest item of *s*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:685
+msgid "``max(s)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:685
+msgid "largest item of *s*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:688
+msgid ""
+"Sequence types also support comparisons.  In particular, tuples and lists "
+"are compared lexicographically by comparing corresponding elements.  This "
+"means that to compare equal, every element must compare equal and the two "
+"sequences must be of the same type and have the same length.  (For full "
+"details see :ref:`comparisons` in the language reference.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:709
+msgid ""
+"When *s* is a string object, the ``in`` and ``not in`` operations act like a "
+"substring test."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:713
+msgid ""
+"Values of *n* less than ``0`` are treated as ``0`` (which yields an empty "
+"sequence of the same type as *s*).  Note also that the copies are shallow; "
+"nested structures are not copied.  This often haunts new Python programmers; "
+"consider:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:725
+msgid ""
+"What has happened is that ``[[]]`` is a one-element list containing an empty "
+"list, so all three elements of ``[[]] * 3`` are (pointers to) this single "
+"empty list.  Modifying any of the elements of ``lists`` modifies this single "
+"list. You can create a list of different lists this way:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:738
+msgid ""
+"If *i* or *j* is negative, the index is relative to the end of the string: "
+"``len(s) + i`` or ``len(s) + j`` is substituted.  But note that ``-0`` is "
+"still ``0``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:743
+msgid ""
+"The slice of *s* from *i* to *j* is defined as the sequence of items with "
+"index *k* such that ``i <= k < j``.  If *i* or *j* is greater than "
+"``len(s)``, use ``len(s)``.  If *i* is omitted or ``None``, use ``0``.  If "
+"*j* is omitted or ``None``, use ``len(s)``.  If *i* is greater than or equal "
+"to *j*, the slice is empty."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:750
+msgid ""
+"The slice of *s* from *i* to *j* with step *k* is defined as the sequence of "
+"items with index  ``x = i + n*k`` such that ``0 <= n < (j-i)/k``.  In other "
+"words, the indices are ``i``, ``i+k``, ``i+2*k``, ``i+3*k`` and so on, "
+"stopping when *j* is reached (but never including *j*).  If *i* or *j* is "
+"greater than ``len(s)``, use ``len(s)``.  If *i* or *j* are omitted or "
+"``None``, they become \"end\" values (which end depends on the sign of "
+"*k*).  Note, *k* cannot be zero. If *k* is ``None``, it is treated like "
+"``1``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:759
+msgid ""
+"If *s* and *t* are both strings, some Python implementations such as CPython "
+"can usually perform an in-place optimization for assignments of the form "
+"``s=s+t`` or ``s+=t``.  When applicable, this optimization makes quadratic "
+"run-time much less likely.  This optimization is both version and "
+"implementation dependent. For performance sensitive code, it is preferable "
+"to use the :meth:`str.join` method which assures consistent linear "
+"concatenation performance across versions and implementations."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:771
+msgid "String Methods"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:775
+msgid ""
+"String objects support the methods listed below.  Note that none of these "
+"methods take keyword arguments."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:778
+msgid ""
+"In addition, Python's strings support the sequence type methods described in "
+"the :ref:`typesseq` section. To output formatted strings, see the :ref:"
+"`string-formatting` section. Also, see the :mod:`re` module for string "
+"functions based on regular expressions."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:785
+msgid "Return a copy of the string with only its first character capitalized."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:790
+msgid ""
+"Return centered in a string of length *width*. Padding is done using the "
+"specified *fillchar* (default is a space)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:796
+msgid ""
+"Return the number of occurrences of substring *sub* in the range [*start*, "
+"*end*].  Optional arguments *start* and *end* are interpreted as in slice "
+"notation."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:803
+msgid ""
+"Return an encoded version of the string.  Default encoding is the current "
+"default string encoding.  *errors* may be given to set a different error "
+"handling scheme.  The default for *errors* is ``'strict'``, meaning that "
+"encoding errors raise a :exc:`UnicodeError`.  Other possible values are "
+"``'ignore'``, ``'replace'``, ``'xmlcharrefreplace'``, ``'backslashreplace'`` "
+"and any other name registered via :func:`codecs.register_error`, see "
+"section :ref:`codec-base-classes`. For a list of possible encodings, see "
+"section :ref:`standard-encodings`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:815
+msgid ""
+"Return ``True`` if the string ends with the specified *suffix*, otherwise "
+"return ``False``.  *suffix* can also be a tuple of suffixes to look for.  "
+"With optional *start*, test beginning at that position.  With optional "
+"*end*, stop comparing at that position."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:823
+msgid ""
+"Return a copy of the string where all tab characters are replaced by one or "
+"more spaces, depending on the current column and the given tab size.  The "
+"column number is reset to zero after each newline occurring in the string. "
+"If *tabsize* is not given, a tab size of ``8`` characters is assumed.  This "
+"doesn't understand other non-printing characters or escape sequences."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:832
+msgid ""
+"Return the lowest index in the string where substring *sub* is found, such "
+"that *sub* is contained in the range [*start*, *end*].  Optional arguments "
+"*start* and *end* are interpreted as in slice notation.  Return ``-1`` if "
+"*sub* is not found."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:840
+msgid ""
+"Perform a string formatting operation.  The *format_string* argument can "
+"contain literal text or replacement fields delimited by braces ``{}``.  Each "
+"replacement field contains either the numeric index of a positional "
+"argument, or the name of a keyword argument.  Returns a copy of "
+"*format_string* where each replacement field is replaced with the string "
+"value of the corresponding argument."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:850
+msgid ""
+"See :ref:`formatstrings` for a description of the various formatting options "
+"that can be specified in format strings."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:856
+msgid ""
+"Like :meth:`find`, but raise :exc:`ValueError` when the substring is not "
+"found."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:861
+msgid ""
+"Return true if all characters in the string are alphanumeric and there is at "
+"least one character, false otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:867
+msgid ""
+"Return true if all characters in the string are alphabetic and there is at "
+"least one character, false otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:873
+msgid ""
+"Return true if all characters in the string are decimal characters and there "
+"is at least one character, false otherwise. Decimal characters include digit "
+"characters, and all characters that that can be used to form decimal-radix "
+"numbers, e.g. U+0660, ARABIC-INDIC DIGIT ZERO."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:882
+msgid ""
+"Return true if all characters in the string are digits and there is at least "
+"one character, false otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:888
+msgid ""
+"Return true if the string is a valid identifier according to the language "
+"definition, section :ref:`identifiers`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:894
+msgid ""
+"Return true if all cased characters in the string are lowercase and there is "
+"at least one cased character, false otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:900
+msgid ""
+"Return true if all characters in the string are numeric characters, and "
+"there is at least one character, false otherwise. Numeric characters include "
+"digit characters, and all characters that have the Unicode numeric value "
+"property, e.g. U+2155, VULGAR FRACTION ONE FIFTH."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:909
+msgid ""
+"Return true if all characters in the string are printable or the string is "
+"empty, false otherwise.  Nonprintable characters are those characters "
+"defined in the Unicode character database as \"Other\" or \"Separator\", "
+"excepting the ASCII space (0x20) which is considered printable.  (Note that "
+"printable characters in this context are those which should not be escaped "
+"when :func:`repr` is invoked on a string.  It has no bearing on the handling "
+"of strings written to :data:`sys.stdout` or :data:`sys.stderr`.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:920
+msgid ""
+"Return true if there are only whitespace characters in the string and there "
+"is at least one character, false otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:926
+msgid ""
+"Return true if the string is a titlecased string and there is at least one "
+"character, for example uppercase characters may only follow uncased "
+"characters and lowercase characters only cased ones.  Return false otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:933
+msgid ""
+"Return true if all cased characters in the string are uppercase and there is "
+"at least one cased character, false otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:939
+msgid ""
+"Return a string which is the concatenation of the strings in the sequence "
+"*seq*.  A :exc:`TypeError` will be raised if there are any non-string values "
+"in *seq*, including :class:`bytes` objects.  The separator between elements "
+"is the string providing this method."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:947
+msgid ""
+"Return the string left justified in a string of length *width*. Padding is "
+"done using the specified *fillchar* (default is a space).  The original "
+"string is returned if *width* is less than ``len(s)``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:954
+msgid "Return a copy of the string converted to lowercase."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:959
+msgid ""
+"Return a copy of the string with leading characters removed.  The *chars* "
+"argument is a string specifying the set of characters to be removed.  If "
+"omitted or ``None``, the *chars* argument defaults to removing whitespace.  "
+"The *chars* argument is not a prefix; rather, all combinations of its values "
+"are stripped:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:972
+msgid ""
+"This static method returns a translation table usable for :meth:`str."
+"translate`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:974
+msgid ""
+"If there is only one argument, it must be a dictionary mapping Unicode "
+"ordinals (integers) or characters (strings of length 1) to Unicode ordinals, "
+"strings (of arbitrary lengths) or None.  Character keys will then be "
+"converted to ordinals."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:979
+msgid ""
+"If there are two arguments, they must be strings of equal length, and in the "
+"resulting dictionary, each character in x will be mapped to the character at "
+"the same position in y.  If there is a third argument, it must be a string, "
+"whose characters will be mapped to None in the result."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:987
+msgid ""
+"Split the string at the first occurrence of *sep*, and return a 3-tuple "
+"containing the part before the separator, the separator itself, and the part "
+"after the separator.  If the separator is not found, return a 3-tuple "
+"containing the string itself, followed by two empty strings."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:995
+msgid ""
+"Return a copy of the string with all occurrences of substring *old* replaced "
+"by *new*.  If the optional argument *count* is given, only the first *count* "
+"occurrences are replaced."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1002
+msgid ""
+"Return the highest index in the string where substring *sub* is found, such "
+"that *sub* is contained within s[start,end].  Optional arguments *start* and "
+"*end* are interpreted as in slice notation.  Return ``-1`` on failure."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1009
+msgid ""
+"Like :meth:`rfind` but raises :exc:`ValueError` when the substring *sub* is "
+"not found."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1015
+msgid ""
+"Return the string right justified in a string of length *width*. Padding is "
+"done using the specified *fillchar* (default is a space). The original "
+"string is returned if *width* is less than ``len(s)``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1022
+msgid ""
+"Split the string at the last occurrence of *sep*, and return a 3-tuple "
+"containing the part before the separator, the separator itself, and the part "
+"after the separator.  If the separator is not found, return a 3-tuple "
+"containing two empty strings, followed by the string itself."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1030
+msgid ""
+"Return a list of the words in the string, using *sep* as the delimiter "
+"string. If *maxsplit* is given, at most *maxsplit* splits are done, the "
+"*rightmost* ones.  If *sep* is not specified or ``None``, any whitespace "
+"string is a separator.  Except for splitting from the right, :meth:`rsplit` "
+"behaves like :meth:`split` which is described in detail below."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1039
+msgid ""
+"Return a copy of the string with trailing characters removed.  The *chars* "
+"argument is a string specifying the set of characters to be removed.  If "
+"omitted or ``None``, the *chars* argument defaults to removing whitespace.  "
+"The *chars* argument is not a suffix; rather, all combinations of its values "
+"are stripped:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1052
+msgid ""
+"Return a list of the words in the string, using *sep* as the delimiter "
+"string.  If *maxsplit* is given, at most *maxsplit* splits are done (thus, "
+"the list will have at most ``maxsplit+1`` elements).  If *maxsplit* is not "
+"specified, then there is no limit on the number of splits (all possible "
+"splits are made)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1058
+msgid ""
+"If *sep* is given, consecutive delimiters are not grouped together and are "
+"deemed to delimit empty strings (for example, ``'1,,2'.split(',')`` returns "
+"``['1', '', '2']``).  The *sep* argument may consist of multiple characters "
+"(for example, ``'1<>2<>3'.split('<>')`` returns ``['1', '2', '3']``). "
+"Splitting an empty string with a specified separator returns ``['']``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1064
+msgid ""
+"If *sep* is not specified or is ``None``, a different splitting algorithm is "
+"applied: runs of consecutive whitespace are regarded as a single separator, "
+"and the result will contain no empty strings at the start or end if the "
+"string has leading or trailing whitespace.  Consequently, splitting an empty "
+"string or a string consisting of just whitespace with a ``None`` separator "
+"returns ``[]``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1071
+msgid ""
+"For example, ``' 1  2   3  '.split()`` returns ``['1', '2', '3']``, and ``'  "
+"1  2   3  '.split(None, 1)`` returns ``['1', '2   3  ']``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1077
+msgid ""
+"Return a list of the lines in the string, breaking at line boundaries.  Line "
+"breaks are not included in the resulting list unless *keepends* is given and "
+"true."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1084
+msgid ""
+"Return ``True`` if string starts with the *prefix*, otherwise return "
+"``False``. *prefix* can also be a tuple of prefixes to look for.  With "
+"optional *start*, test string beginning at that position.  With optional "
+"*end*, stop comparing string at that position."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1092
+msgid ""
+"Return a copy of the string with the leading and trailing characters "
+"removed. The *chars* argument is a string specifying the set of characters "
+"to be removed. If omitted or ``None``, the *chars* argument defaults to "
+"removing whitespace. The *chars* argument is not a prefix or suffix; rather, "
+"all combinations of its values are stripped:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1106
+msgid ""
+"Return a copy of the string with uppercase characters converted to lowercase "
+"and vice versa."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1112
+msgid ""
+"Return a titlecased version of the string: words start with uppercase "
+"characters, all remaining cased characters are lowercase."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1118
+msgid ""
+"Return a copy of the *s* where all characters have been mapped through the "
+"*map* which must be a dictionary of Unicode ordinals (integers) to Unicode "
+"ordinals, strings or ``None``.  Unmapped characters are left untouched. "
+"Characters mapped to ``None`` are deleted."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1123
+msgid ""
+"You can use :meth:`str.maketrans` to create a translation map from character-"
+"to-character mappings in different formats."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1128
+msgid ""
+"An even more flexible approach is to create a custom character mapping codec "
+"using the :mod:`codecs` module (see :mod:`encodings.cp1251` for an example)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1135
+msgid "Return a copy of the string converted to uppercase."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1140
+msgid ""
+"Return the numeric string left filled with zeros in a string of length "
+"*width*.  A sign prefix is handled correctly.  The original string is "
+"returned if *width* is less than ``len(s)``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1149
+msgid "Old String Formatting Operations"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1165
+msgid ""
+"The formatting operations described here are obsolete and may go away in "
+"future versions of Python.  Use the new :ref:`string-formatting` in new code."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1168
+msgid ""
+"String objects have one unique built-in operation: the ``%`` operator "
+"(modulo). This is also known as the string *formatting* or *interpolation* "
+"operator. Given ``format % values`` (where *format* is a string), ``%`` "
+"conversion specifications in *format* are replaced with zero or more "
+"elements of *values*. The effect is similar to the using :cfunc:`sprintf` in "
+"the C language."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1174
+msgid ""
+"If *format* requires a single argument, *values* may be a single non-tuple "
+"object. [#]_  Otherwise, *values* must be a tuple with exactly the number of "
+"items specified by the format string, or a single mapping object (for "
+"example, a dictionary)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1179
+msgid ""
+"A conversion specifier contains two or more characters and has the following "
+"components, which must occur in this order:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1182
+msgid "The ``'%'`` character, which marks the start of the specifier."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1184
+msgid ""
+"Mapping key (optional), consisting of a parenthesised sequence of characters "
+"(for example, ``(somename)``)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1187
+msgid ""
+"Conversion flags (optional), which affect the result of some conversion "
+"types."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1190
+msgid ""
+"Minimum field width (optional).  If specified as an ``'*'`` (asterisk), the "
+"actual width is read from the next element of the tuple in *values*, and the "
+"object to convert comes after the minimum field width and optional precision."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1194
+msgid ""
+"Precision (optional), given as a ``'.'`` (dot) followed by the precision.  "
+"If specified as ``'*'`` (an asterisk), the actual width is read from the "
+"next element of the tuple in *values*, and the value to convert comes after "
+"the precision."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1199
+msgid "Length modifier (optional)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1201
+msgid "Conversion type."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1203
+msgid ""
+"When the right argument is a dictionary (or other mapping type), then the "
+"formats in the string *must* include a parenthesised mapping key into that "
+"dictionary inserted immediately after the ``'%'`` character. The mapping key "
+"selects the value to be formatted from the mapping.  For example:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1213
+msgid ""
+"In this case no ``*`` specifiers may occur in a format (since they require a "
+"sequential parameter list)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1216
+msgid "The conversion flag characters are:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1219
+msgid "Flag"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1221
+msgid "``'#'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1221
+msgid ""
+"The value conversion will use the \"alternate form\" (where defined below)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1224
+msgid "``'0'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1224
+msgid "The conversion will be zero padded for numeric values."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1226
+msgid "``'-'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1226
+msgid ""
+"The converted value is left adjusted (overrides the ``'0'`` conversion if "
+"both are given)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1229
+msgid "``' '``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1229
+msgid ""
+"(a space) A blank should be left before a positive number (or empty string) "
+"produced by a signed conversion."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1232
+msgid "``'+'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1232
+msgid ""
+"A sign character (``'+'`` or ``'-'``) will precede the conversion (overrides "
+"a \"space\" flag)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1236
+msgid ""
+"A length modifier (``h``, ``l``, or ``L``) may be present, but is ignored as "
+"it is not necessary for Python -- so e.g. ``%ld`` is identical to ``%d``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1239
+msgid "The conversion types are:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1242
+msgid "Conversion"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1244
+msgid "``'d'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1244 ../../../library/stdtypes.rst:1246
+msgid "Signed integer decimal."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1246
+msgid "``'i'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1248
+msgid "``'o'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1248
+msgid "Signed octal value."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1250
+msgid "``'u'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1250
+msgid "Obselete type -- it is identical to ``'d'``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1250
+msgid "\\(7)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1252
+msgid "``'x'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1252
+msgid "Signed hexadecimal (lowercase)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1254
+msgid "``'X'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1254
+msgid "Signed hexadecimal (uppercase)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1256
+msgid "``'e'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1256
+msgid "Floating point exponential format (lowercase)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1258
+msgid "``'E'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1258
+msgid "Floating point exponential format (uppercase)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1260
+msgid "``'f'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1260 ../../../library/stdtypes.rst:1262
+msgid "Floating point decimal format."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1262
+msgid "``'F'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1264
+msgid "``'g'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1264
+msgid ""
+"Floating point format. Uses lowercase exponential format if exponent is less "
+"than -4 or not less than precision, decimal format otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1268
+msgid "``'G'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1268
+msgid ""
+"Floating point format. Uses uppercase exponential format if exponent is less "
+"than -4 or not less than precision, decimal format otherwise."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1272
+msgid "``'c'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1272
+msgid "Single character (accepts integer or single character string)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1275
+msgid "``'r'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1275
+msgid "String (converts any python object using :func:`repr`)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1278
+msgid "``'s'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1278
+msgid "String (converts any python object using :func:`str`)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1281
+msgid "``'%'``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1281
+msgid "No argument is converted, results in a ``'%'`` character in the result."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1288
+msgid ""
+"The alternate form causes a leading zero (``'0'``) to be inserted between "
+"left-hand padding and the formatting of the number if the leading character "
+"of the result is not already a zero."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1293
+msgid ""
+"The alternate form causes a leading ``'0x'`` or ``'0X'`` (depending on "
+"whether the ``'x'`` or ``'X'`` format was used) to be inserted between left-"
+"hand padding and the formatting of the number if the leading character of "
+"the result is not already a zero."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1299
+msgid ""
+"The alternate form causes the result to always contain a decimal point, even "
+"if no digits follow it."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1302
+msgid ""
+"The precision determines the number of digits after the decimal point and "
+"defaults to 6."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1306
+msgid ""
+"The alternate form causes the result to always contain a decimal point, and "
+"trailing zeroes are not removed as they would otherwise be."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1309
+msgid ""
+"The precision determines the number of significant digits before and after "
+"the decimal point and defaults to 6."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1313
+msgid "The precision determines the maximal number of characters used."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1317
+msgid "See :pep:`237`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1319
+msgid ""
+"Since Python strings have an explicit length, ``%s`` conversions do not "
+"assume that ``'\\0'`` is the end of the string."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1324
+msgid ""
+"For safety reasons, floating point precisions are clipped to 50; ``%f`` "
+"conversions for numbers whose absolute value is over 1e25 are replaced by "
+"``%g`` conversions. [#]_  All other errors raise exceptions."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1332
+msgid ""
+"Additional string operations are defined in standard modules :mod:`string` "
+"and :mod:`re`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1339
+msgid "Range Type"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1343
+msgid ""
+"The :class:`range` type is an immutable sequence which is commonly used for "
+"looping.  The advantage of the :class:`range` type is that an :class:`range` "
+"object will always take the same amount of memory, no matter the size of the "
+"range it represents.  There are no consistent performance advantages."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1348
+msgid ""
+"Range objects have very little behavior: they only support indexing, "
+"iteration, and the :func:`len` function."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1355
+msgid "Mutable Sequence Types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1362
+msgid ""
+"List and bytearray objects support additional operations that allow in-place "
+"modification of the object.  Other mutable sequence types (when added to the "
+"language) should also support these operations.  Strings and tuples are "
+"immutable sequence types: such objects cannot be modified once created. The "
+"following operations are defined on mutable sequence types (where *x* is an "
+"arbitrary object)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1369
+msgid ""
+"Note that while lists allow their items to be of any type, bytearray object "
+"\"items\" are all integers in the range 0 <= x < 256."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1375
+msgid "``s[i] = x``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1375
+msgid "item *i* of *s* is replaced by *x*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1378
+msgid "``s[i:j] = t``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1378
+msgid ""
+"slice of *s* from *i* to *j* is replaced by the contents of the iterable *t*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1382
+msgid "``del s[i:j]``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1382
+msgid "same as ``s[i:j] = []``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1384
+msgid "``s[i:j:k] = t``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1384
+msgid "the elements of ``s[i:j:k]`` are replaced by those of *t*"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1387
+msgid "``del s[i:j:k]``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1387
+msgid "removes the elements of ``s[i:j:k]`` from the list"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1390
+msgid "``s.append(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1390
+msgid "same as ``s[len(s):len(s)] = [x]``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1393
+msgid "``s.extend(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1393
+msgid "same as ``s[len(s):len(s)] = x``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1396
+msgid "``s.count(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1396
+msgid "return number of *i*'s for which ``s[i] == x``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1399
+msgid "``s.index(x[, i[, j]])``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1399
+msgid "return smallest *k* such that ``s[k] == x`` and ``i <= k < j``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1403
+msgid "``s.insert(i, x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1403
+msgid "same as ``s[i:i] = [x]``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1405
+msgid "``s.pop([i])``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1405
+msgid "same as ``x = s[i]; del s[i]; return x``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1408
+msgid "``s.remove(x)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1408
+msgid "same as ``del s[s.index(x)]``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1410
+msgid "``s.reverse()``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1410
+msgid "reverses the items of *s* in place"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1413
+msgid "``s.sort([key[, reverse]])``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1413
+msgid "sort the items of *s* in place"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1413
+msgid "(6), (7), (8)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1435
+msgid "*t* must have the same length as the slice it is replacing."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1438
+msgid "*x* can be any iterable object."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1441
+msgid ""
+"Raises :exc:`ValueError` when *x* is not found in *s*. When a negative index "
+"is passed as the second or third parameter to the :meth:`index` method, the "
+"sequence length is added, as for slice indices.  If it is still negative, it "
+"is truncated to zero, as for slice indices."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1447
+msgid ""
+"When a negative index is passed as the first parameter to the :meth:`insert` "
+"method, the sequence length is added, as for slice indices.  If it is still "
+"negative, it is truncated to zero, as for slice indices."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1452
+msgid ""
+"The optional argument *i* defaults to ``-1``, so that by default the last "
+"item is removed and returned."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1456
+msgid ""
+"The :meth:`sort` and :meth:`reverse` methods modify the sequence in place "
+"for economy of space when sorting or reversing a large sequence.  To remind "
+"you that they operate by side effect, they don't return the sorted or "
+"reversed sequence."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1462
+msgid ""
+"The :meth:`sort` method takes optional arguments for controlling the "
+"comparisons.  Each must be specified as a keyword argument."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1465
+msgid ""
+"*key* specifies a function of one argument that is used to extract a "
+"comparison key from each list element: ``key=str.lower``.  The default value "
+"is ``None``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1468
+msgid ""
+"*reverse* is a boolean value.  If set to ``True``, then the list elements "
+"are sorted as if each comparison were reversed."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1471
+msgid ""
+"The :meth:`sort` method is guaranteed to be stable.  A sort is stable if it "
+"guarantees not to change the relative order of elements that compare equal "
+"--- this is helpful for sorting in multiple passes (for example, sort by "
+"department, then by salary grade)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1476
+msgid ""
+"While a list is being sorted, the effect of attempting to mutate, or even "
+"inspect, the list is undefined.  The C implementation makes the list appear "
+"empty for the duration, and raises :exc:`ValueError` if it can detect that "
+"the list has been mutated during a sort."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1482
+msgid ":meth:`sort` is not supported by :class:`bytearray` objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1487
+msgid "Bytes and Byte Array Methods"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1492
+msgid ""
+"Bytes and bytearray objects, being \"strings of bytes\", have all methods "
+"found on strings, with the exception of :func:`encode`, :func:`format` and :"
+"func:`isidentifier`, which do not make sense with these types.  For "
+"converting the objects to strings, they have a :func:`decode` method."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1497
+msgid ""
+"Wherever one of these methods needs to interpret the bytes as characters (e."
+"g. the :func:`is...` methods), the ASCII character set is assumed."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1502
+msgid ""
+"The methods on bytes and bytearray objects don't accept strings as their "
+"arguments, just as the methods on strings don't accept bytes as their "
+"arguments.  For example, you have to write ::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1509
+msgid "and ::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1515
+msgid "The bytes and bytearray types have an additional class method:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1520
+msgid ""
+"This :class:`bytes` class method returns a bytes or bytearray object, "
+"decoding the given string object.  The string must contain two hexadecimal "
+"digits per byte, spaces are ignored."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1527
+msgid ""
+"The translate method differs in semantics from the version available on "
+"strings:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1531
+msgid ""
+"Return a copy of the bytes or bytearray object where all bytes occurring in "
+"the optional argument *delete* are removed, and the remaining bytes have "
+"been mapped through the given translation table, which must be a bytes "
+"object of length 256."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1536
+msgid ""
+"You can use the :func:`string.maketrans` helper function to create a "
+"translation table."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1539
+msgid ""
+"Set the *table* argument to ``None`` for translations that only delete "
+"characters::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1549
+msgid "Set Types --- :class:`set`, :class:`frozenset`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1553
+msgid ""
+"A :dfn:`set` object is an unordered collection of distinct :term:`hashable` "
+"objects. Common uses include membership testing, removing duplicates from a "
+"sequence, and computing mathematical operations such as intersection, union, "
+"difference, and symmetric difference. (For other containers see the built "
+"in :class:`dict`, :class:`list`, and :class:`tuple` classes, and the :mod:"
+"`collections` module.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1560
+msgid ""
+"Like other collections, sets support ``x in set``, ``len(set)``, and ``for x "
+"in set``.  Being an unordered collection, sets do not record element "
+"position or order of insertion.  Accordingly, sets do not support indexing, "
+"slicing, or other sequence-like behavior."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1565
+msgid ""
+"There are currently two builtin set types, :class:`set` and :class:"
+"`frozenset`. The :class:`set` type is mutable --- the contents can be "
+"changed using methods like :meth:`add` and :meth:`remove`.  Since it is "
+"mutable, it has no hash value and cannot be used as either a dictionary key "
+"or as an element of another set. The :class:`frozenset` type is immutable "
+"and :term:`hashable` --- its contents cannot be altered after it is created; "
+"it can therefore be used as a dictionary key or as an element of another set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1573
+msgid "The constructors for both classes work the same:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1578
+msgid ""
+"Return a new set or frozenset object whose elements are taken from "
+"*iterable*.  The elements of a set must be hashable.  To represent sets of "
+"sets, the inner sets must be :class:`frozenset` objects.  If *iterable* is "
+"not specified, a new empty set is returned."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1583
+msgid ""
+"Instances of :class:`set` and :class:`frozenset` provide the following "
+"operations:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1588
+msgid "Return the cardinality of set *s*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1592
+msgid "Test *x* for membership in *s*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1596
+msgid "Test *x* for non-membership in *s*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1600
+msgid ""
+"Return True if the set has no elements in common with *other*.  Sets are "
+"disjoint if and only if their intersection is the empty set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1606
+msgid "Test whether every element in the set is in *other*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1610
+msgid ""
+"Test whether the set is a true subset of *other*, that is, ``set <= other "
+"and set != other``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1616
+msgid "Test whether every element in *other* is in the set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1620
+msgid ""
+"Test whether the set is a true superset of *other*, that is, ``set >= other "
+"and set != other``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1626
+msgid "Return a new set with elements from the set and all others."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1631
+msgid "Return a new set with elements common to the set and all others."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1636
+msgid "Return a new set with elements in the set that are not in the others."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1641
+msgid ""
+"Return a new set with elements in either the set or *other* but not both."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1645
+msgid "Return a new set with a shallow copy of *s*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1648
+msgid ""
+"Note, the non-operator versions of :meth:`union`, :meth:`intersection`, :"
+"meth:`difference`, and :meth:`symmetric_difference`, :meth:`issubset`, and :"
+"meth:`issuperset` methods will accept any iterable as an argument.  In "
+"contrast, their operator based counterparts require their arguments to be "
+"sets.  This precludes error-prone constructions like ``set('abc') & 'cbs'`` "
+"in favor of the more readable ``set('abc').intersection('cbs')``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1655
+msgid ""
+"Both :class:`set` and :class:`frozenset` support set to set comparisons. Two "
+"sets are equal if and only if every element of each set is contained in the "
+"other (each is a subset of the other). A set is less than another set if and "
+"only if the first set is a proper subset of the second set (is a subset, but "
+"is not equal). A set is greater than another set if and only if the first "
+"set is a proper superset of the second set (is a superset, but is not equal)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1662
+msgid ""
+"Instances of :class:`set` are compared to instances of :class:`frozenset` "
+"based on their members.  For example, ``set('abc') == frozenset('abc')`` "
+"returns ``True`` and so does ``set('abc') in set([frozenset('abc')])``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1666
+msgid ""
+"The subset and equality comparisons do not generalize to a complete ordering "
+"function.  For example, any two disjoint sets are not equal and are not "
+"subsets of each other, so *all* of the following return ``False``: ``a<b``, "
+"``a==b``, or ``a>b``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1671
+msgid ""
+"Since sets only define partial ordering (subset relationships), the output "
+"of the :meth:`list.sort` method is undefined for lists of sets."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1674
+msgid "Set elements, like dictionary keys, must be :term:`hashable`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1676
+msgid ""
+"Binary operations that mix :class:`set` instances with :class:`frozenset` "
+"return the type of the first operand.  For example: ``frozenset('ab') | "
+"set('bc')`` returns an instance of :class:`frozenset`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1680
+msgid ""
+"The following table lists operations available for :class:`set` that do not "
+"apply to immutable instances of :class:`frozenset`:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1686
+msgid "Update the set, adding elements from *other*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1691
+msgid "Update the set, keeping only elements found in it and *other*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1696
+msgid "Update the set, removing elements found in others."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1701
+msgid ""
+"Update the set, keeping only elements found in either set, but not in both."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1705
+msgid "Add element *elem* to the set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1709
+msgid ""
+"Remove element *elem* from the set.  Raises :exc:`KeyError` if *elem* is not "
+"contained in the set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1714
+msgid "Remove element *elem* from the set if it is present."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1718
+msgid ""
+"Remove and return an arbitrary element from the set.  Raises :exc:`KeyError` "
+"if the set is empty."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1723
+msgid "Remove all elements from the set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1726
+msgid ""
+"Note, the non-operator versions of the :meth:`update`, :meth:"
+"`intersection_update`, :meth:`difference_update`, and :meth:"
+"`symmetric_difference_update` methods will accept any iterable as an "
+"argument."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1731
+msgid ""
+"Note, the *elem* argument to the :meth:`__contains__`, :meth:`remove`, and :"
+"meth:`discard` methods may be a set.  To support searching for an equivalent "
+"frozenset, the *elem* set is temporarily mutated during the search and then "
+"restored.  During the search, the *elem* set should not be read or mutated "
+"since it does not have a meaningful value."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1741
+msgid "Mapping Types --- :class:`dict`"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1751
+msgid ""
+"A :dfn:`mapping` object maps :term:`hashable` values to arbitrary objects. "
+"Mappings are mutable objects.  There is currently only one standard mapping "
+"type, the :dfn:`dictionary`.  (For other containers see the built in :class:"
+"`list`, :class:`set`, and :class:`tuple` classes, and the :mod:`collections` "
+"module.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1757
+msgid ""
+"A dictionary's keys are *almost* arbitrary values.  Values that are not :"
+"term:`hashable`, that is, values containing lists, dictionaries or other "
+"mutable types (that are compared by value rather than by object identity) "
+"may not be used as keys.  Numeric types used for keys obey the normal rules "
+"for numeric comparison: if two numbers compare equal (such as ``1`` and "
+"``1.0``) then they can be used interchangeably to index the same dictionary "
+"entry.  (Note however, that since computers store floating-point numbers as "
+"approximations it is usually unwise to use them as dictionary keys.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1766
+msgid ""
+"Dictionaries can be created by placing a comma-separated list of ``key: "
+"value`` pairs within braces, for example: ``{'jack': 4098, 'sjoerd': 4127}`` "
+"or ``{4098: 'jack', 4127: 'sjoerd'}``, or by the :class:`dict` constructor."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1772
+msgid ""
+"Return a new dictionary initialized from an optional positional argument or "
+"from a set of keyword arguments.  If no arguments are given, return a new "
+"empty dictionary.  If the positional argument *arg* is a mapping object, "
+"return a dictionary mapping the same keys to the same values as does the "
+"mapping object.  Otherwise the positional argument must be a sequence, a "
+"container that supports iteration, or an iterator object.  The elements of "
+"the argument must each also be of one of those kinds, and each must in turn "
+"contain exactly two objects.  The first is used as a key in the new "
+"dictionary, and the second as the key's value.  If a given key is seen more "
+"than once, the last value associated with it is retained in the new "
+"dictionary."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1784
+msgid ""
+"If keyword arguments are given, the keywords themselves with their "
+"associated values are added as items to the dictionary.  If a key is "
+"specified both in the positional argument and as a keyword argument, the "
+"value associated with the keyword is retained in the dictionary.  For "
+"example, these all return a dictionary equal to ``{\"one\": 2, \"two\": 3}``:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1790
+msgid "``dict(one=2, two=3)``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1791
+msgid "``dict({'one': 2, 'two': 3})``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1792
+msgid "``dict(zip(('one', 'two'), (2, 3)))``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1793
+msgid "``dict([['two', 3], ['one', 2]])``"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1795
+msgid ""
+"The first example only works for keys that are valid Python identifiers; the "
+"others work with any valid keys."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1799
+msgid ""
+"These are the operations that dictionaries support (and therefore, custom "
+"mapping types should support too):"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1804
+msgid "Return the number of items in the dictionary *d*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1808
+msgid ""
+"Return the item of *d* with key *key*.  Raises a :exc:`KeyError` if *key* is "
+"not in the map."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1811
+msgid ""
+"If a subclass of dict defines a method :meth:`__missing__`, if the key *key* "
+"is not present, the ``d[key]`` operation calls that method with the key "
+"*key* as argument.  The ``d[key]`` operation then returns or raises whatever "
+"is returned or raised by the ``__missing__(key)`` call if the key is not "
+"present. No other operations or methods invoke :meth:`__missing__`. If :meth:"
+"`__missing__` is not defined, :exc:`KeyError` is raised. :meth:`__missing__` "
+"must be a method; it cannot be an instance variable. For an example, see :"
+"class:`collections.defaultdict`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1822
+msgid "Set ``d[key]`` to *value*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1826
+msgid ""
+"Remove ``d[key]`` from *d*.  Raises a :exc:`KeyError` if *key* is not in the "
+"map."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1831
+msgid "Return ``True`` if *d* has a key *key*, else ``False``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1835
+msgid "Equivalent to ``not key in d``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1839
+msgid "Remove all items from the dictionary."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1843
+msgid "Return a shallow copy of the dictionary."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1847
+msgid "Create a new dictionary with keys from *seq* and values set to *value*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1849
+msgid ""
+":meth:`fromkeys` is a class method that returns a new dictionary. *value* "
+"defaults to ``None``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1854
+msgid ""
+"Return the value for *key* if *key* is in the dictionary, else *default*. If "
+"*default* is not given, it defaults to ``None``, so that this method never "
+"raises a :exc:`KeyError`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1860
+msgid ""
+"Return a new view of the dictionary's items (``(key, value)`` pairs).  See "
+"below for documentation of view objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1865
+msgid ""
+"Return a new view of the dictionary's keys.  See below for documentation of "
+"view objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1870
+msgid ""
+"If *key* is in the dictionary, remove it and return its value, else return "
+"*default*.  If *default* is not given and *key* is not in the dictionary, a :"
+"exc:`KeyError` is raised."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1876
+msgid ""
+"Remove and return an arbitrary ``(key, value)`` pair from the dictionary."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1878
+msgid ""
+":meth:`popitem` is useful to destructively iterate over a dictionary, as "
+"often used in set algorithms.  If the dictionary is empty, calling :meth:"
+"`popitem` raises a :exc:`KeyError`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1884
+msgid ""
+"If *key* is in the dictionary, return its value.  If not, insert *key* with "
+"a value of *default* and return *default*.  *default* defaults to ``None``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1890
+msgid ""
+"Update the dictionary with the key/value pairs from *other*, overwriting "
+"existing keys.  Return ``None``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1893
+msgid ""
+":meth:`update` accepts either another dictionary object or an iterable of "
+"key/value pairs (as a tuple or other iterable of length two).  If keyword "
+"arguments are specified, the dictionary is then is updated with those key/"
+"value pairs: ``d.update(red=1, blue=2)``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1900
+msgid ""
+"Return a new view of the dictionary's values.  See below for documentation "
+"of view objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1907
+msgid "Dictionary view objects"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1909
+msgid ""
+"The objects returned by :meth:`dict.keys`, :meth:`dict.values` and :meth:"
+"`dict.items` are *view objects*.  They provide a dynamic view on the "
+"dictionary's entries, which means that when the dictionary changes, the view "
+"reflects these changes."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1914
+msgid ""
+"Dictionary views can be iterated over to yield their respective data, and "
+"support membership tests:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1919
+msgid "Return the number of entries in the dictionary."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1923
+msgid ""
+"Return an iterator over the keys, values or items (represented as tuples of "
+"``(key, value)``) in the dictionary."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1926
+msgid ""
+"Keys and values are iterated over in an arbitrary order which is non-random, "
+"varies across Python implementations, and depends on the dictionary's "
+"history of insertions and deletions. If keys, values and items views are "
+"iterated over with no intervening modifications to the dictionary, the order "
+"of items will directly correspond.  This allows the creation of ``(value, "
+"key)`` pairs using :func:`zip`: ``pairs = zip(d.values(), d.keys())``.  "
+"Another way to create the same list is ``pairs = [(v, k) for (k, v) in d."
+"items()]``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1936
+msgid ""
+"Return ``True`` if *x* is in the underlying dictionary's keys, values or "
+"items (in the latter case, *x* should be a ``(key, value)`` tuple)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1940
+msgid ""
+"Keys views are set-like since their entries are unique and hashable.  If all "
+"values are hashable, so that (key, value) pairs are unique and hashable, "
+"then the items view is also set-like.  (Values views are not treated as set-"
+"like since the entries are generally not unique.)  Then these set operations "
+"are available (\"other\" refers either to another view or a set):"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1948
+msgid ""
+"Return the intersection of the dictview and the other object as a new set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1952
+msgid "Return the union of the dictview and the other object as a new set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1956
+msgid ""
+"Return the difference between the dictview and the other object (all "
+"elements in *dictview* that aren't in *other*) as a new set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1961
+msgid ""
+"Return the symmetric difference (all elements either in *dictview* or "
+"*other*, but not in both) of the dictview and the other object as a new set."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1965
+msgid "An example of dictionary view usage::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1998
+msgid "File Objects"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2008
+msgid ""
+"File objects are implemented using C's ``stdio`` package and can be created "
+"with the built-in :func:`open` function.  File objects are also returned by "
+"some other built-in functions and methods, such as :func:`os.popen` and :"
+"func:`os.fdopen` and the :meth:`makefile` method of socket objects. "
+"Temporary files can be created using the :mod:`tempfile` module, and high-"
+"level file operations such as copying, moving, and deleting files and "
+"directories can be achieved with the :mod:`shutil` module."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2017
+msgid ""
+"When a file operation fails for an I/O-related reason, the exception :exc:"
+"`IOError` is raised.  This includes situations where the operation is not "
+"defined for some reason, like :meth:`seek` on a tty device or writing a file "
+"opened for reading."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2022
+msgid "Files have the following methods:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2027
+msgid ""
+"Close the file.  A closed file cannot be read or written any more. Any "
+"operation which requires that the file be open will raise a :exc:"
+"`ValueError` after the file has been closed.  Calling :meth:`close` more "
+"than once is allowed."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2031
+msgid ""
+"You can avoid having to call this method explicitly if you use the :keyword:"
+"`with` statement.  For example, the following code will automatically close "
+"*f* when the :keyword:`with` block is exited::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2041
+msgid ""
+"In older versions of Python, you would have needed to do this to get the "
+"same effect::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2053
+msgid ""
+"Not all \"file-like\" types in Python support use as a context manager for "
+"the :keyword:`with` statement.  If your code is intended to work with any "
+"file-like object, you can use the function :func:`contextlib.closing` "
+"instead of using the object directly."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2061
+msgid ""
+"Flush the internal buffer, like ``stdio``'s :cfunc:`fflush`.  This may be a "
+"no-op on some file-like objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2071
+msgid ""
+"Return the integer \"file descriptor\" that is used by the underlying "
+"implementation to request I/O operations from the operating system.  This "
+"can be useful for other, lower level interfaces that use file descriptors, "
+"such as the :mod:`fcntl` module or :func:`os.read` and friends."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2078
+msgid ""
+"File-like objects which do not have a real file descriptor should *not* "
+"provide this method!"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2084
+msgid ""
+"Return ``True`` if the file is connected to a tty(-like) device, else "
+"``False``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2088
+msgid ""
+"If a file-like object is not associated with a real file, this method should "
+"*not* be implemented."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2094
+msgid ""
+"A file object is its own iterator, for example ``iter(f)`` returns *f* "
+"(unless *f* is closed).  When a file is used as an iterator, typically in a :"
+"keyword:`for` loop (for example, ``for line in f: print(line)``), the :meth:"
+"`__next__` method is called repeatedly.  This method returns the next input "
+"line, or raises :exc:`StopIteration` when EOF is hit when the file is open "
+"for reading (behavior is undefined when the file is open for writing).  In "
+"order to make a :keyword:`for` loop the most efficient way of looping over "
+"the lines of a file (a very common operation), the :meth:`__next__` method "
+"uses a hidden read-ahead buffer.  As a consequence of using a read-ahead "
+"buffer, combining :meth:`__next__` with other file methods (like :meth:"
+"`readline`) does not work right.  However, using :meth:`seek` to reposition "
+"the file to an absolute position will flush the read-ahead buffer."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2110
+msgid ""
+"Read at most *size* bytes from the file (less if the read hits EOF before "
+"obtaining *size* bytes).  If the *size* argument is negative or omitted, "
+"read all data until EOF is reached.  The bytes are returned as a string "
+"object.  An empty string is returned when EOF is encountered immediately.  "
+"(For certain files, like ttys, it makes sense to continue reading after an "
+"EOF is hit.)  Note that this method may call the underlying C function :"
+"cfunc:`fread` more than once in an effort to acquire as close to *size* "
+"bytes as possible. Also note that when in non-blocking mode, less data than "
+"was requested may be returned, even if no *size* parameter was given."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2123
+msgid ""
+"Read one entire line from the file.  A trailing newline character is kept in "
+"the string (but may be absent when a file ends with an incomplete line). "
+"[#]_  If the *size* argument is present and non-negative, it is a maximum "
+"byte count (including the trailing newline) and an incomplete line may be "
+"returned. An empty string is returned *only* when EOF is encountered "
+"immediately."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2131
+msgid ""
+"Unlike ``stdio``'s :cfunc:`fgets`, the returned string contains null "
+"characters (``'\\0'``) if they occurred in the input."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2137
+msgid ""
+"Read until EOF using :meth:`readline` and return a list containing the lines "
+"thus read.  If the optional *sizehint* argument is present, instead of "
+"reading up to EOF, whole lines totalling approximately *sizehint* bytes "
+"(possibly after rounding up to an internal buffer size) are read.  Objects "
+"implementing a file-like interface may choose to ignore *sizehint* if it "
+"cannot be implemented, or cannot be implemented efficiently."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2147
+msgid ""
+"Set the file's current position, like ``stdio``'s :cfunc:`fseek`. The "
+"*whence* argument is optional and defaults to  ``os.SEEK_SET`` or ``0`` "
+"(absolute file positioning); other values are ``os.SEEK_CUR`` or ``1`` (seek "
+"relative to the current position) and ``os.SEEK_END`` or ``2``  (seek "
+"relative to the file's end).  There is no return value."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2153
+msgid ""
+"For example, ``f.seek(2, os.SEEK_CUR)`` advances the position by two and ``f."
+"seek(-3, os.SEEK_END)`` sets the position to the third to last."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2156
+msgid ""
+"Note that if the file is opened for appending (mode ``'a'`` or ``'a+'``), "
+"any :meth:`seek` operations will be undone at the next write.  If the file "
+"is only opened for writing in append mode (mode ``'a'``), this method is "
+"essentially a no-op, but it remains useful for files opened in append mode "
+"with reading enabled (mode ``'a+'``).  If the file is opened in text mode "
+"(without ``'b'``), only offsets returned by :meth:`tell` are legal.  Use of "
+"other offsets causes undefined behavior."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2164
+msgid "Note that not all file objects are seekable."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2169
+msgid "Return the file's current position, like ``stdio``'s :cfunc:`ftell`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2173
+msgid ""
+"On Windows, :meth:`tell` can return illegal values (after an :cfunc:`fgets`) "
+"when reading files with Unix-style line-endings. Use binary mode (``'rb'``) "
+"to circumvent this problem."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2180
+msgid ""
+"Truncate the file's size.  If the optional *size* argument is present, the "
+"file is truncated to (at most) that size.  The size defaults to the current "
+"position. The current file position is not changed.  Note that if a "
+"specified size exceeds the file's current size, the result is platform-"
+"dependent:  possibilities include that the file may remain unchanged, "
+"increase to the specified size as if zero-filled, or increase to the "
+"specified size with undefined new content. Availability:  Windows, many Unix "
+"variants."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2191
+msgid ""
+"Write a string to the file.  Due to buffering, the string may not actually "
+"show up in the file until the :meth:`flush` or :meth:`close` method is "
+"called."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2195
+msgid ""
+"The meaning of the return value is not defined for every file-like object. "
+"Some (mostly low-level) file-like objects may return the number of bytes "
+"actually written, others return ``None``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2202
+msgid ""
+"Write a sequence of strings to the file.  The sequence can be any iterable "
+"object producing strings, typically a list of strings. There is no return "
+"value. (The name is intended to match :meth:`readlines`; :meth:`writelines` "
+"does not add line separators.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2207
+msgid ""
+"Files support the iterator protocol.  Each iteration returns the same result "
+"as ``file.readline()``, and iteration ends when the :meth:`readline` method "
+"returns an empty string."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2211
+msgid ""
+"File objects also offer a number of other interesting attributes. These are "
+"not required for file-like objects, but should be implemented if they make "
+"sense for the particular object."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2218
+msgid ""
+"bool indicating the current state of the file object.  This is a read-only "
+"attribute; the :meth:`close` method changes the value. It may not be "
+"available on all file-like objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2226
+msgid ""
+"The encoding that this file uses. When strings are written to a file, they "
+"will be converted to byte strings using this encoding. In addition, when the "
+"file is connected to a terminal, the attribute gives the encoding that the "
+"terminal is likely to use (that  information might be incorrect if the user "
+"has misconfigured the  terminal). The attribute is read-only and may not be "
+"present on all file-like objects. It may also be ``None``, in which case the "
+"file uses the system default encoding for converting strings."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2237
+msgid "The Unicode error handler used along with the encoding."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2242
+msgid ""
+"The I/O mode for the file.  If the file was created using the :func:`open` "
+"built-in function, this will be the value of the *mode* parameter.  This is "
+"a read-only attribute and may not be present on all file-like objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2249
+msgid ""
+"If the file object was created using :func:`open`, the name of the file. "
+"Otherwise, some string that indicates the source of the file object, of the "
+"form ``<...>``.  This is a read-only attribute and may not be present on all "
+"file-like objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2257
+msgid ""
+"If Python was built with the :option:`--with-universal-newlines` option to :"
+"program:`configure` (the default) this read-only attribute exists, and for "
+"files opened in universal newline read mode it keeps track of the types of "
+"newlines encountered while reading the file. The values it can take are "
+"``'\\r'``, ``'\\n'``, ``'\\r\\n'``, ``None`` (unknown, no newlines read yet) "
+"or a tuple containing all the newline types seen, to indicate that multiple "
+"newline conventions were encountered. For files not opened in universal "
+"newline read mode the value of this attribute will be ``None``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2270
+msgid "memoryview Types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2272
+msgid ""
+":class:`memoryview`\\s allow Python code to access the internal data of an "
+"object that supports the buffer protocol without copying.  Memory can be "
+"interpreted as simple bytes or complex data structures."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2278
+msgid ""
+"Create a :class:`memoryview` that references *obj*.  *obj* must support the "
+"buffer protocol.  Builtin objects that support the buffer protocol include :"
+"class:`bytes` and :class:`bytearray`."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2282
+msgid ""
+"``len(view)`` returns the total number of bytes in the memoryview, *view*."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2284
+msgid ""
+"A :class:`memoryview` supports slicing to expose its data.  Taking a single "
+"index will return a single byte.  Full slicing will result in a subview::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2300
+msgid ""
+"If the object the memory view is over supports changing its data, the "
+"memoryview supports slice assignment::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2318
+msgid "Notice how the size of the memoryview object can not be changed."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2321
+msgid ":class:`memoryview` has two methods:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2325
+msgid "Return the data in the buffer as a bytestring."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2329
+msgid "Return the data in the buffer as a list of integers. ::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2334
+msgid "There are also several readonly attributes available:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2338
+msgid ""
+"A string containing the format (in :mod:`struct` module style) for each "
+"element in the view.  This defaults to ``'B'``, a simple bytestring."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2343
+msgid "The size in bytes of each element of the memoryview."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2347
+msgid ""
+"A tuple of integers the length of :attr:`ndim` giving the shape of the "
+"memory as a N-dimensional array."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2352
+msgid ""
+"An integer indicating how many dimensions of a multi-dimensional array the "
+"memory represents."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2357
+msgid ""
+"A tuple of integers the length of :attr:`ndim` giving the size in bytes to "
+"access each element for each dimension of the array."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2366
+msgid "Context Manager Types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2373
+msgid ""
+"Python's :keyword:`with` statement supports the concept of a runtime context "
+"defined by a context manager.  This is implemented using two separate "
+"methods that allow user-defined classes to define a runtime context that is "
+"entered before the statement body is executed and exited when the statement "
+"ends."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2378
+msgid ""
+"The :dfn:`context management protocol` consists of a pair of methods that "
+"need to be provided for a context manager object to define a runtime context:"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2384
+msgid ""
+"Enter the runtime context and return either this object or another object "
+"related to the runtime context. The value returned by this method is bound "
+"to the identifier in the :keyword:`as` clause of :keyword:`with` statements "
+"using this context manager."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2389
+msgid ""
+"An example of a context manager that returns itself is a file object. File "
+"objects return themselves from __enter__() to allow :func:`open` to be used "
+"as the context expression in a :keyword:`with` statement."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2393
+msgid ""
+"An example of a context manager that returns a related object is the one "
+"returned by :func:`decimal.localcontext`. These managers set the active "
+"decimal context to a copy of the original decimal context and then return "
+"the copy. This allows changes to be made to the current decimal context in "
+"the body of the :keyword:`with` statement without affecting code outside "
+"the :keyword:`with` statement."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2403
+msgid ""
+"Exit the runtime context and return a Boolean flag indicating if any "
+"exception that occurred should be suppressed. If an exception occurred while "
+"executing the body of the :keyword:`with` statement, the arguments contain "
+"the exception type, value and traceback information. Otherwise, all three "
+"arguments are ``None``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2408
+msgid ""
+"Returning a true value from this method will cause the :keyword:`with` "
+"statement to suppress the exception and continue execution with the "
+"statement immediately following the :keyword:`with` statement. Otherwise the "
+"exception continues propagating after this method has finished executing. "
+"Exceptions that occur during execution of this method will replace any "
+"exception that occurred in the body of the :keyword:`with` statement."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2415
+msgid ""
+"The exception passed in should never be reraised explicitly - instead, this "
+"method should return a false value to indicate that the method completed "
+"successfully and does not want to suppress the raised exception. This allows "
+"context management code (such as ``contextlib.nested``) to easily detect "
+"whether or not an :meth:`__exit__` method has actually failed."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2421
+msgid ""
+"Python defines several context managers to support easy thread "
+"synchronisation, prompt closure of files or other objects, and simpler "
+"manipulation of the active decimal arithmetic context. The specific types "
+"are not treated specially beyond their implementation of the context "
+"management protocol. See the :mod:`contextlib` module for some examples."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2427
+msgid ""
+"Python's :term:`generator`\\s and the ``contextlib.contextfactory`` :term:"
+"`decorator` provide a convenient way to implement these protocols.  If a "
+"generator function is decorated with the ``contextlib.contextfactory`` "
+"decorator, it will return a context manager implementing the necessary :meth:"
+"`__enter__` and :meth:`__exit__` methods, rather than the iterator produced "
+"by an undecorated generator function."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2434
+msgid ""
+"Note that there is no specific slot for any of these methods in the type "
+"structure for Python objects in the Python/C API. Extension types wanting to "
+"define these methods must provide them as a normal Python accessible method. "
+"Compared to the overhead of setting up the runtime context, the overhead of "
+"a single class dictionary lookup is negligible."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2444
+msgid "Other Built-in Types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2446
+msgid ""
+"The interpreter supports several other kinds of objects. Most of these "
+"support only one or two operations."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2453
+msgid "Modules"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2455
+msgid ""
+"The only special operation on a module is attribute access: ``m.name``, "
+"where *m* is a module and *name* accesses a name defined in *m*'s symbol "
+"table. Module attributes can be assigned to.  (Note that the :keyword:"
+"`import` statement is not, strictly speaking, an operation on a module "
+"object; ``import foo`` does not require a module object named *foo* to "
+"exist, rather it requires an (external) *definition* for a module named "
+"*foo* somewhere.)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2462
+msgid ""
+"A special member of every module is :attr:`__dict__`. This is the dictionary "
+"containing the module's symbol table. Modifying this dictionary will "
+"actually change the module's symbol table, but direct assignment to the :"
+"attr:`__dict__` attribute is not possible (you can write ``m.__dict__['a'] = "
+"1``, which defines ``m.a`` to be ``1``, but you can't write ``m.__dict__ = {}"
+"``).  Modifying :attr:`__dict__` directly is not recommended."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2469
+msgid ""
+"Modules built into the interpreter are written like this: ``<module "
+"'sys' (built-in)>``.  If loaded from a file, they are written as ``<module "
+"'os' from '/usr/local/lib/pythonX.Y/os.pyc'>``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2477
+msgid "Classes and Class Instances"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2479
+msgid "See :ref:`objects` and :ref:`class` for these."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2485
+msgid "Functions"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2487
+msgid ""
+"Function objects are created by function definitions.  The only operation on "
+"a function object is to call it: ``func(argument-list)``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2490
+msgid ""
+"There are really two flavors of function objects: built-in functions and "
+"user-defined functions.  Both support the same operation (to call the "
+"function), but the implementation is different, hence the different object "
+"types."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2494
+msgid "See :ref:`function` for more information."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2500
+msgid "Methods"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2504
+msgid ""
+"Methods are functions that are called using the attribute notation. There "
+"are two flavors: built-in methods (such as :meth:`append` on lists) and "
+"class instance methods.  Built-in methods are described with the types that "
+"support them."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2509
+msgid ""
+"If you access a method (a function defined in a class namespace) through an "
+"instance, you get a special object: a :dfn:`bound method` (also called :dfn:"
+"`instance method`) object. When called, it will add the ``self`` argument to "
+"the argument list.  Bound methods have two special read-only attributes: ``m."
+"__self__`` is the object on which the method operates, and ``m.__func__`` is "
+"the function implementing the method.  Calling ``m(arg-1, arg-2, ..., arg-"
+"n)`` is completely equivalent to calling ``m.__func__(m.__self__, arg-1, "
+"arg-2, ..., arg-n)``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2518
+msgid ""
+"Like function objects, bound method objects support getting arbitrary "
+"attributes.  However, since method attributes are actually stored on the "
+"underlying function object (``meth.__func__``), setting method attributes on "
+"bound methods is disallowed.  Attempting to set a method attribute results "
+"in a :exc:`TypeError` being raised.  In order to set a method attribute, you "
+"need to explicitly set it on the underlying function object::"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2532 ../../../library/stdtypes.rst:2560
+msgid "See :ref:`types` for more information."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2538
+msgid "Code Objects"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2546
+msgid ""
+"Code objects are used by the implementation to represent \"pseudo-compiled\" "
+"executable Python code such as a function body. They differ from function "
+"objects because they don't contain a reference to their global execution "
+"environment.  Code objects are returned by the built-in :func:`compile` "
+"function and can be extracted from function objects through their :attr:"
+"`__code__` attribute. See also the :mod:`code` module."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2557
+msgid ""
+"A code object can be executed or evaluated by passing it (instead of a "
+"source string) to the :func:`exec` or :func:`eval`  built-in functions."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2566
+msgid "Type Objects"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2572
+msgid ""
+"Type objects represent the various object types.  An object's type is "
+"accessed by the built-in function :func:`type`.  There are no special "
+"operations on types.  The standard module :mod:`types` defines names for all "
+"standard built-in types."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2577
+msgid "Types are written like this: ``<class 'int'>``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2583
+msgid "The Null Object"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2585
+msgid ""
+"This object is returned by functions that don't explicitly return a value.  "
+"It supports no special operations.  There is exactly one null object, named "
+"``None`` (a built-in name)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2589
+msgid "It is written as ``None``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2595
+msgid "The Ellipsis Object"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2597
+msgid ""
+"This object is commonly used by slicing (see :ref:`slicings`).  It supports "
+"no special operations.  There is exactly one ellipsis object, named :const:"
+"`Ellipsis` (a built-in name)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2601
+msgid "It is written as ``Ellipsis`` or ``...``."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2605
+msgid "Boolean Values"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2607
+msgid ""
+"Boolean values are the two constant objects ``False`` and ``True``.  They "
+"are used to represent truth values (although other values can also be "
+"considered false or true).  In numeric contexts (for example when used as "
+"the argument to an arithmetic operator), they behave like the integers 0 and "
+"1, respectively. The built-in function :func:`bool` can be used to cast any "
+"value to a Boolean, if the value can be interpreted as a truth value (see "
+"section Truth Value Testing above)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2620
+msgid "They are written as ``False`` and ``True``, respectively."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2626
+msgid "Internal Objects"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2628
+msgid ""
+"See :ref:`types` for this information.  It describes stack frame objects, "
+"traceback objects, and slice objects."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2635
+msgid "Special Attributes"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2637
+msgid ""
+"The implementation adds a few special read-only attributes to several object "
+"types, where they are relevant.  Some of these are not reported by the :func:"
+"`dir` built-in function."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2644
+msgid ""
+"A dictionary or other mapping object used to store an object's (writable) "
+"attributes."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2650
+msgid "The class to which a class instance belongs."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2655
+msgid ""
+"The tuple of base classes of a class object.  If there are no base classes, "
+"this will be an empty tuple."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2661
+msgid "The name of the class or type."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2664
+msgid "Footnotes"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2665
+msgid ""
+"Additional information on these special methods may be found in the Python "
+"Reference Manual (:ref:`customization`)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2668
+msgid ""
+"As a consequence, the list ``[1, 2]`` is considered equal to ``[1.0, 2.0]``, "
+"and similarly for tuples."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2671
+msgid "They must have since the parser can't tell the type of the operands."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2673
+msgid ""
+"To format only a tuple you should therefore provide a singleton tuple whose "
+"only element is the tuple to be formatted."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2676
+msgid ""
+"These numbers are fairly arbitrary.  They are intended to avoid printing "
+"endless strings of meaningless digits without hampering correct use and "
+"without having to know the exact precision of floating point values on a "
+"particular machine."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2680
+msgid ""
+"The advantage of leaving the newline on is that returning an empty string is "
+"then an unambiguous EOF indication.  It is also possible (in cases where it "
+"might matter, for example, if you want to make an exact copy of a file while "
+"scanning its lines) to tell whether the last line of a file ended in a "
+"newline or not (yes this happens!)."
+msgstr ""
+
+#: ../../../library/stdtypes.rst:13
+msgid "built-in"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:13 ../../../library/stdtypes.rst:304
+#: ../../../library/stdtypes.rst:403 ../../../library/stdtypes.rst:694
+#: ../../../library/stdtypes.rst:1357 ../../../library/stdtypes.rst:1416
+#: ../../../library/stdtypes.rst:1743 ../../../library/stdtypes.rst:2568
+msgid "types"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:30
+msgid "if"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:30
+msgid "while"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:30
+msgid "truth"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:30
+msgid "value"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:30 ../../../library/stdtypes.rst:81
+#: ../../../library/stdtypes.rst:209 ../../../library/stdtypes.rst:2615
+msgid "Boolean"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:30 ../../../library/stdtypes.rst:81
+#: ../../../library/stdtypes.rst:403
+msgid "operations"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:30
+msgid "false"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:41
+msgid "None (Built-in object)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:45
+msgid "False (Built-in object)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:59
+msgid "true"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:64 ../../../library/stdtypes.rst:98
+msgid "or"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:64 ../../../library/stdtypes.rst:98
+msgid "and"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:64 ../../../library/stdtypes.rst:2615
+msgid "False"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:64 ../../../library/stdtypes.rst:2615
+msgid "True"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:98
+msgid "not"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:123
+msgid "chaining"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:123
+msgid "comparisons"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid "comparison"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid "=="
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid "<"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid ">"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid "<="
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid ">="
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid "!="
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid "is"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:131
+msgid "is not"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:164 ../../../library/stdtypes.rst:209
+#: ../../../library/stdtypes.rst:229 ../../../library/stdtypes.rst:304
+#: ../../../library/stdtypes.rst:321
+msgid "numeric"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:164
+msgid "objects"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:164
+msgid "comparing"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:175
+msgid "__eq__() (instance method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:175
+msgid "__ne__() (instance method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:175
+msgid "__lt__() (instance method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:175
+msgid "__le__() (instance method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:175
+msgid "__gt__() (instance method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:175
+msgid "__ge__() (instance method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:196 ../../../library/stdtypes.rst:694
+msgid "in"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:196 ../../../library/stdtypes.rst:694
+msgid "not in"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:209 ../../../library/stdtypes.rst:229
+#: ../../../library/stdtypes.rst:403
+msgid "integer"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:209 ../../../library/stdtypes.rst:229
+msgid "floating point"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:209 ../../../library/stdtypes.rst:229
+msgid "complex number"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:209 ../../../library/stdtypes.rst:321
+msgid "C"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:209 ../../../library/stdtypes.rst:321
+msgid "language"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:229
+msgid "literals"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:229
+msgid "hexadecimal"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:229
+msgid "octal"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:229
+msgid "binary"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:246
+msgid "arithmetic"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:246
+msgid "int"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:246
+msgid "float"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:246
+msgid "complex"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:304 ../../../library/stdtypes.rst:403
+#: ../../../library/stdtypes.rst:694 ../../../library/stdtypes.rst:1416
+#: ../../../library/stdtypes.rst:1743
+msgid "operations on"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:304
+msgid "conjugate() (complex number method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:321
+msgid "math"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:321
+msgid "floor() (in module math)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:321
+msgid "ceil() (in module math)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:321
+msgid "trunc() (in module math)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:321
+msgid "conversions"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:403
+msgid "bit-string"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:403
+msgid "shifting"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:403
+msgid "masking"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:531
+msgid "iterator protocol"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:531 ../../../library/stdtypes.rst:2368
+msgid "protocol"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:531
+msgid "iterator"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:531 ../../../library/stdtypes.rst:603
+#: ../../../library/stdtypes.rst:694 ../../../library/stdtypes.rst:1357
+#: ../../../library/stdtypes.rst:1416
+msgid "sequence"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:531
+msgid "iteration"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:531
+msgid "container"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:531
+msgid "iteration over"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:603 ../../../library/stdtypes.rst:773
+#: ../../../library/stdtypes.rst:1151 ../../../library/stdtypes.rst:1328
+msgid "string"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:603 ../../../library/stdtypes.rst:1489
+msgid "bytes"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:603 ../../../library/stdtypes.rst:1357
+#: ../../../library/stdtypes.rst:1489
+msgid "bytearray"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:603
+msgid "tuple"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:603 ../../../library/stdtypes.rst:1357
+#: ../../../library/stdtypes.rst:1416
+msgid "list"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:603 ../../../library/stdtypes.rst:1341
+msgid "range"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:694 ../../../library/stdtypes.rst:1743
+msgid "len"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:694
+msgid "min"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:694
+msgid "max"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:694
+msgid "concatenation"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:694
+msgid "operation"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:694
+msgid "repetition"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:694 ../../../library/stdtypes.rst:1416
+msgid "subscript"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:694 ../../../library/stdtypes.rst:1416
+msgid "slice"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:773 ../../../library/stdtypes.rst:1489
+msgid "methods"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1151
+msgid "formatting, string (%)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1151
+msgid "interpolation, string (%)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1151
+msgid "formatting"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1151
+msgid "interpolation"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1151
+msgid "printf-style formatting"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1151
+msgid "sprintf-style formatting"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1151
+msgid "% formatting"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1151
+msgid "% interpolation"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1328
+msgid "re"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1357
+msgid "mutable"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416 ../../../library/stdtypes.rst:1743
+#: ../../../library/stdtypes.rst:2568
+msgid "type"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "assignment"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416 ../../../library/stdtypes.rst:1743
+msgid "del"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "append() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "extend() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "count() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "index() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "insert() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "pop() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "remove() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "reverse() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1416
+msgid "sort() (sequence method)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1551
+msgid "set"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1743
+msgid "mapping"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:1743
+msgid "dictionary"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2000 ../../../library/stdtypes.rst:2067
+msgid "file"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2000
+msgid "os"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2000
+msgid "socket"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2067
+msgid "descriptor"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2067
+msgid "fcntl"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2368
+msgid "context manager"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2368
+msgid "context management protocol"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2368
+msgid "context management"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2502
+msgid "method"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2540
+msgid "code"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2542
+msgid "compile"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2542
+msgid "__code__ (function object attribute)"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2553
+msgid "exec"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2553
+msgid "eval"
+msgstr ""
+
+#: ../../../library/stdtypes.rst:2615
+msgid "values"
+msgstr ""
