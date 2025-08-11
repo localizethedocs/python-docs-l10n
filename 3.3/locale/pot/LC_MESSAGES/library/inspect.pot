@@ -1,0 +1,1222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/inspect.rst:2
+msgid ":mod:`inspect` --- Inspect live objects"
+msgstr ""
+
+#: ../../../library/inspect.rst:9
+msgid "**Source code:** :source:`Lib/inspect.py`"
+msgstr ""
+
+#: ../../../library/inspect.rst:13
+msgid ""
+"The :mod:`inspect` module provides several useful functions to help get "
+"information about live objects such as modules, classes, methods, functions, "
+"tracebacks, frame objects, and code objects.  For example, it can help you "
+"examine the contents of a class, retrieve the source code of a method, "
+"extract and format the argument list for a function, or get all the "
+"information you need to display a detailed traceback."
+msgstr ""
+
+#: ../../../library/inspect.rst:20
+msgid ""
+"There are four main kinds of services provided by this module: type "
+"checking, getting source code, inspecting classes and functions, and "
+"examining the interpreter stack."
+msgstr ""
+
+#: ../../../library/inspect.rst:28
+msgid "Types and members"
+msgstr ""
+
+#: ../../../library/inspect.rst:30
+msgid ""
+"The :func:`getmembers` function retrieves the members of an object such as a "
+"class or module. The sixteen functions whose names begin with \"is\" are "
+"mainly provided as convenient choices for the second argument to :func:"
+"`getmembers`. They also help you determine when you can expect to find the "
+"following special attributes:"
+msgstr ""
+
+#: ../../../library/inspect.rst:37
+msgid "Type"
+msgstr ""
+
+#: ../../../library/inspect.rst:37
+msgid "Attribute"
+msgstr ""
+
+#: ../../../library/inspect.rst:37
+msgid "Description"
+msgstr ""
+
+#: ../../../library/inspect.rst:39
+msgid "module"
+msgstr ""
+
+#: ../../../library/inspect.rst:39 ../../../library/inspect.rst:44
+#: ../../../library/inspect.rst:49 ../../../library/inspect.rst:62
+#: ../../../library/inspect.rst:157
+msgid "__doc__"
+msgstr ""
+
+#: ../../../library/inspect.rst:39 ../../../library/inspect.rst:44
+#: ../../../library/inspect.rst:49 ../../../library/inspect.rst:62
+#: ../../../library/inspect.rst:157
+msgid "documentation string"
+msgstr ""
+
+#: ../../../library/inspect.rst:41
+msgid "__file__"
+msgstr ""
+
+#: ../../../library/inspect.rst:41
+msgid "filename (missing for built-in modules)"
+msgstr ""
+
+#: ../../../library/inspect.rst:44
+msgid "class"
+msgstr ""
+
+#: ../../../library/inspect.rst:46
+msgid "__module__"
+msgstr ""
+
+#: ../../../library/inspect.rst:46
+msgid "name of module in which this class was defined"
+msgstr ""
+
+#: ../../../library/inspect.rst:49
+msgid "method"
+msgstr ""
+
+#: ../../../library/inspect.rst:51 ../../../library/inspect.rst:64
+#: ../../../library/inspect.rst:159
+msgid "__name__"
+msgstr ""
+
+#: ../../../library/inspect.rst:51
+msgid "name with which this method was defined"
+msgstr ""
+
+#: ../../../library/inspect.rst:54
+msgid "__func__"
+msgstr ""
+
+#: ../../../library/inspect.rst:54
+msgid "function object containing implementation of method"
+msgstr ""
+
+#: ../../../library/inspect.rst:58 ../../../library/inspect.rst:162
+msgid "__self__"
+msgstr ""
+
+#: ../../../library/inspect.rst:58
+msgid "instance to which this method is bound, or ``None``"
+msgstr ""
+
+#: ../../../library/inspect.rst:62
+msgid "function"
+msgstr ""
+
+#: ../../../library/inspect.rst:64
+msgid "name with which this function was defined"
+msgstr ""
+
+#: ../../../library/inspect.rst:67
+msgid "__code__"
+msgstr ""
+
+#: ../../../library/inspect.rst:67
+msgid "code object containing compiled function :term:`bytecode`"
+msgstr ""
+
+#: ../../../library/inspect.rst:71
+msgid "__defaults__"
+msgstr ""
+
+#: ../../../library/inspect.rst:71
+msgid "tuple of any default values for arguments"
+msgstr ""
+
+#: ../../../library/inspect.rst:74
+msgid "__globals__"
+msgstr ""
+
+#: ../../../library/inspect.rst:74
+msgid "global namespace in which this function was defined"
+msgstr ""
+
+#: ../../../library/inspect.rst:77
+msgid "traceback"
+msgstr ""
+
+#: ../../../library/inspect.rst:77
+msgid "tb_frame"
+msgstr ""
+
+#: ../../../library/inspect.rst:77
+msgid "frame object at this level"
+msgstr ""
+
+#: ../../../library/inspect.rst:80
+msgid "tb_lasti"
+msgstr ""
+
+#: ../../../library/inspect.rst:80 ../../../library/inspect.rst:102
+msgid "index of last attempted instruction in bytecode"
+msgstr ""
+
+#: ../../../library/inspect.rst:83
+msgid "tb_lineno"
+msgstr ""
+
+#: ../../../library/inspect.rst:83 ../../../library/inspect.rst:105
+msgid "current line number in Python source code"
+msgstr ""
+
+#: ../../../library/inspect.rst:86
+msgid "tb_next"
+msgstr ""
+
+#: ../../../library/inspect.rst:86
+msgid "next inner traceback object (called by this level)"
+msgstr ""
+
+#: ../../../library/inspect.rst:90
+msgid "frame"
+msgstr ""
+
+#: ../../../library/inspect.rst:90
+msgid "f_back"
+msgstr ""
+
+#: ../../../library/inspect.rst:90
+msgid "next outer frame object (this frame's caller)"
+msgstr ""
+
+#: ../../../library/inspect.rst:93
+msgid "f_builtins"
+msgstr ""
+
+#: ../../../library/inspect.rst:93
+msgid "builtins namespace seen by this frame"
+msgstr ""
+
+#: ../../../library/inspect.rst:96
+msgid "f_code"
+msgstr ""
+
+#: ../../../library/inspect.rst:96
+msgid "code object being executed in this frame"
+msgstr ""
+
+#: ../../../library/inspect.rst:99
+msgid "f_globals"
+msgstr ""
+
+#: ../../../library/inspect.rst:99
+msgid "global namespace seen by this frame"
+msgstr ""
+
+#: ../../../library/inspect.rst:102
+msgid "f_lasti"
+msgstr ""
+
+#: ../../../library/inspect.rst:105
+msgid "f_lineno"
+msgstr ""
+
+#: ../../../library/inspect.rst:108
+msgid "f_locals"
+msgstr ""
+
+#: ../../../library/inspect.rst:108
+msgid "local namespace seen by this frame"
+msgstr ""
+
+#: ../../../library/inspect.rst:111
+msgid "f_restricted"
+msgstr ""
+
+#: ../../../library/inspect.rst:111
+msgid "0 or 1 if frame is in restricted execution mode"
+msgstr ""
+
+#: ../../../library/inspect.rst:114
+msgid "f_trace"
+msgstr ""
+
+#: ../../../library/inspect.rst:114
+msgid "tracing function for this frame, or ``None``"
+msgstr ""
+
+#: ../../../library/inspect.rst:117
+msgid "code"
+msgstr ""
+
+#: ../../../library/inspect.rst:117
+msgid "co_argcount"
+msgstr ""
+
+#: ../../../library/inspect.rst:117
+msgid "number of arguments (not including \\* or \\*\\* args)"
+msgstr ""
+
+#: ../../../library/inspect.rst:121
+msgid "co_code"
+msgstr ""
+
+#: ../../../library/inspect.rst:121
+msgid "string of raw compiled bytecode"
+msgstr ""
+
+#: ../../../library/inspect.rst:124
+msgid "co_consts"
+msgstr ""
+
+#: ../../../library/inspect.rst:124
+msgid "tuple of constants used in the bytecode"
+msgstr ""
+
+#: ../../../library/inspect.rst:127
+msgid "co_filename"
+msgstr ""
+
+#: ../../../library/inspect.rst:127
+msgid "name of file in which this code object was created"
+msgstr ""
+
+#: ../../../library/inspect.rst:131
+msgid "co_firstlineno"
+msgstr ""
+
+#: ../../../library/inspect.rst:131
+msgid "number of first line in Python source code"
+msgstr ""
+
+#: ../../../library/inspect.rst:134
+msgid "co_flags"
+msgstr ""
+
+#: ../../../library/inspect.rst:134
+msgid "bitmap: 1=optimized ``|`` 2=newlocals ``|`` 4=\\*arg ``|`` 8=\\*\\*arg"
+msgstr ""
+
+#: ../../../library/inspect.rst:138
+msgid "co_lnotab"
+msgstr ""
+
+#: ../../../library/inspect.rst:138
+msgid "encoded mapping of line numbers to bytecode indices"
+msgstr ""
+
+#: ../../../library/inspect.rst:142
+msgid "co_name"
+msgstr ""
+
+#: ../../../library/inspect.rst:142
+msgid "name with which this code object was defined"
+msgstr ""
+
+#: ../../../library/inspect.rst:145
+msgid "co_names"
+msgstr ""
+
+#: ../../../library/inspect.rst:145
+msgid "tuple of names of local variables"
+msgstr ""
+
+#: ../../../library/inspect.rst:148
+msgid "co_nlocals"
+msgstr ""
+
+#: ../../../library/inspect.rst:148
+msgid "number of local variables"
+msgstr ""
+
+#: ../../../library/inspect.rst:150
+msgid "co_stacksize"
+msgstr ""
+
+#: ../../../library/inspect.rst:150
+msgid "virtual machine stack space required"
+msgstr ""
+
+#: ../../../library/inspect.rst:153
+msgid "co_varnames"
+msgstr ""
+
+#: ../../../library/inspect.rst:153
+msgid "tuple of names of arguments and local variables"
+msgstr ""
+
+#: ../../../library/inspect.rst:157
+msgid "builtin"
+msgstr ""
+
+#: ../../../library/inspect.rst:159
+msgid "original name of this function or method"
+msgstr ""
+
+#: ../../../library/inspect.rst:162
+msgid "instance to which a method is bound, or ``None``"
+msgstr ""
+
+#: ../../../library/inspect.rst:170
+msgid ""
+"Return all the members of an object in a list of (name, value) pairs sorted "
+"by name.  If the optional *predicate* argument is supplied, only members for "
+"which the predicate returns a true value are included."
+msgstr ""
+
+#: ../../../library/inspect.rst:176
+msgid ""
+":func:`getmembers` does not return metaclass attributes when the argument is "
+"a class (this behavior is inherited from the :func:`dir` function)."
+msgstr ""
+
+#: ../../../library/inspect.rst:182
+msgid ""
+"Returns a :term:`named tuple` ``ModuleInfo(name, suffix, mode, "
+"module_type)`` of values that describe how Python will interpret the file "
+"identified by *path* if it is a module, or ``None`` if it would not be "
+"identified as a module.  In that tuple, *name* is the name of the module "
+"without the name of any enclosing package, *suffix* is the trailing part of "
+"the file name (which may not be a dot-delimited extension), *mode* is the :"
+"func:`open` mode that would be used (``'r'`` or ``'rb'``), and *module_type* "
+"is an integer giving the type of the module.  *module_type* will have a "
+"value which can be compared to the constants defined in the :mod:`imp` "
+"module; see the documentation for that module for more information on module "
+"types."
+msgstr ""
+
+#: ../../../library/inspect.rst:193
+msgid ""
+"You may check the file path's suffix against the supported suffixes listed "
+"in :mod:`importlib.machinery` to infer the same information."
+msgstr ""
+
+#: ../../../library/inspect.rst:200
+msgid ""
+"Return the name of the module named by the file *path*, without including "
+"the names of enclosing packages. The file extension is checked against all "
+"of the entries in :func:`importlib.machinery.all_suffixes`. If it matches, "
+"the final path component is returned with the extension removed. Otherwise, "
+"``None`` is returned."
+msgstr ""
+
+#: ../../../library/inspect.rst:206
+msgid ""
+"Note that this function *only* returns a meaningful name for actual Python "
+"modules - paths that potentially refer to Python packages will still return "
+"``None``."
+msgstr ""
+
+#: ../../../library/inspect.rst:210
+msgid ""
+"This function is now based directly on :mod:`importlib` rather than the "
+"deprecated :func:`getmoduleinfo`."
+msgstr ""
+
+#: ../../../library/inspect.rst:217
+msgid "Return true if the object is a module."
+msgstr ""
+
+#: ../../../library/inspect.rst:222
+msgid ""
+"Return true if the object is a class, whether built-in or created in Python "
+"code."
+msgstr ""
+
+#: ../../../library/inspect.rst:228
+msgid "Return true if the object is a bound method written in Python."
+msgstr ""
+
+#: ../../../library/inspect.rst:233
+msgid ""
+"Return true if the object is a Python function, which includes functions "
+"created by a :term:`lambda` expression."
+msgstr ""
+
+#: ../../../library/inspect.rst:239
+msgid "Return true if the object is a Python generator function."
+msgstr ""
+
+#: ../../../library/inspect.rst:244
+msgid "Return true if the object is a generator."
+msgstr ""
+
+#: ../../../library/inspect.rst:249
+msgid "Return true if the object is a traceback."
+msgstr ""
+
+#: ../../../library/inspect.rst:254
+msgid "Return true if the object is a frame."
+msgstr ""
+
+#: ../../../library/inspect.rst:259
+msgid "Return true if the object is a code."
+msgstr ""
+
+#: ../../../library/inspect.rst:264
+msgid ""
+"Return true if the object is a built-in function or a bound built-in method."
+msgstr ""
+
+#: ../../../library/inspect.rst:269
+msgid ""
+"Return true if the object is a user-defined or built-in function or method."
+msgstr ""
+
+#: ../../../library/inspect.rst:274
+msgid "Return true if the object is an abstract base class."
+msgstr ""
+
+#: ../../../library/inspect.rst:279
+msgid ""
+"Return true if the object is a method descriptor, but not if :func:"
+"`ismethod`, :func:`isclass`, :func:`isfunction` or :func:`isbuiltin` are "
+"true."
+msgstr ""
+
+#: ../../../library/inspect.rst:283
+msgid ""
+"This, for example, is true of ``int.__add__``.  An object passing this test "
+"has a :attr:`__get__` attribute but not a :attr:`__set__` attribute, but "
+"beyond that the set of attributes varies.  :attr:`__name__` is usually "
+"sensible, and :attr:`__doc__` often is."
+msgstr ""
+
+#: ../../../library/inspect.rst:288
+msgid ""
+"Methods implemented via descriptors that also pass one of the other tests "
+"return false from the :func:`ismethoddescriptor` test, simply because the "
+"other tests promise more -- you can, e.g., count on having the :attr:"
+"`__func__` attribute (etc) when an object passes :func:`ismethod`."
+msgstr ""
+
+#: ../../../library/inspect.rst:296
+msgid "Return true if the object is a data descriptor."
+msgstr ""
+
+#: ../../../library/inspect.rst:298
+msgid ""
+"Data descriptors have both a :attr:`__get__` and a :attr:`__set__` "
+"attribute. Examples are properties (defined in Python), getsets, and "
+"members.  The latter two are defined in C and there are more specific tests "
+"available for those types, which is robust across Python implementations.  "
+"Typically, data descriptors will also have :attr:`__name__` and :attr:"
+"`__doc__` attributes (properties, getsets, and members have both of these "
+"attributes), but this is not guaranteed."
+msgstr ""
+
+#: ../../../library/inspect.rst:309
+msgid "Return true if the object is a getset descriptor."
+msgstr ""
+
+#: ../../../library/inspect.rst:313
+msgid ""
+"getsets are attributes defined in extension modules via :c:type:"
+"`PyGetSetDef` structures.  For Python implementations without such types, "
+"this method will always return ``False``."
+msgstr ""
+
+#: ../../../library/inspect.rst:320
+msgid "Return true if the object is a member descriptor."
+msgstr ""
+
+#: ../../../library/inspect.rst:324
+msgid ""
+"Member descriptors are attributes defined in extension modules via :c:type:"
+"`PyMemberDef` structures.  For Python implementations without such types, "
+"this method will always return ``False``."
+msgstr ""
+
+#: ../../../library/inspect.rst:332
+msgid "Retrieving source code"
+msgstr ""
+
+#: ../../../library/inspect.rst:336
+msgid ""
+"Get the documentation string for an object, cleaned up with :func:`cleandoc`."
+msgstr ""
+
+#: ../../../library/inspect.rst:341
+msgid ""
+"Return in a single string any lines of comments immediately preceding the "
+"object's source code (for a class, function, or method), or at the top of "
+"the Python source file (if the object is a module)."
+msgstr ""
+
+#: ../../../library/inspect.rst:348
+msgid ""
+"Return the name of the (text or binary) file in which an object was defined. "
+"This will fail with a :exc:`TypeError` if the object is a built-in module, "
+"class, or function."
+msgstr ""
+
+#: ../../../library/inspect.rst:355
+msgid "Try to guess which module an object was defined in."
+msgstr ""
+
+#: ../../../library/inspect.rst:360
+msgid ""
+"Return the name of the Python source file in which an object was defined.  "
+"This will fail with a :exc:`TypeError` if the object is a built-in module, "
+"class, or function."
+msgstr ""
+
+#: ../../../library/inspect.rst:367
+msgid ""
+"Return a list of source lines and starting line number for an object. The "
+"argument may be a module, class, method, function, traceback, frame, or code "
+"object.  The source code is returned as a list of the lines corresponding to "
+"the object and the line number indicates where in the original source file "
+"the first line of code was found.  An :exc:`OSError` is raised if the source "
+"code cannot be retrieved."
+msgstr ""
+
+#: ../../../library/inspect.rst:374 ../../../library/inspect.rst:386
+msgid ""
+":exc:`OSError` is raised instead of :exc:`IOError`, now an alias of the "
+"former."
+msgstr ""
+
+#: ../../../library/inspect.rst:381
+msgid ""
+"Return the text of the source code for an object. The argument may be a "
+"module, class, method, function, traceback, frame, or code object.  The "
+"source code is returned as a single string.  An :exc:`OSError` is raised if "
+"the source code cannot be retrieved."
+msgstr ""
+
+#: ../../../library/inspect.rst:393
+msgid ""
+"Clean up indentation from docstrings that are indented to line up with "
+"blocks of code.  Any whitespace that can be uniformly removed from the "
+"second line onwards is removed.  Also, all tabs are expanded to spaces."
+msgstr ""
+
+#: ../../../library/inspect.rst:401
+msgid "Introspecting callables with the Signature object"
+msgstr ""
+
+#: ../../../library/inspect.rst:405
+msgid ""
+"The Signature object represents the call signature of a callable object and "
+"its return annotation.  To retrieve a Signature object, use the :func:"
+"`signature` function."
+msgstr ""
+
+#: ../../../library/inspect.rst:411
+msgid "Return a :class:`Signature` object for the given ``callable``::"
+msgstr ""
+
+#: ../../../library/inspect.rst:428
+msgid ""
+"Accepts a wide range of python callables, from plain functions and classes "
+"to :func:`functools.partial` objects."
+msgstr ""
+
+#: ../../../library/inspect.rst:433
+msgid ""
+"Some callables may not be introspectable in certain implementations of "
+"Python.  For example, in CPython, built-in functions defined in C provide no "
+"metadata about their arguments."
+msgstr ""
+
+#: ../../../library/inspect.rst:440
+msgid ""
+"A Signature object represents the call signature of a function and its "
+"return annotation.  For each parameter accepted by the function it stores a :"
+"class:`Parameter` object in its :attr:`parameters` collection."
+msgstr ""
+
+#: ../../../library/inspect.rst:444
+msgid ""
+"The optional *parameters* argument is a sequence of :class:`Parameter` "
+"objects, which is validated to check that there are no parameters with "
+"duplicate names, and that the parameters are in the right order, i.e. "
+"positional-only first, then positional-or-keyword, and that parameters with "
+"defaults follow parameters without defaults."
+msgstr ""
+
+#: ../../../library/inspect.rst:450
+msgid ""
+"The optional *return_annotation* argument, can be an arbitrary Python "
+"object, is the \"return\" annotation of the callable."
+msgstr ""
+
+#: ../../../library/inspect.rst:453
+msgid ""
+"Signature objects are *immutable*.  Use :meth:`Signature.replace` to make a "
+"modified copy."
+msgstr ""
+
+#: ../../../library/inspect.rst:458
+msgid "A special class-level marker to specify absence of a return annotation."
+msgstr ""
+
+#: ../../../library/inspect.rst:462
+msgid ""
+"An ordered mapping of parameters' names to the corresponding :class:"
+"`Parameter` objects."
+msgstr ""
+
+#: ../../../library/inspect.rst:467
+msgid ""
+"The \"return\" annotation for the callable.  If the callable has no "
+"\"return\" annotation, this attribute is set to :attr:`Signature.empty`."
+msgstr ""
+
+#: ../../../library/inspect.rst:472
+msgid ""
+"Create a mapping from positional and keyword arguments to parameters. "
+"Returns :class:`BoundArguments` if ``*args`` and ``**kwargs`` match the "
+"signature, or raises a :exc:`TypeError`."
+msgstr ""
+
+#: ../../../library/inspect.rst:478
+msgid ""
+"Works the same way as :meth:`Signature.bind`, but allows the omission of "
+"some required arguments (mimics :func:`functools.partial` behavior.) "
+"Returns :class:`BoundArguments`, or raises a :exc:`TypeError` if the passed "
+"arguments do not match the signature."
+msgstr ""
+
+#: ../../../library/inspect.rst:485
+msgid ""
+"Create a new Signature instance based on the instance replace was invoked "
+"on.  It is possible to pass different ``parameters`` and/or "
+"``return_annotation`` to override the corresponding properties of the base "
+"signature.  To remove return_annotation from the copied Signature, pass in :"
+"attr:`Signature.empty`."
+msgstr ""
+
+#: ../../../library/inspect.rst:503
+msgid ""
+"Parameter objects are *immutable*.  Instead of modifying a Parameter object, "
+"you can use :meth:`Parameter.replace` to create a modified copy."
+msgstr ""
+
+#: ../../../library/inspect.rst:508
+msgid ""
+"A special class-level marker to specify absence of default values and "
+"annotations."
+msgstr ""
+
+#: ../../../library/inspect.rst:513
+msgid ""
+"The name of the parameter as a string.  Must be a valid python identifier "
+"name (with the exception of ``POSITIONAL_ONLY`` parameters, which can have "
+"it set to ``None``)."
+msgstr ""
+
+#: ../../../library/inspect.rst:519
+msgid ""
+"The default value for the parameter.  If the parameter has no default value, "
+"this attribute is set to :attr:`Parameter.empty`."
+msgstr ""
+
+#: ../../../library/inspect.rst:524
+msgid ""
+"The annotation for the parameter.  If the parameter has no annotation, this "
+"attribute is set to :attr:`Parameter.empty`."
+msgstr ""
+
+#: ../../../library/inspect.rst:529
+msgid ""
+"Describes how argument values are bound to the parameter.  Possible values "
+"(accessible via :class:`Parameter`, like ``Parameter.KEYWORD_ONLY``):"
+msgstr ""
+
+#: ../../../library/inspect.rst:535
+msgid "Name"
+msgstr ""
+
+#: ../../../library/inspect.rst:535
+msgid "Meaning"
+msgstr ""
+
+#: ../../../library/inspect.rst:537
+msgid "*POSITIONAL_ONLY*"
+msgstr ""
+
+#: ../../../library/inspect.rst:537
+msgid "Value must be supplied as a positional argument."
+msgstr ""
+
+#: ../../../library/inspect.rst:540
+msgid ""
+"Python has no explicit syntax for defining positional-only parameters, but "
+"many built-in and extension module functions (especially those that accept "
+"only one or two parameters) accept them."
+msgstr ""
+
+#: ../../../library/inspect.rst:546
+msgid "*POSITIONAL_OR_KEYWORD*"
+msgstr ""
+
+#: ../../../library/inspect.rst:546
+msgid ""
+"Value may be supplied as either a keyword or positional argument (this is "
+"the standard binding behaviour for functions implemented in Python.)"
+msgstr ""
+
+#: ../../../library/inspect.rst:551
+msgid "*VAR_POSITIONAL*"
+msgstr ""
+
+#: ../../../library/inspect.rst:551
+msgid ""
+"A tuple of positional arguments that aren't bound to any other parameter. "
+"This corresponds to a ``*args`` parameter in a Python function definition."
+msgstr ""
+
+#: ../../../library/inspect.rst:556
+msgid "*KEYWORD_ONLY*"
+msgstr ""
+
+#: ../../../library/inspect.rst:556
+msgid ""
+"Value must be supplied as a keyword argument. Keyword only parameters are "
+"those which appear after a ``*`` or ``*args`` entry in a Python function "
+"definition."
+msgstr ""
+
+#: ../../../library/inspect.rst:561
+msgid "*VAR_KEYWORD*"
+msgstr ""
+
+#: ../../../library/inspect.rst:561
+msgid ""
+"A dict of keyword arguments that aren't bound to any other parameter. This "
+"corresponds to a ``**kwargs`` parameter in a Python function definition."
+msgstr ""
+
+#: ../../../library/inspect.rst:567
+msgid "Example: print all keyword-only arguments without default values::"
+msgstr ""
+
+#: ../../../library/inspect.rst:581
+msgid ""
+"Create a new Parameter instance based on the instance replaced was invoked "
+"on.  To override a :class:`Parameter` attribute, pass the corresponding "
+"argument.  To remove a default value or/and an annotation from a Parameter, "
+"pass :attr:`Parameter.empty`."
+msgstr ""
+
+#: ../../../library/inspect.rst:602
+msgid ""
+"Result of a :meth:`Signature.bind` or :meth:`Signature.bind_partial` call. "
+"Holds the mapping of arguments to the function's parameters."
+msgstr ""
+
+#: ../../../library/inspect.rst:607
+msgid ""
+"An ordered, mutable mapping (:class:`collections.OrderedDict`) of "
+"parameters' names to arguments' values.  Contains only explicitly bound "
+"arguments.  Changes in :attr:`arguments` will reflect in :attr:`args` and :"
+"attr:`kwargs`."
+msgstr ""
+
+#: ../../../library/inspect.rst:612
+msgid ""
+"Should be used in conjunction with :attr:`Signature.parameters` for any "
+"argument processing purposes."
+msgstr ""
+
+#: ../../../library/inspect.rst:617
+msgid ""
+"Arguments for which :meth:`Signature.bind` or :meth:`Signature.bind_partial` "
+"relied on a default value are skipped. However, if needed, it is easy to "
+"include them."
+msgstr ""
+
+#: ../../../library/inspect.rst:642
+msgid ""
+"A tuple of positional arguments values.  Dynamically computed from the :attr:"
+"`arguments` attribute."
+msgstr ""
+
+#: ../../../library/inspect.rst:647
+msgid ""
+"A dict of keyword arguments values.  Dynamically computed from the :attr:"
+"`arguments` attribute."
+msgstr ""
+
+#: ../../../library/inspect.rst:650
+msgid ""
+"The :attr:`args` and :attr:`kwargs` properties can be used to invoke "
+"functions::"
+msgstr ""
+
+#: ../../../library/inspect.rst:663
+msgid ":pep:`362` - Function Signature Object."
+msgstr ""
+
+#: ../../../library/inspect.rst:664
+msgid "The detailed specification, implementation details and examples."
+msgstr ""
+
+#: ../../../library/inspect.rst:670
+msgid "Classes and functions"
+msgstr ""
+
+#: ../../../library/inspect.rst:674
+msgid ""
+"Arrange the given list of classes into a hierarchy of nested lists. Where a "
+"nested list appears, it contains classes derived from the class whose entry "
+"immediately precedes the list.  Each entry is a 2-tuple containing a class "
+"and a tuple of its base classes.  If the *unique* argument is true, exactly "
+"one entry appears in the returned structure for each class in the given "
+"list.  Otherwise, classes using multiple inheritance and their descendants "
+"will appear multiple times."
+msgstr ""
+
+#: ../../../library/inspect.rst:685
+msgid ""
+"Get the names and default values of a Python function's arguments. A :term:"
+"`named tuple` ``ArgSpec(args, varargs, keywords, defaults)`` is returned. "
+"*args* is a list of the argument names. *varargs* and *keywords* are the "
+"names of the ``*`` and ``**`` arguments or ``None``. *defaults* is a tuple "
+"of default argument values or ``None`` if there are no default arguments; if "
+"this tuple has *n* elements, they correspond to the last *n* elements listed "
+"in *args*."
+msgstr ""
+
+#: ../../../library/inspect.rst:693
+msgid ""
+"Use :func:`getfullargspec` instead, which provides information about keyword-"
+"only arguments and annotations."
+msgstr ""
+
+#: ../../../library/inspect.rst:700
+msgid ""
+"Get the names and default values of a Python function's arguments.  A :term:"
+"`named tuple` is returned:"
+msgstr ""
+
+#: ../../../library/inspect.rst:703
+msgid ""
+"``FullArgSpec(args, varargs, varkw, defaults, kwonlyargs, kwonlydefaults, "
+"annotations)``"
+msgstr ""
+
+#: ../../../library/inspect.rst:706
+msgid ""
+"*args* is a list of the argument names.  *varargs* and *varkw* are the names "
+"of the ``*`` and ``**`` arguments or ``None``.  *defaults* is an *n*-tuple "
+"of the default values of the last *n* arguments, or ``None`` if there are no "
+"default arguments.  *kwonlyargs* is a list of keyword-only argument names.  "
+"*kwonlydefaults* is a dictionary mapping names from kwonlyargs to defaults.  "
+"*annotations* is a dictionary mapping argument names to annotations."
+msgstr ""
+
+#: ../../../library/inspect.rst:714
+msgid "The first four items in the tuple correspond to :func:`getargspec`."
+msgstr ""
+
+#: ../../../library/inspect.rst:717
+msgid ""
+"Consider using the new :ref:`Signature Object <inspect-signature-object>` "
+"interface, which provides a better way of introspecting functions."
+msgstr ""
+
+#: ../../../library/inspect.rst:723
+msgid ""
+"Get information about arguments passed into a particular frame.  A :term:"
+"`named tuple` ``ArgInfo(args, varargs, keywords, locals)`` is returned. "
+"*args* is a list of the argument names.  *varargs* and *keywords* are the "
+"names of the ``*`` and ``**`` arguments or ``None``.  *locals* is the locals "
+"dictionary of the given frame."
+msgstr ""
+
+#: ../../../library/inspect.rst:732
+msgid ""
+"Format a pretty argument spec from the values returned by :func:`getargspec` "
+"or :func:`getfullargspec`."
+msgstr ""
+
+#: ../../../library/inspect.rst:735
+msgid ""
+"The first seven arguments are (``args``, ``varargs``, ``varkw``, "
+"``defaults``, ``kwonlyargs``, ``kwonlydefaults``, ``annotations``). The "
+"other five arguments are the corresponding optional formatting functions "
+"that are called to turn names and values into strings. The last argument is "
+"an optional function to format the sequence of arguments. For example::"
+msgstr ""
+
+#: ../../../library/inspect.rst:751
+msgid ""
+"Format a pretty argument spec from the four values returned by :func:"
+"`getargvalues`.  The format\\* arguments are the corresponding optional "
+"formatting functions that are called to turn names and values into strings."
+msgstr ""
+
+#: ../../../library/inspect.rst:758
+msgid ""
+"Return a tuple of class cls's base classes, including cls, in method "
+"resolution order.  No class appears more than once in this tuple. Note that "
+"the method resolution order depends on cls's type.  Unless a very peculiar "
+"user-defined metatype is in use, cls will be the first element of the tuple."
+msgstr ""
+
+#: ../../../library/inspect.rst:766
+msgid ""
+"Bind the *args* and *kwds* to the argument names of the Python function or "
+"method *func*, as if it was called with them. For bound methods, bind also "
+"the first argument (typically named ``self``) to the associated instance. A "
+"dict is returned, mapping the argument names (including the names of the "
+"``*`` and ``**`` arguments, if any) to their values from *args* and *kwds*. "
+"In case of invoking *func* incorrectly, i.e. whenever ``func(*args, "
+"**kwds)`` would raise an exception because of incompatible signature, an "
+"exception of the same type and the same or similar message is raised. For "
+"example::"
+msgstr ""
+
+#: ../../../library/inspect.rst:790
+msgid "Consider using the new :meth:`Signature.bind` instead."
+msgstr ""
+
+#: ../../../library/inspect.rst:795
+msgid ""
+"Get the mapping of external name references in a Python function or method "
+"*func* to their current values. A :term:`named tuple` "
+"``ClosureVars(nonlocals, globals, builtins, unbound)`` is returned. "
+"*nonlocals* maps referenced names to lexical closure variables, *globals* to "
+"the function's module globals and *builtins* to the builtins visible from "
+"the function body. *unbound* is the set of names referenced in the function "
+"that could not be resolved at all given the current module globals and "
+"builtins."
+msgstr ""
+
+#: ../../../library/inspect.rst:804
+msgid ""
+":exc:`TypeError` is raised if *func* is not a Python function or method."
+msgstr ""
+
+#: ../../../library/inspect.rst:812
+msgid "The interpreter stack"
+msgstr ""
+
+#: ../../../library/inspect.rst:814
+msgid ""
+"When the following functions return \"frame records,\" each record is a "
+"tuple of six items: the frame object, the filename, the line number of the "
+"current line, the function name, a list of lines of context from the source "
+"code, and the index of the current line within that list."
+msgstr ""
+
+#: ../../../library/inspect.rst:821
+msgid ""
+"Keeping references to frame objects, as found in the first element of the "
+"frame records these functions return, can cause your program to create "
+"reference cycles.  Once a reference cycle has been created, the lifespan of "
+"all objects which can be accessed from the objects which form the cycle can "
+"become much longer even if Python's optional cycle detector is enabled.  If "
+"such cycles must be created, it is important to ensure they are explicitly "
+"broken to avoid the delayed destruction of objects and increased memory "
+"consumption which occurs."
+msgstr ""
+
+#: ../../../library/inspect.rst:829
+msgid ""
+"Though the cycle detector will catch these, destruction of the frames (and "
+"local variables) can be made deterministic by removing the cycle in a :"
+"keyword:`finally` clause.  This is also important if the cycle detector was "
+"disabled when Python was compiled or using :func:`gc.disable`.  For example::"
+msgstr ""
+
+#: ../../../library/inspect.rst:841
+msgid ""
+"The optional *context* argument supported by most of these functions "
+"specifies the number of lines of context to return, which are centered "
+"around the current line."
+msgstr ""
+
+#: ../../../library/inspect.rst:848
+msgid ""
+"Get information about a frame or traceback object.  A :term:`named tuple` "
+"``Traceback(filename, lineno, function, code_context, index)`` is returned."
+msgstr ""
+
+#: ../../../library/inspect.rst:854
+msgid ""
+"Get a list of frame records for a frame and all outer frames.  These frames "
+"represent the calls that lead to the creation of *frame*. The first entry in "
+"the returned list represents *frame*; the last entry represents the "
+"outermost call on *frame*'s stack."
+msgstr ""
+
+#: ../../../library/inspect.rst:862
+msgid ""
+"Get a list of frame records for a traceback's frame and all inner frames.  "
+"These frames represent calls made as a consequence of *frame*.  The first "
+"entry in the list represents *traceback*; the last entry represents where "
+"the exception was raised."
+msgstr ""
+
+#: ../../../library/inspect.rst:870
+msgid "Return the frame object for the caller's stack frame."
+msgstr ""
+
+#: ../../../library/inspect.rst:874
+msgid ""
+"This function relies on Python stack frame support in the interpreter, which "
+"isn't guaranteed to exist in all implementations of Python.  If running in "
+"an implementation without Python stack frame support this function returns "
+"``None``."
+msgstr ""
+
+#: ../../../library/inspect.rst:882
+msgid ""
+"Return a list of frame records for the caller's stack.  The first entry in "
+"the returned list represents the caller; the last entry represents the "
+"outermost call on the stack."
+msgstr ""
+
+#: ../../../library/inspect.rst:889
+msgid ""
+"Return a list of frame records for the stack between the current frame and "
+"the frame in which an exception currently being handled was raised in.  The "
+"first entry in the list represents the caller; the last entry represents "
+"where the exception was raised."
+msgstr ""
+
+#: ../../../library/inspect.rst:896
+msgid "Fetching attributes statically"
+msgstr ""
+
+#: ../../../library/inspect.rst:898
+msgid ""
+"Both :func:`getattr` and :func:`hasattr` can trigger code execution when "
+"fetching or checking for the existence of attributes. Descriptors, like "
+"properties, will be invoked and :meth:`__getattr__` and :meth:"
+"`__getattribute__` may be called."
+msgstr ""
+
+#: ../../../library/inspect.rst:903
+msgid ""
+"For cases where you want passive introspection, like documentation tools, "
+"this can be inconvenient. :func:`getattr_static` has the same signature as :"
+"func:`getattr` but avoids executing code when it fetches attributes."
+msgstr ""
+
+#: ../../../library/inspect.rst:909
+msgid ""
+"Retrieve attributes without triggering dynamic lookup via the descriptor "
+"protocol, :meth:`__getattr__` or :meth:`__getattribute__`."
+msgstr ""
+
+#: ../../../library/inspect.rst:912
+msgid ""
+"Note: this function may not be able to retrieve all attributes that getattr "
+"can fetch (like dynamically created attributes) and may find attributes that "
+"getattr can't (like descriptors that raise AttributeError). It can also "
+"return descriptors objects instead of instance members."
+msgstr ""
+
+#: ../../../library/inspect.rst:918
+msgid ""
+"If the instance :attr:`~object.__dict__` is shadowed by another member (for "
+"example a property) then this function will be unable to find instance "
+"members."
+msgstr ""
+
+#: ../../../library/inspect.rst:924
+msgid ""
+":func:`getattr_static` does not resolve descriptors, for example slot "
+"descriptors or getset descriptors on objects implemented in C. The "
+"descriptor object is returned instead of the underlying attribute."
+msgstr ""
+
+#: ../../../library/inspect.rst:928
+msgid ""
+"You can handle these with code like the following. Note that for arbitrary "
+"getset descriptors invoking these may trigger code execution::"
+msgstr ""
+
+#: ../../../library/inspect.rst:954
+msgid "Current State of a Generator"
+msgstr ""
+
+#: ../../../library/inspect.rst:956
+msgid ""
+"When implementing coroutine schedulers and for other advanced uses of "
+"generators, it is useful to determine whether a generator is currently "
+"executing, is waiting to start or resume or execution, or has already "
+"terminated. :func:`getgeneratorstate` allows the current state of a "
+"generator to be determined easily."
+msgstr ""
+
+#: ../../../library/inspect.rst:964
+msgid "Get current state of a generator-iterator."
+msgstr ""
+
+#: ../../../library/inspect.rst:970
+msgid "Possible states are:"
+msgstr ""
+
+#: ../../../library/inspect.rst:967
+msgid "GEN_CREATED: Waiting to start execution."
+msgstr ""
+
+#: ../../../library/inspect.rst:968
+msgid "GEN_RUNNING: Currently being executed by the interpreter."
+msgstr ""
+
+#: ../../../library/inspect.rst:969
+msgid "GEN_SUSPENDED: Currently suspended at a yield expression."
+msgstr ""
+
+#: ../../../library/inspect.rst:970
+msgid "GEN_CLOSED: Execution has completed."
+msgstr ""
+
+#: ../../../library/inspect.rst:974
+msgid ""
+"The current internal state of the generator can also be queried. This is "
+"mostly useful for testing purposes, to ensure that internal state is being "
+"updated as expected:"
+msgstr ""
+
+#: ../../../library/inspect.rst:980
+msgid ""
+"Get the mapping of live local variables in *generator* to their current "
+"values.  A dictionary is returned that maps from variable names to values. "
+"This is the equivalent of calling :func:`locals` in the body of the "
+"generator, and all the same caveats apply."
+msgstr ""
+
+#: ../../../library/inspect.rst:985
+msgid ""
+"If *generator* is a :term:`generator` with no currently associated frame, "
+"then an empty dictionary is returned.  :exc:`TypeError` is raised if "
+"*generator* is not a Python generator object."
+msgstr ""
+
+#: ../../../library/inspect.rst:991
+msgid ""
+"This function relies on the generator exposing a Python stack frame for "
+"introspection, which isn't guaranteed to be the case in all implementations "
+"of Python. In such cases, this function will always return an empty "
+"dictionary."
+msgstr ""
