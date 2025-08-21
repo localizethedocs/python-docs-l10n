@@ -66,7 +66,7 @@
 
 <p></p>
 
-This is a localization project of Python Documentation. Translations are contributed via the Crowdin platform and automatically synchronized with the GitHub repository.
+The goal of this project is to translate the Python documentation into multiple languages. Translations are contributed via the Crowdin platform, automatically synchronized with the GitHub repository, and can be previewed on GitHub Pages.
 
 <div align="center">
 <table>
