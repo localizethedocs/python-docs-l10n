@@ -220,12 +220,12 @@ set(UPSTREAM_REPO   "https://github.com/python/cpython")
 message(STATUS "Configuring 'ltd-provenance.js' file to the root of the builder directory...")
 file(MAKE_DIRECTORY "${PROJ_OUT_BUILDER_DIR}")
 configure_file(
-    "${PROJ_CMAKE_SCRIPTS_DIR}/provenance/ltd-sphinx.js.in"
+    "${PROJ_CMAKE_PLUGINS_DIR}/provenance/ltd-sphinx.js.in"
     "${PROJ_OUT_BUILDER_DIR}/ltd-provenance.js"
     @ONLY)
 remove_cmake_message_indent()
 message("")
-message("From: ${PROJ_CMAKE_SCRIPTS_DIR}/provenance/ltd-sphinx.js.in")
+message("From: ${PROJ_CMAKE_PLUGINS_DIR}/provenance/ltd-sphinx.js.in")
 message("To:   ${PROJ_OUT_BUILDER_DIR}/ltd-provenance.js")
 message("")
 restore_cmake_message_indent()
@@ -253,12 +253,12 @@ restore_cmake_message_indent()
 message(STATUS "Configuring 'ltd-flyout.js' file to the root of the builder directory...")
 file(MAKE_DIRECTORY "${PROJ_OUT_BUILDER_DIR}")
 configure_file(
-    "${PROJ_CMAKE_SCRIPTS_DIR}/flyout/ltd-flyout.js"
+    "${PROJ_CMAKE_PLUGINS_DIR}/flyout/ltd-flyout.js"
     "${PROJ_OUT_BUILDER_DIR}/ltd-flyout.js"
     @ONLY)
 remove_cmake_message_indent()
 message("")
-message("From: ${PROJ_CMAKE_SCRIPTS_DIR}/flyout/ltd-flyout.js")
+message("From: ${PROJ_CMAKE_PLUGINS_DIR}/flyout/ltd-flyout.js")
 message("To:   ${PROJ_OUT_BUILDER_DIR}/ltd-flyout.js")
 message("")
 restore_cmake_message_indent()
@@ -267,12 +267,12 @@ restore_cmake_message_indent()
 message(STATUS "Configuring 'ltd-icon.svg' file to the root of the builder directory...")
 file(MAKE_DIRECTORY "${PROJ_OUT_BUILDER_DIR}")
 configure_file(
-    "${PROJ_CMAKE_SCRIPTS_DIR}/flyout/ltd-icon.svg"
+    "${PROJ_CMAKE_PLUGINS_DIR}/flyout/ltd-icon.svg"
     "${PROJ_OUT_BUILDER_DIR}/ltd-icon.svg"
     @ONLY)
 remove_cmake_message_indent()
 message("")
-message("From: ${PROJ_CMAKE_SCRIPTS_DIR}/flyout/ltd-icon.svg")
+message("From: ${PROJ_CMAKE_PLUGINS_DIR}/flyout/ltd-icon.svg")
 message("To:   ${PROJ_OUT_BUILDER_DIR}/ltd-icon.svg")
 message("")
 restore_cmake_message_indent()
@@ -281,7 +281,7 @@ restore_cmake_message_indent()
 message(STATUS "Configuring 'ltd-current.js' file to the version subdir of the builder directory...")
 remove_cmake_message_indent()
 message("")
-message("From: ${PROJ_CMAKE_SCRIPTS_DIR}/flyout/ltd-current.js.in")
+message("From: ${PROJ_CMAKE_PLUGINS_DIR}/flyout/ltd-current.js.in")
 foreach(_LANGUAGE ${LANGUAGE_LIST})
     get_json_value_by_dot_notation(
         IN_JSON_OBJECT      "${LANGUAGES_JSON_CNT}"
@@ -291,7 +291,7 @@ foreach(_LANGUAGE ${LANGUAGE_LIST})
     set(CURRENT_LANGUAGE    "${_LANGTAG}")
     file(MAKE_DIRECTORY "${PROJ_OUT_BUILDER_DIR}/${_LANGTAG}/${VERSION}")
     configure_file(
-        "${PROJ_CMAKE_SCRIPTS_DIR}/flyout/ltd-current.js.in"
+        "${PROJ_CMAKE_PLUGINS_DIR}/flyout/ltd-current.js.in"
         "${PROJ_OUT_BUILDER_DIR}/${_LANGTAG}/${VERSION}/ltd-current.js"
         @ONLY)
     message("To:   ${PROJ_OUT_BUILDER_DIR}/${_LANGTAG}/${VERSION}/ltd-current.js")
