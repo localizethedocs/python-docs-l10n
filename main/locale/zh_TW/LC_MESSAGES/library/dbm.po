@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2025-09-01 08:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,8 +89,8 @@ msgid ""
 "``'dbm.gnu'``"
 msgstr ""
 
-#: ../../../library/dbm.rst:47 ../../../library/dbm.rst:270
-#: ../../../library/dbm.rst:477
+#: ../../../library/dbm.rst:47 ../../../library/dbm.rst:291
+#: ../../../library/dbm.rst:501
 msgid "*filename* accepts a :term:`path-like object`."
 msgstr ""
 
@@ -110,7 +110,7 @@ msgid ""
 "imported is used."
 msgstr ""
 
-#: ../../../library/dbm.rst:74 ../../../library/dbm.rst:239
+#: ../../../library/dbm.rst:74 ../../../library/dbm.rst:260
 msgid "The database file to open."
 msgstr ""
 
@@ -121,37 +121,37 @@ msgid ""
 "the first submodule listed above that can be imported is used."
 msgstr ""
 
-#: ../../../library/dbm.rst:81 ../../../library/dbm.rst:184
-#: ../../../library/dbm.rst:377
+#: ../../../library/dbm.rst:81 ../../../library/dbm.rst:188
+#: ../../../library/dbm.rst:399
 msgid ""
 "* ``'r'`` (default): |flag_r| * ``'w'``: |flag_w| * ``'c'``: |flag_c| * "
 "``'n'``: |flag_n|"
 msgstr ""
 
-#: ../../../library/dbm.rst:82 ../../../library/dbm.rst:186
-#: ../../../library/dbm.rst:244 ../../../library/dbm.rst:378
+#: ../../../library/dbm.rst:82 ../../../library/dbm.rst:190
+#: ../../../library/dbm.rst:265 ../../../library/dbm.rst:400
 msgid "``'r'`` (default): |flag_r|"
 msgstr ""
 
-#: ../../../library/dbm.rst:83 ../../../library/dbm.rst:187
-#: ../../../library/dbm.rst:245 ../../../library/dbm.rst:379
-#: ../../../library/dbm.rst:453
+#: ../../../library/dbm.rst:83 ../../../library/dbm.rst:191
+#: ../../../library/dbm.rst:266 ../../../library/dbm.rst:401
+#: ../../../library/dbm.rst:477
 msgid "``'w'``: |flag_w|"
 msgstr ""
 
-#: ../../../library/dbm.rst:84 ../../../library/dbm.rst:188
-#: ../../../library/dbm.rst:246 ../../../library/dbm.rst:380
+#: ../../../library/dbm.rst:84 ../../../library/dbm.rst:192
+#: ../../../library/dbm.rst:267 ../../../library/dbm.rst:402
 msgid "``'c'``: |flag_c|"
 msgstr ""
 
-#: ../../../library/dbm.rst:85 ../../../library/dbm.rst:189
-#: ../../../library/dbm.rst:247 ../../../library/dbm.rst:381
-#: ../../../library/dbm.rst:455
+#: ../../../library/dbm.rst:85 ../../../library/dbm.rst:193
+#: ../../../library/dbm.rst:268 ../../../library/dbm.rst:403
+#: ../../../library/dbm.rst:479
 msgid "``'n'``: |flag_n|"
 msgstr ""
 
-#: ../../../library/dbm.rst:87 ../../../library/dbm.rst:264
-#: ../../../library/dbm.rst:383 ../../../library/dbm.rst:457
+#: ../../../library/dbm.rst:87 ../../../library/dbm.rst:285
+#: ../../../library/dbm.rst:405 ../../../library/dbm.rst:481
 msgid "|mode_param_doc|"
 msgstr ""
 
@@ -161,71 +161,76 @@ msgstr ""
 
 #: ../../../library/dbm.rst:93
 msgid ""
-"The object returned by :func:`~dbm.open` supports the same basic "
-"functionality as a :class:`dict`; keys and their corresponding values can be "
-"stored, retrieved, and deleted, and the :keyword:`in` operator and the :meth:"
-"`!keys` method are available, as well as :meth:`!get` and :meth:`!"
-"setdefault` methods."
+"The object returned by :func:`~dbm.open` supports the basic functionality of "
+"mutable :term:`mappings <mapping>`; keys and their corresponding values can "
+"be stored, retrieved, and deleted, and iteration, the :keyword:`in` operator "
+"and methods :meth:`!keys`, :meth:`!get`, :meth:`!setdefault` and :meth:`!"
+"clear` are available. The :meth:`!keys` method returns a list instead of a "
+"view object. The :meth:`!setdefault` method requires two arguments."
 msgstr ""
 
-#: ../../../library/dbm.rst:98
+#: ../../../library/dbm.rst:101
 msgid ""
 "Key and values are always stored as :class:`bytes`. This means that when "
 "strings are used they are implicitly converted to the default encoding "
 "before being stored."
 msgstr ""
 
-#: ../../../library/dbm.rst:102
+#: ../../../library/dbm.rst:105
 msgid ""
 "These objects also support being used in a :keyword:`with` statement, which "
 "will automatically close them when done."
 msgstr ""
 
-#: ../../../library/dbm.rst:105
+#: ../../../library/dbm.rst:108
 msgid ""
 ":meth:`!get` and :meth:`!setdefault` methods are now available for all :mod:"
 "`dbm` backends."
 msgstr ""
 
-#: ../../../library/dbm.rst:109
+#: ../../../library/dbm.rst:112
 msgid ""
 "Added native support for the context management protocol to the objects "
 "returned by :func:`~dbm.open`."
 msgstr ""
 
-#: ../../../library/dbm.rst:113
+#: ../../../library/dbm.rst:116
 msgid ""
 "Deleting a key from a read-only database raises a database module specific "
 "exception instead of :exc:`KeyError`."
 msgstr ""
 
-#: ../../../library/dbm.rst:117
+#: ../../../library/dbm.rst:120
+msgid ":meth:`!clear` methods are now available for all :mod:`dbm` backends."
+msgstr ""
+
+#: ../../../library/dbm.rst:124
 msgid ""
 "The following example records some hostnames and a corresponding title,  and "
 "then prints out the contents of the database::"
 msgstr ""
 
-#: ../../../library/dbm.rst:147
+#: ../../../library/dbm.rst:154
 msgid "Module :mod:`shelve`"
 msgstr ""
 
-#: ../../../library/dbm.rst:148
+#: ../../../library/dbm.rst:155
 msgid "Persistence module which stores non-string data."
 msgstr ""
 
-#: ../../../library/dbm.rst:151
+#: ../../../library/dbm.rst:158
 msgid "The individual submodules are described in the following sections."
 msgstr ""
 
-#: ../../../library/dbm.rst:154
+#: ../../../library/dbm.rst:161
 msgid ":mod:`dbm.sqlite3` --- SQLite backend for dbm"
 msgstr ""
 
-#: ../../../library/dbm.rst:162
+#: ../../../library/dbm.rst:169
 msgid "**Source code:** :source:`Lib/dbm/sqlite3.py`"
 msgstr ""
 
-#: ../../../library/dbm.rst:166
+#: ../../../library/dbm.rst:173
 msgid ""
 "This module uses the standard library :mod:`sqlite3` module to provide an "
 "SQLite backend for the :mod:`dbm` module. The files created by :mod:`dbm."
@@ -244,24 +249,38 @@ msgid ""
 "availability` for more information."
 msgstr ""
 
-#: ../../../library/dbm.rst:175
-msgid ""
-"Open an SQLite database. The returned object behaves like a :term:`mapping`, "
-"implements a :meth:`!close` method, and supports a \"closing\" context "
-"manager via the :keyword:`with` keyword."
+#: ../../../library/dbm.rst:182
+msgid "Open an SQLite database."
 msgstr ""
 
-#: ../../../library/dbm.rst:180
+#: ../../../library/dbm.rst:184
 msgid "The path to the database to be opened."
 msgstr ""
 
-#: ../../../library/dbm.rst:191
+#: ../../../library/dbm.rst:195
 msgid ""
 "The Unix file access mode of the file (default: octal ``0o666``), used only "
 "when the database has to be created."
 msgstr ""
 
-#: ../../../library/dbm.rst:197
+#: ../../../library/dbm.rst:199
+msgid ""
+"The returned database object behaves similar to a mutable :term:`mapping`, "
+"but the :meth:`!keys` method returns a list, and the :meth:`!setdefault` "
+"method requires two arguments. It also supports a \"closing\" context "
+"manager via the :keyword:`with` keyword."
+msgstr ""
+
+#: ../../../library/dbm.rst:204 ../../../library/dbm.rst:307
+#: ../../../library/dbm.rst:509
+msgid "The following methods are also provided:"
+msgstr ""
+
+#: ../../../library/dbm.rst:208
+msgid "Close the SQLite database."
+msgstr ""
+
+#: ../../../library/dbm.rst:212
 msgid ""
 "If you have carried out a lot of deletions and would like to shrink the "
 "space used on disk, this method will reorganize the database; otherwise, "
@@ -269,29 +288,29 @@ msgid ""
 "added."
 msgstr ""
 
-#: ../../../library/dbm.rst:202
+#: ../../../library/dbm.rst:217
 msgid ""
 "While reorganizing, as much as two times the size of the original database "
 "is required in free disk space. However, be aware that this factor changes "
 "for each :mod:`dbm` submodule."
 msgstr ""
 
-#: ../../../library/dbm.rst:208
+#: ../../../library/dbm.rst:224
 msgid ":mod:`dbm.gnu` --- GNU database manager"
 msgstr ""
 
-#: ../../../library/dbm.rst:214
+#: ../../../library/dbm.rst:230
 msgid "**Source code:** :source:`Lib/dbm/gnu.py`"
 msgstr ""
 
-#: ../../../library/dbm.rst:218
+#: ../../../library/dbm.rst:234
 msgid ""
 "The :mod:`dbm.gnu` module provides an interface to the :abbr:`GDBM (GNU "
 "dbm)` library, similar to the :mod:`dbm.ndbm` module, but with additional "
 "functionality like crash tolerance."
 msgstr ""
 
-#: ../../../library/dbm.rst:224 ../../../library/dbm.rst:345
+#: ../../../library/dbm.rst:240 ../../../library/dbm.rst:367
 msgid ""
 "The file formats created by :mod:`dbm.gnu` and :mod:`dbm.ndbm` are "
 "incompatible and can not be used interchangeably."
@@ -303,18 +322,24 @@ msgid ""
 "availability>` or :ref:`WebAssembly platforms <wasm-availability>`."
 msgstr ""
 
-#: ../../../library/dbm.rst:231
+#: ../../../library/dbm.rst:247
 msgid ""
 "Raised on :mod:`dbm.gnu`-specific errors, such as I/O errors. :exc:"
 "`KeyError` is raised for general mapping errors like specifying an incorrect "
 "key."
 msgstr ""
 
-#: ../../../library/dbm.rst:237
+#: ../../../library/dbm.rst:253
+msgid ""
+"A string of characters the *flag* parameter of :meth:`~dbm.gnu.open` "
+"supports."
+msgstr ""
+
+#: ../../../library/dbm.rst:258
 msgid "Open a GDBM database and return a :class:`!gdbm` object."
 msgstr ""
 
-#: ../../../library/dbm.rst:243
+#: ../../../library/dbm.rst:264
 msgid ""
 "* ``'r'`` (default): |flag_r| * ``'w'``: |flag_w| * ``'c'``: |flag_c| * "
 "``'n'``: |flag_n|  The following additional characters may be appended to "
@@ -327,35 +352,35 @@ msgid ""
 "the :data:`open_flags` member for a list of supported flag characters."
 msgstr ""
 
-#: ../../../library/dbm.rst:249
+#: ../../../library/dbm.rst:270
 msgid ""
 "The following additional characters may be appended to control how the "
 "database is opened:"
 msgstr ""
 
-#: ../../../library/dbm.rst:252
+#: ../../../library/dbm.rst:273
 msgid ""
 "``'f'``: Open the database in fast mode. Writes to the database will not be "
 "synchronized."
 msgstr ""
 
-#: ../../../library/dbm.rst:254
+#: ../../../library/dbm.rst:275
 msgid ""
 "``'s'``: Synchronized mode. Changes to the database will be written "
 "immediately to the file."
 msgstr ""
 
-#: ../../../library/dbm.rst:256
+#: ../../../library/dbm.rst:277
 msgid "``'u'``: Do not lock database."
 msgstr ""
 
-#: ../../../library/dbm.rst:257
+#: ../../../library/dbm.rst:278
 msgid ""
 "``'m'``: Do not use :manpage:`mmap(2)`. This may harm performance, but "
 "improve crash tolerance. .. versionadded:: next"
 msgstr ""
 
-#: ../../../library/dbm.rst:261
+#: ../../../library/dbm.rst:282
 msgid ""
 "Not all flags are valid for all versions of GDBM. See the :data:`open_flags` "
 "member for a list of supported flag characters."
@@ -365,24 +390,32 @@ msgstr ""
 msgid "Raises"
 msgstr ""
 
-#: ../../../library/dbm.rst:267
+#: ../../../library/dbm.rst:288
 msgid "If an invalid *flag* argument is passed."
 msgstr ""
 
-#: ../../../library/dbm.rst:275
+#: ../../../library/dbm.rst:294
 msgid ""
-"A string of characters the *flag* parameter of :meth:`~dbm.gnu.open` "
-"supports."
+":class:`!gdbm` objects behave similar to mutable :term:`mappings <mapping>`, "
+"but methods :meth:`!items`, :meth:`!values`, :meth:`!pop`, :meth:`!popitem`, "
+"and :meth:`!update` are not supported, the :meth:`!keys` method returns a "
+"list, and the :meth:`!setdefault` method requires two arguments. It also "
+"supports a \"closing\" context manager via the :keyword:`with` keyword."
 msgstr ""
 
-#: ../../../library/dbm.rst:277
-msgid ""
-":class:`!gdbm` objects behave similar to :term:`mappings <mapping>`, but :"
-"meth:`!items` and :meth:`!values` methods are not supported. The following "
-"methods are also provided:"
+#: ../../../library/dbm.rst:301 ../../../library/dbm.rst:418
+msgid "Added the :meth:`!get` and :meth:`!setdefault` methods."
 msgstr ""
 
-#: ../../../library/dbm.rst:283
+#: ../../../library/dbm.rst:304 ../../../library/dbm.rst:421
+msgid "Added the :meth:`!clear` method."
+msgstr ""
+
+#: ../../../library/dbm.rst:311
+msgid "Close the GDBM database."
+msgstr ""
+
+#: ../../../library/dbm.rst:315
 msgid ""
 "It's possible to loop over every key in the database using this method  and "
 "the :meth:`nextkey` method.  The traversal is ordered by GDBM's internal "
@@ -390,14 +423,14 @@ msgid ""
 "starting key."
 msgstr ""
 
-#: ../../../library/dbm.rst:290
+#: ../../../library/dbm.rst:322
 msgid ""
 "Returns the key that follows *key* in the traversal.  The following code "
 "prints every key in the database ``db``, without having to create a list in "
 "memory that contains them all::"
 msgstr ""
 
-#: ../../../library/dbm.rst:301
+#: ../../../library/dbm.rst:333
 msgid ""
 "If you have carried out a lot of deletions and would like to shrink the "
 "space used by the GDBM file, this routine will reorganize the database.  :"
@@ -406,43 +439,35 @@ msgid ""
 "reused as new (key, value) pairs are added."
 msgstr ""
 
-#: ../../../library/dbm.rst:308
+#: ../../../library/dbm.rst:340
 msgid ""
 "While reorganizing, as much as one time the size of the original database is "
 "required in free disk space. However, be aware that this factor changes for "
 "each :mod:`dbm` submodule."
 msgstr ""
 
-#: ../../../library/dbm.rst:313
+#: ../../../library/dbm.rst:345
 msgid ""
 "When the database has been opened in fast mode, this method forces any "
 "unwritten data to be written to the disk."
 msgstr ""
 
-#: ../../../library/dbm.rst:318
-msgid "Close the GDBM database."
-msgstr ""
-
-#: ../../../library/dbm.rst:322
-msgid "Remove all items from the GDBM database."
-msgstr ""
-
-#: ../../../library/dbm.rst:328
+#: ../../../library/dbm.rst:350
 msgid ":mod:`dbm.ndbm` --- New Database Manager"
 msgstr ""
 
-#: ../../../library/dbm.rst:334
+#: ../../../library/dbm.rst:356
 msgid "**Source code:** :source:`Lib/dbm/ndbm.py`"
 msgstr ""
 
-#: ../../../library/dbm.rst:338
+#: ../../../library/dbm.rst:360
 msgid ""
 "The :mod:`dbm.ndbm` module provides an interface to the :abbr:`NDBM (New "
 "Database Manager)` library. This module can be used with the \"classic\" "
 "NDBM interface or the :abbr:`GDBM (GNU dbm)` compatibility interface."
 msgstr ""
 
-#: ../../../library/dbm.rst:350
+#: ../../../library/dbm.rst:372
 msgid ""
 "The NDBM library shipped as part of macOS has an undocumented limitation on "
 "the size of values, which can result in corrupted database files when "
@@ -450,55 +475,57 @@ msgid ""
 "result in a hard crash (segmentation fault)."
 msgstr ""
 
-#: ../../../library/dbm.rst:359
+#: ../../../library/dbm.rst:381
 msgid ""
 "Raised on :mod:`dbm.ndbm`-specific errors, such as I/O errors. :exc:"
 "`KeyError` is raised for general mapping errors like specifying an incorrect "
 "key."
 msgstr ""
 
-#: ../../../library/dbm.rst:365
+#: ../../../library/dbm.rst:387
 msgid "Name of the NDBM implementation library used."
 msgstr ""
 
-#: ../../../library/dbm.rst:370
+#: ../../../library/dbm.rst:392
 msgid "Open an NDBM database and return an :class:`!ndbm` object."
 msgstr ""
 
-#: ../../../library/dbm.rst:372
+#: ../../../library/dbm.rst:394
 msgid ""
 "The basename of the database file (without the :file:`.dir` or :file:`.pag` "
 "extensions)."
 msgstr ""
 
-#: ../../../library/dbm.rst:386
-msgid ""
-":class:`!ndbm` objects behave similar to :term:`mappings <mapping>`, but :"
-"meth:`!items` and :meth:`!values` methods are not supported. The following "
-"methods are also provided:"
-msgstr ""
-
-#: ../../../library/dbm.rst:390
+#: ../../../library/dbm.rst:408
 msgid "Accepts :term:`path-like object` for filename."
 msgstr ""
 
-#: ../../../library/dbm.rst:395
+#: ../../../library/dbm.rst:411
+msgid ""
+":class:`!ndbm` objects behave similar to mutable :term:`mappings <mapping>`, "
+"but methods :meth:`!items`, :meth:`!values`, :meth:`!pop`, :meth:`!popitem`, "
+"and :meth:`!update` are not supported, the :meth:`!keys` method returns a "
+"list, and the :meth:`!setdefault` method requires two arguments. It also "
+"supports a \"closing\" context manager via the :keyword:`with` keyword."
+msgstr ""
+
+#: ../../../library/dbm.rst:424
+msgid "The following method is also provided:"
+msgstr ""
+
+#: ../../../library/dbm.rst:428
 msgid "Close the NDBM database."
 msgstr ""
 
-#: ../../../library/dbm.rst:399
-msgid "Remove all items from the NDBM database."
-msgstr ""
-
-#: ../../../library/dbm.rst:405
+#: ../../../library/dbm.rst:432
 msgid ":mod:`dbm.dumb` --- Portable DBM implementation"
 msgstr ""
 
-#: ../../../library/dbm.rst:410
+#: ../../../library/dbm.rst:437
 msgid "**Source code:** :source:`Lib/dbm/dumb.py`"
 msgstr ""
 
-#: ../../../library/dbm.rst:416
+#: ../../../library/dbm.rst:443
 msgid ""
 "The :mod:`dbm.dumb` module is intended as a last resort fallback for the :"
 "mod:`dbm` module when a more robust module is not available. The :mod:`dbm."
@@ -506,120 +533,119 @@ msgid ""
 "the other database modules."
 msgstr ""
 
-#: ../../../library/dbm.rst:423
+#: ../../../library/dbm.rst:450
 msgid ""
 "The :mod:`dbm.dumb` module provides a persistent :class:`dict`-like "
 "interface which is written entirely in Python. Unlike other :mod:`dbm` "
 "backends, such as :mod:`dbm.gnu`, no external library is required."
 msgstr ""
 
-#: ../../../library/dbm.rst:428
+#: ../../../library/dbm.rst:455
 msgid "The :mod:`!dbm.dumb` module defines the following:"
 msgstr ""
 
-#: ../../../library/dbm.rst:432
+#: ../../../library/dbm.rst:459
 msgid ""
 "Raised on :mod:`dbm.dumb`-specific errors, such as I/O errors.  :exc:"
 "`KeyError` is raised for general mapping errors like specifying an incorrect "
 "key."
 msgstr ""
 
-#: ../../../library/dbm.rst:438
-msgid ""
-"Open a :mod:`!dbm.dumb` database. The returned database object behaves "
-"similar to a :term:`mapping`, in addition to providing :meth:`~dumbdbm.sync` "
-"and :meth:`~dumbdbm.close` methods."
+#: ../../../library/dbm.rst:465
+msgid "Open a :mod:`!dbm.dumb` database."
 msgstr ""
 
-#: ../../../library/dbm.rst:443
+#: ../../../library/dbm.rst:467
 msgid ""
 "The basename of the database file (without extensions). A new database "
 "creates the following files:  - :file:`{filename}.dat` - :file:`{filename}."
 "dir`"
 msgstr ""
 
-#: ../../../library/dbm.rst:444
+#: ../../../library/dbm.rst:468
 msgid ""
 "The basename of the database file (without extensions). A new database "
 "creates the following files:"
 msgstr ""
 
-#: ../../../library/dbm.rst:447
+#: ../../../library/dbm.rst:471
 msgid ":file:`{filename}.dat`"
 msgstr ""
 
-#: ../../../library/dbm.rst:448
+#: ../../../library/dbm.rst:472
 msgid ":file:`{filename}.dir`"
 msgstr ""
 
-#: ../../../library/dbm.rst:451
+#: ../../../library/dbm.rst:475
 msgid ""
 "* ``'r'``: |flag_r| * ``'w'``: |flag_w| * ``'c'`` (default): |flag_c| * "
 "``'n'``: |flag_n|"
 msgstr ""
 
-#: ../../../library/dbm.rst:452
+#: ../../../library/dbm.rst:476
 msgid "``'r'``: |flag_r|"
 msgstr ""
 
-#: ../../../library/dbm.rst:454
+#: ../../../library/dbm.rst:478
 msgid "``'c'`` (default): |flag_c|"
 msgstr ""
 
-#: ../../../library/dbm.rst:461
+#: ../../../library/dbm.rst:485
 msgid ""
 "It is possible to crash the Python interpreter when loading a database with "
 "a sufficiently large/complex entry due to stack depth limitations in "
 "Python's AST compiler."
 msgstr ""
 
-#: ../../../library/dbm.rst:466
+#: ../../../library/dbm.rst:490
 msgid ""
 ":mod:`dbm.dumb` does not support concurrent read/write access. (Multiple "
 "simultaneous read accesses are safe.) When a program has the database open "
 "for writing, no other program should have it open for reading or writing."
 msgstr ""
 
-#: ../../../library/dbm.rst:470
+#: ../../../library/dbm.rst:494
 msgid ""
 ":func:`~dbm.dumb.open` always creates a new database when *flag* is ``'n'``."
 msgstr ""
 
-#: ../../../library/dbm.rst:473
+#: ../../../library/dbm.rst:497
 msgid ""
 "A database opened read-only if *flag* is ``'r'``. A database is not created "
 "if it does not exist if *flag* is ``'r'`` or ``'w'``."
 msgstr ""
 
-#: ../../../library/dbm.rst:480
+#: ../../../library/dbm.rst:504
 msgid ""
-"In addition to the methods provided by the :class:`collections.abc."
-"MutableMapping` class, the following methods are provided:"
+"The returned database object behaves similar to a mutable :term:`mapping`, "
+"but the :meth:`!keys` and :meth:`!items` methods return lists, and the :meth:"
+"`!setdefault` method requires two arguments. It also supports a \"closing\" "
+"context manager via the :keyword:`with` keyword."
 msgstr ""
 
-#: ../../../library/dbm.rst:486
-msgid ""
-"Synchronize the on-disk directory and data files.  This method is called by "
-"the :meth:`shelve.Shelf.sync` method."
-msgstr ""
-
-#: ../../../library/dbm.rst:491
+#: ../../../library/dbm.rst:513
 msgid "Close the database."
 msgstr ""
 
-#: ../../../library/dbm.rst:495
+#: ../../../library/dbm.rst:517
 msgid ""
 "If you have carried out a lot of deletions and would like to shrink the "
 "space used on disk, this method will reorganize the database; otherwise, "
 "deleted file space will not be reused."
 msgstr ""
 
-#: ../../../library/dbm.rst:500
+#: ../../../library/dbm.rst:522
 msgid ""
 "While reorganizing, no additional free disk space is required. However, be "
 "aware that this factor changes for each :mod:`dbm` submodule."
 msgstr ""
 
-#: ../../../library/dbm.rst:412
+#: ../../../library/dbm.rst:529
+msgid ""
+"Synchronize the on-disk directory and data files.  This method is called by "
+"the :meth:`shelve.Shelf.sync` method."
+msgstr ""
+
+#: ../../../library/dbm.rst:439
 msgid "databases"
 msgstr ""
