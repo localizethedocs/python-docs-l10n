@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2025-09-08 08:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../../../c-api/stable.rst:7
-msgid "C API Stability"
+msgid "C API and ABI Stability"
 msgstr ""
 
 #: ../../../c-api/stable.rst:9
@@ -296,11 +296,184 @@ msgid ""
 "releases from ``python.org`` and many third-party distributors."
 msgstr ""
 
-#: ../../../c-api/stable.rst:205
+#: ../../../c-api/stable.rst:203
+msgid "ABI Checking"
+msgstr ""
+
+#: ../../../c-api/stable.rst:207
+msgid "Python includes a rudimentary check for ABI compatibility."
+msgstr ""
+
+#: ../../../c-api/stable.rst:209
+msgid ""
+"This check is not comprehensive. It only guards against common cases of "
+"incompatible modules being installed for the wrong interpreter. It also does "
+"not take :ref:`platform incompatibilities <stable-abi-platform>` into "
+"account. It can only be done after an extension is successfully loaded."
+msgstr ""
+
+#: ../../../c-api/stable.rst:216
+msgid ""
+"Despite these limitations, it is recommended that extension modules use this "
+"mechanism, so that detectable incompatibilities raise exceptions rather than "
+"crash."
+msgstr ""
+
+#: ../../../c-api/stable.rst:220
+msgid ""
+"Most modules can use this check via the :c:data:`Py_mod_abi` slot and the :c:"
+"macro:`PyABIInfo_VAR` macro, for example like this:"
+msgstr ""
+
+#: ../../../c-api/stable.rst:233
+msgid "The full API is described below for advanced use cases."
+msgstr ""
+
+#: ../../../c-api/stable.rst:237
+msgid ""
+"Verify that the given *info* is compatible with the currently running "
+"interpreter."
+msgstr ""
+
+#: ../../../c-api/stable.rst:240
+msgid "Return 0 on success. On failure, raise an exception and return -1."
+msgstr ""
+
+#: ../../../c-api/stable.rst:242
+msgid ""
+"If the ABI is incompatible, the raised exception will be :py:exc:"
+"`ImportError`."
+msgstr ""
+
+#: ../../../c-api/stable.rst:244
+msgid ""
+"The *module_name* argument can be ``NULL``, or point to a NUL-terminated "
+"UTF-8-encoded string used for error messages."
+msgstr ""
+
+#: ../../../c-api/stable.rst:247
+msgid ""
+"Note that if *info* describes the ABI that the current code uses (as defined "
+"by :c:macro:`PyABIInfo_VAR`, for example), using any other Python C API may "
+"lead to crashes. In particular, it is not safe to examine the raised "
+"exception."
+msgstr ""
+
+#: ../../../c-api/stable.rst:256
+msgid ""
+"Define a static :c:struct:`PyABIInfo` variable with the given *NAME* that "
+"describes the ABI that the current code will use. This macro expands to:"
+msgstr ""
+
+#: ../../../c-api/stable.rst:275
+msgid "The major version of :c:struct:`PyABIInfo`. Can be set to:"
+msgstr ""
+
+#: ../../../c-api/stable.rst:277
+msgid "``0`` to skip all checking, or"
+msgstr ""
+
+#: ../../../c-api/stable.rst:278
+msgid "``1`` to specify this version of :c:struct:`!PyABIInfo`."
+msgstr ""
+
+#: ../../../c-api/stable.rst:282
+msgid ""
+"The major version of :c:struct:`PyABIInfo`. Must be set to ``0``; larger "
+"values are reserved for backwards-compatible future versions of :c:struct:`!"
+"PyABIInfo`."
+msgstr ""
+
+#: ../../../c-api/stable.rst:290
+msgid "This field is usually set to the following macro:"
+msgstr ""
+
+#: ../../../c-api/stable.rst:294
+msgid ""
+"Default flags, based on current values of macros such as :c:macro:"
+"`Py_LIMITED_API` and :c:macro:`Py_GIL_DISABLED`."
+msgstr ""
+
+#: ../../../c-api/stable.rst:297
+msgid ""
+"Alternately, the field can be set to to the following flags, combined by "
+"bitwise OR. Unused bits must be set to zero."
+msgstr ""
+
+#: ../../../c-api/stable.rst:301
+msgid "ABI variant -- one of:"
+msgstr ""
+
+#: ../../../c-api/stable.rst:305
+msgid "Specifies that the stable ABI is used."
+msgstr ""
+
+#: ../../../c-api/stable.rst:309
+msgid ""
+"Specifies ABI specific to a particular build of CPython. Internal use only."
+msgstr ""
+
+#: ../../../c-api/stable.rst:312
+msgid "Free-threading compatibility -- one of:"
+msgstr ""
+
+#: ../../../c-api/stable.rst:316
+msgid ""
+"Specifies ABI compatible with free-threading builds of CPython. (That is, "
+"ones compiled with :option:`--disable-gil`; with ``t`` in :py:data:`sys."
+"abiflags`)"
+msgstr ""
+
+#: ../../../c-api/stable.rst:322
+msgid ""
+"Specifies ABI compatible with non-free-threading builds of CPython (ones "
+"compiled *without* :option:`--disable-gil`)."
+msgstr ""
+
+#: ../../../c-api/stable.rst:327
+msgid ""
+"The version of the Python headers used to build the code, in the format used "
+"by :c:macro:`PY_VERSION_HEX`."
+msgstr ""
+
+#: ../../../c-api/stable.rst:330
+msgid ""
+"This can be set to ``0`` to skip any checks related to this field. This "
+"option is meant mainly for projects that do not use the CPython headers "
+"directly, and do not emulate a specific version of them."
+msgstr ""
+
+#: ../../../c-api/stable.rst:336
+msgid "The ABI version."
+msgstr ""
+
+#: ../../../c-api/stable.rst:338
+msgid ""
+"For the Stable ABI, this field should be the value of :c:macro:"
+"`Py_LIMITED_API` (except if :c:macro:`Py_LIMITED_API` is ``3``; use :c:expr:"
+"`Py_PACK_VERSION(3, 2)` in that case)."
+msgstr ""
+
+#: ../../../c-api/stable.rst:343
+msgid "Otherwise, it should be set to :c:macro:`PY_VERSION_HEX`."
+msgstr ""
+
+#: ../../../c-api/stable.rst:345
+msgid "It can also be set to ``0`` to skip any checks related to this field."
+msgstr ""
+
+#: ../../../c-api/stable.rst:351
+msgid ""
+"The value that should be used for this field, based on current values of "
+"macros such as :c:macro:`Py_LIMITED_API`, :c:macro:`PY_VERSION_HEX` and :c:"
+"macro:`Py_GIL_DISABLED`."
+msgstr ""
+
+#: ../../../c-api/stable.rst:361
 msgid "Contents of Limited API"
 msgstr ""
 
-#: ../../../c-api/stable.rst:208
+#: ../../../c-api/stable.rst:364
 msgid ""
 "Currently, the :ref:`Limited API <limited-c-api>` includes the following "
 "items:"

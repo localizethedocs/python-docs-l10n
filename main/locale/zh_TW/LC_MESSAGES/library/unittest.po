@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2025-09-08 08:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2963,11 +2963,11 @@ msgstr ""
 msgid "setUpModule and tearDownModule"
 msgstr ""
 
-#: ../../../library/unittest.rst:2535
+#: ../../../library/unittest.rst:2539
 msgid "These should be implemented as functions::"
 msgstr ""
 
-#: ../../../library/unittest.rst:2543
+#: ../../../library/unittest.rst:2547
 msgid ""
 "If an exception is raised in a ``setUpModule`` then none of the tests in the "
 "module will be run and the ``tearDownModule`` will not be run. If the "
@@ -2975,13 +2975,13 @@ msgid ""
 "having been skipped instead of as an error."
 msgstr ""
 
-#: ../../../library/unittest.rst:2548
+#: ../../../library/unittest.rst:2552
 msgid ""
 "To add cleanup code that must be run even in the case of an exception, use "
 "``addModuleCleanup``:"
 msgstr ""
 
-#: ../../../library/unittest.rst:2554
+#: ../../../library/unittest.rst:2558
 msgid ""
 "Add a function to be called after :func:`tearDownModule` to cleanup "
 "resources used during the test class. Functions will be called in reverse "
@@ -2990,13 +2990,13 @@ msgid ""
 "`addModuleCleanup` when they are added."
 msgstr ""
 
-#: ../../../library/unittest.rst:2560
+#: ../../../library/unittest.rst:2564
 msgid ""
 "If :meth:`setUpModule` fails, meaning that :func:`tearDownModule` is not "
 "called, then any cleanup functions added will still be called."
 msgstr ""
 
-#: ../../../library/unittest.rst:2568
+#: ../../../library/unittest.rst:2572
 msgid ""
 "Enter the supplied :term:`context manager`.  If successful, also add its :"
 "meth:`~object.__exit__` method as a cleanup function by :func:"
@@ -3004,30 +3004,30 @@ msgid ""
 "method."
 msgstr ""
 
-#: ../../../library/unittest.rst:2578
+#: ../../../library/unittest.rst:2582
 msgid ""
 "This function is called unconditionally after :func:`tearDownModule`, or "
 "after :func:`setUpModule` if :func:`setUpModule` raises an exception."
 msgstr ""
 
-#: ../../../library/unittest.rst:2581
+#: ../../../library/unittest.rst:2585
 msgid ""
 "It is responsible for calling all the cleanup functions added by :func:"
 "`addModuleCleanup`. If you need cleanup functions to be called *prior* to :"
 "func:`tearDownModule` then you can call :func:`doModuleCleanups` yourself."
 msgstr ""
 
-#: ../../../library/unittest.rst:2586
+#: ../../../library/unittest.rst:2590
 msgid ""
 ":func:`doModuleCleanups` pops methods off the stack of cleanup functions one "
 "at a time, so it can be called at any time."
 msgstr ""
 
-#: ../../../library/unittest.rst:2593
+#: ../../../library/unittest.rst:2597
 msgid "Signal Handling"
 msgstr ""
 
-#: ../../../library/unittest.rst:2597
+#: ../../../library/unittest.rst:2601
 msgid ""
 "The :option:`-c/--catch <unittest -c>` command-line option to unittest, "
 "along with the ``catchbreak`` parameter to :func:`unittest.main`, provide "
@@ -3037,7 +3037,7 @@ msgid ""
 "A second control-c will raise a :exc:`KeyboardInterrupt` in the usual way."
 msgstr ""
 
-#: ../../../library/unittest.rst:2604
+#: ../../../library/unittest.rst:2608
 msgid ""
 "The control-c handling signal handler attempts to remain compatible with "
 "code or tests that install their own :const:`signal.SIGINT` handler. If the "
@@ -3049,41 +3049,41 @@ msgid ""
 "disabled the :func:`removeHandler` decorator can be used."
 msgstr ""
 
-#: ../../../library/unittest.rst:2613
+#: ../../../library/unittest.rst:2617
 msgid ""
 "There are a few utility functions for framework authors to enable control-c "
 "handling functionality within test frameworks."
 msgstr ""
 
-#: ../../../library/unittest.rst:2618
+#: ../../../library/unittest.rst:2622
 msgid ""
 "Install the control-c handler. When a :const:`signal.SIGINT` is received "
 "(usually in response to the user pressing control-c) all registered results "
 "have :meth:`~TestResult.stop` called."
 msgstr ""
 
-#: ../../../library/unittest.rst:2625
+#: ../../../library/unittest.rst:2629
 msgid ""
 "Register a :class:`TestResult` object for control-c handling. Registering a "
 "result stores a weak reference to it, so it doesn't prevent the result from "
 "being garbage collected."
 msgstr ""
 
-#: ../../../library/unittest.rst:2629
+#: ../../../library/unittest.rst:2633
 msgid ""
 "Registering a :class:`TestResult` object has no side-effects if control-c "
 "handling is not enabled, so test frameworks can unconditionally register all "
 "results they create independently of whether or not handling is enabled."
 msgstr ""
 
-#: ../../../library/unittest.rst:2636
+#: ../../../library/unittest.rst:2640
 msgid ""
 "Remove a registered result. Once a result has been removed then :meth:"
 "`~TestResult.stop` will no longer be called on that result object in "
 "response to a control-c."
 msgstr ""
 
-#: ../../../library/unittest.rst:2643
+#: ../../../library/unittest.rst:2647
 msgid ""
 "When called without arguments this function removes the control-c handler if "
 "it has been installed. This function can also be used as a test decorator to "
