@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2025-09-29 08:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -378,21 +378,11 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:321
 msgid ""
-"Reset :data:`sys.warnoptions` to an empty list. This function may be called "
-"prior to :c:func:`Py_Initialize`."
-msgstr ""
-
-#: ../../../c-api/sys.rst:324
-msgid "Clear :data:`sys.warnoptions` and :data:`!warnings.filters` instead."
-msgstr ""
-
-#: ../../../c-api/sys.rst:329
-msgid ""
 "Write the output string described by *format* to :data:`sys.stdout`.  No "
 "exceptions are raised, even if truncation occurs (see below)."
 msgstr ""
 
-#: ../../../c-api/sys.rst:332
+#: ../../../c-api/sys.rst:324
 msgid ""
 "*format* should limit the total size of the formatted output string to 1000 "
 "bytes or less -- after 1000 bytes, the output string is truncated. In "
@@ -403,48 +393,48 @@ msgid ""
 "of digits for very large numbers."
 msgstr ""
 
-#: ../../../c-api/sys.rst:340
+#: ../../../c-api/sys.rst:332
 msgid ""
 "If a problem occurs, or :data:`sys.stdout` is unset, the formatted message "
 "is written to the real (C level) *stdout*."
 msgstr ""
 
-#: ../../../c-api/sys.rst:345
+#: ../../../c-api/sys.rst:337
 msgid ""
 "As :c:func:`PySys_WriteStdout`, but write to :data:`sys.stderr` or *stderr* "
 "instead."
 msgstr ""
 
-#: ../../../c-api/sys.rst:350
+#: ../../../c-api/sys.rst:342
 msgid ""
 "Function similar to PySys_WriteStdout() but format the message using :c:func:"
 "`PyUnicode_FromFormatV` and don't truncate the message to an arbitrary "
 "length."
 msgstr ""
 
-#: ../../../c-api/sys.rst:358
+#: ../../../c-api/sys.rst:350
 msgid ""
 "As :c:func:`PySys_FormatStdout`, but write to :data:`sys.stderr` or *stderr* "
 "instead."
 msgstr ""
 
-#: ../../../c-api/sys.rst:365
+#: ../../../c-api/sys.rst:357
 msgid ""
 "Return the current dictionary of :option:`-X` options, similarly to :data:"
 "`sys._xoptions`.  On error, ``NULL`` is returned and an exception is set."
 msgstr ""
 
-#: ../../../c-api/sys.rst:374
+#: ../../../c-api/sys.rst:366
 msgid ""
 "Raise an auditing event with any active hooks. Return zero for success and "
 "non-zero with an exception set on failure."
 msgstr ""
 
-#: ../../../c-api/sys.rst:377
+#: ../../../c-api/sys.rst:369
 msgid "The *event* string argument must not be *NULL*."
 msgstr ""
 
-#: ../../../c-api/sys.rst:379
+#: ../../../c-api/sys.rst:371
 msgid ""
 "If any hooks have been added, *format* and other arguments will be used to "
 "construct a tuple to pass. Apart from ``N``, the same format characters as "
@@ -452,40 +442,40 @@ msgid ""
 "tuple, it will be added into a single-element tuple."
 msgstr ""
 
-#: ../../../c-api/sys.rst:384
+#: ../../../c-api/sys.rst:376
 msgid ""
 "The ``N`` format option must not be used. It consumes a reference, but since "
 "there is no way to know whether arguments to this function will be consumed, "
 "using it may cause reference leaks."
 msgstr ""
 
-#: ../../../c-api/sys.rst:388
+#: ../../../c-api/sys.rst:380
 msgid ""
 "Note that ``#`` format characters should always be treated as :c:type:"
 "`Py_ssize_t`, regardless of whether ``PY_SSIZE_T_CLEAN`` was defined."
 msgstr ""
 
-#: ../../../c-api/sys.rst:391
+#: ../../../c-api/sys.rst:383
 msgid ":func:`sys.audit` performs the same function from Python code."
 msgstr ""
 
-#: ../../../c-api/sys.rst:393
+#: ../../../c-api/sys.rst:385
 msgid "See also :c:func:`PySys_AuditTuple`."
 msgstr ""
 
-#: ../../../c-api/sys.rst:399
+#: ../../../c-api/sys.rst:391
 msgid ""
 "Require :c:type:`Py_ssize_t` for ``#`` format characters. Previously, an "
 "unavoidable deprecation warning was raised."
 msgstr ""
 
-#: ../../../c-api/sys.rst:405
+#: ../../../c-api/sys.rst:397
 msgid ""
 "Similar to :c:func:`PySys_Audit`, but pass arguments as a Python object. "
 "*args* must be a :class:`tuple`. To pass no arguments, *args* can be *NULL*."
 msgstr ""
 
-#: ../../../c-api/sys.rst:413
+#: ../../../c-api/sys.rst:405
 msgid ""
 "Append the callable *hook* to the list of active auditing hooks. Return zero "
 "on success and non-zero on failure. If the runtime has been initialized, "
@@ -493,14 +483,14 @@ msgid ""
 "all interpreters created by the runtime."
 msgstr ""
 
-#: ../../../c-api/sys.rst:419
+#: ../../../c-api/sys.rst:411
 msgid ""
 "The *userData* pointer is passed into the hook function. Since hook "
 "functions may be called from different runtimes, this pointer should not "
 "refer directly to Python state."
 msgstr ""
 
-#: ../../../c-api/sys.rst:423
+#: ../../../c-api/sys.rst:415
 msgid ""
 "This function is safe to call before :c:func:`Py_Initialize`. When called "
 "after runtime initialization, existing audit hooks are notified and may "
@@ -508,20 +498,20 @@ msgid ""
 "`Exception` (other errors will not be silenced)."
 msgstr ""
 
-#: ../../../c-api/sys.rst:428
+#: ../../../c-api/sys.rst:420
 msgid ""
 "The hook function is always called with an :term:`attached thread state` by "
 "the Python interpreter that raised the event."
 msgstr ""
 
-#: ../../../c-api/sys.rst:431
+#: ../../../c-api/sys.rst:423
 msgid ""
 "See :pep:`578` for a detailed description of auditing.  Functions in the "
 "runtime and standard library that raise events are listed in the :ref:`audit "
 "events table <audit-events>`. Details are in each function's documentation."
 msgstr ""
 
-#: ../../../c-api/sys.rst:436 ../../../c-api/sys.rst:438
+#: ../../../c-api/sys.rst:428 ../../../c-api/sys.rst:430
 msgid ""
 "If the interpreter is initialized, this function raises an auditing event "
 "``sys.addaudithook`` with no arguments. If any existing hooks raise an "
@@ -530,7 +520,7 @@ msgid ""
 "hook has been added unless they control all existing hooks."
 msgstr ""
 
-#: ../../../c-api/sys.rst:447
+#: ../../../c-api/sys.rst:439
 msgid ""
 "The type of the hook function. *event* is the C string event argument passed "
 "to :c:func:`PySys_Audit` or :c:func:`PySys_AuditTuple`. *args* is guaranteed "
@@ -538,11 +528,11 @@ msgid ""
 "PySys_AddAuditHook()."
 msgstr ""
 
-#: ../../../c-api/sys.rst:459
+#: ../../../c-api/sys.rst:451
 msgid "Process Control"
 msgstr ""
 
-#: ../../../c-api/sys.rst:466
+#: ../../../c-api/sys.rst:458
 msgid ""
 "Print a fatal error message and kill the process.  No cleanup is performed. "
 "This function should only be invoked when a condition is detected that would "
@@ -552,29 +542,29 @@ msgid ""
 "file:`core` file."
 msgstr ""
 
-#: ../../../c-api/sys.rst:473
+#: ../../../c-api/sys.rst:465
 msgid ""
 "The ``Py_FatalError()`` function is replaced with a macro which logs "
 "automatically the name of the current function, unless the "
 "``Py_LIMITED_API`` macro is defined."
 msgstr ""
 
-#: ../../../c-api/sys.rst:477
+#: ../../../c-api/sys.rst:469
 msgid "Log the function name automatically."
 msgstr ""
 
-#: ../../../c-api/sys.rst:487
+#: ../../../c-api/sys.rst:479
 msgid ""
 "Exit the current process.  This calls :c:func:`Py_FinalizeEx` and then calls "
 "the standard C library function ``exit(status)``.  If :c:func:"
 "`Py_FinalizeEx` indicates an error, the exit status is set to 120."
 msgstr ""
 
-#: ../../../c-api/sys.rst:491
+#: ../../../c-api/sys.rst:483
 msgid "Errors from finalization no longer ignored."
 msgstr ""
 
-#: ../../../c-api/sys.rst:501
+#: ../../../c-api/sys.rst:493
 msgid ""
 "Register a cleanup function to be called by :c:func:`Py_FinalizeEx`.  The "
 "cleanup function will be called with no arguments and should return no "
@@ -586,7 +576,7 @@ msgid ""
 "should be called by *func*."
 msgstr ""
 
-#: ../../../c-api/sys.rst:511
+#: ../../../c-api/sys.rst:503
 msgid ":c:func:`PyUnstable_AtExit` for passing a ``void *data`` argument."
 msgstr ""
 
@@ -594,18 +584,18 @@ msgstr ""
 msgid "USE_STACKCHECK (C macro)"
 msgstr ""
 
-#: ../../../c-api/sys.rst:464
+#: ../../../c-api/sys.rst:456
 msgid "abort (C function)"
 msgstr ""
 
-#: ../../../c-api/sys.rst:483 ../../../c-api/sys.rst:497
+#: ../../../c-api/sys.rst:475 ../../../c-api/sys.rst:489
 msgid "Py_FinalizeEx (C function)"
 msgstr ""
 
-#: ../../../c-api/sys.rst:483
+#: ../../../c-api/sys.rst:475
 msgid "exit (C function)"
 msgstr ""
 
-#: ../../../c-api/sys.rst:497
+#: ../../../c-api/sys.rst:489
 msgid "cleanup functions"
 msgstr ""
