@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2025-10-13 08:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,18 +58,27 @@ msgstr ""
 
 #: ../../../library/pty.rst:36
 msgid ""
+"The returned file descriptor *fd* is :ref:`non-inheritable <fd_inheritance>`."
+msgstr ""
+
+#: ../../../library/pty.rst:38
+msgid ""
 "On macOS the use of this function is unsafe when mixed with using higher-"
 "level system APIs, and that includes using :mod:`urllib.request`."
 msgstr ""
 
-#: ../../../library/pty.rst:42
+#: ../../../library/pty.rst:41
+msgid "The returned file descriptor is now made non-inheritable."
+msgstr ""
+
+#: ../../../library/pty.rst:47
 msgid ""
 "Open a new pseudo-terminal pair, using :func:`os.openpty` if possible, or "
 "emulation code for generic Unix systems. Return a pair of file descriptors "
 "``(master, slave)``, for the master and the slave end, respectively."
 msgstr ""
 
-#: ../../../library/pty.rst:49
+#: ../../../library/pty.rst:54
 msgid ""
 "Spawn a process, and connect its controlling terminal with the current "
 "process's standard io. This is often used to baffle programs which insist on "
@@ -78,14 +87,14 @@ msgid ""
 "will return."
 msgstr ""
 
-#: ../../../library/pty.rst:55
+#: ../../../library/pty.rst:60
 msgid ""
 "A loop copies STDIN of the current process to the child and data received "
 "from the child to STDOUT of the current process. It is not signaled to the "
 "child if STDIN of the current process closes down."
 msgstr ""
 
-#: ../../../library/pty.rst:59
+#: ../../../library/pty.rst:64
 msgid ""
 "The functions *master_read* and *stdin_read* are passed a file descriptor "
 "which they should read from, and they should always return a byte string. In "
@@ -93,7 +102,7 @@ msgid ""
 "array should be returned to signal end of file."
 msgstr ""
 
-#: ../../../library/pty.rst:64
+#: ../../../library/pty.rst:69
 msgid ""
 "The default implementation for both functions will read and return up to "
 "1024 bytes each time the function is called. The *master_read* callback is "
@@ -102,7 +111,7 @@ msgid ""
 "the parent process's standard input."
 msgstr ""
 
-#: ../../../library/pty.rst:70
+#: ../../../library/pty.rst:75
 msgid ""
 "Returning an empty byte string from either callback is interpreted as an end-"
 "of-file (EOF) condition, and that callback will not be called after that. If "
@@ -112,34 +121,34 @@ msgid ""
 "signals EOF the same behavior results (on linux at least)."
 msgstr ""
 
-#: ../../../library/pty.rst:77
+#: ../../../library/pty.rst:82
 msgid ""
 "Return the exit status value from :func:`os.waitpid` on the child process."
 msgstr ""
 
-#: ../../../library/pty.rst:79
+#: ../../../library/pty.rst:84
 msgid ""
 ":func:`os.waitstatus_to_exitcode` can be used to convert the exit status "
 "into an exit code."
 msgstr ""
 
-#: ../../../library/pty.rst:82
+#: ../../../library/pty.rst:87
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``pty.spawn`` with argument "
 "``argv``."
 msgstr ""
 
-#: ../../../library/pty.rst:84
+#: ../../../library/pty.rst:89
 msgid ""
 ":func:`spawn` now returns the status value from :func:`os.waitpid` on the "
 "child process."
 msgstr ""
 
-#: ../../../library/pty.rst:89
+#: ../../../library/pty.rst:94
 msgid "Example"
 msgstr ""
 
-#: ../../../library/pty.rst:93
+#: ../../../library/pty.rst:98
 msgid ""
 "The following program acts like the Unix command :manpage:`script(1)`, using "
 "a pseudo-terminal to record all input and output of a terminal session in a "
