@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2025-10-13 08:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -192,11 +192,15 @@ msgstr ""
 msgid "``PyFunction_EVENT_MODIFY_KWDEFAULTS``"
 msgstr ""
 
-#: ../../../c-api/function.rst:181
+#: ../../../c-api/function.rst:178
+msgid "``PyFunction_PYFUNC_EVENT_MODIFY_QUALNAME``"
+msgstr ""
+
+#: ../../../c-api/function.rst:184
 msgid "Type of a function watcher callback function."
 msgstr ""
 
-#: ../../../c-api/function.rst:183
+#: ../../../c-api/function.rst:186
 msgid ""
 "If *event* is ``PyFunction_EVENT_CREATE`` or ``PyFunction_EVENT_DESTROY`` "
 "then *new_value* will be ``NULL``. Otherwise, *new_value* will hold a :term:"
@@ -204,13 +208,13 @@ msgid ""
 "for the attribute that is being modified."
 msgstr ""
 
-#: ../../../c-api/function.rst:188
+#: ../../../c-api/function.rst:191
 msgid ""
 "The callback may inspect but must not modify *func*; doing so could have "
 "unpredictable effects, including infinite recursion."
 msgstr ""
 
-#: ../../../c-api/function.rst:191
+#: ../../../c-api/function.rst:194
 msgid ""
 "If *event* is ``PyFunction_EVENT_CREATE``, then the callback is invoked "
 "after *func* has been fully initialized. Otherwise, the callback is invoked "
@@ -222,7 +226,7 @@ msgid ""
 "semantics of the Python code being executed."
 msgstr ""
 
-#: ../../../c-api/function.rst:200
+#: ../../../c-api/function.rst:203
 msgid ""
 "If *event* is ``PyFunction_EVENT_DESTROY``,  Taking a reference in the "
 "callback to the about-to-be-destroyed function will resurrect it, preventing "
@@ -230,14 +234,14 @@ msgid ""
 "later, any watcher callbacks active at that time will be called again."
 msgstr ""
 
-#: ../../../c-api/function.rst:205
+#: ../../../c-api/function.rst:208
 msgid ""
 "If the callback sets an exception, it must return ``-1``; this exception "
 "will be printed as an unraisable exception using :c:func:"
 "`PyErr_WriteUnraisable`. Otherwise it should return ``0``."
 msgstr ""
 
-#: ../../../c-api/function.rst:209
+#: ../../../c-api/function.rst:212
 msgid ""
 "There may already be a pending exception set on entry to the callback. In "
 "this case, the callback should return ``0`` with the same exception still "
