@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-13 08:42+0000\n"
+"POT-Creation-Date: 2025-10-27 08:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -398,151 +398,155 @@ msgstr ""
 msgid ""
 "If *size* is greater than zero, allocate *size* bytes, and set the writer "
 "size to *size*. The caller is responsible to write *size* bytes using :c:"
-"func:`PyBytesWriter_GetData`."
+"func:`PyBytesWriter_GetData`. This function does not overallocate."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:263 ../../../c-api/bytes.rst:380
+#: ../../../c-api/bytes.rst:264 ../../../c-api/bytes.rst:385
 msgid "On error, set an exception and return ``NULL``."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:265 ../../../c-api/bytes.rst:358
+#: ../../../c-api/bytes.rst:266 ../../../c-api/bytes.rst:361
 msgid "*size* must be positive or zero."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:269
+#: ../../../c-api/bytes.rst:270
 msgid ""
 "Finish a :c:type:`PyBytesWriter` created by :c:func:`PyBytesWriter_Create`."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:272
+#: ../../../c-api/bytes.rst:273
 msgid ""
 "On success, return a Python :class:`bytes` object. On error, set an "
 "exception and return ``NULL``."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:275
+#: ../../../c-api/bytes.rst:276
 msgid ""
 "The writer instance is invalid after the call in any case. No API can be "
 "called on the writer after :c:func:`PyBytesWriter_Finish`."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:280
+#: ../../../c-api/bytes.rst:281
 msgid ""
 "Similar to :c:func:`PyBytesWriter_Finish`, but resize the writer to *size* "
 "bytes before creating the :class:`bytes` object."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:285
+#: ../../../c-api/bytes.rst:286
 msgid ""
 "Similar to :c:func:`PyBytesWriter_Finish`, but resize the writer using *buf* "
 "pointer before creating the :class:`bytes` object."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:288
+#: ../../../c-api/bytes.rst:289
 msgid ""
 "Set an exception and return ``NULL`` if *buf* pointer is outside the "
 "internal buffer bounds."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:291 ../../../c-api/bytes.rst:384
+#: ../../../c-api/bytes.rst:292 ../../../c-api/bytes.rst:389
 msgid "Function pseudo-code::"
 msgstr ""
 
-#: ../../../c-api/bytes.rst:298
+#: ../../../c-api/bytes.rst:299
 msgid ""
 "Discard a :c:type:`PyBytesWriter` created by :c:func:`PyBytesWriter_Create`."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:300
+#: ../../../c-api/bytes.rst:301
 msgid "Do nothing if *writer* is ``NULL``."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:302
+#: ../../../c-api/bytes.rst:303
 msgid ""
 "The writer instance is invalid after the call. No API can be called on the "
 "writer after :c:func:`PyBytesWriter_Discard`."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:306
+#: ../../../c-api/bytes.rst:307
 msgid "High-level API"
 msgstr ""
 
-#: ../../../c-api/bytes.rst:310
+#: ../../../c-api/bytes.rst:311
 msgid ""
 "Grow the *writer* internal buffer by *size* bytes, write *size* bytes of "
 "*bytes* at the *writer* end, and add *size* to the *writer* size."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:314
+#: ../../../c-api/bytes.rst:315
 msgid ""
 "If *size* is equal to ``-1``, call ``strlen(bytes)`` to get the string "
 "length."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:317 ../../../c-api/bytes.rst:326
-#: ../../../c-api/bytes.rst:355 ../../../c-api/bytes.rst:366
+#: ../../../c-api/bytes.rst:318 ../../../c-api/bytes.rst:327
+#: ../../../c-api/bytes.rst:358 ../../../c-api/bytes.rst:371
 msgid "On success, return ``0``. On error, set an exception and return ``-1``."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:322
+#: ../../../c-api/bytes.rst:323
 msgid ""
 "Similar to :c:func:`PyBytes_FromFormat`, but write the output directly at "
 "the writer end. Grow the writer internal buffer on demand. Then add the "
 "written size to the writer size."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:331
+#: ../../../c-api/bytes.rst:332
 msgid "Getters"
 msgstr ""
 
-#: ../../../c-api/bytes.rst:335
+#: ../../../c-api/bytes.rst:336
 msgid "Get the writer size."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:339
+#: ../../../c-api/bytes.rst:340
 msgid "Get the writer data: start of the internal buffer."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:341
+#: ../../../c-api/bytes.rst:342
 msgid ""
 "The pointer is valid until :c:func:`PyBytesWriter_Finish` or :c:func:"
 "`PyBytesWriter_Discard` is called on *writer*."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:346
+#: ../../../c-api/bytes.rst:347
 msgid "Low-level API"
 msgstr ""
 
-#: ../../../c-api/bytes.rst:350
+#: ../../../c-api/bytes.rst:351
 msgid ""
 "Resize the writer to *size* bytes. It can be used to enlarge or to shrink "
-"the writer."
+"the writer. This function typically overallocates to achieve amortized "
+"performance when resizing multiple times."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:353 ../../../c-api/bytes.rst:364
+#: ../../../c-api/bytes.rst:356 ../../../c-api/bytes.rst:369
 msgid "Newly allocated bytes are left uninitialized."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:362
-msgid "Resize the writer by adding *grow* bytes to the current writer size."
+#: ../../../c-api/bytes.rst:365
+msgid ""
+"Resize the writer by adding *grow* bytes to the current writer size. This "
+"function typically overallocates to achieve amortized performance when "
+"resizing multiple times."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:369
+#: ../../../c-api/bytes.rst:374
 msgid "*size* can be negative to shrink the writer."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:373
+#: ../../../c-api/bytes.rst:378
 msgid ""
 "Similar to :c:func:`PyBytesWriter_Grow`, but update also the *buf* pointer."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:376
+#: ../../../c-api/bytes.rst:381
 msgid ""
 "The *buf* pointer is moved if the internal buffer is moved in memory. The "
 "*buf* relative position within the internal buffer is left unchanged."
 msgstr ""
 
-#: ../../../c-api/bytes.rst:382
+#: ../../../c-api/bytes.rst:387
 msgid "*buf* must not be ``NULL``."
 msgstr ""
 
