@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../c-api/init.rst:8
+msgid "Initialization, Finalization, and Threads"
+msgstr ""
+
+#: ../../../c-api/init.rst:386
+msgid "Thread State and the Global Interpreter Lock"
+msgstr ""
+
+#: ../../../c-api/init.rst:393
+msgid ""
+"The Python interpreter is not fully thread safe.  In order to support multi-"
+"threaded Python programs, there's a global lock that must be held by the "
+"current thread before it can safely access Python objects. Without the lock, "
+"even the simplest operations could cause problems in a multi-threaded "
+"program: for example, when two threads simultaneously increment the "
+"reference count of the same object, the reference count could end up being "
+"incremented only once instead of twice."
+msgstr ""
+
+#: ../../../c-api/init.rst:403
+msgid ""
+"Therefore, the rule exists that only the thread that has acquired the global "
+"interpreter lock may operate on Python objects or call Python/C API "
+"functions. In order to support multi-threaded Python programs, the "
+"interpreter regularly releases and reacquires the lock --- by default, every "
+"100 bytecode instructions (this can be changed with  :func:`sys."
+"setcheckinterval`).  The lock is also released and reacquired around "
+"potentially blocking I/O operations like reading or writing a file, so that "
+"other threads can run while the thread that requests the I/O is waiting for "
+"the I/O operation to complete."
+msgstr ""
+
+#: ../../../c-api/init.rst:416
+msgid ""
+"The Python interpreter needs to keep some bookkeeping information separate "
+"per thread --- for this it uses a data structure called :ctype:"
+"`PyThreadState`. There's one global variable, however: the pointer to the "
+"current :ctype:`PyThreadState` structure.  While most thread packages have a "
+"way to store \"per-thread global data,\" Python's internal platform "
+"independent thread abstraction doesn't support this yet.  Therefore, the "
+"current thread state must be manipulated explicitly."
+msgstr ""
+
+#: ../../../c-api/init.rst:424
+msgid ""
+"This is easy enough in most cases.  Most code manipulating the global "
+"interpreter lock has the following simple structure::"
+msgstr ""
+
+#: ../../../c-api/init.rst:433
+msgid "This is so common that a pair of macros exists to simplify it::"
+msgstr ""
+
+#: ../../../c-api/init.rst:443
+msgid ""
+"The :cmacro:`Py_BEGIN_ALLOW_THREADS` macro opens a new block and declares a "
+"hidden local variable; the :cmacro:`Py_END_ALLOW_THREADS` macro closes the "
+"block.  Another advantage of using these two macros is that when Python is "
+"compiled without thread support, they are defined empty, thus saving the "
+"thread state and lock manipulations."
+msgstr ""
+
+#: ../../../c-api/init.rst:449
+msgid ""
+"When thread support is enabled, the block above expands to the following "
+"code::"
+msgstr ""
+
+#: ../../../c-api/init.rst:457
+msgid ""
+"Using even lower level primitives, we can get roughly the same effect as "
+"follows::"
+msgstr ""
+
+#: ../../../c-api/init.rst:475
+msgid ""
+"There are some subtle differences; in particular, :cfunc:"
+"`PyEval_RestoreThread` saves and restores the value of the  global variable :"
+"cdata:`errno`, since the lock manipulation does not guarantee that :cdata:"
+"`errno` is left alone.  Also, when thread support is disabled, :cfunc:"
+"`PyEval_SaveThread` and :cfunc:`PyEval_RestoreThread` don't manipulate the "
+"lock; in this case, :cfunc:`PyEval_ReleaseLock` and :cfunc:"
+"`PyEval_AcquireLock` are not available. This is done so that dynamically "
+"loaded extensions compiled with thread support enabled can be loaded by an "
+"interpreter that was compiled with disabled thread support."
+msgstr ""
+
+#: ../../../c-api/init.rst:485
+msgid ""
+"The global interpreter lock is used to protect the pointer to the current "
+"thread state.  When releasing the lock and saving the thread state, the "
+"current thread state pointer must be retrieved before the lock is released "
+"(since another thread could immediately acquire the lock and store its own "
+"thread state in the global variable). Conversely, when acquiring the lock "
+"and restoring the thread state, the lock must be acquired before storing the "
+"thread state pointer."
+msgstr ""
+
+#: ../../../c-api/init.rst:492
+msgid ""
+"Why am I going on with so much detail about this?  Because when threads are "
+"created from C, they don't have the global interpreter lock, nor is there a "
+"thread state data structure for them.  Such threads must bootstrap "
+"themselves into existence, by first creating a thread state data structure, "
+"then acquiring the lock, and finally storing their thread state pointer, "
+"before they can start using the Python/C API.  When they are done, they "
+"should reset the thread state pointer, release the lock, and finally free "
+"their thread state data structure."
+msgstr ""
+
+#: ../../../c-api/init.rst:500
+msgid ""
+"Threads can take advantage of the :cfunc:`PyGILState_\\*` functions to do "
+"all of the above automatically.  The typical idiom for calling into Python "
+"from a C thread is now::"
+msgstr ""
+
+#: ../../../c-api/init.rst:514
+msgid ""
+"Note that the :cfunc:`PyGILState_\\*` functions assume there is only one "
+"global interpreter (created automatically by :cfunc:`Py_Initialize`).  "
+"Python still supports the creation of additional interpreters (using :cfunc:"
+"`Py_NewInterpreter`), but mixing multiple interpreters and the :cfunc:"
+"`PyGILState_\\*` API is unsupported."
+msgstr ""
+
+#: ../../../c-api/init.rst:643
+msgid ""
+"The following macros are normally used without a trailing semicolon; look "
+"for example usage in the Python source distribution."
+msgstr ""
+
+#: ../../../c-api/init.rst:676
+msgid ""
+"All of the following functions are only available when thread support is "
+"enabled at compile time, and must be called only when the interpreter lock "
+"has been created."
+msgstr ""
+
+#: ../../../c-api/init.rst:789
+msgid "Profiling and Tracing"
+msgstr ""
+
+#: ../../../c-api/init.rst:794
+msgid ""
+"The Python interpreter provides some low-level support for attaching "
+"profiling and execution tracing facilities.  These are used for profiling, "
+"debugging, and coverage analysis tools."
+msgstr ""
+
+#: ../../../c-api/init.rst:798
+msgid ""
+"This C interface allows the profiling or tracing code to avoid the overhead "
+"of calling through Python-level callable objects, making a direct C function "
+"call instead.  The essential attributes of the facility have not changed; "
+"the interface allows trace functions to be installed per-thread, and the "
+"basic events reported to the trace function are the same as had been "
+"reported to the Python-level trace functions in previous versions."
+msgstr ""
+
+#: ../../../c-api/init.rst:946
+msgid "Advanced Debugger Support"
+msgstr ""
+
+#: ../../../c-api/init.rst:951
+msgid ""
+"These functions are only intended to be used by advanced debugging tools."
+msgstr ""
+
+#: ../../../c-api/init.rst:388
+msgid "global interpreter lock"
+msgstr ""
+
+#: ../../../c-api/init.rst:388
+msgid "interpreter lock"
+msgstr ""
+
+#: ../../../c-api/init.rst:388
+msgid "lock, interpreter"
+msgstr ""
+
+#: ../../../c-api/init.rst:401
+msgid "setcheckinterval() (in module sys)"
+msgstr ""
+
+#: ../../../c-api/init.rst:412
+msgid "PyThreadState"
+msgstr ""
+
+#: ../../../c-api/init.rst:439
+msgid "Py_BEGIN_ALLOW_THREADS"
+msgstr ""
+
+#: ../../../c-api/init.rst:439
+msgid "Py_END_ALLOW_THREADS"
+msgstr ""
+
+#: ../../../c-api/init.rst:468
+msgid "PyEval_RestoreThread()"
+msgstr ""
+
+#: ../../../c-api/init.rst:468
+msgid "errno"
+msgstr ""
+
+#: ../../../c-api/init.rst:468
+msgid "PyEval_SaveThread()"
+msgstr ""
+
+#: ../../../c-api/init.rst:468
+msgid "PyEval_ReleaseLock()"
+msgstr ""
+
+#: ../../../c-api/init.rst:468
+msgid "PyEval_AcquireLock()"
+msgstr ""
