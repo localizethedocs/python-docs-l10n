@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-08 08:37+0000\n"
+"POT-Creation-Date: 2025-11-03 09:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -920,11 +920,13 @@ msgstr ""
 
 #: ../../../library/winreg.rst:774
 msgid ""
-"The object also support comparison semantics, so handle objects will compare "
-"true if they both reference the same underlying Windows handle value."
+"The object also support equality comparison semantics, so handle objects "
+"will compare equal if they both reference the same underlying Windows handle "
+"value. Closed handle objects (those with a handle value of zero) always "
+"compare equal."
 msgstr ""
 
-#: ../../../library/winreg.rst:777
+#: ../../../library/winreg.rst:778
 msgid ""
 "Handle objects can be converted to an integer (e.g., using the built-in :"
 "func:`int` function), in which case the underlying Windows handle value is "
@@ -933,48 +935,54 @@ msgid ""
 "object."
 msgstr ""
 
-#: ../../../library/winreg.rst:785
+#: ../../../library/winreg.rst:786
 msgid "Closes the underlying Windows handle."
 msgstr ""
 
-#: ../../../library/winreg.rst:787
+#: ../../../library/winreg.rst:788
 msgid "If the handle is already closed, no error is raised."
 msgstr ""
 
-#: ../../../library/winreg.rst:792
+#: ../../../library/winreg.rst:793
 msgid "Detaches the Windows handle from the handle object."
 msgstr ""
 
-#: ../../../library/winreg.rst:794
+#: ../../../library/winreg.rst:795
 msgid ""
 "The result is an integer that holds the value of the handle before it is "
 "detached.  If the handle is already detached or closed, this will return "
 "zero."
 msgstr ""
 
-#: ../../../library/winreg.rst:798
+#: ../../../library/winreg.rst:799
 msgid ""
 "After calling this function, the handle is effectively invalidated, but the "
 "handle is not closed.  You would call this function when you need the "
 "underlying Win32 handle to exist beyond the lifetime of the handle object."
 msgstr ""
 
-#: ../../../library/winreg.rst:802
+#: ../../../library/winreg.rst:803
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``winreg.PyHKEY.Detach`` with "
 "argument ``key``."
 msgstr ""
 
-#: ../../../library/winreg.rst:808
+#: ../../../library/winreg.rst:809
 msgid ""
 "The HKEY object implements :meth:`~object.__enter__` and :meth:`~object."
 "__exit__` and thus supports the context protocol for the :keyword:`with` "
 "statement::"
 msgstr ""
 
-#: ../../../library/winreg.rst:815
+#: ../../../library/winreg.rst:816
 msgid ""
 "will automatically close *key* when control leaves the :keyword:`with` block."
+msgstr ""
+
+#: ../../../library/winreg.rst:819
+msgid ""
+"Handle objects are now compared by their underlying Windows handle value "
+"instead of object identity for equality comparisons."
 msgstr ""
 
 #: ../../../library/winreg.rst:260
