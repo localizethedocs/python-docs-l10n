@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2025-11-10 09:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1079,8 +1079,8 @@ msgstr ""
 msgid ""
 "To cancel a running Task use the :meth:`cancel` method.  Calling it will "
 "cause the Task to throw a :exc:`CancelledError` exception into the wrapped "
-"coroutine.  If a coroutine is awaiting on a Future object during "
-"cancellation, the Future object will be cancelled."
+"coroutine.  If a coroutine is awaiting on a future-like object during "
+"cancellation, the awaited object will be cancelled."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:1227
@@ -1323,45 +1323,52 @@ msgid ""
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:1414
+msgid ""
+"If the Task being cancelled is currently awaiting on a future-like object, "
+"that awaited object will also be cancelled. This cancellation propagates "
+"down the entire chain of awaited objects."
+msgstr ""
+
+#: ../../../library/asyncio-task.rst:1418
 msgid "Added the *msg* parameter."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1417
+#: ../../../library/asyncio-task.rst:1421
 msgid "The ``msg`` parameter is propagated from cancelled task to its awaiter."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1422
+#: ../../../library/asyncio-task.rst:1426
 msgid ""
 "The following example illustrates how coroutines can intercept the "
 "cancellation request::"
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1461
+#: ../../../library/asyncio-task.rst:1465
 msgid "Return ``True`` if the Task is *cancelled*."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1463
+#: ../../../library/asyncio-task.rst:1467
 msgid ""
 "The Task is *cancelled* when the cancellation was requested with :meth:"
 "`cancel` and the wrapped coroutine propagated the :exc:`CancelledError` "
 "exception thrown into it."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1469
+#: ../../../library/asyncio-task.rst:1473
 msgid "Decrement the count of cancellation requests to this Task."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1471
+#: ../../../library/asyncio-task.rst:1475
 msgid "Returns the remaining number of cancellation requests."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1473
+#: ../../../library/asyncio-task.rst:1477
 msgid ""
 "Note that once execution of a cancelled task completed, further calls to :"
 "meth:`uncancel` are ineffective."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1478
+#: ../../../library/asyncio-task.rst:1482
 msgid ""
 "This method is used by asyncio's internals and isn't expected to be used by "
 "end-user code.  In particular, if a Task gets successfully uncancelled, this "
@@ -1370,7 +1377,7 @@ msgid ""
 "respective structured block. For example::"
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1496
+#: ../../../library/asyncio-task.rst:1500
 msgid ""
 "While the block with ``make_request()`` and ``make_another_request()`` might "
 "get cancelled due to the timeout, ``unrelated_code()`` should continue "
@@ -1379,14 +1386,14 @@ msgid ""
 "similar fashion."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1502
+#: ../../../library/asyncio-task.rst:1506
 msgid ""
 "If end-user code is, for some reason, suppressing cancellation by catching :"
 "exc:`CancelledError`, it needs to call this method to remove the "
 "cancellation state."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1506
+#: ../../../library/asyncio-task.rst:1510
 msgid ""
 "When this method decrements the cancellation count to zero, the method "
 "checks if a previous :meth:`cancel` call had arranged for :exc:"
@@ -1395,17 +1402,17 @@ msgid ""
 "``_must_cancel`` flag)."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1512
+#: ../../../library/asyncio-task.rst:1516
 msgid "Changed to rescind pending cancellation requests upon reaching zero."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1517
+#: ../../../library/asyncio-task.rst:1521
 msgid ""
 "Return the number of pending cancellation requests to this Task, i.e., the "
 "number of calls to :meth:`cancel` less the number of :meth:`uncancel` calls."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1521
+#: ../../../library/asyncio-task.rst:1525
 msgid ""
 "Note that if this number is greater than zero but the Task is still "
 "executing, :meth:`cancelled` will still return ``False``. This is because "
@@ -1414,7 +1421,7 @@ msgid ""
 "to zero."
 msgstr ""
 
-#: ../../../library/asyncio-task.rst:1527
+#: ../../../library/asyncio-task.rst:1531
 msgid ""
 "This method is used by asyncio's internals and isn't expected to be used by "
 "end-user code.  See :meth:`uncancel` for more details."

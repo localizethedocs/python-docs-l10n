@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-27 08:51+0000\n"
+"POT-Creation-Date: 2025-11-10 09:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -676,7 +676,16 @@ msgid ""
 "set, no exception is raised by the parser for this condition."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:637
+#: ../../../library/pyexpat.rst:639
+msgid ""
+"Implementing a handler that accesses local files and/or the network may "
+"create a vulnerability to `external entity attacks <https://en.wikipedia.org/"
+"wiki/XML_external_entity_attack>`_ if :class:`xmlparser` is used with user-"
+"provided XML content. Please reflect on your `threat model <https://en."
+"wikipedia.org/wiki/Threat_model>`_ before implementing this handler."
+msgstr ""
+
+#: ../../../library/pyexpat.rst:646
 msgid ""
 "Called for references to external entities.  *base* is the current base, as "
 "set by a previous call to :meth:`SetBase`.  The public and system "
@@ -685,7 +694,7 @@ msgid ""
 "is opaque and should only be used as described below."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:643
+#: ../../../library/pyexpat.rst:652
 msgid ""
 "For external entities to be parsed, this handler must be implemented. It is "
 "responsible for creating the sub-parser using "
@@ -695,130 +704,130 @@ msgid ""
 "`XML_ERROR_EXTERNAL_ENTITY_HANDLING` error, otherwise parsing will continue."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:651
+#: ../../../library/pyexpat.rst:660
 msgid ""
 "If this handler is not provided, external entities are reported by the :attr:"
 "`DefaultHandler` callback, if provided."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:658
+#: ../../../library/pyexpat.rst:667
 msgid "ExpatError Exceptions"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:663
+#: ../../../library/pyexpat.rst:672
 msgid ":exc:`ExpatError` exceptions have a number of interesting attributes:"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:668
+#: ../../../library/pyexpat.rst:677
 msgid ""
 "Expat's internal error number for the specific error.  The :data:`errors."
 "messages <xml.parsers.expat.errors.messages>` dictionary maps these error "
 "numbers to Expat's error messages.  For example::"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:680
+#: ../../../library/pyexpat.rst:689
 msgid ""
 "The :mod:`~xml.parsers.expat.errors` module also provides error message "
 "constants and a dictionary :data:`~xml.parsers.expat.errors.codes` mapping "
 "these messages back to the error codes, see below."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:687
+#: ../../../library/pyexpat.rst:696
 msgid ""
 "Line number on which the error was detected.  The first line is numbered "
 "``1``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:692
+#: ../../../library/pyexpat.rst:701
 msgid ""
 "Character offset into the line where the error occurred.  The first column "
 "is numbered ``0``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:699
+#: ../../../library/pyexpat.rst:708
 msgid "Example"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:701
+#: ../../../library/pyexpat.rst:710
 msgid ""
 "The following program defines three handlers that just print out their "
 "arguments. ::"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:725
+#: ../../../library/pyexpat.rst:734
 msgid "The output from this program is::"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:742
+#: ../../../library/pyexpat.rst:751
 msgid "Content Model Descriptions"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:748
+#: ../../../library/pyexpat.rst:757
 msgid ""
 "Content models are described using nested tuples.  Each tuple contains four "
 "values: the type, the quantifier, the name, and a tuple of children.  "
 "Children are simply additional content model descriptions."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:752
+#: ../../../library/pyexpat.rst:761
 msgid ""
 "The values of the first two fields are constants defined in the :mod:`xml."
 "parsers.expat.model` module.  These constants can be collected in two "
 "groups: the model type group and the quantifier group."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:756
+#: ../../../library/pyexpat.rst:765
 msgid "The constants in the model type group are:"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:762
+#: ../../../library/pyexpat.rst:771
 msgid ""
 "The element named by the model name was declared to have a content model of "
 "``ANY``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:769
+#: ../../../library/pyexpat.rst:778
 msgid ""
 "The named element allows a choice from a number of options; this is used for "
 "content models such as ``(A | B | C)``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:776
+#: ../../../library/pyexpat.rst:785
 msgid "Elements which are declared to be ``EMPTY`` have this model type."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:790
+#: ../../../library/pyexpat.rst:799
 msgid ""
 "Models which represent a series of models which follow one after the other "
 "are indicated with this model type.  This is used for models such as ``(A, "
 "B, C)``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:793
+#: ../../../library/pyexpat.rst:802
 msgid "The constants in the quantifier group are:"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:799
+#: ../../../library/pyexpat.rst:808
 msgid "No modifier is given, so it can appear exactly once, as for ``A``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:805
+#: ../../../library/pyexpat.rst:814
 msgid "The model is optional: it can appear once or not at all, as for ``A?``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:811
+#: ../../../library/pyexpat.rst:820
 msgid "The model must occur one or more times (like ``A+``)."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:817
+#: ../../../library/pyexpat.rst:826
 msgid "The model must occur zero or more times, as for ``A*``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:823
+#: ../../../library/pyexpat.rst:832
 msgid "Expat error constants"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:827
+#: ../../../library/pyexpat.rst:836
 msgid ""
 "The following constants are provided in the :mod:`xml.parsers.expat.errors` "
 "module.  These constants are useful in interpreting some of the attributes "
@@ -829,210 +838,210 @@ msgid ""
 "XML_ERROR_{CONSTANT_NAME}]`."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:835
+#: ../../../library/pyexpat.rst:844
 msgid "The ``errors`` module has the following attributes:"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:839
+#: ../../../library/pyexpat.rst:848
 msgid "A dictionary mapping string descriptions to their error codes."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:846
+#: ../../../library/pyexpat.rst:855
 msgid "A dictionary mapping numeric error codes to their string descriptions."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:856
+#: ../../../library/pyexpat.rst:865
 msgid ""
 "An entity reference in an attribute value referred to an external entity "
 "instead of an internal entity."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:862
+#: ../../../library/pyexpat.rst:871
 msgid ""
 "A character reference referred to a character which is illegal in XML (for "
 "example, character ``0``, or '``&#0;``')."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:868
+#: ../../../library/pyexpat.rst:877
 msgid ""
 "An entity reference referred to an entity which was declared with a "
 "notation, so cannot be parsed."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:874
+#: ../../../library/pyexpat.rst:883
 msgid "An attribute was used more than once in a start tag."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:882
+#: ../../../library/pyexpat.rst:891
 msgid ""
 "Raised when an input byte could not properly be assigned to a character; for "
 "example, a NUL byte (value ``0``) in a UTF-8 input stream."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:888
+#: ../../../library/pyexpat.rst:897
 msgid "Something other than whitespace occurred after the document element."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:893
+#: ../../../library/pyexpat.rst:902
 msgid ""
 "An XML declaration was found somewhere other than the start of the input "
 "data."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:898
+#: ../../../library/pyexpat.rst:907
 msgid ""
 "The document contains no elements (XML requires all documents to contain "
 "exactly one top-level element).."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:904
+#: ../../../library/pyexpat.rst:913
 msgid "Expat was not able to allocate memory internally."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:909
+#: ../../../library/pyexpat.rst:918
 msgid "A parameter entity reference was found where it was not allowed."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:914
+#: ../../../library/pyexpat.rst:923
 msgid "An incomplete character was found in the input."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:919
+#: ../../../library/pyexpat.rst:928
 msgid ""
 "An entity reference contained another reference to the same entity; possibly "
 "via a different name, and possibly indirectly."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:925
+#: ../../../library/pyexpat.rst:934
 msgid "Some unspecified syntax error was encountered."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:930
+#: ../../../library/pyexpat.rst:939
 msgid "An end tag did not match the innermost open start tag."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:935
+#: ../../../library/pyexpat.rst:944
 msgid ""
 "Some token (such as a start tag) was not closed before the end of the stream "
 "or the next token was encountered."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:941
+#: ../../../library/pyexpat.rst:950
 msgid "A reference was made to an entity which was not defined."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:946
+#: ../../../library/pyexpat.rst:955
 msgid "The document encoding is not supported by Expat."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:951
+#: ../../../library/pyexpat.rst:960
 msgid "A CDATA marked section was not closed."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:959
+#: ../../../library/pyexpat.rst:968
 msgid ""
 "The parser determined that the document was not \"standalone\" though it "
 "declared itself to be in the XML declaration, and the :attr:"
 "`NotStandaloneHandler` was set and returned ``0``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:972
+#: ../../../library/pyexpat.rst:981
 msgid ""
 "An operation was requested that requires DTD support to be compiled in, but "
 "Expat was configured without DTD support.  This should never be reported by "
 "a standard build of the :mod:`xml.parsers.expat` module."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:979
+#: ../../../library/pyexpat.rst:988
 msgid ""
 "A behavioral change was requested after parsing started that can only be "
 "changed before parsing has started.  This is (currently) only raised by :"
 "meth:`UseForeignDTD`."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:986
+#: ../../../library/pyexpat.rst:995
 msgid "An undeclared prefix was found when namespace processing was enabled."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:991
+#: ../../../library/pyexpat.rst:1000
 msgid ""
 "The document attempted to remove the namespace declaration associated with a "
 "prefix."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:997
+#: ../../../library/pyexpat.rst:1006
 msgid "A parameter entity contained incomplete markup."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1002
+#: ../../../library/pyexpat.rst:1011
 msgid "The document contained no document element at all."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1007
+#: ../../../library/pyexpat.rst:1016
 msgid "There was an error parsing a text declaration in an external entity."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1012
+#: ../../../library/pyexpat.rst:1021
 msgid "Characters were found in the public id that are not allowed."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1017
+#: ../../../library/pyexpat.rst:1026
 msgid ""
 "The requested operation was made on a suspended parser, but isn't allowed.  "
 "This includes attempts to provide additional input or to stop the parser."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1023
+#: ../../../library/pyexpat.rst:1032
 msgid ""
 "An attempt to resume the parser was made when the parser had not been "
 "suspended."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1028 ../../../library/pyexpat.rst:1061
-#: ../../../library/pyexpat.rst:1066
+#: ../../../library/pyexpat.rst:1037 ../../../library/pyexpat.rst:1070
+#: ../../../library/pyexpat.rst:1075
 msgid "This should not be reported to Python applications."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1033
+#: ../../../library/pyexpat.rst:1042
 msgid ""
 "The requested operation was made on a parser which was finished parsing "
 "input, but isn't allowed.  This includes attempts to provide additional "
 "input or to stop the parser."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1043
+#: ../../../library/pyexpat.rst:1052
 msgid ""
 "An attempt was made to undeclare reserved namespace prefix ``xml`` or to "
 "bind it to another namespace URI."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1050
+#: ../../../library/pyexpat.rst:1059
 msgid ""
 "An attempt was made to declare or undeclare reserved namespace prefix "
 "``xmlns``."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1055
+#: ../../../library/pyexpat.rst:1064
 msgid ""
 "An attempt was made to bind the URI of one the reserved namespace prefixes "
 "``xml`` and ``xmlns`` to another namespace prefix."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1071
+#: ../../../library/pyexpat.rst:1080
 msgid ""
 "The limit on input amplification factor (from DTD and entities) has been "
 "breached."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1077
+#: ../../../library/pyexpat.rst:1086
 msgid "The parser was tried to be stopped or suspended before it started."
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1083
+#: ../../../library/pyexpat.rst:1092
 msgid "Footnotes"
 msgstr ""
 
-#: ../../../library/pyexpat.rst:1084
+#: ../../../library/pyexpat.rst:1093
 msgid ""
 "The encoding string included in XML output should conform to the appropriate "
 "standards. For example, \"UTF-8\" is valid, but \"UTF8\" is not. See https://"
