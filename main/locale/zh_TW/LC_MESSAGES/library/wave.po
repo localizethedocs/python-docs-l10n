@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2025-11-24 08:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,31 +44,32 @@ msgstr ""
 
 #: ../../../library/wave.rst:28
 msgid ""
-"If *file* is a string, open the file by that name, otherwise treat it as a "
-"file-like object.  *mode* can be:"
-msgstr ""
-
-#: ../../../library/wave.rst:31
-msgid "``'rb'``"
+"If *file* is a string, a :term:`path-like object` or a :term:`bytes-like "
+"object` open the file by that name, otherwise treat it as a file-like "
+"object.  *mode* can be:"
 msgstr ""
 
 #: ../../../library/wave.rst:32
+msgid "``'rb'``"
+msgstr ""
+
+#: ../../../library/wave.rst:33
 msgid "Read only mode."
 msgstr ""
 
-#: ../../../library/wave.rst:34
+#: ../../../library/wave.rst:35
 msgid "``'wb'``"
 msgstr ""
 
-#: ../../../library/wave.rst:35
+#: ../../../library/wave.rst:36
 msgid "Write only mode."
 msgstr ""
 
-#: ../../../library/wave.rst:37
+#: ../../../library/wave.rst:38
 msgid "Note that it does not allow read/write WAV files."
 msgstr ""
 
-#: ../../../library/wave.rst:39
+#: ../../../library/wave.rst:40
 msgid ""
 "A *mode* of ``'rb'`` returns a :class:`Wave_read` object, while a *mode* of "
 "``'wb'`` returns a :class:`Wave_write` object.  If *mode* is omitted and a "
@@ -76,118 +77,124 @@ msgid ""
 "value for *mode*."
 msgstr ""
 
-#: ../../../library/wave.rst:44
+#: ../../../library/wave.rst:45
 msgid ""
 "If you pass in a file-like object, the wave object will not close it when "
 "its ``close()`` method is called; it is the caller's responsibility to close "
 "the file object."
 msgstr ""
 
-#: ../../../library/wave.rst:48
+#: ../../../library/wave.rst:49
 msgid ""
 "The :func:`.open` function may be used in a :keyword:`with` statement.  When "
 "the :keyword:`!with` block completes, the :meth:`Wave_read.close` or :meth:"
 "`Wave_write.close` method is called."
 msgstr ""
 
-#: ../../../library/wave.rst:52 ../../../library/wave.rst:164
+#: ../../../library/wave.rst:53 ../../../library/wave.rst:169
 msgid "Added support for unseekable files."
 msgstr ""
 
-#: ../../../library/wave.rst:57
+#: ../../../library/wave.rst:56
+msgid ""
+"Added support for :term:`path-like objects <path-like object>` and :term:"
+"`bytes-like objects <bytes-like object>`."
+msgstr ""
+
+#: ../../../library/wave.rst:62
 msgid ""
 "An error raised when something is impossible because it violates the WAV "
 "specification or hits an implementation deficiency."
 msgstr ""
 
-#: ../../../library/wave.rst:64
+#: ../../../library/wave.rst:69
 msgid "Wave_read Objects"
 msgstr ""
 
-#: ../../../library/wave.rst:68
+#: ../../../library/wave.rst:73
 msgid "Read a WAV file."
 msgstr ""
 
-#: ../../../library/wave.rst:70
+#: ../../../library/wave.rst:75
 msgid ""
 "Wave_read objects, as returned by :func:`.open`, have the following methods:"
 msgstr ""
 
-#: ../../../library/wave.rst:75
+#: ../../../library/wave.rst:80
 msgid ""
 "Close the stream if it was opened by :mod:`wave`, and make the instance "
 "unusable.  This is called automatically on object collection."
 msgstr ""
 
-#: ../../../library/wave.rst:81
+#: ../../../library/wave.rst:86
 msgid "Returns number of audio channels (``1`` for mono, ``2`` for stereo)."
 msgstr ""
 
-#: ../../../library/wave.rst:86
+#: ../../../library/wave.rst:91
 msgid "Returns sample width in bytes."
 msgstr ""
 
-#: ../../../library/wave.rst:91
+#: ../../../library/wave.rst:96
 msgid "Returns sampling frequency."
 msgstr ""
 
-#: ../../../library/wave.rst:96
+#: ../../../library/wave.rst:101
 msgid "Returns number of audio frames."
 msgstr ""
 
-#: ../../../library/wave.rst:101
+#: ../../../library/wave.rst:106
 msgid "Returns compression type (``'NONE'`` is the only supported type)."
 msgstr ""
 
-#: ../../../library/wave.rst:106
+#: ../../../library/wave.rst:111
 msgid ""
 "Human-readable version of :meth:`getcomptype`. Usually ``'not compressed'`` "
 "parallels ``'NONE'``."
 msgstr ""
 
-#: ../../../library/wave.rst:112
+#: ../../../library/wave.rst:117
 msgid ""
 "Returns a :func:`~collections.namedtuple` ``(nchannels, sampwidth, "
 "framerate, nframes, comptype, compname)``, equivalent to output of the "
 "``get*()`` methods."
 msgstr ""
 
-#: ../../../library/wave.rst:119
+#: ../../../library/wave.rst:124
 msgid ""
 "Reads and returns at most *n* frames of audio, as a :class:`bytes` object."
 msgstr ""
 
-#: ../../../library/wave.rst:124
+#: ../../../library/wave.rst:129
 msgid "Rewind the file pointer to the beginning of the audio stream."
 msgstr ""
 
-#: ../../../library/wave.rst:127
+#: ../../../library/wave.rst:132
 msgid ""
 "The following two methods define a term \"position\" which is compatible "
 "between them, and is otherwise implementation dependent."
 msgstr ""
 
-#: ../../../library/wave.rst:133
+#: ../../../library/wave.rst:138
 msgid "Set the file pointer to the specified position."
 msgstr ""
 
-#: ../../../library/wave.rst:138
+#: ../../../library/wave.rst:143
 msgid "Return current file pointer position."
 msgstr ""
 
-#: ../../../library/wave.rst:144
+#: ../../../library/wave.rst:149
 msgid "Wave_write Objects"
 msgstr ""
 
-#: ../../../library/wave.rst:148
+#: ../../../library/wave.rst:153
 msgid "Write a WAV file."
 msgstr ""
 
-#: ../../../library/wave.rst:150
+#: ../../../library/wave.rst:155
 msgid "Wave_write objects, as returned by :func:`.open`."
 msgstr ""
 
-#: ../../../library/wave.rst:152
+#: ../../../library/wave.rst:157
 msgid ""
 "For seekable output streams, the ``wave`` header will automatically be "
 "updated to reflect the number of frames actually written.  For unseekable "
@@ -201,11 +208,11 @@ msgid ""
 "*nframes* accordingly before writing the frame data."
 msgstr ""
 
-#: ../../../library/wave.rst:167
+#: ../../../library/wave.rst:172
 msgid "Wave_write objects have the following methods:"
 msgstr ""
 
-#: ../../../library/wave.rst:171
+#: ../../../library/wave.rst:176
 msgid ""
 "Make sure *nframes* is correct, and close the file if it was opened by :mod:"
 "`wave`.  This method is called upon object collection.  It will raise an "
@@ -213,57 +220,57 @@ msgid ""
 "the number of frames actually written."
 msgstr ""
 
-#: ../../../library/wave.rst:179
+#: ../../../library/wave.rst:184
 msgid "Set the number of channels."
 msgstr ""
 
-#: ../../../library/wave.rst:184
+#: ../../../library/wave.rst:189
 msgid "Set the sample width to *n* bytes."
 msgstr ""
 
-#: ../../../library/wave.rst:189
+#: ../../../library/wave.rst:194
 msgid "Set the frame rate to *n*."
 msgstr ""
 
-#: ../../../library/wave.rst:191
+#: ../../../library/wave.rst:196
 msgid "A non-integral input to this method is rounded to the nearest integer."
 msgstr ""
 
-#: ../../../library/wave.rst:198
+#: ../../../library/wave.rst:203
 msgid ""
 "Set the number of frames to *n*.  This will be changed later if the number "
 "of frames actually written is different (this update attempt will raise an "
 "error if the output stream is not seekable)."
 msgstr ""
 
-#: ../../../library/wave.rst:205
+#: ../../../library/wave.rst:210
 msgid ""
 "Set the compression type and description. At the moment, only compression "
 "type ``NONE`` is supported, meaning no compression."
 msgstr ""
 
-#: ../../../library/wave.rst:211
+#: ../../../library/wave.rst:216
 msgid ""
 "The *tuple* should be ``(nchannels, sampwidth, framerate, nframes, comptype, "
 "compname)``, with values valid for the ``set*()`` methods.  Sets all "
 "parameters."
 msgstr ""
 
-#: ../../../library/wave.rst:218
+#: ../../../library/wave.rst:223
 msgid ""
 "Return current position in the file, with the same disclaimer for the :meth:"
 "`Wave_read.tell` and :meth:`Wave_read.setpos` methods."
 msgstr ""
 
-#: ../../../library/wave.rst:224
+#: ../../../library/wave.rst:229
 msgid "Write audio frames, without correcting *nframes*."
 msgstr ""
 
-#: ../../../library/wave.rst:226 ../../../library/wave.rst:237
+#: ../../../library/wave.rst:231 ../../../library/wave.rst:242
 msgid "Any :term:`bytes-like object` is now accepted."
 msgstr ""
 
-#: ../../../library/wave.rst:232
+#: ../../../library/wave.rst:237
 msgid ""
 "Write audio frames and make sure *nframes* is correct.  It will raise an "
 "error if the output stream is not seekable and the total number of frames "
@@ -271,7 +278,7 @@ msgid ""
 "previously set value for *nframes*."
 msgstr ""
 
-#: ../../../library/wave.rst:240
+#: ../../../library/wave.rst:245
 msgid ""
 "Note that it is invalid to set any parameters after calling :meth:"
 "`writeframes` or :meth:`writeframesraw`, and any attempt to do so will "
