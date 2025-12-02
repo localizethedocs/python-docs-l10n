@@ -1,0 +1,298 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/cookie.rst:2
+msgid ":mod:`Cookie` --- HTTP state management"
+msgstr ""
+
+#: ../../../library/cookie.rst:10
+msgid ""
+"The :mod:`Cookie` module has been renamed to :mod:`http.cookies` in Python "
+"3.0.  The :term:`2to3` tool will automatically adapt imports when converting "
+"your sources to 3.0."
+msgstr ""
+
+#: ../../../library/cookie.rst:15
+msgid ""
+"The :mod:`Cookie` module defines classes for abstracting the concept of "
+"cookies, an HTTP state management mechanism. It supports both simple string-"
+"only cookies, and provides an abstraction for having any serializable data-"
+"type as cookie value."
+msgstr ""
+
+#: ../../../library/cookie.rst:20
+msgid ""
+"The module formerly strictly applied the parsing rules described in the :rfc:"
+"`2109` and :rfc:`2068` specifications.  It has since been discovered that "
+"MSIE 3.0x doesn't follow the character rules outlined in those specs.  As a "
+"result, the parsing rules used are a bit less strict."
+msgstr ""
+
+#: ../../../library/cookie.rst:27
+msgid ""
+"On encountering an invalid cookie, :exc:`CookieError` is raised, so if your "
+"cookie data comes from a browser you should always prepare for invalid data "
+"and catch :exc:`CookieError` on parsing."
+msgstr ""
+
+#: ../../../library/cookie.rst:34
+msgid ""
+"Exception failing because of :rfc:`2109` invalidity: incorrect attributes, "
+"incorrect :mailheader:`Set-Cookie` header, etc."
+msgstr ""
+
+#: ../../../library/cookie.rst:40
+msgid ""
+"This class is a dictionary-like object whose keys are strings and whose "
+"values are :class:`Morsel` instances. Note that upon setting a key to a "
+"value, the value is first converted to a :class:`Morsel` containing the key "
+"and the value."
+msgstr ""
+
+#: ../../../library/cookie.rst:44
+msgid "If *input* is given, it is passed to the :meth:`load` method."
+msgstr ""
+
+#: ../../../library/cookie.rst:49
+msgid ""
+"This class derives from :class:`BaseCookie` and overrides :meth:"
+"`value_decode` and :meth:`value_encode` to be the identity and :func:`str` "
+"respectively."
+msgstr ""
+
+#: ../../../library/cookie.rst:55
+msgid ""
+"This class derives from :class:`BaseCookie` and overrides :meth:"
+"`value_decode` and :meth:`value_encode` to be the :func:`pickle.loads` and :"
+"func:`pickle.dumps`."
+msgstr ""
+
+#: ../../../library/cookie.rst:59
+msgid ""
+"Reading pickled values from untrusted cookie data is a huge security hole, "
+"as pickle strings can be crafted to cause arbitrary code to execute on your "
+"server. It is supported for backwards compatibility only, and may eventually "
+"go away."
+msgstr ""
+
+#: ../../../library/cookie.rst:67
+msgid ""
+"This class derives from :class:`BaseCookie`. It overrides :meth:"
+"`value_decode` to be :func:`pickle.loads` if it is a valid pickle, and "
+"otherwise the value itself. It overrides :meth:`value_encode` to be :func:"
+"`pickle.dumps` unless it is a string, in which case it returns the value "
+"itself."
+msgstr ""
+
+#: ../../../library/cookie.rst:72
+msgid "The same security warning from :class:`SerialCookie` applies here."
+msgstr ""
+
+#: ../../../library/cookie.rst:75
+msgid ""
+"A further security note is warranted.  For backwards compatibility, the :mod:"
+"`Cookie` module exports a class named :class:`Cookie` which is just an alias "
+"for :class:`SmartCookie`.  This is probably a mistake and will likely be "
+"removed in a future version.  You should not use the :class:`Cookie` class "
+"in your applications, for the same reason why you should not use the :class:"
+"`SerialCookie` class."
+msgstr ""
+
+#: ../../../library/cookie.rst:87
+msgid "Module :mod:`cookielib`"
+msgstr ""
+
+#: ../../../library/cookie.rst:86
+msgid ""
+"HTTP cookie handling for web *clients*.  The :mod:`cookielib` and :mod:"
+"`Cookie` modules do not depend on each other."
+msgstr ""
+
+#: ../../../library/cookie.rst:89
+msgid ":rfc:`2109` - HTTP State Management Mechanism"
+msgstr ""
+
+#: ../../../library/cookie.rst:90
+msgid "This is the state management specification implemented by this module."
+msgstr ""
+
+#: ../../../library/cookie.rst:96
+msgid "Cookie Objects"
+msgstr ""
+
+#: ../../../library/cookie.rst:101
+msgid ""
+"Return a decoded value from a string representation. Return value can be any "
+"type. This method does nothing in :class:`BaseCookie` --- it exists so it "
+"can be overridden."
+msgstr ""
+
+#: ../../../library/cookie.rst:108
+msgid ""
+"Return an encoded value. *val* can be any type, but return value must be a "
+"string. This method does nothing in :class:`BaseCookie` --- it exists so it "
+"can be overridden"
+msgstr ""
+
+#: ../../../library/cookie.rst:112
+msgid ""
+"In general, it should be the case that :meth:`value_encode` and :meth:"
+"`value_decode` are inverses on the range of *value_decode*."
+msgstr ""
+
+#: ../../../library/cookie.rst:118
+msgid ""
+"Return a string representation suitable to be sent as HTTP headers. *attrs* "
+"and *header* are sent to each :class:`Morsel`'s :meth:`output` method. *sep* "
+"is used to join the headers together, and is by default the combination "
+"``'\\r\\n'`` (CRLF)."
+msgstr ""
+
+#: ../../../library/cookie.rst:123
+msgid ""
+"The default separator has been changed from ``'\\n'`` to match the cookie "
+"specification."
+msgstr ""
+
+#: ../../../library/cookie.rst:130
+msgid ""
+"Return an embeddable JavaScript snippet, which, if run on a browser which "
+"supports JavaScript, will act the same as if the HTTP headers was sent."
+msgstr ""
+
+#: ../../../library/cookie.rst:133 ../../../library/cookie.rst:215
+#: ../../../library/cookie.rst:223
+msgid "The meaning for *attrs* is the same as in :meth:`output`."
+msgstr ""
+
+#: ../../../library/cookie.rst:138
+msgid ""
+"If *rawdata* is a string, parse it as an ``HTTP_COOKIE`` and add the values "
+"found there as :class:`Morsel`\\ s. If it is a dictionary, it is equivalent "
+"to::"
+msgstr ""
+
+#: ../../../library/cookie.rst:148
+msgid "Morsel Objects"
+msgstr ""
+
+#: ../../../library/cookie.rst:153
+msgid "Abstract a key/value pair, which has some :rfc:`2109` attributes."
+msgstr ""
+
+#: ../../../library/cookie.rst:155
+msgid ""
+"Morsels are dictionary-like objects, whose set of keys is constant --- the "
+"valid :rfc:`2109` attributes, which are"
+msgstr ""
+
+#: ../../../library/cookie.rst:158
+msgid "``expires``"
+msgstr ""
+
+#: ../../../library/cookie.rst:159
+msgid "``path``"
+msgstr ""
+
+#: ../../../library/cookie.rst:160
+msgid "``comment``"
+msgstr ""
+
+#: ../../../library/cookie.rst:161
+msgid "``domain``"
+msgstr ""
+
+#: ../../../library/cookie.rst:162
+msgid "``max-age``"
+msgstr ""
+
+#: ../../../library/cookie.rst:163
+msgid "``secure``"
+msgstr ""
+
+#: ../../../library/cookie.rst:164
+msgid "``version``"
+msgstr ""
+
+#: ../../../library/cookie.rst:165
+msgid "``httponly``"
+msgstr ""
+
+#: ../../../library/cookie.rst:167
+msgid ""
+"The attribute :attr:`httponly` specifies that the cookie is only transfered "
+"in HTTP requests, and is not accessible through JavaScript. This is intended "
+"to mitigate some forms of cross-site scripting."
+msgstr ""
+
+#: ../../../library/cookie.rst:171
+msgid "The keys are case-insensitive."
+msgstr ""
+
+#: ../../../library/cookie.rst:173
+msgid "The :attr:`httponly` attribute was added."
+msgstr ""
+
+#: ../../../library/cookie.rst:179
+msgid "The value of the cookie."
+msgstr ""
+
+#: ../../../library/cookie.rst:184
+msgid "The encoded value of the cookie --- this is what should be sent."
+msgstr ""
+
+#: ../../../library/cookie.rst:189
+msgid "The name of the cookie."
+msgstr ""
+
+#: ../../../library/cookie.rst:194
+msgid "Set the *key*, *value* and *coded_value* members."
+msgstr ""
+
+#: ../../../library/cookie.rst:199
+msgid "Whether *K* is a member of the set of keys of a :class:`Morsel`."
+msgstr ""
+
+#: ../../../library/cookie.rst:204
+msgid ""
+"Return a string representation of the Morsel, suitable to be sent as an HTTP "
+"header. By default, all the attributes are included, unless *attrs* is "
+"given, in which case it should be a list of attributes to use. *header* is "
+"by default ``\"Set-Cookie:\"``."
+msgstr ""
+
+#: ../../../library/cookie.rst:212
+msgid ""
+"Return an embeddable JavaScript snippet, which, if run on a browser which "
+"supports JavaScript, will act the same as if the HTTP header was sent."
+msgstr ""
+
+#: ../../../library/cookie.rst:220
+msgid ""
+"Return a string representing the Morsel, without any surrounding HTTP or "
+"JavaScript."
+msgstr ""
+
+#: ../../../library/cookie.rst:229
+msgid "Example"
+msgstr ""
+
+#: ../../../library/cookie.rst:231
+msgid "The following example demonstrates how to use the :mod:`Cookie` module."
+msgstr ""
