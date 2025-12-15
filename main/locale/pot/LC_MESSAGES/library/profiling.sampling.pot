@@ -1,0 +1,1834 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2001 Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.15\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-15 08:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/profiling.sampling.rst:7
+msgid ":mod:`profiling.sampling` --- Statistical profiler"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:14
+msgid "**Source code:** :source:`Lib/profiling/sampling/`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:20
+msgid "Tachyon logo"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:25
+msgid ""
+"The :mod:`profiling.sampling` module, named **Tachyon**, provides "
+"statistical profiling of Python programs through periodic stack sampling. "
+"Tachyon can run scripts directly or attach to any running Python process "
+"without requiring code changes or restarts. Because sampling occurs "
+"externally to the target process, overhead is virtually zero, making Tachyon "
+"suitable for both development and production environments."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:34
+msgid "What is statistical profiling?"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:36
+msgid ""
+"Statistical profiling builds a picture of program behavior by periodically "
+"capturing snapshots of the call stack. Rather than instrumenting every "
+"function call and return as deterministic profilers do, Tachyon reads the "
+"call stack at regular intervals to record what code is currently running."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:41
+msgid ""
+"This approach rests on a simple principle: functions that consume "
+"significant CPU time will appear frequently in the collected samples. By "
+"gathering thousands of samples over a profiling session, Tachyon constructs "
+"an accurate statistical estimate of where time is spent. The more samples "
+"collected, the more precise this estimate becomes."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:49
+msgid "How time is estimated"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:51
+msgid ""
+"The time values shown in Tachyon's output are **estimates derived from "
+"sample counts**, not direct measurements. Tachyon counts how many times each "
+"function appears in the collected samples, then multiplies by the sampling "
+"interval to estimate time."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:56
+msgid ""
+"For example, with a 100 microsecond sampling interval over a 10-second "
+"profile, Tachyon collects approximately 100,000 samples. If a function "
+"appears in 5,000 samples (5% of total), Tachyon estimates it consumed 5% of "
+"the 10-second duration, or about 500 milliseconds. This is a statistical "
+"estimate, not a precise measurement."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:62
+msgid ""
+"The accuracy of these estimates depends on sample count. With 100,000 "
+"samples, a function showing 5% has a margin of error of roughly ±0.5%. With "
+"only 1,000 samples, the same 5% measurement could actually represent "
+"anywhere from 3% to 7% of real time."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:67
+msgid ""
+"This is why longer profiling durations and shorter sampling intervals "
+"produce more reliable results---they collect more samples. For most "
+"performance analysis, the default settings provide sufficient accuracy to "
+"identify bottlenecks and guide optimization efforts."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:72
+msgid ""
+"Because sampling is statistical, results will vary slightly between runs. A "
+"function showing 12% in one run might show 11% or 13% in the next. This is "
+"normal and expected. Focus on the overall pattern rather than exact "
+"percentages, and don't worry about small variations between runs."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:79
+msgid "When to use a different approach"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:81
+msgid "Statistical sampling is not ideal for every situation."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:83
+msgid ""
+"For very short scripts that complete in under one second, the profiler may "
+"not collect enough samples for reliable results. Use :mod:`profiling."
+"tracing` instead, or run the script in a loop to extend profiling time."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:87
+msgid ""
+"When you need exact call counts, sampling cannot provide them. Sampling "
+"estimates frequency from snapshots, so if you need to know precisely how "
+"many times a function was called, use :mod:`profiling.tracing`."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:91
+msgid ""
+"When comparing two implementations where the difference might be only 1-2%, "
+"sampling noise can obscure real differences. Use :mod:`timeit` for micro-"
+"benchmarks or :mod:`profiling.tracing` for precise measurements."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:96
+msgid ""
+"The key difference from :mod:`profiling.tracing` is how measurement happens. "
+"A tracing profiler instruments your code, recording every function call and "
+"return. This provides exact call counts and precise timing but adds overhead "
+"to every function call. A sampling profiler, by contrast, observes the "
+"program from outside at fixed intervals without modifying its execution. "
+"Think of the difference like this: tracing is like having someone follow you "
+"and write down every step you take, while sampling is like taking "
+"photographs every second and inferring your path from those snapshots."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:105
+msgid ""
+"This external observation model is what makes sampling profiling practical "
+"for production use. The profiled program runs at full speed because there is "
+"no instrumentation code running inside it, and the target process is never "
+"stopped or paused during sampling---Tachyon reads the call stack directly "
+"from the process's memory while it continues to run. You can attach to a "
+"live server, collect data, and detach without the application ever knowing "
+"it was observed. The trade-off is that very short-lived functions may be "
+"missed if they happen to complete between samples."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:114
+msgid ""
+"Statistical profiling excels at answering the question, \"Where is my "
+"program spending time?\" It reveals hotspots and bottlenecks in production "
+"code where deterministic profiling overhead would be unacceptable. For exact "
+"call counts and complete call graphs, use :mod:`profiling.tracing` instead."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:121
+msgid "Quick examples"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:123
+msgid "Profile a script and see the results immediately::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:127
+msgid "Profile a module with arguments::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:131
+msgid "Generate an interactive flame graph::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:135
+msgid "Attach to a running process by PID::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:139
+msgid "Use live mode for real-time monitoring (press ``q`` to quit)::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:143
+msgid "Profile for 60 seconds with a faster sampling rate::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:147
+msgid "Generate a line-by-line heatmap::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:151
+msgid ""
+"Enable opcode-level profiling to see which bytecode instructions are "
+"executing::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:157
+msgid "Commands"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:159
+msgid ""
+"Tachyon operates through two subcommands that determine how to obtain the "
+"target process."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:164
+msgid "The ``run`` command"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:166
+msgid ""
+"The ``run`` command launches a Python script or module and profiles it from "
+"startup::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:172
+msgid ""
+"When profiling a script, the profiler starts the target in a subprocess, "
+"waits for it to initialize, then begins collecting samples. The ``-m`` flag "
+"indicates that the target should be run as a module (equivalent to ``python -"
+"m``). Arguments after the target are passed through to the profiled program::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:182
+msgid "The ``attach`` command"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:184
+msgid ""
+"The ``attach`` command connects to an already-running Python process by its "
+"process ID::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:189
+msgid ""
+"This command is particularly valuable for investigating performance issues "
+"in production systems. The target process requires no modification and need "
+"not be restarted. The profiler attaches, collects samples for the specified "
+"duration, then detaches and produces output."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:199
+msgid ""
+"On most systems, attaching to another process requires appropriate "
+"permissions. See :ref:`profiling-permissions` for platform-specific "
+"requirements."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:204
+msgid "Profiling in production"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:206
+msgid ""
+"The sampling profiler is designed for production use. It imposes no "
+"measurable overhead on the target process because it reads memory externally "
+"rather than instrumenting code. The target application continues running at "
+"full speed and is unaware it is being profiled."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:211
+msgid "When profiling production systems, keep these guidelines in mind:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:213
+msgid ""
+"Start with shorter durations (10-30 seconds) to get quick results, then "
+"extend if you need more statistical accuracy. The default 10-second duration "
+"is usually sufficient to identify major hotspots."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:217
+msgid ""
+"If possible, profile during representative load rather than peak traffic. "
+"Profiles collected during normal operation are easier to interpret than "
+"those collected during unusual spikes."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:221
+msgid ""
+"The profiler itself consumes some CPU on the machine where it runs (not on "
+"the target process). On the same machine, this is typically negligible. When "
+"profiling remote processes, network latency does not affect the target."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:225
+msgid ""
+"Results from production may differ from development due to different data "
+"sizes, concurrent load, or caching effects. This is expected and is often "
+"exactly what you want to capture."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:233
+msgid "Platform requirements"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:235
+msgid ""
+"The profiler reads the target process's memory to capture stack traces. This "
+"requires elevated permissions on most operating systems."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:238
+msgid "**Linux**"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:240
+msgid ""
+"On Linux, the profiler uses ``ptrace`` or ``process_vm_readv`` to read the "
+"target process's memory. This typically requires one of:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:243
+#: ../../../library/profiling.sampling.rst:257
+msgid "Running as root"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:244
+msgid "Having the ``CAP_SYS_PTRACE`` capability"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:245
+msgid "Adjusting the Yama ptrace scope: ``/proc/sys/kernel/yama/ptrace_scope``"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:247
+msgid ""
+"The default ptrace_scope of 1 restricts ptrace to parent processes only. To "
+"allow attaching to any process owned by the same user, set it to 0::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:252
+msgid "**macOS**"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:254
+msgid ""
+"On macOS, the profiler uses ``task_for_pid()`` to access the target process. "
+"This requires one of:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:258
+msgid ""
+"The profiler binary having the ``com.apple.security.cs.debugger`` entitlement"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:259
+msgid "System Integrity Protection (SIP) being disabled (not recommended)"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:261
+msgid "**Windows**"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:263
+msgid ""
+"On Windows, the profiler requires administrative privileges or the "
+"``SeDebugPrivilege`` privilege to read another process's memory."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:268
+msgid "Version compatibility"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:270
+msgid ""
+"The profiler and target process must run the same Python minor version (for "
+"example, both Python 3.15). Attaching from Python 3.14 to a Python 3.15 "
+"process is not supported."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:274
+msgid ""
+"Additional restrictions apply to pre-release Python versions: if either the "
+"profiler or target is running a pre-release (alpha, beta, or release "
+"candidate), both must run the exact same version."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:278
+msgid ""
+"On free-threaded Python builds, the profiler cannot attach from a free-"
+"threaded build to a standard build, or vice versa."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:283
+msgid "Sampling configuration"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:285
+msgid ""
+"Before exploring the various output formats and visualization options, it is "
+"important to understand how to configure the sampling process itself. The "
+"profiler offers several options that control how frequently samples are "
+"collected, how long profiling runs, which threads are observed, and what "
+"additional context is captured in each sample."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:291
+msgid "The default configuration works well for most use cases:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:297
+msgid "Option"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:298
+msgid "Default behavior"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:299
+msgid "``--interval`` / ``-i``"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:300
+msgid "100 µs between samples (~10,000 samples/sec)"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:301
+msgid "``--duration`` / ``-d``"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:302
+msgid "Profile for 10 seconds"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:303
+msgid "``--all-threads`` / ``-a``"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:304
+msgid "Sample main thread only"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:305
+msgid "``--native``"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:306
+msgid "No ``<native>`` frames (C code time attributed to caller)"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:307
+msgid "``--no-gc``"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:308
+msgid "Include ``<GC>`` frames when garbage collection is active"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:309
+msgid "``--mode``"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:310
+msgid "Wall-clock mode (all samples recorded)"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:311
+msgid "``--realtime-stats``"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:312
+msgid "No live statistics display during profiling"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:316
+msgid "Sampling interval and duration"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:318
+msgid ""
+"The two most fundamental parameters are the sampling interval and duration. "
+"Together, these determine how many samples will be collected during a "
+"profiling session."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:322
+msgid ""
+"The :option:`--interval` option (:option:`-i`) sets the time between samples "
+"in microseconds. The default is 100 microseconds, which produces "
+"approximately 10,000 samples per second::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:328
+msgid ""
+"Lower intervals capture more samples and provide finer-grained data at the "
+"cost of slightly higher profiler CPU usage. Higher intervals reduce profiler "
+"overhead but may miss short-lived functions. For most applications, the "
+"default interval provides a good balance between accuracy and overhead."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:333
+msgid ""
+"The :option:`--duration` option (:option:`-d`) sets how long to profile in "
+"seconds. The default is 10 seconds::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:338
+msgid ""
+"Longer durations collect more samples and produce more statistically "
+"reliable results, especially for code paths that execute infrequently. When "
+"profiling a program that runs for a fixed time, you may want to set the "
+"duration to match or exceed the expected runtime."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:345
+msgid "Thread selection"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:347
+msgid ""
+"Python programs often use multiple threads, whether explicitly through the :"
+"mod:`threading` module or implicitly through libraries that manage thread "
+"pools."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:351
+msgid ""
+"By default, the profiler samples only the main thread. The :option:`--all-"
+"threads` option (:option:`-a`) enables sampling of all threads in the "
+"process::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:356
+msgid ""
+"Multi-thread profiling reveals how work is distributed across threads and "
+"can identify threads that are blocked or starved. Each thread's samples are "
+"combined in the output, with the ability to filter by thread in some "
+"formats. This option is particularly useful when investigating concurrency "
+"issues or when work is distributed across a thread pool."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:364
+msgid "Special frames"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:366
+msgid ""
+"The profiler can inject artificial frames into the captured stacks to "
+"provide additional context about what the interpreter is doing at the moment "
+"each sample is taken. These synthetic frames help distinguish different "
+"types of execution that would otherwise be invisible."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:371
+msgid ""
+"The :option:`--native` option adds ``<native>`` frames to indicate when "
+"Python has called into C code (extension modules, built-in functions, or the "
+"interpreter itself)::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:377
+msgid ""
+"These frames help distinguish time spent in Python code versus time spent in "
+"native libraries. Without this option, native code execution appears as time "
+"in the Python function that made the call. This is useful when optimizing "
+"code that makes heavy use of C extensions like NumPy or database drivers."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:382
+msgid ""
+"By default, the profiler includes ``<GC>`` frames when garbage collection is "
+"active. The :option:`--no-gc` option suppresses these frames::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:387
+msgid ""
+"GC frames help identify programs where garbage collection consumes "
+"significant time, which may indicate memory allocation patterns worth "
+"optimizing. If you see substantial time in ``<GC>`` frames, consider "
+"investigating object allocation rates or using object pooling."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:394
+msgid "Opcode-aware profiling"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:396
+msgid ""
+"The :option:`--opcodes` option enables instruction-level profiling that "
+"captures which Python bytecode instructions are executing at each sample::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:401
+msgid ""
+"This feature provides visibility into Python's bytecode execution, including "
+"adaptive specialization optimizations. When a generic instruction like "
+"``LOAD_ATTR`` is specialized at runtime into a more efficient variant like "
+"``LOAD_ATTR_INSTANCE_VALUE``, the profiler shows both the specialized name "
+"and the base instruction."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:407
+msgid "Opcode information appears in several output formats:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:409
+msgid ""
+"**Flame graphs**: Hovering over a frame displays a tooltip with a bytecode "
+"instruction breakdown, showing which opcodes consumed time in that function"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:411
+msgid ""
+"**Heatmap**: Expandable bytecode panels per source line show instruction "
+"breakdown with specialization percentages"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:413
+msgid ""
+"**Live mode**: An opcode panel shows instruction-level statistics for the "
+"selected function, accessible via keyboard navigation"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:415
+msgid ""
+"**Gecko format**: Opcode transitions are emitted as interval markers in the "
+"Firefox Profiler timeline"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:418
+msgid "This level of detail is particularly useful for:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:420
+msgid ""
+"Understanding the performance impact of Python's adaptive specialization"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:421
+msgid ""
+"Identifying hot bytecode instructions that might benefit from optimization"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:422
+msgid ""
+"Analyzing the effectiveness of different code patterns at the instruction "
+"level"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:423
+msgid "Debugging performance issues that occur at the bytecode level"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:425
+msgid ""
+"The :option:`--opcodes` option is compatible with :option:`--live`, :option:"
+"`--flamegraph`, :option:`--heatmap`, and :option:`--gecko` formats. It "
+"requires additional memory to store opcode information and may slightly "
+"reduce sampling performance, but provides unprecedented visibility into "
+"Python's execution model."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:432
+msgid "Real-time statistics"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:434
+msgid ""
+"The :option:`--realtime-stats` option displays sampling rate statistics "
+"during profiling::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:439
+msgid ""
+"This shows the actual achieved sampling rate, which may be lower than "
+"requested if the profiler cannot keep up. The statistics help verify that "
+"profiling is working correctly and that sufficient samples are being "
+"collected. See :ref:`sampling-efficiency` for details on interpreting these "
+"metrics."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:448
+msgid "Sampling efficiency"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:450
+msgid ""
+"Sampling efficiency metrics help assess the quality of the collected data. "
+"These metrics appear in the profiler's terminal output and in the flame "
+"graph sidebar."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:454
+msgid ""
+"**Sampling efficiency** is the percentage of sample attempts that succeeded. "
+"Each sample attempt reads the target process's call stack from memory. An "
+"attempt can fail if the process is in an inconsistent state at the moment of "
+"reading, such as during a context switch or while the interpreter is "
+"updating its internal structures. A low efficiency may indicate that the "
+"profiler could not keep up with the requested sampling rate, often due to "
+"system load or an overly aggressive interval setting."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:462
+msgid ""
+"**Missed samples** is the percentage of expected samples that were not "
+"collected. Based on the configured interval and duration, the profiler "
+"expects to collect a certain number of samples. Some samples may be missed "
+"if the profiler falls behind schedule, for example when the system is under "
+"heavy load. A small percentage of missed samples is normal and does not "
+"significantly affect the statistical accuracy of the profile."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:469
+msgid ""
+"Both metrics are informational. Even with some failed attempts or missed "
+"samples, the profile remains statistically valid as long as enough samples "
+"were collected. The profiler reports the actual number of samples captured, "
+"which you can use to judge whether the data is sufficient for your analysis."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:476
+msgid "Profiling modes"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:478
+msgid ""
+"The sampling profiler supports four modes that control which samples are "
+"recorded. The mode determines what the profile measures: total elapsed time, "
+"CPU execution time, time spent holding the global interpreter lock, or "
+"exception handling."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:485
+msgid "Wall-clock mode"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:487
+msgid ""
+"Wall-clock mode (:option:`--mode`\\ ``=wall``) captures all samples "
+"regardless of what the thread is doing. This is the default mode and "
+"provides a complete picture of where time passes during program execution::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:493
+msgid ""
+"In wall-clock mode, samples are recorded whether the thread is actively "
+"executing Python code, waiting for I/O, blocked on a lock, or sleeping. This "
+"makes wall-clock profiling ideal for understanding the overall time "
+"distribution in your program, including time spent waiting."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:498
+msgid ""
+"If your program spends significant time in I/O operations, network calls, or "
+"sleep, wall-clock mode will show these waits as time attributed to the "
+"calling function. This is often exactly what you want when optimizing end-to-"
+"end latency."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:505
+msgid "CPU mode"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:507
+msgid ""
+"CPU mode (:option:`--mode`\\ ``=cpu``) records samples only when the thread "
+"is actually executing on a CPU core::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:512
+msgid ""
+"Samples taken while the thread is sleeping, blocked on I/O, or waiting for a "
+"lock are discarded. The resulting profile shows where CPU cycles are "
+"consumed, filtering out idle time."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:516
+msgid ""
+"CPU mode is useful when you want to focus on computational hotspots without "
+"being distracted by I/O waits. If your program alternates between "
+"computation and network calls, CPU mode reveals which computational sections "
+"are most expensive."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:523
+msgid "Comparing wall-clock and CPU profiles"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:525
+msgid ""
+"Running both wall-clock and CPU mode profiles can reveal whether a "
+"function's time is spent computing or waiting."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:528
+msgid ""
+"If a function appears prominently in both profiles, it is a true "
+"computational hotspot---actively using the CPU. Optimization should focus on "
+"algorithmic improvements or more efficient code."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:532
+msgid ""
+"If a function is high in wall-clock mode but low or absent in CPU mode, it "
+"is I/O-bound or waiting. The function spends most of its time waiting for "
+"network, disk, locks, or sleep. CPU optimization won't help here; consider "
+"async I/O, connection pooling, or reducing wait time instead."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:558
+msgid "GIL mode"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:560
+msgid ""
+"GIL mode (:option:`--mode`\\ ``=gil``) records samples only when the thread "
+"holds Python's global interpreter lock::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:565
+msgid ""
+"The GIL is held only while executing Python bytecode. When Python calls into "
+"C extensions, performs I/O operations, or executes native code, the GIL is "
+"typically released. This means GIL mode effectively measures time spent "
+"running Python code specifically, filtering out time in native libraries."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:570
+msgid ""
+"In multi-threaded programs, GIL mode reveals which code is preventing other "
+"threads from running Python bytecode. Since only one thread can hold the GIL "
+"at a time, functions that appear frequently in GIL mode profiles are "
+"monopolizing the interpreter."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:575
+msgid ""
+"GIL mode helps answer questions like \"which functions are monopolizing the "
+"GIL?\" and \"why are my other threads starving?\" It can also be useful in "
+"single-threaded programs to distinguish Python execution time from time "
+"spent in C extensions or I/O."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:605
+msgid "Exception mode"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:607
+msgid ""
+"Exception mode (``--mode=exception``) records samples only when a thread has "
+"an active exception::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:612
+msgid ""
+"Samples are recorded in two situations: when an exception is being "
+"propagated up the call stack (after ``raise`` but before being caught), or "
+"when code is executing inside an ``except`` block where exception "
+"information is still present in the thread state."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:617
+msgid "The following example illustrates which code regions are captured:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:644
+msgid ""
+"Note that ``finally`` blocks are only captured when an exception is actively "
+"propagating through them. Once an ``except`` block finishes executing, "
+"Python clears the exception information before running any subsequent "
+"``finally`` block. Similarly, ``finally`` blocks that run during normal "
+"execution (when no exception was raised) are not captured because no "
+"exception state is present."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:650
+msgid ""
+"This mode is useful for understanding where your program spends time "
+"handling errors. Exception handling can be a significant source of overhead "
+"in code that uses exceptions for flow control (such as ``StopIteration`` in "
+"iterators) or in applications that process many error conditions (such as "
+"network servers handling connection failures)."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:656
+msgid ""
+"Exception mode helps answer questions like \"how much time is spent handling "
+"exceptions?\" and \"which exception handlers are the most expensive?\" It "
+"can reveal hidden performance costs in code that catches and processes many "
+"exceptions, even when those exceptions are handled gracefully. For example, "
+"if a parsing library uses exceptions internally to signal format errors, "
+"this mode will capture time spent in those handlers even if the calling code "
+"never sees the exceptions."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:666
+msgid "Output formats"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:668
+msgid ""
+"The profiler produces output in several formats, each suited to different "
+"analysis workflows. The format is selected with a command-line flag, and "
+"output goes to stdout, a file, or a directory depending on the format."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:674
+msgid "pstats format"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:676
+msgid ""
+"The pstats format (:option:`--pstats`) produces a text table similar to what "
+"deterministic profilers generate. This is the default output format::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:682
+msgid "Tachyon pstats terminal output"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:687
+msgid ""
+"The pstats format displays profiling results in a color-coded table showing "
+"function hotspots, sample counts, and timing estimates."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:690
+msgid "Output appears on stdout by default::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:698
+msgid "The columns show sampling counts and estimated times:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:700
+msgid ""
+"**nsamples**: Displayed as ``direct/cumulative`` (for example, ``10/50``). "
+"Direct samples are when the function was at the top of the stack, actively "
+"executing. Cumulative samples are when the function appeared anywhere on the "
+"stack, including when it was waiting for functions it called. If a function "
+"shows ``10/50``, it was directly executing in 10 samples and was on the call "
+"stack in 50 samples total."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:707
+msgid ""
+"**sample%** and **cumul%**: Percentages of total samples for direct and "
+"cumulative counts respectively."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:710
+msgid ""
+"**tottime** and **cumtime**: Estimated wall-clock time based on sample "
+"counts and the profiling duration. Time units are selected automatically "
+"based on the magnitude: seconds for large values, milliseconds for moderate "
+"values, or microseconds for small values."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:715
+msgid ""
+"The output includes a legend explaining each column and a summary of "
+"interesting functions that highlights:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:718
+msgid ""
+"**Hot spots**: Functions with high direct/cumulative sample ratio (ratio "
+"close to 1.0). These functions spend most of their time executing their own "
+"code rather than waiting for callees. High ratios indicate where CPU time is "
+"actually consumed."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:723
+msgid ""
+"**Indirect calls**: Functions with large differences between cumulative and "
+"direct samples. These are orchestration functions that delegate work to "
+"other functions. They appear frequently on the stack but rarely at the top."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:727
+msgid ""
+"**Call magnification**: Functions where cumulative samples far exceed direct "
+"samples (high cumulative/direct multiplier). These are frequently-nested "
+"functions that appear deep in many call chains."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:731
+msgid ""
+"Use :option:`--no-summary` to suppress both the legend and summary sections."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:733
+msgid "To save pstats output to a file instead of stdout::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:737
+msgid ""
+"The pstats format supports several options for controlling the display. The :"
+"option:`--sort` option determines the column used for ordering results::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:744
+msgid "The :option:`--limit` option restricts output to the top N entries::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:748
+msgid ""
+"The :option:`--no-summary` option suppresses the header summary that "
+"precedes the statistics table."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:753
+msgid "Collapsed stacks format"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:755
+msgid ""
+"Collapsed stacks format (:option:`--collapsed`) produces one line per unique "
+"call stack, with a count of how many times that stack was sampled::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:760
+msgid "The output looks like:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:768
+msgid ""
+"Each line contains semicolon-separated function names representing the call "
+"stack from bottom to top, followed by a space and the sample count. This "
+"format is designed for compatibility with external flame graph tools, "
+"particularly Brendan Gregg's ``flamegraph.pl`` script."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:773
+msgid "To generate a flame graph from collapsed stacks::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:778
+msgid ""
+"The resulting SVG can be viewed in any web browser and provides an "
+"interactive visualization where you can click to zoom into specific call "
+"paths."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:783
+msgid "Flame graph format"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:785
+msgid ""
+"Flame graph format (:option:`--flamegraph`) produces a self-contained HTML "
+"file with an interactive flame graph visualization::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:791
+msgid "Tachyon interactive flame graph"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:796
+msgid ""
+"The flame graph visualization shows call stacks as nested rectangles, with "
+"width proportional to time spent. The sidebar displays runtime statistics, "
+"GIL metrics, and hotspot functions."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:802
+msgid ""
+"`Try the interactive example <../_static/tachyon-example-flamegraph.html>`__!"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:804
+msgid ""
+"If no output file is specified, the profiler generates a filename based on "
+"the process ID (for example, ``flamegraph.12345.html``)."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:807
+msgid ""
+"The generated HTML file requires no external dependencies and can be opened "
+"directly in a web browser. The visualization displays call stacks as nested "
+"rectangles, with width proportional to time spent. Hovering over a rectangle "
+"shows details about that function including source code context, and "
+"clicking zooms into that portion of the call tree."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:813
+msgid "The flame graph interface includes:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:815
+msgid ""
+"A sidebar showing profile summary, thread statistics, sampling efficiency "
+"metrics (see :ref:`sampling-efficiency`), and top hotspot functions"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:817
+msgid ""
+"Search functionality supporting both function name matching and ``file."
+"py:42`` line patterns"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:819
+msgid "Per-thread filtering via dropdown"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:820
+msgid "Dark/light theme toggle (preference saved across sessions)"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:821
+msgid "SVG export for saving the current view"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:823
+msgid "The thread statistics section shows runtime behavior metrics:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:825
+msgid ""
+"**GIL Held**: percentage of samples where a thread held the global "
+"interpreter lock (actively running Python code)"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:827
+msgid "**GIL Released**: percentage of samples where no thread held the GIL"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:828
+msgid ""
+"**Waiting GIL**: percentage of samples where a thread was waiting to acquire "
+"the GIL"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:830
+msgid "**GC**: percentage of samples during garbage collection"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:832
+msgid ""
+"These statistics help identify GIL contention and understand how time is "
+"distributed between Python execution, native code, and waiting."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:835
+msgid ""
+"Flame graphs are particularly effective for identifying deep call stacks and "
+"understanding the hierarchical structure of time consumption. Wide "
+"rectangles at the top indicate functions that consume significant time "
+"either directly or through their callees."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:842
+msgid "Gecko format"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:844
+msgid ""
+"Gecko format (:option:`--gecko`) produces JSON output compatible with the "
+"Firefox Profiler::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:850
+msgid ""
+"The `Firefox Profiler <https://profiler.firefox.com>`__ is a sophisticated "
+"web-based tool originally built for profiling Firefox itself. It provides "
+"features beyond basic flame graphs, including a timeline view, call tree "
+"exploration, and marker visualization. See the `Firefox Profiler "
+"documentation <https://profiler.firefox.com/docs/#/>`__ for detailed usage "
+"instructions."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:857
+msgid ""
+"To use the output, open the Firefox Profiler in your browser and load the "
+"JSON file. The profiler runs entirely client-side, so your profiling data "
+"never leaves your machine."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:861
+msgid ""
+"Gecko format automatically collects additional metadata about GIL state and "
+"CPU activity, enabling analysis features specific to Python's threading "
+"model. The profiler emits interval markers that appear as colored bands in "
+"the Firefox Profiler timeline:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:866
+msgid ""
+"**GIL markers**: show when threads hold or release the global interpreter "
+"lock"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:867
+msgid "**CPU markers**: show when threads are executing on CPU versus idle"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:868
+msgid ""
+"**Code type markers**: distinguish Python code from native (C extension) code"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:869
+msgid "**GC markers**: indicate garbage collection activity"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:871
+msgid ""
+"For this reason, the :option:`--mode` option is not available with Gecko "
+"format; all relevant data is captured automatically."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:874
+msgid "Firefox Profiler Call Tree view"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:879
+msgid ""
+"The Call Tree view shows the complete call hierarchy with sample counts and "
+"percentages. The sidebar displays detailed statistics for the selected "
+"function including running time and sample distribution."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:883
+msgid "Firefox Profiler Flame Graph view"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:888
+msgid ""
+"The Flame Graph visualization shows call stacks as nested rectangles. "
+"Functions names are visible in the call hierarchy."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:891
+msgid "Firefox Profiler Marker Chart with opcodes"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:896
+msgid ""
+"The Marker Chart displays interval markers including CPU state, GIL status, "
+"and opcodes. With ``--opcodes`` enabled, bytecode instructions like "
+"``BINARY_OP_ADD_FLOAT``, ``CALL_PY_EXACT_ARGS``, and ``CALL_LIST_APPEND`` "
+"appear as markers showing execution over time."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:903
+msgid "Heatmap format"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:905
+msgid ""
+"Heatmap format (:option:`--heatmap`) generates an interactive HTML "
+"visualization showing sample counts at the source line level::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:911
+msgid "Tachyon heatmap visualization"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:916
+msgid ""
+"The heatmap overlays sample counts directly on your source code. Lines are "
+"color-coded from cool (few samples) to hot (many samples). Navigation "
+"buttons (▲▼) let you jump between callers and callees."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:920
+msgid ""
+"Unlike other formats that produce a single file, heatmap output creates a "
+"directory containing HTML files for each profiled source file. If no output "
+"path is specified, the directory is named ``heatmap_PID``."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:924
+msgid ""
+"The heatmap visualization displays your source code with a color gradient "
+"indicating how many samples were collected at each line. Hot lines (many "
+"samples) appear in warm colors, while cold lines (few or no samples) appear "
+"in cool colors. This view helps pinpoint exactly which lines of code are "
+"responsible for time consumption."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:930
+msgid "The heatmap interface provides several interactive features:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:932
+msgid ""
+"**Coloring modes**: toggle between \"Self Time\" (direct execution) and "
+"\"Total Time\" (cumulative, including time in called functions)"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:934
+msgid "**Cold code filtering**: show all lines or only lines with samples"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:935
+msgid ""
+"**Call graph navigation**: each line shows navigation buttons (▲ for "
+"callers, ▼ for callees) that let you trace execution paths through your "
+"code. When multiple functions called or were called from a line, a menu "
+"appears showing all options with their sample counts."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:939
+msgid ""
+"**Scroll minimap**: a vertical overview showing the heat distribution across "
+"the entire file"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:941
+msgid ""
+"**Hierarchical index**: files organized by type (stdlib, site-packages, "
+"project) with aggregate sample counts per folder"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:943
+msgid "**Dark/light theme**: toggle with preference saved across sessions"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:944
+msgid "**Line linking**: click line numbers to create shareable URLs"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:946
+msgid ""
+"When opcode-level profiling is enabled with :option:`--opcodes`, each hot "
+"line can be expanded to show which bytecode instructions consumed time:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:949
+msgid "Heatmap with expanded bytecode panel"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:954
+msgid ""
+"Expanding a hot line reveals the bytecode instructions executed, including "
+"specialized variants. The panel shows sample counts per instruction and the "
+"overall specialization percentage for the line."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:960
+msgid ""
+"`Try the interactive example <../_static/tachyon-example-heatmap.html>`__!"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:962
+msgid ""
+"Heatmaps are especially useful when you know which file contains a "
+"performance issue but need to identify the specific lines. Many developers "
+"prefer this format because it maps directly to their source code, making it "
+"easy to read and navigate. For smaller scripts and focused analysis, "
+"heatmaps provide an intuitive view that shows exactly where time is spent "
+"without requiring interpretation of hierarchical visualizations."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:971
+msgid "Live mode"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:973
+msgid ""
+"Live mode (:option:`--live`) provides a terminal-based real-time view of "
+"profiling data, similar to the ``top`` command for system processes::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:979
+msgid "Tachyon live mode showing all threads"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:984
+msgid ""
+"Live mode displays real-time profiling statistics, showing combined data "
+"from multiple threads in a multi-threaded application."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:987
+msgid ""
+"The display updates continuously as new samples arrive, showing the current "
+"hottest functions. This mode requires the :mod:`curses` module, which is "
+"available on Unix-like systems but not on Windows. The terminal must be at "
+"least 60 columns wide and 12 lines tall; larger terminals display more "
+"columns."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:992
+msgid ""
+"The header displays the top 3 hottest functions, sampling efficiency "
+"metrics, and thread status statistics (GIL held percentage, CPU usage, GC "
+"time). The main table shows function statistics with the currently sorted "
+"column indicated by an arrow (▼)."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:997
+msgid ""
+"When :option:`--opcodes` is enabled, an additional opcode panel appears "
+"below the main table, showing instruction-level statistics for the currently "
+"selected function. This panel displays which bytecode instructions are "
+"executing most frequently, including specialized variants and their base "
+"opcodes."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1002
+msgid "Tachyon live mode with opcode panel"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1007
+msgid ""
+"Live mode with ``--opcodes`` enabled shows an opcode panel with a bytecode "
+"instruction breakdown for the selected function."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1012
+msgid "Keyboard commands"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1014
+msgid "Within live mode, keyboard commands control the display:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1016
+msgid ":kbd:`q`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1017
+msgid "Quit the profiler and return to the shell."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1019
+msgid ":kbd:`s` / :kbd:`S`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1020
+msgid ""
+"Cycle through sort orders forward/backward (sample count, percentage, total "
+"time, cumulative percentage, cumulative time)."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1023
+msgid ":kbd:`p`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1024
+msgid ""
+"Pause or resume display updates. Sampling continues in the background while "
+"the display is paused, so you can freeze the view to examine results without "
+"stopping data collection."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1028
+msgid ":kbd:`r`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1029
+msgid ""
+"Reset all statistics and start fresh. This is disabled after profiling "
+"finishes to prevent accidental data loss."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1032
+msgid ":kbd:`/`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1033
+msgid ""
+"Enter filter mode to search for functions by name. The filter uses case-"
+"insensitive substring matching against the filename and function name. Type "
+"a pattern and press Enter to apply, or Escape to cancel. Glob patterns and "
+"regular expressions are not supported."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1038
+msgid ":kbd:`c`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1039
+msgid "Clear the current filter and show all functions again."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1041
+msgid ":kbd:`t`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1042
+msgid ""
+"Toggle between viewing all threads combined or per-thread statistics. In per-"
+"thread mode, a thread counter (for example, ``1/4``) appears showing your "
+"position among the available threads."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1046
+msgid ":kbd:`←` :kbd:`→` or :kbd:`↑` :kbd:`↓`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1047
+msgid ""
+"In per-thread view, navigate between threads. Navigation wraps around from "
+"the last thread to the first and vice versa."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1050
+msgid ":kbd:`+` / :kbd:`-`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1051
+msgid ""
+"Increase or decrease the display refresh rate. The range is 0.05 seconds (20 "
+"Hz, very responsive) to 1.0 second (1 Hz, lower overhead). Faster refresh "
+"rates use more CPU. The default is 0.1 seconds (10 Hz)."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1055
+msgid ":kbd:`x`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1056
+msgid ""
+"Toggle trend indicators that show whether functions are becoming hotter or "
+"cooler over time. When enabled, increasing metrics appear in green and "
+"decreasing metrics appear in red, comparing each update to the previous one."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1060
+msgid ":kbd:`h` or :kbd:`?`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1061
+msgid "Show the help screen with all available commands."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1063
+msgid ":kbd:`j` / :kbd:`k` (or :kbd:`Up` / :kbd:`Down`)"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1064
+msgid ""
+"Navigate through opcode entries in the opcode panel (when ``--opcodes`` is "
+"enabled). These keys scroll through the instruction-level statistics for the "
+"currently selected function."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1068
+msgid ""
+"When profiling finishes (duration expires or target process exits), the "
+"display shows a \"PROFILING COMPLETE\" banner and freezes the final results. "
+"You can still navigate, sort, and filter the results before pressing :kbd:"
+"`q` to exit."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1072
+msgid ""
+"Live mode is incompatible with output format options (:option:`--"
+"collapsed`, :option:`--flamegraph`, and so on) because it uses an "
+"interactive terminal interface rather than producing file output."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1078
+msgid "Async-aware profiling"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1080
+msgid ""
+"For programs using :mod:`asyncio`, the profiler offers async-aware mode (:"
+"option:`--async-aware`) that reconstructs call stacks based on the task "
+"structure rather than the raw Python frames::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1086
+msgid ""
+"Standard profiling of async code can be confusing because the physical call "
+"stack often shows event loop internals rather than the logical flow of your "
+"coroutines. Async-aware mode addresses this by tracking which task is "
+"running and presenting stacks that reflect the ``await`` chain."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1112
+msgid ""
+"Async-aware profiling requires the target process to have the :mod:`asyncio` "
+"module loaded. If you profile a script before it imports asyncio, async-"
+"aware mode will not be able to capture task information."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1118
+msgid "Async modes"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1120
+msgid ""
+"The :option:`--async-mode` option controls which tasks appear in the "
+"profile::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1125
+msgid ""
+"With :option:`--async-mode`\\ ``=running`` (the default), only the task "
+"currently executing on the CPU is profiled. This shows where your program is "
+"actively spending time and is the typical choice for performance analysis."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1129
+msgid ""
+"With :option:`--async-mode`\\ ``=all``, tasks that are suspended (awaiting I/"
+"O, locks, or other tasks) are also included. This mode is useful for "
+"understanding what your program is waiting on, but produces larger profiles "
+"since every suspended task appears in each sample."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1136
+msgid "Task markers and stack reconstruction"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1138
+msgid ""
+"In async-aware profiles, you will see ``<task>`` frames that mark boundaries "
+"between asyncio tasks. These are synthetic frames inserted by the profiler "
+"to show the task structure. The task name appears as the function name in "
+"these frames."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1143
+msgid ""
+"When a task awaits another task, the profiler reconstructs the logical call "
+"chain by following the ``await`` relationships. Only \"leaf\" tasks (tasks "
+"that no other task is currently awaiting) generate their own stack entries. "
+"Tasks being awaited by other tasks appear as part of their awaiter's stack "
+"instead."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1148
+msgid ""
+"If a task has multiple awaiters (a diamond pattern in the task graph), the "
+"profiler deterministically selects one parent and annotates the task marker "
+"with the number of parents, for example ``MyTask (2 parents)``. This "
+"indicates that alternate execution paths exist but are not shown in this "
+"particular stack."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1155
+msgid "Option restrictions"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1157
+msgid ""
+"Async-aware mode uses a different stack reconstruction mechanism and is "
+"incompatible with: :option:`--native`, :option:`--no-gc`, :option:`--all-"
+"threads`, and :option:`--mode`\\ ``=cpu`` or :option:`--mode`\\ ``=gil``."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1163
+msgid "Command-line interface"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1167
+msgid "The complete command-line interface for reference."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1171
+msgid "Global options"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1175
+msgid "Run and profile a Python script or module."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1179
+msgid "Attach to and profile a running process by PID."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1183
+msgid "Sampling options"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1187
+msgid "Sampling interval in microseconds. Default: 100."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1191
+msgid "Profiling duration in seconds. Default: 10."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1195
+msgid "Sample all threads, not just the main thread."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1199
+msgid "Display sampling statistics during profiling."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1203
+msgid "Include ``<native>`` frames for non-Python code."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1207
+msgid "Exclude ``<GC>`` frames for garbage collection."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1211
+msgid "Enable async-aware profiling for asyncio programs."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1215
+msgid ""
+"Gather bytecode opcode information for instruction-level profiling. Shows "
+"which bytecode instructions are executing, including specializations. "
+"Compatible with ``--live``, ``--flamegraph``, ``--heatmap``, and ``--gecko`` "
+"formats only."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1222
+msgid "Mode options"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1226
+msgid ""
+"Sampling mode: ``wall`` (default), ``cpu``, ``gil``, or ``exception``. The "
+"``cpu``, ``gil``, and ``exception`` modes are incompatible with ``--async-"
+"aware``."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1232
+msgid ""
+"Async profiling mode: ``running`` (default) or ``all``. Requires ``--async-"
+"aware``."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1237
+msgid "Output options"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1241
+msgid "Generate text statistics output. This is the default."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1245
+msgid "Generate collapsed stack format for external flame graph tools."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1249
+msgid "Generate self-contained HTML flame graph."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1253
+msgid "Generate Gecko JSON format for Firefox Profiler."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1257
+msgid "Generate HTML heatmap with line-level sample counts."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1261
+msgid ""
+"Output file or directory path. Default behavior varies by format: ``--"
+"pstats`` writes to stdout, ``--flamegraph`` and ``--gecko`` generate files "
+"like ``flamegraph.PID.html``, and ``--heatmap`` creates a directory named "
+"``heatmap_PID``."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1268
+msgid "pstats display options"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1270
+msgid "These options apply only to pstats format output."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1274
+msgid ""
+"Sort order: ``nsamples``, ``tottime``, ``cumtime``, ``sample-pct``, ``cumul-"
+"pct``, ``nsamples-cumul``, or ``name``. Default: ``nsamples``."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1279
+msgid "Maximum number of entries to display. Default: 15."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1283
+msgid ""
+"Omit the Legend and Summary of Interesting Functions sections from output."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1287
+msgid "Run command options"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1291
+msgid "Treat the target as a module name rather than a script path."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1295
+msgid "Start interactive terminal interface instead of batch profiling."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1300
+msgid ":mod:`profiling`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1301
+msgid "Overview of Python profiling tools and guidance on choosing a profiler."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1303
+msgid ":mod:`profiling.tracing`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1304
+msgid "Deterministic tracing profiler for exact call counts and timing."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1306
+msgid ":mod:`pstats`"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1307
+msgid "Statistics analysis for profile data."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1309
+msgid "`Firefox Profiler <https://profiler.firefox.com>`__"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1310
+msgid ""
+"Web-based profiler that accepts Gecko format output. See the `documentation "
+"<https://profiler.firefox.com/docs/#/>`__ for usage details."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1313
+msgid "`FlameGraph <https://github.com/brendangregg/FlameGraph>`__"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1314
+msgid "Tools for generating flame graphs from collapsed stack format."
+msgstr ""
