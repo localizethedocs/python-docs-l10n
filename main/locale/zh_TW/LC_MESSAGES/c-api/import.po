@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01 09:06+0000\n"
+"POT-Creation-Date: 2025-12-15 08:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -150,58 +150,65 @@ msgstr ""
 #: ../../../c-api/import.rst:131
 msgid ""
 "The module's :attr:`~module.__file__` attribute will be set to the code "
-"object's :attr:`~codeobject.co_filename`.  If applicable, :attr:`~module."
-"__cached__` will also be set."
+"object's :attr:`~codeobject.co_filename`."
 msgstr ""
 
-#: ../../../c-api/import.rst:135
+#: ../../../c-api/import.rst:134
 msgid ""
 "This function will reload the module if it was already imported.  See :c:"
 "func:`PyImport_ReloadModule` for the intended way to reload a module."
 msgstr ""
 
-#: ../../../c-api/import.rst:138
+#: ../../../c-api/import.rst:137
 msgid ""
 "If *name* points to a dotted name of the form ``package.module``, any "
 "package structures not already created will still not be created."
 msgstr ""
 
-#: ../../../c-api/import.rst:141
+#: ../../../c-api/import.rst:140
 msgid ""
 "See also :c:func:`PyImport_ExecCodeModuleEx` and :c:func:"
 "`PyImport_ExecCodeModuleWithPathnames`."
 msgstr ""
 
-#: ../../../c-api/import.rst:144
+#: ../../../c-api/import.rst:143
 msgid ""
-"The setting of :attr:`~module.__cached__` and :attr:`~module.__loader__` is "
-"deprecated. See :class:`~importlib.machinery.ModuleSpec` for alternatives."
+"The setting of ``__cached__`` and :attr:`~module.__loader__` is deprecated. "
+"See :class:`~importlib.machinery.ModuleSpec` for alternatives."
 msgstr ""
 
-#: ../../../c-api/import.rst:152
+#: ../../../c-api/import.rst:148
+msgid "``__cached__`` is no longer set."
+msgstr ""
+
+#: ../../../c-api/import.rst:154
 msgid ""
 "Like :c:func:`PyImport_ExecCodeModule`, but the :attr:`~module.__file__` "
 "attribute of the module object is set to *pathname* if it is non-``NULL``."
 msgstr ""
 
-#: ../../../c-api/import.rst:155
+#: ../../../c-api/import.rst:157
 msgid "See also :c:func:`PyImport_ExecCodeModuleWithPathnames`."
 msgstr ""
 
-#: ../../../c-api/import.rst:160
+#: ../../../c-api/import.rst:162
 msgid ""
-"Like :c:func:`PyImport_ExecCodeModuleEx`, but the :attr:`~module.__cached__` "
-"attribute of the module object is set to *cpathname* if it is non-``NULL``.  "
-"Of the three functions, this is the preferred one to use."
+"Like :c:func:`PyImport_ExecCodeModuleEx`, but the path to any compiled file "
+"via *cpathname* is used appropriately when non-``NULL``.  Of the three "
+"functions, this is the preferred one to use."
 msgstr ""
 
-#: ../../../c-api/import.rst:166
+#: ../../../c-api/import.rst:168
 msgid ""
-"Setting :attr:`~module.__cached__` is deprecated. See :class:`~importlib."
-"machinery.ModuleSpec` for alternatives."
+"Setting ``__cached__`` is deprecated. See :class:`~importlib.machinery."
+"ModuleSpec` for alternatives."
 msgstr ""
 
-#: ../../../c-api/import.rst:173
+#: ../../../c-api/import.rst:172
+msgid "``__cached__`` no longer set."
+msgstr ""
+
+#: ../../../c-api/import.rst:178
 msgid ""
 "Like :c:func:`PyImport_ExecCodeModuleObject`, but *name*, *pathname* and "
 "*cpathname* are UTF-8 encoded strings. Attempts are also made to figure out "
@@ -209,48 +216,48 @@ msgid ""
 "set to ``NULL``."
 msgstr ""
 
-#: ../../../c-api/import.rst:179
+#: ../../../c-api/import.rst:184
 msgid ""
 "Uses :func:`!imp.source_from_cache` in calculating the source path if only "
 "the bytecode path is provided."
 msgstr ""
 
-#: ../../../c-api/import.rst:182
+#: ../../../c-api/import.rst:187
 msgid "No longer uses the removed :mod:`!imp` module."
 msgstr ""
 
-#: ../../../c-api/import.rst:188
+#: ../../../c-api/import.rst:193
 msgid ""
 "Return the magic number for Python bytecode files (a.k.a. :file:`.pyc` "
 "file). The magic number should be present in the first four bytes of the "
 "bytecode file, in little-endian byte order. Returns ``-1`` on error."
 msgstr ""
 
-#: ../../../c-api/import.rst:192
+#: ../../../c-api/import.rst:197
 msgid "Return value of ``-1`` upon failure."
 msgstr ""
 
-#: ../../../c-api/import.rst:198
+#: ../../../c-api/import.rst:203
 msgid ""
 "Return the magic tag string for :pep:`3147` format Python bytecode file "
 "names.  Keep in mind that the value at ``sys.implementation.cache_tag`` is "
 "authoritative and should be used instead of this function."
 msgstr ""
 
-#: ../../../c-api/import.rst:206
+#: ../../../c-api/import.rst:211
 msgid ""
 "Return the dictionary used for the module administration (a.k.a. ``sys."
 "modules``).  Note that this is a per-interpreter variable."
 msgstr ""
 
-#: ../../../c-api/import.rst:211
+#: ../../../c-api/import.rst:216
 msgid ""
 "Return the already imported module with the given name.  If the module has "
 "not been imported yet then returns ``NULL`` but does not set an error.  "
 "Returns ``NULL`` and sets an error if the lookup failed."
 msgstr ""
 
-#: ../../../c-api/import.rst:219
+#: ../../../c-api/import.rst:224
 msgid ""
 "Return a finder object for a :data:`sys.path`/:attr:`!pkg.__path__` item "
 "*path*, possibly by fetching it from the :data:`sys.path_importer_cache` "
@@ -261,7 +268,7 @@ msgid ""
 "path_importer_cache`. Return a new reference to the finder object."
 msgstr ""
 
-#: ../../../c-api/import.rst:230
+#: ../../../c-api/import.rst:235
 msgid ""
 "Load a frozen module named *name*.  Return ``1`` for success, ``0`` if the "
 "module is not found, and ``-1`` with an exception set if the initialization "
@@ -270,17 +277,17 @@ msgid ""
 "the module if it was already imported.)"
 msgstr ""
 
-#: ../../../c-api/import.rst:238
+#: ../../../c-api/import.rst:243
 msgid "The ``__file__`` attribute is no longer set on the module."
 msgstr ""
 
-#: ../../../c-api/import.rst:244
+#: ../../../c-api/import.rst:249
 msgid ""
 "Similar to :c:func:`PyImport_ImportFrozenModuleObject`, but the name is a "
 "UTF-8 encoded string instead of a Unicode object."
 msgstr ""
 
-#: ../../../c-api/import.rst:252
+#: ../../../c-api/import.rst:257
 msgid ""
 "This is the structure type definition for frozen module descriptors, as "
 "generated by the :program:`freeze` utility (see :file:`Tools/freeze/` in the "
@@ -288,13 +295,13 @@ msgid ""
 "h`, is::"
 msgstr ""
 
-#: ../../../c-api/import.rst:264
+#: ../../../c-api/import.rst:269
 msgid ""
 "The new ``is_package`` field indicates whether the module is a package or "
 "not. This replaces setting the ``size`` field to a negative value."
 msgstr ""
 
-#: ../../../c-api/import.rst:270
+#: ../../../c-api/import.rst:275
 msgid ""
 "This pointer is initialized to point to an array of :c:struct:`_frozen` "
 "records, terminated by one whose members are all ``NULL`` or zero.  When a "
@@ -303,7 +310,7 @@ msgid ""
 "frozen modules."
 msgstr ""
 
-#: ../../../c-api/import.rst:278
+#: ../../../c-api/import.rst:283
 msgid ""
 "Add a single module to the existing table of built-in modules.  This is a "
 "convenience wrapper around :c:func:`PyImport_ExtendInittab`, returning "
@@ -313,7 +320,7 @@ msgid ""
 "before :c:func:`Py_Initialize`."
 msgstr ""
 
-#: ../../../c-api/import.rst:288
+#: ../../../c-api/import.rst:293
 msgid ""
 "Structure describing a single entry in the list of built-in modules. "
 "Programs which embed Python may use an array of these structures in "
@@ -321,15 +328,15 @@ msgid ""
 "built-in modules. The structure consists of two members:"
 msgstr ""
 
-#: ../../../c-api/import.rst:296
+#: ../../../c-api/import.rst:301
 msgid "The module name, as an ASCII encoded string."
 msgstr ""
 
-#: ../../../c-api/import.rst:300
+#: ../../../c-api/import.rst:305
 msgid "Initialization function for a module built into the interpreter."
 msgstr ""
 
-#: ../../../c-api/import.rst:305
+#: ../../../c-api/import.rst:310
 msgid ""
 "Add a collection of modules to the table of built-in modules.  The *newtab* "
 "array must end with a sentinel entry which contains ``NULL`` for the :c:"
@@ -340,29 +347,29 @@ msgid ""
 "before :c:func:`Py_Initialize`."
 msgstr ""
 
-#: ../../../c-api/import.rst:312
+#: ../../../c-api/import.rst:317
 msgid ""
 "If Python is initialized multiple times, :c:func:`PyImport_AppendInittab` "
 "or :c:func:`PyImport_ExtendInittab` must be called before each Python "
 "initialization."
 msgstr ""
 
-#: ../../../c-api/import.rst:319
+#: ../../../c-api/import.rst:324
 msgid ""
 "The table of built-in modules used by Python initialization. Do not use this "
 "directly; use :c:func:`PyImport_AppendInittab` and :c:func:"
 "`PyImport_ExtendInittab` instead."
 msgstr ""
 
-#: ../../../c-api/import.rst:326
+#: ../../../c-api/import.rst:331
 msgid "Import the module *mod_name* and get its attribute *attr_name*."
 msgstr ""
 
-#: ../../../c-api/import.rst:328
+#: ../../../c-api/import.rst:333
 msgid "Names must be Python :class:`str` objects."
 msgstr ""
 
-#: ../../../c-api/import.rst:330
+#: ../../../c-api/import.rst:335
 msgid ""
 "Helper function combining :c:func:`PyImport_Import` and :c:func:"
 "`PyObject_GetAttr`. For example, it can raise :exc:`ImportError` if the "
@@ -370,30 +377,30 @@ msgid ""
 "exist."
 msgstr ""
 
-#: ../../../c-api/import.rst:339
+#: ../../../c-api/import.rst:344
 msgid ""
 "Similar to :c:func:`PyImport_ImportModuleAttr`, but names are UTF-8 encoded "
 "strings instead of Python :class:`str` objects."
 msgstr ""
 
-#: ../../../c-api/import.rst:346
+#: ../../../c-api/import.rst:351
 msgid ""
 "This function is a building block that enables embedders to implement the :"
 "py:meth:`~importlib.abc.Loader.create_module` step of custom static "
 "extension importers (e.g. of statically-linked extensions)."
 msgstr ""
 
-#: ../../../c-api/import.rst:350
+#: ../../../c-api/import.rst:355
 msgid "*spec* must be a :class:`~importlib.machinery.ModuleSpec` object."
 msgstr ""
 
-#: ../../../c-api/import.rst:352
+#: ../../../c-api/import.rst:357
 msgid ""
 "*initfunc* must be an :ref:`initialization function <extension-export-"
 "hook>`, the same as for :c:func:`PyImport_AppendInittab`."
 msgstr ""
 
-#: ../../../c-api/import.rst:355
+#: ../../../c-api/import.rst:360
 msgid ""
 "On success, create and return a module object. This module will not be "
 "initialized; call :c:func:`PyModule_Exec` to initialize it. (Custom "
@@ -401,7 +408,7 @@ msgid ""
 "exec_module` method.)"
 msgstr ""
 
-#: ../../../c-api/import.rst:361
+#: ../../../c-api/import.rst:366
 msgid "On error, return NULL with an exception set."
 msgstr ""
 
@@ -433,6 +440,6 @@ msgstr ""
 msgid "compile"
 msgstr ""
 
-#: ../../../c-api/import.rst:250
+#: ../../../c-api/import.rst:255
 msgid "freeze utility"
 msgstr ""
