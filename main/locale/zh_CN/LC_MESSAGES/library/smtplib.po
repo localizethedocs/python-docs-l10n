@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-24 08:42+0000\n"
+"POT-Creation-Date: 2025-12-22 09:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -394,12 +394,12 @@ msgid ""
 msgstr ""
 
 #: ../../../library/smtplib.rst:316 ../../../library/smtplib.rst:345
-#: ../../../library/smtplib.rst:433 ../../../library/smtplib.rst:499
+#: ../../../library/smtplib.rst:433 ../../../library/smtplib.rst:501
 msgid ":exc:`SMTPHeloError`"
 msgstr ""
 
 #: ../../../library/smtplib.rst:317 ../../../library/smtplib.rst:346
-#: ../../../library/smtplib.rst:434 ../../../library/smtplib.rst:500
+#: ../../../library/smtplib.rst:434 ../../../library/smtplib.rst:502
 msgid "The server didn't reply properly to the ``HELO`` greeting."
 msgstr ""
 
@@ -439,7 +439,7 @@ msgid "The server didn't accept the username/password combination."
 msgstr ""
 
 #: ../../../library/smtplib.rst:351 ../../../library/smtplib.rst:436
-#: ../../../library/smtplib.rst:509
+#: ../../../library/smtplib.rst:511
 msgid ":exc:`SMTPNotSupportedError`"
 msgstr ""
 
@@ -588,22 +588,24 @@ msgid ""
 "Send mail.  The required arguments are an :rfc:`822` from-address string, a "
 "list of :rfc:`822` to-address strings (a bare string will be treated as a "
 "list with 1 address), and a message string.  The caller may pass a list of "
-"ESMTP options (such as ``8bitmime``) to be used in ``MAIL FROM`` commands as "
-"*mail_options*. ESMTP options (such as ``DSN`` commands) that should be used "
-"with all ``RCPT`` commands can be passed as *rcpt_options*.  (If you need to "
-"use different ESMTP options to different recipients you have to use the low-"
-"level methods such as :meth:`!mail`, :meth:`!rcpt` and :meth:`!data` to send "
-"the message.)"
+"ESMTP options (such as ``\"8bitmime\"``) to be used in ``MAIL FROM`` "
+"commands as *mail_options*. ESMTP options (such as ``DSN`` commands) that "
+"should be used with all ``RCPT`` commands can be passed as *rcpt_options*. "
+"Each option should be passed as a string containing the full text of the "
+"option, including any potential key (for instance, ``\"NOTIFY=SUCCESS,"
+"FAILURE\"``). (If you need to use different ESMTP options to different "
+"recipients you have to use the low-level methods such as :meth:`!mail`, :"
+"meth:`!rcpt` and :meth:`!data` to send the message.)"
 msgstr ""
 
-#: ../../../library/smtplib.rst:469
+#: ../../../library/smtplib.rst:471
 msgid ""
 "The *from_addr* and *to_addrs* parameters are used to construct the message "
 "envelope used by the transport agents.  ``sendmail`` does not modify the "
 "message headers in any way."
 msgstr ""
 
-#: ../../../library/smtplib.rst:473
+#: ../../../library/smtplib.rst:475
 msgid ""
 "*msg* may be a string containing characters in the ASCII range, or a byte "
 "string.  A string is encoded to bytes using the ascii codec, and lone "
@@ -611,7 +613,7 @@ msgid ""
 "byte string is not modified."
 msgstr ""
 
-#: ../../../library/smtplib.rst:478
+#: ../../../library/smtplib.rst:480
 msgid ""
 "If there has been no previous ``EHLO`` or ``HELO`` command this session, "
 "this method tries ESMTP ``EHLO`` first. If the server does ESMTP, message "
@@ -620,7 +622,7 @@ msgid ""
 "will be tried and ESMTP options suppressed."
 msgstr ""
 
-#: ../../../library/smtplib.rst:484
+#: ../../../library/smtplib.rst:486
 msgid ""
 "This method will return normally if the mail is accepted for at least one "
 "recipient. Otherwise it will raise an exception.  That is, if this method "
@@ -630,65 +632,65 @@ msgid ""
 "SMTP error code and the accompanying error message sent by the server."
 msgstr ""
 
-#: ../../../library/smtplib.rst:491
+#: ../../../library/smtplib.rst:493
 msgid ""
 "If ``SMTPUTF8`` is included in *mail_options*, and the server supports it, "
 "*from_addr* and *to_addrs* may contain non-ASCII characters."
 msgstr ""
 
-#: ../../../library/smtplib.rst:494
+#: ../../../library/smtplib.rst:496
 msgid "This method may raise the following exceptions:"
 msgstr ""
 
-#: ../../../library/smtplib.rst:496
+#: ../../../library/smtplib.rst:498
 msgid ":exc:`SMTPRecipientsRefused`"
 msgstr ""
 
-#: ../../../library/smtplib.rst:497
+#: ../../../library/smtplib.rst:499
 msgid "All recipients were refused.  Nobody got the mail."
 msgstr ""
 
-#: ../../../library/smtplib.rst:502
+#: ../../../library/smtplib.rst:504
 msgid ":exc:`SMTPSenderRefused`"
 msgstr ""
 
-#: ../../../library/smtplib.rst:503
+#: ../../../library/smtplib.rst:505
 msgid "The server didn't accept the *from_addr*."
 msgstr ""
 
-#: ../../../library/smtplib.rst:505
+#: ../../../library/smtplib.rst:507
 msgid ":exc:`SMTPDataError`"
 msgstr ""
 
-#: ../../../library/smtplib.rst:506
+#: ../../../library/smtplib.rst:508
 msgid ""
 "The server replied with an unexpected error code (other than a refusal of a "
 "recipient)."
 msgstr ""
 
-#: ../../../library/smtplib.rst:510
+#: ../../../library/smtplib.rst:512
 msgid ""
 "``SMTPUTF8`` was given in the *mail_options* but is not supported by the "
 "server."
 msgstr ""
 
-#: ../../../library/smtplib.rst:513
+#: ../../../library/smtplib.rst:515
 msgid ""
 "Unless otherwise noted, the connection will be open even after an exception "
 "is raised."
 msgstr ""
 
-#: ../../../library/smtplib.rst:516
+#: ../../../library/smtplib.rst:518
 msgid "*msg* may be a byte string."
 msgstr ""
 
-#: ../../../library/smtplib.rst:519
+#: ../../../library/smtplib.rst:521
 msgid ""
 "``SMTPUTF8`` support added, and :exc:`SMTPNotSupportedError` may be raised "
 "if ``SMTPUTF8`` is specified but the server does not support it."
 msgstr ""
 
-#: ../../../library/smtplib.rst:527
+#: ../../../library/smtplib.rst:529
 msgid ""
 "This is a convenience method for calling :meth:`sendmail` with the message "
 "represented by an :class:`email.message.Message` object.  The arguments have "
@@ -696,7 +698,7 @@ msgid ""
 "object."
 msgstr ""
 
-#: ../../../library/smtplib.rst:532
+#: ../../../library/smtplib.rst:534
 msgid ""
 "If *from_addr* is ``None`` or *to_addrs* is ``None``, ``send_message`` fills "
 "those arguments with addresses extracted from the headers of *msg* as "
@@ -711,7 +713,7 @@ msgid ""
 "most recent set of :mailheader:`Resent-` headers."
 msgstr ""
 
-#: ../../../library/smtplib.rst:544
+#: ../../../library/smtplib.rst:546
 msgid ""
 "``send_message`` serializes *msg* using :class:`~email.generator."
 "BytesGenerator` with ``\\r\\n`` as the *linesep*, and calls :meth:`sendmail` "
@@ -726,17 +728,17 @@ msgid ""
 "``BODY=8BITMIME`` are added to *mail_options*."
 msgstr ""
 
-#: ../../../library/smtplib.rst:558
+#: ../../../library/smtplib.rst:560
 msgid "Support for internationalized addresses (``SMTPUTF8``)."
 msgstr ""
 
-#: ../../../library/smtplib.rst:564
+#: ../../../library/smtplib.rst:566
 msgid ""
 "Terminate the SMTP session and close the connection.  Return the result of "
 "the SMTP ``QUIT`` command."
 msgstr ""
 
-#: ../../../library/smtplib.rst:568
+#: ../../../library/smtplib.rst:570
 msgid ""
 "Low-level methods corresponding to the standard SMTP/ESMTP commands "
 "``HELP``, ``RSET``, ``NOOP``, ``MAIL``, ``RCPT``, and ``DATA`` are also "
@@ -744,35 +746,35 @@ msgid ""
 "documented here.  For details, consult the module code."
 msgstr ""
 
-#: ../../../library/smtplib.rst:573
+#: ../../../library/smtplib.rst:575
 msgid "Additionally, an SMTP instance has the following attributes:"
 msgstr ""
 
-#: ../../../library/smtplib.rst:578
+#: ../../../library/smtplib.rst:580
 msgid "The response to the ``HELO`` command, see :meth:`helo`."
 msgstr ""
 
-#: ../../../library/smtplib.rst:583
+#: ../../../library/smtplib.rst:585
 msgid "The response to the ``EHLO`` command, see :meth:`ehlo`."
 msgstr ""
 
-#: ../../../library/smtplib.rst:588
+#: ../../../library/smtplib.rst:590
 msgid ""
 "A boolean value indicating whether the server supports ESMTP, see :meth:"
 "`ehlo`."
 msgstr ""
 
-#: ../../../library/smtplib.rst:594
+#: ../../../library/smtplib.rst:596
 msgid ""
 "A dictionary of the names of SMTP service extensions supported by the "
 "server, see :meth:`ehlo`."
 msgstr ""
 
-#: ../../../library/smtplib.rst:601
+#: ../../../library/smtplib.rst:603
 msgid "SMTP Example"
 msgstr ""
 
-#: ../../../library/smtplib.rst:603
+#: ../../../library/smtplib.rst:605
 msgid ""
 "This example prompts the user for addresses needed in the message envelope "
 "('To' and 'From' addresses), and the message to be delivered.  Note that the "
@@ -782,7 +784,7 @@ msgid ""
 "headers explicitly::"
 msgstr ""
 
-#: ../../../library/smtplib.rst:638
+#: ../../../library/smtplib.rst:640
 msgid ""
 "In general, you will want to use the :mod:`email` package's features to "
 "construct an email message, which you can then send via :meth:`~smtplib.SMTP."
