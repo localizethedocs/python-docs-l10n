@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 09:04+0000\n"
+"POT-Creation-Date: 2026-01-26 08:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,8 +90,8 @@ msgstr ""
 #: ../../../library/sys.rst:853 ../../../library/sys.rst:1102
 #: ../../../library/sys.rst:1712 ../../../library/sys.rst:1955
 #: ../../../library/sys.rst:1970 ../../../library/sys.rst:1978
-#: ../../../library/sys.rst:2016 ../../../library/sys.rst:2032
-#: ../../../library/sys.rst:2284
+#: ../../../library/sys.rst:2019 ../../../library/sys.rst:2036
+#: ../../../library/sys.rst:2288
 msgid "Availability"
 msgstr ""
 
@@ -2444,7 +2444,13 @@ msgid ""
 "local and remote interpreters must be the same exact version."
 msgstr ""
 
-#: ../../../library/sys.rst:2000 ../../../library/sys.rst:2002
+#: ../../../library/sys.rst:2000
+msgid ""
+"See :ref:`remote-debugging` for more information about the remote debugging "
+"mechanism."
+msgstr ""
+
+#: ../../../library/sys.rst:2003 ../../../library/sys.rst:2005
 msgid ""
 "When the code is executed in the remote process, an :ref:`auditing event "
 "<auditing>` ``sys.remote_exec`` is raised with the *pid* and the path to the "
@@ -2452,7 +2458,7 @@ msgid ""
 "remote_exec`."
 msgstr ""
 
-#: ../../../library/sys.rst:2007 ../../../library/sys.rst:2009
+#: ../../../library/sys.rst:2010 ../../../library/sys.rst:2012
 msgid ""
 "When the script is executed in the remote process, an :ref:`auditing event "
 "<auditing>` ``cpython.remote_debugger_script`` is raised with the path in "
@@ -2460,74 +2466,78 @@ msgid ""
 "that called :func:`sys.remote_exec`."
 msgstr ""
 
-#: ../../../library/sys.rst:2022
+#: ../../../library/sys.rst:2020
+msgid "See :pep:`768` for more details."
+msgstr ""
+
+#: ../../../library/sys.rst:2026
 msgid ""
 "Changes the :term:`filesystem encoding and error handler` to 'mbcs' and "
 "'replace' respectively, for consistency with versions of Python prior to 3.6."
 msgstr ""
 
-#: ../../../library/sys.rst:2026
+#: ../../../library/sys.rst:2030
 msgid ""
 "This is equivalent to defining the :envvar:`PYTHONLEGACYWINDOWSFSENCODING` "
 "environment variable before launching Python."
 msgstr ""
 
-#: ../../../library/sys.rst:2029
+#: ../../../library/sys.rst:2033
 msgid ""
 "See also :func:`sys.getfilesystemencoding` and :func:`sys."
 "getfilesystemencodeerrors`."
 msgstr ""
 
-#: ../../../library/sys.rst:2035
+#: ../../../library/sys.rst:2039
 msgid ""
 "Changing the filesystem encoding after Python startup is risky because the "
 "old fsencoding or paths encoded by the old fsencoding may be cached "
 "somewhere. Use :envvar:`PYTHONLEGACYWINDOWSFSENCODING` instead."
 msgstr ""
 
-#: ../../../library/sys.rst:2039
+#: ../../../library/sys.rst:2043
 msgid "See :pep:`529` for more details."
 msgstr ""
 
-#: ../../../library/sys.rst:2042
+#: ../../../library/sys.rst:2046
 msgid "Use :envvar:`PYTHONLEGACYWINDOWSFSENCODING` instead."
 msgstr ""
 
-#: ../../../library/sys.rst:2049
+#: ../../../library/sys.rst:2053
 msgid ""
 ":term:`File objects <file object>` used by the interpreter for standard "
 "input, output and errors:"
 msgstr ""
 
-#: ../../../library/sys.rst:2052
+#: ../../../library/sys.rst:2056
 msgid ""
 "``stdin`` is used for all interactive input (including calls to :func:"
 "`input`);"
 msgstr ""
 
-#: ../../../library/sys.rst:2054
+#: ../../../library/sys.rst:2058
 msgid ""
 "``stdout`` is used for the output of :func:`print` and :term:`expression` "
 "statements and for the prompts of :func:`input`;"
 msgstr ""
 
-#: ../../../library/sys.rst:2056
+#: ../../../library/sys.rst:2060
 msgid "The interpreter's own prompts and its error messages go to ``stderr``."
 msgstr ""
 
-#: ../../../library/sys.rst:2058
+#: ../../../library/sys.rst:2062
 msgid ""
 "These streams are regular :term:`text files <text file>` like those returned "
 "by the :func:`open` function.  Their parameters are chosen as follows:"
 msgstr ""
 
-#: ../../../library/sys.rst:2062
+#: ../../../library/sys.rst:2066
 msgid ""
 "The encoding and error handling are is initialized from :c:member:`PyConfig."
 "stdio_encoding` and :c:member:`PyConfig.stdio_errors`."
 msgstr ""
 
-#: ../../../library/sys.rst:2065
+#: ../../../library/sys.rst:2069
 msgid ""
 "On Windows, UTF-8 is used for the console device.  Non-character devices "
 "such as disk files and pipes use the system locale encoding (i.e. the ANSI "
@@ -2538,14 +2548,14 @@ msgid ""
 "initially attached to a console."
 msgstr ""
 
-#: ../../../library/sys.rst:2074
+#: ../../../library/sys.rst:2078
 msgid ""
 "The special behaviour of the console can be overridden by setting the "
 "environment variable PYTHONLEGACYWINDOWSSTDIO before starting Python. In "
 "that case, the console codepages are used as for any other character device."
 msgstr ""
 
-#: ../../../library/sys.rst:2079
+#: ../../../library/sys.rst:2083
 msgid ""
 "Under all platforms, you can override the character encoding by setting the :"
 "envvar:`PYTHONIOENCODING` environment variable before starting Python or by "
@@ -2554,7 +2564,7 @@ msgid ""
 "only applies when :envvar:`PYTHONLEGACYWINDOWSSTDIO` is also set."
 msgstr ""
 
-#: ../../../library/sys.rst:2086
+#: ../../../library/sys.rst:2090
 msgid ""
 "When interactive, the ``stdout`` stream is line-buffered. Otherwise, it is "
 "block-buffered like regular text files.  The ``stderr`` stream is line-"
@@ -2563,19 +2573,19 @@ msgid ""
 "`PYTHONUNBUFFERED` environment variable."
 msgstr ""
 
-#: ../../../library/sys.rst:2092
+#: ../../../library/sys.rst:2096
 msgid ""
 "Non-interactive ``stderr`` is now line-buffered instead of fully buffered."
 msgstr ""
 
-#: ../../../library/sys.rst:2098
+#: ../../../library/sys.rst:2102
 msgid ""
 "To write or read binary data from/to the standard streams, use the "
 "underlying binary :data:`~io.TextIOBase.buffer` object.  For example, to "
 "write bytes to :data:`stdout`, use ``sys.stdout.buffer.write(b'abc')``."
 msgstr ""
 
-#: ../../../library/sys.rst:2102
+#: ../../../library/sys.rst:2106
 msgid ""
 "However, if you are writing a library (and do not control in which context "
 "its code will be executed), be aware that the standard streams may be "
@@ -2583,7 +2593,7 @@ msgid ""
 "support the :attr:`!buffer` attribute."
 msgstr ""
 
-#: ../../../library/sys.rst:2112
+#: ../../../library/sys.rst:2116
 msgid ""
 "These objects contain the original values of ``stdin``, ``stderr`` and "
 "``stdout`` at the start of the program.  They are used during finalization, "
@@ -2591,7 +2601,7 @@ msgid ""
 "``sys.std*`` object has been redirected."
 msgstr ""
 
-#: ../../../library/sys.rst:2117
+#: ../../../library/sys.rst:2121
 msgid ""
 "It can also be used to restore the actual files to known working file "
 "objects in case they have been overwritten with a broken object.  However, "
@@ -2599,7 +2609,7 @@ msgid ""
 "before replacing it, and restore the saved object."
 msgstr ""
 
-#: ../../../library/sys.rst:2123
+#: ../../../library/sys.rst:2127
 msgid ""
 "Under some conditions ``stdin``, ``stdout`` and ``stderr`` as well as the "
 "original values ``__stdin__``, ``__stdout__`` and ``__stderr__`` can be "
@@ -2607,12 +2617,12 @@ msgid ""
 "to a console and Python apps started with :program:`pythonw`."
 msgstr ""
 
-#: ../../../library/sys.rst:2131
+#: ../../../library/sys.rst:2135
 msgid ""
 "A frozenset of strings containing the names of standard library modules."
 msgstr ""
 
-#: ../../../library/sys.rst:2133
+#: ../../../library/sys.rst:2137
 msgid ""
 "It is the same on all platforms. Modules which are not available on some "
 "platforms and modules disabled at Python build are also listed. All module "
@@ -2620,7 +2630,7 @@ msgid ""
 "modules are excluded."
 msgstr ""
 
-#: ../../../library/sys.rst:2138
+#: ../../../library/sys.rst:2142
 msgid ""
 "For packages, only the main package is listed: sub-packages and sub-modules "
 "are not listed. For example, the ``email`` package is listed, but the "
@@ -2628,60 +2638,60 @@ msgid ""
 "listed."
 msgstr ""
 
-#: ../../../library/sys.rst:2143
+#: ../../../library/sys.rst:2147
 msgid "See also the :data:`sys.builtin_module_names` list."
 msgstr ""
 
-#: ../../../library/sys.rst:2150
+#: ../../../library/sys.rst:2154
 msgid ""
 "A :term:`named tuple` holding information about the thread implementation."
 msgstr ""
 
-#: ../../../library/sys.rst:2155
+#: ../../../library/sys.rst:2159
 msgid "The name of the thread implementation:"
 msgstr ""
 
-#: ../../../library/sys.rst:2157
+#: ../../../library/sys.rst:2161
 msgid "``\"nt\"``: Windows threads"
 msgstr ""
 
-#: ../../../library/sys.rst:2158
+#: ../../../library/sys.rst:2162
 msgid "``\"pthread\"``: POSIX threads"
 msgstr ""
 
-#: ../../../library/sys.rst:2159
+#: ../../../library/sys.rst:2163
 msgid ""
 "``\"pthread-stubs\"``: stub POSIX threads (on WebAssembly platforms without "
 "threading support)"
 msgstr ""
 
-#: ../../../library/sys.rst:2161
+#: ../../../library/sys.rst:2165
 msgid "``\"solaris\"``: Solaris threads"
 msgstr ""
 
-#: ../../../library/sys.rst:2165
+#: ../../../library/sys.rst:2169
 msgid "The name of the lock implementation:"
 msgstr ""
 
-#: ../../../library/sys.rst:2167
+#: ../../../library/sys.rst:2171
 msgid "``\"semaphore\"``: a lock uses a semaphore"
 msgstr ""
 
-#: ../../../library/sys.rst:2168
+#: ../../../library/sys.rst:2172
 msgid "``\"mutex+cond\"``: a lock uses a mutex and a condition variable"
 msgstr ""
 
-#: ../../../library/sys.rst:2169
+#: ../../../library/sys.rst:2173
 msgid "``None`` if this information is unknown"
 msgstr ""
 
-#: ../../../library/sys.rst:2173
+#: ../../../library/sys.rst:2177
 msgid ""
 "The name and version of the thread library. It is a string, or ``None`` if "
 "this information is unknown."
 msgstr ""
 
-#: ../../../library/sys.rst:2181
+#: ../../../library/sys.rst:2185
 msgid ""
 "When this variable is set to an integer value, it determines the maximum "
 "number of levels of traceback information printed when an unhandled "
@@ -2690,42 +2700,42 @@ msgid ""
 "are printed."
 msgstr ""
 
-#: ../../../library/sys.rst:2189
+#: ../../../library/sys.rst:2193
 msgid "Handle an unraisable exception."
 msgstr ""
 
-#: ../../../library/sys.rst:2191
+#: ../../../library/sys.rst:2195
 msgid ""
 "Called when an exception has occurred but there is no way for Python to "
 "handle it. For example, when a destructor raises an exception or during "
 "garbage collection (:func:`gc.collect`)."
 msgstr ""
 
-#: ../../../library/sys.rst:2195
+#: ../../../library/sys.rst:2199
 msgid "The *unraisable* argument has the following attributes:"
 msgstr ""
 
-#: ../../../library/sys.rst:2197
+#: ../../../library/sys.rst:2201
 msgid ":attr:`!exc_type`: Exception type."
 msgstr ""
 
-#: ../../../library/sys.rst:2198
+#: ../../../library/sys.rst:2202
 msgid ":attr:`!exc_value`: Exception value, can be ``None``."
 msgstr ""
 
-#: ../../../library/sys.rst:2199
+#: ../../../library/sys.rst:2203
 msgid ":attr:`!exc_traceback`: Exception traceback, can be ``None``."
 msgstr ""
 
-#: ../../../library/sys.rst:2200
+#: ../../../library/sys.rst:2204
 msgid ":attr:`!err_msg`: Error message, can be ``None``."
 msgstr ""
 
-#: ../../../library/sys.rst:2201
+#: ../../../library/sys.rst:2205
 msgid ":attr:`!object`: Object causing the exception, can be ``None``."
 msgstr ""
 
-#: ../../../library/sys.rst:2203
+#: ../../../library/sys.rst:2207
 msgid ""
 "The default hook formats :attr:`!err_msg` and :attr:`!object` as: "
 "``f'{err_msg}: {object!r}'``; use \"Exception ignored in\" error message if :"
@@ -2734,35 +2744,35 @@ msgid ""
 "`environment variables <using-on-controlling-color>`."
 msgstr ""
 
-#: ../../../library/sys.rst:2209
+#: ../../../library/sys.rst:2213
 msgid ""
 ":func:`sys.unraisablehook` can be overridden to control how unraisable "
 "exceptions are handled."
 msgstr ""
 
-#: ../../../library/sys.rst:2212
+#: ../../../library/sys.rst:2216
 msgid "Exceptions are now printed with colorful text."
 msgstr ""
 
-#: ../../../library/sys.rst:2217
+#: ../../../library/sys.rst:2221
 msgid ":func:`excepthook` which handles uncaught exceptions."
 msgstr ""
 
-#: ../../../library/sys.rst:2221
+#: ../../../library/sys.rst:2225
 msgid ""
 "Storing :attr:`!exc_value` using a custom hook can create a reference cycle. "
 "It should be cleared explicitly to break the reference cycle when the "
 "exception is no longer needed."
 msgstr ""
 
-#: ../../../library/sys.rst:2225
+#: ../../../library/sys.rst:2229
 msgid ""
 "Storing :attr:`!object` using a custom hook can resurrect it if it is set to "
 "an object which is being finalized. Avoid storing :attr:`!object` after the "
 "custom hook completes to avoid resurrecting objects."
 msgstr ""
 
-#: ../../../library/sys.rst:2229 ../../../library/sys.rst:2231
+#: ../../../library/sys.rst:2233 ../../../library/sys.rst:2235
 msgid ""
 "Raise an auditing event ``sys.unraisablehook`` with arguments *hook*, "
 "*unraisable* when an exception that cannot be handled occurs. The "
@@ -2770,7 +2780,7 @@ msgid ""
 "hook has been set, *hook* may be ``None``."
 msgstr ""
 
-#: ../../../library/sys.rst:2240
+#: ../../../library/sys.rst:2244
 msgid ""
 "A string containing the version number of the Python interpreter plus "
 "additional information on the build number and compiler used.  This string "
@@ -2779,19 +2789,19 @@ msgid ""
 "functions provided by the :mod:`platform` module."
 msgstr ""
 
-#: ../../../library/sys.rst:2249
+#: ../../../library/sys.rst:2253
 msgid ""
 "The C API version, equivalent to the C macro :c:macro:`PYTHON_API_VERSION`. "
 "Defined for backwards compatibility."
 msgstr ""
 
-#: ../../../library/sys.rst:2252
+#: ../../../library/sys.rst:2256
 msgid ""
 "Currently, this constant is not updated in new Python versions, and is not "
 "useful for versioning. This may change in the future."
 msgstr ""
 
-#: ../../../library/sys.rst:2258
+#: ../../../library/sys.rst:2262
 msgid ""
 "A tuple containing the five components of the version number: *major*, "
 "*minor*, *micro*, *releaselevel*, and *serial*.  All values except "
@@ -2802,18 +2812,18 @@ msgid ""
 "version_info.major`` and so on."
 msgstr ""
 
-#: ../../../library/sys.rst:2266
+#: ../../../library/sys.rst:2270
 msgid "Added named component attributes."
 msgstr ""
 
-#: ../../../library/sys.rst:2271
+#: ../../../library/sys.rst:2275
 msgid ""
 "This is an implementation detail of the warnings framework; do not modify "
 "this value.  Refer to the :mod:`warnings` module for more information on the "
 "warnings framework."
 msgstr ""
 
-#: ../../../library/sys.rst:2278
+#: ../../../library/sys.rst:2282
 msgid ""
 "The version number used to form registry keys on Windows platforms. This is "
 "stored as string resource 1000 in the Python DLL.  The value is normally the "
@@ -2822,31 +2832,31 @@ msgid ""
 "has no effect on the registry keys used by Python."
 msgstr ""
 
-#: ../../../library/sys.rst:2290
+#: ../../../library/sys.rst:2294
 msgid ""
 "Namespace containing functions and constants for register callbacks and "
 "controlling monitoring events. See  :mod:`sys.monitoring` for details."
 msgstr ""
 
-#: ../../../library/sys.rst:2296
+#: ../../../library/sys.rst:2300
 msgid ""
 "A dictionary of the various implementation-specific flags passed through "
 "the :option:`-X` command-line option.  Option names are either mapped to "
 "their values, if given explicitly, or to :const:`True`.  Example:"
 msgstr ""
 
-#: ../../../library/sys.rst:2312
+#: ../../../library/sys.rst:2316
 msgid ""
 "This is a CPython-specific way of accessing options passed through :option:`-"
 "X`.  Other implementations may export them through other means, or not at "
 "all."
 msgstr ""
 
-#: ../../../library/sys.rst:2320
+#: ../../../library/sys.rst:2324
 msgid "Citations"
 msgstr ""
 
-#: ../../../library/sys.rst:2321
+#: ../../../library/sys.rst:2325
 msgid ""
 "ISO/IEC 9899:1999.  \"Programming languages -- C.\"  A public draft of this "
 "standard is available at https://www.open-std.org/jtc1/sc22/wg14/www/docs/"
