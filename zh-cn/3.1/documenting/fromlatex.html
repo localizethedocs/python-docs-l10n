@@ -1,0 +1,405 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>5. Differences to the LaTeX markup &#8212; Python 3.1.5 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/documenting/fromlatex.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.1.5 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="6. Building the documentation" href="building.html" />
+    <link rel="prev" title="4. Additional Markup Constructs" href="markup.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/documenting/fromlatex.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="building.html" title="6. Building the documentation"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="markup.html" title="4. Additional Markup Constructs"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.1.5 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Documenting Python</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="differences-to-the-latex-markup">
+<h1>5. Differences to the LaTeX markup<a class="headerlink" href="#differences-to-the-latex-markup" title="永久链接至标题">¶</a></h1>
+<p>Though the markup language is different, most of the concepts and markup types
+of the old LaTeX docs have been kept – environments as reST directives, inline
+commands as reST roles and so forth.</p>
+<p>However, there are some differences in the way these work, partly due to the
+differences in the markup languages, partly due to improvements in Sphinx.  This
+section lists these differences, in order to give those familiar with the old
+format a quick overview of what they might run into.</p>
+<div class="section" id="inline-markup">
+<h2>5.1. Inline markup<a class="headerlink" href="#inline-markup" title="永久链接至标题">¶</a></h2>
+<p>These changes have been made to inline markup:</p>
+<ul>
+<li><p class="first"><strong>Cross-reference roles</strong></p>
+<p>Most of the following semantic roles existed previously as inline commands,
+but didn’t do anything except formatting the content as code.  Now, they
+cross-reference to known targets (some names have also been shortened):</p>
+<div class="line-block">
+<div class="line"><em>mod</em> (previously <em>refmodule</em> or <em>module</em>)</div>
+<div class="line"><em>func</em> (previously <em>function</em>)</div>
+<div class="line"><em>data</em> (new)</div>
+<div class="line"><em>const</em></div>
+<div class="line"><em>class</em></div>
+<div class="line"><em>meth</em> (previously <em>method</em>)</div>
+<div class="line"><em>attr</em> (previously <em>member</em>)</div>
+<div class="line"><em>exc</em> (previously <em>exception</em>)</div>
+<div class="line"><em>cdata</em></div>
+<div class="line"><em>cfunc</em> (previously <em>cfunction</em>)</div>
+<div class="line"><em>cmacro</em> (previously <em>csimplemacro</em>)</div>
+<div class="line"><em>ctype</em></div>
+</div>
+<p>Also different is the handling of <em>func</em> and <em>meth</em>: while previously
+parentheses were added to the callable name (like <code class="docutils literal notranslate"><span class="pre">\func{str()}</span></code>), they are
+now appended by the build system – appending them in the source will result
+in double parentheses.  This also means that <code class="docutils literal notranslate"><span class="pre">:func:`str(object)`</span></code> will not
+work as expected – use <code class="docutils literal notranslate"><span class="pre">``str(object)``</span></code> instead!</p>
+</li>
+<li><p class="first"><strong>Inline commands implemented as directives</strong></p>
+<p>These were inline commands in LaTeX, but are now directives in reST:</p>
+<div class="line-block">
+<div class="line"><em>deprecated</em></div>
+<div class="line"><em>versionadded</em></div>
+<div class="line"><em>versionchanged</em></div>
+</div>
+<p>These are used like so:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">deprecated</span><span class="p">::</span> 2.5
+   Reason of deprecation.
+</pre></div>
+</div>
+<p>Also, no period is appended to the text for <em>versionadded</em> and
+<em>versionchanged</em>.</p>
+<div class="line-block">
+<div class="line"><em>note</em></div>
+<div class="line"><em>warning</em></div>
+</div>
+<p>These are used like so:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">note</span><span class="p">::</span>
+
+   Content of note.
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>Otherwise changed commands</strong></p>
+<p>The <em>samp</em> command previously formatted code and added quotation marks around
+it.  The <em>samp</em> role, however, features a new highlighting system just like
+<em>file</em> does:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">:samp:`open({filename},</span> <span class="pre">{mode})`</span></code> results in <code class="samp docutils literal notranslate"><span class="pre">open(</span><em><span class="pre">filename</span></em><span class="pre">,</span> <em><span class="pre">mode</span></em><span class="pre">)</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Dropped commands</strong></p>
+<p>These were commands in LaTeX, but are not available as roles:</p>
+<div class="line-block">
+<div class="line"><em>bfcode</em></div>
+<div class="line"><em>character</em> (use <code class="samp docutils literal notranslate"><span class="pre">``'c'``</span></code>)</div>
+<div class="line"><em>citetitle</em> (use <code class="docutils literal notranslate"><span class="pre">`Title</span> <span class="pre">&lt;URL&gt;`_</span></code>)</div>
+<div class="line"><em>code</em> (use <code class="docutils literal notranslate"><span class="pre">``code``</span></code>)</div>
+<div class="line"><em>email</em> (just write the address in body text)</div>
+<div class="line"><em>filenq</em></div>
+<div class="line"><em>filevar</em> (use the <code class="docutils literal notranslate"><span class="pre">{...}</span></code> highlighting feature of <em>file</em>)</div>
+<div class="line"><em>programopt</em>, <em>longprogramopt</em> (use <em>option</em>)</div>
+<div class="line"><em>ulink</em> (use <code class="docutils literal notranslate"><span class="pre">`Title</span> <span class="pre">&lt;URL&gt;`_</span></code>)</div>
+<div class="line"><em>url</em> (just write the URL in body text)</div>
+<div class="line"><em>var</em> (use <code class="docutils literal notranslate"><span class="pre">*var*</span></code>)</div>
+<div class="line"><em>infinity</em>, <em>plusminus</em> (use the Unicode character)</div>
+<div class="line"><em>shortversion</em>, <em>version</em> (use the <code class="docutils literal notranslate"><span class="pre">|version|</span></code> and <code class="docutils literal notranslate"><span class="pre">|release|</span></code> substitutions)</div>
+<div class="line"><em>emph</em>, <em>strong</em> (use the reST markup)</div>
+</div>
+</li>
+<li><p class="first"><strong>Backslash escaping</strong></p>
+<p>In reST, a backslash must be escaped in normal text, and in the content of
+roles.  However, in code literals and literal blocks, it must not be escaped.
+Example: <code class="docutils literal notranslate"><span class="pre">:file:`C:\\Temp\\my.tmp`</span></code> vs. <code class="docutils literal notranslate"><span class="pre">``open(&quot;C:\Temp\my.tmp&quot;)``</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="information-units">
+<h2>5.2. Information units<a class="headerlink" href="#information-units" title="永久链接至标题">¶</a></h2>
+<p>Information units (<em>…desc</em> environments) have been made reST directives.
+These changes to information units should be noted:</p>
+<ul>
+<li><p class="first"><strong>New names</strong></p>
+<p>“desc” has been removed from every name.  Additionally, these directives have
+new names:</p>
+<div class="line-block">
+<div class="line"><em>cfunction</em> (previously <em>cfuncdesc</em>)</div>
+<div class="line"><em>cmacro</em> (previously <em>csimplemacrodesc</em>)</div>
+<div class="line"><em>exception</em> (previously <em>excdesc</em>)</div>
+<div class="line"><em>function</em> (previously <em>funcdesc</em>)</div>
+<div class="line"><em>attribute</em> (previously <em>memberdesc</em>)</div>
+</div>
+<p>The <em>classdesc*</em> and <em>excclassdesc</em> environments have been dropped, the
+<em>class</em> and <em>exception</em> directives support classes documented with and without
+constructor arguments.</p>
+</li>
+<li><p class="first"><strong>Multiple objects</strong></p>
+<p>The equivalent of the <em>…line</em> commands is:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">function</span><span class="p">::</span> do_foo(bar)
+              do_bar(baz)
+
+   Description of the functions.
+</pre></div>
+</div>
+<p>IOW, just give one signatures per line, at the same indentation level.</p>
+</li>
+<li><p class="first"><strong>Arguments</strong></p>
+<p>There is no <em>optional</em> command.  Just give function signatures like they
+should appear in the output:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">function</span><span class="p">::</span> open(filename[, mode[, buffering]])
+
+   Description.
+</pre></div>
+</div>
+<p>Note: markup in the signature is not supported.</p>
+</li>
+<li><p class="first"><strong>Indexing</strong></p>
+<p>The <em>…descni</em> environments have been dropped.  To mark an information unit
+as unsuitable for index entry generation, use the <em>noindex</em> option like so:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">function</span><span class="p">::</span> foo_*
+   <span class="nc">:noindex:</span>
+
+   Description.
+</pre></div>
+</div>
+</li>
+<li><p class="first"><strong>New information units</strong></p>
+<p>There are new generic information units: One is called “describe” and can be
+used to document things that are not covered by the other units:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">describe</span><span class="p">::</span> a == b
+
+   The equals operator.
+</pre></div>
+</div>
+<p>The others are:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">cmdoption</span><span class="p">::</span> -O
+
+   Describes a command-line option.
+
+<span class="p">..</span> <span class="ow">envvar</span><span class="p">::</span> PYTHONINSPECT
+
+   Describes an environment variable.
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="structure">
+<h2>5.3. Structure<a class="headerlink" href="#structure" title="永久链接至标题">¶</a></h2>
+<p>The LaTeX docs were split in several toplevel manuals.  Now, all files are part
+of the same documentation tree, as indicated by the <em>toctree</em> directives in the
+sources (though individual output formats may choose to split them up into parts
+again).  Every <em>toctree</em> directive embeds other files as subdocuments of the
+current file (this structure is not necessarily mirrored in the filesystem
+layout).  The toplevel file is <code class="file docutils literal notranslate"><span class="pre">contents.rst</span></code>.</p>
+<p>However, most of the old directory structure has been kept, with the
+directories renamed as follows:</p>
+<ul class="simple">
+<li><code class="file docutils literal notranslate"><span class="pre">api</span></code> -&gt; <code class="file docutils literal notranslate"><span class="pre">c-api</span></code></li>
+<li><code class="file docutils literal notranslate"><span class="pre">dist</span></code> -&gt; <code class="file docutils literal notranslate"><span class="pre">distutils</span></code>, with the single TeX file split up</li>
+<li><code class="file docutils literal notranslate"><span class="pre">doc</span></code> -&gt; <code class="file docutils literal notranslate"><span class="pre">documenting</span></code></li>
+<li><code class="file docutils literal notranslate"><span class="pre">ext</span></code> -&gt; <code class="file docutils literal notranslate"><span class="pre">extending</span></code></li>
+<li><code class="file docutils literal notranslate"><span class="pre">inst</span></code> -&gt; <code class="file docutils literal notranslate"><span class="pre">installing</span></code></li>
+<li><code class="file docutils literal notranslate"><span class="pre">lib</span></code> -&gt; <code class="file docutils literal notranslate"><span class="pre">library</span></code></li>
+<li><code class="file docutils literal notranslate"><span class="pre">mac</span></code> -&gt; merged into <code class="file docutils literal notranslate"><span class="pre">library</span></code>, with <code class="file docutils literal notranslate"><span class="pre">mac/using.tex</span></code>
+moved to <code class="file docutils literal notranslate"><span class="pre">using/mac.rst</span></code></li>
+<li><code class="file docutils literal notranslate"><span class="pre">ref</span></code> -&gt; <code class="file docutils literal notranslate"><span class="pre">reference</span></code></li>
+<li><code class="file docutils literal notranslate"><span class="pre">tut</span></code> -&gt; <code class="file docutils literal notranslate"><span class="pre">tutorial</span></code>, with the single TeX file split up</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. Differences to the LaTeX markup</a><ul>
+<li><a class="reference internal" href="#inline-markup">5.1. Inline markup</a></li>
+<li><a class="reference internal" href="#information-units">5.2. Information units</a></li>
+<li><a class="reference internal" href="#structure">5.3. Structure</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="markup.html"
+                        title="上一章">4. Additional Markup Constructs</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="building.html"
+                        title="下一章">6. Building the documentation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documenting/fromlatex.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="building.html" title="6. Building the documentation"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="markup.html" title="4. Additional Markup Constructs"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.1.5 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Documenting Python</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 04, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

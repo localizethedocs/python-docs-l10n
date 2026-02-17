@@ -1,0 +1,279 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xml.dom.pulldom — Support for building partial DOM trees &#8212; Python 3.0.1 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/xml.dom.pulldom.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.0.1 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="xml.sax — Support for SAX2 parsers" href="xml.sax.html" />
+    <link rel="prev" title="xml.dom.minidom — Lightweight DOM implementation" href="xml.dom.minidom.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/xml.dom.pulldom.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="xml.sax.html" title="xml.sax — Support for SAX2 parsers"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="xml.dom.minidom.html" title="xml.dom.minidom — Lightweight DOM implementation"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="markup.html" accesskey="U">Structured Markup Processing Tools</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xml.dom.pulldom">
+<span id="xml-dom-pulldom-support-for-building-partial-dom-trees"></span><h1><a class="reference internal" href="#module-xml.dom.pulldom" title="xml.dom.pulldom: Support for building partial DOM trees from SAX events."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.pulldom</span></code></a> — Support for building partial DOM trees<a class="headerlink" href="#module-xml.dom.pulldom" title="本標題的永久連結">¶</a></h1>
+<p><a class="reference internal" href="#module-xml.dom.pulldom" title="xml.dom.pulldom: Support for building partial DOM trees from SAX events."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.dom.pulldom</span></code></a> allows building only selected portions of a Document
+Object Model representation of a document from SAX events.</p>
+<dl class="class">
+<dt id="xml.dom.pulldom.PullDOM">
+<em class="property">class </em><code class="descclassname">xml.dom.pulldom.</code><code class="descname">PullDOM</code><span class="sig-paren">(</span><span class="optional">[</span><em>documentFactory</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.pulldom.PullDOM" title="本定義的永久連結">¶</a></dt>
+<dd><p><a class="reference internal" href="xml.sax.handler.html#xml.sax.handler.ContentHandler" title="xml.sax.handler.ContentHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml.sax.handler.ContentHandler</span></code></a> implementation that …</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xml.dom.pulldom.DOMEventStream">
+<em class="property">class </em><code class="descclassname">xml.dom.pulldom.</code><code class="descname">DOMEventStream</code><span class="sig-paren">(</span><em>stream</em>, <em>parser</em>, <em>bufsize</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.pulldom.DOMEventStream" title="本定義的永久連結">¶</a></dt>
+<dd><p>…</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xml.dom.pulldom.SAX2DOM">
+<em class="property">class </em><code class="descclassname">xml.dom.pulldom.</code><code class="descname">SAX2DOM</code><span class="sig-paren">(</span><span class="optional">[</span><em>documentFactory</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.pulldom.SAX2DOM" title="本定義的永久連結">¶</a></dt>
+<dd><p><a class="reference internal" href="xml.sax.handler.html#xml.sax.handler.ContentHandler" title="xml.sax.handler.ContentHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">xml.sax.handler.ContentHandler</span></code></a> implementation that …</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xml.dom.pulldom.parse">
+<code class="descclassname">xml.dom.pulldom.</code><code class="descname">parse</code><span class="sig-paren">(</span><em>stream_or_string</em><span class="optional">[</span>, <em>parser</em><span class="optional">[</span>, <em>bufsize</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.pulldom.parse" title="本定義的永久連結">¶</a></dt>
+<dd><p>…</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="xml.dom.pulldom.parseString">
+<code class="descclassname">xml.dom.pulldom.</code><code class="descname">parseString</code><span class="sig-paren">(</span><em>string</em><span class="optional">[</span>, <em>parser</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.pulldom.parseString" title="本定義的永久連結">¶</a></dt>
+<dd><p>…</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="xml.dom.pulldom.default_bufsize">
+<code class="descclassname">xml.dom.pulldom.</code><code class="descname">default_bufsize</code><a class="headerlink" href="#xml.dom.pulldom.default_bufsize" title="本定義的永久連結">¶</a></dt>
+<dd><p>Default value for the <em>bufsize</em> parameter to <a class="reference internal" href="#xml.dom.pulldom.parse" title="xml.dom.pulldom.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse()</span></code></a>.</p>
+<p>The value of this variable can be changed before calling <a class="reference internal" href="#xml.dom.pulldom.parse" title="xml.dom.pulldom.parse"><code class="xref py py-func docutils literal notranslate"><span class="pre">parse()</span></code></a> and
+the new value will take effect.</p>
+</dd></dl>
+
+<div class="section" id="domeventstream-objects">
+<span id="id1"></span><h2>DOMEventStream Objects<a class="headerlink" href="#domeventstream-objects" title="本標題的永久連結">¶</a></h2>
+<dl class="method">
+<dt id="xml.dom.pulldom.DOMEventStream.getEvent">
+<code class="descclassname">DOMEventStream.</code><code class="descname">getEvent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.pulldom.DOMEventStream.getEvent" title="本定義的永久連結">¶</a></dt>
+<dd><p>…</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xml.dom.pulldom.DOMEventStream.expandNode">
+<code class="descclassname">DOMEventStream.</code><code class="descname">expandNode</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.pulldom.DOMEventStream.expandNode" title="本定義的永久連結">¶</a></dt>
+<dd><p>…</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xml.dom.pulldom.DOMEventStream.reset">
+<code class="descclassname">DOMEventStream.</code><code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xml.dom.pulldom.DOMEventStream.reset" title="本定義的永久連結">¶</a></dt>
+<dd><p>…</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">xml.dom.pulldom</span></code> — Support for building partial DOM trees</a><ul>
+<li><a class="reference internal" href="#domeventstream-objects">DOMEventStream Objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="xml.dom.minidom.html"
+                        title="上一章"><code class="docutils literal notranslate"><span class="pre">xml.dom.minidom</span></code> — Lightweight DOM implementation</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="xml.sax.html"
+                        title="下一章"><code class="docutils literal notranslate"><span class="pre">xml.sax</span></code> — Support for SAX2 parsers</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/xml.dom.pulldom.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="xml.sax.html" title="xml.sax — Support for SAX2 parsers"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="xml.dom.minidom.html" title="xml.dom.minidom — Lightweight DOM implementation"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="markup.html" >Structured Markup Processing Tools</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 04, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

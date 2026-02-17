@@ -1,0 +1,349 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Type Objects &#8212; Python 3.1.5 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/c-api/typeobj.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.1.5 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="Supporting Cyclic Garbage Collection" href="gcsupport.html" />
+    <link rel="prev" title="Common Object Structures" href="structures.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/c-api/typeobj.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="gcsupport.html" title="Supporting Cyclic Garbage Collection"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="structures.html" title="Common Object Structures"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.1.5 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="objimpl.html" accesskey="U">Object Implementation Support</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="type-objects">
+<span id="type-structs"></span><h1>Type Objects<a class="headerlink" href="#type-objects" title="本標題的永久連結">¶</a></h1>
+<p>Perhaps one of the most important structures of the Python object system is the
+structure that defines a new type: the <a href="#id1"><span class="problematic" id="id2">:ctype:`PyTypeObject`</span></a> structure.  Type
+objects can be handled using any of the <a href="#id3"><span class="problematic" id="id4">:cfunc:`PyObject_\*`</span></a> or
+<a href="#id5"><span class="problematic" id="id6">:cfunc:`PyType_\*`</span></a> functions, but do not offer much that’s interesting to most
+Python applications. These objects are fundamental to how objects behave, so
+they are very important to the interpreter itself and to any extension module
+that implements new types.</p>
+<p>Type objects are fairly large compared to most of the standard types. The reason
+for the size is that each type object stores a large number of values, mostly C
+function pointers, each of which implements a small part of the type’s
+functionality.  The fields of the type object are examined in detail in this
+section.  The fields will be described in the order in which they occur in the
+structure.</p>
+<p>Typedefs: unaryfunc, binaryfunc, ternaryfunc, inquiry, intargfunc,
+intintargfunc, intobjargproc, intintobjargproc, objobjargproc, destructor,
+freefunc, printfunc, getattrfunc, getattrofunc, setattrfunc, setattrofunc,
+reprfunc, hashfunc</p>
+<p>The structure definition for <a href="#id7"><span class="problematic" id="id8">:ctype:`PyTypeObject`</span></a> can be found in
+<code class="file docutils literal notranslate"><span class="pre">Include/object.h</span></code>.  For convenience of reference, this repeats the
+definition found there:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">_typeobject</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PyObject_VAR_HEAD</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">tp_name</span><span class="p">;</span><span class="w"> </span><span class="cm">/* For printing, in format &quot;&lt;module&gt;.&lt;name&gt;&quot; */</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tp_basicsize</span><span class="p">,</span><span class="w"> </span><span class="n">tp_itemsize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* For allocation */</span>
+
+<span class="w">    </span><span class="cm">/* Methods to implement standard operations */</span>
+
+<span class="w">    </span><span class="n">destructor</span><span class="w"> </span><span class="n">tp_dealloc</span><span class="p">;</span>
+<span class="w">    </span><span class="n">printfunc</span><span class="w"> </span><span class="n">tp_print</span><span class="p">;</span>
+<span class="w">    </span><span class="n">getattrfunc</span><span class="w"> </span><span class="n">tp_getattr</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setattrfunc</span><span class="w"> </span><span class="n">tp_setattr</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">tp_reserved</span><span class="p">;</span>
+<span class="w">    </span><span class="n">reprfunc</span><span class="w"> </span><span class="n">tp_repr</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Method suites for standard classes */</span>
+
+<span class="w">    </span><span class="n">PyNumberMethods</span><span class="w"> </span><span class="o">*</span><span class="n">tp_as_number</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PySequenceMethods</span><span class="w"> </span><span class="o">*</span><span class="n">tp_as_sequence</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PyMappingMethods</span><span class="w"> </span><span class="o">*</span><span class="n">tp_as_mapping</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* More standard operations (here for binary compatibility) */</span>
+
+<span class="w">    </span><span class="n">hashfunc</span><span class="w"> </span><span class="n">tp_hash</span><span class="p">;</span>
+<span class="w">    </span><span class="n">ternaryfunc</span><span class="w"> </span><span class="n">tp_call</span><span class="p">;</span>
+<span class="w">    </span><span class="n">reprfunc</span><span class="w"> </span><span class="n">tp_str</span><span class="p">;</span>
+<span class="w">    </span><span class="n">getattrofunc</span><span class="w"> </span><span class="n">tp_getattro</span><span class="p">;</span>
+<span class="w">    </span><span class="n">setattrofunc</span><span class="w"> </span><span class="n">tp_setattro</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Functions to access object as input/output buffer */</span>
+<span class="w">    </span><span class="n">PyBufferProcs</span><span class="w"> </span><span class="o">*</span><span class="n">tp_as_buffer</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Flags to define presence of optional/expanded features */</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">tp_flags</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">tp_doc</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Documentation string */</span>
+
+<span class="w">    </span><span class="cm">/* call function for all accessible objects */</span>
+<span class="w">    </span><span class="n">traverseproc</span><span class="w"> </span><span class="n">tp_traverse</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* delete references to contained objects */</span>
+<span class="w">    </span><span class="n">inquiry</span><span class="w"> </span><span class="n">tp_clear</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* rich comparisons */</span>
+<span class="w">    </span><span class="n">richcmpfunc</span><span class="w"> </span><span class="n">tp_richcompare</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* weak reference enabler */</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">tp_weaklistoffset</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Iterators */</span>
+<span class="w">    </span><span class="n">getiterfunc</span><span class="w"> </span><span class="n">tp_iter</span><span class="p">;</span>
+<span class="w">    </span><span class="n">iternextfunc</span><span class="w"> </span><span class="n">tp_iternext</span><span class="p">;</span>
+
+<span class="w">    </span><span class="cm">/* Attribute descriptor and subclassing stuff */</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">PyMethodDef</span><span class="w"> </span><span class="o">*</span><span class="n">tp_methods</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">PyMemberDef</span><span class="w"> </span><span class="o">*</span><span class="n">tp_members</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">PyGetSetDef</span><span class="w"> </span><span class="o">*</span><span class="n">tp_getset</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">_typeobject</span><span class="w"> </span><span class="o">*</span><span class="n">tp_base</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">tp_dict</span><span class="p">;</span>
+<span class="w">    </span><span class="n">descrgetfunc</span><span class="w"> </span><span class="n">tp_descr_get</span><span class="p">;</span>
+<span class="w">    </span><span class="n">descrsetfunc</span><span class="w"> </span><span class="n">tp_descr_set</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">tp_dictoffset</span><span class="p">;</span>
+<span class="w">    </span><span class="n">initproc</span><span class="w"> </span><span class="n">tp_init</span><span class="p">;</span>
+<span class="w">    </span><span class="n">allocfunc</span><span class="w"> </span><span class="n">tp_alloc</span><span class="p">;</span>
+<span class="w">    </span><span class="n">newfunc</span><span class="w"> </span><span class="n">tp_new</span><span class="p">;</span>
+<span class="w">    </span><span class="n">freefunc</span><span class="w"> </span><span class="n">tp_free</span><span class="p">;</span><span class="w"> </span><span class="cm">/* Low-level free-memory routine */</span>
+<span class="w">    </span><span class="n">inquiry</span><span class="w"> </span><span class="n">tp_is_gc</span><span class="p">;</span><span class="w"> </span><span class="cm">/* For PyObject_IS_GC */</span>
+<span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">tp_bases</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">tp_mro</span><span class="p">;</span><span class="w"> </span><span class="cm">/* method resolution order */</span>
+<span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">tp_cache</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">tp_subclasses</span><span class="p">;</span>
+<span class="w">    </span><span class="n">PyObject</span><span class="w"> </span><span class="o">*</span><span class="n">tp_weaklist</span><span class="p">;</span>
+
+<span class="p">}</span><span class="w"> </span><span class="n">PyTypeObject</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The type object structure extends the <a href="#id9"><span class="problematic" id="id10">:ctype:`PyVarObject`</span></a> structure. The
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">ob_size</span></code> field is used for dynamic types (created by  <code class="xref py py-func docutils literal notranslate"><span class="pre">type_new()</span></code>,
+usually called from a class statement). Note that <a href="#id11"><span class="problematic" id="id12">:cdata:`PyType_Type`</span></a> (the
+metatype) initializes <code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_itemsize</span></code>, which means that its instances (i.e.
+type objects) <em>must</em> have the <code class="xref py py-attr docutils literal notranslate"><span class="pre">ob_size</span></code> field.</p>
+<p>The remaining fields are only defined if the feature test macro
+<code class="xref py py-const docutils literal notranslate"><span class="pre">COUNT_ALLOCS</span></code> is defined, and are for internal use only. They are
+documented here for completeness.  None of these fields are inherited by
+subtypes.</p>
+<p>Also, note that, in a garbage collected Python, tp_dealloc may be called from
+any Python thread, not just the thread which created the object (if the object
+becomes part of a refcount cycle, that cycle might be collected by a garbage
+collection on any thread).  This is not a problem for Python API calls, since
+the thread on which tp_dealloc is called will own the Global Interpreter Lock
+(GIL). However, if the object being destroyed in turn destroys objects from some
+other C or C++ library, care should be taken to ensure that destroying those
+objects on the thread which called tp_dealloc will not violate any assumptions
+of the library.</p>
+</div>
+<div class="section" id="number-object-structures">
+<span id="number-structs"></span><h1>Number Object Structures<a class="headerlink" href="#number-object-structures" title="本標題的永久連結">¶</a></h1>
+</div>
+<div class="section" id="mapping-object-structures">
+<span id="mapping-structs"></span><h1>Mapping Object Structures<a class="headerlink" href="#mapping-object-structures" title="本標題的永久連結">¶</a></h1>
+</div>
+<div class="section" id="sequence-object-structures">
+<span id="sequence-structs"></span><h1>Sequence Object Structures<a class="headerlink" href="#sequence-object-structures" title="本標題的永久連結">¶</a></h1>
+</div>
+<div class="section" id="buffer-object-structures">
+<span id="buffer-structs"></span><h1>Buffer Object Structures<a class="headerlink" href="#buffer-object-structures" title="本標題的永久連結">¶</a></h1>
+<p>The <a class="reference internal" href="buffer.html#bufferobjects"><span class="std std-ref">buffer interface</span></a> exports a model where an object can expose its internal
+data.</p>
+<p>If an object does not export the buffer interface, then its <code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_as_buffer</span></code>
+member in the <a href="#id13"><span class="problematic" id="id14">:ctype:`PyTypeObject`</span></a> structure should be <em>NULL</em>.  Otherwise, the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_as_buffer</span></code> will point to a <a href="#id15"><span class="problematic" id="id16">:ctype:`PyBufferProcs`</span></a> structure.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Type Objects</a></li>
+<li><a class="reference internal" href="#number-object-structures">Number Object Structures</a></li>
+<li><a class="reference internal" href="#mapping-object-structures">Mapping Object Structures</a></li>
+<li><a class="reference internal" href="#sequence-object-structures">Sequence Object Structures</a></li>
+<li><a class="reference internal" href="#buffer-object-structures">Buffer Object Structures</a></li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="structures.html"
+                        title="上一章">Common Object Structures</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="gcsupport.html"
+                        title="下一章">Supporting Cyclic Garbage Collection</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/c-api/typeobj.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="gcsupport.html" title="Supporting Cyclic Garbage Collection"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="structures.html" title="Common Object Structures"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.1.5 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="objimpl.html" >Object Implementation Support</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 04, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>
