@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 09:04+0000\n"
+"POT-Creation-Date: 2026-02-16 09:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -459,7 +459,8 @@ msgstr ""
 msgid ""
 "Otherwise, returns the number of bytes required to store the value. If this "
 "is equal to or less than *n_bytes*, the entire value was copied. All "
-"*n_bytes* of the buffer are written: large buffers are padded with zeroes."
+"*n_bytes* of the buffer are written: remaining bytes filled by copies of the "
+"sign bit."
 msgstr ""
 
 #: ../../../c-api/long.rst:459
@@ -771,7 +772,7 @@ msgid "Get the native layout of Python :class:`int` objects."
 msgstr ""
 
 #: ../../../c-api/long.rst:730
-msgid "See the :c:struct:`PyLongLayout` structure."
+msgid "See the :c:type:`PyLongLayout` structure."
 msgstr ""
 
 #: ../../../c-api/long.rst:732
@@ -829,8 +830,8 @@ msgstr ""
 
 #: ../../../c-api/long.rst:772
 msgid ""
-"*export_long* must point to a :c:struct:`PyLongExport` structure allocated "
-"by the caller. It must not be ``NULL``."
+"*export_long* must point to a :c:type:`PyLongExport` structure allocated by "
+"the caller. It must not be ``NULL``."
 msgstr ""
 
 #: ../../../c-api/long.rst:775
@@ -914,8 +915,8 @@ msgstr ""
 #: ../../../c-api/long.rst:829
 msgid ""
 "Digits must be in the range [``0``; ``(1 << bits_per_digit) - 1``] (where "
-"the :c:struct:`~PyLongLayout.bits_per_digit` is the number of bits per "
-"digit). Any unused most significant digits must be set to ``0``."
+"the :c:type:`~PyLongLayout.bits_per_digit` is the number of bits per digit). "
+"Any unused most significant digits must be set to ``0``."
 msgstr ""
 
 #: ../../../c-api/long.rst:834
@@ -952,6 +953,38 @@ msgstr ""
 
 #: ../../../c-api/long.rst:855
 msgid "If *writer* is ``NULL``, no operation is performed."
+msgstr ""
+
+#: ../../../c-api/long.rst:861
+msgid "Deprecated API"
+msgstr ""
+
+#: ../../../c-api/long.rst:863
+msgid ""
+"These macros are :term:`soft deprecated`. They describe parameters of the "
+"internal representation of :c:type:`PyLongObject` instances."
+msgstr ""
+
+#: ../../../c-api/long.rst:866
+msgid ""
+"Use :c:func:`PyLong_GetNativeLayout` instead, along with :c:func:"
+"`PyLong_Export` to read integer data or :c:type:`PyLongWriter` to write it. "
+"These currently use the same layout, but are designed to continue working "
+"correctly even if CPython's internal integer representation changes."
+msgstr ""
+
+#: ../../../c-api/long.rst:874
+msgid ""
+"This is equivalent to :c:member:`~PyLongLayout.bits_per_digit` in the output "
+"of :c:func:`PyLong_GetNativeLayout`."
+msgstr ""
+
+#: ../../../c-api/long.rst:880
+msgid "This is currently equivalent to :c:expr:`1 << PyLong_SHIFT`."
+msgstr ""
+
+#: ../../../c-api/long.rst:885
+msgid "This is currently equivalent to :c:expr:`(1 << PyLong_SHIFT) - 1`"
 msgstr ""
 
 #: ../../../c-api/long.rst:8

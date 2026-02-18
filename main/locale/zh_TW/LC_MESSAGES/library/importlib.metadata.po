@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-11 08:40+0000\n"
+"POT-Creation-Date: 2026-02-16 09:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -294,7 +294,7 @@ msgid ""
 msgstr ""
 
 #: ../../../library/importlib.metadata.rst:254
-#: ../../../library/importlib.metadata.rst:453
+#: ../../../library/importlib.metadata.rst:463
 msgid ""
 "The full set of available metadata is not described here. See the PyPA `Core "
 "metadata specification <https://packaging.python.org/en/latest/"
@@ -451,7 +451,21 @@ msgid ""
 "accordingly have the same attributes."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:421
+#: ../../../library/importlib.metadata.rst:423
+#: ../../../library/importlib.metadata.rst:525
+msgid ""
+"Returns an iterable of :class:`Distribution` instances for all packages."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:425
+msgid ""
+"The optional argument *context* is a :class:`DistributionFinder.Context` "
+"instance, used to modify the search for distributions. Alternatively, "
+"*kwargs* may contain keyword arguments for constructing a new :class:`!"
+"DistributionFinder.Context`."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:431
 msgid ""
 "While the module level API described above is the most common and convenient "
 "usage, you can get all of that information from the :class:`!Distribution` "
@@ -462,33 +476,33 @@ msgid ""
 "package by calling the :func:`distribution` function::"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:433
+#: ../../../library/importlib.metadata.rst:443
 msgid ""
 "Thus, an alternative way to get the version number is through the :class:`!"
 "Distribution` instance::"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:439
+#: ../../../library/importlib.metadata.rst:449
 msgid ""
 "There are all kinds of additional metadata available on :class:`!"
 "Distribution` instances::"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:447
+#: ../../../library/importlib.metadata.rst:457
 msgid ""
 "For editable packages, an ``origin`` property may present :pep:`610` "
 "metadata::"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:456
+#: ../../../library/importlib.metadata.rst:466
 msgid "The ``.origin`` property was added."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:460
+#: ../../../library/importlib.metadata.rst:470
 msgid "Distribution Discovery"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:462
+#: ../../../library/importlib.metadata.rst:472
 msgid ""
 "By default, this package provides built-in support for discovery of metadata "
 "for file system and zip file `Distribution Package <https://packaging.python."
@@ -497,22 +511,89 @@ msgid ""
 "interprets those values from how other import machinery does. In particular:"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:466
+#: ../../../library/importlib.metadata.rst:476
 msgid ""
 "``importlib.metadata`` does not honor :class:`bytes` objects on ``sys.path``."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:467
+#: ../../../library/importlib.metadata.rst:477
 msgid ""
 "``importlib.metadata`` will incidentally honor :py:class:`pathlib.Path` "
 "objects on ``sys.path`` even though such values will be ignored for imports."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:471
+#: ../../../library/importlib.metadata.rst:481
+msgid ""
+"A :class:`~importlib.abc.MetaPathFinder` subclass capable of discovering "
+"installed distributions."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:484
+msgid ""
+"Custom providers should implement this interface in order to supply metadata."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:489
+msgid ""
+"A :class:`!Context` gives a custom provider a means to solicit additional "
+"details from the callers of distribution discovery functions like :func:"
+"`distributions` or :meth:`Distribution.discover` beyond :attr:`!.name` and :"
+"attr:`!.path` when searching for distributions."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:495
+msgid ""
+"For example, a provider could expose suites of packages in either a "
+"\"public\" or \"private\" ``realm``. A caller of distribution discovery "
+"functions may wish to query only for distributions in a particular realm and "
+"could call ``distributions(realm=\"private\")`` to signal to the custom "
+"provider to only include distributions from that realm."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:502
+msgid ""
+"Each :class:`!DistributionFinder` must expect any parameters and should "
+"attempt to honor the canonical parameters defined below when appropriate."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:506
+msgid ""
+"See the section on :ref:`implementing-custom-providers` for more details."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:510
+msgid "Specific name for which a distribution finder should match."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:512
+msgid "A :attr:`!.name` of ``None`` matches all distributions."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:516
+msgid ""
+"A property providing the sequence of directory paths that a distribution "
+"finder should search."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:519
+msgid ""
+"Typically refers to Python installed package paths such as \"site-packages\" "
+"directories and defaults to :attr:`sys.path`."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:527
+msgid ""
+"The *kwargs* argument may contain either a keyword argument ``context``, a :"
+"class:`DistributionFinder.Context` instance, or pass keyword arguments for "
+"constructing a new :class:`!DistributionFinder.Context`. The :class:`!"
+"DistributionFinder.Context` is used to modify the search for distributions."
+msgstr ""
+
+#: ../../../library/importlib.metadata.rst:536
 msgid "Implementing Custom Providers"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:473
+#: ../../../library/importlib.metadata.rst:538
 msgid ""
 "``importlib.metadata`` address two API surfaces, one for *consumers* and "
 "another for *providers*. Most users are consumers, consuming metadata "
@@ -521,7 +602,7 @@ msgid ""
 "custom importer. Such a use case calls for a *custom provider*."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:480
+#: ../../../library/importlib.metadata.rst:545
 msgid ""
 "Because `Distribution Package <https://packaging.python.org/en/latest/"
 "glossary/#term-Distribution-Package>`_ metadata is not available through :"
@@ -532,30 +613,31 @@ msgid ""
 "`sys.meta_path`."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:488
+#: ../../../library/importlib.metadata.rst:553
 msgid ""
 "The implementation has hooks integrated into the ``PathFinder``, serving "
 "metadata for distribution packages found on the file system."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:491
+#: ../../../library/importlib.metadata.rst:556
 msgid ""
 "The abstract class :py:class:`importlib.abc.MetaPathFinder` defines the "
 "interface expected of finders by Python's import system. ``importlib."
 "metadata`` extends this protocol by looking for an optional "
 "``find_distributions`` callable on the finders from :data:`sys.meta_path` "
-"and presents this extended interface as the ``DistributionFinder`` abstract "
-"base class, which defines this abstract method::"
+"and presents this extended interface as the :class:`DistributionFinder` "
+"abstract base class, which defines this abstract method::"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:505
+#: ../../../library/importlib.metadata.rst:570
 msgid ""
-"The ``DistributionFinder.Context`` object provides ``.path`` and ``.name`` "
-"properties indicating the path to search and name to match and may supply "
-"other relevant context sought by the consumer."
+"The :class:`DistributionFinder.Context` object provides :attr:"
+"`~DistributionFinder.Context.path` and :attr:`~DistributionFinder.Context."
+"name` properties indicating the path to search and name to match and may "
+"supply other relevant context sought by the consumer."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:509
+#: ../../../library/importlib.metadata.rst:576
 msgid ""
 "In practice, to support finding distribution package metadata in locations "
 "other than the file system, subclass ``Distribution`` and implement the "
@@ -563,22 +645,23 @@ msgid ""
 "derived ``Distribution`` in the ``find_distributions()`` method."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:516
+#: ../../../library/importlib.metadata.rst:583
 msgid "Example"
 msgstr "範例"
 
-#: ../../../library/importlib.metadata.rst:518
+#: ../../../library/importlib.metadata.rst:585
 msgid "Imagine a custom finder that loads Python modules from a database::"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:529
+#: ../../../library/importlib.metadata.rst:596
 msgid ""
 "That importer now presumably provides importable modules from a database, "
 "but it provides no metadata or entry points. For this custom importer to "
-"provide metadata, it would also need to implement ``DistributionFinder``::"
+"provide metadata, it would also need to implement :class:"
+"`DistributionFinder`::"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:544
+#: ../../../library/importlib.metadata.rst:611
 msgid ""
 "In this way, ``query_distributions`` would return records for each "
 "distribution served by the database matching the query. For example, if "
@@ -587,7 +670,7 @@ msgid ""
 "``Context(name=None)``."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:550
+#: ../../../library/importlib.metadata.rst:617
 msgid ""
 "For the sake of simplicity, this example ignores ``context.path``\\. The "
 "``path`` attribute defaults to ``sys.path`` and is the set of import paths "
@@ -600,18 +683,18 @@ msgid ""
 "``context.path`` and only yield ``Distribution``\\ s pertinent to that path."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:561
+#: ../../../library/importlib.metadata.rst:628
 msgid "``DatabaseDistribution``, then, would look something like::"
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:583
+#: ../../../library/importlib.metadata.rst:650
 msgid ""
 "This basic implementation should provide metadata and entry points for "
 "packages served by the ``DatabaseImporter``, assuming that the ``record`` "
 "supplies suitable ``.name``, ``.version``, and ``.entry_points`` attributes."
 msgstr ""
 
-#: ../../../library/importlib.metadata.rst:588
+#: ../../../library/importlib.metadata.rst:655
 msgid ""
 "The ``DatabaseDistribution`` may also provide other metadata files, like "
 "``RECORD`` (required for ``Distribution.files``) or override the "
