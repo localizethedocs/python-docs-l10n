@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01 09:06+0000\n"
+"POT-Creation-Date: 2026-02-16 09:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,14 +27,14 @@ msgstr ""
 
 #: ../../../library/subprocess.rst:14
 msgid ""
-"The :mod:`subprocess` module allows you to spawn new processes, connect to "
+"The :mod:`!subprocess` module allows you to spawn new processes, connect to "
 "their input/output/error pipes, and obtain their return codes.  This module "
 "intends to replace several older modules and functions::"
 msgstr ""
 
 #: ../../../library/subprocess.rst:21
 msgid ""
-"Information about how the :mod:`subprocess` module can be used to replace "
+"Information about how the :mod:`!subprocess` module can be used to replace "
 "these modules and functions can be found in the following sections."
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 #: ../../../library/subprocess.rst:598 ../../../library/subprocess.rst:605
 #: ../../../library/subprocess.rst:615 ../../../library/subprocess.rst:624
 #: ../../../library/subprocess.rst:633 ../../../library/subprocess.rst:639
-#: ../../../library/subprocess.rst:1501 ../../../library/subprocess.rst:1523
+#: ../../../library/subprocess.rst:1516 ../../../library/subprocess.rst:1538
 #: ../../../includes/wasm-mobile-notavail.rst:3
 msgid "Availability"
 msgstr ""
@@ -57,7 +57,7 @@ msgid ""
 msgstr ""
 
 #: ../../../library/subprocess.rst:31
-msgid "Using the :mod:`subprocess` Module"
+msgid "Using the :mod:`!subprocess` Module"
 msgstr ""
 
 #: ../../../library/subprocess.rst:33
@@ -155,8 +155,8 @@ msgid ""
 msgstr ""
 
 #: ../../../library/subprocess.rst:122 ../../../library/subprocess.rst:506
-#: ../../../library/subprocess.rst:1221 ../../../library/subprocess.rst:1261
-#: ../../../library/subprocess.rst:1324
+#: ../../../library/subprocess.rst:1236 ../../../library/subprocess.rst:1276
+#: ../../../library/subprocess.rst:1339
 msgid ""
 "Changed Windows shell search order for ``shell=True``. The current directory "
 "and ``%PATH%`` are replaced with ``%COMSPEC%`` and ``%SystemRoot%"
@@ -180,7 +180,7 @@ msgid ""
 "that it ran successfully."
 msgstr ""
 
-#: ../../../library/subprocess.rst:141 ../../../library/subprocess.rst:952
+#: ../../../library/subprocess.rst:141 ../../../library/subprocess.rst:967
 msgid ""
 "A negative value ``-N`` indicates that the child was terminated by signal "
 "``N`` (POSIX only)."
@@ -357,8 +357,8 @@ msgid ""
 "binary streams. No encoding or line ending conversion is performed."
 msgstr ""
 
-#: ../../../library/subprocess.rst:314 ../../../library/subprocess.rst:1510
-#: ../../../library/subprocess.rst:1528
+#: ../../../library/subprocess.rst:314 ../../../library/subprocess.rst:1525
+#: ../../../library/subprocess.rst:1543
 msgid "Added the *encoding* and *errors* parameters."
 msgstr ""
 
@@ -792,7 +792,7 @@ msgstr ""
 msgid "*encoding* and *errors* were added."
 msgstr ""
 
-#: ../../../library/subprocess.rst:665 ../../../library/subprocess.rst:1319
+#: ../../../library/subprocess.rst:665 ../../../library/subprocess.rst:1334
 msgid "*text* was added as a more readable alias for *universal_newlines*."
 msgstr ""
 
@@ -1014,19 +1014,49 @@ msgstr ""
 
 #: ../../../library/subprocess.rst:806
 msgid ""
-"When the ``timeout`` parameter is not ``None``, then (on POSIX) the function "
-"is implemented using a busy loop (non-blocking call and short sleeps). Use "
-"the :mod:`asyncio` module for an asynchronous wait: see :class:`asyncio."
+"When ``timeout`` is not ``None`` and the platform supports it, an efficient "
+"event-driven mechanism is used to wait for process termination:"
+msgstr ""
+
+#: ../../../library/subprocess.rst:809
+msgid "Linux >= 5.3 uses :func:`os.pidfd_open` + :func:`select.poll`"
+msgstr ""
+
+#: ../../../library/subprocess.rst:810
+msgid ""
+"macOS and other BSD variants use :func:`select.kqueue` + ``KQ_FILTER_PROC`` "
+"+ ``KQ_NOTE_EXIT``"
+msgstr ""
+
+#: ../../../library/subprocess.rst:812
+msgid "Windows uses ``WaitForSingleObject``"
+msgstr ""
+
+#: ../../../library/subprocess.rst:814
+msgid ""
+"If none of these mechanisms are available, the function falls back to a busy "
+"loop (non-blocking call and short sleeps)."
+msgstr ""
+
+#: ../../../library/subprocess.rst:819
+msgid ""
+"Use the :mod:`asyncio` module for an asynchronous wait: see :class:`asyncio."
 "create_subprocess_exec`."
 msgstr ""
 
-#: ../../../library/subprocess.rst:811 ../../../library/subprocess.rst:859
-#: ../../../library/subprocess.rst:1216 ../../../library/subprocess.rst:1256
-#: ../../../library/subprocess.rst:1310
+#: ../../../library/subprocess.rst:822 ../../../library/subprocess.rst:874
+#: ../../../library/subprocess.rst:1231 ../../../library/subprocess.rst:1271
+#: ../../../library/subprocess.rst:1325
 msgid "*timeout* was added."
 msgstr ""
 
-#: ../../../library/subprocess.rst:816
+#: ../../../library/subprocess.rst:825
+msgid ""
+"if *timeout* is not ``None``, use efficient event-driven implementation on "
+"Linux >= 5.3 and macOS / BSD."
+msgstr ""
+
+#: ../../../library/subprocess.rst:831
 msgid ""
 "Interact with process: Send data to stdin.  Read data from stdout and "
 "stderr, until end-of-file is reached.  Wait for process to terminate and set "
@@ -1036,13 +1066,13 @@ msgid ""
 "must be a string. Otherwise, it must be bytes."
 msgstr ""
 
-#: ../../../library/subprocess.rst:823
+#: ../../../library/subprocess.rst:838
 msgid ""
 ":meth:`communicate` returns a tuple ``(stdout_data, stderr_data)``. The data "
 "will be strings if streams were opened in text mode; otherwise, bytes."
 msgstr ""
 
-#: ../../../library/subprocess.rst:827
+#: ../../../library/subprocess.rst:842
 msgid ""
 "Note that if you want to send data to the process's stdin, you need to "
 "create the Popen object with ``stdin=PIPE``.  Similarly, to get anything "
@@ -1050,7 +1080,7 @@ msgid ""
 "and/or ``stderr=PIPE`` too."
 msgstr ""
 
-#: ../../../library/subprocess.rst:832
+#: ../../../library/subprocess.rst:847
 msgid ""
 "If the process does not terminate after *timeout* seconds, a :exc:"
 "`TimeoutExpired` exception will be raised.  Catching this exception and "
@@ -1059,14 +1089,14 @@ msgid ""
 "and may become an error in the future."
 msgstr ""
 
-#: ../../../library/subprocess.rst:838
+#: ../../../library/subprocess.rst:853
 msgid ""
 "The child process is not killed if the timeout expires, so in order to "
 "cleanup properly a well-behaved application should kill the child process "
 "and finish communication::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:849
+#: ../../../library/subprocess.rst:864
 msgid ""
 "After a call to :meth:`~Popen.communicate` raises :exc:`TimeoutExpired`, do "
 "not call :meth:`~Popen.wait`. Use an additional :meth:`~Popen.communicate` "
@@ -1074,53 +1104,53 @@ msgid ""
 "attribute."
 msgstr ""
 
-#: ../../../library/subprocess.rst:856
+#: ../../../library/subprocess.rst:871
 msgid ""
 "The data read is buffered in memory, so do not use this method if the data "
 "size is large or unlimited."
 msgstr ""
 
-#: ../../../library/subprocess.rst:865
+#: ../../../library/subprocess.rst:880
 msgid "Sends the signal *signal* to the child."
 msgstr ""
 
-#: ../../../library/subprocess.rst:867
+#: ../../../library/subprocess.rst:882
 msgid "Do nothing if the process completed."
 msgstr ""
 
-#: ../../../library/subprocess.rst:871
+#: ../../../library/subprocess.rst:886
 msgid ""
 "On Windows, SIGTERM is an alias for :meth:`terminate`. CTRL_C_EVENT and "
 "CTRL_BREAK_EVENT can be sent to processes started with a *creationflags* "
 "parameter which includes ``CREATE_NEW_PROCESS_GROUP``."
 msgstr ""
 
-#: ../../../library/subprocess.rst:878
+#: ../../../library/subprocess.rst:893
 msgid ""
 "Stop the child. On POSIX OSs the method sends :py:const:`~signal.SIGTERM` to "
 "the child. On Windows the Win32 API function :c:func:`!TerminateProcess` is "
 "called to stop the child."
 msgstr ""
 
-#: ../../../library/subprocess.rst:885
+#: ../../../library/subprocess.rst:900
 msgid ""
 "Kills the child. On POSIX OSs the function sends SIGKILL to the child. On "
 "Windows :meth:`kill` is an alias for :meth:`terminate`."
 msgstr ""
 
-#: ../../../library/subprocess.rst:889
+#: ../../../library/subprocess.rst:904
 msgid ""
 "The following attributes are also set by the class for you to access. "
 "Reassigning them to new values is unsupported:"
 msgstr ""
 
-#: ../../../library/subprocess.rst:894
+#: ../../../library/subprocess.rst:909
 msgid ""
 "The *args* argument as it was passed to :class:`Popen` -- a sequence of "
 "program arguments or else a single string."
 msgstr ""
 
-#: ../../../library/subprocess.rst:901
+#: ../../../library/subprocess.rst:916
 msgid ""
 "If the *stdin* argument was :data:`PIPE`, this attribute is a writeable "
 "stream object as returned by :func:`open`. If the *encoding* or *errors* "
@@ -1129,7 +1159,7 @@ msgid ""
 "*stdin* argument was not :data:`PIPE`, this attribute is ``None``."
 msgstr ""
 
-#: ../../../library/subprocess.rst:910
+#: ../../../library/subprocess.rst:925
 msgid ""
 "If the *stdout* argument was :data:`PIPE`, this attribute is a readable "
 "stream object as returned by :func:`open`. Reading from the stream provides "
@@ -1139,7 +1169,7 @@ msgid ""
 "argument was not :data:`PIPE`, this attribute is ``None``."
 msgstr ""
 
-#: ../../../library/subprocess.rst:920
+#: ../../../library/subprocess.rst:935
 msgid ""
 "If the *stderr* argument was :data:`PIPE`, this attribute is a readable "
 "stream object as returned by :func:`open`. Reading from the stream provides "
@@ -1149,7 +1179,7 @@ msgid ""
 "argument was not :data:`PIPE`, this attribute is ``None``."
 msgstr ""
 
-#: ../../../library/subprocess.rst:929
+#: ../../../library/subprocess.rst:944
 msgid ""
 "Use :meth:`~Popen.communicate` rather than :attr:`.stdin.write <Popen."
 "stdin>`, :attr:`.stdout.read <Popen.stdout>` or :attr:`.stderr.read <Popen."
@@ -1157,40 +1187,40 @@ msgid ""
 "up and blocking the child process."
 msgstr ""
 
-#: ../../../library/subprocess.rst:937
+#: ../../../library/subprocess.rst:952
 msgid "The process ID of the child process."
 msgstr ""
 
-#: ../../../library/subprocess.rst:939
+#: ../../../library/subprocess.rst:954
 msgid ""
 "Note that if you set the *shell* argument to ``True``, this is the process "
 "ID of the spawned shell."
 msgstr ""
 
-#: ../../../library/subprocess.rst:945
+#: ../../../library/subprocess.rst:960
 msgid ""
 "The child return code. Initially ``None``, :attr:`returncode` is set by a "
 "call to the :meth:`poll`, :meth:`wait`, or :meth:`communicate` methods if "
 "they detect that the process has terminated."
 msgstr ""
 
-#: ../../../library/subprocess.rst:949
+#: ../../../library/subprocess.rst:964
 msgid ""
 "A ``None`` value indicates that the process hadn't yet terminated at the "
 "time of the last method call."
 msgstr ""
 
-#: ../../../library/subprocess.rst:957
+#: ../../../library/subprocess.rst:972
 msgid "Windows Popen Helpers"
 msgstr ""
 
-#: ../../../library/subprocess.rst:959
+#: ../../../library/subprocess.rst:974
 msgid ""
 "The :class:`STARTUPINFO` class and following constants are only available on "
 "Windows."
 msgstr ""
 
-#: ../../../library/subprocess.rst:965
+#: ../../../library/subprocess.rst:980
 msgid ""
 "Partial support of the Windows `STARTUPINFO <https://msdn.microsoft.com/en-"
 "us/library/ms686331(v=vs.85).aspx>`__ structure is used for :class:`Popen` "
@@ -1198,38 +1228,38 @@ msgid ""
 "only arguments."
 msgstr ""
 
-#: ../../../library/subprocess.rst:970
+#: ../../../library/subprocess.rst:985
 msgid "Keyword-only argument support was added."
 msgstr ""
 
-#: ../../../library/subprocess.rst:975
+#: ../../../library/subprocess.rst:990
 msgid ""
 "A bit field that determines whether certain :class:`STARTUPINFO` attributes "
 "are used when the process creates a window. ::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:983
+#: ../../../library/subprocess.rst:998
 msgid ""
 "If :attr:`dwFlags` specifies :data:`STARTF_USESTDHANDLES`, this attribute is "
 "the standard input handle for the process. If :data:`STARTF_USESTDHANDLES` "
 "is not specified, the default for standard input is the keyboard buffer."
 msgstr ""
 
-#: ../../../library/subprocess.rst:990
+#: ../../../library/subprocess.rst:1005
 msgid ""
 "If :attr:`dwFlags` specifies :data:`STARTF_USESTDHANDLES`, this attribute is "
 "the standard output handle for the process. Otherwise, this attribute is "
 "ignored and the default for standard output is the console window's buffer."
 msgstr ""
 
-#: ../../../library/subprocess.rst:997
+#: ../../../library/subprocess.rst:1012
 msgid ""
 "If :attr:`dwFlags` specifies :data:`STARTF_USESTDHANDLES`, this attribute is "
 "the standard error handle for the process. Otherwise, this attribute is "
 "ignored and the default for standard error is the console window's buffer."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1003
+#: ../../../library/subprocess.rst:1018
 msgid ""
 "If :attr:`dwFlags` specifies :data:`STARTF_USESHOWWINDOW`, this attribute "
 "can be any of the values that can be specified in the ``nCmdShow`` parameter "
@@ -1238,34 +1268,34 @@ msgid ""
 "Otherwise, this attribute is ignored."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1010
+#: ../../../library/subprocess.rst:1025
 msgid ""
 ":data:`SW_HIDE` is provided for this attribute. It is used when :class:"
 "`Popen` is called with ``shell=True``."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1015
+#: ../../../library/subprocess.rst:1030
 msgid ""
 "A dictionary of additional attributes for process creation as given in "
 "``STARTUPINFOEX``, see `UpdateProcThreadAttribute <https://msdn.microsoft."
 "com/en-us/library/windows/desktop/ms686880(v=vs.85).aspx>`__."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1019
+#: ../../../library/subprocess.rst:1034
 msgid "Supported attributes:"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1021
+#: ../../../library/subprocess.rst:1036
 msgid "**handle_list**"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1022
+#: ../../../library/subprocess.rst:1037
 msgid ""
 "Sequence of handles that will be inherited. *close_fds* must be true if non-"
 "empty."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1025
+#: ../../../library/subprocess.rst:1040
 msgid ""
 "The handles must be temporarily made inheritable by :func:`os."
 "set_handle_inheritable` when passed to the :class:`Popen` constructor, else :"
@@ -1273,7 +1303,7 @@ msgid ""
 "``ERROR_INVALID_PARAMETER`` (87)."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1032
+#: ../../../library/subprocess.rst:1047
 msgid ""
 "In a multithreaded process, use caution to avoid leaking handles that are "
 "marked inheritable when combining this feature with concurrent calls to "
@@ -1282,110 +1312,110 @@ msgid ""
 "temporarily creates inheritable handles."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1042
+#: ../../../library/subprocess.rst:1057
 msgid "Windows Constants"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1044
-msgid "The :mod:`subprocess` module exposes the following constants."
+#: ../../../library/subprocess.rst:1059
+msgid "The :mod:`!subprocess` module exposes the following constants."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1048
+#: ../../../library/subprocess.rst:1063
 msgid ""
 "The standard input device. Initially, this is the console input buffer, "
 "``CONIN$``."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1053
+#: ../../../library/subprocess.rst:1068
 msgid ""
 "The standard output device. Initially, this is the active console screen "
 "buffer, ``CONOUT$``."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1058
+#: ../../../library/subprocess.rst:1073
 msgid ""
 "The standard error device. Initially, this is the active console screen "
 "buffer, ``CONOUT$``."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1063
+#: ../../../library/subprocess.rst:1078
 msgid "Hides the window. Another window will be activated."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1067
+#: ../../../library/subprocess.rst:1082
 msgid ""
 "Specifies that the :attr:`STARTUPINFO.hStdInput`, :attr:`STARTUPINFO."
 "hStdOutput`, and :attr:`STARTUPINFO.hStdError` attributes contain additional "
 "information."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1073
+#: ../../../library/subprocess.rst:1088
 msgid ""
 "Specifies that the :attr:`STARTUPINFO.wShowWindow` attribute contains "
 "additional information."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1078
+#: ../../../library/subprocess.rst:1093
 msgid ""
 "A :attr:`STARTUPINFO.dwFlags` parameter to specify that the *Working in "
 "Background* mouse cursor will be displayed while a process is launching. "
 "This is the default behavior for GUI processes."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1087
+#: ../../../library/subprocess.rst:1102
 msgid ""
 "A :attr:`STARTUPINFO.dwFlags` parameter to specify that the mouse cursor "
 "will not be changed when launching a process."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1094
+#: ../../../library/subprocess.rst:1109
 msgid ""
 "The new process has a new console, instead of inheriting its parent's "
 "console (the default)."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1099
+#: ../../../library/subprocess.rst:1114
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "group will be created. This flag is necessary for using :func:`os.kill` on "
 "the subprocess."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1103
+#: ../../../library/subprocess.rst:1118
 msgid "This flag is ignored if :data:`CREATE_NEW_CONSOLE` is specified."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1107
+#: ../../../library/subprocess.rst:1122
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "will have an above average priority."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1114
+#: ../../../library/subprocess.rst:1129
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "will have a below average priority."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1121
+#: ../../../library/subprocess.rst:1136
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "will have a high priority."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1128
+#: ../../../library/subprocess.rst:1143
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "will have an idle (lowest) priority."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1135
+#: ../../../library/subprocess.rst:1150
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "will have a normal priority. (default)"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1142
+#: ../../../library/subprocess.rst:1157
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "will have realtime priority. You should almost never use "
@@ -1395,20 +1425,20 @@ msgid ""
 "perform brief tasks that should have limited interruptions."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1153
+#: ../../../library/subprocess.rst:1168
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "will not create a window."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1160
+#: ../../../library/subprocess.rst:1175
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "will not inherit its parent's console. This value cannot be used with "
 "CREATE_NEW_CONSOLE."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1168
+#: ../../../library/subprocess.rst:1183
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "does not inherit the error mode of the calling process. Instead, the new "
@@ -1416,39 +1446,39 @@ msgid ""
 "multithreaded shell applications that run with hard errors disabled."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1178
+#: ../../../library/subprocess.rst:1193
 msgid ""
 "A :class:`Popen` ``creationflags`` parameter to specify that a new process "
 "is not associated with the job."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1186
+#: ../../../library/subprocess.rst:1201
 msgid "Older high-level API"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1188
+#: ../../../library/subprocess.rst:1203
 msgid ""
 "Prior to Python 3.5, these three functions comprised the high level API to "
 "subprocess. You can now use :func:`run` in many cases, but lots of existing "
 "code calls these functions."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1195
+#: ../../../library/subprocess.rst:1210
 msgid ""
 "Run the command described by *args*.  Wait for command to complete, then "
 "return the :attr:`~Popen.returncode` attribute."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1198 ../../../library/subprocess.rst:1238
+#: ../../../library/subprocess.rst:1213 ../../../library/subprocess.rst:1253
 msgid ""
 "Code needing to capture stdout or stderr should use :func:`run` instead::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1202 ../../../library/subprocess.rst:1242
+#: ../../../library/subprocess.rst:1217 ../../../library/subprocess.rst:1257
 msgid "To suppress stdout or stderr, supply a value of :data:`DEVNULL`."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1204 ../../../library/subprocess.rst:1244
+#: ../../../library/subprocess.rst:1219 ../../../library/subprocess.rst:1259
 msgid ""
 "The arguments shown above are merely some common ones. The full function "
 "signature is the same as that of the :class:`Popen` constructor - this "
@@ -1456,14 +1486,14 @@ msgid ""
 "to that interface."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1211 ../../../library/subprocess.rst:1251
+#: ../../../library/subprocess.rst:1226 ../../../library/subprocess.rst:1266
 msgid ""
 "Do not use ``stdout=PIPE`` or ``stderr=PIPE`` with this function.  The child "
 "process will block if it generates enough output to a pipe to fill up the OS "
 "pipe buffer as the pipes are not being read from."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1231
+#: ../../../library/subprocess.rst:1246
 msgid ""
 "Run command with arguments.  Wait for command to complete. If the return "
 "code was zero then return, otherwise raise :exc:`CalledProcessError`. The :"
@@ -1472,11 +1502,11 @@ msgid ""
 "to start the process it will propagate the exception that was raised."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1273
+#: ../../../library/subprocess.rst:1288
 msgid "Run command with arguments and return its output."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1275
+#: ../../../library/subprocess.rst:1290
 msgid ""
 "If the return code was non-zero it raises a :exc:`CalledProcessError`. The :"
 "exc:`CalledProcessError` object will have the return code in the :attr:"
@@ -1484,11 +1514,11 @@ msgid ""
 "`~CalledProcessError.output` attribute."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1280
+#: ../../../library/subprocess.rst:1295
 msgid "This is equivalent to::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1284
+#: ../../../library/subprocess.rst:1299
 msgid ""
 "The arguments shown above are merely some common ones. The full function "
 "signature is largely the same as that of :func:`run` - most arguments are "
@@ -1498,52 +1528,52 @@ msgid ""
 "using the parent's standard input file handle."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1291
+#: ../../../library/subprocess.rst:1306
 msgid ""
 "By default, this function will return the data as encoded bytes. The actual "
 "encoding of the output data may depend on the command being invoked, so the "
 "decoding to text will often need to be handled at the application level."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1295
+#: ../../../library/subprocess.rst:1310
 msgid ""
 "This behaviour may be overridden by setting *text*, *encoding*, *errors*, or "
 "*universal_newlines* to ``True`` as described in :ref:`frequently-used-"
 "arguments` and :func:`run`."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1299
+#: ../../../library/subprocess.rst:1314
 msgid ""
 "To also capture standard error in the result, use ``stderr=subprocess."
 "STDOUT``::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1313
+#: ../../../library/subprocess.rst:1328
 msgid "Support for the *input* keyword argument was added."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1316
+#: ../../../library/subprocess.rst:1331
 msgid "*encoding* and *errors* were added.  See :func:`run` for details."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1334
-msgid "Replacing Older Functions with the :mod:`subprocess` Module"
+#: ../../../library/subprocess.rst:1349
+msgid "Replacing Older Functions with the :mod:`!subprocess` Module"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1336
+#: ../../../library/subprocess.rst:1351
 msgid ""
 "In this section, \"a becomes b\" means that b can be used as a replacement "
 "for a."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1340
+#: ../../../library/subprocess.rst:1355
 msgid ""
 "All \"a\" functions in this section fail (more or less) silently if the "
 "executed program cannot be found; the \"b\" replacements raise :exc:"
 "`OSError` instead."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1344
+#: ../../../library/subprocess.rst:1359
 msgid ""
 "In addition, the replacements using :func:`check_output` will fail with a :"
 "exc:`CalledProcessError` if the requested operation produces a non-zero "
@@ -1551,99 +1581,99 @@ msgid ""
 "output` attribute of the raised exception."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1349
+#: ../../../library/subprocess.rst:1364
 msgid ""
 "In the following examples, we assume that the relevant functions have "
-"already been imported from the :mod:`subprocess` module."
+"already been imported from the :mod:`!subprocess` module."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1354
+#: ../../../library/subprocess.rst:1369
 msgid "Replacing :program:`/bin/sh` shell command substitution"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1360 ../../../library/subprocess.rst:1371
-#: ../../../library/subprocess.rst:1388
+#: ../../../library/subprocess.rst:1375 ../../../library/subprocess.rst:1386
+#: ../../../library/subprocess.rst:1403
 msgid "becomes::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1365
+#: ../../../library/subprocess.rst:1380
 msgid "Replacing shell pipeline"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1378
+#: ../../../library/subprocess.rst:1393
 msgid ""
 "The ``p1.stdout.close()`` call after starting the p2 is important in order "
 "for p1 to receive a SIGPIPE if p2 exits before p1."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1381
+#: ../../../library/subprocess.rst:1396
 msgid ""
 "Alternatively, for trusted input, the shell's own pipeline support may still "
 "be used directly:"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1394
+#: ../../../library/subprocess.rst:1409
 msgid "Replacing :func:`os.system`"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1402
+#: ../../../library/subprocess.rst:1417
 msgid "Notes:"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1404
+#: ../../../library/subprocess.rst:1419
 msgid "Calling the program through the shell is usually not required."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1405
+#: ../../../library/subprocess.rst:1420
 msgid ""
 "The :func:`call` return value is encoded differently to that of :func:`os."
 "system`."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1408
+#: ../../../library/subprocess.rst:1423
 msgid ""
 "The :func:`os.system` function ignores SIGINT and SIGQUIT signals while the "
 "command is running, but the caller must do this separately when using the :"
-"mod:`subprocess` module."
-msgstr ""
-
-#: ../../../library/subprocess.rst:1412
-msgid "A more realistic example would look like this::"
-msgstr ""
-
-#: ../../../library/subprocess.rst:1425
-msgid "Replacing the :func:`os.spawn <os.spawnl>` family"
+"mod:`!subprocess` module."
 msgstr ""
 
 #: ../../../library/subprocess.rst:1427
+msgid "A more realistic example would look like this::"
+msgstr ""
+
+#: ../../../library/subprocess.rst:1440
+msgid "Replacing the :func:`os.spawn <os.spawnl>` family"
+msgstr ""
+
+#: ../../../library/subprocess.rst:1442
 msgid "P_NOWAIT example::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1433
+#: ../../../library/subprocess.rst:1448
 msgid "P_WAIT example::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1439
+#: ../../../library/subprocess.rst:1454
 msgid "Vector example::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1445
+#: ../../../library/subprocess.rst:1460
 msgid "Environment example::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1454
+#: ../../../library/subprocess.rst:1469
 msgid "Replacing :func:`os.popen`"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1456
+#: ../../../library/subprocess.rst:1471
 msgid "Return code handling translates as follows::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1472
+#: ../../../library/subprocess.rst:1487
 msgid "Legacy Shell Invocation Functions"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1474
+#: ../../../library/subprocess.rst:1489
 msgid ""
 "This module also provides the following legacy functions from the 2.x "
 "``commands`` module. These operations implicitly invoke the system shell and "
@@ -1651,64 +1681,64 @@ msgid ""
 "handling consistency are valid for these functions."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1481
+#: ../../../library/subprocess.rst:1496
 msgid "Return ``(exitcode, output)`` of executing *cmd* in a shell."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1483
+#: ../../../library/subprocess.rst:1498
 msgid ""
 "Execute the string *cmd* in a shell with :func:`check_output` and return a 2-"
 "tuple ``(exitcode, output)``. *encoding* and *errors* are used to decode "
 "output; see the notes on :ref:`frequently-used-arguments` for more details."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1488
+#: ../../../library/subprocess.rst:1503
 msgid ""
 "A trailing newline is stripped from the output. The exit code for the "
 "command can be interpreted as the return code of subprocess.  Example::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1503
+#: ../../../library/subprocess.rst:1518
 msgid "Windows support was added."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1506
+#: ../../../library/subprocess.rst:1521
 msgid ""
 "The function now returns (exitcode, output) instead of (status, output) as "
 "it did in Python 3.3.3 and earlier.  exitcode has the same value as :attr:"
 "`~Popen.returncode`."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1515
+#: ../../../library/subprocess.rst:1530
 msgid "Return output (stdout and stderr) of executing *cmd* in a shell."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1517
+#: ../../../library/subprocess.rst:1532
 msgid ""
 "Like :func:`getstatusoutput`, except the exit code is ignored and the return "
 "value is a string containing the command's output.  Example::"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1525
+#: ../../../library/subprocess.rst:1540
 msgid "Windows support added"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1533
+#: ../../../library/subprocess.rst:1548
 msgid "Notes"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1538
+#: ../../../library/subprocess.rst:1553
 msgid "Timeout Behavior"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1540
+#: ../../../library/subprocess.rst:1555
 msgid ""
 "When using the ``timeout`` parameter in functions like :func:`run`, :meth:"
 "`Popen.wait`, or :meth:`Popen.communicate`, users should be aware of the "
 "following behaviors:"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1544
+#: ../../../library/subprocess.rst:1559
 msgid ""
 "**Process Creation Delay**: The initial process creation itself cannot be "
 "interrupted on many platform APIs. This means that even when specifying a "
@@ -1716,7 +1746,7 @@ msgid ""
 "after however long process creation takes."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1549
+#: ../../../library/subprocess.rst:1564
 msgid ""
 "**Extremely Small Timeout Values**: Setting very small timeout values (such "
 "as a few milliseconds) may result in almost immediate :exc:`TimeoutExpired` "
@@ -1724,42 +1754,42 @@ msgid ""
 "time."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1556
+#: ../../../library/subprocess.rst:1571
 msgid "Converting an argument sequence to a string on Windows"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1558
+#: ../../../library/subprocess.rst:1573
 msgid ""
 "On Windows, an *args* sequence is converted to a string that can be parsed "
 "using the following rules (which correspond to the rules used by the MS C "
 "runtime):"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1562
+#: ../../../library/subprocess.rst:1577
 msgid ""
 "Arguments are delimited by white space, which is either a space or a tab."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1565
+#: ../../../library/subprocess.rst:1580
 msgid ""
 "A string surrounded by double quotation marks is interpreted as a single "
 "argument, regardless of white space contained within.  A quoted string can "
 "be embedded in an argument."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1570
+#: ../../../library/subprocess.rst:1585
 msgid ""
 "A double quotation mark preceded by a backslash is interpreted as a literal "
 "double quotation mark."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1573
+#: ../../../library/subprocess.rst:1588
 msgid ""
 "Backslashes are interpreted literally, unless they immediately precede a "
 "double quotation mark."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1576
+#: ../../../library/subprocess.rst:1591
 msgid ""
 "If backslashes immediately precede a double quotation mark, every pair of "
 "backslashes is interpreted as a literal backslash.  If the number of "
@@ -1767,26 +1797,26 @@ msgid ""
 "mark as described in rule 3."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1585
+#: ../../../library/subprocess.rst:1600
 msgid ":mod:`shlex`"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1586
+#: ../../../library/subprocess.rst:1601
 msgid "Module which provides function to parse and escape command lines."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1592
+#: ../../../library/subprocess.rst:1607
 msgid "Disable use of ``posix_spawn()``"
 msgstr ""
 
-#: ../../../library/subprocess.rst:1594
+#: ../../../library/subprocess.rst:1609
 msgid ""
-"On Linux, :mod:`subprocess` defaults to using the ``vfork()`` system call "
+"On Linux, :mod:`!subprocess` defaults to using the ``vfork()`` system call "
 "internally when it is safe to do so rather than ``fork()``. This greatly "
 "improves performance."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1602
+#: ../../../library/subprocess.rst:1617
 msgid ""
 "It is safe to set this to false on any Python version. It will have no "
 "effect on older or newer versions where unsupported. Do not assume the "
@@ -1794,14 +1824,14 @@ msgid ""
 "indicate the corresponding function will be used, only that it may be."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1607
+#: ../../../library/subprocess.rst:1622
 msgid ""
 "Please file issues any time you have to use these private knobs with a way "
 "to reproduce the issue you were seeing. Link to that issue from a comment in "
 "your code."
 msgstr ""
 
-#: ../../../library/subprocess.rst:1611
+#: ../../../library/subprocess.rst:1626
 msgid "``_USE_POSIX_SPAWN``"
 msgstr ""
 

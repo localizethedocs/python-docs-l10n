@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-24 08:42+0000\n"
+"POT-Creation-Date: 2026-02-16 09:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -860,14 +860,14 @@ msgstr ""
 #: ../../../c-api/object.rst:712
 msgid ""
 ":c:func:`PyUnstable_EnableTryIncRef` must have been called earlier on *obj* "
-"or this function may spuriously return ``0`` in the :term:`free threading` "
-"build."
+"or this function may spuriously return ``0`` in the :term:`free-threaded "
+"build`."
 msgstr ""
 
 #: ../../../c-api/object.rst:716
 msgid ""
 "This function is logically equivalent to the following C code, except that "
-"it behaves atomically in the :term:`free threading` build::"
+"it behaves atomically in the :term:`free-threaded build`::"
 msgstr ""
 
 #: ../../../c-api/object.rst:725
@@ -902,10 +902,10 @@ msgstr ""
 
 #: ../../../c-api/object.rst:794
 msgid ""
-"On a :term:`free threaded <free threading>` build, this checks if *op*'s :"
-"term:`reference count` is equal to one and additionally checks if *op* is "
-"only used by this thread. :c:expr:`Py_REFCNT(op) == 1` is **not** thread-"
-"safe on free threaded builds; prefer this function."
+"On a :term:`free-threaded build`, this checks if *op*'s :term:`reference "
+"count` is equal to one and additionally checks if *op* is only used by this "
+"thread. :c:expr:`Py_REFCNT(op) == 1` is **not** thread-safe on free-threaded "
+"builds; prefer this function."
 msgstr ""
 
 #: ../../../c-api/object.rst:799
@@ -913,6 +913,30 @@ msgid ""
 "The caller must hold an :term:`attached thread state`, despite the fact that "
 "this function doesn't call into the Python interpreter. This function cannot "
 "fail."
+msgstr ""
+
+#: ../../../c-api/object.rst:807
+msgid ""
+"Marks the object *op* :term:`immortal`. The argument should be uniquely "
+"referenced by the calling thread. This is intended to be used for reducing "
+"reference counting contention in the :term:`free-threaded build` for objects "
+"which are shared across threads."
+msgstr ""
+
+#: ../../../c-api/object.rst:811
+msgid ""
+"This is a one-way process: objects can only be made immortal; they cannot be "
+"made mortal once again. Immortal objects do not participate in reference "
+"counting and will never be garbage collected. If the object is GC-tracked, "
+"it is untracked."
+msgstr ""
+
+#: ../../../c-api/object.rst:815
+msgid ""
+"This function is intended to be used soon after *op* is created, by the code "
+"that creates it, such as in the object's :c:member:`~PyTypeObject.tp_new` "
+"slot. Returns 1 if the object was made immortal and returns 0 if it was not. "
+"This function cannot fail."
 msgstr ""
 
 #: ../../../c-api/object.rst:360 ../../../c-api/object.rst:372
