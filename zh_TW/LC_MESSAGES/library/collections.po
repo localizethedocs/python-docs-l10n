@@ -1,0 +1,1162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/collections.rst:3
+msgid ":mod:`collections` --- Container datatypes"
+msgstr ""
+
+#: ../../../library/collections.rst:16
+msgid ""
+"This module implements specialized container datatypes providing "
+"alternatives to Python's general purpose built-in containers, :class:"
+"`dict`, :class:`list`, :class:`set`, and :class:`tuple`."
+msgstr ""
+
+#: ../../../library/collections.rst:21
+msgid ":func:`namedtuple`"
+msgstr ""
+
+#: ../../../library/collections.rst:21
+msgid "factory function for creating tuple subclasses with named fields"
+msgstr ""
+
+#: ../../../library/collections.rst:22
+msgid ":class:`deque`"
+msgstr ""
+
+#: ../../../library/collections.rst:22
+msgid "list-like container with fast appends and pops on either end"
+msgstr ""
+
+#: ../../../library/collections.rst:23
+msgid ":class:`Counter`"
+msgstr ""
+
+#: ../../../library/collections.rst:23
+msgid "dict subclass for counting hashable objects"
+msgstr ""
+
+#: ../../../library/collections.rst:24
+msgid ":class:`OrderedDict`"
+msgstr ""
+
+#: ../../../library/collections.rst:24
+msgid "dict subclass that remembers the order entries were added"
+msgstr ""
+
+#: ../../../library/collections.rst:25
+msgid ":class:`defaultdict`"
+msgstr ""
+
+#: ../../../library/collections.rst:25
+msgid "dict subclass that calls a factory function to supply missing values"
+msgstr ""
+
+#: ../../../library/collections.rst:26
+msgid ":class:`UserDict`"
+msgstr ""
+
+#: ../../../library/collections.rst:26
+msgid "wrapper around dictionary objects for easier dict subclassing"
+msgstr ""
+
+#: ../../../library/collections.rst:27
+msgid ":class:`UserList`"
+msgstr ""
+
+#: ../../../library/collections.rst:27
+msgid "wrapper around list objects for easier list subclassing"
+msgstr ""
+
+#: ../../../library/collections.rst:28
+msgid ":class:`UserString`"
+msgstr ""
+
+#: ../../../library/collections.rst:28
+msgid "wrapper around string objects for easier string subclassing"
+msgstr ""
+
+#: ../../../library/collections.rst:31
+msgid ""
+"In addition to the concrete container classes, the collections module "
+"provides ABCs (abstract base classes) that can be used to test whether a "
+"class provides a particular interface, for example, whether it is hashable "
+"or a mapping."
+msgstr ""
+
+#: ../../../library/collections.rst:37
+msgid ":class:`Counter` objects"
+msgstr ""
+
+#: ../../../library/collections.rst:39
+msgid ""
+"A counter tool is provided to support convenient and rapid tallies. For "
+"example::"
+msgstr ""
+
+#: ../../../library/collections.rst:58
+msgid ""
+"A :class:`Counter` is a :class:`dict` subclass for counting hashable "
+"objects. It is an unordered collection where elements are stored as "
+"dictionary keys and their counts are stored as dictionary values.  Counts "
+"are allowed to be any integer value including zero or negative counts.  The :"
+"class:`Counter` class is similar to bags or multisets in other languages."
+msgstr ""
+
+#: ../../../library/collections.rst:64
+msgid ""
+"Elements are counted from an *iterable* or initialized from another "
+"*mapping* (or counter):"
+msgstr ""
+
+#: ../../../library/collections.rst:72
+msgid ""
+"Counter objects have a dictionary interface except that they return a zero "
+"count for missing items instead of raising a :exc:`KeyError`:"
+msgstr ""
+
+#: ../../../library/collections.rst:79
+msgid ""
+"Setting a count to zero does not remove an element from a counter. Use "
+"``del`` to remove it entirely:"
+msgstr ""
+
+#: ../../../library/collections.rst:88
+msgid ""
+"Counter objects support two methods beyond those available for all "
+"dictionaries:"
+msgstr ""
+
+#: ../../../library/collections.rst:93
+msgid ""
+"Return an iterator over elements repeating each as many times as its count.  "
+"Elements are returned in arbitrary order.  If an element's count is less "
+"than one, :meth:`elements` will ignore it."
+msgstr ""
+
+#: ../../../library/collections.rst:103
+msgid ""
+"Return a list of the *n* most common elements and their counts from the most "
+"common to the least.  If *n* is not specified, :func:`most_common` returns "
+"*all* elements in the counter.  Elements with equal counts are ordered "
+"arbitrarily:"
+msgstr ""
+
+#: ../../../library/collections.rst:111
+msgid ""
+"The usual dictionary methods are available for :class:`Counter` objects "
+"except for two which work differently for counters."
+msgstr ""
+
+#: ../../../library/collections.rst:116
+msgid "This class method is not implemented for :class:`Counter` objects."
+msgstr ""
+
+#: ../../../library/collections.rst:120
+msgid ""
+"Elements are counted from an *iterable* or added-in from another *mapping* "
+"(or counter).  Like :meth:`dict.update` but adds counts instead of replacing "
+"them.  Also, the *iterable* is expected to be a sequence of elements, not a "
+"sequence of ``(key, value)`` pairs."
+msgstr ""
+
+#: ../../../library/collections.rst:125
+msgid "Common patterns for working with :class:`Counter` objects::"
+msgstr ""
+
+#: ../../../library/collections.rst:137
+msgid ""
+"Several mathematical operations are provided for combining :class:`Counter` "
+"objects to produce multisets (counters that have counts greater than zero). "
+"Addition and subtraction combine counters by adding or subtracting the "
+"counts of corresponding elements.  Intersection and union return the minimum "
+"and maximum of corresponding counts.  Each operation can accept inputs with "
+"signed counts, but the output will exclude results with counts of zero or "
+"less."
+msgstr ""
+
+#: ../../../library/collections.rst:157
+msgid ""
+"Counters were primarily designed to work with positive integers to represent "
+"running counts; however, care was taken to not unnecessarily preclude use "
+"cases needing other types or negative values.  To help with those use cases, "
+"this section documents the minimum range and type restrictions."
+msgstr ""
+
+#: ../../../library/collections.rst:162
+msgid ""
+"The :class:`Counter` class itself is a dictionary subclass with no "
+"restrictions on its keys and values.  The values are intended to be numbers "
+"representing counts, but you *could* store anything in the value field."
+msgstr ""
+
+#: ../../../library/collections.rst:166
+msgid ""
+"The :meth:`most_common` method requires only that the values be orderable."
+msgstr ""
+
+#: ../../../library/collections.rst:168
+msgid ""
+"For in-place operations such as ``c[key] += 1``, the value type need only "
+"support addition and subtraction.  So fractions, floats, and decimals would "
+"work and negative values are supported.  The same is also true for :meth:"
+"`update` and :meth:`subtract` which allow negative and zero values for both "
+"inputs and outputs."
+msgstr ""
+
+#: ../../../library/collections.rst:174
+msgid ""
+"The multiset methods are designed only for use cases with positive values. "
+"The inputs may be negative or zero, but only outputs with positive values "
+"are created.  There are no type restrictions, but the value type needs to "
+"support support addition, subtraction, and comparison."
+msgstr ""
+
+#: ../../../library/collections.rst:179
+msgid ""
+"The :meth:`elements` method requires integer counts.  It ignores zero and "
+"negative counts."
+msgstr ""
+
+#: ../../../library/collections.rst:184
+msgid ""
+"`Counter class <http://code.activestate.com/recipes/576611/>`_ adapted for "
+"Python 2.5 and an early `Bag recipe <http://code.activestate.com/"
+"recipes/259174/>`_ for Python 2.4."
+msgstr ""
+
+#: ../../../library/collections.rst:188
+msgid ""
+"`Bag class <http://www.gnu.org/software/smalltalk/manual-base/html_node/Bag."
+"html>`_ in Smalltalk."
+msgstr ""
+
+#: ../../../library/collections.rst:191
+msgid ""
+"Wikipedia entry for `Multisets <http://en.wikipedia.org/wiki/Multiset>`_\\."
+msgstr ""
+
+#: ../../../library/collections.rst:193
+msgid ""
+"`C++ multisets <http://www.demo2s.com/Tutorial/Cpp/0380__set-multiset/"
+"Catalog0380__set-multiset.htm>`_ tutorial with examples."
+msgstr ""
+
+#: ../../../library/collections.rst:196
+msgid ""
+"For mathematical operations on multisets and their use cases, see *Knuth, "
+"Donald. The Art of Computer Programming Volume II, Section 4.6.3, Exercise "
+"19*\\."
+msgstr ""
+
+#: ../../../library/collections.rst:200
+msgid ""
+"To enumerate all distinct multisets of a given size over a given set of "
+"elements, see :func:`itertools.combinations_with_replacement`."
+msgstr ""
+
+#: ../../../library/collections.rst:203
+msgid ""
+"map(Counter, combinations_with_replacement('ABC', 2)) --> AA AB AC BB BC CC"
+msgstr ""
+
+#: ../../../library/collections.rst:207
+msgid ":class:`deque` objects"
+msgstr ""
+
+#: ../../../library/collections.rst:211
+msgid ""
+"Returns a new deque object initialized left-to-right (using :meth:`append`) "
+"with data from *iterable*.  If *iterable* is not specified, the new deque is "
+"empty."
+msgstr ""
+
+#: ../../../library/collections.rst:214
+msgid ""
+"Deques are a generalization of stacks and queues (the name is pronounced "
+"\"deck\" and is short for \"double-ended queue\").  Deques support thread-"
+"safe, memory efficient appends and pops from either side of the deque with "
+"approximately the same O(1) performance in either direction."
+msgstr ""
+
+#: ../../../library/collections.rst:219
+msgid ""
+"Though :class:`list` objects support similar operations, they are optimized "
+"for fast fixed-length operations and incur O(n) memory movement costs for "
+"``pop(0)`` and ``insert(0, v)`` operations which change both the size and "
+"position of the underlying data representation."
+msgstr ""
+
+#: ../../../library/collections.rst:225
+msgid ""
+"If *maxlen* is not specified or is *None*, deques may grow to an arbitrary "
+"length.  Otherwise, the deque is bounded to the specified maximum length.  "
+"Once a bounded length deque is full, when new items are added, a "
+"corresponding number of items are discarded from the opposite end.  Bounded "
+"length deques provide functionality similar to the ``tail`` filter in Unix. "
+"They are also useful for tracking transactions and other pools of data where "
+"only the most recent activity is of interest."
+msgstr ""
+
+#: ../../../library/collections.rst:234
+msgid "Deque objects support the following methods:"
+msgstr ""
+
+#: ../../../library/collections.rst:238
+msgid "Add *x* to the right side of the deque."
+msgstr ""
+
+#: ../../../library/collections.rst:243
+msgid "Add *x* to the left side of the deque."
+msgstr ""
+
+#: ../../../library/collections.rst:248
+msgid "Remove all elements from the deque leaving it with length 0."
+msgstr ""
+
+#: ../../../library/collections.rst:253
+msgid ""
+"Extend the right side of the deque by appending elements from the iterable "
+"argument."
+msgstr ""
+
+#: ../../../library/collections.rst:259
+msgid ""
+"Extend the left side of the deque by appending elements from *iterable*. "
+"Note, the series of left appends results in reversing the order of elements "
+"in the iterable argument."
+msgstr ""
+
+#: ../../../library/collections.rst:266
+msgid ""
+"Remove and return an element from the right side of the deque. If no "
+"elements are present, raises an :exc:`IndexError`."
+msgstr ""
+
+#: ../../../library/collections.rst:272
+msgid ""
+"Remove and return an element from the left side of the deque. If no elements "
+"are present, raises an :exc:`IndexError`."
+msgstr ""
+
+#: ../../../library/collections.rst:278
+msgid ""
+"Removed the first occurrence of *value*.  If not found, raises a :exc:"
+"`ValueError`."
+msgstr ""
+
+#: ../../../library/collections.rst:284
+msgid ""
+"Rotate the deque *n* steps to the right.  If *n* is negative, rotate to the "
+"left.  Rotating one step to the right is equivalent to: ``d.appendleft(d."
+"pop())``."
+msgstr ""
+
+#: ../../../library/collections.rst:289
+msgid "Deque objects also provide one read-only attribute:"
+msgstr ""
+
+#: ../../../library/collections.rst:293
+msgid "Maximum size of a deque or *None* if unbounded."
+msgstr ""
+
+#: ../../../library/collections.rst:298
+msgid ""
+"In addition to the above, deques support iteration, pickling, ``len(d)``, "
+"``reversed(d)``, ``copy.copy(d)``, ``copy.deepcopy(d)``, membership testing "
+"with the :keyword:`in` operator, and subscript references such as "
+"``d[-1]``.  Indexed access is O(1) at both ends but slows to O(n) in the "
+"middle.  For fast random access, use lists instead."
+msgstr ""
+
+#: ../../../library/collections.rst:304 ../../../library/collections.rst:558
+msgid "Example:"
+msgstr ""
+
+#: ../../../library/collections.rst:361
+msgid ":class:`deque` Recipes"
+msgstr ""
+
+#: ../../../library/collections.rst:363
+msgid "This section shows various approaches to working with deques."
+msgstr ""
+
+#: ../../../library/collections.rst:365
+msgid ""
+"Bounded length deques provide functionality similar to the ``tail`` filter "
+"in Unix::"
+msgstr ""
+
+#: ../../../library/collections.rst:372
+msgid ""
+"Another approach to using deques is to maintain a sequence of recently added "
+"elements by appending to the right and popping to the left::"
+msgstr ""
+
+#: ../../../library/collections.rst:387
+msgid ""
+"The :meth:`rotate` method provides a way to implement :class:`deque` slicing "
+"and deletion.  For example, a pure Python implementation of ``del d[n]`` "
+"relies on the :meth:`rotate` method to position elements to be popped::"
+msgstr ""
+
+#: ../../../library/collections.rst:396
+msgid ""
+"To implement :class:`deque` slicing, use a similar approach applying :meth:"
+"`rotate` to bring a target element to the left side of the deque. Remove old "
+"entries with :meth:`popleft`, add new entries with :meth:`extend`, and then "
+"reverse the rotation. With minor variations on that approach, it is easy to "
+"implement Forth style stack manipulations such as ``dup``, ``drop``, "
+"``swap``, ``over``, ``pick``, ``rot``, and ``roll``."
+msgstr ""
+
+#: ../../../library/collections.rst:406
+msgid ":class:`defaultdict` objects"
+msgstr ""
+
+#: ../../../library/collections.rst:410
+msgid ""
+"Returns a new dictionary-like object.  :class:`defaultdict` is a subclass of "
+"the built-in :class:`dict` class.  It overrides one method and adds one "
+"writable instance variable.  The remaining functionality is the same as for "
+"the :class:`dict` class and is not documented here."
+msgstr ""
+
+#: ../../../library/collections.rst:415
+msgid ""
+"The first argument provides the initial value for the :attr:"
+"`default_factory` attribute; it defaults to ``None``. All remaining "
+"arguments are treated the same as if they were passed to the :class:`dict` "
+"constructor, including keyword arguments."
+msgstr ""
+
+#: ../../../library/collections.rst:421
+msgid ""
+":class:`defaultdict` objects support the following method in addition to the "
+"standard :class:`dict` operations:"
+msgstr ""
+
+#: ../../../library/collections.rst:426
+msgid ""
+"If the :attr:`default_factory` attribute is ``None``, this raises a :exc:"
+"`KeyError` exception with the *key* as argument."
+msgstr ""
+
+#: ../../../library/collections.rst:429
+msgid ""
+"If :attr:`default_factory` is not ``None``, it is called without arguments "
+"to provide a default value for the given *key*, this value is inserted in "
+"the dictionary for the *key*, and returned."
+msgstr ""
+
+#: ../../../library/collections.rst:433
+msgid ""
+"If calling :attr:`default_factory` raises an exception this exception is "
+"propagated unchanged."
+msgstr ""
+
+#: ../../../library/collections.rst:436
+msgid ""
+"This method is called by the :meth:`__getitem__` method of the :class:`dict` "
+"class when the requested key is not found; whatever it returns or raises is "
+"then returned or raised by :meth:`__getitem__`."
+msgstr ""
+
+#: ../../../library/collections.rst:441
+msgid ":class:`defaultdict` objects support the following instance variable:"
+msgstr ""
+
+#: ../../../library/collections.rst:446
+msgid ""
+"This attribute is used by the :meth:`__missing__` method; it is initialized "
+"from the first argument to the constructor, if present, or to ``None``, if "
+"absent."
+msgstr ""
+
+#: ../../../library/collections.rst:452
+msgid ":class:`defaultdict` Examples"
+msgstr ""
+
+#: ../../../library/collections.rst:454
+msgid ""
+"Using :class:`list` as the :attr:`default_factory`, it is easy to group a "
+"sequence of key-value pairs into a dictionary of lists:"
+msgstr ""
+
+#: ../../../library/collections.rst:465
+msgid ""
+"When each key is encountered for the first time, it is not already in the "
+"mapping; so an entry is automatically created using the :attr:"
+"`default_factory` function which returns an empty :class:`list`.  The :meth:"
+"`list.append` operation then attaches the value to the new list.  When keys "
+"are encountered again, the look-up proceeds normally (returning the list for "
+"that key) and the :meth:`list.append` operation adds another value to the "
+"list. This technique is simpler and faster than an equivalent technique "
+"using :meth:`dict.setdefault`:"
+msgstr ""
+
+#: ../../../library/collections.rst:480
+msgid ""
+"Setting the :attr:`default_factory` to :class:`int` makes the :class:"
+"`defaultdict` useful for counting (like a bag or multiset in other "
+"languages):"
+msgstr ""
+
+#: ../../../library/collections.rst:492
+msgid ""
+"When a letter is first encountered, it is missing from the mapping, so the :"
+"attr:`default_factory` function calls :func:`int` to supply a default count "
+"of zero.  The increment operation then builds up the count for each letter."
+msgstr ""
+
+#: ../../../library/collections.rst:496
+msgid ""
+"The function :func:`int` which always returns zero is just a special case of "
+"constant functions.  A faster and more flexible way to create constant "
+"functions is to use a lambda function which can supply any constant value "
+"(not just zero):"
+msgstr ""
+
+#: ../../../library/collections.rst:508
+msgid ""
+"Setting the :attr:`default_factory` to :class:`set` makes the :class:"
+"`defaultdict` useful for building a dictionary of sets:"
+msgstr ""
+
+#: ../../../library/collections.rst:521
+msgid ":func:`namedtuple` Factory Function for Tuples with Named Fields"
+msgstr ""
+
+#: ../../../library/collections.rst:523
+msgid ""
+"Named tuples assign meaning to each position in a tuple and allow for more "
+"readable, self-documenting code.  They can be used wherever regular tuples "
+"are used, and they add the ability to access fields by name instead of "
+"position index."
+msgstr ""
+
+#: ../../../library/collections.rst:529
+msgid ""
+"Returns a new tuple subclass named *typename*.  The new subclass is used to "
+"create tuple-like objects that have fields accessible by attribute lookup as "
+"well as being indexable and iterable.  Instances of the subclass also have a "
+"helpful docstring (with typename and field_names) and a helpful :meth:"
+"`__repr__` method which lists the tuple contents in a ``name=value`` format."
+msgstr ""
+
+#: ../../../library/collections.rst:535
+msgid ""
+"The *field_names* are a single string with each fieldname separated by "
+"whitespace and/or commas, for example ``'x y'`` or ``'x, y'``.  "
+"Alternatively, *field_names* can be a sequence of strings such as ``['x', "
+"'y']``."
+msgstr ""
+
+#: ../../../library/collections.rst:539
+msgid ""
+"Any valid Python identifier may be used for a fieldname except for names "
+"starting with an underscore.  Valid identifiers consist of letters, digits, "
+"and underscores but do not start with a digit or underscore and cannot be a :"
+"mod:`keyword` such as *class*, *for*, *return*, *global*, *pass*, or *raise*."
+msgstr ""
+
+#: ../../../library/collections.rst:545
+msgid ""
+"If *rename* is true, invalid fieldnames are automatically replaced with "
+"positional names.  For example, ``['abc', 'def', 'ghi', 'abc']`` is "
+"converted to ``['abc', '_1', 'ghi', '_3']``, eliminating the keyword ``def`` "
+"and the duplicate fieldname ``abc``."
+msgstr ""
+
+#: ../../../library/collections.rst:550
+msgid ""
+"If *verbose* is true, the class definition is printed just before being "
+"built."
+msgstr ""
+
+#: ../../../library/collections.rst:552
+msgid ""
+"Named tuple instances do not have per-instance dictionaries, so they are "
+"lightweight and require no more memory than regular tuples."
+msgstr ""
+
+#: ../../../library/collections.rst:555
+msgid "Added support for *rename*."
+msgstr ""
+
+#: ../../../library/collections.rst:613
+msgid ""
+"Named tuples are especially useful for assigning field names to result "
+"tuples returned by the :mod:`csv` or :mod:`sqlite3` modules::"
+msgstr ""
+
+#: ../../../library/collections.rst:629
+msgid ""
+"In addition to the methods inherited from tuples, named tuples support three "
+"additional methods and one attribute.  To prevent conflicts with field "
+"names, the method and attribute names start with an underscore."
+msgstr ""
+
+#: ../../../library/collections.rst:635
+msgid ""
+"Class method that makes a new instance from an existing sequence or iterable."
+msgstr ""
+
+#: ../../../library/collections.rst:645
+msgid ""
+"Return a new :class:`OrderedDict` which maps field names to their "
+"corresponding values::"
+msgstr ""
+
+#: ../../../library/collections.rst:651
+msgid "Returns an :class:`OrderedDict` instead of a regular :class:`dict`."
+msgstr ""
+
+#: ../../../library/collections.rst:656
+msgid ""
+"Return a new instance of the named tuple replacing specified fields with new "
+"values:"
+msgstr ""
+
+#: ../../../library/collections.rst:670
+msgid ""
+"Tuple of strings listing the field names.  Useful for introspection and for "
+"creating new named tuple types from existing named tuples."
+msgstr ""
+
+#: ../../../library/collections.rst:683
+msgid ""
+"To retrieve a field whose name is stored in a string, use the :func:"
+"`getattr` function:"
+msgstr ""
+
+#: ../../../library/collections.rst:689
+msgid ""
+"To convert a dictionary to a named tuple, use the double-star-operator (as "
+"described in :ref:`tut-unpacking-arguments`):"
+msgstr ""
+
+#: ../../../library/collections.rst:696
+msgid ""
+"Since a named tuple is a regular Python class, it is easy to add or change "
+"functionality with a subclass.  Here is how to add a calculated field and a "
+"fixed-width print format:"
+msgstr ""
+
+#: ../../../library/collections.rst:713
+msgid ""
+"The subclass shown above sets ``__slots__`` to an empty tuple.  This helps "
+"keep memory requirements low by preventing the creation of instance "
+"dictionaries."
+msgstr ""
+
+#: ../../../library/collections.rst:717
+msgid ""
+"Subclassing is not useful for adding new, stored fields.  Instead, simply "
+"create a new named tuple type from the :attr:`_fields` attribute:"
+msgstr ""
+
+#: ../../../library/collections.rst:722
+msgid ""
+"Default values can be implemented by using :meth:`_replace` to customize a "
+"prototype instance:"
+msgstr ""
+
+#: ../../../library/collections.rst:729
+msgid ""
+"Enumerated constants can be implemented with named tuples, but it is simpler "
+"and more efficient to use a simple class declaration:"
+msgstr ""
+
+#: ../../../library/collections.rst:740
+msgid ""
+"`Named tuple recipe <http://code.activestate.com/recipes/500261/>`_ adapted "
+"for Python 2.4."
+msgstr ""
+
+#: ../../../library/collections.rst:745
+msgid ":class:`OrderedDict` objects"
+msgstr ""
+
+#: ../../../library/collections.rst:747
+msgid ""
+"Ordered dictionaries are just like regular dictionaries but they remember "
+"the order that items were inserted.  When iterating over an ordered "
+"dictionary, the items are returned in the order their keys were first added."
+msgstr ""
+
+#: ../../../library/collections.rst:753
+msgid ""
+"Return an instance of a dict subclass, supporting the usual :class:`dict` "
+"methods.  An *OrderedDict* is a dict that remembers the order that keys were "
+"first inserted. If a new entry overwrites an existing entry, the original "
+"insertion position is left unchanged.  Deleting an entry and reinserting it "
+"will move it to the end."
+msgstr ""
+
+#: ../../../library/collections.rst:763
+msgid ""
+"The :meth:`popitem` method for ordered dictionaries returns and removes a "
+"(key, value) pair.  The pairs are returned in LIFO order if *last* is true "
+"or FIFO order if false."
+msgstr ""
+
+#: ../../../library/collections.rst:767
+msgid ""
+"In addition to the usual mapping methods, ordered dictionaries also support "
+"reverse iteration using :func:`reversed`."
+msgstr ""
+
+#: ../../../library/collections.rst:770
+msgid ""
+"Equality tests between :class:`OrderedDict` objects are order-sensitive and "
+"are implemented as ``list(od1.items())==list(od2.items())``. Equality tests "
+"between :class:`OrderedDict` objects and other :class:`Mapping` objects are "
+"order-insensitive like regular dictionaries. This allows :class:"
+"`OrderedDict` objects to be substituted anywhere a regular dictionary is "
+"used."
+msgstr ""
+
+#: ../../../library/collections.rst:777
+msgid ""
+"The :class:`OrderedDict` constructor and :meth:`update` method both accept "
+"keyword arguments, but their order is lost because Python's function call "
+"semantics pass-in keyword arguments using a regular unordered dictionary."
+msgstr ""
+
+#: ../../../library/collections.rst:783
+msgid ""
+"`Equivalent OrderedDict recipe <http://code.activestate.com/recipes/576693/"
+">`_ that runs on Python 2.4 or later."
+msgstr ""
+
+#: ../../../library/collections.rst:787
+msgid ":class:`OrderedDict` Examples and Recipes"
+msgstr ""
+
+#: ../../../library/collections.rst:789
+msgid ""
+"Since an ordered dictionary remembers its insertion order, it can be used in "
+"conjuction with sorting to make a sorted dictionary::"
+msgstr ""
+
+#: ../../../library/collections.rst:807
+msgid ""
+"The new sorted dictionaries maintain their sort order when entries are "
+"deleted.  But when new keys are added, the keys are appended to the end and "
+"the sort is not maintained."
+msgstr ""
+
+#: ../../../library/collections.rst:811
+msgid ""
+"It is also straight-forward to create an ordered dictionary variant that the "
+"remembers the order the keys were *last* inserted. If a new entry overwrites "
+"an existing entry, the original insertion position is changed and moved to "
+"the end::"
+msgstr ""
+
+#: ../../../library/collections.rst:824
+msgid ""
+"An ordered dictionary can combined with the :class:`Counter` class so that "
+"the counter remembers the order elements are first encountered::"
+msgstr ""
+
+#: ../../../library/collections.rst:842
+msgid ":class:`UserDict` objects"
+msgstr ""
+
+#: ../../../library/collections.rst:844
+msgid ""
+"The class, :class:`UserDict` acts as a wrapper around dictionary objects. "
+"The need for this class has been partially supplanted by the ability to "
+"subclass directly from :class:`dict`; however, this class can be easier to "
+"work with because the underlying dictionary is accessible as an attribute."
+msgstr ""
+
+#: ../../../library/collections.rst:852
+msgid ""
+"Class that simulates a dictionary.  The instance's contents are kept in a "
+"regular dictionary, which is accessible via the :attr:`data` attribute of :"
+"class:`UserDict` instances.  If *initialdata* is provided, :attr:`data` is "
+"initialized with its contents; note that a reference to *initialdata* will "
+"not be kept, allowing it be used for other purposes."
+msgstr ""
+
+#: ../../../library/collections.rst:858
+msgid ""
+"In addition to supporting the methods and operations of mappings, :class:"
+"`UserDict` instances provide the following attribute:"
+msgstr ""
+
+#: ../../../library/collections.rst:863
+msgid ""
+"A real dictionary used to store the contents of the :class:`UserDict` class."
+msgstr ""
+
+#: ../../../library/collections.rst:868
+msgid ":class:`UserList` objects"
+msgstr ""
+
+#: ../../../library/collections.rst:870
+msgid ""
+"This class acts as a wrapper around list objects.  It is a useful base class "
+"for your own list-like classes which can inherit from them and override "
+"existing methods or add new ones.  In this way, one can add new behaviors to "
+"lists."
+msgstr ""
+
+#: ../../../library/collections.rst:875
+msgid ""
+"The need for this class has been partially supplanted by the ability to "
+"subclass directly from :class:`list`; however, this class can be easier to "
+"work with because the underlying list is accessible as an attribute."
+msgstr ""
+
+#: ../../../library/collections.rst:881
+msgid ""
+"Class that simulates a list.  The instance's contents are kept in a regular "
+"list, which is accessible via the :attr:`data` attribute of :class:"
+"`UserList` instances.  The instance's contents are initially set to a copy "
+"of *list*, defaulting to the empty list ``[]``.  *list* can be any iterable, "
+"for example a real Python list or a :class:`UserList` object."
+msgstr ""
+
+#: ../../../library/collections.rst:887
+msgid ""
+"In addition to supporting the methods and operations of mutable sequences, :"
+"class:`UserList` instances provide the following attribute:"
+msgstr ""
+
+#: ../../../library/collections.rst:892
+msgid ""
+"A real :class:`list` object used to store the contents of the :class:"
+"`UserList` class."
+msgstr ""
+
+#: ../../../library/collections.rst:895
+msgid ""
+"**Subclassing requirements:** Subclasses of :class:`UserList` are expect to "
+"offer a constructor which can be called with either no arguments or one "
+"argument.  List operations which return a new sequence attempt to create an "
+"instance of the actual implementation class.  To do so, it assumes that the "
+"constructor can be called with a single parameter, which is a sequence "
+"object used as a data source."
+msgstr ""
+
+#: ../../../library/collections.rst:902
+msgid ""
+"If a derived class does not wish to comply with this requirement, all of the "
+"special methods supported by this class will need to be overridden; please "
+"consult the sources for information about the methods which need to be "
+"provided in that case."
+msgstr ""
+
+#: ../../../library/collections.rst:908
+msgid ":class:`UserString` objects"
+msgstr ""
+
+#: ../../../library/collections.rst:910
+msgid ""
+"The class, :class:`UserString` acts as a wrapper around string objects. The "
+"need for this class has been partially supplanted by the ability to subclass "
+"directly from :class:`str`; however, this class can be easier to work with "
+"because the underlying string is accessible as an attribute."
+msgstr ""
+
+#: ../../../library/collections.rst:918
+msgid ""
+"Class that simulates a string or a Unicode string object.  The instance's "
+"content is kept in a regular string object, which is accessible via the :"
+"attr:`data` attribute of :class:`UserString` instances.  The instance's "
+"contents are initially set to a copy of *sequence*.  The *sequence* can be "
+"an instance of :class:`bytes`, :class:`str`, :class:`UserString` (or a "
+"subclass) or an arbitrary sequence which can be converted into a string "
+"using the built-in :func:`str` function."
+msgstr ""
+
+#: ../../../library/collections.rst:928
+msgid "ABCs - abstract base classes"
+msgstr ""
+
+#: ../../../library/collections.rst:930
+msgid ""
+"The collections module offers the following :term:`ABCs <abstract base "
+"class>`:"
+msgstr ""
+
+#: ../../../library/collections.rst:933
+msgid "ABC"
+msgstr ""
+
+#: ../../../library/collections.rst:933
+msgid "Inherits from"
+msgstr ""
+
+#: ../../../library/collections.rst:933
+msgid "Abstract Methods"
+msgstr ""
+
+#: ../../../library/collections.rst:933
+msgid "Mixin Methods"
+msgstr ""
+
+#: ../../../library/collections.rst:935
+msgid ":class:`Container`"
+msgstr ""
+
+#: ../../../library/collections.rst:935
+msgid "``__contains__``"
+msgstr ""
+
+#: ../../../library/collections.rst:936
+msgid ":class:`Hashable`"
+msgstr ""
+
+#: ../../../library/collections.rst:936
+msgid "``__hash__``"
+msgstr ""
+
+#: ../../../library/collections.rst:937 ../../../library/collections.rst:938
+msgid ":class:`Iterable`"
+msgstr ""
+
+#: ../../../library/collections.rst:937 ../../../library/collections.rst:938
+msgid "``__iter__``"
+msgstr ""
+
+#: ../../../library/collections.rst:938
+msgid ":class:`Iterator`"
+msgstr ""
+
+#: ../../../library/collections.rst:938
+msgid "``__next__``"
+msgstr ""
+
+#: ../../../library/collections.rst:939 ../../../library/collections.rst:967
+msgid ":class:`Sized`"
+msgstr ""
+
+#: ../../../library/collections.rst:939 ../../../library/collections.rst:967
+msgid "``__len__``"
+msgstr ""
+
+#: ../../../library/collections.rst:940
+msgid ":class:`Callable`"
+msgstr ""
+
+#: ../../../library/collections.rst:940
+msgid "``__call__``"
+msgstr ""
+
+#: ../../../library/collections.rst:942 ../../../library/collections.rst:946
+msgid ":class:`Sequence`"
+msgstr ""
+
+#: ../../../library/collections.rst:942 ../../../library/collections.rst:950
+#: ../../../library/collections.rst:958
+msgid ":class:`Sized`, :class:`Iterable`, :class:`Container`"
+msgstr ""
+
+#: ../../../library/collections.rst:942 ../../../library/collections.rst:958
+msgid "``__getitem__``"
+msgstr ""
+
+#: ../../../library/collections.rst:942
+msgid ""
+"``__contains__``. ``__iter__``, ``__reversed__``, ``index``, and ``count``"
+msgstr ""
+
+#: ../../../library/collections.rst:946
+msgid ":class:`MutableSequence`"
+msgstr ""
+
+#: ../../../library/collections.rst:946
+msgid "``__setitem__``, ``__delitem__``, ``insert``"
+msgstr ""
+
+#: ../../../library/collections.rst:946
+msgid ""
+"Inherited :class:`Sequence` methods and ``append``, ``reverse``, ``extend``, "
+"``pop``, ``remove``, and ``__iadd__``"
+msgstr ""
+
+#: ../../../library/collections.rst:950 ../../../library/collections.rst:954
+msgid ":class:`Set`"
+msgstr ""
+
+#: ../../../library/collections.rst:950
+msgid ""
+"``__le__``, ``__lt__``, ``__eq__``, ``__ne__``, ``__gt__``, ``__ge__``, "
+"``__and__``, ``__or__``, ``__sub__``, ``__xor__``, and ``isdisjoint``"
+msgstr ""
+
+#: ../../../library/collections.rst:954
+msgid ":class:`MutableSet`"
+msgstr ""
+
+#: ../../../library/collections.rst:954
+msgid "``add``, ``discard``"
+msgstr ""
+
+#: ../../../library/collections.rst:954
+msgid ""
+"Inherited :class:`Set` methods and ``clear``, ``pop``, ``remove``, "
+"``__ior__``, ``__iand__``, ``__ixor__``, and ``__isub__``"
+msgstr ""
+
+#: ../../../library/collections.rst:958 ../../../library/collections.rst:962
+msgid ":class:`Mapping`"
+msgstr ""
+
+#: ../../../library/collections.rst:958
+msgid ""
+"``__contains__``, ``keys``, ``items``, ``values``, ``get``, ``__eq__``, and "
+"``__ne__``"
+msgstr ""
+
+#: ../../../library/collections.rst:962
+msgid ":class:`MutableMapping`"
+msgstr ""
+
+#: ../../../library/collections.rst:962
+msgid "``__setitem__``, ``__delitem__``"
+msgstr ""
+
+#: ../../../library/collections.rst:962
+msgid ""
+"Inherited :class:`Mapping` methods and ``pop``, ``popitem``, ``clear``, "
+"``update``, and ``setdefault``"
+msgstr ""
+
+#: ../../../library/collections.rst:967 ../../../library/collections.rst:972
+msgid ":class:`MappingView`"
+msgstr ""
+
+#: ../../../library/collections.rst:968
+msgid ":class:`ItemsView`"
+msgstr ""
+
+#: ../../../library/collections.rst:968 ../../../library/collections.rst:970
+msgid ":class:`MappingView`, :class:`Set`"
+msgstr ""
+
+#: ../../../library/collections.rst:968 ../../../library/collections.rst:970
+#: ../../../library/collections.rst:972
+msgid "``__contains__``, ``__iter__``"
+msgstr ""
+
+#: ../../../library/collections.rst:970
+msgid ":class:`KeysView`"
+msgstr ""
+
+#: ../../../library/collections.rst:972
+msgid ":class:`ValuesView`"
+msgstr ""
+
+#: ../../../library/collections.rst:981
+msgid ""
+"ABCs for classes that provide respectively the methods :meth:"
+"`__contains__`, :meth:`__hash__`, :meth:`__len__`, and :meth:`__call__`."
+msgstr ""
+
+#: ../../../library/collections.rst:986
+msgid ""
+"ABC for classes that provide the :meth:`__iter__` method. See also the "
+"definition of :term:`iterable`."
+msgstr ""
+
+#: ../../../library/collections.rst:991
+msgid ""
+"ABC for classes that provide the :meth:`__iter__` and :meth:`next` methods. "
+"See also the definition of :term:`iterator`."
+msgstr ""
+
+#: ../../../library/collections.rst:997
+msgid "ABCs for read-only and mutable :term:`sequences <sequence>`."
+msgstr ""
+
+#: ../../../library/collections.rst:1002
+msgid "ABCs for read-only and mutable sets."
+msgstr ""
+
+#: ../../../library/collections.rst:1007
+msgid "ABCs for read-only and mutable :term:`mappings <mapping>`."
+msgstr ""
+
+#: ../../../library/collections.rst:1014
+msgid "ABCs for mapping, items, keys, and values :term:`views <view>`."
+msgstr ""
+
+#: ../../../library/collections.rst:1017
+msgid ""
+"These ABCs allow us to ask classes or instances if they provide particular "
+"functionality, for example::"
+msgstr ""
+
+#: ../../../library/collections.rst:1024
+msgid ""
+"Several of the ABCs are also useful as mixins that make it easier to develop "
+"classes supporting container APIs.  For example, to write a class supporting "
+"the full :class:`Set` API, it only necessary to supply the three underlying "
+"abstract methods: :meth:`__contains__`, :meth:`__iter__`, and :meth:"
+"`__len__`. The ABC supplies the remaining methods such as :meth:`__and__` "
+"and :meth:`isdisjoint` ::"
+msgstr ""
+
+#: ../../../library/collections.rst:1050
+msgid "Notes on using :class:`Set` and :class:`MutableSet` as a mixin:"
+msgstr ""
+
+#: ../../../library/collections.rst:1053
+msgid ""
+"Since some set operations create new sets, the default mixin methods need a "
+"way to create new instances from an iterable. The class constructor is "
+"assumed to have a signature in the form ``ClassName(iterable)``. That "
+"assumption is factored-out to an internal classmethod called :meth:"
+"`_from_iterable` which calls ``cls(iterable)`` to produce a new set. If the :"
+"class:`Set` mixin is being used in a class with a different constructor "
+"signature, you will need to override :meth:`_from_iterable` with a "
+"classmethod that can construct new instances from an iterable argument."
+msgstr ""
+
+#: ../../../library/collections.rst:1064
+msgid ""
+"To override the comparisons (presumably for speed, as the semantics are "
+"fixed), redefine :meth:`__le__` and then the other operations will "
+"automatically follow suit."
+msgstr ""
+
+#: ../../../library/collections.rst:1069
+msgid ""
+"The :class:`Set` mixin provides a :meth:`_hash` method to compute a hash "
+"value for the set; however, :meth:`__hash__` is not defined because not all "
+"sets are hashable or immutable.  To add set hashabilty using mixins, inherit "
+"from both :meth:`Set` and :meth:`Hashable`, then define ``__hash__ = Set."
+"_hash``."
+msgstr ""
+
+#: ../../../library/collections.rst:1077
+msgid ""
+"`OrderedSet recipe <http://code.activestate.com/recipes/576694/>`_ for an "
+"example built on :class:`MutableSet`."
+msgstr ""
+
+#: ../../../library/collections.rst:1080
+msgid "For more about ABCs, see the :mod:`abc` module and :pep:`3119`."
+msgstr ""
