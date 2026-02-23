@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-22 09:03+0000\n"
+"POT-Creation-Date: 2026-02-23 09:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -873,7 +873,7 @@ msgstr ""
 msgid "Providing a C API for an Extension Module"
 msgstr ""
 
-#: ../../../extending/extending.rst:909
+#: ../../../extending/extending.rst:906
 msgid ""
 "Many extension modules just provide new functions and types to be used from "
 "Python, but sometimes the code in an extension module can be useful for "
@@ -884,7 +884,7 @@ msgid ""
 "functions for direct manipulation from other extension modules."
 msgstr ""
 
-#: ../../../extending/extending.rst:917
+#: ../../../extending/extending.rst:914
 msgid ""
 "At first sight this seems easy: just write the functions (without declaring "
 "them ``static``, of course), provide an appropriate header file, and "
@@ -900,7 +900,7 @@ msgid ""
 "call might not have been loaded yet!"
 msgstr ""
 
-#: ../../../extending/extending.rst:929
+#: ../../../extending/extending.rst:926
 msgid ""
 "Portability therefore requires not to make any assumptions about symbol "
 "visibility. This means that all symbols in extension modules should be "
@@ -910,7 +910,7 @@ msgid ""
 "exported in a different way."
 msgstr ""
 
-#: ../../../extending/extending.rst:936
+#: ../../../extending/extending.rst:933
 msgid ""
 "Python provides a special mechanism to pass C-level information (pointers) "
 "from one extension module to another one: Capsules. A Capsule is a Python "
@@ -922,7 +922,7 @@ msgid ""
 "the Capsule."
 msgstr ""
 
-#: ../../../extending/extending.rst:944
+#: ../../../extending/extending.rst:941
 msgid ""
 "There are many ways in which Capsules can be used to export the C API of an "
 "extension module. Each function could get its own Capsule, or all C API "
@@ -932,7 +932,7 @@ msgid ""
 "client modules."
 msgstr ""
 
-#: ../../../extending/extending.rst:950
+#: ../../../extending/extending.rst:947
 msgid ""
 "Whichever method you choose, it's important to name your Capsules properly. "
 "The function :c:func:`PyCapsule_New` takes a name parameter (:c:expr:`const "
@@ -942,13 +942,13 @@ msgid ""
 "from another."
 msgstr ""
 
-#: ../../../extending/extending.rst:957
+#: ../../../extending/extending.rst:954
 msgid ""
 "In particular, Capsules used to expose C APIs should be given a name "
 "following this convention::"
 msgstr ""
 
-#: ../../../extending/extending.rst:962
+#: ../../../extending/extending.rst:959
 msgid ""
 "The convenience function :c:func:`PyCapsule_Import` makes it easy to load a "
 "C API provided via a Capsule, but only if the Capsule's name matches this "
@@ -956,7 +956,7 @@ msgid ""
 "the Capsule they load contains the correct C API."
 msgstr ""
 
-#: ../../../extending/extending.rst:967
+#: ../../../extending/extending.rst:964
 msgid ""
 "The following example demonstrates an approach that puts most of the burden "
 "on the writer of the exporting module, which is appropriate for commonly "
@@ -967,7 +967,7 @@ msgid ""
 "modules only have to call this macro before accessing the C API."
 msgstr ""
 
-#: ../../../extending/extending.rst:975
+#: ../../../extending/extending.rst:972
 msgid ""
 "The exporting module is a modification of the :mod:`!spam` module from the :"
 "ref:`tutorial <first-extension-module>`. The function :func:`!spam.system` "
@@ -978,25 +978,25 @@ msgid ""
 "modules."
 msgstr ""
 
-#: ../../../extending/extending.rst:983
+#: ../../../extending/extending.rst:980
 msgid ""
 "The function :c:func:`!PySpam_System` is a plain C function, declared "
 "``static`` like everything else::"
 msgstr ""
 
-#: ../../../extending/extending.rst:992
+#: ../../../extending/extending.rst:989
 msgid "The function :c:func:`!spam_system` is modified in a trivial way::"
 msgstr ""
 
-#: ../../../extending/extending.rst:1006
+#: ../../../extending/extending.rst:1003
 msgid "In the beginning of the module, right after the line ::"
 msgstr ""
 
-#: ../../../extending/extending.rst:1010
+#: ../../../extending/extending.rst:1007
 msgid "two more lines must be added::"
 msgstr ""
 
-#: ../../../extending/extending.rst:1015
+#: ../../../extending/extending.rst:1012
 msgid ""
 "The ``#define`` is used to tell the header file that it is being included in "
 "the exporting module, not a client module. Finally, the module's :c:data:"
@@ -1004,33 +1004,33 @@ msgid ""
 "pointer array::"
 msgstr ""
 
-#: ../../../extending/extending.rst:1038
+#: ../../../extending/extending.rst:1035
 msgid ""
 "Note that ``PySpam_API`` is declared ``static``; otherwise the pointer array "
 "would disappear when :c:func:`!PyInit_spam` terminates!"
 msgstr ""
 
-#: ../../../extending/extending.rst:1041
+#: ../../../extending/extending.rst:1038
 msgid ""
 "The bulk of the work is in the header file :file:`spammodule.h`, which looks "
 "like this::"
 msgstr ""
 
-#: ../../../extending/extending.rst:1092
+#: ../../../extending/extending.rst:1089
 msgid ""
 "All that a client module must do in order to have access to the function :c:"
 "func:`!PySpam_System` is to call the function (or rather macro) :c:func:`!"
 "import_spam` in its :c:data:`mod_exec <Py_mod_exec>` function::"
 msgstr ""
 
-#: ../../../extending/extending.rst:1106
+#: ../../../extending/extending.rst:1103
 msgid ""
 "The main disadvantage of this approach is that the file :file:`spammodule.h` "
 "is rather complicated. However, the basic structure is the same for each "
 "function that is exported, so it has to be learned only once."
 msgstr ""
 
-#: ../../../extending/extending.rst:1110
+#: ../../../extending/extending.rst:1107
 msgid ""
 "Finally it should be mentioned that Capsules offer additional functionality, "
 "which is especially useful for memory allocation and deallocation of the "
@@ -1040,24 +1040,24 @@ msgid ""
 "in the Python source code distribution)."
 msgstr ""
 
-#: ../../../extending/extending.rst:1118
+#: ../../../extending/extending.rst:1115
 msgid "Footnotes"
 msgstr ""
 
-#: ../../../extending/extending.rst:1119
+#: ../../../extending/extending.rst:1116
 msgid ""
 "The metaphor of \"borrowing\" a reference is not completely correct: the "
 "owner still has a copy of the reference."
 msgstr ""
 
-#: ../../../extending/extending.rst:1122
+#: ../../../extending/extending.rst:1119
 msgid ""
 "Checking that the reference count is at least 1 **does not work** --- the "
 "reference count itself could be in freed memory and may thus be reused for "
 "another object!"
 msgstr ""
 
-#: ../../../extending/extending.rst:1127
+#: ../../../extending/extending.rst:1124
 msgid ""
 "These guarantees don't hold when you use the \"old\" style calling "
 "convention --- this is still found in much existing code."
