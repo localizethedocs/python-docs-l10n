@@ -1,0 +1,303 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2to3 - Automated Python 2 to 3 code translation &#8212; Python 3.0.1 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/2to3.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.0.1 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="test — Regression tests package for Python" href="test.html" />
+    <link rel="prev" title="unittest — Unit testing framework" href="unittest.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/2to3.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="test.html" title="test — Regression tests package for Python"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="unittest.html" title="unittest — Unit testing framework"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="development.html" accesskey="U">Development Tools</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="to3-automated-python-2-to-3-code-translation">
+<span id="to3-reference"></span><h1>2to3 - Automated Python 2 to 3 code translation<a class="headerlink" href="#to3-automated-python-2-to-3-code-translation" title="本標題的永久連結">¶</a></h1>
+<p>2to3 is a Python program that reads Python 2.x source code and applies a series
+of <em>fixers</em> to transform it into valid Python 3.x code.  The standard library
+contains a rich set of fixers that will handle almost all code.  2to3 supporting
+library <a class="reference internal" href="#module-lib2to3" title="lib2to3: the 2to3 library"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lib2to3</span></code></a> is, however, a flexible and generic library, so it is
+possible to write your own fixers for 2to3.  <a class="reference internal" href="#module-lib2to3" title="lib2to3: the 2to3 library"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lib2to3</span></code></a> could also be
+adapted to custom applications in which Python code needs to be edited
+automatically.</p>
+<div class="section" id="using-2to3">
+<h2>Using 2to3<a class="headerlink" href="#using-2to3" title="本標題的永久連結">¶</a></h2>
+<p>2to3 will usually be installed with the Python interpreter as a script.  It is
+also located in the <code class="file docutils literal notranslate"><span class="pre">Tools/scripts</span></code> directory of the Python root.</p>
+<p>2to3’s basic arguments are a list of files or directories to transform.  The
+directories are to recursively traversed for Python sources.</p>
+<p>Here is a sample Python 2.x source file, <code class="file docutils literal notranslate"><span class="pre">example.py</span></code>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="s2">&quot;Hello, </span><span class="si">{0}</span><span class="s2">!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span> <span class="s2">&quot;What&#39;s your name?&quot;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span>
+<span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It can be converted to Python 3.x code via 2to3 on the command line:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>$ 2to3 example.py
+</pre></div>
+</div>
+<p>A diff against the original source file is printed.  2to3 can also write the
+needed modifications right back to the source file.  (Of course, a backup of the
+original is also be made unless <code class="xref std std-option docutils literal notranslate"><span class="pre">-n</span></code> is also given.)  Writing the
+changes back is enabled with the <code class="xref std std-option docutils literal notranslate"><span class="pre">-w</span></code> flag:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>$ 2to3 -w example.py
+</pre></div>
+</div>
+<p>After transformation, <code class="file docutils literal notranslate"><span class="pre">example.py</span></code> looks like this:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, </span><span class="si">{0}</span><span class="s2">!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What&#39;s your name?&quot;</span><span class="p">)</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">greet</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Comments and exact indentation are preserved throughout the translation process.</p>
+<p>By default, 2to3 runs a set of predefined fixers.  The <code class="xref std std-option docutils literal notranslate"><span class="pre">-l</span></code> flag lists
+all available fixers.  An explicit set of fixers to run can be given with
+<code class="xref std std-option docutils literal notranslate"><span class="pre">-f</span></code>.  Likewise the <a class="reference internal" href="../using/cmdline.html#cmdoption-x"><code class="xref std std-option docutils literal notranslate"><span class="pre">-x</span></code></a> explicitly disables a fixer.  The
+following example runs only the <code class="docutils literal notranslate"><span class="pre">imports</span></code> and <code class="docutils literal notranslate"><span class="pre">has_key</span></code> fixers:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>$ 2to3 -f imports -f has_key example.py
+</pre></div>
+</div>
+<p>This command runs every fixer except the <code class="docutils literal notranslate"><span class="pre">apply</span></code> fixer:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>$ 2to3 -x apply example.py
+</pre></div>
+</div>
+<p>Some fixers are <em>explicit</em>, meaning they aren’t run by default and must be
+listed on the command line to be run.  Here, in addition to the default fixers,
+the <code class="docutils literal notranslate"><span class="pre">idioms</span></code> fixer is run:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>$ 2to3 -f all -f idioms example.py
+</pre></div>
+</div>
+<p>Notice how passing <code class="docutils literal notranslate"><span class="pre">all</span></code> enables all default fixers.</p>
+<p>Sometimes 2to3 will find a place in your source code that needs to be changed,
+but 2to3 cannot fix automatically.  In this case, 2to3 will print a warning
+beneath the diff for a file.  You should address the warning in order to have
+compliant 3.x code.</p>
+<p>2to3 can also refactor doctests.  To enable this mode, use the <a class="reference internal" href="../using/cmdline.html#cmdoption-d"><code class="xref std std-option docutils literal notranslate"><span class="pre">-d</span></code></a>
+flag.  Note that <em>only</em> doctests will be refactored.  This also doesn’t require
+the module to be valid Python.  For example, doctest like examples in a reST
+document could also be refactored with this option.</p>
+<p>The <a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal notranslate"><span class="pre">-v</span></code></a> option enables output of more information on the translation
+process.</p>
+<p>When the <code class="xref std std-option docutils literal notranslate"><span class="pre">-p</span></code> is passed, 2to3 treats <code class="docutils literal notranslate"><span class="pre">print</span></code> as a function instead of
+a statement.  This is useful when <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">print_function</span></code> is
+being used.  If this option is not given, the print fixer will surround print
+calls in an extra set of parentheses because it cannot differentiate between the
+print statement with parentheses (such as <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">(&quot;a&quot;</span> <span class="pre">+</span> <span class="pre">&quot;b&quot;</span> <span class="pre">+</span> <span class="pre">&quot;c&quot;)</span></code>) and a
+true function call.</p>
+</div>
+<div class="section" id="module-lib2to3">
+<span id="lib2to3-2to3-s-library"></span><h2><a class="reference internal" href="#module-lib2to3" title="lib2to3: the 2to3 library"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lib2to3</span></code></a> - 2to3’s library<a class="headerlink" href="#module-lib2to3" title="本標題的永久連結">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">The <a class="reference internal" href="#module-lib2to3" title="lib2to3: the 2to3 library"><code class="xref py py-mod docutils literal notranslate"><span class="pre">lib2to3</span></code></a> API should be considered unstable and may change
+drastically in the future.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2to3 - Automated Python 2 to 3 code translation</a><ul>
+<li><a class="reference internal" href="#using-2to3">Using 2to3</a></li>
+<li><a class="reference internal" href="#module-lib2to3"><code class="docutils literal notranslate"><span class="pre">lib2to3</span></code> - 2to3’s library</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="unittest.html"
+                        title="上一章"><code class="docutils literal notranslate"><span class="pre">unittest</span></code> — Unit testing framework</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="test.html"
+                        title="下一章"><code class="docutils literal notranslate"><span class="pre">test</span></code> — Regression tests package for Python</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/2to3.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="test.html" title="test — Regression tests package for Python"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="unittest.html" title="unittest — Unit testing framework"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="development.html" >Development Tools</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 04, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

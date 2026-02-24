@@ -1,0 +1,335 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>11.10. dbhash — DBM-style interface to the BSD database library &#8212; Python 2.6.9 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/dbhash.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="11.11. bsddb — Interface to Berkeley DB library" href="bsddb.html" />
+    <link rel="prev" title="11.9. gdbm — GNU’s reinterpretation of dbm" href="gdbm.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/dbhash.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="bsddb.html" title="11.11. bsddb — Interface to Berkeley DB library"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="gdbm.html" title="11.9. gdbm — GNU’s reinterpretation of dbm"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="persistence.html" accesskey="U">11. Data Persistence</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dbhash">
+<span id="dbhash-dbm-style-interface-to-the-bsd-database-library"></span><h1>11.10. <a class="reference internal" href="#module-dbhash" title="dbhash: DBM-style interface to the BSD database library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbhash</span></code></a> — DBM-style interface to the BSD database library<a class="headerlink" href="#module-dbhash" title="永久链接至标题">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版后已移除: </span>The <a class="reference internal" href="#module-dbhash" title="dbhash: DBM-style interface to the BSD database library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbhash</span></code></a> module has been deprecated for removal in Python 3.0.</p>
+</div>
+<p id="index-0">The <a class="reference internal" href="#module-dbhash" title="dbhash: DBM-style interface to the BSD database library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbhash</span></code></a> module provides a function to open databases using the BSD
+<code class="docutils literal notranslate"><span class="pre">db</span></code> library.  This module mirrors the interface of the other Python database
+modules that provide access to DBM-style databases.  The <a class="reference internal" href="bsddb.html#module-bsddb" title="bsddb: Interface to Berkeley DB database library"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsddb</span></code></a> module is
+required  to use <a class="reference internal" href="#module-dbhash" title="dbhash: DBM-style interface to the BSD database library."><code class="xref py py-mod docutils literal notranslate"><span class="pre">dbhash</span></code></a>.</p>
+<p>This module provides an exception and a function:</p>
+<dl class="exception">
+<dt id="dbhash.error">
+<em class="property">exception </em><code class="descclassname">dbhash.</code><code class="descname">error</code><a class="headerlink" href="#dbhash.error" title="永久链接至目标">¶</a></dt>
+<dd><p>Exception raised on database errors other than <a class="reference internal" href="exceptions.html#exceptions.KeyError" title="exceptions.KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a>.  It is a synonym
+for <code class="xref py py-exc docutils literal notranslate"><span class="pre">bsddb.error</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dbhash.open">
+<code class="descclassname">dbhash.</code><code class="descname">open</code><span class="sig-paren">(</span><em>path</em><span class="optional">[</span>, <em>flag</em><span class="optional">[</span>, <em>mode</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#dbhash.open" title="永久链接至目标">¶</a></dt>
+<dd><p>Open a <code class="docutils literal notranslate"><span class="pre">db</span></code> database and return the database object.  The <em>path</em> argument is
+the name of the database file.</p>
+<p>The <em>flag</em> argument can be:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Value</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'r'</span></code></td>
+<td>Open existing database for reading only
+(default)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'w'</span></code></td>
+<td>Open existing database for reading and
+writing</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'c'</span></code></td>
+<td>Open database for reading and writing,
+creating it if it doesn’t exist</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'n'</span></code></td>
+<td>Always create a new, empty database, open
+for reading and writing</td>
+</tr>
+</tbody>
+</table>
+<p>For platforms on which the BSD <code class="docutils literal notranslate"><span class="pre">db</span></code> library supports locking, an <code class="docutils literal notranslate"><span class="pre">'l'</span></code>
+can be appended to indicate that locking should be used.</p>
+<p>The optional <em>mode</em> parameter is used to indicate the Unix permission bits that
+should be set if a new database must be created; this will be masked by the
+current umask value for the process.</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="anydbm.html#module-anydbm" title="anydbm: Generic interface to DBM-style database modules."><code class="xref py py-mod docutils literal notranslate"><span class="pre">anydbm</span></code></a></dt>
+<dd>Generic interface to <code class="docutils literal notranslate"><span class="pre">dbm</span></code>-style databases.</dd>
+<dt>Module <a class="reference internal" href="bsddb.html#module-bsddb" title="bsddb: Interface to Berkeley DB database library"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bsddb</span></code></a></dt>
+<dd>Lower-level interface to the BSD <code class="docutils literal notranslate"><span class="pre">db</span></code> library.</dd>
+<dt>Module <a class="reference internal" href="whichdb.html#module-whichdb" title="whichdb: Guess which DBM-style module created a given database."><code class="xref py py-mod docutils literal notranslate"><span class="pre">whichdb</span></code></a></dt>
+<dd>Utility module used to determine the type of an existing database.</dd>
+</dl>
+</div>
+<div class="section" id="database-objects">
+<span id="dbhash-objects"></span><h2>11.10.1. Database Objects<a class="headerlink" href="#database-objects" title="永久链接至标题">¶</a></h2>
+<p>The database objects returned by <a class="reference internal" href="#dbhash.open" title="dbhash.open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> provide the methods  common to all
+the DBM-style databases and mapping objects.  The following methods are
+available in addition to the standard methods.</p>
+<dl class="method">
+<dt id="dbhash.dbhash.first">
+<code class="descclassname">dbhash.</code><code class="descname">first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dbhash.dbhash.first" title="永久链接至目标">¶</a></dt>
+<dd><p>It’s possible to loop over every key/value pair in the database using this
+method and the <code class="xref py py-meth docutils literal notranslate"><span class="pre">next()</span></code> method.  The traversal is ordered by the databases
+internal hash values, and won’t be sorted by the key values.  This method
+returns the starting key.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dbhash.dbhash.last">
+<code class="descclassname">dbhash.</code><code class="descname">last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dbhash.dbhash.last" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the last key/value pair in a database traversal.  This may be used to
+begin a reverse-order traversal; see <a class="reference internal" href="#dbhash.dbhash.previous" title="dbhash.dbhash.previous"><code class="xref py py-meth docutils literal notranslate"><span class="pre">previous()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dbhash.dbhash.next">
+<code class="descclassname">dbhash.</code><code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dbhash.dbhash.next" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the key next key/value pair in a database traversal.  The following code
+prints every key in the database <code class="docutils literal notranslate"><span class="pre">db</span></code>, without having to create a list in
+memory that contains them all:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="n">db</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">db</span><span class="p">)):</span>
+    <span class="nb">print</span> <span class="n">db</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="dbhash.dbhash.previous">
+<code class="descclassname">dbhash.</code><code class="descname">previous</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dbhash.dbhash.previous" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the previous key/value pair in a forward-traversal of the database. In
+conjunction with <a class="reference internal" href="#dbhash.dbhash.last" title="dbhash.dbhash.last"><code class="xref py py-meth docutils literal notranslate"><span class="pre">last()</span></code></a>, this may be used to implement a reverse-order
+traversal.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="dbhash.dbhash.sync">
+<code class="descclassname">dbhash.</code><code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dbhash.dbhash.sync" title="永久链接至目标">¶</a></dt>
+<dd><p>This method forces any unwritten data to be written to the disk.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">11.10. <code class="docutils literal notranslate"><span class="pre">dbhash</span></code> — DBM-style interface to the BSD database library</a><ul>
+<li><a class="reference internal" href="#database-objects">11.10.1. Database Objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="gdbm.html"
+                        title="上一章">11.9. <code class="docutils literal notranslate"><span class="pre">gdbm</span></code> — GNU’s reinterpretation of dbm</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="bsddb.html"
+                        title="下一章">11.11. <code class="docutils literal notranslate"><span class="pre">bsddb</span></code> — Interface to Berkeley DB library</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/dbhash.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="bsddb.html" title="11.11. bsddb — Interface to Berkeley DB library"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="gdbm.html" title="11.9. gdbm — GNU’s reinterpretation of dbm"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="persistence.html" >11. Data Persistence</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 24, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

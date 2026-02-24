@@ -1,0 +1,826 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>38.4. fl — FORMS library for graphical user interfaces &#8212; Python 2.6.9 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/fl.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="38.7. fm — Font Manager interface" href="fm.html" />
+    <link rel="prev" title="38.3. cd — CD-ROM access on SGI systems" href="cd.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/fl.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="fm.html" title="38.7. fm — Font Manager interface"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="cd.html" title="38.3. cd — CD-ROM access on SGI systems"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sgi.html" accesskey="U">38. SGI IRIX Specific Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-fl">
+<span id="fl-forms-library-for-graphical-user-interfaces"></span><h1>38.4. <a class="reference internal" href="#module-fl" title="fl: FORMS library for applications with graphical user interfaces.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code></a> — FORMS library for graphical user interfaces<a class="headerlink" href="#module-fl" title="本標題的永久連結">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版後已棄用: </span>The <a class="reference internal" href="#module-fl" title="fl: FORMS library for applications with graphical user interfaces.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code></a> module has been deprecated for removal in Python 3.0.</p>
+</div>
+<p id="index-0">This module provides an interface to the FORMS Library by Mark Overmars.  The
+source for the library can be retrieved by anonymous ftp from host
+<code class="docutils literal notranslate"><span class="pre">ftp.cs.ruu.nl</span></code>, directory <code class="file docutils literal notranslate"><span class="pre">SGI/FORMS</span></code>.  It was last tested with version
+2.0b.</p>
+<p>Most functions are literal translations of their C equivalents, dropping the
+initial <code class="docutils literal notranslate"><span class="pre">fl_</span></code> from their name.  Constants used by the library are defined in
+module <a class="reference internal" href="#module-FL" title="FL: Constants used with the fl module.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">FL</span></code></a> described below.</p>
+<p>The creation of objects is a little different in Python than in C: instead of
+the 『current form』 maintained by the library to which new FORMS objects are
+added, all functions that add a FORMS object to a form are methods of the Python
+object representing the form. Consequently, there are no Python equivalents for
+the C functions <a href="#id1"><span class="problematic" id="id2">:cfunc:`fl_addto_form`</span></a> and <a href="#id3"><span class="problematic" id="id4">:cfunc:`fl_end_form`</span></a>, and the
+equivalent of <a href="#id5"><span class="problematic" id="id6">:cfunc:`fl_bgn_form`</span></a> is called <a class="reference internal" href="#fl.make_form" title="fl.make_form"><code class="xref py py-func docutils literal notranslate"><span class="pre">fl.make_form()</span></code></a>.</p>
+<p>Watch out for the somewhat confusing terminology: FORMS uses the word
+<em class="dfn">object</em> for the buttons, sliders etc. that you can place in a form. In
+Python, 『object』 means any value.  The Python interface to FORMS introduces two
+new Python object types: form objects (representing an entire form) and FORMS
+objects (representing one button, slider etc.). Hopefully this isn’t too
+confusing.</p>
+<p>There are no 『free objects』 in the Python interface to FORMS, nor is there an
+easy way to add object classes written in Python.  The FORMS interface to GL
+event handling is available, though, so you can mix FORMS with pure GL windows.</p>
+<p><strong>Please note:</strong> importing <a class="reference internal" href="#module-fl" title="fl: FORMS library for applications with graphical user interfaces.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code></a> implies a call to the GL function
+<a href="#id7"><span class="problematic" id="id8">:cfunc:`foreground`</span></a> and to the FORMS routine <a href="#id9"><span class="problematic" id="id10">:cfunc:`fl_init`</span></a>.</p>
+<div class="section" id="functions-defined-in-module-fl">
+<span id="fl-functions"></span><h2>38.4.1. Functions Defined in Module <a class="reference internal" href="#module-fl" title="fl: FORMS library for applications with graphical user interfaces.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code></a><a class="headerlink" href="#functions-defined-in-module-fl" title="本標題的永久連結">¶</a></h2>
+<p>Module <a class="reference internal" href="#module-fl" title="fl: FORMS library for applications with graphical user interfaces.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code></a> defines the following functions.  For more information about
+what they do, see the description of the equivalent C function in the FORMS
+documentation:</p>
+<dl class="function">
+<dt id="fl.make_form">
+<code class="descclassname">fl.</code><code class="descname">make_form</code><span class="sig-paren">(</span><em>type</em>, <em>width</em>, <em>height</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.make_form" title="本定義的永久連結">¶</a></dt>
+<dd><p>Create a form with given type, width and height.  This returns a <em class="dfn">form</em>
+object, whose methods are described below.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.do_forms">
+<code class="descclassname">fl.</code><code class="descname">do_forms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.do_forms" title="本定義的永久連結">¶</a></dt>
+<dd><p>The standard FORMS main loop.  Returns a Python object representing the FORMS
+object needing interaction, or the special value <code class="xref py py-const docutils literal notranslate"><span class="pre">FL.EVENT</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.check_forms">
+<code class="descclassname">fl.</code><code class="descname">check_forms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.check_forms" title="本定義的永久連結">¶</a></dt>
+<dd><p>Check for FORMS events.  Returns what <a class="reference internal" href="#fl.do_forms" title="fl.do_forms"><code class="xref py py-func docutils literal notranslate"><span class="pre">do_forms()</span></code></a> above returns, or
+<code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no event that immediately needs interaction.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.set_event_call_back">
+<code class="descclassname">fl.</code><code class="descname">set_event_call_back</code><span class="sig-paren">(</span><em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.set_event_call_back" title="本定義的永久連結">¶</a></dt>
+<dd><p>Set the event callback function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.set_graphics_mode">
+<code class="descclassname">fl.</code><code class="descname">set_graphics_mode</code><span class="sig-paren">(</span><em>rgbmode</em>, <em>doublebuffering</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.set_graphics_mode" title="本定義的永久連結">¶</a></dt>
+<dd><p>Set the graphics modes.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.get_rgbmode">
+<code class="descclassname">fl.</code><code class="descname">get_rgbmode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.get_rgbmode" title="本定義的永久連結">¶</a></dt>
+<dd><p>Return the current rgb mode.  This is the value of the C global variable
+<a href="#id11"><span class="problematic" id="id12">:cdata:`fl_rgbmode`</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.show_message">
+<code class="descclassname">fl.</code><code class="descname">show_message</code><span class="sig-paren">(</span><em>str1</em>, <em>str2</em>, <em>str3</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.show_message" title="本定義的永久連結">¶</a></dt>
+<dd><p>Show a dialog box with a three-line message and an OK button.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.show_question">
+<code class="descclassname">fl.</code><code class="descname">show_question</code><span class="sig-paren">(</span><em>str1</em>, <em>str2</em>, <em>str3</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.show_question" title="本定義的永久連結">¶</a></dt>
+<dd><p>Show a dialog box with a three-line message and YES and NO buttons. It returns
+<code class="docutils literal notranslate"><span class="pre">1</span></code> if the user pressed YES, <code class="docutils literal notranslate"><span class="pre">0</span></code> if NO.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.show_choice">
+<code class="descclassname">fl.</code><code class="descname">show_choice</code><span class="sig-paren">(</span><em>str1</em>, <em>str2</em>, <em>str3</em>, <em>but1</em><span class="optional">[</span>, <em>but2</em><span class="optional">[</span>, <em>but3</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.show_choice" title="本定義的永久連結">¶</a></dt>
+<dd><p>Show a dialog box with a three-line message and up to three buttons. It returns
+the number of the button clicked by the user (<code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> or <code class="docutils literal notranslate"><span class="pre">3</span></code>).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.show_input">
+<code class="descclassname">fl.</code><code class="descname">show_input</code><span class="sig-paren">(</span><em>prompt</em>, <em>default</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.show_input" title="本定義的永久連結">¶</a></dt>
+<dd><p>Show a dialog box with a one-line prompt message and text field in which the
+user can enter a string.  The second argument is the default input string.  It
+returns the string value as edited by the user.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.show_file_selector">
+<code class="descclassname">fl.</code><code class="descname">show_file_selector</code><span class="sig-paren">(</span><em>message</em>, <em>directory</em>, <em>pattern</em>, <em>default</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.show_file_selector" title="本定義的永久連結">¶</a></dt>
+<dd><p>Show a dialog box in which the user can select a file.  It returns the absolute
+filename selected by the user, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the user presses Cancel.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.get_directory">
+<code class="descclassname">fl.</code><code class="descname">get_directory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.get_directory" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.get_pattern">
+<code class="descclassname">fl.</code><code class="descname">get_pattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.get_pattern" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.get_filename">
+<code class="descclassname">fl.</code><code class="descname">get_filename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.get_filename" title="本定義的永久連結">¶</a></dt>
+<dd><p>These functions return the directory, pattern and filename (the tail part only)
+selected by the user in the last <a class="reference internal" href="#fl.show_file_selector" title="fl.show_file_selector"><code class="xref py py-func docutils literal notranslate"><span class="pre">show_file_selector()</span></code></a> call.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.qdevice">
+<code class="descclassname">fl.</code><code class="descname">qdevice</code><span class="sig-paren">(</span><em>dev</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.qdevice" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.unqdevice">
+<code class="descclassname">fl.</code><code class="descname">unqdevice</code><span class="sig-paren">(</span><em>dev</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.unqdevice" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.isqueued">
+<code class="descclassname">fl.</code><code class="descname">isqueued</code><span class="sig-paren">(</span><em>dev</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.isqueued" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.qtest">
+<code class="descclassname">fl.</code><code class="descname">qtest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.qtest" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.qread">
+<code class="descclassname">fl.</code><code class="descname">qread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.qread" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.qreset">
+<code class="descclassname">fl.</code><code class="descname">qreset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.qreset" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.qenter">
+<code class="descclassname">fl.</code><code class="descname">qenter</code><span class="sig-paren">(</span><em>dev</em>, <em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.qenter" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.get_mouse">
+<code class="descclassname">fl.</code><code class="descname">get_mouse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.get_mouse" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.tie">
+<code class="descclassname">fl.</code><code class="descname">tie</code><span class="sig-paren">(</span><em>button</em>, <em>valuator1</em>, <em>valuator2</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.tie" title="本定義的永久連結">¶</a></dt>
+<dd><p>These functions are the FORMS interfaces to the corresponding GL functions.  Use
+these if you want to handle some GL events yourself when using
+<code class="xref py py-func docutils literal notranslate"><span class="pre">fl.do_events()</span></code>.  When a GL event is detected that FORMS cannot handle,
+<a class="reference internal" href="#fl.do_forms" title="fl.do_forms"><code class="xref py py-func docutils literal notranslate"><span class="pre">fl.do_forms()</span></code></a> returns the special value <code class="xref py py-const docutils literal notranslate"><span class="pre">FL.EVENT</span></code> and you should
+call <a class="reference internal" href="#fl.qread" title="fl.qread"><code class="xref py py-func docutils literal notranslate"><span class="pre">fl.qread()</span></code></a> to read the event from the queue.  Don’t use the
+equivalent GL functions!</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fl.color">
+<code class="descclassname">fl.</code><code class="descname">color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.color" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.mapcolor">
+<code class="descclassname">fl.</code><code class="descname">mapcolor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.mapcolor" title="本定義的永久連結">¶</a></dt>
+<dt id="fl.getmcolor">
+<code class="descclassname">fl.</code><code class="descname">getmcolor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.getmcolor" title="本定義的永久連結">¶</a></dt>
+<dd><p>See the description in the FORMS documentation of <a href="#id13"><span class="problematic" id="id14">:cfunc:`fl_color`</span></a>,
+<a href="#id15"><span class="problematic" id="id16">:cfunc:`fl_mapcolor`</span></a> and <a href="#id17"><span class="problematic" id="id18">:cfunc:`fl_getmcolor`</span></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="form-objects">
+<span id="id19"></span><h2>38.4.2. Form Objects<a class="headerlink" href="#form-objects" title="本標題的永久連結">¶</a></h2>
+<p>Form objects (returned by <a class="reference internal" href="#fl.make_form" title="fl.make_form"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_form()</span></code></a> above) have the following methods.
+Each method corresponds to a C function whose name is prefixed with <code class="docutils literal notranslate"><span class="pre">fl_</span></code>; and
+whose first argument is a form pointer; please refer to the official FORMS
+documentation for descriptions.</p>
+<p>All the <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_*()</span></code> methods return a Python object representing the FORMS
+object.  Methods of FORMS objects are described below.  Most kinds of FORMS
+object also have some methods specific to that kind; these methods are listed
+here.</p>
+<dl class="method">
+<dt id="fl.form.show_form">
+<code class="descclassname">form.</code><code class="descname">show_form</code><span class="sig-paren">(</span><em>placement</em>, <em>bordertype</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.show_form" title="本定義的永久連結">¶</a></dt>
+<dd><p>Show the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.hide_form">
+<code class="descclassname">form.</code><code class="descname">hide_form</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.hide_form" title="本定義的永久連結">¶</a></dt>
+<dd><p>Hide the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.redraw_form">
+<code class="descclassname">form.</code><code class="descname">redraw_form</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.redraw_form" title="本定義的永久連結">¶</a></dt>
+<dd><p>Redraw the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.set_form_position">
+<code class="descclassname">form.</code><code class="descname">set_form_position</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.set_form_position" title="本定義的永久連結">¶</a></dt>
+<dd><p>Set the form’s position.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.freeze_form">
+<code class="descclassname">form.</code><code class="descname">freeze_form</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.freeze_form" title="本定義的永久連結">¶</a></dt>
+<dd><p>Freeze the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.unfreeze_form">
+<code class="descclassname">form.</code><code class="descname">unfreeze_form</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.unfreeze_form" title="本定義的永久連結">¶</a></dt>
+<dd><p>Unfreeze the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.activate_form">
+<code class="descclassname">form.</code><code class="descname">activate_form</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.activate_form" title="本定義的永久連結">¶</a></dt>
+<dd><p>Activate the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.deactivate_form">
+<code class="descclassname">form.</code><code class="descname">deactivate_form</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.deactivate_form" title="本定義的永久連結">¶</a></dt>
+<dd><p>Deactivate the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.bgn_group">
+<code class="descclassname">form.</code><code class="descname">bgn_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.bgn_group" title="本定義的永久連結">¶</a></dt>
+<dd><p>Begin a new group of objects; return a group object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.end_group">
+<code class="descclassname">form.</code><code class="descname">end_group</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.end_group" title="本定義的永久連結">¶</a></dt>
+<dd><p>End the current group of objects.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.find_first">
+<code class="descclassname">form.</code><code class="descname">find_first</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.find_first" title="本定義的永久連結">¶</a></dt>
+<dd><p>Find the first object in the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.find_last">
+<code class="descclassname">form.</code><code class="descname">find_last</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.find_last" title="本定義的永久連結">¶</a></dt>
+<dd><p>Find the last object in the form.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_box">
+<code class="descclassname">form.</code><code class="descname">add_box</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_box" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a box object to the form. No extra methods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_text">
+<code class="descclassname">form.</code><code class="descname">add_text</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_text" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a text object to the form. No extra methods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_clock">
+<code class="descclassname">form.</code><code class="descname">add_clock</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_clock" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a clock object to the form.  —  Method: <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_clock()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_button">
+<code class="descclassname">form.</code><code class="descname">add_button</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_button" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a button object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_button()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_button()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_lightbutton">
+<code class="descclassname">form.</code><code class="descname">add_lightbutton</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_lightbutton" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a lightbutton object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_button()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_button()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_roundbutton">
+<code class="descclassname">form.</code><code class="descname">add_roundbutton</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_roundbutton" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a roundbutton object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_button()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_button()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_slider">
+<code class="descclassname">form.</code><code class="descname">add_slider</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_slider" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a slider object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_value()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_slider_value()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_bounds()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_slider_bounds()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_return()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_size()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_precision()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_step()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_valslider">
+<code class="descclassname">form.</code><code class="descname">add_valslider</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_valslider" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a valslider object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_value()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_slider_value()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_bounds()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_slider_bounds()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_return()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_size()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_precision()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_slider_step()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_dial">
+<code class="descclassname">form.</code><code class="descname">add_dial</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_dial" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a dial object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_dial_value()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_dial_value()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_dial_bounds()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_dial_bounds()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_positioner">
+<code class="descclassname">form.</code><code class="descname">add_positioner</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_positioner" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a positioner object to the form.  —  Methods:
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_positioner_xvalue()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_positioner_yvalue()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_positioner_xbounds()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_positioner_ybounds()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_positioner_xvalue()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_positioner_yvalue()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_positioner_xbounds()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_positioner_ybounds()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_counter">
+<code class="descclassname">form.</code><code class="descname">add_counter</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_counter" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a counter object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_counter_value()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_counter_value()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_counter_bounds()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_counter_step()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_counter_precision()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_counter_return()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_input">
+<code class="descclassname">form.</code><code class="descname">add_input</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_input" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a input object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_input()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_input()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_input_color()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_input_return()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_menu">
+<code class="descclassname">form.</code><code class="descname">add_menu</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_menu" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a menu object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_menu()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_menu()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">addto_menu()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_choice">
+<code class="descclassname">form.</code><code class="descname">add_choice</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_choice" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a choice object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_choice()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_choice()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">clear_choice()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">addto_choice()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">replace_choice()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">delete_choice()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_choice_text()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_choice_fontsize()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_choice_fontstyle()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_browser">
+<code class="descclassname">form.</code><code class="descname">add_browser</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_browser" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a browser object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_browser_topline()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">clear_browser()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">add_browser_line()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">addto_browser()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">insert_browser_line()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">delete_browser_line()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">replace_browser_line()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_browser_line()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">load_browser()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_browser_maxline()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">select_browser_line()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">deselect_browser_line()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">deselect_browser()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">isselected_browser_line()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_browser()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_browser_fontsize()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_browser_fontstyle()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">set_browser_specialkey()</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="fl.form.add_timer">
+<code class="descclassname">form.</code><code class="descname">add_timer</code><span class="sig-paren">(</span><em>type</em>, <em>x</em>, <em>y</em>, <em>w</em>, <em>h</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#fl.form.add_timer" title="本定義的永久連結">¶</a></dt>
+<dd><p>Add a timer object to the form.  —  Methods: <code class="xref py py-meth docutils literal notranslate"><span class="pre">set_timer()</span></code>,
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">get_timer()</span></code>.</p>
+</dd></dl>
+
+<p>Form objects have the following data attributes; see the FORMS documentation:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="24%" />
+<col width="46%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">C Type</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">window</span></code></td>
+<td>int (read-only)</td>
+<td>GL window id</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">w</span></code></td>
+<td>float</td>
+<td>form width</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">h</span></code></td>
+<td>float</td>
+<td>form height</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">x</span></code></td>
+<td>float</td>
+<td>form x origin</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">y</span></code></td>
+<td>float</td>
+<td>form y origin</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">deactivated</span></code></td>
+<td>int</td>
+<td>nonzero if form is deactivated</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">visible</span></code></td>
+<td>int</td>
+<td>nonzero if form is visible</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">frozen</span></code></td>
+<td>int</td>
+<td>nonzero if form is frozen</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">doublebuf</span></code></td>
+<td>int</td>
+<td>nonzero if double buffering on</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="forms-objects">
+<span id="id20"></span><h2>38.4.3. FORMS Objects<a class="headerlink" href="#forms-objects" title="本標題的永久連結">¶</a></h2>
+<p>Besides methods specific to particular kinds of FORMS objects, all FORMS objects
+also have the following methods:</p>
+<dl class="method">
+<dt>
+<code class="descname">FORMS object.set_call_back(function, argument)</code></dt>
+<dd><p>Set the object’s callback function and argument.  When the object needs
+interaction, the callback function will be called with two arguments: the
+object, and the callback argument.  (FORMS objects without a callback function
+are returned by <a class="reference internal" href="#fl.do_forms" title="fl.do_forms"><code class="xref py py-func docutils literal notranslate"><span class="pre">fl.do_forms()</span></code></a> or <a class="reference internal" href="#fl.check_forms" title="fl.check_forms"><code class="xref py py-func docutils literal notranslate"><span class="pre">fl.check_forms()</span></code></a> when they need
+interaction.)  Call this method without arguments to remove the callback
+function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">FORMS object.delete_object()</code></dt>
+<dd><p>Delete the object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">FORMS object.show_object()</code></dt>
+<dd><p>Show the object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">FORMS object.hide_object()</code></dt>
+<dd><p>Hide the object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">FORMS object.redraw_object()</code></dt>
+<dd><p>Redraw the object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">FORMS object.freeze_object()</code></dt>
+<dd><p>Freeze the object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">FORMS object.unfreeze_object()</code></dt>
+<dd><p>Unfreeze the object.</p>
+</dd></dl>
+
+<p>FORMS objects have these data attributes; see the FORMS documentation:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="31%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">C Type</th>
+<th class="head">Meaning</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">objclass</span></code></td>
+<td>int (read-only)</td>
+<td>object class</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="functions.html#type" title="type"><code class="xref py py-attr docutils literal notranslate"><span class="pre">type</span></code></a></td>
+<td>int (read-only)</td>
+<td>object type</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">boxtype</span></code></td>
+<td>int</td>
+<td>box type</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">x</span></code></td>
+<td>float</td>
+<td>x origin</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">y</span></code></td>
+<td>float</td>
+<td>y origin</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">w</span></code></td>
+<td>float</td>
+<td>width</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">h</span></code></td>
+<td>float</td>
+<td>height</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">col1</span></code></td>
+<td>int</td>
+<td>primary color</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">col2</span></code></td>
+<td>int</td>
+<td>secondary color</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">align</span></code></td>
+<td>int</td>
+<td>alignment</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">lcol</span></code></td>
+<td>int</td>
+<td>label color</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">lsize</span></code></td>
+<td>float</td>
+<td>label font size</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">label</span></code></td>
+<td>string</td>
+<td>label string</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">lstyle</span></code></td>
+<td>int</td>
+<td>label style</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">pushed</span></code></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">focus</span></code></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">belowmouse</span></code></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">frozen</span></code></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">active</span></code></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="functions.html#input" title="input"><code class="xref py py-attr docutils literal notranslate"><span class="pre">input</span></code></a></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">visible</span></code></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">radio</span></code></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-attr docutils literal notranslate"><span class="pre">automatic</span></code></td>
+<td>int (read-only)</td>
+<td>(see FORMS docs)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="module-FL">
+<span id="fl-constants-used-with-the-fl-module"></span><h1>38.5. <a class="reference internal" href="#module-FL" title="FL: Constants used with the fl module.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">FL</span></code></a> — Constants used with the <a class="reference internal" href="#module-fl" title="fl: FORMS library for applications with graphical user interfaces.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code></a> module<a class="headerlink" href="#module-FL" title="本標題的永久連結">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版後已棄用: </span>The <a class="reference internal" href="#module-FL" title="FL: Constants used with the fl module.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">FL</span></code></a> module has been deprecated for removal in Python 3.0.</p>
+</div>
+<p>This module defines symbolic constants needed to use the built-in module
+<a class="reference internal" href="#module-fl" title="fl: FORMS library for applications with graphical user interfaces.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code></a> (see above); they are equivalent to those defined in the C header file
+<code class="docutils literal notranslate"><span class="pre">&lt;forms.h&gt;</span></code> except that the name prefix <code class="docutils literal notranslate"><span class="pre">FL_</span></code> is omitted.  Read the module
+source for a complete list of the defined names.  Suggested use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fl</span>
+<span class="kn">from</span> <span class="nn">FL</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-flp">
+<span id="flp-functions-for-loading-stored-forms-designs"></span><h1>38.6. <a class="reference internal" href="#module-flp" title="flp: Functions for loading stored FORMS designs.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flp</span></code></a> — Functions for loading stored FORMS designs<a class="headerlink" href="#module-flp" title="本標題的永久連結">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版後已棄用: </span>The <a class="reference internal" href="#module-flp" title="flp: Functions for loading stored FORMS designs.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flp</span></code></a> module has been deprecated for removal in Python 3.0.</p>
+</div>
+<p>This module defines functions that can read form definitions created by the
+『form designer』 (<strong class="program">fdesign</strong>) program that comes with the FORMS library
+(see module <a class="reference internal" href="#module-fl" title="fl: FORMS library for applications with graphical user interfaces.(已棄用) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code></a> above).</p>
+<p>For now, see the file <code class="file docutils literal notranslate"><span class="pre">flp.doc</span></code> in the Python library source directory for
+a description.</p>
+<p>XXX A complete description should be inserted here!</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">38.4. <code class="docutils literal notranslate"><span class="pre">fl</span></code> — FORMS library for graphical user interfaces</a><ul>
+<li><a class="reference internal" href="#functions-defined-in-module-fl">38.4.1. Functions Defined in Module <code class="docutils literal notranslate"><span class="pre">fl</span></code></a></li>
+<li><a class="reference internal" href="#form-objects">38.4.2. Form Objects</a></li>
+<li><a class="reference internal" href="#forms-objects">38.4.3. FORMS Objects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-FL">38.5. <code class="docutils literal notranslate"><span class="pre">FL</span></code> — Constants used with the <code class="docutils literal notranslate"><span class="pre">fl</span></code> module</a></li>
+<li><a class="reference internal" href="#module-flp">38.6. <code class="docutils literal notranslate"><span class="pre">flp</span></code> — Functions for loading stored FORMS designs</a></li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="cd.html"
+                        title="上一章">38.3. <code class="docutils literal notranslate"><span class="pre">cd</span></code> — CD-ROM access on SGI systems</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="fm.html"
+                        title="下一章">38.7. <code class="docutils literal notranslate"><span class="pre">fm</span></code> — <em>Font Manager</em> interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/fl.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="fm.html" title="38.7. fm — Font Manager interface"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="cd.html" title="38.3. cd — CD-ROM access on SGI systems"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sgi.html" >38. SGI IRIX Specific Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

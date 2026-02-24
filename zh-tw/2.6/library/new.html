@@ -1,0 +1,268 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>8.16. new — Creation of runtime internal objects &#8212; Python 2.6.9 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/new.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="8.17. copy — Shallow and deep copy operations" href="copy.html" />
+    <link rel="prev" title="8.15. types — Names for built-in types" href="types.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/new.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="copy.html" title="8.17. copy — Shallow and deep copy operations"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="types.html" title="8.15. types — Names for built-in types"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="datatypes.html" accesskey="U">8. Data Types</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-new">
+<span id="new-creation-of-runtime-internal-objects"></span><h1>8.16. <a class="reference internal" href="#module-new" title="new: Interface to the creation of runtime implementation objects.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">new</span></code></a> — Creation of runtime internal objects<a class="headerlink" href="#module-new" title="本標題的永久連結">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版後已棄用: </span>The <a class="reference internal" href="#module-new" title="new: Interface to the creation of runtime implementation objects.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">new</span></code></a> module has been removed in Python 3.0.  Use the <a class="reference internal" href="types.html#module-types" title="types: Names for built-in types."><code class="xref py py-mod docutils literal notranslate"><span class="pre">types</span></code></a>
+module’s classes instead.</p>
+</div>
+<p>The <a class="reference internal" href="#module-new" title="new: Interface to the creation of runtime implementation objects.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">new</span></code></a> module allows an interface to the interpreter object creation
+functions. This is for use primarily in marshal-type functions, when a new
+object needs to be created 「magically」 and not by using the regular creation
+functions. This module provides a low-level interface to the interpreter, so
+care must be exercised when using this module. It is possible to supply
+non-sensical arguments which crash the interpreter when the object is used.</p>
+<p>The <a class="reference internal" href="#module-new" title="new: Interface to the creation of runtime implementation objects.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">new</span></code></a> module defines the following functions:</p>
+<dl class="function">
+<dt id="new.instance">
+<code class="descclassname">new.</code><code class="descname">instance</code><span class="sig-paren">(</span><em>class</em><span class="optional">[</span>, <em>dict</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#new.instance" title="本定義的永久連結">¶</a></dt>
+<dd><p>This function creates an instance of <em>class</em> with dictionary <em>dict</em> without
+calling the <a class="reference internal" href="../reference/datamodel.html#object.__init__" title="object.__init__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__init__()</span></code></a> constructor.  If <em>dict</em> is omitted or <code class="docutils literal notranslate"><span class="pre">None</span></code>, a
+new, empty dictionary is created for the new instance.  Note that there are no
+guarantees that the object will be in a consistent state.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="new.instancemethod">
+<code class="descclassname">new.</code><code class="descname">instancemethod</code><span class="sig-paren">(</span><em>function</em>, <em>instance</em>, <em>class</em><span class="sig-paren">)</span><a class="headerlink" href="#new.instancemethod" title="本定義的永久連結">¶</a></dt>
+<dd><p>This function will return a method object, bound to <em>instance</em>, or unbound if
+<em>instance</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code>.  <em>function</em> must be callable.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="new.function">
+<code class="descclassname">new.</code><code class="descname">function</code><span class="sig-paren">(</span><em>code</em>, <em>globals</em><span class="optional">[</span>, <em>name</em><span class="optional">[</span>, <em>argdefs</em><span class="optional">[</span>, <em>closure</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#new.function" title="本定義的永久連結">¶</a></dt>
+<dd><p>Returns a (Python) function with the given code and globals. If <em>name</em> is given,
+it must be a string or <code class="docutils literal notranslate"><span class="pre">None</span></code>.  If it is a string, the function will have the
+given name, otherwise the function name will be taken from <code class="docutils literal notranslate"><span class="pre">code.co_name</span></code>.  If
+<em>argdefs</em> is given, it must be a tuple and will be used to determine the default
+values of parameters.  If <em>closure</em> is given, it must be <code class="docutils literal notranslate"><span class="pre">None</span></code> or a tuple of
+cell objects containing objects to bind to the names in <code class="docutils literal notranslate"><span class="pre">code.co_freevars</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="new.code">
+<code class="descclassname">new.</code><code class="descname">code</code><span class="sig-paren">(</span><em>argcount</em>, <em>nlocals</em>, <em>stacksize</em>, <em>flags</em>, <em>codestring</em>, <em>constants</em>, <em>names</em>, <em>varnames</em>, <em>filename</em>, <em>name</em>, <em>firstlineno</em>, <em>lnotab</em><span class="sig-paren">)</span><a class="headerlink" href="#new.code" title="本定義的永久連結">¶</a></dt>
+<dd><p>This function is an interface to the <a href="#id1"><span class="problematic" id="id2">:cfunc:`PyCode_New`</span></a> C function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="new.module">
+<code class="descclassname">new.</code><code class="descname">module</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>doc</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#new.module" title="本定義的永久連結">¶</a></dt>
+<dd><p>This function returns a new module object with name <em>name</em>. <em>name</em> must be a
+string. The optional <em>doc</em> argument can have any type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="new.classobj">
+<code class="descclassname">new.</code><code class="descname">classobj</code><span class="sig-paren">(</span><em>name</em>, <em>baseclasses</em>, <em>dict</em><span class="sig-paren">)</span><a class="headerlink" href="#new.classobj" title="本定義的永久連結">¶</a></dt>
+<dd><p>This function returns a new class object, with name <em>name</em>, derived from
+<em>baseclasses</em> (which should be a tuple of classes) and with namespace <em>dict</em>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上個主題</h4>
+  <p class="topless"><a href="types.html"
+                        title="上一章">8.15. <code class="docutils literal notranslate"><span class="pre">types</span></code> — Names for built-in types</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="copy.html"
+                        title="下一章">8.17. <code class="docutils literal notranslate"><span class="pre">copy</span></code> — Shallow and deep copy operations</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/new.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="copy.html" title="8.17. copy — Shallow and deep copy operations"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="types.html" title="8.15. types — Names for built-in types"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="datatypes.html" >8. Data Types</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

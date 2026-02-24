@@ -1,0 +1,359 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>8.19. repr — Alternate repr() implementation &#8212; Python 2.6.9 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/repr.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="9. Numeric and Mathematical Modules" href="numeric.html" />
+    <link rel="prev" title="8.18. pprint — Data pretty printer" href="pprint.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/repr.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="numeric.html" title="9. Numeric and Mathematical Modules"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="pprint.html" title="8.18. pprint — Data pretty printer"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="datatypes.html" accesskey="U">8. Data Types</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-repr">
+<span id="repr-alternate-repr-implementation"></span><h1>8.19. <a class="reference internal" href="#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-mod docutils literal notranslate"><span class="pre">repr</span></code></a> — Alternate <a class="reference internal" href="#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> implementation<a class="headerlink" href="#module-repr" title="本標題的永久連結">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">The <a class="reference internal" href="#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-mod docutils literal notranslate"><span class="pre">repr</span></code></a> module has been renamed to <code class="xref py py-mod docutils literal notranslate"><span class="pre">reprlib</span></code> in Python 3.0.  The
+<a class="reference internal" href="../glossary.html#term-2to3"><span class="xref std std-term">2to3</span></a> tool will automatically adapt imports when converting your
+sources to 3.0.</p>
+</div>
+<p>The <a class="reference internal" href="#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-mod docutils literal notranslate"><span class="pre">repr</span></code></a> module provides a means for producing object representations
+with limits on the size of the resulting strings. This is used in the Python
+debugger and may be useful in other contexts as well.</p>
+<p>This module provides a class, an instance, and a function:</p>
+<dl class="class">
+<dt id="repr.Repr">
+<em class="property">class </em><code class="descclassname">repr.</code><code class="descname">Repr</code><a class="headerlink" href="#repr.Repr" title="本定義的永久連結">¶</a></dt>
+<dd><p>Class which provides formatting services useful in implementing functions
+similar to the built-in <a class="reference internal" href="#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>; size limits for  different object types
+are added to avoid the generation of representations which are excessively long.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="repr.aRepr">
+<code class="descclassname">repr.</code><code class="descname">aRepr</code><a class="headerlink" href="#repr.aRepr" title="本定義的永久連結">¶</a></dt>
+<dd><p>This is an instance of <a class="reference internal" href="#repr.Repr" title="repr.Repr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repr</span></code></a> which is used to provide the <a class="reference internal" href="#repr.repr" title="repr.repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>
+function described below.  Changing the attributes of this object will affect
+the size limits used by <a class="reference internal" href="#repr.repr" title="repr.repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> and the Python debugger.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="repr.repr">
+<code class="descclassname">repr.</code><code class="descname">repr</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#repr.repr" title="本定義的永久連結">¶</a></dt>
+<dd><p>This is the <a class="reference internal" href="#repr.Repr.repr" title="repr.Repr.repr"><code class="xref py py-meth docutils literal notranslate"><span class="pre">repr()</span></code></a> method of <code class="docutils literal notranslate"><span class="pre">aRepr</span></code>.  It returns a string
+similar to that returned by the built-in function of the same name, but with
+limits on most sizes.</p>
+</dd></dl>
+
+<div class="section" id="repr-objects">
+<span id="id1"></span><h2>8.19.1. Repr Objects<a class="headerlink" href="#repr-objects" title="本標題的永久連結">¶</a></h2>
+<p><a class="reference internal" href="#repr.Repr" title="repr.Repr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repr</span></code></a> instances provide several members which can be used to provide
+size limits for the representations of different object types,  and methods
+which format specific object types.</p>
+<dl class="attribute">
+<dt id="repr.Repr.maxlevel">
+<code class="descclassname">Repr.</code><code class="descname">maxlevel</code><a class="headerlink" href="#repr.Repr.maxlevel" title="本定義的永久連結">¶</a></dt>
+<dd><p>Depth limit on the creation of recursive representations.  The default is <code class="docutils literal notranslate"><span class="pre">6</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="repr.Repr.maxdict">
+<code class="descclassname">Repr.</code><code class="descname">maxdict</code><a class="headerlink" href="#repr.Repr.maxdict" title="本定義的永久連結">¶</a></dt>
+<dt id="repr.Repr.maxlist">
+<code class="descclassname">Repr.</code><code class="descname">maxlist</code><a class="headerlink" href="#repr.Repr.maxlist" title="本定義的永久連結">¶</a></dt>
+<dt id="repr.Repr.maxtuple">
+<code class="descclassname">Repr.</code><code class="descname">maxtuple</code><a class="headerlink" href="#repr.Repr.maxtuple" title="本定義的永久連結">¶</a></dt>
+<dt id="repr.Repr.maxset">
+<code class="descclassname">Repr.</code><code class="descname">maxset</code><a class="headerlink" href="#repr.Repr.maxset" title="本定義的永久連結">¶</a></dt>
+<dt id="repr.Repr.maxfrozenset">
+<code class="descclassname">Repr.</code><code class="descname">maxfrozenset</code><a class="headerlink" href="#repr.Repr.maxfrozenset" title="本定義的永久連結">¶</a></dt>
+<dt id="repr.Repr.maxdeque">
+<code class="descclassname">Repr.</code><code class="descname">maxdeque</code><a class="headerlink" href="#repr.Repr.maxdeque" title="本定義的永久連結">¶</a></dt>
+<dt id="repr.Repr.maxarray">
+<code class="descclassname">Repr.</code><code class="descname">maxarray</code><a class="headerlink" href="#repr.Repr.maxarray" title="本定義的永久連結">¶</a></dt>
+<dd><p>Limits on the number of entries represented for the named object type.  The
+default is <code class="docutils literal notranslate"><span class="pre">4</span></code> for <a class="reference internal" href="#repr.Repr.maxdict" title="repr.Repr.maxdict"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maxdict</span></code></a>, <code class="docutils literal notranslate"><span class="pre">5</span></code> for <a class="reference internal" href="#repr.Repr.maxarray" title="repr.Repr.maxarray"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maxarray</span></code></a>, and  <code class="docutils literal notranslate"><span class="pre">6</span></code> for
+the others.</p>
+<div class="versionadded">
+<p><span class="versionmodified">2.4 版新加入: </span><a class="reference internal" href="#repr.Repr.maxset" title="repr.Repr.maxset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maxset</span></code></a>, <a class="reference internal" href="#repr.Repr.maxfrozenset" title="repr.Repr.maxfrozenset"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maxfrozenset</span></code></a>, and <a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-attr docutils literal notranslate"><span class="pre">set</span></code></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="repr.Repr.maxlong">
+<code class="descclassname">Repr.</code><code class="descname">maxlong</code><a class="headerlink" href="#repr.Repr.maxlong" title="本定義的永久連結">¶</a></dt>
+<dd><p>Maximum number of characters in the representation for a long integer.  Digits
+are dropped from the middle.  The default is <code class="docutils literal notranslate"><span class="pre">40</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="repr.Repr.maxstring">
+<code class="descclassname">Repr.</code><code class="descname">maxstring</code><a class="headerlink" href="#repr.Repr.maxstring" title="本定義的永久連結">¶</a></dt>
+<dd><p>Limit on the number of characters in the representation of the string.  Note
+that the 「normal」 representation of the string is used as the character source:
+if escape sequences are needed in the representation, these may be mangled when
+the representation is shortened.  The default is <code class="docutils literal notranslate"><span class="pre">30</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="repr.Repr.maxother">
+<code class="descclassname">Repr.</code><code class="descname">maxother</code><a class="headerlink" href="#repr.Repr.maxother" title="本定義的永久連結">¶</a></dt>
+<dd><p>This limit is used to control the size of object types for which no specific
+formatting method is available on the <a class="reference internal" href="#repr.Repr" title="repr.Repr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repr</span></code></a> object. It is applied in a
+similar manner as <a class="reference internal" href="#repr.Repr.maxstring" title="repr.Repr.maxstring"><code class="xref py py-attr docutils literal notranslate"><span class="pre">maxstring</span></code></a>.  The default is <code class="docutils literal notranslate"><span class="pre">20</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="repr.Repr.repr">
+<code class="descclassname">Repr.</code><code class="descname">repr</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#repr.Repr.repr" title="本定義的永久連結">¶</a></dt>
+<dd><p>The equivalent to the built-in <a class="reference internal" href="#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> that uses the formatting imposed by
+the instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="repr.Repr.repr1">
+<code class="descclassname">Repr.</code><code class="descname">repr1</code><span class="sig-paren">(</span><em>obj</em>, <em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#repr.Repr.repr1" title="本定義的永久連結">¶</a></dt>
+<dd><p>Recursive implementation used by <a class="reference internal" href="#repr.Repr.repr" title="repr.Repr.repr"><code class="xref py py-meth docutils literal notranslate"><span class="pre">repr()</span></code></a>.  This uses the type of <em>obj</em> to
+determine which formatting method to call, passing it <em>obj</em> and <em>level</em>.  The
+type-specific methods should call <a class="reference internal" href="#repr.Repr.repr1" title="repr.Repr.repr1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">repr1()</span></code></a> to perform recursive formatting,
+with <code class="docutils literal notranslate"><span class="pre">level</span> <span class="pre">-</span> <span class="pre">1</span></code> for the value of <em>level</em> in the recursive  call.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descclassname">Repr.</code><code class="descname">repr_TYPE</code><span class="sig-paren">(</span><em>obj</em>, <em>level</em><span class="sig-paren">)</span></dt>
+<dd><p>Formatting methods for specific types are implemented as methods with a name
+based on the type name.  In the method name, <strong>TYPE</strong> is replaced by
+<code class="docutils literal notranslate"><span class="pre">string.join(string.split(type(obj).__name__,</span> <span class="pre">'_'))</span></code>. Dispatch to these
+methods is handled by <a class="reference internal" href="#repr.Repr.repr1" title="repr.Repr.repr1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">repr1()</span></code></a>. Type-specific methods which need to
+recursively format a value should call <code class="docutils literal notranslate"><span class="pre">self.repr1(subobj,</span> <span class="pre">level</span> <span class="pre">-</span> <span class="pre">1)</span></code>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="subclassing-repr-objects">
+<span id="subclassing-reprs"></span><h2>8.19.2. Subclassing Repr Objects<a class="headerlink" href="#subclassing-repr-objects" title="本標題的永久連結">¶</a></h2>
+<p>The use of dynamic dispatching by <a class="reference internal" href="#repr.Repr.repr1" title="repr.Repr.repr1"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Repr.repr1()</span></code></a> allows subclasses of
+<a class="reference internal" href="#repr.Repr" title="repr.Repr"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repr</span></code></a> to add support for additional built-in object types or to modify
+the handling of types already supported. This example shows how special support
+for file objects could be added:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">repr</span> <span class="k">as</span> <span class="nn">reprlib</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">class</span> <span class="nc">MyRepr</span><span class="p">(</span><span class="n">reprlib</span><span class="o">.</span><span class="n">Repr</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">repr_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;&lt;stdin&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;stdout&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;stderr&gt;&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">repr</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+<span class="n">aRepr</span> <span class="o">=</span> <span class="n">MyRepr</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">aRepr</span><span class="o">.</span><span class="n">repr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>          <span class="c1"># prints &#39;&lt;stdin&gt;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8.19. <code class="docutils literal notranslate"><span class="pre">repr</span></code> — Alternate <code class="docutils literal notranslate"><span class="pre">repr()</span></code> implementation</a><ul>
+<li><a class="reference internal" href="#repr-objects">8.19.1. Repr Objects</a></li>
+<li><a class="reference internal" href="#subclassing-repr-objects">8.19.2. Subclassing Repr Objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="pprint.html"
+                        title="上一章">8.18. <code class="docutils literal notranslate"><span class="pre">pprint</span></code> — Data pretty printer</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="numeric.html"
+                        title="下一章">9. Numeric and Mathematical Modules</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/repr.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="numeric.html" title="9. Numeric and Mathematical Modules"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="pprint.html" title="8.18. pprint — Data pretty printer"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="datatypes.html" >8. Data Types</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

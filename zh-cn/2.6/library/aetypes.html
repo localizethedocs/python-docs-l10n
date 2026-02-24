@@ -1,0 +1,366 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>37.4. aetypes — AppleEvent objects &#8212; Python 2.6.9 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/aetypes.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="37.5. MiniAEFrame — Open Scripting Architecture server support" href="miniaeframe.html" />
+    <link rel="prev" title="37.3. aepack — Conversion between Python variables and AppleEvent data containers" href="aepack.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/aetypes.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="miniaeframe.html" title="37.5. MiniAEFrame — Open Scripting Architecture server support"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="aepack.html" title="37.3. aepack — Conversion between Python variables and AppleEvent data containers"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="macosa.html" accesskey="U">37. MacPython OSA Modules</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-aetypes">
+<span id="aetypes-appleevent-objects"></span><h1>37.4. <a class="reference internal" href="#module-aetypes" title="aetypes: Python representation of the Apple Event Object Model. (已移除) (Mac)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aetypes</span></code></a> — AppleEvent objects<a class="headerlink" href="#module-aetypes" title="永久链接至标题">¶</a></h1>
+<p>The <a class="reference internal" href="#module-aetypes" title="aetypes: Python representation of the Apple Event Object Model. (已移除) (Mac)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aetypes</span></code></a> defines classes used to represent Apple Event data
+descriptors and Apple Event object specifiers.</p>
+<p>Apple Event data is contained in descriptors, and these descriptors are typed.
+For many descriptors the Python representation is simply the corresponding
+Python type: <code class="docutils literal notranslate"><span class="pre">typeText</span></code> in OSA is a Python string, <code class="docutils literal notranslate"><span class="pre">typeFloat</span></code> is a float,
+etc. For OSA types that have no direct Python counterpart this module declares
+classes. Packing and unpacking instances of these classes is handled
+automatically by <a class="reference internal" href="aepack.html#module-aepack" title="aepack: Conversion between Python variables and AppleEvent data containers. (已移除) (Mac)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aepack</span></code></a>.</p>
+<p>An object specifier is essentially an address of an object implemented in a
+Apple Event server. An Apple Event specifier is used as the direct object for an
+Apple Event or as the argument of an optional parameter. The <a class="reference internal" href="#module-aetypes" title="aetypes: Python representation of the Apple Event Object Model. (已移除) (Mac)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aetypes</span></code></a>
+module contains the base classes for OSA classes and properties, which are used
+by the packages generated by <a class="reference internal" href="gensuitemodule.html#module-gensuitemodule" title="gensuitemodule: Create a stub package from an OSA dictionary (Mac)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gensuitemodule</span></code></a> to populate the classes and
+properties in a given suite.</p>
+<p>For reasons of backward compatibility, and for cases where you need to script an
+application for which you have not generated the stub package this module also
+contains object specifiers for a number of common OSA classes such as
+<code class="docutils literal notranslate"><span class="pre">Document</span></code>, <code class="docutils literal notranslate"><span class="pre">Window</span></code>, <code class="docutils literal notranslate"><span class="pre">Character</span></code>, etc.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This module has been removed in Python 3.x.</p>
+</div>
+<p>The <code class="xref py py-mod docutils literal notranslate"><span class="pre">AEObjects</span></code> module defines the following classes to represent Apple
+Event descriptor data:</p>
+<dl class="class">
+<dt id="aetypes.Unknown">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Unknown</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Unknown" title="永久链接至目标">¶</a></dt>
+<dd><p>The representation of OSA descriptor data for which the <a class="reference internal" href="aepack.html#module-aepack" title="aepack: Conversion between Python variables and AppleEvent data containers. (已移除) (Mac)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aepack</span></code></a> and
+<a class="reference internal" href="#module-aetypes" title="aetypes: Python representation of the Apple Event Object Model. (已移除) (Mac)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">aetypes</span></code></a> modules have no support, i.e. anything that is not represented by
+the other classes here and that is not equivalent to a simple Python value.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.Enum">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Enum</code><span class="sig-paren">(</span><em>enum</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Enum" title="永久链接至目标">¶</a></dt>
+<dd><p>An enumeration value with the given 4-character string value.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.InsertionLoc">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">InsertionLoc</code><span class="sig-paren">(</span><em>of</em>, <em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.InsertionLoc" title="永久链接至目标">¶</a></dt>
+<dd><p>Position <code class="docutils literal notranslate"><span class="pre">pos</span></code> in object <code class="docutils literal notranslate"><span class="pre">of</span></code>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.Boolean">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Boolean</code><span class="sig-paren">(</span><em>bool</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Boolean" title="永久链接至目标">¶</a></dt>
+<dd><p>A boolean.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.StyledText">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">StyledText</code><span class="sig-paren">(</span><em>style</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.StyledText" title="永久链接至目标">¶</a></dt>
+<dd><p>Text with style information (font, face, etc) included.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.AEText">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">AEText</code><span class="sig-paren">(</span><em>script</em>, <em>style</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.AEText" title="永久链接至目标">¶</a></dt>
+<dd><p>Text with script system and style information included.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.IntlText">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">IntlText</code><span class="sig-paren">(</span><em>script</em>, <em>language</em>, <em>text</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.IntlText" title="永久链接至目标">¶</a></dt>
+<dd><p>Text with script system and language information included.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.IntlWritingCode">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">IntlWritingCode</code><span class="sig-paren">(</span><em>script</em>, <em>language</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.IntlWritingCode" title="永久链接至目标">¶</a></dt>
+<dd><p>Script system and language information.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.QDPoint">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">QDPoint</code><span class="sig-paren">(</span><em>v</em>, <em>h</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.QDPoint" title="永久链接至目标">¶</a></dt>
+<dd><p>A quickdraw point.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.QDRectangle">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">QDRectangle</code><span class="sig-paren">(</span><em>v0</em>, <em>h0</em>, <em>v1</em>, <em>h1</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.QDRectangle" title="永久链接至目标">¶</a></dt>
+<dd><p>A quickdraw rectangle.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.RGBColor">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">RGBColor</code><span class="sig-paren">(</span><em>r</em>, <em>g</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.RGBColor" title="永久链接至目标">¶</a></dt>
+<dd><p>A color.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.Type">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Type</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Type" title="永久链接至目标">¶</a></dt>
+<dd><p>An OSA type value with the given 4-character name.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.Keyword">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Keyword</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Keyword" title="永久链接至目标">¶</a></dt>
+<dd><p>An OSA keyword with the given 4-character name.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.Range">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Range</code><span class="sig-paren">(</span><em>start</em>, <em>stop</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Range" title="永久链接至目标">¶</a></dt>
+<dd><p>A range.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.Ordinal">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Ordinal</code><span class="sig-paren">(</span><em>abso</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Ordinal" title="永久链接至目标">¶</a></dt>
+<dd><p>Non-numeric absolute positions, such as <code class="docutils literal notranslate"><span class="pre">&quot;firs&quot;</span></code>, first, or <code class="docutils literal notranslate"><span class="pre">&quot;midd&quot;</span></code>,
+middle.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.Logical">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Logical</code><span class="sig-paren">(</span><em>logc</em>, <em>term</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Logical" title="永久链接至目标">¶</a></dt>
+<dd><p>The logical expression of applying operator <code class="docutils literal notranslate"><span class="pre">logc</span></code> to <code class="docutils literal notranslate"><span class="pre">term</span></code>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.Comparison">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">Comparison</code><span class="sig-paren">(</span><em>obj1</em>, <em>relo</em>, <em>obj2</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.Comparison" title="永久链接至目标">¶</a></dt>
+<dd><p>The comparison <code class="docutils literal notranslate"><span class="pre">relo</span></code> of <code class="docutils literal notranslate"><span class="pre">obj1</span></code> to <code class="docutils literal notranslate"><span class="pre">obj2</span></code>.</p>
+</dd></dl>
+
+<p>The following classes are used as base classes by the generated stub packages to
+represent AppleScript classes and properties in Python:</p>
+<dl class="class">
+<dt id="aetypes.ComponentItem">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">ComponentItem</code><span class="sig-paren">(</span><em>which</em><span class="optional">[</span>, <em>fr</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.ComponentItem" title="永久链接至目标">¶</a></dt>
+<dd><p>Abstract baseclass for an OSA class. The subclass should set the class attribute
+<code class="docutils literal notranslate"><span class="pre">want</span></code> to the 4-character OSA class code. Instances of subclasses of this
+class are equivalent to AppleScript Object Specifiers. Upon instantiation you
+should pass a selector in <code class="docutils literal notranslate"><span class="pre">which</span></code>, and optionally a parent object in <code class="docutils literal notranslate"><span class="pre">fr</span></code>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.NProperty">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">NProperty</code><span class="sig-paren">(</span><em>fr</em><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.NProperty" title="永久链接至目标">¶</a></dt>
+<dd><p>Abstract baseclass for an OSA property. The subclass should set the class
+attributes <code class="docutils literal notranslate"><span class="pre">want</span></code> and <code class="docutils literal notranslate"><span class="pre">which</span></code> to designate which property we are talking
+about. Instances of subclasses of this class are Object Specifiers.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="aetypes.ObjectSpecifier">
+<em class="property">class </em><code class="descclassname">aetypes.</code><code class="descname">ObjectSpecifier</code><span class="sig-paren">(</span><em>want</em>, <em>form</em>, <em>seld</em><span class="optional">[</span>, <em>fr</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#aetypes.ObjectSpecifier" title="永久链接至目标">¶</a></dt>
+<dd><p>Base class of <code class="docutils literal notranslate"><span class="pre">ComponentItem</span></code> and <code class="docutils literal notranslate"><span class="pre">NProperty</span></code>, a general OSA Object
+Specifier. See the Apple Open Scripting Architecture documentation for the
+parameters. Note that this class is not abstract.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="aepack.html"
+                        title="上一章">37.3. <code class="docutils literal notranslate"><span class="pre">aepack</span></code> — Conversion between Python variables and AppleEvent data containers</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="miniaeframe.html"
+                        title="下一章">37.5. <code class="docutils literal notranslate"><span class="pre">MiniAEFrame</span></code> — Open Scripting Architecture server support</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/aetypes.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="miniaeframe.html" title="37.5. MiniAEFrame — Open Scripting Architecture server support"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="aepack.html" title="37.3. aepack — Conversion between Python variables and AppleEvent data containers"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="macosa.html" >37. MacPython OSA Modules</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 24, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

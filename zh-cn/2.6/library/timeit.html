@@ -1,0 +1,442 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>26.6. timeit — Measure execution time of small code snippets &#8212; Python 2.6.9 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/timeit.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="26.7. trace — Trace or track Python statement execution" href="trace.html" />
+    <link rel="prev" title="26.5. hotshot — High performance logging profiler" href="hotshot.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/timeit.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="trace.html" title="26.7. trace — Trace or track Python statement execution"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="hotshot.html" title="26.5. hotshot — High performance logging profiler"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="debug.html" accesskey="U">26. Debugging and Profiling</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-timeit">
+<span id="timeit-measure-execution-time-of-small-code-snippets"></span><h1>26.6. <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-mod docutils literal notranslate"><span class="pre">timeit</span></code></a> — Measure execution time of small code snippets<a class="headerlink" href="#module-timeit" title="永久链接至标题">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">2.3 新版功能.</span></p>
+</div>
+<p id="index-0">This module provides a simple way to time small bits of Python code. It has both
+command line as well as callable interfaces.  It avoids a number of common traps
+for measuring execution times.  See also Tim Peters’ introduction to the
+“Algorithms” chapter in the Python Cookbook, published by O’Reilly.</p>
+<p>The module defines the following public class:</p>
+<dl class="class">
+<dt id="timeit.Timer">
+<em class="property">class </em><code class="descclassname">timeit.</code><code class="descname">Timer</code><span class="sig-paren">(</span><span class="optional">[</span><em>stmt='pass'</em><span class="optional">[</span>, <em>setup='pass'</em><span class="optional">[</span>, <em>timer=&lt;timer function&gt;</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#timeit.Timer" title="永久链接至目标">¶</a></dt>
+<dd><p>Class for timing execution speed of small code snippets.</p>
+<p>The constructor takes a statement to be timed, an additional statement used for
+setup, and a timer function.  Both statements default to <code class="docutils literal notranslate"><span class="pre">'pass'</span></code>; the timer
+function is platform-dependent (see the module doc string).  <em>stmt</em> and <em>setup</em>
+may also contain multiple statements separated by <code class="docutils literal notranslate"><span class="pre">;</span></code> or newlines, as long as
+they don’t contain multi-line string literals.</p>
+<p>To measure the execution time of the first statement, use the <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a>
+method.  The <a class="reference internal" href="#timeit.repeat" title="timeit.repeat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">repeat()</span></code></a> method is a convenience to call <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a>
+multiple times and return a list of results.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">在 2.6 版更改: </span>The <em>stmt</em> and <em>setup</em> parameters can now also take objects that are callable
+without arguments. This will embed calls to them in a timer function that will
+then be executed by <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a>.  Note that the timing overhead is a little
+larger in this case because of the extra function calls.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="timeit.Timer.print_exc">
+<code class="descclassname">Timer.</code><code class="descname">print_exc</code><span class="sig-paren">(</span><span class="optional">[</span><em>file=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#timeit.Timer.print_exc" title="永久链接至目标">¶</a></dt>
+<dd><p>Helper to print a traceback from the timed code.</p>
+<p>Typical use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>       <span class="c1"># outside the try/except</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="c1"># or t.repeat(...)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The advantage over the standard traceback is that source lines in the compiled
+template will be displayed. The optional <em>file</em> argument directs where the
+traceback is sent; it defaults to <code class="docutils literal notranslate"><span class="pre">sys.stderr</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="timeit.Timer.repeat">
+<code class="descclassname">Timer.</code><code class="descname">repeat</code><span class="sig-paren">(</span><span class="optional">[</span><em>repeat=3</em><span class="optional">[</span>, <em>number=1000000</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#timeit.Timer.repeat" title="永久链接至目标">¶</a></dt>
+<dd><p>Call <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a> a few times.</p>
+<p>This is a convenience function that calls the <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a> repeatedly,
+returning a list of results.  The first argument specifies how many times to
+call <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a>.  The second argument specifies the <em>number</em> argument for
+<a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-func docutils literal notranslate"><span class="pre">timeit()</span></code></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">It’s tempting to calculate mean and standard deviation from the result vector
+and report these.  However, this is not very useful.  In a typical case, the
+lowest value gives a lower bound for how fast your machine can run the given
+code snippet; higher values in the result vector are typically not caused by
+variability in Python’s speed, but by other processes interfering with your
+timing accuracy.  So the <a class="reference internal" href="functions.html#min" title="min"><code class="xref py py-func docutils literal notranslate"><span class="pre">min()</span></code></a> of the result is probably the only number
+you should be interested in.  After that, you should look at the entire vector
+and apply common sense rather than statistics.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="timeit.Timer.timeit">
+<code class="descclassname">Timer.</code><code class="descname">timeit</code><span class="sig-paren">(</span><span class="optional">[</span><em>number=1000000</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#timeit.Timer.timeit" title="永久链接至目标">¶</a></dt>
+<dd><p>Time <em>number</em> executions of the main statement. This executes the setup
+statement once, and then returns the time it takes to execute the main statement
+a number of times, measured in seconds as a float.  The argument is the number
+of times through the loop, defaulting to one million.  The main statement, the
+setup statement and the timer function to be used are passed to the constructor.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p>By default, <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a> temporarily turns off <a class="reference internal" href="../glossary.html#term-garbage-collection"><span class="xref std std-term">garbage collection</span></a>
+during the timing.  The advantage of this approach is that it makes
+independent timings more comparable.  This disadvantage is that GC may be
+an important component of the performance of the function being measured.
+If so, GC can be re-enabled as the first statement in the <em>setup</em> string.
+For example:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="s1">&#39;for i in xrange(10): oct(i)&#39;</span><span class="p">,</span> <span class="s1">&#39;gc.enable()&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">timeit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+<p>Starting with version 2.6, the module also defines two convenience functions:</p>
+<dl class="function">
+<dt id="timeit.repeat">
+<code class="descclassname">timeit.</code><code class="descname">repeat</code><span class="sig-paren">(</span><em>stmt</em><span class="optional">[</span>, <em>setup</em><span class="optional">[</span>, <em>timer</em><span class="optional">[</span>, <em>repeat=3</em><span class="optional">[</span>, <em>number=1000000</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#timeit.repeat" title="永久链接至目标">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="#timeit.Timer" title="timeit.Timer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timer</span></code></a> instance with the given statement, setup code and timer
+function and run its <a class="reference internal" href="#timeit.repeat" title="timeit.repeat"><code class="xref py py-meth docutils literal notranslate"><span class="pre">repeat()</span></code></a> method with the given repeat count and
+<em>number</em> executions.</p>
+<div class="versionadded">
+<p><span class="versionmodified">2.6 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="timeit.timeit">
+<code class="descclassname">timeit.</code><code class="descname">timeit</code><span class="sig-paren">(</span><em>stmt</em><span class="optional">[</span>, <em>setup</em><span class="optional">[</span>, <em>timer</em><span class="optional">[</span>, <em>number=1000000</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#timeit.timeit" title="永久链接至目标">¶</a></dt>
+<dd><p>Create a <a class="reference internal" href="#timeit.Timer" title="timeit.Timer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timer</span></code></a> instance with the given statement, setup code and timer
+function and run its <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-meth docutils literal notranslate"><span class="pre">timeit()</span></code></a> method with <em>number</em> executions.</p>
+<div class="versionadded">
+<p><span class="versionmodified">2.6 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<div class="section" id="command-line-interface">
+<h2>26.6.1. Command Line Interface<a class="headerlink" href="#command-line-interface" title="永久链接至标题">¶</a></h2>
+<p>When called as a program from the command line, the following form is used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">timeit</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span> <span class="n">N</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">r</span> <span class="n">N</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">s</span> <span class="n">S</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="n">statement</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>where the following options are understood:</p>
+<dl class="docutils">
+<dt>-n N/<code class="xref std std-option docutils literal notranslate"><span class="pre">--number=N</span></code></dt>
+<dd>how many times to execute ‘statement’</dd>
+<dt>-r N/<code class="xref std std-option docutils literal notranslate"><span class="pre">--repeat=N</span></code></dt>
+<dd>how many times to repeat the timer (default 3)</dd>
+<dt>-s S/<code class="xref std std-option docutils literal notranslate"><span class="pre">--setup=S</span></code></dt>
+<dd>statement to be executed once initially (default <code class="docutils literal notranslate"><span class="pre">'pass'</span></code>)</dd>
+<dt>-t/<code class="xref std std-option docutils literal notranslate"><span class="pre">--time</span></code></dt>
+<dd>use <a class="reference internal" href="time.html#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.time()</span></code></a> (default on all platforms but Windows)</dd>
+<dt>-c/<code class="xref std std-option docutils literal notranslate"><span class="pre">--clock</span></code></dt>
+<dd>use <a class="reference internal" href="time.html#time.clock" title="time.clock"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.clock()</span></code></a> (default on Windows)</dd>
+<dt>-v/<code class="xref std std-option docutils literal notranslate"><span class="pre">--verbose</span></code></dt>
+<dd>print raw timing results; repeat for more digits precision</dd>
+<dt>-h/<a class="reference internal" href="../using/cmdline.html#cmdoption-help"><code class="xref std std-option docutils literal notranslate"><span class="pre">--help</span></code></a></dt>
+<dd>print a short usage message and exit</dd>
+</dl>
+<p>A multi-line statement may be given by specifying each line as a separate
+statement argument; indented lines are possible by enclosing an argument in
+quotes and using leading spaces.  Multiple <a class="reference internal" href="../using/cmdline.html#cmdoption-s"><code class="xref std std-option docutils literal notranslate"><span class="pre">-s</span></code></a> options are treated
+similarly.</p>
+<p>If <code class="xref std std-option docutils literal notranslate"><span class="pre">-n</span></code> is not given, a suitable number of loops is calculated by trying
+successive powers of 10 until the total time is at least 0.2 seconds.</p>
+<p>The default timer function is platform dependent.  On Windows,
+<a class="reference internal" href="time.html#time.clock" title="time.clock"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.clock()</span></code></a> has microsecond granularity but <a class="reference internal" href="time.html#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.time()</span></code></a>’s
+granularity is 1/60th of a second; on Unix, <a class="reference internal" href="time.html#time.clock" title="time.clock"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.clock()</span></code></a> has 1/100th of a
+second granularity and <a class="reference internal" href="time.html#time.time" title="time.time"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.time()</span></code></a> is much more precise.  On either
+platform, the default timer functions measure wall clock time, not the CPU time.
+This means that other processes running on the same computer may interfere with
+the timing.  The best thing to do when accurate timing is necessary is to repeat
+the timing a few times and use the best time.  The <code class="xref std std-option docutils literal notranslate"><span class="pre">-r</span></code> option is good
+for this; the default of 3 repetitions is probably enough in most cases.  On
+Unix, you can use <a class="reference internal" href="time.html#time.clock" title="time.clock"><code class="xref py py-func docutils literal notranslate"><span class="pre">time.clock()</span></code></a> to measure CPU time.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">There is a certain baseline overhead associated with executing a pass statement.
+The code here doesn’t try to hide it, but you should be aware of it.  The
+baseline overhead can be measured by invoking the program without arguments.</p>
+</div>
+<p>The baseline overhead differs between Python versions!  Also, to fairly compare
+older Python versions to Python 2.3, you may want to use Python’s <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal notranslate"><span class="pre">-O</span></code></a>
+option for the older versions to avoid timing <code class="docutils literal notranslate"><span class="pre">SET_LINENO</span></code> instructions.</p>
+</div>
+<div class="section" id="examples">
+<h2>26.6.2. Examples<a class="headerlink" href="#examples" title="永久链接至标题">¶</a></h2>
+<p>Here are two example sessions (one using the command line, one using the module
+interface) that compare the cost of using <a class="reference internal" href="functions.html#hasattr" title="hasattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">hasattr()</span></code></a> vs.
+<a class="reference internal" href="../reference/compound_stmts.html#try"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">try</span></code></a>/<a class="reference internal" href="../reference/compound_stmts.html#except"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">except</span></code></a> to test for missing and present object
+attributes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">timeit</span><span class="o">.</span><span class="n">py</span> <span class="s1">&#39;try:&#39;</span> <span class="s1">&#39;  str.__nonzero__&#39;</span> <span class="s1">&#39;except AttributeError:&#39;</span> <span class="s1">&#39;  pass&#39;</span>
+<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">15.7</span> <span class="n">usec</span> <span class="n">per</span> <span class="n">loop</span>
+<span class="o">%</span> <span class="n">timeit</span><span class="o">.</span><span class="n">py</span> <span class="s1">&#39;if hasattr(str, &quot;__nonzero__&quot;): pass&#39;</span>
+<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">4.26</span> <span class="n">usec</span> <span class="n">per</span> <span class="n">loop</span>
+<span class="o">%</span> <span class="n">timeit</span><span class="o">.</span><span class="n">py</span> <span class="s1">&#39;try:&#39;</span> <span class="s1">&#39;  int.__nonzero__&#39;</span> <span class="s1">&#39;except AttributeError:&#39;</span> <span class="s1">&#39;  pass&#39;</span>
+<span class="mi">1000000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">1.43</span> <span class="n">usec</span> <span class="n">per</span> <span class="n">loop</span>
+<span class="o">%</span> <span class="n">timeit</span><span class="o">.</span><span class="n">py</span> <span class="s1">&#39;if hasattr(int, &quot;__nonzero__&quot;): pass&#39;</span>
+<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">2.23</span> <span class="n">usec</span> <span class="n">per</span> <span class="n">loop</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">timeit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="gp">... </span><span class="s2">try:</span>
+<span class="gp">... </span><span class="s2">    str.__nonzero__</span>
+<span class="gp">... </span><span class="s2">except AttributeError:</span>
+<span class="gp">... </span><span class="s2">    pass</span>
+<span class="gp">... </span><span class="s2">&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">stmt</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2"> usec/pass&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1000000</span> <span class="o">*</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span><span class="o">/</span><span class="mi">100000</span><span class="p">)</span>
+<span class="go">17.09 usec/pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="gp">... </span><span class="s2">if hasattr(str, &#39;__nonzero__&#39;): pass</span>
+<span class="gp">... </span><span class="s2">&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">stmt</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2"> usec/pass&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1000000</span> <span class="o">*</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span><span class="o">/</span><span class="mi">100000</span><span class="p">)</span>
+<span class="go">4.85 usec/pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="gp">... </span><span class="s2">try:</span>
+<span class="gp">... </span><span class="s2">    int.__nonzero__</span>
+<span class="gp">... </span><span class="s2">except AttributeError:</span>
+<span class="gp">... </span><span class="s2">    pass</span>
+<span class="gp">... </span><span class="s2">&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">stmt</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2"> usec/pass&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1000000</span> <span class="o">*</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span><span class="o">/</span><span class="mi">100000</span><span class="p">)</span>
+<span class="go">1.97 usec/pass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="gp">... </span><span class="s2">if hasattr(int, &#39;__nonzero__&#39;): pass</span>
+<span class="gp">... </span><span class="s2">&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">stmt</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2"> usec/pass&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1000000</span> <span class="o">*</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span><span class="o">/</span><span class="mi">100000</span><span class="p">)</span>
+<span class="go">3.15 usec/pass</span>
+</pre></div>
+</div>
+<p>To give the <a class="reference internal" href="#module-timeit" title="timeit: Measure the execution time of small code snippets."><code class="xref py py-mod docutils literal notranslate"><span class="pre">timeit</span></code></a> module access to functions you define, you can pass a
+<code class="docutils literal notranslate"><span class="pre">setup</span></code> parameter which contains an import statement:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="s2">&quot;Stupid test function&quot;</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">Timer</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="s2">&quot;test()&quot;</span><span class="p">,</span> <span class="s2">&quot;from __main__ import test&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="n">t</span><span class="o">.</span><span class="n">timeit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">26.6. <code class="docutils literal notranslate"><span class="pre">timeit</span></code> — Measure execution time of small code snippets</a><ul>
+<li><a class="reference internal" href="#command-line-interface">26.6.1. Command Line Interface</a></li>
+<li><a class="reference internal" href="#examples">26.6.2. Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="hotshot.html"
+                        title="上一章">26.5. <code class="docutils literal notranslate"><span class="pre">hotshot</span></code> — High performance logging profiler</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="trace.html"
+                        title="下一章">26.7. <code class="docutils literal notranslate"><span class="pre">trace</span></code> — Trace or track Python statement execution</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/timeit.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="trace.html" title="26.7. trace — Trace or track Python statement execution"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="hotshot.html" title="26.5. hotshot — High performance logging profiler"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="debug.html" >26. Debugging and Profiling</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 24, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

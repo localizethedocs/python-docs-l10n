@@ -1,0 +1,331 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Common Object Structures &#8212; Python 2.6.9 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/c-api/structures.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="Type Objects" href="typeobj.html" />
+    <link rel="prev" title="Allocating Objects on the Heap" href="allocation.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/c-api/structures.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="typeobj.html" title="Type Objects"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="allocation.html" title="Allocating Objects on the Heap"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="objimpl.html" accesskey="U">Object Implementation Support</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="common-object-structures">
+<span id="common-structs"></span><h1>Common Object Structures<a class="headerlink" href="#common-object-structures" title="永久链接至标题">¶</a></h1>
+<p>There are a large number of structures which are used in the definition of
+object types for Python.  This section describes these structures and how they
+are used.</p>
+<p>All Python objects ultimately share a small number of fields at the beginning
+of the object’s representation in memory.  These are represented by the
+<a href="#id1"><span class="problematic" id="id2">:ctype:`PyObject`</span></a> and <a href="#id3"><span class="problematic" id="id4">:ctype:`PyVarObject`</span></a> types, which are defined, in turn,
+by the expansions of some macros also used, whether directly or indirectly, in
+the definition of all other Python objects.</p>
+<p>These macros are used in the definition of <a href="#id5"><span class="problematic" id="id6">:ctype:`PyObject`</span></a> and
+<a href="#id7"><span class="problematic" id="id8">:ctype:`PyVarObject`</span></a>:</p>
+<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_meth</span></code> is a C function pointer.  The functions may be of different
+types, but they always return <a href="#id9"><span class="problematic" id="id10">:ctype:`PyObject\*`</span></a>.  If the function is not of
+the <a href="#id11"><span class="problematic" id="id12">:ctype:`PyCFunction`</span></a>, the compiler will require a cast in the method table.
+Even though <a href="#id13"><span class="problematic" id="id14">:ctype:`PyCFunction`</span></a> defines the first parameter as
+<a href="#id15"><span class="problematic" id="id16">:ctype:`PyObject\*`</span></a>, it is common that the method implementation uses a the
+specific C type of the <em>self</em> object.</p>
+<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">ml_flags</span></code> field is a bitfield which can include the following flags.
+The individual flags indicate either a calling convention or a binding
+convention.  Of the calling convention flags, only <a class="reference internal" href="#METH_VARARGS" title="METH_VARARGS"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_VARARGS</span></code></a> and
+<a class="reference internal" href="#METH_KEYWORDS" title="METH_KEYWORDS"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_KEYWORDS</span></code></a> can be combined (but note that <a class="reference internal" href="#METH_KEYWORDS" title="METH_KEYWORDS"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_KEYWORDS</span></code></a>
+alone is equivalent to <code class="docutils literal notranslate"><span class="pre">METH_VARARGS</span> <span class="pre">|</span> <span class="pre">METH_KEYWORDS</span></code>). Any of the calling
+convention flags can be combined with a binding flag.</p>
+<dl class="data">
+<dt id="METH_VARARGS">
+<code class="descname">METH_VARARGS</code><a class="headerlink" href="#METH_VARARGS" title="永久链接至目标">¶</a></dt>
+<dd><p>This is the typical calling convention, where the methods have the type
+<a href="#id17"><span class="problematic" id="id18">:ctype:`PyCFunction`</span></a>. The function expects two <a href="#id19"><span class="problematic" id="id20">:ctype:`PyObject\*`</span></a> values.
+The first one is the <em>self</em> object for methods; for module functions, it
+has the value given to <a href="#id21"><span class="problematic" id="id22">:cfunc:`Py_InitModule4`</span></a> (or <em>NULL</em> if
+<a href="#id23"><span class="problematic" id="id24">:cfunc:`Py_InitModule`</span></a> was used).  The second parameter (often called
+<em>args</em>) is a tuple object representing all arguments. This parameter is
+typically processed using <a href="#id25"><span class="problematic" id="id26">:cfunc:`PyArg_ParseTuple`</span></a> or
+<a href="#id27"><span class="problematic" id="id28">:cfunc:`PyArg_UnpackTuple`</span></a>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="METH_KEYWORDS">
+<code class="descname">METH_KEYWORDS</code><a class="headerlink" href="#METH_KEYWORDS" title="永久链接至目标">¶</a></dt>
+<dd><p>Methods with these flags must be of type <a href="#id29"><span class="problematic" id="id30">:ctype:`PyCFunctionWithKeywords`</span></a>.
+The function expects three parameters: <em>self</em>, <em>args</em>, and a dictionary of
+all the keyword arguments.  The flag is typically combined with
+<a class="reference internal" href="#METH_VARARGS" title="METH_VARARGS"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_VARARGS</span></code></a>, and the parameters are typically processed using
+<a href="#id31"><span class="problematic" id="id32">:cfunc:`PyArg_ParseTupleAndKeywords`</span></a>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="METH_NOARGS">
+<code class="descname">METH_NOARGS</code><a class="headerlink" href="#METH_NOARGS" title="永久链接至目标">¶</a></dt>
+<dd><p>Methods without parameters don’t need to check whether arguments are given if
+they are listed with the <a class="reference internal" href="#METH_NOARGS" title="METH_NOARGS"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_NOARGS</span></code></a> flag.  They need to be of type
+<a href="#id33"><span class="problematic" id="id34">:ctype:`PyCFunction`</span></a>.  When used with object methods, the first parameter is
+typically named <code class="docutils literal notranslate"><span class="pre">self</span></code> and will hold a reference to the object instance.
+In all cases the second parameter will be <em>NULL</em>.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="METH_O">
+<code class="descname">METH_O</code><a class="headerlink" href="#METH_O" title="永久链接至目标">¶</a></dt>
+<dd><p>Methods with a single object argument can be listed with the <a class="reference internal" href="#METH_O" title="METH_O"><code class="xref py py-const docutils literal notranslate"><span class="pre">METH_O</span></code></a>
+flag, instead of invoking <a href="#id35"><span class="problematic" id="id36">:cfunc:`PyArg_ParseTuple`</span></a> with a <code class="docutils literal notranslate"><span class="pre">&quot;O&quot;</span></code> argument.
+They have the type <a href="#id37"><span class="problematic" id="id38">:ctype:`PyCFunction`</span></a>, with the <em>self</em> parameter, and a
+<a href="#id39"><span class="problematic" id="id40">:ctype:`PyObject\*`</span></a> parameter representing the single argument.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="METH_OLDARGS">
+<code class="descname">METH_OLDARGS</code><a class="headerlink" href="#METH_OLDARGS" title="永久链接至目标">¶</a></dt>
+<dd><p>This calling convention is deprecated.  The method must be of type
+<a href="#id41"><span class="problematic" id="id42">:ctype:`PyCFunction`</span></a>.  The second argument is <em>NULL</em> if no arguments are
+given, a single object if exactly one argument is given, and a tuple of
+objects if more than one argument is given.  There is no way for a function
+using this convention to distinguish between a call with multiple arguments
+and a call with a tuple as the only argument.</p>
+</dd></dl>
+
+<p>These two constants are not used to indicate the calling convention but the
+binding when use with methods of classes.  These may not be used for functions
+defined for modules.  At most one of these flags may be set for any given
+method.</p>
+<dl class="data">
+<dt id="METH_CLASS">
+<code class="descname">METH_CLASS</code><a class="headerlink" href="#METH_CLASS" title="永久链接至目标">¶</a></dt>
+<dd><p id="index-0">The method will be passed the type object as the first parameter rather
+than an instance of the type.  This is used to create <em>class methods</em>,
+similar to what is created when using the <a class="reference internal" href="../library/functions.html#classmethod" title="classmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">classmethod()</span></code></a> built-in
+function.</p>
+<div class="versionadded">
+<p><span class="versionmodified">2.3 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="METH_STATIC">
+<code class="descname">METH_STATIC</code><a class="headerlink" href="#METH_STATIC" title="永久链接至目标">¶</a></dt>
+<dd><p id="index-1">The method will be passed <em>NULL</em> as the first parameter rather than an
+instance of the type.  This is used to create <em>static methods</em>, similar to
+what is created when using the <a class="reference internal" href="../library/functions.html#staticmethod" title="staticmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">staticmethod()</span></code></a> built-in function.</p>
+<div class="versionadded">
+<p><span class="versionmodified">2.3 新版功能.</span></p>
+</div>
+</dd></dl>
+
+<p>One other constant controls whether a method is loaded in place of another
+definition with the same method name.</p>
+<dl class="data">
+<dt id="METH_COEXIST">
+<code class="descname">METH_COEXIST</code><a class="headerlink" href="#METH_COEXIST" title="永久链接至目标">¶</a></dt>
+<dd><p>The method will be loaded in place of existing definitions.  Without
+<em>METH_COEXIST</em>, the default is to skip repeated definitions.  Since slot
+wrappers are loaded before the method table, the existence of a
+<em>sq_contains</em> slot, for example, would generate a wrapped method named
+<a class="reference internal" href="../reference/datamodel.html#object.__contains__" title="object.__contains__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__contains__()</span></code></a> and preclude the loading of a corresponding
+PyCFunction with the same name.  With the flag defined, the PyCFunction
+will be loaded in place of the wrapper object and will co-exist with the
+slot.  This is helpful because calls to PyCFunctions are optimized more
+than wrapper object calls.</p>
+<div class="versionadded">
+<p><span class="versionmodified">2.4 新版功能.</span></p>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="allocation.html"
+                        title="上一章">Allocating Objects on the Heap</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="typeobj.html"
+                        title="下一章">Type Objects</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/c-api/structures.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="typeobj.html" title="Type Objects"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="allocation.html" title="Allocating Objects on the Heap"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="objimpl.html" >Object Implementation Support</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 24, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,304 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>38.7. fm — Font Manager interface &#8212; Python 2.6.9 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/fm.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="38.8. gl — Graphics Library interface" href="gl.html" />
+    <link rel="prev" title="38.4. fl — FORMS library for graphical user interfaces" href="fl.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/fm.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="gl.html" title="38.8. gl — Graphics Library interface"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="fl.html" title="38.4. fl — FORMS library for graphical user interfaces"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sgi.html" accesskey="U">38. SGI IRIX Specific Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-fm">
+<span id="fm-font-manager-interface"></span><h1>38.7. <a class="reference internal" href="#module-fm" title="fm: Font Manager interface for SGI workstations. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fm</span></code></a> — <em>Font Manager</em> interface<a class="headerlink" href="#module-fm" title="永久链接至标题">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版后已移除: </span>The <a class="reference internal" href="#module-fm" title="fm: Font Manager interface for SGI workstations. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fm</span></code></a> module has been deprecated for removal in Python 3.0.</p>
+</div>
+<p id="index-0">This module provides access to the IRIS <em>Font Manager</em> library.   It is
+available only on Silicon Graphics machines. See also: <em>4Sight User’s Guide</em>,
+section 1, chapter 5: “Using the IRIS Font Manager.”</p>
+<p>This is not yet a full interface to the IRIS Font Manager. Among the unsupported
+features are: matrix operations; cache operations; character operations (use
+string operations instead); some details of font info; individual glyph metrics;
+and printer matching.</p>
+<p>It supports the following operations:</p>
+<dl class="function">
+<dt id="fm.init">
+<code class="descclassname">fm.</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fm.init" title="永久链接至目标">¶</a></dt>
+<dd><p>Initialization function. Calls <a href="#id1"><span class="problematic" id="id2">:cfunc:`fminit`</span></a>. It is normally not necessary to
+call this function, since it is called automatically the first time the
+<a class="reference internal" href="#module-fm" title="fm: Font Manager interface for SGI workstations. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fm</span></code></a> module is imported.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.findfont">
+<code class="descclassname">fm.</code><code class="descname">findfont</code><span class="sig-paren">(</span><em>fontname</em><span class="sig-paren">)</span><a class="headerlink" href="#fm.findfont" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a font handle object. Calls <code class="docutils literal notranslate"><span class="pre">fmfindfont(fontname)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.enumerate">
+<code class="descclassname">fm.</code><code class="descname">enumerate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fm.enumerate" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns a list of available font names. This is an interface to
+<a href="#id3"><span class="problematic" id="id4">:cfunc:`fmenumerate`</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.prstr">
+<code class="descclassname">fm.</code><code class="descname">prstr</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#fm.prstr" title="永久链接至目标">¶</a></dt>
+<dd><p>Render a string using the current font (see the <code class="xref py py-func docutils literal notranslate"><span class="pre">setfont()</span></code> font handle
+method below). Calls <code class="docutils literal notranslate"><span class="pre">fmprstr(string)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.setpath">
+<code class="descclassname">fm.</code><code class="descname">setpath</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#fm.setpath" title="永久链接至目标">¶</a></dt>
+<dd><p>Sets the font search path. Calls <code class="docutils literal notranslate"><span class="pre">fmsetpath(string)</span></code>. (XXX Does not work!?!)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.fontpath">
+<code class="descclassname">fm.</code><code class="descname">fontpath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fm.fontpath" title="永久链接至目标">¶</a></dt>
+<dd><p>Returns the current font search path.</p>
+</dd></dl>
+
+<p>Font handle objects support the following operations:</p>
+<dl class="method">
+<dt>
+<code class="descname">font handle.scalefont(factor)</code></dt>
+<dd><p>Returns a handle for a scaled version of this font. Calls <code class="docutils literal notranslate"><span class="pre">fmscalefont(fh,</span>
+<span class="pre">factor)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">font handle.setfont()</code></dt>
+<dd><p>Makes this font the current font. Note: the effect is undone silently when the
+font handle object is deleted. Calls <code class="docutils literal notranslate"><span class="pre">fmsetfont(fh)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">font handle.getfontname()</code></dt>
+<dd><p>Returns this font’s name. Calls <code class="docutils literal notranslate"><span class="pre">fmgetfontname(fh)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">font handle.getcomment()</code></dt>
+<dd><p>Returns the comment string associated with this font. Raises an exception if
+there is none. Calls <code class="docutils literal notranslate"><span class="pre">fmgetcomment(fh)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">font handle.getfontinfo()</code></dt>
+<dd><p>Returns a tuple giving some pertinent data about this font. This is an interface
+to <code class="docutils literal notranslate"><span class="pre">fmgetfontinfo()</span></code>. The returned tuple contains the following numbers:
+<code class="docutils literal notranslate"><span class="pre">(printermatched,</span> <span class="pre">fixed_width,</span> <span class="pre">xorig,</span> <span class="pre">yorig,</span> <span class="pre">xsize,</span> <span class="pre">ysize,</span> <span class="pre">height,</span> <span class="pre">nglyphs)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">font handle.getstrwidth(string)</code></dt>
+<dd><p>Returns the width, in pixels, of <em>string</em> when drawn in this font. Calls
+<code class="docutils literal notranslate"><span class="pre">fmgetstrwidth(fh,</span> <span class="pre">string)</span></code>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="fl.html"
+                        title="上一章">38.4. <code class="docutils literal notranslate"><span class="pre">fl</span></code> — FORMS library for graphical user interfaces</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="gl.html"
+                        title="下一章">38.8. <code class="docutils literal notranslate"><span class="pre">gl</span></code> — <em>Graphics Library</em> interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/fm.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="gl.html" title="38.8. gl — Graphics Library interface"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="fl.html" title="38.4. fl — FORMS library for graphical user interfaces"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sgi.html" >38. SGI IRIX Specific Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 24, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

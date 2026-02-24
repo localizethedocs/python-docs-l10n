@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>39.7. fm — Font Manager interface &#8212; Python 2.7.18 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/fm.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Python 2.7.18 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="39.8. gl — Graphics Library interface" href="gl.html" />
+    <link rel="prev" title="39.4. fl — FORMS library for graphical user interfaces" href="fl.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/fm.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fl.html"
+                        title="previous chapter"><span class="section-number">39.4. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code> — FORMS library for graphical user interfaces</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gl.html"
+                        title="next chapter"><span class="section-number">39.8. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">gl</span></code> — <em>Graphics Library</em> interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/fm.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </nav>
+    </div>
+</div>
+
+<div id="outdated-warning" style="padding: .5em; text-align: center; background-color: #FFBABA; color: #6A0E0E;">
+    This document is for an old version of Python that is no longer supported.
+    You should upgrade, and read the
+    <a href="/3/library/fm.html">Python documentation for the current stable release</a>.
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gl.html" title="39.8. gl — Graphics Library interface"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fl.html" title="39.4. fl — FORMS library for graphical user interfaces"
+             accesskey="P">previous</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sgi.html" accesskey="U"><span class="section-number">39. </span>SGI IRIX Specific Services</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-fm">
+<span id="fm-font-manager-interface"></span><h1><span class="section-number">39.7. </span><a class="reference internal" href="#module-fm" title="fm: Font Manager interface for SGI workstations. (deprecated) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fm</span></code></a> — <em>Font Manager</em> interface<a class="headerlink" href="#module-fm" title="Permalink to this headline">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 2.6: </span>The <a class="reference internal" href="#module-fm" title="fm: Font Manager interface for SGI workstations. (deprecated) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fm</span></code></a> module has been removed in Python 3.</p>
+</div>
+<p id="index-0">This module provides access to the IRIS <em>Font Manager</em> library.   It is
+available only on Silicon Graphics machines. See also: <em>4Sight User’s Guide</em>,
+section 1, chapter 5: “Using the IRIS Font Manager.”</p>
+<p>This is not yet a full interface to the IRIS Font Manager. Among the unsupported
+features are: matrix operations; cache operations; character operations (use
+string operations instead); some details of font info; individual glyph metrics;
+and printer matching.</p>
+<p>It supports the following operations:</p>
+<dl class="function">
+<dt id="fm.init">
+<code class="sig-prename descclassname">fm.</code><code class="sig-name descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fm.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialization function. Calls <code class="xref c c-func docutils literal notranslate"><span class="pre">fminit()</span></code>. It is normally not necessary to
+call this function, since it is called automatically the first time the
+<a class="reference internal" href="#module-fm" title="fm: Font Manager interface for SGI workstations. (deprecated) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">fm</span></code></a> module is imported.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.findfont">
+<code class="sig-prename descclassname">fm.</code><code class="sig-name descname">findfont</code><span class="sig-paren">(</span><em class="sig-param">fontname</em><span class="sig-paren">)</span><a class="headerlink" href="#fm.findfont" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a font handle object. Calls <code class="docutils literal notranslate"><span class="pre">fmfindfont(fontname)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.enumerate">
+<code class="sig-prename descclassname">fm.</code><code class="sig-name descname">enumerate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fm.enumerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of available font names. This is an interface to
+<code class="xref c c-func docutils literal notranslate"><span class="pre">fmenumerate()</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.prstr">
+<code class="sig-prename descclassname">fm.</code><code class="sig-name descname">prstr</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#fm.prstr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render a string using the current font (see the <code class="xref py py-func docutils literal notranslate"><span class="pre">setfont()</span></code> font handle
+method below). Calls <code class="docutils literal notranslate"><span class="pre">fmprstr(string)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.setpath">
+<code class="sig-prename descclassname">fm.</code><code class="sig-name descname">setpath</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#fm.setpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the font search path. Calls <code class="docutils literal notranslate"><span class="pre">fmsetpath(string)</span></code>. (XXX Does not work!?!)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fm.fontpath">
+<code class="sig-prename descclassname">fm.</code><code class="sig-name descname">fontpath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fm.fontpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current font search path.</p>
+</dd></dl>
+
+<p>Font handle objects support the following operations:</p>
+<dl class="method">
+<dt>
+<code class="sig-name descname">font handle.scalefont(factor)</code></dt>
+<dd><p>Returns a handle for a scaled version of this font. Calls <code class="docutils literal notranslate"><span class="pre">fmscalefont(fh,</span>
+<span class="pre">factor)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">font handle.setfont()</code></dt>
+<dd><p>Makes this font the current font. Note: the effect is undone silently when the
+font handle object is deleted. Calls <code class="docutils literal notranslate"><span class="pre">fmsetfont(fh)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">font handle.getfontname()</code></dt>
+<dd><p>Returns this font’s name. Calls <code class="docutils literal notranslate"><span class="pre">fmgetfontname(fh)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">font handle.getcomment()</code></dt>
+<dd><p>Returns the comment string associated with this font. Raises an exception if
+there is none. Calls <code class="docutils literal notranslate"><span class="pre">fmgetcomment(fh)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">font handle.getfontinfo()</code></dt>
+<dd><p>Returns a tuple giving some pertinent data about this font. This is an interface
+to <code class="docutils literal notranslate"><span class="pre">fmgetfontinfo()</span></code>. The returned tuple contains the following numbers:
+<code class="docutils literal notranslate"><span class="pre">(printermatched,</span> <span class="pre">fixed_width,</span> <span class="pre">xorig,</span> <span class="pre">yorig,</span> <span class="pre">xsize,</span> <span class="pre">ysize,</span> <span class="pre">height,</span> <span class="pre">nglyphs)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="sig-name descname">font handle.getstrwidth(string)</code></dt>
+<dd><p>Returns the width, in pixels, of <em>string</em> when drawn in this font. Calls
+<code class="docutils literal notranslate"><span class="pre">fmgetstrwidth(fh,</span> <span class="pre">string)</span></code>.</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fl.html"
+                        title="previous chapter"><span class="section-number">39.4. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">fl</span></code> — FORMS library for graphical user interfaces</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gl.html"
+                        title="next chapter"><span class="section-number">39.8. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">gl</span></code> — <em>Graphics Library</em> interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/fm.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gl.html" title="39.8. gl — Graphics Library interface"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fl.html" title="39.4. fl — FORMS library for graphical user interfaces"
+             >previous</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sgi.html" ><span class="section-number">39. </span>SGI IRIX Specific Services</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2026, Python Software Foundation.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on Feb 24, 2026.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
+    </div>
+
+  </body>
+</html>

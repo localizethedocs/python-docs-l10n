@@ -1,0 +1,388 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>38.8. gl — Graphics Library interface &#8212; Python 2.6.9 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/gl.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="38.11. imgfile — Support for SGI imglib files" href="imgfile.html" />
+    <link rel="prev" title="38.7. fm — Font Manager interface" href="fm.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/gl.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="imgfile.html" title="38.11. imgfile — Support for SGI imglib files"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="fm.html" title="38.7. fm — Font Manager interface"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sgi.html" accesskey="U">38. SGI IRIX Specific Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-gl">
+<span id="gl-graphics-library-interface"></span><h1>38.8. <a class="reference internal" href="#module-gl" title="gl: Functions from the Silicon Graphics Graphics Library. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gl</span></code></a> — <em>Graphics Library</em> interface<a class="headerlink" href="#module-gl" title="永久链接至标题">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版后已移除: </span>The <a class="reference internal" href="#module-gl" title="gl: Functions from the Silicon Graphics Graphics Library. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gl</span></code></a> module has been deprecated for removal in Python 3.0.</p>
+</div>
+<p>This module provides access to the Silicon Graphics <em>Graphics Library</em>. It is
+available only on Silicon Graphics machines.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Some illegal calls to the GL library cause the Python interpreter to dump
+core.  In particular, the use of most GL calls is unsafe before the first
+window is opened.</p>
+</div>
+<p>The module is too large to document here in its entirety, but the following
+should help you to get started. The parameter conventions for the C functions
+are translated to Python as follows:</p>
+<ul>
+<li><p class="first">All (short, long, unsigned) int values are represented by Python integers.</p>
+</li>
+<li><p class="first">All float and double values are represented by Python floating point numbers.
+In most cases, Python integers are also allowed.</p>
+</li>
+<li><p class="first">All arrays are represented by one-dimensional Python lists. In most cases,
+tuples are also allowed.</p>
+</li>
+<li><p class="first">All string and character arguments are represented by Python strings, for
+instance, <code class="docutils literal notranslate"><span class="pre">winopen('Hi</span> <span class="pre">There!')</span></code> and <code class="docutils literal notranslate"><span class="pre">rotate(900,</span> <span class="pre">'z')</span></code>.</p>
+</li>
+<li><p class="first">All (short, long, unsigned) integer arguments or return values that are only
+used to specify the length of an array argument are omitted. For example, the C
+call</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lmdef</span><span class="p">(</span><span class="n">deftype</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">np</span><span class="p">,</span> <span class="n">props</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is translated to Python as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lmdef</span><span class="p">(</span><span class="n">deftype</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">props</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Output arguments are omitted from the argument list; they are transmitted as
+function return values instead. If more than one value must be returned, the
+return value is a tuple. If the C function has both a regular return value (that
+is not omitted because of the previous rule) and an output argument, the return
+value comes first in the tuple. Examples: the C call</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">getmcolor</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">red</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">green</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blue</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is translated to Python as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="n">getmcolor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The following functions are non-standard or have special argument conventions:</p>
+<dl class="function">
+<dt id="gl.varray">
+<code class="descclassname">gl.</code><code class="descname">varray</code><span class="sig-paren">(</span><em>argument</em><span class="sig-paren">)</span><a class="headerlink" href="#gl.varray" title="永久链接至目标">¶</a></dt>
+<dd><p>Equivalent to but faster than a number of <code class="docutils literal notranslate"><span class="pre">v3d()</span></code> calls. The <em>argument</em> is a
+list (or tuple) of points. Each point must be a tuple of coordinates <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span>
+<span class="pre">z)</span></code> or <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code>. The points may be 2- or 3-dimensional but must all have the
+same dimension. Float and int values may be mixed however. The points are always
+converted to 3D double precision points by assuming <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0.0</span></code> if necessary (as
+indicated in the man page), and for each point <code class="docutils literal notranslate"><span class="pre">v3d()</span></code> is called.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gl.nvarray">
+<code class="descclassname">gl.</code><code class="descname">nvarray</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gl.nvarray" title="永久链接至目标">¶</a></dt>
+<dd><p>Equivalent to but faster than a number of <code class="docutils literal notranslate"><span class="pre">n3f</span></code> and <code class="docutils literal notranslate"><span class="pre">v3f</span></code> calls. The
+argument is an array (list or tuple) of pairs of normals and points. Each pair
+is a tuple of a point and a normal for that point. Each point or normal must be
+a tuple of coordinates <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>. Three coordinates must be given. Float and
+int values may be mixed. For each pair, <code class="docutils literal notranslate"><span class="pre">n3f()</span></code> is called for the normal, and
+then <code class="docutils literal notranslate"><span class="pre">v3f()</span></code> is called for the point.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gl.vnarray">
+<code class="descclassname">gl.</code><code class="descname">vnarray</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gl.vnarray" title="永久链接至目标">¶</a></dt>
+<dd><p>Similar to  <code class="docutils literal notranslate"><span class="pre">nvarray()</span></code> but the pairs have the point first and the normal
+second.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gl.nurbssurface">
+<code class="descclassname">gl.</code><code class="descname">nurbssurface</code><span class="sig-paren">(</span><em>s_k</em>, <em>t_k</em>, <em>ctl</em>, <em>s_ord</em>, <em>t_ord</em>, <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#gl.nurbssurface" title="永久链接至目标">¶</a></dt>
+<dd><p>Defines a nurbs surface. The dimensions of <code class="docutils literal notranslate"><span class="pre">ctl[][]</span></code> are computed as follows:
+<code class="docutils literal notranslate"><span class="pre">[len(s_k)</span> <span class="pre">-</span> <span class="pre">s_ord]</span></code>, <code class="docutils literal notranslate"><span class="pre">[len(t_k)</span> <span class="pre">-</span> <span class="pre">t_ord]</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gl.nurbscurve">
+<code class="descclassname">gl.</code><code class="descname">nurbscurve</code><span class="sig-paren">(</span><em>knots</em>, <em>ctlpoints</em>, <em>order</em>, <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#gl.nurbscurve" title="永久链接至目标">¶</a></dt>
+<dd><p>Defines a nurbs curve. The length of ctlpoints is <code class="docutils literal notranslate"><span class="pre">len(knots)</span> <span class="pre">-</span> <span class="pre">order</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gl.pwlcurve">
+<code class="descclassname">gl.</code><code class="descname">pwlcurve</code><span class="sig-paren">(</span><em>points</em>, <em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#gl.pwlcurve" title="永久链接至目标">¶</a></dt>
+<dd><p>Defines a piecewise-linear curve. <em>points</em> is a list of points. <em>type</em> must be
+<code class="docutils literal notranslate"><span class="pre">N_ST</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gl.pick">
+<code class="descclassname">gl.</code><code class="descname">pick</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#gl.pick" title="永久链接至目标">¶</a></dt>
+<dt id="gl.select">
+<code class="descclassname">gl.</code><code class="descname">select</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#gl.select" title="永久链接至目标">¶</a></dt>
+<dd><p>The only argument to these functions specifies the desired size of the pick or
+select buffer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="gl.endpick">
+<code class="descclassname">gl.</code><code class="descname">endpick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gl.endpick" title="永久链接至目标">¶</a></dt>
+<dt id="gl.endselect">
+<code class="descclassname">gl.</code><code class="descname">endselect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gl.endselect" title="永久链接至目标">¶</a></dt>
+<dd><p>These functions have no arguments. They return a list of integers representing
+the used part of the pick/select buffer. No method is provided to detect buffer
+overrun.</p>
+</dd></dl>
+
+<p>Here is a tiny but complete example GL program in Python:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gl</span><span class="o">,</span> <span class="nn">GL</span><span class="o">,</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">foreground</span><span class="p">()</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">prefposition</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">winopen</span><span class="p">(</span><span class="s1">&#39;CrissCross&#39;</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">ortho2</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">GL</span><span class="o">.</span><span class="n">WHITE</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="n">GL</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">bgnline</span><span class="p">()</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">v2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">v2f</span><span class="p">(</span><span class="mf">400.0</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">endline</span><span class="p">()</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">bgnline</span><span class="p">()</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">v2f</span><span class="p">(</span><span class="mf">400.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">v2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">400.0</span><span class="p">)</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">endline</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">参见</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://pyopengl.sourceforge.net/">PyOpenGL: The Python OpenGL Binding</a></dt>
+<dd><p class="first last" id="index-0">An interface to OpenGL is also available; see information about the <strong>PyOpenGL</strong>
+project online at <a class="reference external" href="http://pyopengl.sourceforge.net/">http://pyopengl.sourceforge.net/</a>.  This may be a better option
+if support for SGI hardware from before about 1996 is not required.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="module-DEVICE">
+<span id="device-constants-used-with-the-gl-module"></span><h1>38.9. <a class="reference internal" href="#module-DEVICE" title="DEVICE: Constants used with the gl module. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DEVICE</span></code></a> — Constants used with the <a class="reference internal" href="#module-gl" title="gl: Functions from the Silicon Graphics Graphics Library. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gl</span></code></a> module<a class="headerlink" href="#module-DEVICE" title="永久链接至标题">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版后已移除: </span>The <a class="reference internal" href="#module-DEVICE" title="DEVICE: Constants used with the gl module. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">DEVICE</span></code></a> module has been deprecated for removal in Python 3.0.</p>
+</div>
+<p>This modules defines the constants used by the Silicon Graphics <em>Graphics
+Library</em> that C programmers find in the header file <code class="docutils literal notranslate"><span class="pre">&lt;gl/device.h&gt;</span></code>. Read the
+module source file for details.</p>
+</div>
+<div class="section" id="module-GL">
+<span id="gl-constants-used-with-the-gl-module"></span><h1>38.10. <a class="reference internal" href="#module-GL" title="GL: Constants used with the gl module. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">GL</span></code></a> — Constants used with the <a class="reference internal" href="#module-gl" title="gl: Functions from the Silicon Graphics Graphics Library. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">gl</span></code></a> module<a class="headerlink" href="#module-GL" title="永久链接至标题">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified">2.6 版后已移除: </span>The <a class="reference internal" href="#module-GL" title="GL: Constants used with the gl module. (已移除) (IRIX)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">GL</span></code></a> module has been deprecated for removal in Python 3.0.</p>
+</div>
+<p>This module contains constants used by the Silicon Graphics <em>Graphics Library</em>
+from the C header file <code class="docutils literal notranslate"><span class="pre">&lt;gl/gl.h&gt;</span></code>. Read the module source file for details.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">38.8. <code class="docutils literal notranslate"><span class="pre">gl</span></code> — <em>Graphics Library</em> interface</a></li>
+<li><a class="reference internal" href="#module-DEVICE">38.9. <code class="docutils literal notranslate"><span class="pre">DEVICE</span></code> — Constants used with the <code class="docutils literal notranslate"><span class="pre">gl</span></code> module</a></li>
+<li><a class="reference internal" href="#module-GL">38.10. <code class="docutils literal notranslate"><span class="pre">GL</span></code> — Constants used with the <code class="docutils literal notranslate"><span class="pre">gl</span></code> module</a></li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="fm.html"
+                        title="上一章">38.7. <code class="docutils literal notranslate"><span class="pre">fm</span></code> — <em>Font Manager</em> interface</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="imgfile.html"
+                        title="下一章">38.11. <code class="docutils literal notranslate"><span class="pre">imgfile</span></code> — Support for SGI imglib files</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/gl.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="imgfile.html" title="38.11. imgfile — Support for SGI imglib files"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="fm.html" title="38.7. fm — Font Manager interface"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="sgi.html" >38. SGI IRIX Specific Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 24, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

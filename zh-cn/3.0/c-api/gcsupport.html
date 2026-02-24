@@ -1,0 +1,247 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Supporting Cyclic Garbage Collection &#8212; Python 3.0.1 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/c-api/gcsupport.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.0.1 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="Distributing Python Modules" href="../distutils/index.html" />
+    <link rel="prev" title="Type Objects" href="typeobj.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/c-api/gcsupport.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="../distutils/index.html" title="Distributing Python Modules"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="typeobj.html" title="Type Objects"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="objimpl.html" accesskey="U">Object Implementation Support</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="supporting-cyclic-garbage-collection">
+<span id="supporting-cycle-detection"></span><h1>Supporting Cyclic Garbage Collection<a class="headerlink" href="#supporting-cyclic-garbage-collection" title="永久链接至标题">¶</a></h1>
+<p>Python’s support for detecting and collecting garbage which involves circular
+references requires support from object types which are “containers” for other
+objects which may also be containers.  Types which do not store references to
+other objects, or which only store references to atomic types (such as numbers
+or strings), do not need to provide any explicit support for garbage collection.</p>
+<p>To create a container type, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_flags</span></code> field of the type object must
+include the <code class="xref py py-const docutils literal notranslate"><span class="pre">Py_TPFLAGS_HAVE_GC</span></code> and provide an implementation of the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_traverse</span></code> handler.  If instances of the type are mutable, a
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_clear</span></code> implementation must also be provided.</p>
+<dl class="data">
+<dt>
+<code class="descname">Py_TPFLAGS_HAVE_GC</code></dt>
+<dd><p>Objects with a type with this flag set must conform with the rules documented
+here.  For convenience these objects will be referred to as container objects.</p>
+</dd></dl>
+
+<p>Constructors for container types must conform to two rules:</p>
+<ol class="arabic simple">
+<li>The memory for the object must be allocated using <a href="#id1"><span class="problematic" id="id2">:cfunc:`PyObject_GC_New`</span></a> or
+<a href="#id3"><span class="problematic" id="id4">:cfunc:`PyObject_GC_VarNew`</span></a>.</li>
+<li>Once all the fields which may contain references to other containers are
+initialized, it must call <a href="#id5"><span class="problematic" id="id6">:cfunc:`PyObject_GC_Track`</span></a>.</li>
+</ol>
+<p>Similarly, the deallocator for the object must conform to a similar pair of
+rules:</p>
+<ol class="arabic simple">
+<li>Before fields which refer to other containers are invalidated,
+<a href="#id7"><span class="problematic" id="id8">:cfunc:`PyObject_GC_UnTrack`</span></a> must be called.</li>
+<li>The object’s memory must be deallocated using <a href="#id9"><span class="problematic" id="id10">:cfunc:`PyObject_GC_Del`</span></a>.</li>
+</ol>
+<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_traverse</span></code> handler accepts a function parameter of this type:</p>
+<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_traverse</span></code> handler must have the following type:</p>
+<p>To simplify writing <code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_traverse</span></code> handlers, a <a href="#id11"><span class="problematic" id="id12">:cfunc:`Py_VISIT`</span></a> macro is
+provided.  In order to use this macro, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_traverse</span></code> implementation
+must name its arguments exactly <em>visit</em> and <em>arg</em>:</p>
+<p>The <code class="xref py py-attr docutils literal notranslate"><span class="pre">tp_clear</span></code> handler must be of the <a href="#id13"><span class="problematic" id="id14">:ctype:`inquiry`</span></a> type, or <em>NULL</em> if
+the object is immutable.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="typeobj.html"
+                        title="上一章">Type Objects</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="../distutils/index.html"
+                        title="下一章">Distributing Python Modules</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/c-api/gcsupport.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="../distutils/index.html" title="Distributing Python Modules"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="typeobj.html" title="Type Objects"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="objimpl.html" >Object Implementation Support</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 04, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

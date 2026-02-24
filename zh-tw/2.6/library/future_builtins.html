@@ -1,0 +1,277 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>27.3. future_builtins — Python 3 builtins &#8212; Python 2.6.9 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/future_builtins.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="27.4. __main__ — Top-level script environment" href="__main__.html" />
+    <link rel="prev" title="27.2. __builtin__ — Built-in objects" href="__builtin__.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/future_builtins.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="__main__.html" title="27.4. __main__ — Top-level script environment"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="__builtin__.html" title="27.2. __builtin__ — Built-in objects"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="python.html" accesskey="U">27. Python Runtime Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-future_builtins">
+<span id="future-builtins-python-3-builtins"></span><h1>27.3. <a class="reference internal" href="#module-future_builtins" title="future_builtins"><code class="xref py py-mod docutils literal notranslate"><span class="pre">future_builtins</span></code></a> — Python 3 builtins<a class="headerlink" href="#module-future_builtins" title="本標題的永久連結">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">2.6 版新加入.</span></p>
+</div>
+<p>This module provides functions that exist in 2.x, but have different behavior in
+Python 3, so they cannot be put into the 2.x builtins namespace.</p>
+<p>Instead, if you want to write code compatible with Python 3 builtins, import
+them from this module, like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">future_builtins</span> <span class="kn">import</span> <span class="nb">map</span><span class="p">,</span> <span class="nb">filter</span>
+
+<span class="o">...</span> <span class="n">code</span> <span class="n">using</span> <span class="n">Python</span> <span class="mi">3</span><span class="o">-</span><span class="n">style</span> <span class="nb">map</span> <span class="ow">and</span> <span class="nb">filter</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../glossary.html#term-2to3"><span class="xref std std-term">2to3</span></a> tool that ports Python 2 code to Python 3 will recognize
+this usage and leave the new builtins alone.</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p>The Python 3 <a class="reference internal" href="functions.html#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> function is already in the builtins, but cannot be
+accessed from Python 2 code unless you use the appropriate future statement:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+</pre></div>
+</div>
+</div>
+<p>Available builtins are:</p>
+<dl class="function">
+<dt id="future_builtins.ascii">
+<code class="descclassname">future_builtins.</code><code class="descname">ascii</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#future_builtins.ascii" title="本定義的永久連結">¶</a></dt>
+<dd><p>Returns the same as <a class="reference internal" href="repr.html#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>.  In Python 3, <a class="reference internal" href="repr.html#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> will return
+printable Unicode characters unescaped, while <a class="reference internal" href="#future_builtins.ascii" title="future_builtins.ascii"><code class="xref py py-func docutils literal notranslate"><span class="pre">ascii()</span></code></a> will always
+backslash-escape them.  Using <a class="reference internal" href="#future_builtins.ascii" title="future_builtins.ascii"><code class="xref py py-func docutils literal notranslate"><span class="pre">future_builtins.ascii()</span></code></a> instead of
+<a class="reference internal" href="repr.html#module-repr" title="repr: Alternate repr() implementation with size limits."><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> in 2.6 code makes it clear that you need a pure ASCII return
+value.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="future_builtins.filter">
+<code class="descclassname">future_builtins.</code><code class="descname">filter</code><span class="sig-paren">(</span><em>function</em>, <em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#future_builtins.filter" title="本定義的永久連結">¶</a></dt>
+<dd><p>Works like <a class="reference internal" href="itertools.html#itertools.ifilter" title="itertools.ifilter"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.ifilter()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="future_builtins.hex">
+<code class="descclassname">future_builtins.</code><code class="descname">hex</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#future_builtins.hex" title="本定義的永久連結">¶</a></dt>
+<dd><p>Works like the built-in <a class="reference internal" href="functions.html#hex" title="hex"><code class="xref py py-func docutils literal notranslate"><span class="pre">hex()</span></code></a>, but instead of <a class="reference internal" href="../reference/datamodel.html#object.__hex__" title="object.__hex__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__hex__()</span></code></a> it will
+use the <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method on its argument to get an integer that is
+then converted to hexadecimal.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="future_builtins.map">
+<code class="descclassname">future_builtins.</code><code class="descname">map</code><span class="sig-paren">(</span><em>function</em>, <em>iterable</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#future_builtins.map" title="本定義的永久連結">¶</a></dt>
+<dd><p>Works like <a class="reference internal" href="itertools.html#itertools.imap" title="itertools.imap"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.imap()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="future_builtins.oct">
+<code class="descclassname">future_builtins.</code><code class="descname">oct</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#future_builtins.oct" title="本定義的永久連結">¶</a></dt>
+<dd><p>Works like the built-in <a class="reference internal" href="functions.html#oct" title="oct"><code class="xref py py-func docutils literal notranslate"><span class="pre">oct()</span></code></a>, but instead of <a class="reference internal" href="../reference/datamodel.html#object.__oct__" title="object.__oct__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__oct__()</span></code></a> it will
+use the <a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method on its argument to get an integer that is
+then converted to octal.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="future_builtins.zip">
+<code class="descclassname">future_builtins.</code><code class="descname">zip</code><span class="sig-paren">(</span><em>*iterables</em><span class="sig-paren">)</span><a class="headerlink" href="#future_builtins.zip" title="本定義的永久連結">¶</a></dt>
+<dd><p>Works like <a class="reference internal" href="itertools.html#itertools.izip" title="itertools.izip"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.izip()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上個主題</h4>
+  <p class="topless"><a href="__builtin__.html"
+                        title="上一章">27.2. <code class="docutils literal notranslate"><span class="pre">__builtin__</span></code> — Built-in objects</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="__main__.html"
+                        title="下一章">27.4. <code class="docutils literal notranslate"><span class="pre">__main__</span></code> — Top-level script environment</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/future_builtins.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="__main__.html" title="27.4. __main__ — Top-level script environment"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="__builtin__.html" title="27.2. __builtin__ — Built-in objects"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="python.html" >27. Python Runtime Services</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

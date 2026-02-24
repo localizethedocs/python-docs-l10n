@@ -1,0 +1,779 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>29.6. importlib – An implementation of import &#8212; Python 3.2.6 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/importlib.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.2.6 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="30. Python Language Services" href="language.html" />
+    <link rel="prev" title="29.5. runpy — Locating and executing Python modules" href="runpy.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/importlib.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="language.html" title="30. Python Language Services"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="runpy.html" title="29.5. runpy — Locating and executing Python modules"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">3.2.6 Documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="modules.html" accesskey="U">29. Importing Modules</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-importlib">
+<span id="importlib-an-implementation-of-import"></span><h1>29.6. <a class="reference internal" href="#module-importlib" title="importlib: An implementation of the import machinery."><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib</span></code></a> – An implementation of <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a><a class="headerlink" href="#module-importlib" title="本標題的永久連結">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">3.1 版新加入.</span></p>
+</div>
+<div class="section" id="introduction">
+<h2>29.6.1. Introduction<a class="headerlink" href="#introduction" title="本標題的永久連結">¶</a></h2>
+<p>The purpose of the <a class="reference internal" href="#module-importlib" title="importlib: An implementation of the import machinery."><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib</span></code></a> package is two-fold. One is to provide an
+implementation of the <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement (and thus, by extension, the
+<a class="reference internal" href="functions.html#__import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a> function) in Python source code. This provides an
+implementation of <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> which is portable to any Python
+interpreter. This also provides a reference implementation which is easier to
+comprehend than one implemented in a programming language other than Python.</p>
+<p>Two, the components to implement <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> are exposed in this
+package, making it easier for users to create their own custom objects (known
+generically as an <a class="reference internal" href="../glossary.html#term-importer"><span class="xref std std-term">importer</span></a>) to participate in the import process.
+Details on custom importers can be found in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">也參考</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="../reference/simple_stmts.html#import"><span class="std std-ref">The import statement</span></a></dt>
+<dd>The language reference for the <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement.</dd>
+<dt><a class="reference external" href="http://www.python.org/doc/essays/packages.html">Packages specification</a></dt>
+<dd>Original specification of packages. Some semantics have changed since
+the writing of this document (e.g. redirecting based on <code class="docutils literal notranslate"><span class="pre">None</span></code>
+in <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a>).</dd>
+<dt>The <a class="reference internal" href="#importlib.__import__" title="importlib.__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a> function</dt>
+<dd>The <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement is syntactic sugar for this function.</dd>
+<dt><span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0235"><strong>PEP 235</strong></a></dt>
+<dd>Import on Case-Insensitive Platforms</dd>
+<dt><span class="target" id="index-2"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0263"><strong>PEP 263</strong></a></dt>
+<dd>Defining Python Source Code Encodings</dd>
+<dt><span class="target" id="index-3"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a></dt>
+<dd>New Import Hooks</dd>
+<dt><span class="target" id="index-4"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0328"><strong>PEP 328</strong></a></dt>
+<dd>Imports: Multi-Line and Absolute/Relative</dd>
+<dt><span class="target" id="index-5"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0366"><strong>PEP 366</strong></a></dt>
+<dd>Main module explicit relative imports</dd>
+<dt><span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3120"><strong>PEP 3120</strong></a></dt>
+<dd>Using UTF-8 as the Default Source Encoding</dd>
+<dt><span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a></dt>
+<dd>PYC Repository Directories</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>29.6.2. Functions<a class="headerlink" href="#functions" title="本標題的永久連結">¶</a></h2>
+<dl class="function">
+<dt id="importlib.__import__">
+<code class="descclassname">importlib.</code><code class="descname">__import__</code><span class="sig-paren">(</span><em>name</em>, <em>globals={}</em>, <em>locals={}</em>, <em>fromlist=list()</em>, <em>level=0</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.__import__" title="本定義的永久連結">¶</a></dt>
+<dd><p>An implementation of the built-in <a class="reference internal" href="functions.html#__import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a> function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="importlib.import_module">
+<code class="descclassname">importlib.</code><code class="descname">import_module</code><span class="sig-paren">(</span><em>name</em>, <em>package=None</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.import_module" title="本定義的永久連結">¶</a></dt>
+<dd><p>Import a module. The <em>name</em> argument specifies what module to
+import in absolute or relative terms
+(e.g. either <code class="docutils literal notranslate"><span class="pre">pkg.mod</span></code> or <code class="docutils literal notranslate"><span class="pre">..mod</span></code>). If the name is
+specified in relative terms, then the <em>package</em> argument must be set to
+the name of the package which is to act as the anchor for resolving the
+package name (e.g. <code class="docutils literal notranslate"><span class="pre">import_module('..mod',</span> <span class="pre">'pkg.subpkg')</span></code> will import
+<code class="docutils literal notranslate"><span class="pre">pkg.mod</span></code>).</p>
+<p>The <a class="reference internal" href="#importlib.import_module" title="importlib.import_module"><code class="xref py py-func docutils literal notranslate"><span class="pre">import_module()</span></code></a> function acts as a simplifying wrapper around
+<a class="reference internal" href="#importlib.__import__" title="importlib.__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.__import__()</span></code></a>. This means all semantics of the function are
+derived from <a class="reference internal" href="#importlib.__import__" title="importlib.__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.__import__()</span></code></a>, including requiring the package
+from which an import is occurring to have been previously imported
+(i.e., <em>package</em> must already be imported). The most important difference
+is that <a class="reference internal" href="#importlib.import_module" title="importlib.import_module"><code class="xref py py-func docutils literal notranslate"><span class="pre">import_module()</span></code></a> returns the most nested package or module
+that was imported (e.g. <code class="docutils literal notranslate"><span class="pre">pkg.mod</span></code>), while <a class="reference internal" href="functions.html#__import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a> returns the
+top-level package or module (e.g. <code class="docutils literal notranslate"><span class="pre">pkg</span></code>).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-importlib.abc">
+<span id="importlib-abc-abstract-base-classes-related-to-import"></span><h2>29.6.3. <a class="reference internal" href="#module-importlib.abc" title="importlib.abc: Abstract base classes related to import"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.abc</span></code></a> – Abstract base classes related to import<a class="headerlink" href="#module-importlib.abc" title="本標題的永久連結">¶</a></h2>
+<p>The <a class="reference internal" href="#module-importlib.abc" title="importlib.abc: Abstract base classes related to import"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.abc</span></code></a> module contains all of the core abstract base classes
+used by <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a>. Some subclasses of the core abstract base classes
+are also provided to help in implementing the core ABCs.</p>
+<dl class="class">
+<dt id="importlib.abc.Finder">
+<em class="property">class </em><code class="descclassname">importlib.abc.</code><code class="descname">Finder</code><a class="headerlink" href="#importlib.abc.Finder" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract base class representing a <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a>.
+See <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a> for the exact definition for a finder.</p>
+<dl class="method">
+<dt id="importlib.abc.Finder.find_module">
+<code class="descname">find_module</code><span class="sig-paren">(</span><em>fullname</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.Finder.find_module" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method for finding a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> for the specified
+module. If the <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a> is found on <a class="reference internal" href="sys.html#sys.meta_path" title="sys.meta_path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.meta_path</span></code></a> and the
+module to be searched for is a subpackage or module then <em>path</em> will
+be the value of <code class="xref py py-attr docutils literal notranslate"><span class="pre">__path__</span></code> from the parent package. If a loader
+cannot be found, <code class="docutils literal notranslate"><span class="pre">None</span></code> is returned.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.abc.Loader">
+<em class="property">class </em><code class="descclassname">importlib.abc.</code><code class="descname">Loader</code><a class="headerlink" href="#importlib.abc.Loader" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract base class for a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a>.
+See <span class="target" id="index-9"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a> for the exact definition for a loader.</p>
+<dl class="method">
+<dt id="importlib.abc.Loader.load_module">
+<code class="descname">load_module</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.Loader.load_module" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method for loading a module. If the module cannot be
+loaded, <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised, otherwise the loaded module is
+returned.</p>
+<p>If the requested module already exists in <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a>, that
+module should be used and reloaded.
+Otherwise the loader should create a new module and insert it into
+<a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a> before any loading begins, to prevent recursion
+from the import. If the loader inserted a module and the load fails, it
+must be removed by the loader from <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a>; modules already
+in <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a> before the loader began execution should be left
+alone. The <a class="reference internal" href="#importlib.util.module_for_loader" title="importlib.util.module_for_loader"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.util.module_for_loader()</span></code></a> decorator handles
+all of these details.</p>
+<p>The loader should set several attributes on the module.
+(Note that some of these attributes can change when a module is
+reloaded.)</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">__name__</span></code></dt>
+<dd>The name of the module.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">__file__</span></code></dt>
+<dd>The path to where the module data is stored (not set for built-in
+modules).</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">__path__</span></code></dt>
+<dd>A list of strings specifying the search path within a
+package. This attribute is not set on modules.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">__package__</span></code></dt>
+<dd>The parent package for the module/package. If the module is
+top-level then it has a value of the empty string. The
+<a class="reference internal" href="#importlib.util.set_package" title="importlib.util.set_package"><code class="xref py py-func docutils literal notranslate"><span class="pre">importlib.util.set_package()</span></code></a> decorator can handle the details
+for <code class="xref py py-attr docutils literal notranslate"><span class="pre">__package__</span></code>.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">__loader__</span></code></dt>
+<dd>The loader used to load the module.
+(This is not set by the built-in import machinery,
+but it should be set whenever a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> is used.)</dd>
+</dl>
+</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.abc.ResourceLoader">
+<em class="property">class </em><code class="descclassname">importlib.abc.</code><code class="descname">ResourceLoader</code><a class="headerlink" href="#importlib.abc.ResourceLoader" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract base class for a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> which implements the optional
+<span class="target" id="index-10"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a> protocol for loading arbitrary resources from the storage
+back-end.</p>
+<dl class="method">
+<dt id="importlib.abc.ResourceLoader.get_data">
+<code class="descname">get_data</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.ResourceLoader.get_data" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method to return the bytes for the data located at <em>path</em>.
+Loaders that have a file-like storage back-end
+that allows storing arbitrary data
+can implement this abstract method to give direct access
+to the data stored. <a class="reference internal" href="exceptions.html#IOError" title="IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a> is to be raised if the <em>path</em> cannot
+be found. The <em>path</em> is expected to be constructed using a module’s
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">__file__</span></code> attribute or an item from a package’s <code class="xref py py-attr docutils literal notranslate"><span class="pre">__path__</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.abc.InspectLoader">
+<em class="property">class </em><code class="descclassname">importlib.abc.</code><code class="descname">InspectLoader</code><a class="headerlink" href="#importlib.abc.InspectLoader" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract base class for a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> which implements the optional
+<span class="target" id="index-11"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a> protocol for loaders that inspect modules.</p>
+<dl class="method">
+<dt id="importlib.abc.InspectLoader.get_code">
+<code class="descname">get_code</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.InspectLoader.get_code" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method to return the <a class="reference internal" href="code.html#module-code" title="code: Facilities to implement read-eval-print loops."><code class="xref py py-class docutils literal notranslate"><span class="pre">code</span></code></a> object for a module.
+<code class="docutils literal notranslate"><span class="pre">None</span></code> is returned if the module does not have a code object
+(e.g. built-in module).  <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised if loader cannot
+find the requested module.</p>
+<span class="target" id="index-12"></span></dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.InspectLoader.get_source">
+<code class="descname">get_source</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.InspectLoader.get_source" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method to return the source of a module. It is returned as
+a text string using <a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">universal newlines</span></a>, translating all
+recognized line separators into <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> characters.  Returns <code class="docutils literal notranslate"><span class="pre">None</span></code>
+if no source is available (e.g. a built-in module). Raises
+<a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> if the loader cannot find the module specified.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.InspectLoader.is_package">
+<code class="descname">is_package</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.InspectLoader.is_package" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method to return a true value if the module is a package, a
+false value otherwise. <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised if the
+<a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> cannot find the module.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.abc.ExecutionLoader">
+<em class="property">class </em><code class="descclassname">importlib.abc.</code><code class="descname">ExecutionLoader</code><a class="headerlink" href="#importlib.abc.ExecutionLoader" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract base class which inherits from <a class="reference internal" href="#importlib.abc.InspectLoader" title="importlib.abc.InspectLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">InspectLoader</span></code></a> that,
+when implemented, helps a module to be executed as a script. The ABC
+represents an optional <span class="target" id="index-13"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a> protocol.</p>
+<dl class="method">
+<dt id="importlib.abc.ExecutionLoader.get_filename">
+<code class="descname">get_filename</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.ExecutionLoader.get_filename" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method that is to return the value of <code class="xref py py-attr docutils literal notranslate"><span class="pre">__file__</span></code> for
+the specified module. If no path is available, <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is
+raised.</p>
+<p>If source code is available, then the method should return the path to
+the source file, regardless of whether a bytecode was used to load the
+module.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.abc.SourceLoader">
+<em class="property">class </em><code class="descclassname">importlib.abc.</code><code class="descname">SourceLoader</code><a class="headerlink" href="#importlib.abc.SourceLoader" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract base class for implementing source (and optionally bytecode)
+file loading. The class inherits from both <a class="reference internal" href="#importlib.abc.ResourceLoader" title="importlib.abc.ResourceLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceLoader</span></code></a> and
+<a class="reference internal" href="#importlib.abc.ExecutionLoader" title="importlib.abc.ExecutionLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExecutionLoader</span></code></a>, requiring the implementation of:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#importlib.abc.ResourceLoader.get_data" title="importlib.abc.ResourceLoader.get_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ResourceLoader.get_data()</span></code></a></li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="#importlib.abc.ExecutionLoader.get_filename" title="importlib.abc.ExecutionLoader.get_filename"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExecutionLoader.get_filename()</span></code></a></dt>
+<dd>Should only return the path to the source file; sourceless
+loading is not supported.</dd>
+</dl>
+</li>
+</ul>
+<p>The abstract methods defined by this class are to add optional bytecode
+file support. Not implementing these optional methods causes the loader to
+only work with source code. Implementing the methods allows the loader to
+work with source <em>and</em> bytecode files; it does not allow for <em>sourceless</em>
+loading where only bytecode is provided.  Bytecode files are an
+optimization to speed up loading by removing the parsing step of Python’s
+compiler, and so no bytecode-specific API is exposed.</p>
+<dl class="method">
+<dt id="importlib.abc.SourceLoader.path_mtime">
+<code class="descname">path_mtime</code><span class="sig-paren">(</span><em>self</em>, <em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.path_mtime" title="本定義的永久連結">¶</a></dt>
+<dd><p>Optional abstract method which returns the modification time for the
+specified path.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.SourceLoader.set_data">
+<code class="descname">set_data</code><span class="sig-paren">(</span><em>self</em>, <em>path</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.set_data" title="本定義的永久連結">¶</a></dt>
+<dd><p>Optional abstract method which writes the specified bytes to a file
+path. Any intermediate directories which do not exist are to be created
+automatically.</p>
+<p>When writing to the path fails because the path is read-only
+(<a class="reference internal" href="errno.html#errno.EACCES" title="errno.EACCES"><code class="xref py py-attr docutils literal notranslate"><span class="pre">errno.EACCES</span></code></a>), do not propagate the exception.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.SourceLoader.get_code">
+<code class="descname">get_code</code><span class="sig-paren">(</span><em>self</em>, <em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.get_code" title="本定義的永久連結">¶</a></dt>
+<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.get_code" title="importlib.abc.InspectLoader.get_code"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.get_code()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.SourceLoader.load_module">
+<code class="descname">load_module</code><span class="sig-paren">(</span><em>self</em>, <em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.load_module" title="本定義的永久連結">¶</a></dt>
+<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.Loader.load_module" title="importlib.abc.Loader.load_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Loader.load_module()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.SourceLoader.get_source">
+<code class="descname">get_source</code><span class="sig-paren">(</span><em>self</em>, <em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.get_source" title="本定義的永久連結">¶</a></dt>
+<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.get_source" title="importlib.abc.InspectLoader.get_source"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.get_source()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.SourceLoader.is_package">
+<code class="descname">is_package</code><span class="sig-paren">(</span><em>self</em>, <em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.SourceLoader.is_package" title="本定義的永久連結">¶</a></dt>
+<dd><p>Concrete implementation of <a class="reference internal" href="#importlib.abc.InspectLoader.is_package" title="importlib.abc.InspectLoader.is_package"><code class="xref py py-meth docutils literal notranslate"><span class="pre">InspectLoader.is_package()</span></code></a>. A module
+is determined to be a package if its file path is a file named
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code> when the file extension is removed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.abc.PyLoader">
+<em class="property">class </em><code class="descclassname">importlib.abc.</code><code class="descname">PyLoader</code><a class="headerlink" href="#importlib.abc.PyLoader" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract base class inheriting from
+<a class="reference internal" href="#importlib.abc.ExecutionLoader" title="importlib.abc.ExecutionLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExecutionLoader</span></code></a> and
+<a class="reference internal" href="#importlib.abc.ResourceLoader" title="importlib.abc.ResourceLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">ResourceLoader</span></code></a> designed to ease the loading of
+Python source modules (bytecode is not handled; see
+<a class="reference internal" href="#importlib.abc.SourceLoader" title="importlib.abc.SourceLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SourceLoader</span></code></a> for a source/bytecode ABC). A subclass
+implementing this ABC will only need to worry about exposing how the source
+code is stored; all other details for loading Python source code will be
+handled by the concrete implementations of key methods.</p>
+<div class="deprecated">
+<p><span class="versionmodified">3.2 版後已棄用: </span>This class has been deprecated in favor of <a class="reference internal" href="#importlib.abc.SourceLoader" title="importlib.abc.SourceLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SourceLoader</span></code></a> and is
+slated for removal in Python 3.4. See below for how to create a
+subclass that is compatible with Python 3.1 onwards.</p>
+</div>
+<p>If compatibility with Python 3.1 is required, then use the following idiom
+to implement a subclass that will work with Python 3.1 onwards (make sure
+to implement <a class="reference internal" href="#importlib.abc.ExecutionLoader.get_filename" title="importlib.abc.ExecutionLoader.get_filename"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExecutionLoader.get_filename()</span></code></a>):</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">importlib.abc</span> <span class="kn">import</span> <span class="n">SourceLoader</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">importlib.abc</span> <span class="kn">import</span> <span class="n">PyLoader</span> <span class="k">as</span> <span class="n">SourceLoader</span>
+
+
+<span class="k">class</span> <span class="nc">CustomLoader</span><span class="p">(</span><span class="n">SourceLoader</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_filename</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fullname</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the path to the source file.&quot;&quot;&quot;</span>
+        <span class="c1"># Implement ...</span>
+
+    <span class="k">def</span> <span class="nf">source_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fullname</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Implement source_path in terms of get_filename.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="n">fullname</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">is_package</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fullname</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Implement is_package by looking for an __init__ file</span>
+<span class="sd">        name as returned by get_filename.&quot;&quot;&quot;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_filename</span><span class="p">(</span><span class="n">fullname</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;__init__&#39;</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="importlib.abc.PyLoader.source_path">
+<code class="descname">source_path</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyLoader.source_path" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method that returns the path to the source code for a
+module. Should return <code class="docutils literal notranslate"><span class="pre">None</span></code> if there is no source code.
+Raises <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> if the loader knows it cannot handle the
+module.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.PyLoader.get_filename">
+<code class="descname">get_filename</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyLoader.get_filename" title="本定義的永久連結">¶</a></dt>
+<dd><p>A concrete implementation of
+<a class="reference internal" href="#importlib.abc.ExecutionLoader.get_filename" title="importlib.abc.ExecutionLoader.get_filename"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.ExecutionLoader.get_filename()</span></code></a> that
+relies on <a class="reference internal" href="#importlib.abc.PyLoader.source_path" title="importlib.abc.PyLoader.source_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">source_path()</span></code></a>. If <a class="reference internal" href="#importlib.abc.PyLoader.source_path" title="importlib.abc.PyLoader.source_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">source_path()</span></code></a> returns
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, then <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.PyLoader.load_module">
+<code class="descname">load_module</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyLoader.load_module" title="本定義的永久連結">¶</a></dt>
+<dd><p>A concrete implementation of <a class="reference internal" href="#importlib.abc.Loader.load_module" title="importlib.abc.Loader.load_module"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.Loader.load_module()</span></code></a>
+that loads Python source code. All needed information comes from the
+abstract methods required by this ABC. The only pertinent assumption
+made by this method is that when loading a package
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">__path__</span></code> is set to <code class="docutils literal notranslate"><span class="pre">[os.path.dirname(__file__)]</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.PyLoader.get_code">
+<code class="descname">get_code</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyLoader.get_code" title="本定義的永久連結">¶</a></dt>
+<dd><p>A concrete implementation of
+<a class="reference internal" href="#importlib.abc.InspectLoader.get_code" title="importlib.abc.InspectLoader.get_code"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.InspectLoader.get_code()</span></code></a> that creates code objects
+from Python source code, by requesting the source code (using
+<a class="reference internal" href="#importlib.abc.PyLoader.source_path" title="importlib.abc.PyLoader.source_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">source_path()</span></code></a> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_data()</span></code>) and compiling it with the
+built-in <a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a> function.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.PyLoader.get_source">
+<code class="descname">get_source</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyLoader.get_source" title="本定義的永久連結">¶</a></dt>
+<dd><p>A concrete implementation of
+<a class="reference internal" href="#importlib.abc.InspectLoader.get_source" title="importlib.abc.InspectLoader.get_source"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.InspectLoader.get_source()</span></code></a>. Uses
+<a class="reference internal" href="#importlib.abc.ResourceLoader.get_data" title="importlib.abc.ResourceLoader.get_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">importlib.abc.ResourceLoader.get_data()</span></code></a> and <a class="reference internal" href="#importlib.abc.PyLoader.source_path" title="importlib.abc.PyLoader.source_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">source_path()</span></code></a>
+to get the source code.  It tries to guess the source encoding using
+<a class="reference internal" href="tokenize.html#tokenize.detect_encoding" title="tokenize.detect_encoding"><code class="xref py py-func docutils literal notranslate"><span class="pre">tokenize.detect_encoding()</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.abc.PyPycLoader">
+<em class="property">class </em><code class="descclassname">importlib.abc.</code><code class="descname">PyPycLoader</code><a class="headerlink" href="#importlib.abc.PyPycLoader" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract base class inheriting from <a class="reference internal" href="#importlib.abc.PyLoader" title="importlib.abc.PyLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLoader</span></code></a>.
+This ABC is meant to help in creating loaders that support both Python
+source and bytecode.</p>
+<div class="deprecated">
+<p><span class="versionmodified">3.2 版後已棄用: </span>This class has been deprecated in favor of <a class="reference internal" href="#importlib.abc.SourceLoader" title="importlib.abc.SourceLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SourceLoader</span></code></a> and to
+properly support <span class="target" id="index-14"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a>. If compatibility is required with
+Python 3.1, implement both <a class="reference internal" href="#importlib.abc.SourceLoader" title="importlib.abc.SourceLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">SourceLoader</span></code></a> and <a class="reference internal" href="#importlib.abc.PyLoader" title="importlib.abc.PyLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLoader</span></code></a>;
+instructions on how to do so are included in the documentation for
+<a class="reference internal" href="#importlib.abc.PyLoader" title="importlib.abc.PyLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyLoader</span></code></a>. Do note that this solution will not support
+sourceless/bytecode-only loading; only source <em>and</em> bytecode loading.</p>
+</div>
+<dl class="method">
+<dt id="importlib.abc.PyPycLoader.source_mtime">
+<code class="descname">source_mtime</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyPycLoader.source_mtime" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method which returns the modification time for the source
+code of the specified module. The modification time should be an
+integer. If there is no source code, return <code class="docutils literal notranslate"><span class="pre">None</span></code>. If the
+module cannot be found then <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.PyPycLoader.bytecode_path">
+<code class="descname">bytecode_path</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyPycLoader.bytecode_path" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method which returns the path to the bytecode for the
+specified module, if it exists. It returns <code class="docutils literal notranslate"><span class="pre">None</span></code>
+if no bytecode exists (yet).
+Raises <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> if the loader knows it cannot handle the
+module.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.PyPycLoader.get_filename">
+<code class="descname">get_filename</code><span class="sig-paren">(</span><em>fullname</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyPycLoader.get_filename" title="本定義的永久連結">¶</a></dt>
+<dd><p>A concrete implementation of
+<a class="reference internal" href="#importlib.abc.ExecutionLoader.get_filename" title="importlib.abc.ExecutionLoader.get_filename"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ExecutionLoader.get_filename()</span></code></a> that relies on
+<a class="reference internal" href="#importlib.abc.PyLoader.source_path" title="importlib.abc.PyLoader.source_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">PyLoader.source_path()</span></code></a> and <a class="reference internal" href="#importlib.abc.PyPycLoader.bytecode_path" title="importlib.abc.PyPycLoader.bytecode_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytecode_path()</span></code></a>.
+If <code class="xref py py-meth docutils literal notranslate"><span class="pre">source_path()</span></code> returns a path, then that value is returned.
+Else if <a class="reference internal" href="#importlib.abc.PyPycLoader.bytecode_path" title="importlib.abc.PyPycLoader.bytecode_path"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bytecode_path()</span></code></a> returns a path, that path will be
+returned. If a path is not available from both methods,
+<a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a> is raised.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="importlib.abc.PyPycLoader.write_bytecode">
+<code class="descname">write_bytecode</code><span class="sig-paren">(</span><em>fullname</em>, <em>bytecode</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.abc.PyPycLoader.write_bytecode" title="本定義的永久連結">¶</a></dt>
+<dd><p>An abstract method which has the loader write <em>bytecode</em> for future
+use. If the bytecode is written, return <code class="docutils literal notranslate"><span class="pre">True</span></code>. Return
+<code class="docutils literal notranslate"><span class="pre">False</span></code> if the bytecode could not be written. This method
+should not be called if <a class="reference internal" href="sys.html#sys.dont_write_bytecode" title="sys.dont_write_bytecode"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.dont_write_bytecode</span></code></a> is true.
+The <em>bytecode</em> argument should be a bytes string or bytes array.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-importlib.machinery">
+<span id="importlib-machinery-importers-and-path-hooks"></span><h2>29.6.4. <a class="reference internal" href="#module-importlib.machinery" title="importlib.machinery: Importers and path hooks"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.machinery</span></code></a> – Importers and path hooks<a class="headerlink" href="#module-importlib.machinery" title="本標題的永久連結">¶</a></h2>
+<p>This module contains the various objects that help <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a>
+find and load modules.</p>
+<dl class="class">
+<dt id="importlib.machinery.BuiltinImporter">
+<em class="property">class </em><code class="descclassname">importlib.machinery.</code><code class="descname">BuiltinImporter</code><a class="headerlink" href="#importlib.machinery.BuiltinImporter" title="本定義的永久連結">¶</a></dt>
+<dd><p>An <a class="reference internal" href="../glossary.html#term-importer"><span class="xref std std-term">importer</span></a> for built-in modules. All known built-in modules are
+listed in <a class="reference internal" href="sys.html#sys.builtin_module_names" title="sys.builtin_module_names"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.builtin_module_names</span></code></a>. This class implements the
+<a class="reference internal" href="#importlib.abc.Finder" title="importlib.abc.Finder"><code class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.Finder</span></code></a> and <a class="reference internal" href="#importlib.abc.InspectLoader" title="importlib.abc.InspectLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.InspectLoader</span></code></a>
+ABCs.</p>
+<p>Only class methods are defined by this class to alleviate the need for
+instantiation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.machinery.FrozenImporter">
+<em class="property">class </em><code class="descclassname">importlib.machinery.</code><code class="descname">FrozenImporter</code><a class="headerlink" href="#importlib.machinery.FrozenImporter" title="本定義的永久連結">¶</a></dt>
+<dd><p>An <a class="reference internal" href="../glossary.html#term-importer"><span class="xref std std-term">importer</span></a> for frozen modules. This class implements the
+<a class="reference internal" href="#importlib.abc.Finder" title="importlib.abc.Finder"><code class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.Finder</span></code></a> and <a class="reference internal" href="#importlib.abc.InspectLoader" title="importlib.abc.InspectLoader"><code class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.InspectLoader</span></code></a>
+ABCs.</p>
+<p>Only class methods are defined by this class to alleviate the need for
+instantiation.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="importlib.machinery.PathFinder">
+<em class="property">class </em><code class="descclassname">importlib.machinery.</code><code class="descname">PathFinder</code><a class="headerlink" href="#importlib.machinery.PathFinder" title="本定義的永久連結">¶</a></dt>
+<dd><p><a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">Finder</span></a> for <a class="reference internal" href="sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>. This class implements the
+<a class="reference internal" href="#importlib.abc.Finder" title="importlib.abc.Finder"><code class="xref py py-class docutils literal notranslate"><span class="pre">importlib.abc.Finder</span></code></a> ABC.</p>
+<p>This class does not perfectly mirror the semantics of <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> in
+terms of <a class="reference internal" href="sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a>. No implicit path hooks are assumed for
+simplification of the class and its semantics.</p>
+<p>Only class methods are defined by this class to alleviate the need for
+instantiation.</p>
+<dl class="classmethod">
+<dt id="importlib.machinery.PathFinder.find_module">
+<em class="property">classmethod </em><code class="descname">find_module</code><span class="sig-paren">(</span><em>fullname</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#importlib.machinery.PathFinder.find_module" title="本定義的永久連結">¶</a></dt>
+<dd><p>Class method that attempts to find a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> for the module
+specified by <em>fullname</em> on <a class="reference internal" href="sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path</span></code></a> or, if defined, on
+<em>path</em>. For each path entry that is searched,
+<a class="reference internal" href="sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a> is checked. If an non-false object is
+found then it is used as the <a class="reference internal" href="../glossary.html#term-finder"><span class="xref std std-term">finder</span></a> to look for the module
+being searched for. If no entry is found in
+<a class="reference internal" href="sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a>, then <a class="reference internal" href="sys.html#sys.path_hooks" title="sys.path_hooks"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_hooks</span></code></a> is
+searched for a finder for the path entry and, if found, is stored in
+<a class="reference internal" href="sys.html#sys.path_importer_cache" title="sys.path_importer_cache"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.path_importer_cache</span></code></a> along with being queried about the
+module. If no finder is ever found then <code class="docutils literal notranslate"><span class="pre">None</span></code> is returned.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-importlib.util">
+<span id="importlib-util-utility-code-for-importers"></span><h2>29.6.5. <a class="reference internal" href="#module-importlib.util" title="importlib.util: Importers and path hooks"><code class="xref py py-mod docutils literal notranslate"><span class="pre">importlib.util</span></code></a> – Utility code for importers<a class="headerlink" href="#module-importlib.util" title="本標題的永久連結">¶</a></h2>
+<p>This module contains the various objects that help in the construction of
+an <a class="reference internal" href="../glossary.html#term-importer"><span class="xref std std-term">importer</span></a>.</p>
+<dl class="function">
+<dt id="importlib.util.module_for_loader">
+<code class="descclassname">&#64;</code><code class="descclassname">importlib.util.</code><code class="descname">module_for_loader</code><a class="headerlink" href="#importlib.util.module_for_loader" title="本定義的永久連結">¶</a></dt>
+<dd><p>A <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> for a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> method,
+to handle selecting the proper
+module object to load with. The decorated method is expected to have a call
+signature taking two positional arguments
+(e.g. <code class="docutils literal notranslate"><span class="pre">load_module(self,</span> <span class="pre">module)</span></code>) for which the second argument
+will be the module <strong>object</strong> to be used by the loader.
+Note that the decorator
+will not work on static methods because of the assumption of two
+arguments.</p>
+<p>The decorated method will take in the <strong>name</strong> of the module to be loaded
+as expected for a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a>. If the module is not found in
+<a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a> then a new one is constructed with its
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">__name__</span></code> attribute set. Otherwise the module found in
+<a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a> will be passed into the method. If an
+exception is raised by the decorated method and a module was added to
+<a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a> it will be removed to prevent a partially initialized
+module from being in left in <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a>. If the module was already
+in <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a> then it is left alone.</p>
+<p>Use of this decorator handles all the details of which module object a
+loader should initialize as specified by <span class="target" id="index-15"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="importlib.util.set_loader">
+<code class="descclassname">&#64;</code><code class="descclassname">importlib.util.</code><code class="descname">set_loader</code><a class="headerlink" href="#importlib.util.set_loader" title="本定義的永久連結">¶</a></dt>
+<dd><p>A <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> for a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> method,
+to set the <code class="xref py py-attr docutils literal notranslate"><span class="pre">__loader__</span></code>
+attribute on loaded modules. If the attribute is already set the decorator
+does nothing. It is assumed that the first positional argument to the
+wrapped method is what <code class="xref py py-attr docutils literal notranslate"><span class="pre">__loader__</span></code> should be set to.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="importlib.util.set_package">
+<code class="descclassname">&#64;</code><code class="descclassname">importlib.util.</code><code class="descname">set_package</code><a class="headerlink" href="#importlib.util.set_package" title="本定義的永久連結">¶</a></dt>
+<dd><p>A <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> for a <a class="reference internal" href="../glossary.html#term-loader"><span class="xref std std-term">loader</span></a> to set the <code class="xref py py-attr docutils literal notranslate"><span class="pre">__package__</span></code>
+attribute on the module returned by the loader. If <code class="xref py py-attr docutils literal notranslate"><span class="pre">__package__</span></code> is
+set and has a value other than <code class="docutils literal notranslate"><span class="pre">None</span></code> it will not be changed.
+Note that the module returned by the loader is what has the attribute
+set on and not the module found in <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a>.</p>
+<p>Reliance on this decorator is discouraged when it is possible to set
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">__package__</span></code> before the execution of the code is possible. By
+setting it before the code for the module is executed it allows the
+attribute to be used at the global level of the module during
+initialization.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">29.6. <code class="docutils literal notranslate"><span class="pre">importlib</span></code> – An implementation of <code class="docutils literal notranslate"><span class="pre">import</span></code></a><ul>
+<li><a class="reference internal" href="#introduction">29.6.1. Introduction</a></li>
+<li><a class="reference internal" href="#functions">29.6.2. Functions</a></li>
+<li><a class="reference internal" href="#module-importlib.abc">29.6.3. <code class="docutils literal notranslate"><span class="pre">importlib.abc</span></code> – Abstract base classes related to import</a></li>
+<li><a class="reference internal" href="#module-importlib.machinery">29.6.4. <code class="docutils literal notranslate"><span class="pre">importlib.machinery</span></code> – Importers and path hooks</a></li>
+<li><a class="reference internal" href="#module-importlib.util">29.6.5. <code class="docutils literal notranslate"><span class="pre">importlib.util</span></code> – Utility code for importers</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="runpy.html"
+                        title="上一章">29.5. <code class="docutils literal notranslate"><span class="pre">runpy</span></code> — Locating and executing Python modules</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="language.html"
+                        title="下一章">30. Python Language Services</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/importlib.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="language.html" title="30. Python Language Services"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="runpy.html" title="29.5. runpy — Locating and executing Python modules"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">3.2.6 Documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="modules.html" >29. Importing Modules</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 04, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

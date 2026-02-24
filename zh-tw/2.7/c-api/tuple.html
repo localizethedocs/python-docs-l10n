@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tuple Objects &#8212; Python 2.7.18 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/c-api/tuple.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.7.18 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="List Objects" href="list.html" />
+    <link rel="prev" title="Buffers and Memoryview Objects" href="buffer.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/c-api/tuple.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜尋"/>
+            <input type="submit" value="搜"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>上個主題</h4>
+  <p class="topless"><a href="buffer.html"
+                        title="上一章">Buffers and Memoryview Objects</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="list.html"
+                        title="下一章">List Objects</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/c-api/tuple.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="搜" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </nav>
+    </div>
+</div>
+
+<div id="outdated-warning" style="padding: .5em; text-align: center; background-color: #FFBABA; color: #6A0E0E;">
+    This document is for an old version of Python that is no longer supported.
+    You should upgrade, and read the
+    <a href="/3/c-api/tuple.html">Python documentation for the current stable release</a>.
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="list.html" title="List Objects"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="buffer.html" title="Buffers and Memoryview Objects"
+             accesskey="P">上一頁</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html" accesskey="U">Concrete Objects Layer</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" aria-label="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="tuple-objects">
+<span id="tupleobjects"></span><h1>Tuple Objects<a class="headerlink" href="#tuple-objects" title="本標題的永久連結">¶</a></h1>
+<span class="target" id="index-0"></span><dl class="type">
+<dt id="c.PyTupleObject">
+<code class="sig-name descname">PyTupleObject</code><a class="headerlink" href="#c.PyTupleObject" title="本定義的永久連結">¶</a></dt>
+<dd><p>This subtype of <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyObject</span></code></a> represents a Python tuple object.</p>
+</dd></dl>
+
+<dl class="var">
+<dt id="c.PyTuple_Type">
+<a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject">PyTypeObject</a> <code class="sig-name descname">PyTuple_Type</code><a class="headerlink" href="#c.PyTuple_Type" title="本定義的永久連結">¶</a></dt>
+<dd><p id="index-1">This instance of <a class="reference internal" href="type.html#c.PyTypeObject" title="PyTypeObject"><code class="xref c c-type docutils literal notranslate"><span class="pre">PyTypeObject</span></code></a> represents the Python tuple type; it is
+the same object as <code class="docutils literal notranslate"><span class="pre">tuple</span></code> and <code class="docutils literal notranslate"><span class="pre">types.TupleType</span></code> in the Python layer..</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_Check">
+int <code class="sig-name descname">PyTuple_Check</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_Check" title="本定義的永久連結">¶</a></dt>
+<dd><p>Return true if <em>p</em> is a tuple object or an instance of a subtype of the tuple
+type.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.2 版更變: </span>Allowed subtypes to be accepted.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_CheckExact">
+int <code class="sig-name descname">PyTuple_CheckExact</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_CheckExact" title="本定義的永久連結">¶</a></dt>
+<dd><p>Return true if <em>p</em> is a tuple object, but not an instance of a subtype of the
+tuple type.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">2.2 版新加入.</span></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_New">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyTuple_New</code><span class="sig-paren">(</span>Py_ssize_t<em> len</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_New" title="本定義的永久連結">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>Return a new tuple object of size <em>len</em>, or <em>NULL</em> on failure.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function used an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type for <em>len</em>. This might require
+changes in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_Pack">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyTuple_Pack</code><span class="sig-paren">(</span>Py_ssize_t<em> n</em>, ...<span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_Pack" title="本定義的永久連結">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>Return a new tuple object of size <em>n</em>, or <em>NULL</em> on failure. The tuple values
+are initialized to the subsequent <em>n</em> C arguments pointing to Python objects.
+<code class="docutils literal notranslate"><span class="pre">PyTuple_Pack(2,</span> <span class="pre">a,</span> <span class="pre">b)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">Py_BuildValue(&quot;(OO)&quot;,</span> <span class="pre">a,</span> <span class="pre">b)</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">2.4 版新加入.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function used an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type for <em>n</em>. This might require
+changes in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_Size">
+Py_ssize_t <code class="sig-name descname">PyTuple_Size</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_Size" title="本定義的永久連結">¶</a></dt>
+<dd><p>Take a pointer to a tuple object, and return the size of that tuple.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function returned an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type. This might require changes
+in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_GET_SIZE">
+Py_ssize_t <code class="sig-name descname">PyTuple_GET_SIZE</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_GET_SIZE" title="本定義的永久連結">¶</a></dt>
+<dd><p>Return the size of the tuple <em>p</em>, which must be non-<em>NULL</em> and point to a tuple;
+no error checking is performed.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function returned an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type. This might require changes
+in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_GetItem">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyTuple_GetItem</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, Py_ssize_t<em> pos</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_GetItem" title="本定義的永久連結">¶</a></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>Return the object at position <em>pos</em> in the tuple pointed to by <em>p</em>.  If <em>pos</em> is
+out of bounds, return <em>NULL</em> and set an <a class="reference internal" href="../library/exceptions.html#exceptions.IndexError" title="exceptions.IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> exception.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function used an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type for <em>pos</em>. This might require
+changes in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_GET_ITEM">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyTuple_GET_ITEM</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, Py_ssize_t<em> pos</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_GET_ITEM" title="本定義的永久連結">¶</a></dt>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p>Like <a class="reference internal" href="#c.PyTuple_GetItem" title="PyTuple_GetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_GetItem()</span></code></a>, but does no checking of its arguments.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function used an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type for <em>pos</em>. This might require
+changes in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_GetSlice">
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="sig-name descname">PyTuple_GetSlice</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, Py_ssize_t<em> low</em>, Py_ssize_t<em> high</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_GetSlice" title="本定義的永久連結">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>Return the slice of the tuple pointed to by <em>p</em> between <em>low</em> and <em>high</em>,
+or <em>NULL</em> on failure.  This is the equivalent of the Python expression
+<code class="docutils literal notranslate"><span class="pre">p[low:high]</span></code>.  Indexing from the end of the list is not supported.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function used an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type for <em>low</em> and <em>high</em>. This might
+require changes in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_SetItem">
+int <code class="sig-name descname">PyTuple_SetItem</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, Py_ssize_t<em> pos</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_SetItem" title="本定義的永久連結">¶</a></dt>
+<dd><p>Insert a reference to object <em>o</em> at position <em>pos</em> of the tuple pointed to by
+<em>p</em>.  Return <code class="docutils literal notranslate"><span class="pre">0</span></code> on success.  If <em>pos</em> is out of bounds, return <code class="docutils literal notranslate"><span class="pre">-1</span></code>
+and set an <a class="reference internal" href="../library/exceptions.html#exceptions.IndexError" title="exceptions.IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a> exception.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>This function 「steals」 a reference to <em>o</em> and discards a reference to
+an item already in the tuple at the affected position.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function used an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type for <em>pos</em>. This might require
+changes in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_SET_ITEM">
+void <code class="sig-name descname">PyTuple_SET_ITEM</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *p</em>, Py_ssize_t<em> pos</em>, <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> *o</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_SET_ITEM" title="本定義的永久連結">¶</a></dt>
+<dd><p>Like <a class="reference internal" href="#c.PyTuple_SetItem" title="PyTuple_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_SetItem()</span></code></a>, but does no error checking, and should <em>only</em> be
+used to fill in brand new tuples.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>This macro 「steals」 a reference to <em>o</em>, and, unlike
+<a class="reference internal" href="#c.PyTuple_SetItem" title="PyTuple_SetItem"><code class="xref c c-func docutils literal notranslate"><span class="pre">PyTuple_SetItem()</span></code></a>, does <em>not</em> discard a reference to any item that
+is being replaced; any reference in the tuple at position <em>pos</em> will be
+leaked.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function used an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type for <em>pos</em>. This might require
+changes in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c._PyTuple_Resize">
+int <code class="sig-name descname">_PyTuple_Resize</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em> **p</em>, Py_ssize_t<em> newsize</em><span class="sig-paren">)</span><a class="headerlink" href="#c._PyTuple_Resize" title="本定義的永久連結">¶</a></dt>
+<dd><p>Can be used to resize a tuple.  <em>newsize</em> will be the new length of the tuple.
+Because tuples are <em>supposed</em> to be immutable, this should only be used if there
+is only one reference to the object.  Do <em>not</em> use this if the tuple may already
+be known to some other part of the code.  The tuple will always grow or shrink
+at the end.  Think of this as destroying the old tuple and creating a new one,
+only more efficiently.  Returns <code class="docutils literal notranslate"><span class="pre">0</span></code> on success. Client code should never
+assume that the resulting value of <code class="docutils literal notranslate"><span class="pre">*p</span></code> will be the same as before calling
+this function. If the object referenced by <code class="docutils literal notranslate"><span class="pre">*p</span></code> is replaced, the original
+<code class="docutils literal notranslate"><span class="pre">*p</span></code> is destroyed.  On failure, returns <code class="docutils literal notranslate"><span class="pre">-1</span></code> and sets <code class="docutils literal notranslate"><span class="pre">*p</span></code> to <em>NULL</em>, and
+raises <a class="reference internal" href="../library/exceptions.html#exceptions.MemoryError" title="exceptions.MemoryError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MemoryError</span></code></a> or <a class="reference internal" href="../library/exceptions.html#exceptions.SystemError" title="exceptions.SystemError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemError</span></code></a>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.2 版更變: </span>Removed unused third parameter, <em>last_is_sticky</em>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">2.5 版更變: </span>This function used an <code class="xref c c-type docutils literal notranslate"><span class="pre">int</span></code> type for <em>newsize</em>. This might
+require changes in your code for properly supporting 64-bit systems.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.PyTuple_ClearFreeList">
+int <code class="sig-name descname">PyTuple_ClearFreeList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PyTuple_ClearFreeList" title="本定義的永久連結">¶</a></dt>
+<dd><p>Clear the free list. Return the total number of freed items.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">2.6 版新加入.</span></p>
+</div>
+</dd></dl>
+
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上個主題</h4>
+  <p class="topless"><a href="buffer.html"
+                        title="上一章">Buffers and Memoryview Objects</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="list.html"
+                        title="下一章">List Objects</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/c-api/tuple.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="搜" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="list.html" title="List Objects"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="buffer.html" title="Buffers and Memoryview Objects"
+             >上一頁</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html" >Concrete Objects Layer</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" aria-label="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
+    </div>
+
+  </body>
+</html>

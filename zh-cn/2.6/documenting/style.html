@@ -1,0 +1,258 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2. Style Guide &#8212; Python 2.6.9 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/documenting/style.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="3. reStructuredText Primer" href="rest.html" />
+    <link rel="prev" title="1. Introduction" href="intro.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/documenting/style.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="rest.html" title="3. reStructuredText Primer"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="1. Introduction"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Documenting Python</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="style-guide">
+<h1>2. Style Guide<a class="headerlink" href="#style-guide" title="永久链接至标题">¶</a></h1>
+<p>The Python documentation should follow the <a class="reference external" href="http://developer.apple.com/mac/library/documentation/UserExperience/Conceptual/APStyleGuide/APSG_2009.pdf">Apple Publications Style Guide</a>
+wherever possible. This particular style guide was selected mostly because it
+seems reasonable and is easy to get online.</p>
+<p>Topics which are not covered in the Apple’s style guide will be discussed in
+this document.</p>
+<p>All reST files use an indentation of 3 spaces.  The maximum line length is 80
+characters for normal text, but tables, deeply indented code samples and long
+links may extend beyond that.</p>
+<p>Make generous use of blank lines where applicable; they help grouping things
+together.</p>
+<p>A sentence-ending period may be followed by one or two spaces; while reST
+ignores the second space, it is customarily put in by some users, for example
+to aid Emacs’ auto-fill mode.</p>
+<p>Footnotes are generally discouraged, though they may be used when they are the
+best way to present specific information. When a footnote reference is added at
+the end of the sentence, it should follow the sentence-ending punctuation. The
+reST markup should appear something like this:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>This sentence has a footnote reference. <span class="s">[#]_</span> This is the next sentence.
+</pre></div>
+</div>
+<p>Footnotes should be gathered at the end of a file, or if the file is very long,
+at the end of a section. The docutils will automatically create backlinks to
+the footnote reference.</p>
+<p>Footnotes may appear in the middle of sentences where appropriate.</p>
+<p>Many special names are used in the Python documentation, including the names of
+operating systems, programming languages, standards bodies, and the like. Most
+of these entities are not assigned any special markup, but the preferred
+spellings are given here to aid authors in maintaining the consistency of
+presentation in the Python documentation.</p>
+<p>Other terms and words deserve special mention as well; these conventions should
+be used to ensure consistency throughout the documentation:</p>
+<dl class="docutils">
+<dt>CPU</dt>
+<dd>For “central processing unit.” Many style guides say this should be spelled
+out on the first use (and if you must use it, do so!). For the Python
+documentation, this abbreviation should be avoided since there’s no
+reasonable way to predict which occurrence will be the first seen by the
+reader. It is better to use the word “processor” instead.</dd>
+<dt>POSIX</dt>
+<dd>The name assigned to a particular group of standards. This is always
+uppercase.</dd>
+<dt>Python</dt>
+<dd>The name of our favorite programming language is always capitalized.</dd>
+<dt>Unicode</dt>
+<dd>The name of a character set and matching encoding. This is always written
+capitalized.</dd>
+<dt>Unix</dt>
+<dd>The name of the operating system developed at AT&amp;T Bell Labs in the early
+1970s.</dd>
+</dl>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="intro.html"
+                        title="上一章">1. Introduction</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="rest.html"
+                        title="下一章">3. reStructuredText Primer</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/documenting/style.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="rest.html" title="3. reStructuredText Primer"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="1. Introduction"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Documenting Python</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 24, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

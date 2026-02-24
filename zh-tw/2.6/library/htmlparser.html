@@ -1,0 +1,412 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>19.1. HTMLParser — Simple HTML and XHTML parser &#8212; Python 2.6.9 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/htmlparser.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="19.2. sgmllib — Simple SGML parser" href="sgmllib.html" />
+    <link rel="prev" title="19. Structured Markup Processing Tools" href="markup.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/htmlparser.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="sgmllib.html" title="19.2. sgmllib — Simple SGML parser"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="markup.html" title="19. Structured Markup Processing Tools"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="markup.html" accesskey="U">19. Structured Markup Processing Tools</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-HTMLParser">
+<span id="htmlparser-simple-html-and-xhtml-parser"></span><h1>19.1. <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-mod docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> — Simple HTML and XHTML parser<a class="headerlink" href="#module-HTMLParser" title="本標題的永久連結">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">The <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-mod docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> module has been renamed to <code class="xref py py-mod docutils literal notranslate"><span class="pre">html.parser</span></code> in Python
+3.0.  The <a class="reference internal" href="../glossary.html#term-2to3"><span class="xref std std-term">2to3</span></a> tool will automatically adapt imports when converting
+your sources to 3.0.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">2.2 版新加入.</span></p>
+</div>
+<p id="index-0">This module defines a class <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> which serves as the basis for
+parsing text files formatted in HTML (HyperText Mark-up Language) and XHTML.
+Unlike the parser in <a class="reference internal" href="htmllib.html#module-htmllib" title="htmllib: A parser for HTML documents.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">htmllib</span></code></a>, this parser is not based on the SGML parser
+in <a class="reference internal" href="sgmllib.html#module-sgmllib" title="sgmllib: Only as much of an SGML parser as needed to parse HTML.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sgmllib</span></code></a>.</p>
+<dl class="class">
+<dt id="HTMLParser.HTMLParser">
+<em class="property">class </em><code class="descclassname">HTMLParser.</code><code class="descname">HTMLParser</code><a class="headerlink" href="#HTMLParser.HTMLParser" title="本定義的永久連結">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> class is instantiated without arguments.</p>
+<p>An <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> instance is fed HTML data and calls handler functions when tags
+begin and end.  The <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> class is meant to be overridden by the
+user to provide a desired behavior.</p>
+<p>Unlike the parser in <a class="reference internal" href="htmllib.html#module-htmllib" title="htmllib: A parser for HTML documents.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">htmllib</span></code></a>, this parser does not check that end tags
+match start tags or call the end-tag handler for elements which are closed
+implicitly by closing an outer element.</p>
+</dd></dl>
+
+<p>An exception is defined as well:</p>
+<dl class="exception">
+<dt id="HTMLParser.HTMLParseError">
+<em class="property">exception </em><code class="descclassname">HTMLParser.</code><code class="descname">HTMLParseError</code><a class="headerlink" href="#HTMLParser.HTMLParseError" title="本定義的永久連結">¶</a></dt>
+<dd><p>Exception raised by the <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> class when it encounters an error
+while parsing.  This exception provides three attributes: <code class="xref py py-attr docutils literal notranslate"><span class="pre">msg</span></code> is a brief
+message explaining the error, <code class="xref py py-attr docutils literal notranslate"><span class="pre">lineno</span></code> is the number of the line on which
+the broken construct was detected, and <code class="xref py py-attr docutils literal notranslate"><span class="pre">offset</span></code> is the number of
+characters into the line at which the construct starts.</p>
+</dd></dl>
+
+<p><a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> instances have the following methods:</p>
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.reset">
+<code class="descclassname">HTMLParser.</code><code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.reset" title="本定義的永久連結">¶</a></dt>
+<dd><p>Reset the instance.  Loses all unprocessed data.  This is called implicitly at
+instantiation time.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.feed">
+<code class="descclassname">HTMLParser.</code><code class="descname">feed</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.feed" title="本定義的永久連結">¶</a></dt>
+<dd><p>Feed some text to the parser.  It is processed insofar as it consists of
+complete elements; incomplete data is buffered until more data is fed or
+<a class="reference internal" href="#HTMLParser.HTMLParser.close" title="HTMLParser.HTMLParser.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.close">
+<code class="descclassname">HTMLParser.</code><code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.close" title="本定義的永久連結">¶</a></dt>
+<dd><p>Force processing of all buffered data as if it were followed by an end-of-file
+mark.  This method may be redefined by a derived class to define additional
+processing at the end of the input, but the redefined version should always call
+the <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> base class method <a class="reference internal" href="#HTMLParser.HTMLParser.close" title="HTMLParser.HTMLParser.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.getpos">
+<code class="descclassname">HTMLParser.</code><code class="descname">getpos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.getpos" title="本定義的永久連結">¶</a></dt>
+<dd><p>Return current line number and offset.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.get_starttag_text">
+<code class="descclassname">HTMLParser.</code><code class="descname">get_starttag_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.get_starttag_text" title="本定義的永久連結">¶</a></dt>
+<dd><p>Return the text of the most recently opened start tag.  This should not normally
+be needed for structured processing, but may be useful in dealing with HTML 「as
+deployed」 or for re-generating input with minimal changes (whitespace between
+attributes can be preserved, etc.).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_starttag">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_starttag</code><span class="sig-paren">(</span><em>tag</em>, <em>attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_starttag" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to handle the start of a tag.  It is intended to be
+overridden by a derived class; the base class implementation does nothing.</p>
+<p>The <em>tag</em> argument is the name of the tag converted to lower case. The <em>attrs</em>
+argument is a list of <code class="docutils literal notranslate"><span class="pre">(name,</span> <span class="pre">value)</span></code> pairs containing the attributes found
+inside the tag’s <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> brackets.  The <em>name</em> will be translated to lower case,
+and quotes in the <em>value</em> have been removed, and character and entity references
+have been replaced.  For instance, for the tag <code class="docutils literal notranslate"><span class="pre">&lt;A</span>
+<span class="pre">HREF=&quot;http://www.cwi.nl/&quot;&gt;</span></code>, this method would be called as
+<code class="docutils literal notranslate"><span class="pre">handle_starttag('a',</span> <span class="pre">[('href',</span> <span class="pre">'http://www.cwi.nl/')])</span></code>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">2.6 版更變: </span>All entity references from <a class="reference internal" href="htmllib.html#module-htmlentitydefs" title="htmlentitydefs: Definitions of HTML general entities."><code class="xref py py-mod docutils literal notranslate"><span class="pre">htmlentitydefs</span></code></a> are now replaced in the attribute
+values.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_startendtag">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_startendtag</code><span class="sig-paren">(</span><em>tag</em>, <em>attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_startendtag" title="本定義的永久連結">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#HTMLParser.HTMLParser.handle_starttag" title="HTMLParser.HTMLParser.handle_starttag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_starttag()</span></code></a>, but called when the parser encounters an
+XHTML-style empty tag (<code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">.../&gt;</span></code>).  This method may be overridden by
+subclasses which require this particular lexical information; the default
+implementation simple calls <a class="reference internal" href="#HTMLParser.HTMLParser.handle_starttag" title="HTMLParser.HTMLParser.handle_starttag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_starttag()</span></code></a> and <a class="reference internal" href="#HTMLParser.HTMLParser.handle_endtag" title="HTMLParser.HTMLParser.handle_endtag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_endtag()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_endtag">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_endtag</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_endtag" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to handle the end tag of an element.  It is intended to be
+overridden by a derived class; the base class implementation does nothing.  The
+<em>tag</em> argument is the name of the tag converted to lower case.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_data">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_data" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process arbitrary data.  It is intended to be
+overridden by a derived class; the base class implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_charref">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_charref</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_charref" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process a character reference of the form <code class="docutils literal notranslate"><span class="pre">&amp;#ref;</span></code>.
+It is intended to be overridden by a derived class; the base class
+implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_entityref">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_entityref</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_entityref" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process a general entity reference of the form
+<code class="docutils literal notranslate"><span class="pre">&amp;name;</span></code> where <em>name</em> is an general entity reference.  It is intended to be
+overridden by a derived class; the base class implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_comment">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_comment</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_comment" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called when a comment is encountered.  The <em>comment</em> argument is
+a string containing the text between the <code class="docutils literal notranslate"><span class="pre">--</span></code> and <code class="docutils literal notranslate"><span class="pre">--</span></code> delimiters, but not
+the delimiters themselves.  For example, the comment <code class="docutils literal notranslate"><span class="pre">&lt;!--text--&gt;</span></code> will cause
+this method to be called with the argument <code class="docutils literal notranslate"><span class="pre">'text'</span></code>.  It is intended to be
+overridden by a derived class; the base class implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_decl">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_decl</code><span class="sig-paren">(</span><em>decl</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_decl" title="本定義的永久連結">¶</a></dt>
+<dd><p>Method called when an SGML <code class="docutils literal notranslate"><span class="pre">doctype</span></code> declaration is read by the parser.
+The <em>decl</em> parameter will be the entire contents of the declaration inside
+the <code class="docutils literal notranslate"><span class="pre">&lt;!...&gt;</span></code> markup.  It is intended to be overridden by a derived class;
+the base class implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.unknown_decl">
+<code class="descclassname">HTMLParser.</code><code class="descname">unknown_decl</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.unknown_decl" title="本定義的永久連結">¶</a></dt>
+<dd><p>Method called when an unrecognized SGML declaration is read by the parser.
+The <em>data</em> parameter will be the entire contents of the declaration inside
+the <code class="docutils literal notranslate"><span class="pre">&lt;!...&gt;</span></code> markup.  It is sometimes useful to be be overridden by a
+derived class; the base class implementation throws an <a class="reference internal" href="#HTMLParser.HTMLParseError" title="HTMLParser.HTMLParseError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">HTMLParseError</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="HTMLParser.HTMLParser.handle_pi">
+<code class="descclassname">HTMLParser.</code><code class="descname">handle_pi</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#HTMLParser.HTMLParser.handle_pi" title="本定義的永久連結">¶</a></dt>
+<dd><p>Method called when a processing instruction is encountered.  The <em>data</em>
+parameter will contain the entire processing instruction. For example, for the
+processing instruction <code class="docutils literal notranslate"><span class="pre">&lt;?proc</span> <span class="pre">color='red'&gt;</span></code>, this method would be called as
+<code class="docutils literal notranslate"><span class="pre">handle_pi(&quot;proc</span> <span class="pre">color='red'&quot;)</span></code>.  It is intended to be overridden by a derived
+class; the base class implementation does nothing.</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">The <a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> class uses the SGML syntactic rules for processing
+instructions.  An XHTML processing instruction using the trailing <code class="docutils literal notranslate"><span class="pre">'?'</span></code> will
+cause the <code class="docutils literal notranslate"><span class="pre">'?'</span></code> to be included in <em>data</em>.</p>
+</div>
+</dd></dl>
+
+<div class="section" id="example-html-parser-application">
+<span id="htmlparser-example"></span><h2>19.1.1. Example HTML Parser Application<a class="headerlink" href="#example-html-parser-application" title="本標題的永久連結">¶</a></h2>
+<p>As a basic example, below is a very basic HTML parser that uses the
+<a class="reference internal" href="#module-HTMLParser" title="HTMLParser: A simple parser that can handle HTML and XHTML."><code class="xref py py-class docutils literal notranslate"><span class="pre">HTMLParser</span></code></a> class to print out tags as they are encountered:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">HTMLParser</span> <span class="kn">import</span> <span class="n">HTMLParser</span>
+
+<span class="k">class</span> <span class="nc">MyHTMLParser</span><span class="p">(</span><span class="n">HTMLParser</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">handle_starttag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s2">&quot;Encountered the beginning of a </span><span class="si">%s</span><span class="s2"> tag&quot;</span> <span class="o">%</span> <span class="n">tag</span>
+
+    <span class="k">def</span> <span class="nf">handle_endtag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s2">&quot;Encountered the end of a </span><span class="si">%s</span><span class="s2"> tag&quot;</span> <span class="o">%</span> <span class="n">tag</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">19.1. <code class="docutils literal notranslate"><span class="pre">HTMLParser</span></code> — Simple HTML and XHTML parser</a><ul>
+<li><a class="reference internal" href="#example-html-parser-application">19.1.1. Example HTML Parser Application</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="markup.html"
+                        title="上一章">19. Structured Markup Processing Tools</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="sgmllib.html"
+                        title="下一章">19.2. <code class="docutils literal notranslate"><span class="pre">sgmllib</span></code> — Simple SGML parser</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/htmlparser.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="sgmllib.html" title="19.2. sgmllib — Simple SGML parser"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="markup.html" title="19. Structured Markup Processing Tools"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="markup.html" >19. Structured Markup Processing Tools</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

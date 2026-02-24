@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>14.4. sha — SHA-1 message digest algorithm &#8212; Python 2.7.18 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/sha.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Python 2.7.18 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="15. Generic Operating System Services" href="allos.html" />
+    <link rel="prev" title="14.3. md5 — MD5 message digest algorithm" href="md5.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/sha.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="md5.html"
+                        title="previous chapter"><span class="section-number">14.3. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">md5</span></code> — MD5 message digest algorithm</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="allos.html"
+                        title="next chapter"><span class="section-number">15. </span>Generic Operating System Services</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/sha.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </nav>
+    </div>
+</div>
+
+<div id="outdated-warning" style="padding: .5em; text-align: center; background-color: #FFBABA; color: #6A0E0E;">
+    This document is for an old version of Python that is no longer supported.
+    You should upgrade, and read the
+    <a href="/3/library/sha.html">Python documentation for the current stable release</a>.
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="allos.html" title="15. Generic Operating System Services"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="md5.html" title="14.3. md5 — MD5 message digest algorithm"
+             accesskey="P">previous</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="crypto.html" accesskey="U"><span class="section-number">14. </span>Cryptographic Services</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-sha">
+<span id="sha-sha-1-message-digest-algorithm"></span><h1><span class="section-number">14.4. </span><a class="reference internal" href="#module-sha" title="sha: NIST's secure hash algorithm, SHA. (deprecated)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">sha</span></code></a> — SHA-1 message digest algorithm<a class="headerlink" href="#module-sha" title="Permalink to this headline">¶</a></h1>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 2.5: </span>Use the <a class="reference internal" href="hashlib.html#module-hashlib" title="hashlib: Secure hash and message digest algorithms."><code class="xref py py-mod docutils literal notranslate"><span class="pre">hashlib</span></code></a> module instead.</p>
+</div>
+<p id="index-0">This module implements the interface to NIST’s secure hash  algorithm, known as
+SHA-1.  SHA-1 is an improved version of the original SHA hash algorithm.  It is
+used in the same way as the <a class="reference internal" href="md5.html#module-md5" title="md5: RSA's MD5 message digest algorithm. (deprecated)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">md5</span></code></a> module: use <a class="reference internal" href="new.html#module-new" title="new: Interface to the creation of runtime implementation objects. (deprecated)"><code class="xref py py-func docutils literal notranslate"><span class="pre">new()</span></code></a> to create an sha
+object, then feed this object with arbitrary strings using the <code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code>
+method, and at any point you can ask it for the <em class="dfn">digest</em> of the
+concatenation of the strings fed to it so far.  SHA-1 digests are 160 bits
+instead of MD5’s 128 bits.</p>
+<dl class="function">
+<dt id="sha.new">
+<code class="sig-prename descclassname">sha.</code><code class="sig-name descname">new</code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param">string</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#sha.new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new sha object.  If <em>string</em> is present, the method call
+<code class="docutils literal notranslate"><span class="pre">update(string)</span></code> is made.</p>
+</dd></dl>
+
+<p>The following values are provided as constants in the module and as attributes
+of the sha objects returned by <a class="reference internal" href="new.html#module-new" title="new: Interface to the creation of runtime implementation objects. (deprecated)"><code class="xref py py-func docutils literal notranslate"><span class="pre">new()</span></code></a>:</p>
+<dl class="data">
+<dt id="sha.blocksize">
+<code class="sig-prename descclassname">sha.</code><code class="sig-name descname">blocksize</code><a class="headerlink" href="#sha.blocksize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Size of the blocks fed into the hash function; this is always <code class="docutils literal notranslate"><span class="pre">1</span></code>.  This size
+is used to allow an arbitrary string to be hashed.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sha.digest_size">
+<code class="sig-prename descclassname">sha.</code><code class="sig-name descname">digest_size</code><a class="headerlink" href="#sha.digest_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The size of the resulting digest in bytes.  This is always <code class="docutils literal notranslate"><span class="pre">20</span></code>.</p>
+</dd></dl>
+
+<p>An sha object has the same methods as md5 objects:</p>
+<dl class="method">
+<dt id="sha.sha.update">
+<code class="sig-prename descclassname">sha.</code><code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param">arg</em><span class="sig-paren">)</span><a class="headerlink" href="#sha.sha.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the sha object with the string <em>arg</em>.  Repeated calls are equivalent to a
+single call with the concatenation of all the arguments: <code class="docutils literal notranslate"><span class="pre">m.update(a);</span>
+<span class="pre">m.update(b)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">m.update(a+b)</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sha.sha.digest">
+<code class="sig-prename descclassname">sha.</code><code class="sig-name descname">digest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sha.sha.digest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the digest of the strings passed to the <a class="reference internal" href="#sha.sha.update" title="sha.sha.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a> method so far.
+This is a 20-byte string which may contain non-ASCII characters, including null
+bytes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sha.sha.hexdigest">
+<code class="sig-prename descclassname">sha.</code><code class="sig-name descname">hexdigest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sha.sha.hexdigest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like <a class="reference internal" href="#sha.sha.digest" title="sha.sha.digest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">digest()</span></code></a> except the digest is returned as a string of length 40,
+containing only hexadecimal digits.  This may  be used to exchange the value
+safely in email or other non-binary environments.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sha.sha.copy">
+<code class="sig-prename descclassname">sha.</code><code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sha.sha.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy (“clone”) of the sha object.  This can be used to efficiently
+compute the digests of strings that share a common initial substring.</p>
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference external" href="http://csrc.nist.gov/publications/fips/fips180-2/fips180-2withchangenotice.pdf">Secure Hash Standard</a></dt><dd><p>The Secure Hash Algorithm is defined by NIST document FIPS PUB 180-2: <a class="reference external" href="http://csrc.nist.gov/publications/fips/fips180-2/fips180-2withchangenotice.pdf">Secure
+Hash Standard</a>,
+published in August 2002.</p>
+</dd>
+<dt><a class="reference external" href="http://csrc.nist.gov/CryptoToolkit/tkhash.html">Cryptographic Toolkit (Secure Hashing)</a></dt><dd><p>Links from NIST to various information on secure hashing.</p>
+</dd>
+</dl>
+</div>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="md5.html"
+                        title="previous chapter"><span class="section-number">14.3. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">md5</span></code> — MD5 message digest algorithm</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="allos.html"
+                        title="next chapter"><span class="section-number">15. </span>Generic Operating System Services</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/sha.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="allos.html" title="15. Generic Operating System Services"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="md5.html" title="14.3. md5 — MD5 message digest algorithm"
+             >previous</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="crypto.html" ><span class="section-number">14. </span>Cryptographic Services</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2026, Python Software Foundation.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on Feb 24, 2026.
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
+    </div>
+
+  </body>
+</html>

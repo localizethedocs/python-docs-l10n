@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>20.20. CGIHTTPServer — CGI-capable HTTP request handler &#8212; Python 2.7.18 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/cgihttpserver.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.7.18 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="20.21. cookielib — Cookie handling for HTTP clients" href="cookielib.html" />
+    <link rel="prev" title="20.19. SimpleHTTPServer — Simple HTTP request handler" href="simplehttpserver.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/cgihttpserver.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜尋"/>
+            <input type="submit" value="搜"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>上個主題</h4>
+  <p class="topless"><a href="simplehttpserver.html"
+                        title="上一章"><span class="section-number">20.19. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">SimpleHTTPServer</span></code> — Simple HTTP request handler</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="cookielib.html"
+                        title="下一章"><span class="section-number">20.21. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">cookielib</span></code> — Cookie handling for HTTP clients</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/cgihttpserver.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="搜" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </nav>
+    </div>
+</div>
+
+<div id="outdated-warning" style="padding: .5em; text-align: center; background-color: #FFBABA; color: #6A0E0E;">
+    This document is for an old version of Python that is no longer supported.
+    You should upgrade, and read the
+    <a href="/3/library/cgihttpserver.html">Python documentation for the current stable release</a>.
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="cookielib.html" title="20.21. cookielib — Cookie handling for HTTP clients"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="simplehttpserver.html" title="20.19. SimpleHTTPServer — Simple HTTP request handler"
+             accesskey="P">上一頁</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="internet.html" accesskey="U"><span class="section-number">20. </span>Internet Protocols and Support</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" aria-label="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-CGIHTTPServer">
+<span id="cgihttpserver-cgi-capable-http-request-handler"></span><h1><span class="section-number">20.20. </span><a class="reference internal" href="#module-CGIHTTPServer" title="CGIHTTPServer: This module provides a request handler for HTTP servers which can run CGI scripts."><code class="xref py py-mod docutils literal notranslate"><span class="pre">CGIHTTPServer</span></code></a> — CGI-capable HTTP request handler<a class="headerlink" href="#module-CGIHTTPServer" title="本標題的永久連結">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>The <a class="reference internal" href="#module-CGIHTTPServer" title="CGIHTTPServer: This module provides a request handler for HTTP servers which can run CGI scripts."><code class="xref py py-mod docutils literal notranslate"><span class="pre">CGIHTTPServer</span></code></a> module has been merged into <code class="xref py py-mod docutils literal notranslate"><span class="pre">http.server</span></code> in
+Python 3.  The <a class="reference internal" href="../glossary.html#term-2to3"><span class="xref std std-term">2to3</span></a> tool will automatically adapt imports when
+converting your sources to Python 3.</p>
+</div>
+<p>The <a class="reference internal" href="#module-CGIHTTPServer" title="CGIHTTPServer: This module provides a request handler for HTTP servers which can run CGI scripts."><code class="xref py py-mod docutils literal notranslate"><span class="pre">CGIHTTPServer</span></code></a> module defines a request-handler class, interface
+compatible with <a class="reference internal" href="basehttpserver.html#BaseHTTPServer.BaseHTTPRequestHandler" title="BaseHTTPServer.BaseHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseHTTPServer.BaseHTTPRequestHandler</span></code></a> and inherits
+behavior from <a class="reference internal" href="simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler" title="SimpleHTTPServer.SimpleHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleHTTPServer.SimpleHTTPRequestHandler</span></code></a> but can also
+run CGI scripts.</p>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>This module can run CGI scripts on Unix and Windows systems.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">備註</p>
+<p>CGI scripts run by the <a class="reference internal" href="#CGIHTTPServer.CGIHTTPRequestHandler" title="CGIHTTPServer.CGIHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">CGIHTTPRequestHandler</span></code></a> class cannot execute
+redirects (HTTP code 302), because code 200 (script output follows) is sent
+prior to execution of the CGI script.  This pre-empts the status code.</p>
+</div>
+<p>The <a class="reference internal" href="#module-CGIHTTPServer" title="CGIHTTPServer: This module provides a request handler for HTTP servers which can run CGI scripts."><code class="xref py py-mod docutils literal notranslate"><span class="pre">CGIHTTPServer</span></code></a> module defines the following class:</p>
+<dl class="class">
+<dt id="CGIHTTPServer.CGIHTTPRequestHandler">
+<em class="property">class </em><code class="sig-prename descclassname">CGIHTTPServer.</code><code class="sig-name descname">CGIHTTPRequestHandler</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">client_address</em>, <em class="sig-param">server</em><span class="sig-paren">)</span><a class="headerlink" href="#CGIHTTPServer.CGIHTTPRequestHandler" title="本定義的永久連結">¶</a></dt>
+<dd><p>This class is used to serve either files or output of CGI scripts from  the
+current directory and below. Note that mapping HTTP hierarchic structure to
+local directory structure is exactly as in
+<a class="reference internal" href="simplehttpserver.html#SimpleHTTPServer.SimpleHTTPRequestHandler" title="SimpleHTTPServer.SimpleHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimpleHTTPServer.SimpleHTTPRequestHandler</span></code></a>.</p>
+<p>The class will however, run the CGI script, instead of serving it as a file, if
+it guesses it to be a CGI script. Only directory-based CGI are used — the
+other common server configuration is to treat special extensions as denoting CGI
+scripts.</p>
+<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">do_GET()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">do_HEAD()</span></code> functions are modified to run CGI scripts
+and serve the output, instead of serving files, if the request leads to
+somewhere below the <code class="docutils literal notranslate"><span class="pre">cgi_directories</span></code> path.</p>
+<p>The <a class="reference internal" href="#CGIHTTPServer.CGIHTTPRequestHandler" title="CGIHTTPServer.CGIHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">CGIHTTPRequestHandler</span></code></a> defines the following data member:</p>
+<dl class="attribute">
+<dt id="CGIHTTPServer.CGIHTTPRequestHandler.cgi_directories">
+<code class="sig-name descname">cgi_directories</code><a class="headerlink" href="#CGIHTTPServer.CGIHTTPRequestHandler.cgi_directories" title="本定義的永久連結">¶</a></dt>
+<dd><p>This defaults to <code class="docutils literal notranslate"><span class="pre">['/cgi-bin',</span> <span class="pre">'/htbin']</span></code> and describes directories to
+treat as containing CGI scripts.</p>
+</dd></dl>
+
+<p>The <a class="reference internal" href="#CGIHTTPServer.CGIHTTPRequestHandler" title="CGIHTTPServer.CGIHTTPRequestHandler"><code class="xref py py-class docutils literal notranslate"><span class="pre">CGIHTTPRequestHandler</span></code></a> defines the following methods:</p>
+<dl class="method">
+<dt id="CGIHTTPServer.CGIHTTPRequestHandler.do_POST">
+<code class="sig-name descname">do_POST</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CGIHTTPServer.CGIHTTPRequestHandler.do_POST" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method serves the <code class="docutils literal notranslate"><span class="pre">'POST'</span></code> request type, only allowed for CGI
+scripts.  Error 501, 「Can only POST to CGI scripts」, is output when trying
+to POST to a non-CGI url.</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>Note that CGI scripts will be run with UID of user nobody, for security reasons.
+Problems with the CGI script will be translated to error 403.</p>
+<p>For example usage, see the implementation of the <a class="reference internal" href="test.html#module-test" title="test: Regression tests package containing the testing suite for Python."><code class="xref py py-func docutils literal notranslate"><span class="pre">test()</span></code></a> function.</p>
+<div class="admonition seealso">
+<p class="admonition-title">也參考</p>
+<dl class="simple">
+<dt>Module <a class="reference internal" href="basehttpserver.html#module-BaseHTTPServer" title="BaseHTTPServer: Basic HTTP server (base class for SimpleHTTPServer and CGIHTTPServer)."><code class="xref py py-mod docutils literal notranslate"><span class="pre">BaseHTTPServer</span></code></a></dt><dd><p>Base class implementation for Web server and request handler.</p>
+</dd>
+</dl>
+</div>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上個主題</h4>
+  <p class="topless"><a href="simplehttpserver.html"
+                        title="上一章"><span class="section-number">20.19. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">SimpleHTTPServer</span></code> — Simple HTTP request handler</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="cookielib.html"
+                        title="下一章"><span class="section-number">20.21. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">cookielib</span></code> — Cookie handling for HTTP clients</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/cgihttpserver.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="搜" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="cookielib.html" title="20.21. cookielib — Cookie handling for HTTP clients"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="simplehttpserver.html" title="20.19. SimpleHTTPServer — Simple HTTP request handler"
+             >上一頁</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="internet.html" ><span class="section-number">20. </span>Internet Protocols and Support</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" aria-label="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
+    </div>
+
+  </body>
+</html>

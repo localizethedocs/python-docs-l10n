@@ -1,0 +1,360 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Initialization, Finalization, and Threads &#8212; Python 2.6.9 documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/c-api/init.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Python 2.6.9 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Memory Management" href="memory.html" />
+    <link rel="prev" title="Set Objects" href="set.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/c-api/init.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="memory.html" title="Memory Management"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="set.html" title="Set Objects"
+             accesskey="P">previous</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API Reference Manual</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="initialization-finalization-and-threads">
+<span id="initialization"></span><h1>Initialization, Finalization, and Threads<a class="headerlink" href="#initialization-finalization-and-threads" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="thread-state-and-the-global-interpreter-lock">
+<span id="threads"></span><h2>Thread State and the Global Interpreter Lock<a class="headerlink" href="#thread-state-and-the-global-interpreter-lock" title="Permalink to this headline">¶</a></h2>
+<p id="index-0">The Python interpreter is not fully thread safe.  In order to support
+multi-threaded Python programs, there’s a global lock, called the <em class="dfn">global
+interpreter lock</em> or <em class="dfn">GIL</em>, that must be held by the current thread before
+it can safely access Python objects. Without the lock, even the simplest
+operations could cause problems in a multi-threaded program: for example, when
+two threads simultaneously increment the reference count of the same object, the
+reference count could end up being incremented only once instead of twice.</p>
+<p id="index-1">Therefore, the rule exists that only the thread that has acquired the global
+interpreter lock may operate on Python objects or call Python/C API functions.
+In order to support multi-threaded Python programs, the interpreter regularly
+releases and reacquires the lock — by default, every 100 bytecode instructions
+(this can be changed with  <a class="reference internal" href="../library/sys.html#sys.setcheckinterval" title="sys.setcheckinterval"><code class="xref py py-func docutils literal notranslate"><span class="pre">sys.setcheckinterval()</span></code></a>).  The lock is also
+released and reacquired around potentially blocking I/O operations like reading
+or writing a file, so that other threads can run while the thread that requests
+the I/O is waiting for the I/O operation to complete.</p>
+<p id="index-2">The Python interpreter needs to keep some bookkeeping information separate per
+thread — for this it uses a data structure called <a href="#id1"><span class="problematic" id="id2">:ctype:`PyThreadState`</span></a>.
+There’s one global variable, however: the pointer to the current
+<a href="#id3"><span class="problematic" id="id4">:ctype:`PyThreadState`</span></a> structure.  Before the addition of <em class="dfn">thread-local
+storage</em> (<em class="dfn">TLS</em>) the current thread state had to be manipulated
+explicitly.</p>
+<p>This is easy enough in most cases.  Most code manipulating the global
+interpreter lock has the following simple structure:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Save</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="kr">thread</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">variable</span><span class="p">.</span>
+<span class="n">Release</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="n">interpreter</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span>
+<span class="p">...</span><span class="n">Do</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">blocking</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="n">operation</span><span class="p">...</span>
+<span class="n">Reacquire</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">global</span><span class="w"> </span><span class="n">interpreter</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span>
+<span class="n">Restore</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="kr">thread</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">local</span><span class="w"> </span><span class="n">variable</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>This is so common that a pair of macros exists to simplify it:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">Py_BEGIN_ALLOW_THREADS</span>
+<span class="p">...</span><span class="n">Do</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">blocking</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="n">operation</span><span class="p">...</span>
+<span class="n">Py_END_ALLOW_THREADS</span>
+</pre></div>
+</div>
+<p id="index-3">The <a href="#id5"><span class="problematic" id="id6">:cmacro:`Py_BEGIN_ALLOW_THREADS`</span></a> macro opens a new block and declares a
+hidden local variable; the <a href="#id7"><span class="problematic" id="id8">:cmacro:`Py_END_ALLOW_THREADS`</span></a> macro closes the
+block.  Another advantage of using these two macros is that when Python is
+compiled without thread support, they are defined empty, thus saving the thread
+state and GIL manipulations.</p>
+<p>When thread support is enabled, the block above expands to the following code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyThreadState</span><span class="w"> </span><span class="o">*</span><span class="n">_save</span><span class="p">;</span>
+
+<span class="n">_save</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyEval_SaveThread</span><span class="p">();</span>
+<span class="p">...</span><span class="n">Do</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">blocking</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="n">operation</span><span class="p">...</span>
+<span class="n">PyEval_RestoreThread</span><span class="p">(</span><span class="n">_save</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Using even lower level primitives, we can get roughly the same effect as
+follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyThreadState</span><span class="w"> </span><span class="o">*</span><span class="n">_save</span><span class="p">;</span>
+
+<span class="n">_save</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyThreadState_Swap</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+<span class="n">PyEval_ReleaseLock</span><span class="p">();</span>
+<span class="p">...</span><span class="n">Do</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">blocking</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="n">operation</span><span class="p">...</span>
+<span class="n">PyEval_AcquireLock</span><span class="p">();</span>
+<span class="n">PyThreadState_Swap</span><span class="p">(</span><span class="n">_save</span><span class="p">);</span>
+</pre></div>
+</div>
+<p id="index-4">There are some subtle differences; in particular, <a href="#id9"><span class="problematic" id="id10">:cfunc:`PyEval_RestoreThread`</span></a>
+saves and restores the value of the  global variable <a href="#id11"><span class="problematic" id="id12">:cdata:`errno`</span></a>, since the
+lock manipulation does not guarantee that <a href="#id13"><span class="problematic" id="id14">:cdata:`errno`</span></a> is left alone.  Also,
+when thread support is disabled, <a href="#id15"><span class="problematic" id="id16">:cfunc:`PyEval_SaveThread`</span></a> and
+<a href="#id17"><span class="problematic" id="id18">:cfunc:`PyEval_RestoreThread`</span></a> don’t manipulate the GIL; in this case,
+<a href="#id19"><span class="problematic" id="id20">:cfunc:`PyEval_ReleaseLock`</span></a> and <a href="#id21"><span class="problematic" id="id22">:cfunc:`PyEval_AcquireLock`</span></a> are not available.
+This is done so that dynamically loaded extensions compiled with thread support
+enabled can be loaded by an interpreter that was compiled with disabled thread
+support.</p>
+<p>The global interpreter lock is used to protect the pointer to the current thread
+state.  When releasing the lock and saving the thread state, the current thread
+state pointer must be retrieved before the lock is released (since another
+thread could immediately acquire the lock and store its own thread state in the
+global variable). Conversely, when acquiring the lock and restoring the thread
+state, the lock must be acquired before storing the thread state pointer.</p>
+<p>It is important to note that when threads are created from C, they don’t have
+the global interpreter lock, nor is there a thread state data structure for
+them.  Such threads must bootstrap themselves into existence, by first
+creating a thread state data structure, then acquiring the lock, and finally
+storing their thread state pointer, before they can start using the Python/C
+API.  When they are done, they should reset the thread state pointer, release
+the lock, and finally free their thread state data structure.</p>
+<p>Beginning with version 2.3, threads can now take advantage of the
+<a href="#id23"><span class="problematic" id="id24">:cfunc:`PyGILState_\*`</span></a> functions to do all of the above automatically.  The
+typical idiom for calling into Python from a C thread is now:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PyGILState_STATE</span><span class="w"> </span><span class="n">gstate</span><span class="p">;</span>
+<span class="n">gstate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PyGILState_Ensure</span><span class="p">();</span>
+
+<span class="cm">/* Perform Python actions here.  */</span>
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CallSomeFunction</span><span class="p">();</span>
+<span class="cm">/* evaluate result */</span>
+
+<span class="cm">/* Release the thread. No Python API allowed beyond this point. */</span>
+<span class="n">PyGILState_Release</span><span class="p">(</span><span class="n">gstate</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Note that the <a href="#id25"><span class="problematic" id="id26">:cfunc:`PyGILState_\*`</span></a> functions assume there is only one global
+interpreter (created automatically by <a href="#id27"><span class="problematic" id="id28">:cfunc:`Py_Initialize`</span></a>).  Python still
+supports the creation of additional interpreters (using
+<a href="#id29"><span class="problematic" id="id30">:cfunc:`Py_NewInterpreter`</span></a>), but mixing multiple interpreters and the
+<a href="#id31"><span class="problematic" id="id32">:cfunc:`PyGILState_\*`</span></a> API is unsupported.</p>
+<p>Another important thing to note about threads is their behaviour in the face
+of the C <a href="#id33"><span class="problematic" id="id34">:cfunc:`fork`</span></a> call. On most systems with <a href="#id35"><span class="problematic" id="id36">:cfunc:`fork`</span></a>, after a
+process forks only the thread that issued the fork will exist. That also
+means any locks held by other threads will never be released. Python solves
+this for <a class="reference internal" href="../library/os.html#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fork()</span></code></a> by acquiring the locks it uses internally before
+the fork, and releasing them afterwards. In addition, it resets any
+<a class="reference internal" href="../library/threading.html#lock-objects"><span class="std std-ref">Lock Objects</span></a> in the child. When extending or embedding Python, there
+is no way to inform Python of additional (non-Python) locks that need to be
+acquired before or reset after a fork. OS facilities such as
+<a href="#id37"><span class="problematic" id="id38">:cfunc:`posix_atfork`</span></a> would need to be used to accomplish the same thing.
+Additionally, when extending or embedding Python, calling <a href="#id39"><span class="problematic" id="id40">:cfunc:`fork`</span></a>
+directly rather than through <a class="reference internal" href="../library/os.html#os.fork" title="os.fork"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.fork()</span></code></a> (and returning to or calling
+into Python) may result in a deadlock by one of Python’s internal locks
+being held by a thread that is defunct after the fork.
+<a href="#id41"><span class="problematic" id="id42">:cfunc:`PyOS_AfterFork`</span></a> tries to reset the necessary locks, but is not
+always able to.</p>
+<p>The following macros are normally used without a trailing semicolon; look for
+example usage in the Python source distribution.</p>
+<p>All of the following functions are only available when thread support is enabled
+at compile time, and must be called only when the global interpreter lock has
+been created.</p>
+</div>
+<div class="section" id="profiling-and-tracing">
+<span id="profiling"></span><h2>Profiling and Tracing<a class="headerlink" href="#profiling-and-tracing" title="Permalink to this headline">¶</a></h2>
+<p>The Python interpreter provides some low-level support for attaching profiling
+and execution tracing facilities.  These are used for profiling, debugging, and
+coverage analysis tools.</p>
+<p>Starting with Python 2.2, the implementation of this facility was substantially
+revised, and an interface from C was added.  This C interface allows the
+profiling or tracing code to avoid the overhead of calling through Python-level
+callable objects, making a direct C function call instead.  The essential
+attributes of the facility have not changed; the interface allows trace
+functions to be installed per-thread, and the basic events reported to the trace
+function are the same as had been reported to the Python-level trace functions
+in previous versions.</p>
+</div>
+<div class="section" id="advanced-debugger-support">
+<span id="advanced-debugging"></span><h2>Advanced Debugger Support<a class="headerlink" href="#advanced-debugger-support" title="Permalink to this headline">¶</a></h2>
+<p>These functions are only intended to be used by advanced debugging tools.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Initialization, Finalization, and Threads</a><ul>
+<li><a class="reference internal" href="#thread-state-and-the-global-interpreter-lock">Thread State and the Global Interpreter Lock</a></li>
+<li><a class="reference internal" href="#profiling-and-tracing">Profiling and Tracing</a></li>
+<li><a class="reference internal" href="#advanced-debugger-support">Advanced Debugger Support</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="set.html"
+                        title="previous chapter">Set Objects</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="memory.html"
+                        title="next chapter">Memory Management</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/c-api/init.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="memory.html" title="Memory Management"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="set.html" title="Set Objects"
+             >previous</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on Feb 24, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

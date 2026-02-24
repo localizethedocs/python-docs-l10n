@@ -1,0 +1,501 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xmllib — A parser for XML documents &#8212; Python 2.6.9 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/xmllib.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/xmllib.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xmllib">
+<span id="xmllib-a-parser-for-xml-documents"></span><h1><a class="reference internal" href="#module-xmllib" title="xmllib: A parser for XML documents.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">xmllib</span></code></a> — A parser for XML documents<a class="headerlink" href="#module-xmllib" title="本標題的永久連結">¶</a></h1>
+<div class="deprecated" id="index-0">
+<p><span class="versionmodified">2.0 版後已棄用: </span>Use <a class="reference internal" href="xml.sax.html#module-xml.sax" title="xml.sax: Package containing SAX2 base classes and convenience functions."><code class="xref py py-mod docutils literal notranslate"><span class="pre">xml.sax</span></code></a> instead.  The newer XML package includes full support for XML
+1.0.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">1.5.2 版更變: </span>Added namespace support.</p>
+</div>
+<p>This module defines a class <a class="reference internal" href="#xmllib.XMLParser" title="xmllib.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a> which serves as the basis  for
+parsing text files formatted in XML (Extensible Markup Language).</p>
+<dl class="class">
+<dt id="xmllib.XMLParser">
+<em class="property">class </em><code class="descclassname">xmllib.</code><code class="descname">XMLParser</code><a class="headerlink" href="#xmllib.XMLParser" title="本定義的永久連結">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#xmllib.XMLParser" title="xmllib.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a> class must be instantiated without arguments. <a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
+<p>This class provides the following interface methods and instance variables:</p>
+<dl class="attribute">
+<dt id="xmllib.XMLParser.attributes">
+<code class="descname">attributes</code><a class="headerlink" href="#xmllib.XMLParser.attributes" title="本定義的永久連結">¶</a></dt>
+<dd><p>A mapping of element names to mappings.  The latter mapping maps attribute
+names that are valid for the element to the default value of the
+attribute, or if there is no default to <code class="docutils literal notranslate"><span class="pre">None</span></code>.  The default value is
+the empty dictionary.  This variable is meant to be overridden, not
+extended since the default is shared by all instances of
+<a class="reference internal" href="#xmllib.XMLParser" title="xmllib.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmllib.XMLParser.elements">
+<code class="descname">elements</code><a class="headerlink" href="#xmllib.XMLParser.elements" title="本定義的永久連結">¶</a></dt>
+<dd><p>A mapping of element names to tuples.  The tuples contain a function for
+handling the start and end tag respectively of the element, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if
+the method <a class="reference internal" href="#xmllib.XMLParser.unknown_starttag" title="xmllib.XMLParser.unknown_starttag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unknown_starttag()</span></code></a> or <a class="reference internal" href="#xmllib.XMLParser.unknown_endtag" title="xmllib.XMLParser.unknown_endtag"><code class="xref py py-meth docutils literal notranslate"><span class="pre">unknown_endtag()</span></code></a> is to be
+called.  The default value is the empty dictionary.  This variable is
+meant to be overridden, not extended since the default is shared by all
+instances of <a class="reference internal" href="#xmllib.XMLParser" title="xmllib.XMLParser"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParser</span></code></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="xmllib.XMLParser.entitydefs">
+<code class="descname">entitydefs</code><a class="headerlink" href="#xmllib.XMLParser.entitydefs" title="本定義的永久連結">¶</a></dt>
+<dd><p>A mapping of entitynames to their values.  The default value contains
+definitions for <code class="docutils literal notranslate"><span class="pre">'lt'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gt'</span></code>, <code class="docutils literal notranslate"><span class="pre">'amp'</span></code>, <code class="docutils literal notranslate"><span class="pre">'quot'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'apos'</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.reset" title="本定義的永久連結">¶</a></dt>
+<dd><p>Reset the instance.  Loses all unprocessed data.  This is called
+implicitly at the instantiation time.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.setnomoretags">
+<code class="descname">setnomoretags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.setnomoretags" title="本定義的永久連結">¶</a></dt>
+<dd><p>Stop processing tags.  Treat all following input as literal input (CDATA).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.setliteral">
+<code class="descname">setliteral</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.setliteral" title="本定義的永久連結">¶</a></dt>
+<dd><p>Enter literal mode (CDATA mode).  This mode is automatically exited when
+the close tag matching the last unclosed open tag is encountered.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.feed">
+<code class="descname">feed</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.feed" title="本定義的永久連結">¶</a></dt>
+<dd><p>Feed some text to the parser.  It is processed insofar as it consists of
+complete tags; incomplete data is buffered until more data is fed or
+<a class="reference internal" href="#xmllib.XMLParser.close" title="xmllib.XMLParser.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a> is called.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.close" title="本定義的永久連結">¶</a></dt>
+<dd><p>Force processing of all buffered data as if it were followed by an
+end-of-file mark.  This method may be redefined by a derived class to
+define additional processing at the end of the input, but the redefined
+version should always call <a class="reference internal" href="#xmllib.XMLParser.close" title="xmllib.XMLParser.close"><code class="xref py py-meth docutils literal notranslate"><span class="pre">close()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.translate_references">
+<code class="descname">translate_references</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.translate_references" title="本定義的永久連結">¶</a></dt>
+<dd><p>Translate all entity and character references in <em>data</em> and return the
+translated string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.getnamespace">
+<code class="descname">getnamespace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.getnamespace" title="本定義的永久連結">¶</a></dt>
+<dd><p>Return a mapping of namespace abbreviations to namespace URIs that are
+currently in effect.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_xml">
+<code class="descname">handle_xml</code><span class="sig-paren">(</span><em>encoding</em>, <em>standalone</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_xml" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called when the <code class="docutils literal notranslate"><span class="pre">&lt;?xml</span> <span class="pre">...?&gt;</span></code> tag is processed. The
+arguments are the values of the encoding and standalone attributes in the
+tag.  Both encoding and standalone are optional.  The values passed to
+<a class="reference internal" href="#xmllib.XMLParser.handle_xml" title="xmllib.XMLParser.handle_xml"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_xml()</span></code></a> default to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the string <code class="docutils literal notranslate"><span class="pre">'no'</span></code>
+respectively.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_doctype">
+<code class="descname">handle_doctype</code><span class="sig-paren">(</span><em>tag</em>, <em>pubid</em>, <em>syslit</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_doctype" title="本定義的永久連結">¶</a></dt>
+<dd><p id="index-1">This method is called when the <code class="docutils literal notranslate"><span class="pre">&lt;!DOCTYPE...&gt;</span></code> declaration is processed.
+The arguments are the tag name of the root element, the Formal Public
+Identifier (or <code class="docutils literal notranslate"><span class="pre">None</span></code> if not specified), the system identifier, and the
+uninterpreted contents of the internal DTD subset as a string (or <code class="docutils literal notranslate"><span class="pre">None</span></code>
+if not present).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_starttag">
+<code class="descname">handle_starttag</code><span class="sig-paren">(</span><em>tag</em>, <em>method</em>, <em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_starttag" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to handle start tags for which a start tag handler
+is defined in the instance variable <a class="reference internal" href="#xmllib.XMLParser.elements" title="xmllib.XMLParser.elements"><code class="xref py py-attr docutils literal notranslate"><span class="pre">elements</span></code></a>.  The <em>tag</em> argument
+is the name of the tag, and the <em>method</em> argument is the function (method)
+which should be used to support semantic interpretation of the start tag.
+The <em>attributes</em> argument is a dictionary of attributes, the key being the
+<em>name</em> and the value being the <em>value</em> of the attribute found inside the
+tag’s <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> brackets.  Character and entity references in the <em>value</em>
+have been interpreted.  For instance, for the start tag <code class="docutils literal notranslate"><span class="pre">&lt;A</span>
+<span class="pre">HREF=&quot;http://www.cwi.nl/&quot;&gt;</span></code>, this method would be called as
+<code class="docutils literal notranslate"><span class="pre">handle_starttag('A',</span> <span class="pre">self.elements['A'][0],</span> <span class="pre">{'HREF':</span>
+<span class="pre">'http://www.cwi.nl/'})</span></code>.  The base implementation simply calls <em>method</em>
+with <em>attributes</em> as the only argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_endtag">
+<code class="descname">handle_endtag</code><span class="sig-paren">(</span><em>tag</em>, <em>method</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_endtag" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to handle endtags for which an end tag handler is
+defined in the instance variable <a class="reference internal" href="#xmllib.XMLParser.elements" title="xmllib.XMLParser.elements"><code class="xref py py-attr docutils literal notranslate"><span class="pre">elements</span></code></a>.  The <em>tag</em> argument is
+the name of the tag, and the <em>method</em> argument is the function (method)
+which should be used to support semantic interpretation of the end tag.
+For instance, for the endtag <code class="docutils literal notranslate"><span class="pre">&lt;/A&gt;</span></code>, this method would be called as
+<code class="docutils literal notranslate"><span class="pre">handle_endtag('A',</span> <span class="pre">self.elements['A'][1])</span></code>.  The base implementation
+simply calls <em>method</em>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_data">
+<code class="descname">handle_data</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_data" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process arbitrary data.  It is intended to be
+overridden by a derived class; the base class implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_charref">
+<code class="descname">handle_charref</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_charref" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process a character reference of the form
+<code class="docutils literal notranslate"><span class="pre">&amp;#ref;</span></code>.  <em>ref</em> can either be a decimal number, or a hexadecimal number
+when preceded by an <code class="docutils literal notranslate"><span class="pre">'x'</span></code>. In the base implementation, <em>ref</em> must be a
+number in the range 0-255.  It translates the character to ASCII and calls
+the method <a class="reference internal" href="#xmllib.XMLParser.handle_data" title="xmllib.XMLParser.handle_data"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_data()</span></code></a> with the character as argument.  If <em>ref</em>
+is invalid or out of range, the method <code class="docutils literal notranslate"><span class="pre">unknown_charref(ref)</span></code> is called
+to handle the error.  A subclass must override this method to provide
+support for character references outside of the ASCII range.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_comment">
+<code class="descname">handle_comment</code><span class="sig-paren">(</span><em>comment</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_comment" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called when a comment is encountered.  The <em>comment</em>
+argument is a string containing the text between the <code class="docutils literal notranslate"><span class="pre">&lt;!--</span></code> and <code class="docutils literal notranslate"><span class="pre">--&gt;</span></code>
+delimiters, but not the delimiters themselves.  For example, the comment
+<code class="docutils literal notranslate"><span class="pre">&lt;!--text--&gt;</span></code> will cause this method to be called with the argument
+<code class="docutils literal notranslate"><span class="pre">'text'</span></code>.  The default method does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_cdata">
+<code class="descname">handle_cdata</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_cdata" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called when a CDATA element is encountered.  The <em>data</em>
+argument is a string containing the text between the <code class="docutils literal notranslate"><span class="pre">&lt;![CDATA[</span></code> and
+<code class="docutils literal notranslate"><span class="pre">]]&gt;</span></code> delimiters, but not the delimiters themselves.  For example, the
+entity <code class="docutils literal notranslate"><span class="pre">&lt;![CDATA[text]]&gt;</span></code> will cause this method to be called with the
+argument <code class="docutils literal notranslate"><span class="pre">'text'</span></code>.  The default method does nothing, and is intended to
+be overridden.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_proc">
+<code class="descname">handle_proc</code><span class="sig-paren">(</span><em>name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_proc" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called when a processing instruction (PI) is encountered.
+The <em>name</em> is the PI target, and the <em>data</em> argument is a string
+containing the text between the PI target and the closing delimiter, but
+not the delimiter itself.  For example, the instruction <code class="docutils literal notranslate"><span class="pre">&lt;?XML</span> <span class="pre">text?&gt;</span></code>
+will cause this method to be called with the arguments <code class="docutils literal notranslate"><span class="pre">'XML'</span></code> and
+<code class="docutils literal notranslate"><span class="pre">'text'</span></code>.  The default method does nothing.  Note that if a document
+starts with <code class="docutils literal notranslate"><span class="pre">&lt;?xml</span> <span class="pre">..?&gt;</span></code>, <a class="reference internal" href="#xmllib.XMLParser.handle_xml" title="xmllib.XMLParser.handle_xml"><code class="xref py py-meth docutils literal notranslate"><span class="pre">handle_xml()</span></code></a> is called to handle it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.handle_special">
+<code class="descname">handle_special</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.handle_special" title="本定義的永久連結">¶</a></dt>
+<dd><p id="index-2">This method is called when a declaration is encountered.  The <em>data</em>
+argument is a string containing the text between the <code class="docutils literal notranslate"><span class="pre">&lt;!</span></code> and <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>
+delimiters, but not the delimiters themselves.  For example, the entity
+declaration <code class="docutils literal notranslate"><span class="pre">&lt;!ENTITY</span> <span class="pre">text&gt;</span></code> will cause this method to be called with
+the argument <code class="docutils literal notranslate"><span class="pre">'ENTITY</span> <span class="pre">text'</span></code>.  The default method does nothing.  Note
+that <code class="docutils literal notranslate"><span class="pre">&lt;!DOCTYPE</span> <span class="pre">...&gt;</span></code> is handled separately if it is located at the
+start of the document.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.syntax_error">
+<code class="descname">syntax_error</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.syntax_error" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called when a syntax error is encountered.  The <em>message</em>
+is a description of what was wrong.  The default method raises a
+<a class="reference internal" href="exceptions.html#exceptions.RuntimeError" title="exceptions.RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a> exception.  If this method is overridden, it is
+permissible for it to return.  This method is only called when the error
+can be recovered from.  Unrecoverable errors raise a <a class="reference internal" href="exceptions.html#exceptions.RuntimeError" title="exceptions.RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a>
+without first calling <a class="reference internal" href="#xmllib.XMLParser.syntax_error" title="xmllib.XMLParser.syntax_error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">syntax_error()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.unknown_starttag">
+<code class="descname">unknown_starttag</code><span class="sig-paren">(</span><em>tag</em>, <em>attributes</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.unknown_starttag" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process an unknown start tag.  It is intended to
+be overridden by a derived class; the base class implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.unknown_endtag">
+<code class="descname">unknown_endtag</code><span class="sig-paren">(</span><em>tag</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.unknown_endtag" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process an unknown end tag.  It is intended to be
+overridden by a derived class; the base class implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.unknown_charref">
+<code class="descname">unknown_charref</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.unknown_charref" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process unresolvable numeric character
+references.  It is intended to be overridden by a derived class; the base
+class implementation does nothing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xmllib.XMLParser.unknown_entityref">
+<code class="descname">unknown_entityref</code><span class="sig-paren">(</span><em>ref</em><span class="sig-paren">)</span><a class="headerlink" href="#xmllib.XMLParser.unknown_entityref" title="本定義的永久連結">¶</a></dt>
+<dd><p>This method is called to process an unknown entity reference.  It is
+intended to be overridden by a derived class; the base class
+implementation calls <a class="reference internal" href="#xmllib.XMLParser.syntax_error" title="xmllib.XMLParser.syntax_error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">syntax_error()</span></code></a> to signal an error.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="first admonition-title">也參考</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://www.w3.org/TR/REC-xml">Extensible Markup Language (XML) 1.0</a></dt>
+<dd>The XML specification, published by the World Wide Web Consortium (W3C), defines
+the syntax and processor requirements for XML.  References to additional
+material on XML, including translations of the specification, are available at
+<a class="reference external" href="http://www.w3.org/XML/">http://www.w3.org/XML/</a>.</dd>
+<dt><a class="reference external" href="http://www.python.org/topics/xml/">Python and XML Processing</a></dt>
+<dd>The Python XML Topic Guide provides a great deal of information on using XML
+from Python and links to other sources of information on XML.</dd>
+<dt><a class="reference external" href="http://www.python.org/sigs/xml-sig/">SIG for XML Processing in Python</a></dt>
+<dd>The Python XML Special Interest Group is developing substantial support for
+processing XML from Python.</dd>
+</dl>
+</div>
+<div class="section" id="xml-namespaces">
+<span id="xml-namespace"></span><h2>XML Namespaces<a class="headerlink" href="#xml-namespaces" title="本標題的永久連結">¶</a></h2>
+<p id="index-3">This module has support for XML namespaces as defined in the XML Namespaces
+proposed recommendation.</p>
+<p>Tag and attribute names that are defined in an XML namespace are handled as if
+the name of the tag or element consisted of the namespace (the URL that defines
+the namespace) followed by a space and the name of the tag or attribute.  For
+instance, the tag <code class="docutils literal notranslate"><span class="pre">&lt;html</span> <span class="pre">xmlns='http://www.w3.org/TR/REC-html40'&gt;</span></code> is treated
+as if  the tag name was <code class="docutils literal notranslate"><span class="pre">'http://www.w3.org/TR/REC-html40</span> <span class="pre">html'</span></code>, and the tag
+<code class="docutils literal notranslate"><span class="pre">&lt;html:a</span> <span class="pre">href='http://frob.com'&gt;</span></code> inside the above mentioned element is
+treated as if the tag name were <code class="docutils literal notranslate"><span class="pre">'http://www.w3.org/TR/REC-html40</span> <span class="pre">a'</span></code> and the
+attribute name as if it were <code class="docutils literal notranslate"><span class="pre">'http://www.w3.org/TR/REC-html40</span> <span class="pre">href'</span></code>.</p>
+<p>An older draft of the XML Namespaces proposal is also recognized, but triggers a
+warning.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">也參考</p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://www.w3.org/TR/REC-xml-names/">Namespaces in XML</a></dt>
+<dd>This World Wide Web Consortium recommendation describes the proper syntax and
+processing requirements for namespaces in XML.</dd>
+</dl>
+</div>
+<p class="rubric">腳註</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Actually, a number of keyword arguments are recognized which influence the
+parser to accept certain non-standard constructs.  The following keyword
+arguments are currently recognized.  The defaults for all of these is <code class="docutils literal notranslate"><span class="pre">0</span></code>
+(false) except for the last one for which the default is <code class="docutils literal notranslate"><span class="pre">1</span></code> (true).
+<em>accept_unquoted_attributes</em> (accept certain attribute values without requiring
+quotes), <em>accept_missing_endtag_name</em> (accept end tags that look like <code class="docutils literal notranslate"><span class="pre">&lt;/&gt;</span></code>),
+<em>map_case</em> (map upper case to lower case in tags and attributes), <em>accept_utf8</em>
+(allow UTF-8 characters in input; this is required according to the XML
+standard, but Python does not as yet deal properly with these characters, so
+this is not the default), <em>translate_attribute_references</em> (don’t attempt to
+translate character and entity references in attribute values).</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">xmllib</span></code> — A parser for XML documents</a><ul>
+<li><a class="reference internal" href="#xml-namespaces">XML Namespaces</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/xmllib.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

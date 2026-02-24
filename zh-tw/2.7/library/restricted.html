@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>30. Restricted Execution &#8212; Python 2.7.18 說明文件</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/restricted.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.7.18 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="30.1. rexec — Restricted execution framework" href="rexec.html" />
+    <link rel="prev" title="29.2. codeop — Compile Python code" href="codeop.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/restricted.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/py.svg" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://www.python.org/" class="nav-logo">
+             <img src="../_static/py.svg" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="快速搜尋"/>
+            <input type="submit" value="搜"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>上個主題</h4>
+  <p class="topless"><a href="codeop.html"
+                        title="上一章"><span class="section-number">29.2. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">codeop</span></code> — Compile Python code</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="rexec.html"
+                        title="下一章"><span class="section-number">30.1. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">rexec</span></code> — Restricted execution framework</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/restricted.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="搜" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </nav>
+    </div>
+</div>
+
+<div id="outdated-warning" style="padding: .5em; text-align: center; background-color: #FFBABA; color: #6A0E0E;">
+    This document is for an old version of Python that is no longer supported.
+    You should upgrade, and read the
+    <a href="/3/library/restricted.html">Python documentation for the current stable release</a>.
+</div>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="rexec.html" title="30.1. rexec — Restricted execution framework"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="codeop.html" title="29.2. codeop — Compile Python code"
+             accesskey="P">上一頁</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Standard Library</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" aria-label="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="restricted-execution">
+<span id="restricted"></span><h1><span class="section-number">30. </span>Restricted Execution<a class="headerlink" href="#restricted-execution" title="本標題的永久連結">¶</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>In Python 2.3 these modules have been disabled due to various known and not
+readily fixable security holes.  The modules are still documented here to help
+in reading old code that uses the <a class="reference internal" href="rexec.html#module-rexec" title="rexec: Basic restricted execution framework.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rexec</span></code></a> and <a class="reference internal" href="bastion.html#module-Bastion" title="Bastion: Providing restricted access to objects.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Bastion</span></code></a> modules.</p>
+</div>
+<p><em>Restricted execution</em> is the basic framework in Python that allows for the
+segregation of trusted and untrusted code.  The framework is based on the notion
+that trusted Python code (a <em>supervisor</em>) can create a 「padded cell』 (or
+environment) with limited permissions, and run the untrusted code within this
+cell.  The untrusted code cannot break out of its cell, and can only interact
+with sensitive system resources through interfaces defined and managed by the
+trusted code.  The term 「restricted execution」 is favored over 「safe-Python」
+since true safety is hard to define, and is determined by the way the restricted
+environment is created.  Note that the restricted environments can be nested,
+with inner cells creating subcells of lesser, but never greater, privilege.</p>
+<p>An interesting aspect of Python’s restricted execution model is that the
+interfaces presented to untrusted code usually have the same names as those
+presented to trusted code.  Therefore no special interfaces need to be learned
+to write code designed to run in a restricted environment.  And because the
+exact nature of the padded cell is determined by the supervisor, different
+restrictions can be imposed, depending on the application.  For example, it
+might be deemed 「safe」 for untrusted code to read any file within a specified
+directory, but never to write a file.  In this case, the supervisor may redefine
+the built-in <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function so that it raises an exception whenever the
+<em>mode</em> parameter is <code class="docutils literal notranslate"><span class="pre">'w'</span></code>.  It might also perform a <code class="xref c c-func docutils literal notranslate"><span class="pre">chroot()</span></code>-like
+operation on the <em>filename</em> parameter, such that root is always relative to some
+safe 「sandbox」 area of the filesystem.  In this case, the untrusted code would
+still see a built-in <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> function in its environment, with the same
+calling interface.  The semantics would be identical too, with <a class="reference internal" href="exceptions.html#exceptions.IOError" title="exceptions.IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a>s
+being raised when the supervisor determined that an unallowable parameter is
+being used.</p>
+<p>The Python run-time determines whether a particular code block is executing in
+restricted execution mode based on the identity of the <code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> object
+in its global variables: if this is (the dictionary of) the standard
+<a class="reference internal" href="__builtin__.html#module-__builtin__" title="__builtin__: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">__builtin__</span></code></a> module, the code is deemed to be unrestricted, else it is
+deemed to be restricted.</p>
+<p>Python code executing in restricted mode faces a number of limitations that are
+designed to prevent it from escaping from the padded cell. For instance, the
+function object attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">func_globals</span></code> and the class and instance object
+attribute <a class="reference internal" href="stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code></a> are unavailable.</p>
+<p>Two modules provide the framework for setting up restricted execution
+environments:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rexec.html">30.1. <code class="xref py py-mod docutils literal notranslate"><span class="pre">rexec</span></code> — Restricted execution framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rexec.html#rexec-objects">30.1.1. RExec Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rexec.html#defining-restricted-environments">30.1.2. Defining restricted environments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rexec.html#an-example">30.1.3. An example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bastion.html">30.2. <code class="xref py py-mod docutils literal notranslate"><span class="pre">Bastion</span></code> — Restricting access to objects</a></li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">也參考</p>
+<dl class="simple">
+<dt><a class="reference external" href="http://grail.sourceforge.net/">Grail Home Page</a></dt><dd><p>Grail, an Internet browser written in Python, uses these modules to support
+Python applets.  More information on the use of Python’s restricted execution
+mode in Grail is available on the Web site.</p>
+</dd>
+</dl>
+</div>
+</section>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上個主題</h4>
+  <p class="topless"><a href="codeop.html"
+                        title="上一章"><span class="section-number">29.2. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">codeop</span></code> — Compile Python code</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="rexec.html"
+                        title="下一章"><span class="section-number">30.1. </span><code class="xref py py-mod docutils literal notranslate"><span class="pre">rexec</span></code> — Restricted execution framework</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/restricted.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="搜" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="rexec.html" title="30.1. rexec — Restricted execution framework"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="codeop.html" title="29.2. codeop — Compile Python code"
+             >上一頁</a> |</li>
+
+          <li><img src="../_static/py.svg" alt="python logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://www.python.org/">Python</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.7.18 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" aria-label="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 2.3.1.
+    </div>
+
+  </body>
+</html>

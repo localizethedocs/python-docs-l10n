@@ -1,0 +1,744 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>17.1. subprocess — Subprocess management &#8212; Python 2.6.9 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/subprocess.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 2.6.9 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="17.2. socket — Low-level networking interface" href="socket.html" />
+    <link rel="prev" title="17. Interprocess Communication and Networking" href="ipc.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/subprocess.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="socket.html" title="17.2. socket — Low-level networking interface"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="ipc.html" title="17. Interprocess Communication and Networking"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="ipc.html" accesskey="U">17. Interprocess Communication and Networking</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-subprocess">
+<span id="subprocess-subprocess-management"></span><h1>17.1. <a class="reference internal" href="#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> — Subprocess management<a class="headerlink" href="#module-subprocess" title="本標題的永久連結">¶</a></h1>
+<div class="versionadded">
+<p><span class="versionmodified">2.4 版新加入.</span></p>
+</div>
+<p>The <a class="reference internal" href="#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> module allows you to spawn new processes, connect to their
+input/output/error pipes, and obtain their return codes.  This module intends to
+replace several other, older modules and functions, such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">system</span>
+<span class="n">os</span><span class="o">.</span><span class="n">spawn</span><span class="o">*</span>
+<span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="o">*</span>
+<span class="n">popen2</span><span class="o">.*</span>
+<span class="n">commands</span><span class="o">.*</span>
+</pre></div>
+</div>
+<p>Information about how the <a class="reference internal" href="#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a> module can be used to replace these
+modules and functions can be found in the following sections.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">也參考</p>
+<p class="last"><span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0324"><strong>PEP 324</strong></a> – PEP proposing the subprocess module</p>
+</div>
+<div class="section" id="using-the-subprocess-module">
+<h2>17.1.1. Using the subprocess Module<a class="headerlink" href="#using-the-subprocess-module" title="本標題的永久連結">¶</a></h2>
+<p>This module defines one class called <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a>:</p>
+<dl class="class">
+<dt id="subprocess.Popen">
+<em class="property">class </em><code class="descclassname">subprocess.</code><code class="descname">Popen</code><span class="sig-paren">(</span><em>args</em>, <em>bufsize=0</em>, <em>executable=None</em>, <em>stdin=None</em>, <em>stdout=None</em>, <em>stderr=None</em>, <em>preexec_fn=None</em>, <em>close_fds=False</em>, <em>shell=False</em>, <em>cwd=None</em>, <em>env=None</em>, <em>universal_newlines=False</em>, <em>startupinfo=None</em>, <em>creationflags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen" title="本定義的永久連結">¶</a></dt>
+<dd><p>Arguments are:</p>
+<p><em>args</em> should be a string, or a sequence of program arguments.  The program
+to execute is normally the first item in the args sequence or the string if
+a string is given, but can be explicitly set by using the <em>executable</em>
+argument.  When <em>executable</em> is given, the first item in the args sequence
+is still treated by most programs as the command name, which can then be
+different from the actual executable name.  On Unix, it becomes the display
+name for the executing program in utilities such as <strong class="program">ps</strong>.</p>
+<p>On Unix, with <em>shell=False</em> (default): In this case, the Popen class uses
+<a class="reference internal" href="os.html#os.execvp" title="os.execvp"><code class="xref py py-meth docutils literal notranslate"><span class="pre">os.execvp()</span></code></a> to execute the child program. <em>args</em> should normally be a
+sequence.  If a string is specified for <em>args</em>, it will be used as the name
+or path of the program to execute; this will only work if the program is
+being given no arguments.</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p><a class="reference internal" href="shlex.html#shlex.split" title="shlex.split"><code class="xref py py-meth docutils literal notranslate"><span class="pre">shlex.split()</span></code></a> can be useful when determining the correct
+tokenization for <em>args</em>, especially in complex cases:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shlex</span><span class="o">,</span> <span class="nn">subprocess</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">command_line</span> <span class="o">=</span> <span class="n">raw_input</span><span class="p">()</span>
+<span class="go">/bin/vikings -input eggs.txt -output &quot;spam spam.txt&quot; -cmd &quot;echo &#39;$MONEY&#39;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">command_line</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">args</span>
+<span class="go">[&#39;/bin/vikings&#39;, &#39;-input&#39;, &#39;eggs.txt&#39;, &#39;-output&#39;, &#39;spam spam.txt&#39;, &#39;-cmd&#39;, &quot;echo &#39;$MONEY&#39;&quot;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="c1"># Success!</span>
+</pre></div>
+</div>
+<p class="last">Note in particular that options (such as <em>-input</em>) and arguments (such
+as <em>eggs.txt</em>) that are separated by whitespace in the shell go in separate
+list elements, while arguments that need quoting or backslash escaping when
+used in the shell (such as filenames containing spaces or the <em>echo</em> command
+shown above) are single list elements.</p>
+</div>
+<p>On Unix, with <em>shell=True</em>: If args is a string, it specifies the command
+string to execute through the shell.  This means that the string must be
+formatted exactly as it would be when typed at the shell prompt.  This
+includes, for example, quoting or backslash escaping filenames with spaces in
+them.  If <em>args</em> is a sequence, the first item specifies the command string, and
+any additional items will be treated as additional arguments to the shell
+itself.  That is to say, <em>Popen</em> does the equivalent of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Popen</span><span class="p">([</span><span class="s1">&#39;/bin/sh&#39;</span><span class="p">,</span> <span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>On Windows: the <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> class uses CreateProcess() to execute the child
+program, which operates on strings.  If <em>args</em> is a sequence, it will be
+converted to a string using the <code class="xref py py-meth docutils literal notranslate"><span class="pre">list2cmdline()</span></code> method.  Please note that
+not all MS Windows applications interpret the command line the same way:
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">list2cmdline()</span></code> is designed for applications using the same rules as the MS
+C runtime.</p>
+<p><em>bufsize</em>, if given, has the same meaning as the corresponding argument to the
+built-in open() function: <code class="xref py py-const docutils literal notranslate"><span class="pre">0</span></code> means unbuffered, <code class="xref py py-const docutils literal notranslate"><span class="pre">1</span></code> means line
+buffered, any other positive value means use a buffer of (approximately) that
+size.  A negative <em>bufsize</em> means to use the system default, which usually means
+fully buffered.  The default value for <em>bufsize</em> is <code class="xref py py-const docutils literal notranslate"><span class="pre">0</span></code> (unbuffered).</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">If you experience performance issues, it is recommended that you try to
+enable buffering by setting <em>bufsize</em> to either -1 or a large enough
+positive value (such as 4096).</p>
+</div>
+<p>The <em>executable</em> argument specifies the program to execute. It is very seldom
+needed: Usually, the program to execute is defined by the <em>args</em> argument. If
+<code class="docutils literal notranslate"><span class="pre">shell=True</span></code>, the <em>executable</em> argument specifies which shell to use. On Unix,
+the default shell is <code class="file docutils literal notranslate"><span class="pre">/bin/sh</span></code>.  On Windows, the default shell is
+specified by the <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">COMSPEC</span></code> environment variable. The only reason you
+would need to specify <code class="docutils literal notranslate"><span class="pre">shell=True</span></code> on Windows is where the command you
+wish to execute is actually built in to the shell, eg <code class="docutils literal notranslate"><span class="pre">dir</span></code>, <code class="docutils literal notranslate"><span class="pre">copy</span></code>.
+You don’t need <code class="docutils literal notranslate"><span class="pre">shell=True</span></code> to run a batch file, nor to run a console-based
+executable.</p>
+<p><em>stdin</em>, <em>stdout</em> and <em>stderr</em> specify the executed programs』 standard input,
+standard output and standard error file handles, respectively.  Valid values
+are <a class="reference internal" href="#subprocess.PIPE" title="subprocess.PIPE"><code class="xref py py-data docutils literal notranslate"><span class="pre">PIPE</span></code></a>, an existing file descriptor (a positive integer), an
+existing file object, and <code class="docutils literal notranslate"><span class="pre">None</span></code>.  <a class="reference internal" href="#subprocess.PIPE" title="subprocess.PIPE"><code class="xref py py-data docutils literal notranslate"><span class="pre">PIPE</span></code></a> indicates that a new pipe
+to the child should be created.  With <code class="docutils literal notranslate"><span class="pre">None</span></code>, no redirection will occur;
+the child’s file handles will be inherited from the parent.  Additionally,
+<em>stderr</em> can be <a class="reference internal" href="#subprocess.STDOUT" title="subprocess.STDOUT"><code class="xref py py-data docutils literal notranslate"><span class="pre">STDOUT</span></code></a>, which indicates that the stderr data from the
+applications should be captured into the same file handle as for stdout.</p>
+<p>If <em>preexec_fn</em> is set to a callable object, this object will be called in the
+child process just before the child is executed. (Unix only)</p>
+<p>If <em>close_fds</em> is true, all file descriptors except <code class="xref py py-const docutils literal notranslate"><span class="pre">0</span></code>, <code class="xref py py-const docutils literal notranslate"><span class="pre">1</span></code> and
+<code class="xref py py-const docutils literal notranslate"><span class="pre">2</span></code> will be closed before the child process is executed. (Unix only).
+Or, on Windows, if <em>close_fds</em> is true then no handles will be inherited by the
+child process.  Note that on Windows, you cannot set <em>close_fds</em> to true and
+also redirect the standard handles by setting <em>stdin</em>, <em>stdout</em> or <em>stderr</em>.</p>
+<p>If <em>shell</em> is <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a>, the specified command will be executed through the
+shell.</p>
+<p>If <em>cwd</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, the child’s current directory will be changed to <em>cwd</em>
+before it is executed.  Note that this directory is not considered when
+searching the executable, so you can’t specify the program’s path relative to
+<em>cwd</em>.</p>
+<p>If <em>env</em> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, it must be a mapping that defines the environment
+variables for the new process; these are used instead of inheriting the current
+process』 environment, which is the default behavior.</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">If specified, <em>env</em> must provide any variables required
+for the program to execute.  On Windows, in order to run a
+<a class="reference external" href="http://en.wikipedia.org/wiki/Side-by-Side_Assembly">side-by-side assembly</a> the specified <em>env</em> <strong>must</strong> include a valid
+<span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">SystemRoot</span></code>.</p>
+</div>
+<p>If <em>universal_newlines</em> is <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a>, the file objects stdout and stderr are
+opened as text files, but lines may be terminated by any of <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>, the Unix
+end-of-line convention, <code class="docutils literal notranslate"><span class="pre">'\r'</span></code>, the old Macintosh convention or <code class="docutils literal notranslate"><span class="pre">'\r\n'</span></code>, the
+Windows convention. All of these external representations are seen as <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>
+by the Python program.</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">This feature is only available if Python is built with universal newline
+support (the default).  Also, the newlines attribute of the file objects
+<a class="reference internal" href="#subprocess.Popen.stdout" title="subprocess.Popen.stdout"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stdout</span></code></a>, <a class="reference internal" href="#subprocess.Popen.stdin" title="subprocess.Popen.stdin"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stdin</span></code></a> and <a class="reference internal" href="#subprocess.Popen.stderr" title="subprocess.Popen.stderr"><code class="xref py py-attr docutils literal notranslate"><span class="pre">stderr</span></code></a> are not updated by the
+communicate() method.</p>
+</div>
+<p>The <em>startupinfo</em> and <em>creationflags</em>, if given, will be passed to the
+underlying CreateProcess() function.  They can specify things such as appearance
+of the main window and priority for the new process.  (Windows only)</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="subprocess.PIPE">
+<code class="descclassname">subprocess.</code><code class="descname">PIPE</code><a class="headerlink" href="#subprocess.PIPE" title="本定義的永久連結">¶</a></dt>
+<dd><p>Special value that can be used as the <em>stdin</em>, <em>stdout</em> or <em>stderr</em> argument
+to <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> and indicates that a pipe to the standard stream should be
+opened.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="subprocess.STDOUT">
+<code class="descclassname">subprocess.</code><code class="descname">STDOUT</code><a class="headerlink" href="#subprocess.STDOUT" title="本定義的永久連結">¶</a></dt>
+<dd><p>Special value that can be used as the <em>stderr</em> argument to <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> and
+indicates that standard error should go into the same handle as standard
+output.</p>
+</dd></dl>
+
+<div class="section" id="convenience-functions">
+<h3>17.1.1.1. Convenience Functions<a class="headerlink" href="#convenience-functions" title="本標題的永久連結">¶</a></h3>
+<p>This module also defines two shortcut functions:</p>
+<dl class="function">
+<dt id="subprocess.call">
+<code class="descclassname">subprocess.</code><code class="descname">call</code><span class="sig-paren">(</span><em>*popenargs</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.call" title="本定義的永久連結">¶</a></dt>
+<dd><p>Run command with arguments.  Wait for command to complete, then return the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">returncode</span></code> attribute.</p>
+<p>The arguments are the same as for the <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> constructor.  Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">retcode</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="subprocess.check_call">
+<code class="descclassname">subprocess.</code><code class="descname">check_call</code><span class="sig-paren">(</span><em>*popenargs</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.check_call" title="本定義的永久連結">¶</a></dt>
+<dd><p>Run command with arguments.  Wait for command to complete. If the exit code was
+zero then return, otherwise raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">CalledProcessError</span></code>. The
+<code class="xref py py-exc docutils literal notranslate"><span class="pre">CalledProcessError</span></code> object will have the return code in the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">returncode</span></code> attribute.</p>
+<p>The arguments are the same as for the <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> constructor.  Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">([</span><span class="s2">&quot;ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">])</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">2.5 版新加入.</span></p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="exceptions">
+<h3>17.1.1.2. Exceptions<a class="headerlink" href="#exceptions" title="本標題的永久連結">¶</a></h3>
+<p>Exceptions raised in the child process, before the new program has started to
+execute, will be re-raised in the parent.  Additionally, the exception object
+will have one extra attribute called <code class="xref py py-attr docutils literal notranslate"><span class="pre">child_traceback</span></code>, which is a string
+containing traceback information from the childs point of view.</p>
+<p>The most common exception raised is <a class="reference internal" href="exceptions.html#exceptions.OSError" title="exceptions.OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a>.  This occurs, for example,
+when trying to execute a non-existent file.  Applications should prepare for
+<a class="reference internal" href="exceptions.html#exceptions.OSError" title="exceptions.OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> exceptions.</p>
+<p>A <a class="reference internal" href="exceptions.html#exceptions.ValueError" title="exceptions.ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> will be raised if <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> is called with invalid
+arguments.</p>
+<p>check_call() will raise <code class="xref py py-exc docutils literal notranslate"><span class="pre">CalledProcessError</span></code>, if the called process returns
+a non-zero return code.</p>
+</div>
+<div class="section" id="security">
+<h3>17.1.1.3. Security<a class="headerlink" href="#security" title="本標題的永久連結">¶</a></h3>
+<p>Unlike some other popen functions, this implementation will never call /bin/sh
+implicitly.  This means that all characters, including shell metacharacters, can
+safely be passed to child processes.</p>
+</div>
+</div>
+<div class="section" id="popen-objects">
+<h2>17.1.2. Popen Objects<a class="headerlink" href="#popen-objects" title="本標題的永久連結">¶</a></h2>
+<p>Instances of the <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> class have the following methods:</p>
+<dl class="method">
+<dt id="subprocess.Popen.poll">
+<code class="descclassname">Popen.</code><code class="descname">poll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen.poll" title="本定義的永久連結">¶</a></dt>
+<dd><p>Check if child process has terminated.  Set and return <a class="reference internal" href="#subprocess.Popen.returncode" title="subprocess.Popen.returncode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">returncode</span></code></a>
+attribute.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="subprocess.Popen.wait">
+<code class="descclassname">Popen.</code><code class="descname">wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen.wait" title="本定義的永久連結">¶</a></dt>
+<dd><p>Wait for child process to terminate.  Set and return <a class="reference internal" href="#subprocess.Popen.returncode" title="subprocess.Popen.returncode"><code class="xref py py-attr docutils literal notranslate"><span class="pre">returncode</span></code></a>
+attribute.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">This will deadlock if the child process generates enough output to a
+stdout or stderr pipe such that it blocks waiting for the OS pipe buffer
+to accept more data.  Use <a class="reference internal" href="#subprocess.Popen.communicate" title="subprocess.Popen.communicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">communicate()</span></code></a> to avoid that.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="subprocess.Popen.communicate">
+<code class="descclassname">Popen.</code><code class="descname">communicate</code><span class="sig-paren">(</span><em>input=None</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen.communicate" title="本定義的永久連結">¶</a></dt>
+<dd><p>Interact with process: Send data to stdin.  Read data from stdout and stderr,
+until end-of-file is reached.  Wait for process to terminate. The optional
+<em>input</em> argument should be a string to be sent to the child process, or
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, if no data should be sent to the child.</p>
+<p><a class="reference internal" href="#subprocess.Popen.communicate" title="subprocess.Popen.communicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">communicate()</span></code></a> returns a tuple <code class="docutils literal notranslate"><span class="pre">(stdoutdata,</span> <span class="pre">stderrdata)</span></code>.</p>
+<p>Note that if you want to send data to the process’s stdin, you need to create
+the Popen object with <code class="docutils literal notranslate"><span class="pre">stdin=PIPE</span></code>.  Similarly, to get anything other than
+<code class="docutils literal notranslate"><span class="pre">None</span></code> in the result tuple, you need to give <code class="docutils literal notranslate"><span class="pre">stdout=PIPE</span></code> and/or
+<code class="docutils literal notranslate"><span class="pre">stderr=PIPE</span></code> too.</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">The data read is buffered in memory, so do not use this method if the data
+size is large or unlimited.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="subprocess.Popen.send_signal">
+<code class="descclassname">Popen.</code><code class="descname">send_signal</code><span class="sig-paren">(</span><em>signal</em><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen.send_signal" title="本定義的永久連結">¶</a></dt>
+<dd><p>Sends the signal <em>signal</em> to the child.</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">On Windows only SIGTERM is supported so far. It’s an alias for
+<a class="reference internal" href="#subprocess.Popen.terminate" title="subprocess.Popen.terminate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">terminate()</span></code></a>.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">2.6 版新加入.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="subprocess.Popen.terminate">
+<code class="descclassname">Popen.</code><code class="descname">terminate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen.terminate" title="本定義的永久連結">¶</a></dt>
+<dd><p>Stop the child. On Posix OSs the method sends SIGTERM to the
+child. On Windows the Win32 API function <a href="#id1"><span class="problematic" id="id2">:cfunc:`TerminateProcess`</span></a> is called
+to stop the child.</p>
+<div class="versionadded">
+<p><span class="versionmodified">2.6 版新加入.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="subprocess.Popen.kill">
+<code class="descclassname">Popen.</code><code class="descname">kill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#subprocess.Popen.kill" title="本定義的永久連結">¶</a></dt>
+<dd><p>Kills the child. On Posix OSs the function sends SIGKILL to the child.
+On Windows <a class="reference internal" href="#subprocess.Popen.kill" title="subprocess.Popen.kill"><code class="xref py py-meth docutils literal notranslate"><span class="pre">kill()</span></code></a> is an alias for <a class="reference internal" href="#subprocess.Popen.terminate" title="subprocess.Popen.terminate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">terminate()</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">2.6 版新加入.</span></p>
+</div>
+</dd></dl>
+
+<p>The following attributes are also available:</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">communicate()</span></code> rather than <code class="xref py py-attr docutils literal notranslate"><span class="pre">.stdin.write</span></code>,
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">.stdout.read</span></code> or <code class="xref py py-attr docutils literal notranslate"><span class="pre">.stderr.read</span></code> to avoid
+deadlocks due to any of the other OS pipe buffers filling up and blocking the
+child process.</p>
+</div>
+<dl class="attribute">
+<dt id="subprocess.Popen.stdin">
+<code class="descclassname">Popen.</code><code class="descname">stdin</code><a class="headerlink" href="#subprocess.Popen.stdin" title="本定義的永久連結">¶</a></dt>
+<dd><p>If the <em>stdin</em> argument was <a class="reference internal" href="#subprocess.PIPE" title="subprocess.PIPE"><code class="xref py py-data docutils literal notranslate"><span class="pre">PIPE</span></code></a>, this attribute is a file object
+that provides input to the child process.  Otherwise, it is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="subprocess.Popen.stdout">
+<code class="descclassname">Popen.</code><code class="descname">stdout</code><a class="headerlink" href="#subprocess.Popen.stdout" title="本定義的永久連結">¶</a></dt>
+<dd><p>If the <em>stdout</em> argument was <a class="reference internal" href="#subprocess.PIPE" title="subprocess.PIPE"><code class="xref py py-data docutils literal notranslate"><span class="pre">PIPE</span></code></a>, this attribute is a file object
+that provides output from the child process.  Otherwise, it is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="subprocess.Popen.stderr">
+<code class="descclassname">Popen.</code><code class="descname">stderr</code><a class="headerlink" href="#subprocess.Popen.stderr" title="本定義的永久連結">¶</a></dt>
+<dd><p>If the <em>stderr</em> argument was <a class="reference internal" href="#subprocess.PIPE" title="subprocess.PIPE"><code class="xref py py-data docutils literal notranslate"><span class="pre">PIPE</span></code></a>, this attribute is a file object
+that provides error output from the child process.  Otherwise, it is
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="subprocess.Popen.pid">
+<code class="descclassname">Popen.</code><code class="descname">pid</code><a class="headerlink" href="#subprocess.Popen.pid" title="本定義的永久連結">¶</a></dt>
+<dd><p>The process ID of the child process.</p>
+<p>Note that if you set the <em>shell</em> argument to <code class="docutils literal notranslate"><span class="pre">True</span></code>, this is the process ID
+of the spawned shell.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="subprocess.Popen.returncode">
+<code class="descclassname">Popen.</code><code class="descname">returncode</code><a class="headerlink" href="#subprocess.Popen.returncode" title="本定義的永久連結">¶</a></dt>
+<dd><p>The child return code, set by <a class="reference internal" href="#subprocess.Popen.poll" title="subprocess.Popen.poll"><code class="xref py py-meth docutils literal notranslate"><span class="pre">poll()</span></code></a> and <a class="reference internal" href="#subprocess.Popen.wait" title="subprocess.Popen.wait"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wait()</span></code></a> (and indirectly
+by <a class="reference internal" href="#subprocess.Popen.communicate" title="subprocess.Popen.communicate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">communicate()</span></code></a>).  A <code class="docutils literal notranslate"><span class="pre">None</span></code> value indicates that the process
+hasn’t terminated yet.</p>
+<p>A negative value <code class="docutils literal notranslate"><span class="pre">-N</span></code> indicates that the child was terminated by signal
+<code class="docutils literal notranslate"><span class="pre">N</span></code> (Unix only).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="replacing-older-functions-with-the-subprocess-module">
+<span id="subprocess-replacements"></span><h2>17.1.3. Replacing Older Functions with the subprocess Module<a class="headerlink" href="#replacing-older-functions-with-the-subprocess-module" title="本標題的永久連結">¶</a></h2>
+<p>In this section, 「a ==&gt; b」 means that b can be used as a replacement for a.</p>
+<div class="admonition note">
+<p class="first admonition-title">備註</p>
+<p class="last">All functions in this section fail (more or less) silently if the executed
+program cannot be found; this module raises an <a class="reference internal" href="exceptions.html#exceptions.OSError" title="exceptions.OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a> exception.</p>
+</div>
+<p>In the following examples, we assume that the subprocess module is imported with
+「from subprocess import *」.</p>
+<div class="section" id="replacing-bin-sh-shell-backquote">
+<h3>17.1.3.1. Replacing /bin/sh shell backquote<a class="headerlink" href="#replacing-bin-sh-shell-backquote" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>output=`mycmd myarg`
+==&gt;
+output = Popen([&quot;mycmd&quot;, &quot;myarg&quot;], stdout=PIPE).communicate()[0]
+</pre></div>
+</div>
+</div>
+<div class="section" id="replacing-shell-pipeline">
+<h3>17.1.3.2. Replacing shell pipeline<a class="headerlink" href="#replacing-shell-pipeline" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>output=`dmesg | grep hda`
+==&gt;
+p1 = Popen([&quot;dmesg&quot;], stdout=PIPE)
+p2 = Popen([&quot;grep&quot;, &quot;hda&quot;], stdin=p1.stdout, stdout=PIPE)
+output = p2.communicate()[0]
+</pre></div>
+</div>
+</div>
+<div class="section" id="replacing-os-system">
+<h3>17.1.3.3. Replacing <a class="reference internal" href="os.html#os.system" title="os.system"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.system()</span></code></a><a class="headerlink" href="#replacing-os-system" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sts</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;mycmd&quot;</span> <span class="o">+</span> <span class="s2">&quot; myarg&quot;</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;mycmd&quot;</span> <span class="o">+</span> <span class="s2">&quot; myarg&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sts</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">waitpid</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pid</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Notes:</p>
+<ul class="simple">
+<li>Calling the program through the shell is usually not required.</li>
+<li>It’s easier to look at the <code class="xref py py-attr docutils literal notranslate"><span class="pre">returncode</span></code> attribute than the exit status.</li>
+</ul>
+<p>A more realistic example would look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">retcode</span> <span class="o">=</span> <span class="n">call</span><span class="p">(</span><span class="s2">&quot;mycmd&quot;</span> <span class="o">+</span> <span class="s2">&quot; myarg&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">retcode</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="o">&gt;&gt;</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Child was terminated by signal&quot;</span><span class="p">,</span> <span class="o">-</span><span class="n">retcode</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="o">&gt;&gt;</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Child returned&quot;</span><span class="p">,</span> <span class="n">retcode</span>
+<span class="k">except</span> <span class="ne">OSError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="o">&gt;&gt;</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span> <span class="s2">&quot;Execution failed:&quot;</span><span class="p">,</span> <span class="n">e</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="replacing-the-os-spawn-family">
+<h3>17.1.3.4. Replacing the <a class="reference internal" href="os.html#os.spawnl" title="os.spawnl"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.spawn</span></code></a> family<a class="headerlink" href="#replacing-the-os-spawn-family" title="本標題的永久連結">¶</a></h3>
+<p>P_NOWAIT example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pid</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">spawnlp</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">P_NOWAIT</span><span class="p">,</span> <span class="s2">&quot;/bin/mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;myarg&quot;</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">pid</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;/bin/mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;myarg&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">pid</span>
+</pre></div>
+</div>
+<p>P_WAIT example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">retcode</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">spawnlp</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">P_WAIT</span><span class="p">,</span> <span class="s2">&quot;/bin/mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;myarg&quot;</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">retcode</span> <span class="o">=</span> <span class="n">call</span><span class="p">([</span><span class="s2">&quot;/bin/mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;myarg&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Vector example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">spawnvp</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">P_NOWAIT</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">Popen</span><span class="p">([</span><span class="n">path</span><span class="p">]</span> <span class="o">+</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+</div>
+<p>Environment example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">spawnlpe</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">P_NOWAIT</span><span class="p">,</span> <span class="s2">&quot;/bin/mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;myarg&quot;</span><span class="p">,</span> <span class="n">env</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;/bin/mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;myarg&quot;</span><span class="p">],</span> <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;PATH&quot;</span><span class="p">:</span> <span class="s2">&quot;/usr/bin&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="replacing-os-popen-os-popen2-os-popen3">
+<h3>17.1.3.5. Replacing <a class="reference internal" href="os.html#os.popen" title="os.popen"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.popen()</span></code></a>, <a class="reference internal" href="os.html#os.popen2" title="os.popen2"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.popen2()</span></code></a>, <a class="reference internal" href="os.html#os.popen3" title="os.popen3"><code class="xref py py-func docutils literal notranslate"><span class="pre">os.popen3()</span></code></a><a class="headerlink" href="#replacing-os-popen-os-popen2-os-popen3" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">bufsize</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="n">bufsize</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">bufsize</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="n">bufsize</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdin</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">child_stdin</span><span class="p">,</span> <span class="n">child_stdout</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen2</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">bufsize</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="n">bufsize</span><span class="p">,</span>
+          <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">close_fds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="n">child_stdin</span><span class="p">,</span> <span class="n">child_stdout</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">child_stdin</span><span class="p">,</span>
+ <span class="n">child_stdout</span><span class="p">,</span>
+ <span class="n">child_stderr</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen3</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">bufsize</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="n">bufsize</span><span class="p">,</span>
+          <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">close_fds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="n">child_stdin</span><span class="p">,</span>
+ <span class="n">child_stdout</span><span class="p">,</span>
+ <span class="n">child_stderr</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">child_stdin</span><span class="p">,</span> <span class="n">child_stdout_and_stderr</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen4</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span>
+                                                   <span class="n">bufsize</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="n">bufsize</span><span class="p">,</span>
+          <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">close_fds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="n">child_stdin</span><span class="p">,</span> <span class="n">child_stdout_and_stderr</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On Unix, os.popen2, os.popen3 and os.popen4 also accept a sequence as
+the command to execute, in which case arguments will be passed
+directly to the program without shell intervention.  This usage can be
+replaced as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">child_stdin</span><span class="p">,</span> <span class="n">child_stdout</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen2</span><span class="p">([</span><span class="s2">&quot;/bin/ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">mode</span><span class="p">,</span>
+                                        <span class="n">bufsize</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;/bin/ls&quot;</span><span class="p">,</span> <span class="s2">&quot;-l&quot;</span><span class="p">],</span> <span class="n">bufsize</span><span class="o">=</span><span class="n">bufsize</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="p">(</span><span class="n">child_stdin</span><span class="p">,</span> <span class="n">child_stdout</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Return code handling translates as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">rc</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">rc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">rc</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="s2">&quot;There were some errors&quot;</span>
+<span class="o">==&gt;</span>
+<span class="n">process</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">process</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">process</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="s2">&quot;There were some errors&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="replacing-functions-from-the-popen2-module">
+<h3>17.1.3.6. Replacing functions from the <a class="reference internal" href="popen2.html#module-popen2" title="popen2: Subprocesses with accessible standard I/O streams.(已棄用)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">popen2</span></code></a> module<a class="headerlink" href="#replacing-functions-from-the-popen2-module" title="本標題的永久連結">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">child_stdout</span><span class="p">,</span> <span class="n">child_stdin</span><span class="p">)</span> <span class="o">=</span> <span class="n">popen2</span><span class="o">.</span><span class="n">popen2</span><span class="p">(</span><span class="s2">&quot;somestring&quot;</span><span class="p">,</span> <span class="n">bufsize</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;somestring&quot;</span><span class="p">],</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bufsize</span><span class="o">=</span><span class="n">bufsize</span><span class="p">,</span>
+          <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">close_fds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="n">child_stdout</span><span class="p">,</span> <span class="n">child_stdin</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>On Unix, popen2 also accepts a sequence as the command to execute, in
+which case arguments will be passed directly to the program without
+shell intervention.  This usage can be replaced as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">child_stdout</span><span class="p">,</span> <span class="n">child_stdin</span><span class="p">)</span> <span class="o">=</span> <span class="n">popen2</span><span class="o">.</span><span class="n">popen2</span><span class="p">([</span><span class="s2">&quot;mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;myarg&quot;</span><span class="p">],</span> <span class="n">bufsize</span><span class="p">,</span>
+                                            <span class="n">mode</span><span class="p">)</span>
+<span class="o">==&gt;</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">([</span><span class="s2">&quot;mycmd&quot;</span><span class="p">,</span> <span class="s2">&quot;myarg&quot;</span><span class="p">],</span> <span class="n">bufsize</span><span class="o">=</span><span class="n">bufsize</span><span class="p">,</span>
+          <span class="n">stdin</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">close_fds</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">(</span><span class="n">child_stdout</span><span class="p">,</span> <span class="n">child_stdin</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="popen2.html#popen2.Popen3" title="popen2.Popen3"><code class="xref py py-class docutils literal notranslate"><span class="pre">popen2.Popen3</span></code></a> and <a class="reference internal" href="popen2.html#popen2.Popen4" title="popen2.Popen4"><code class="xref py py-class docutils literal notranslate"><span class="pre">popen2.Popen4</span></code></a> basically work as
+<a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">subprocess.Popen</span></code></a>, except that:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a> raises an exception if the execution fails.</li>
+<li>the <em>capturestderr</em> argument is replaced with the <em>stderr</em> argument.</li>
+<li><code class="docutils literal notranslate"><span class="pre">stdin=PIPE</span></code> and <code class="docutils literal notranslate"><span class="pre">stdout=PIPE</span></code> must be specified.</li>
+<li>popen2 closes all file descriptors by default, but you have to specify
+<code class="docutils literal notranslate"><span class="pre">close_fds=True</span></code> with <a class="reference internal" href="#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Popen</span></code></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">17.1. <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> — Subprocess management</a><ul>
+<li><a class="reference internal" href="#using-the-subprocess-module">17.1.1. Using the subprocess Module</a><ul>
+<li><a class="reference internal" href="#convenience-functions">17.1.1.1. Convenience Functions</a></li>
+<li><a class="reference internal" href="#exceptions">17.1.1.2. Exceptions</a></li>
+<li><a class="reference internal" href="#security">17.1.1.3. Security</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#popen-objects">17.1.2. Popen Objects</a></li>
+<li><a class="reference internal" href="#replacing-older-functions-with-the-subprocess-module">17.1.3. Replacing Older Functions with the subprocess Module</a><ul>
+<li><a class="reference internal" href="#replacing-bin-sh-shell-backquote">17.1.3.1. Replacing /bin/sh shell backquote</a></li>
+<li><a class="reference internal" href="#replacing-shell-pipeline">17.1.3.2. Replacing shell pipeline</a></li>
+<li><a class="reference internal" href="#replacing-os-system">17.1.3.3. Replacing <code class="docutils literal notranslate"><span class="pre">os.system()</span></code></a></li>
+<li><a class="reference internal" href="#replacing-the-os-spawn-family">17.1.3.4. Replacing the <code class="docutils literal notranslate"><span class="pre">os.spawn</span></code> family</a></li>
+<li><a class="reference internal" href="#replacing-os-popen-os-popen2-os-popen3">17.1.3.5. Replacing <code class="docutils literal notranslate"><span class="pre">os.popen()</span></code>, <code class="docutils literal notranslate"><span class="pre">os.popen2()</span></code>, <code class="docutils literal notranslate"><span class="pre">os.popen3()</span></code></a></li>
+<li><a class="reference internal" href="#replacing-functions-from-the-popen2-module">17.1.3.6. Replacing functions from the <code class="docutils literal notranslate"><span class="pre">popen2</span></code> module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="ipc.html"
+                        title="上一章">17. Interprocess Communication and Networking</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="socket.html"
+                        title="下一章">17.2. <code class="docutils literal notranslate"><span class="pre">socket</span></code> — Low-level networking interface</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/subprocess.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="socket.html" title="17.2. socket — Low-level networking interface"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="ipc.html" title="17. Interprocess Communication and Networking"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 2.6.9 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="ipc.html" >17. Interprocess Communication and Networking</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 24, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>
