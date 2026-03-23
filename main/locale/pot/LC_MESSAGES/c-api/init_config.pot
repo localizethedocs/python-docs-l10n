@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 09:11+0000\n"
+"POT-Creation-Date: 2026-03-23 09:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3151,22 +3151,116 @@ msgstr ""
 msgid "See also :c:member:`PyConfig.orig_argv` member."
 msgstr ""
 
-#: ../../../c-api/init_config.rst:2303
-msgid "Delaying main module execution"
+#: ../../../c-api/init_config.rst:2304
+msgid "Multi-Phase Initialization Private Provisional API"
 msgstr ""
 
-#: ../../../c-api/init_config.rst:2305
+#: ../../../c-api/init_config.rst:2306
 msgid ""
-"In some embedding use cases, it may be desirable to separate interpreter "
-"initialization from the execution of the main module."
+"This section is a private provisional API introducing multi-phase "
+"initialization, the core feature of :pep:`432`:"
 msgstr ""
 
-#: ../../../c-api/init_config.rst:2308
+#: ../../../c-api/init_config.rst:2309
+msgid "\"Core\" initialization phase, \"bare minimum Python\":"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2311
+msgid "Builtin types;"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2312
+msgid "Builtin exceptions;"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2313
+msgid "Builtin and frozen modules;"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2314
 msgid ""
-"This separation can be achieved by setting ``PyConfig.run_command`` to the "
-"empty string during initialization (to prevent the interpreter from dropping "
-"into the interactive prompt), and then subsequently executing the desired "
-"main module code using ``__main__.__dict__`` as the global namespace."
+"The :mod:`sys` module is only partially initialized (ex: :data:`sys.path` "
+"doesn't exist yet)."
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2317
+msgid "\"Main\" initialization phase, Python is fully initialized:"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2319
+msgid "Install and configure :mod:`importlib`;"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2320
+msgid "Apply the :ref:`Path Configuration <init-path-config>`;"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2321
+msgid "Install signal handlers;"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2322
+msgid ""
+"Finish :mod:`sys` module initialization (ex: create :data:`sys.stdout` and :"
+"data:`sys.path`);"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2324
+msgid ""
+"Enable optional features like :mod:`faulthandler` and :mod:`tracemalloc`;"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2325
+msgid "Import the :mod:`site` module;"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2326
+msgid "etc."
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2328
+msgid "Private provisional API:"
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2332
+msgid ""
+"If set to ``0``, :c:func:`Py_InitializeFromConfig` stops at the \"Core\" "
+"initialization phase."
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2337
+msgid ""
+"Move to the \"Main\" initialization phase, finish the Python initialization."
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2339
+msgid ""
+"No module is imported during the \"Core\" phase and the ``importlib`` module "
+"is not configured: the :ref:`Path Configuration <init-path-config>` is only "
+"applied during the \"Main\" phase. It may allow to customize Python in "
+"Python to override or tune the :ref:`Path Configuration <init-path-config>`, "
+"maybe install a custom :data:`sys.meta_path` importer or an import hook, etc."
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2345
+msgid ""
+"It may become possible to calculate the :ref:`Path Configuration <init-path-"
+"config>` in Python, after the Core phase and before the Main phase, which is "
+"one of the :pep:`432` motivation."
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2349
+msgid ""
+"The \"Core\" phase is not properly defined: what should be and what should "
+"not be available at this phase is not specified yet. The API is marked as "
+"private and provisional: the API can be modified or even be removed anytime "
+"until a proper public API is designed."
+msgstr ""
+
+#: ../../../c-api/init_config.rst:2354
+msgid ""
+"Example running Python code between \"Core\" and \"Main\" initialization "
+"phases::"
 msgstr ""
 
 #: ../../../c-api/init_config.rst:1179

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 09:11+0000\n"
+"POT-Creation-Date: 2026-03-23 09:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -483,13 +483,18 @@ msgid ""
 "function."
 msgstr ""
 
-#: ../../../c-api/object.rst:366 ../../../c-api/object.rst:390
+#: ../../../c-api/object.rst:366 ../../../c-api/object.rst:382
+#: ../../../c-api/object.rst:394
+msgid "If argument is ``NULL``, return the string ``'<NULL>'``."
+msgstr ""
+
+#: ../../../c-api/object.rst:368 ../../../c-api/object.rst:396
 msgid ""
 "This function now includes a debug assertion to help ensure that it does not "
 "silently discard an active exception."
 msgstr ""
 
-#: ../../../c-api/object.rst:374
+#: ../../../c-api/object.rst:376
 msgid ""
 "As :c:func:`PyObject_Repr`, compute a string representation of object *o*, "
 "but escape the non-ASCII characters in the string returned by :c:func:"
@@ -498,7 +503,7 @@ msgid ""
 "Called by the :func:`ascii` built-in function."
 msgstr ""
 
-#: ../../../c-api/object.rst:385
+#: ../../../c-api/object.rst:389
 msgid ""
 "Compute a string representation of object *o*.  Returns the string "
 "representation on success, ``NULL`` on failure.  This is the equivalent of "
@@ -506,7 +511,7 @@ msgid ""
 "function and, therefore, by the :func:`print` function."
 msgstr ""
 
-#: ../../../c-api/object.rst:399
+#: ../../../c-api/object.rst:405
 msgid ""
 "Compute a bytes representation of object *o*.  ``NULL`` is returned on "
 "failure and a bytes object on success.  This is equivalent to the Python "
@@ -515,20 +520,25 @@ msgid ""
 "bytes object."
 msgstr ""
 
-#: ../../../c-api/object.rst:408
+#: ../../../c-api/object.rst:411
+msgid ""
+"If argument is ``NULL``, return the :class:`bytes` object ``b'<NULL>'``."
+msgstr ""
+
+#: ../../../c-api/object.rst:416
 msgid ""
 "Return ``1`` if the class *derived* is identical to or derived from the "
 "class *cls*, otherwise return ``0``.  In case of an error, return ``-1``."
 msgstr ""
 
-#: ../../../c-api/object.rst:411 ../../../c-api/object.rst:430
+#: ../../../c-api/object.rst:419 ../../../c-api/object.rst:438
 msgid ""
 "If *cls* is a tuple, the check will be done against every entry in *cls*. "
 "The result will be ``1`` when at least one of the checks returns ``1``, "
 "otherwise it will be ``0``."
 msgstr ""
 
-#: ../../../c-api/object.rst:415
+#: ../../../c-api/object.rst:423
 msgid ""
 "If *cls* has a :meth:`~type.__subclasscheck__` method, it will be called to "
 "determine the subclass status as described in :pep:`3119`.  Otherwise, "
@@ -536,52 +546,52 @@ msgid ""
 "e. contained in :attr:`cls.__mro__ <type.__mro__>`."
 msgstr ""
 
-#: ../../../c-api/object.rst:420
+#: ../../../c-api/object.rst:428
 msgid ""
 "Normally only class objects, i.e. instances of :class:`type` or a derived "
 "class, are considered classes.  However, objects can override this by having "
 "a :attr:`~type.__bases__` attribute (which must be a tuple of base classes)."
 msgstr ""
 
-#: ../../../c-api/object.rst:427
+#: ../../../c-api/object.rst:435
 msgid ""
 "Return ``1`` if *inst* is an instance of the class *cls* or a subclass of "
 "*cls*, or ``0`` if not.  On error, returns ``-1`` and sets an exception."
 msgstr ""
 
-#: ../../../c-api/object.rst:434
+#: ../../../c-api/object.rst:442
 msgid ""
 "If *cls* has a :meth:`~type.__instancecheck__` method, it will be called to "
 "determine the subclass status as described in :pep:`3119`.  Otherwise, "
 "*inst* is an instance of *cls* if its class is a subclass of *cls*."
 msgstr ""
 
-#: ../../../c-api/object.rst:438
+#: ../../../c-api/object.rst:446
 msgid ""
 "An instance *inst* can override what is considered its class by having a :"
 "attr:`~object.__class__` attribute."
 msgstr ""
 
-#: ../../../c-api/object.rst:441
+#: ../../../c-api/object.rst:449
 msgid ""
 "An object *cls* can override if it is considered a class, and what its base "
 "classes are, by having a :attr:`~type.__bases__` attribute (which must be a "
 "tuple of base classes)."
 msgstr ""
 
-#: ../../../c-api/object.rst:450
+#: ../../../c-api/object.rst:458
 msgid ""
 "Compute and return the hash value of an object *o*.  On failure, return "
 "``-1``. This is the equivalent of the Python expression ``hash(o)``."
 msgstr ""
 
-#: ../../../c-api/object.rst:453
+#: ../../../c-api/object.rst:461
 msgid ""
 "The return type is now Py_hash_t.  This is a signed integer the same size "
 "as :c:type:`Py_ssize_t`."
 msgstr ""
 
-#: ../../../c-api/object.rst:460
+#: ../../../c-api/object.rst:468
 msgid ""
 "Set a :exc:`TypeError` indicating that ``type(o)`` is not :term:`hashable` "
 "and return ``-1``. This function receives special treatment when stored in a "
@@ -589,21 +599,21 @@ msgid ""
 "that it is not hashable."
 msgstr ""
 
-#: ../../../c-api/object.rst:468
+#: ../../../c-api/object.rst:476
 msgid ""
 "Returns ``1`` if the object *o* is considered to be true, and ``0`` "
 "otherwise. This is equivalent to the Python expression ``not not o``.  On "
 "failure, return ``-1``."
 msgstr ""
 
-#: ../../../c-api/object.rst:475
+#: ../../../c-api/object.rst:483
 msgid ""
 "Returns ``0`` if the object *o* is considered to be true, and ``1`` "
 "otherwise. This is equivalent to the Python expression ``not o``.  On "
 "failure, return ``-1``."
 msgstr ""
 
-#: ../../../c-api/object.rst:484
+#: ../../../c-api/object.rst:492
 msgid ""
 "When *o* is non-``NULL``, returns a type object corresponding to the object "
 "type of object *o*. On failure, raises :exc:`SystemError` and returns "
@@ -614,13 +624,13 @@ msgid ""
 "when a new :term:`strong reference` is needed."
 msgstr ""
 
-#: ../../../c-api/object.rst:496
+#: ../../../c-api/object.rst:504
 msgid ""
 "Return non-zero if the object *o* is of type *type* or a subtype of *type*, "
 "and ``0`` otherwise.  Both parameters must be non-``NULL``."
 msgstr ""
 
-#: ../../../c-api/object.rst:505
+#: ../../../c-api/object.rst:513
 msgid ""
 "Return the length of object *o*.  If the object *o* provides either the "
 "sequence and mapping protocols, the sequence length is returned.  On error, "
@@ -628,7 +638,7 @@ msgid ""
 "``len(o)``."
 msgstr ""
 
-#: ../../../c-api/object.rst:512
+#: ../../../c-api/object.rst:520
 msgid ""
 "Return an estimated length for the object *o*. First try to return its "
 "actual length, then an estimate using :meth:`~object.__length_hint__`, and "
@@ -637,33 +647,33 @@ msgid ""
 "defaultvalue)``."
 msgstr ""
 
-#: ../../../c-api/object.rst:522
+#: ../../../c-api/object.rst:530
 msgid ""
 "Return element of *o* corresponding to the object *key* or ``NULL`` on "
 "failure. This is the equivalent of the Python expression ``o[key]``."
 msgstr ""
 
-#: ../../../c-api/object.rst:528
+#: ../../../c-api/object.rst:536
 msgid ""
 "Map the object *key* to the value *v*.  Raise an exception and return ``-1`` "
 "on failure; return ``0`` on success.  This is the equivalent of the Python "
 "statement ``o[key] = v``.  This function *does not* steal a reference to *v*."
 msgstr ""
 
-#: ../../../c-api/object.rst:536
+#: ../../../c-api/object.rst:544
 msgid ""
 "Remove the mapping for the object *key* from the object *o*.  Return ``-1`` "
 "on failure.  This is equivalent to the Python statement ``del o[key]``."
 msgstr ""
 
-#: ../../../c-api/object.rst:542
+#: ../../../c-api/object.rst:550
 msgid ""
 "This is the same as :c:func:`PyObject_DelItem`, but *key* is specified as a :"
 "c:expr:`const char*` UTF-8 encoded bytes string, rather than a :c:expr:"
 "`PyObject*`."
 msgstr ""
 
-#: ../../../c-api/object.rst:549
+#: ../../../c-api/object.rst:557
 msgid ""
 "This is equivalent to the Python expression ``dir(o)``, returning a "
 "(possibly empty) list of strings appropriate for the object argument, or "
@@ -673,7 +683,7 @@ msgid ""
 "`PyErr_Occurred` will return false."
 msgstr ""
 
-#: ../../../c-api/object.rst:558
+#: ../../../c-api/object.rst:566
 msgid ""
 "This is equivalent to the Python expression ``iter(o)``. It returns a new "
 "iterator for the object argument, or the object  itself if the object is "
@@ -681,14 +691,14 @@ msgid ""
 "object cannot be iterated."
 msgstr ""
 
-#: ../../../c-api/object.rst:566
+#: ../../../c-api/object.rst:574
 msgid ""
 "This is equivalent to the Python ``__iter__(self): return self`` method. It "
 "is intended for :term:`iterator` types, to be used in the :c:member:"
 "`PyTypeObject.tp_iter` slot."
 msgstr ""
 
-#: ../../../c-api/object.rst:572
+#: ../../../c-api/object.rst:580
 msgid ""
 "This is the equivalent to the Python expression ``aiter(o)``. Takes an :"
 "class:`AsyncIterable` object and returns an :class:`AsyncIterator` for it. "
@@ -697,77 +707,77 @@ msgid ""
 "``NULL`` if the object cannot be iterated."
 msgstr ""
 
-#: ../../../c-api/object.rst:582
+#: ../../../c-api/object.rst:590
 msgid "Get a pointer to subclass-specific data reserved for *cls*."
 msgstr ""
 
-#: ../../../c-api/object.rst:584
+#: ../../../c-api/object.rst:592
 msgid ""
 "The object *o* must be an instance of *cls*, and *cls* must have been "
 "created using negative :c:member:`PyType_Spec.basicsize`. Python does not "
 "check this."
 msgstr ""
 
-#: ../../../c-api/object.rst:588
+#: ../../../c-api/object.rst:596
 msgid "On error, set an exception and return ``NULL``."
 msgstr ""
 
-#: ../../../c-api/object.rst:594
+#: ../../../c-api/object.rst:602
 msgid ""
 "Return the size of the instance memory space reserved for *cls*, i.e. the "
 "size of the memory :c:func:`PyObject_GetTypeData` returns."
 msgstr ""
 
-#: ../../../c-api/object.rst:597
+#: ../../../c-api/object.rst:605
 msgid ""
 "This may be larger than requested using :c:member:`-PyType_Spec.basicsize "
 "<PyType_Spec.basicsize>`; it is safe to use this larger size (e.g. with :c:"
 "func:`!memset`)."
 msgstr ""
 
-#: ../../../c-api/object.rst:600
+#: ../../../c-api/object.rst:608
 msgid ""
 "The type *cls* **must** have been created using negative :c:member:"
 "`PyType_Spec.basicsize`. Python does not check this."
 msgstr ""
 
-#: ../../../c-api/object.rst:604
+#: ../../../c-api/object.rst:612
 msgid "On error, set an exception and return a negative value."
 msgstr ""
 
-#: ../../../c-api/object.rst:610
+#: ../../../c-api/object.rst:618
 msgid ""
 "Get a pointer to per-item data for a class with :c:macro:"
 "`Py_TPFLAGS_ITEMS_AT_END`."
 msgstr ""
 
-#: ../../../c-api/object.rst:613
+#: ../../../c-api/object.rst:621
 msgid ""
 "On error, set an exception and return ``NULL``. :py:exc:`TypeError` is "
 "raised if *o* does not have :c:macro:`Py_TPFLAGS_ITEMS_AT_END` set."
 msgstr ""
 
-#: ../../../c-api/object.rst:621
+#: ../../../c-api/object.rst:629
 msgid "Visit the managed dictionary of *obj*."
 msgstr ""
 
-#: ../../../c-api/object.rst:623
+#: ../../../c-api/object.rst:631
 msgid ""
 "This function must only be called in a traverse function of the type which "
 "has the :c:macro:`Py_TPFLAGS_MANAGED_DICT` flag set."
 msgstr ""
 
-#: ../../../c-api/object.rst:630
+#: ../../../c-api/object.rst:638
 msgid "Clear the managed dictionary of *obj*."
 msgstr ""
 
-#: ../../../c-api/object.rst:632
+#: ../../../c-api/object.rst:640
 msgid ""
 "This function must only be called in a clear function of the type which has "
 "the :c:macro:`Py_TPFLAGS_MANAGED_DICT` flag set."
 msgstr ""
 
-#: ../../../c-api/object.rst:639
+#: ../../../c-api/object.rst:647
 msgid ""
 "Enable `deferred reference counting <https://peps.python.org/pep-0703/"
 "#deferred-reference-counting>`_ on *obj*, if supported by the runtime.  In "
@@ -778,7 +788,7 @@ msgid ""
 "no longer has any references to it."
 msgstr ""
 
-#: ../../../c-api/object.rst:646
+#: ../../../c-api/object.rst:654
 msgid ""
 "This function returns ``1`` if deferred reference counting is enabled on "
 "*obj*, and ``0`` if deferred reference counting is not supported or if the "
@@ -787,7 +797,7 @@ msgid ""
 "cannot fail."
 msgstr ""
 
-#: ../../../c-api/object.rst:651
+#: ../../../c-api/object.rst:659
 msgid ""
 "This function does nothing on builds with the :term:`GIL` enabled, which do "
 "not support deferred reference counting. This also does nothing if *obj* is "
@@ -795,14 +805,14 @@ msgid ""
 "and :c:func:`PyObject_GC_IsTracked`)."
 msgstr ""
 
-#: ../../../c-api/object.rst:656
+#: ../../../c-api/object.rst:664
 msgid ""
 "This function is intended to be used soon after *obj* is created, by the "
 "code that creates it, such as in the object's :c:member:`~PyTypeObject."
 "tp_new` slot."
 msgstr ""
 
-#: ../../../c-api/object.rst:664
+#: ../../../c-api/object.rst:672
 msgid ""
 "Check if *obj* is a unique temporary object. Returns ``1`` if *obj* is known "
 "to be a unique temporary object, and ``0`` otherwise.  This function cannot "
@@ -810,7 +820,7 @@ msgid ""
 "if *obj* is a unique temporary object."
 msgstr ""
 
-#: ../../../c-api/object.rst:670
+#: ../../../c-api/object.rst:678
 msgid ""
 "If an object is a unique temporary, it is guaranteed that the current code "
 "has the only reference to the object. For arguments to C functions, this "
@@ -822,61 +832,61 @@ msgid ""
 "argument uniquely referenced."
 msgstr ""
 
-#: ../../../c-api/object.rst:679
+#: ../../../c-api/object.rst:687
 msgid ""
 "In the example below, ``my_func`` is called with a unique temporary object "
 "as its argument::"
 msgstr ""
 
-#: ../../../c-api/object.rst:684
+#: ../../../c-api/object.rst:692
 msgid ""
 "In the example below, ``my_func`` is **not** called with a unique temporary "
 "object as its argument, even if its refcount is ``1``::"
 msgstr ""
 
-#: ../../../c-api/object.rst:690
+#: ../../../c-api/object.rst:698
 msgid "See also the function :c:func:`Py_REFCNT`."
 msgstr ""
 
-#: ../../../c-api/object.rst:696
+#: ../../../c-api/object.rst:704
 msgid ""
 "This function returns non-zero if *obj* is :term:`immortal`, and zero "
 "otherwise. This function cannot fail."
 msgstr ""
 
-#: ../../../c-api/object.rst:701
+#: ../../../c-api/object.rst:709
 msgid ""
 "Objects that are immortal in one CPython version are not guaranteed to be "
 "immortal in another."
 msgstr ""
 
-#: ../../../c-api/object.rst:708
+#: ../../../c-api/object.rst:716
 msgid ""
 "Increments the reference count of *obj* if it is not zero.  Returns ``1`` if "
 "the object's reference count was successfully incremented. Otherwise, this "
 "function returns ``0``."
 msgstr ""
 
-#: ../../../c-api/object.rst:712
+#: ../../../c-api/object.rst:720
 msgid ""
 ":c:func:`PyUnstable_EnableTryIncRef` must have been called earlier on *obj* "
 "or this function may spuriously return ``0`` in the :term:`free-threaded "
 "build`."
 msgstr ""
 
-#: ../../../c-api/object.rst:716
+#: ../../../c-api/object.rst:724
 msgid ""
 "This function is logically equivalent to the following C code, except that "
 "it behaves atomically in the :term:`free-threaded build`::"
 msgstr ""
 
-#: ../../../c-api/object.rst:725
+#: ../../../c-api/object.rst:733
 msgid ""
 "This is intended as a building block for managing weak references without "
 "the overhead of a Python :ref:`weak reference object <weakrefobjects>`."
 msgstr ""
 
-#: ../../../c-api/object.rst:728
+#: ../../../c-api/object.rst:736
 msgid ""
 "Typically, correct use of this function requires support from *obj*'s "
 "deallocator (:c:member:`~PyTypeObject.tp_dealloc`). For example, the "
@@ -884,23 +894,23 @@ msgid ""
 "a :py:class:`~weakref.WeakValueDictionary` for a specific type:"
 msgstr ""
 
-#: ../../../c-api/object.rst:782
+#: ../../../c-api/object.rst:790
 msgid ""
 "Enables subsequent uses of :c:func:`PyUnstable_TryIncRef` on *obj*.  The "
 "caller must hold a :term:`strong reference` to *obj* when calling this."
 msgstr ""
 
-#: ../../../c-api/object.rst:789
+#: ../../../c-api/object.rst:797
 msgid "Determine if *op* only has one reference."
 msgstr ""
 
-#: ../../../c-api/object.rst:791
+#: ../../../c-api/object.rst:799
 msgid ""
 "On GIL-enabled builds, this function is equivalent to :c:expr:`Py_REFCNT(op) "
 "== 1`."
 msgstr ""
 
-#: ../../../c-api/object.rst:794
+#: ../../../c-api/object.rst:802
 msgid ""
 "On a :term:`free-threaded build`, this checks if *op*'s :term:`reference "
 "count` is equal to one and additionally checks if *op* is only used by this "
@@ -908,14 +918,14 @@ msgid ""
 "builds; prefer this function."
 msgstr ""
 
-#: ../../../c-api/object.rst:799
+#: ../../../c-api/object.rst:807
 msgid ""
 "The caller must hold an :term:`attached thread state`, despite the fact that "
 "this function doesn't call into the Python interpreter. This function cannot "
 "fail."
 msgstr ""
 
-#: ../../../c-api/object.rst:807
+#: ../../../c-api/object.rst:815
 msgid ""
 "Marks the object *op* :term:`immortal`. The argument should be uniquely "
 "referenced by the calling thread. This is intended to be used for reducing "
@@ -923,7 +933,7 @@ msgid ""
 "which are shared across threads."
 msgstr ""
 
-#: ../../../c-api/object.rst:811
+#: ../../../c-api/object.rst:819
 msgid ""
 "This is a one-way process: objects can only be made immortal; they cannot be "
 "made mortal once again. Immortal objects do not participate in reference "
@@ -931,7 +941,7 @@ msgid ""
 "it is untracked."
 msgstr ""
 
-#: ../../../c-api/object.rst:815
+#: ../../../c-api/object.rst:823
 msgid ""
 "This function is intended to be used soon after *op* is created, by the code "
 "that creates it, such as in the object's :c:member:`~PyTypeObject.tp_new` "
@@ -939,9 +949,9 @@ msgid ""
 "This function cannot fail."
 msgstr ""
 
-#: ../../../c-api/object.rst:360 ../../../c-api/object.rst:372
-#: ../../../c-api/object.rst:397 ../../../c-api/object.rst:448
-#: ../../../c-api/object.rst:482 ../../../c-api/object.rst:503
+#: ../../../c-api/object.rst:360 ../../../c-api/object.rst:374
+#: ../../../c-api/object.rst:403 ../../../c-api/object.rst:456
+#: ../../../c-api/object.rst:490 ../../../c-api/object.rst:511
 msgid "built-in function"
 msgstr ""
 
@@ -949,30 +959,30 @@ msgstr ""
 msgid "repr"
 msgstr ""
 
-#: ../../../c-api/object.rst:372
+#: ../../../c-api/object.rst:374
 msgid "ascii"
 msgstr ""
 
-#: ../../../c-api/object.rst:380
+#: ../../../c-api/object.rst:384
 msgid "string"
 msgstr ""
 
-#: ../../../c-api/object.rst:380
+#: ../../../c-api/object.rst:384
 msgid "PyObject_Str (C function)"
 msgstr ""
 
-#: ../../../c-api/object.rst:397
+#: ../../../c-api/object.rst:403
 msgid "bytes"
 msgstr ""
 
-#: ../../../c-api/object.rst:448
+#: ../../../c-api/object.rst:456
 msgid "hash"
 msgstr ""
 
-#: ../../../c-api/object.rst:482
+#: ../../../c-api/object.rst:490
 msgid "type"
 msgstr ""
 
-#: ../../../c-api/object.rst:503
+#: ../../../c-api/object.rst:511
 msgid "len"
 msgstr ""
