@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 09:11+0000\n"
+"POT-Creation-Date: 2026-03-23 09:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,10 +90,12 @@ msgid ""
 "environments>`, the ``pyvenv.cfg`` file in :data:`sys.prefix` is checked for "
 "site-specific configurations. If the ``include-system-site-packages`` key "
 "exists and is set to ``true`` (case-insensitive), the system-level prefixes "
-"will be searched for site-packages, otherwise they won't."
+"will be searched for site-packages, otherwise they won't.  If the system-"
+"level prefixes are not searched then the user site prefixes are also "
+"implicitly not searched for site-packages."
 msgstr ""
 
-#: ../../../library/site.rst:73
+#: ../../../library/site.rst:74
 msgid ""
 "A path configuration file is a file whose name has the form :file:`{name}."
 "pth` and exists in one of the four directories mentioned above; its contents "
@@ -105,7 +107,7 @@ msgid ""
 "executed."
 msgstr ""
 
-#: ../../../library/site.rst:83
+#: ../../../library/site.rst:84
 msgid ""
 "An executable line in a :file:`.pth` file is run at every Python startup, "
 "regardless of whether a particular module is actually going to be used. Its "
@@ -117,13 +119,13 @@ msgid ""
 "putting anything more complex here."
 msgstr ""
 
-#: ../../../library/site.rst:94
+#: ../../../library/site.rst:95
 msgid ""
 "The :file:`.pth` files are now decoded by UTF-8 at first and then by the :"
 "term:`locale encoding` if it fails."
 msgstr ""
 
-#: ../../../library/site.rst:102
+#: ../../../library/site.rst:103
 msgid ""
 "For example, suppose ``sys.prefix`` and ``sys.exec_prefix`` are set to :file:"
 "`/usr/local`.  The Python X.Y library is then installed in :file:`/usr/local/"
@@ -133,17 +135,17 @@ msgid ""
 "and :file:`bar.pth`.  Assume :file:`foo.pth` contains the following::"
 msgstr ""
 
-#: ../../../library/site.rst:116
+#: ../../../library/site.rst:117
 msgid "and :file:`bar.pth` contains::"
 msgstr ""
 
-#: ../../../library/site.rst:122
+#: ../../../library/site.rst:123
 msgid ""
 "Then the following version-specific directories are added to ``sys.path``, "
 "in this order::"
 msgstr ""
 
-#: ../../../library/site.rst:128
+#: ../../../library/site.rst:129
 msgid ""
 "Note that :file:`bletch` is omitted because it doesn't exist; the :file:"
 "`bar` directory precedes the :file:`foo` directory because :file:`bar.pth` "
@@ -151,11 +153,11 @@ msgid ""
 "because it is not mentioned in either path configuration file."
 msgstr ""
 
-#: ../../../library/site.rst:134
+#: ../../../library/site.rst:135
 msgid ":mod:`!sitecustomize`"
 msgstr ""
 
-#: ../../../library/site.rst:138
+#: ../../../library/site.rst:139
 msgid ""
 "After these path manipulations, an attempt is made to import a module named :"
 "mod:`!sitecustomize`, which can perform arbitrary site-specific "
@@ -169,11 +171,11 @@ msgid ""
 "perhaps mysterious failure of the process."
 msgstr ""
 
-#: ../../../library/site.rst:150
+#: ../../../library/site.rst:151
 msgid ":mod:`!usercustomize`"
 msgstr ""
 
-#: ../../../library/site.rst:154
+#: ../../../library/site.rst:155
 msgid ""
 "After this, an attempt is made to import a module named :mod:`!"
 "usercustomize`, which can perform arbitrary user-specific customizations, "
@@ -185,18 +187,18 @@ msgid ""
 "ignored."
 msgstr ""
 
-#: ../../../library/site.rst:162
+#: ../../../library/site.rst:163
 msgid ""
 "Note that for some non-Unix systems, ``sys.prefix`` and ``sys.exec_prefix`` "
 "are empty, and the path manipulations are skipped; however the import of :"
 "mod:`sitecustomize` and :mod:`!usercustomize` is still attempted."
 msgstr ""
 
-#: ../../../library/site.rst:171
+#: ../../../library/site.rst:172
 msgid "Readline configuration"
 msgstr ""
 
-#: ../../../library/site.rst:173
+#: ../../../library/site.rst:174
 msgid ""
 "On systems that support :mod:`readline`, this module will also import and "
 "configure the :mod:`rlcompleter` module, if Python is started in :ref:"
@@ -208,19 +210,19 @@ msgid ""
 "`PYTHONSTARTUP` file."
 msgstr ""
 
-#: ../../../library/site.rst:182
+#: ../../../library/site.rst:183
 msgid "Activation of rlcompleter and history was made automatic."
 msgstr ""
 
-#: ../../../library/site.rst:187
+#: ../../../library/site.rst:188
 msgid "Module contents"
 msgstr ""
 
-#: ../../../library/site.rst:191
+#: ../../../library/site.rst:192
 msgid "A list of prefixes for site-packages directories."
 msgstr ""
 
-#: ../../../library/site.rst:196
+#: ../../../library/site.rst:197
 msgid ""
 "Flag showing the status of the user site-packages directory.  ``True`` means "
 "that it is enabled and was added to ``sys.path``.  ``False`` means that it "
@@ -229,7 +231,7 @@ msgid ""
 "(mismatch between user or group id and effective id) or by an administrator."
 msgstr ""
 
-#: ../../../library/site.rst:206
+#: ../../../library/site.rst:207
 msgid ""
 "Path to the user site-packages for the running Python.  Can be ``None`` if :"
 "func:`getusersitepackages` hasn't been called yet.  Default value is :file:"
@@ -241,7 +243,7 @@ msgid ""
 "files in it will be processed."
 msgstr ""
 
-#: ../../../library/site.rst:218
+#: ../../../library/site.rst:219
 msgid ""
 "Path to the base directory for the user site-packages.  Can be ``None`` if :"
 "func:`getuserbase` hasn't been called yet.  Default value is :file:`~/."
@@ -252,35 +254,35 @@ msgid ""
 "scheme <sysconfig-user-scheme>`. See also :envvar:`PYTHONUSERBASE`."
 msgstr ""
 
-#: ../../../library/site.rst:230
+#: ../../../library/site.rst:231
 msgid ""
 "Adds all the standard site-specific directories to the module search path.  "
 "This function is called automatically when this module is imported, unless "
 "the Python interpreter was started with the :option:`-S` flag."
 msgstr ""
 
-#: ../../../library/site.rst:234
+#: ../../../library/site.rst:235
 msgid "This function used to be called unconditionally."
 msgstr ""
 
-#: ../../../library/site.rst:240
+#: ../../../library/site.rst:241
 msgid ""
 "Add a directory to sys.path and process its :file:`.pth` files.  Typically "
 "used in :mod:`sitecustomize` or :mod:`usercustomize` (see above)."
 msgstr ""
 
-#: ../../../library/site.rst:246
+#: ../../../library/site.rst:247
 msgid "Return a list containing all global site-packages directories."
 msgstr ""
 
-#: ../../../library/site.rst:253
+#: ../../../library/site.rst:254
 msgid ""
 "Return the path of the user base directory, :data:`USER_BASE`.  If it is not "
 "initialized yet, this function will also set it, respecting :envvar:"
 "`PYTHONUSERBASE`."
 msgstr ""
 
-#: ../../../library/site.rst:262
+#: ../../../library/site.rst:263
 msgid ""
 "Return the path of the user-specific site-packages directory, :data:"
 "`USER_SITE`.  If it is not initialized yet, this function will also set it, "
@@ -288,17 +290,17 @@ msgid ""
 "packages was added to ``sys.path`` :data:`ENABLE_USER_SITE` should be used."
 msgstr ""
 
-#: ../../../library/site.rst:274
+#: ../../../library/site.rst:275
 msgid "Command-line interface"
 msgstr ""
 
-#: ../../../library/site.rst:278
+#: ../../../library/site.rst:279
 msgid ""
 "The :mod:`!site` module also provides a way to get the user directories from "
 "the command line:"
 msgstr ""
 
-#: ../../../library/site.rst:286
+#: ../../../library/site.rst:287
 msgid ""
 "If it is called without arguments, it will print the contents of :data:`sys."
 "path` on the standard output, followed by the value of :data:`USER_BASE` and "
@@ -306,21 +308,21 @@ msgid ""
 "finally the value of :data:`ENABLE_USER_SITE`."
 msgstr ""
 
-#: ../../../library/site.rst:293
+#: ../../../library/site.rst:294
 msgid "Print the path to the user base directory."
 msgstr ""
 
-#: ../../../library/site.rst:297
+#: ../../../library/site.rst:298
 msgid "Print the path to the user site-packages directory."
 msgstr ""
 
-#: ../../../library/site.rst:299
+#: ../../../library/site.rst:300
 msgid ""
 "If both options are given, user base and user site will be printed (always "
 "in this order), separated by :data:`os.pathsep`."
 msgstr ""
 
-#: ../../../library/site.rst:302
+#: ../../../library/site.rst:303
 msgid ""
 "If any option is given, the script will exit with one of these values: ``0`` "
 "if the user site-packages directory is enabled, ``1`` if it was disabled by "
@@ -328,11 +330,11 @@ msgid ""
 "administrator, and a value greater than 2 if there is an error."
 msgstr ""
 
-#: ../../../library/site.rst:309
+#: ../../../library/site.rst:310
 msgid ":pep:`370` -- Per user site-packages directory"
 msgstr ""
 
-#: ../../../library/site.rst:310
+#: ../../../library/site.rst:311
 msgid ":ref:`sys-path-init` -- The initialization of :data:`sys.path`."
 msgstr ""
 
@@ -344,7 +346,7 @@ msgstr ""
 msgid "search"
 msgstr ""
 
-#: ../../../library/site.rst:16 ../../../library/site.rst:98
+#: ../../../library/site.rst:16 ../../../library/site.rst:99
 msgid "path"
 msgstr ""
 
@@ -356,30 +358,30 @@ msgstr ""
 msgid "directory"
 msgstr ""
 
-#: ../../../library/site.rst:69
+#: ../../../library/site.rst:70
 msgid "# (hash)"
 msgstr ""
 
-#: ../../../library/site.rst:69
+#: ../../../library/site.rst:70
 msgid "comment"
 msgstr ""
 
-#: ../../../library/site.rst:69
+#: ../../../library/site.rst:70
 msgid "statement"
 msgstr ""
 
-#: ../../../library/site.rst:69
+#: ../../../library/site.rst:70
 msgid "import"
 msgstr ""
 
-#: ../../../library/site.rst:98
+#: ../../../library/site.rst:99
 msgid "package"
 msgstr ""
 
-#: ../../../library/site.rst:98
+#: ../../../library/site.rst:99
 msgid "configuration"
 msgstr ""
 
-#: ../../../library/site.rst:98
+#: ../../../library/site.rst:99
 msgid "file"
 msgstr ""

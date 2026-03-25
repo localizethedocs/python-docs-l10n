@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-01 09:06+0000\n"
+"POT-Creation-Date: 2026-03-23 09:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -555,23 +555,57 @@ msgid ""
 "synchronization primitives might be more appropriate."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:389
+#: ../../../howto/free-threading-extensions.rst:390
+msgid "Per-Object Locks (``ob_mutex``)"
+msgstr ""
+
+#: ../../../howto/free-threading-extensions.rst:392
+msgid ""
+"In the free-threaded build, each Python object contains a :c:member:"
+"`~PyObject.ob_mutex` field of type :c:type:`PyMutex`.  This mutex is "
+"**reserved for use by the critical section API** (:c:macro:"
+"`Py_BEGIN_CRITICAL_SECTION` / :c:macro:`Py_END_CRITICAL_SECTION`)."
+msgstr ""
+
+#: ../../../howto/free-threading-extensions.rst:399
+msgid ""
+"Do **not** lock ``ob_mutex`` directly with ``PyMutex_Lock(&obj->ob_mutex)``. "
+"Mixing direct ``PyMutex_Lock`` calls with the critical section API on the "
+"same mutex can cause deadlocks."
+msgstr ""
+
+#: ../../../howto/free-threading-extensions.rst:403
+msgid ""
+"Even if your own code never uses critical sections on a particular object "
+"type, **CPython internals may use the critical section API on any Python "
+"object**."
+msgstr ""
+
+#: ../../../howto/free-threading-extensions.rst:406
+msgid ""
+"If your extension type needs its own lock, add a separate :c:type:`PyMutex` "
+"field (or another synchronization primitive) to your object struct. :c:type:"
+"`PyMutex` is very lightweight, so there is negligible cost to having an "
+"additional one."
+msgstr ""
+
+#: ../../../howto/free-threading-extensions.rst:413
 msgid "Building Extensions for the Free-Threaded Build"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:391
+#: ../../../howto/free-threading-extensions.rst:415
 msgid ""
 "C API extensions need to be built specifically for the free-threaded build. "
 "The wheels, shared libraries, and binaries are indicated by a ``t`` suffix."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:394
+#: ../../../howto/free-threading-extensions.rst:418
 msgid ""
 "`pypa/manylinux <https://github.com/pypa/manylinux>`_ supports the free-"
 "threaded build, with the ``t`` suffix, such as ``python3.13t``."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:396
+#: ../../../howto/free-threading-extensions.rst:420
 msgid ""
 "`pypa/cibuildwheel <https://github.com/pypa/cibuildwheel>`_ supports the "
 "free-threaded build on Python 3.13 and 3.14. On Python 3.14, free-threaded "
@@ -580,11 +614,11 @@ msgid ""
 "stable/options/#enable>`_."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:402
+#: ../../../howto/free-threading-extensions.rst:426
 msgid "Limited C API and Stable ABI"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:404
+#: ../../../howto/free-threading-extensions.rst:428
 msgid ""
 "The free-threaded build does not currently support the :ref:`Limited C API "
 "<limited-c-api>` or the stable ABI.  If you use `setuptools <https://"
@@ -594,24 +628,24 @@ msgid ""
 "API when building with the free-threaded build."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:412
+#: ../../../howto/free-threading-extensions.rst:436
 msgid ""
 "You will need to build separate wheels specifically for the free-threaded "
 "build.  If you currently use the stable ABI, you can continue to build a "
 "single wheel for multiple non-free-threaded Python versions."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:418
+#: ../../../howto/free-threading-extensions.rst:442
 msgid "Windows"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:420
+#: ../../../howto/free-threading-extensions.rst:444
 msgid ""
 "Due to a limitation of the official Windows installer, you will need to "
 "manually define ``Py_GIL_DISABLED=1`` when building extensions from source."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:425
+#: ../../../howto/free-threading-extensions.rst:449
 msgid ""
 "`Porting Extension Modules to Support Free-Threading <https://py-free-"
 "threading.github.io/porting/>`_: A community-maintained porting guide for "
