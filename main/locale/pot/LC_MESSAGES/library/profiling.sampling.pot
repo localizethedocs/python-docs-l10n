@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 09:36+0000\n"
+"POT-Creation-Date: 2026-04-13 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1345,16 +1345,75 @@ msgid ""
 msgstr ""
 
 #: ../../../library/profiling.sampling.rst:1007
-msgid "Gecko format"
+msgid "Differential flame graphs"
 msgstr ""
 
 #: ../../../library/profiling.sampling.rst:1009
+msgid ""
+"Differential flame graphs compare two profiling runs to highlight where "
+"performance changed. This helps identify regressions introduced by code "
+"changes and validate that optimizations achieved their intended effect::"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1019
+msgid ""
+"The visualization draws the current profile with frame widths showing "
+"current time consumption, then applies color to indicate how each function "
+"changed relative to the baseline."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1023
+msgid "**Color coding**:"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1025
+msgid ""
+"**Red**: Functions consuming more time (regressions). Lighter shades "
+"indicate modest increases, while darker shades show severe regressions."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1028
+msgid ""
+"**Blue**: Functions consuming less time (improvements). Lighter shades for "
+"modest reductions, darker shades for significant speedups."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1031
+msgid "**Gray**: Minimal or no change."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1033
+msgid "**Purple**: New functions not present in the baseline."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1035
+msgid ""
+"Frame colors indicate changes in **direct time** (time when the function was "
+"at the top of the stack, actively executing), not cumulative time including "
+"callees. Hovering over a frame shows comparison details including baseline "
+"time, current time, and the percentage change."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1040
+msgid ""
+"Some call paths may disappear entirely between profiles. These are called "
+"**elided stacks** and occur when optimizations eliminate code paths or "
+"certain branches stop executing. If elided stacks are present, an elided "
+"toggle appears allowing you to switch between the main differential view and "
+"an elided-only view that shows just the removed paths (colored purple)."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1048
+msgid "Gecko format"
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1050
 msgid ""
 "Gecko format (:option:`--gecko`) produces JSON output compatible with the "
 "Firefox Profiler::"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1015
+#: ../../../library/profiling.sampling.rst:1056
 msgid ""
 "The `Firefox Profiler <https://profiler.firefox.com>`__ is a sophisticated "
 "web-based tool originally built for profiling Firefox itself. It provides "
@@ -1364,14 +1423,14 @@ msgid ""
 "instructions."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1022
+#: ../../../library/profiling.sampling.rst:1063
 msgid ""
 "To use the output, open the Firefox Profiler in your browser and load the "
 "JSON file. The profiler runs entirely client-side, so your profiling data "
 "never leaves your machine."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1026
+#: ../../../library/profiling.sampling.rst:1067
 msgid ""
 "Gecko format automatically collects additional metadata about GIL state and "
 "CPU activity, enabling analysis features specific to Python's threading "
@@ -1379,57 +1438,57 @@ msgid ""
 "the Firefox Profiler timeline:"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1031
+#: ../../../library/profiling.sampling.rst:1072
 msgid ""
 "**GIL markers**: show when threads hold or release the global interpreter "
 "lock"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1032
+#: ../../../library/profiling.sampling.rst:1073
 msgid "**CPU markers**: show when threads are executing on CPU versus idle"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1033
+#: ../../../library/profiling.sampling.rst:1074
 msgid ""
 "**Code type markers**: distinguish Python code from native (C extension) code"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1034
+#: ../../../library/profiling.sampling.rst:1075
 msgid "**GC markers**: indicate garbage collection activity"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1036
+#: ../../../library/profiling.sampling.rst:1077
 msgid ""
 "For this reason, the :option:`--mode` option is not available with Gecko "
 "format; all relevant data is captured automatically."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1039
+#: ../../../library/profiling.sampling.rst:1080
 msgid "Firefox Profiler Call Tree view"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1044
+#: ../../../library/profiling.sampling.rst:1085
 msgid ""
 "The Call Tree view shows the complete call hierarchy with sample counts and "
 "percentages. The sidebar displays detailed statistics for the selected "
 "function including running time and sample distribution."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1048
+#: ../../../library/profiling.sampling.rst:1089
 msgid "Firefox Profiler Flame Graph view"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1053
+#: ../../../library/profiling.sampling.rst:1094
 msgid ""
 "The Flame Graph visualization shows call stacks as nested rectangles. "
 "Functions names are visible in the call hierarchy."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1056
+#: ../../../library/profiling.sampling.rst:1097
 msgid "Firefox Profiler Marker Chart with opcodes"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1061
+#: ../../../library/profiling.sampling.rst:1102
 msgid ""
 "The Marker Chart displays interval markers including CPU state, GIL status, "
 "and opcodes. With ``--opcodes`` enabled, bytecode instructions like "
@@ -1437,35 +1496,35 @@ msgid ""
 "appear as markers showing execution over time."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1068
+#: ../../../library/profiling.sampling.rst:1109
 msgid "Heatmap format"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1070
+#: ../../../library/profiling.sampling.rst:1111
 msgid ""
 "Heatmap format (:option:`--heatmap`) generates an interactive HTML "
 "visualization showing sample counts at the source line level::"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1076
+#: ../../../library/profiling.sampling.rst:1117
 msgid "Tachyon heatmap visualization"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1081
+#: ../../../library/profiling.sampling.rst:1122
 msgid ""
 "The heatmap overlays sample counts directly on your source code. Lines are "
 "color-coded from cool (few samples) to hot (many samples). Navigation "
 "buttons (▲▼) let you jump between callers and callees."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1085
+#: ../../../library/profiling.sampling.rst:1126
 msgid ""
 "Unlike other formats that produce a single file, heatmap output creates a "
 "directory containing HTML files for each profiled source file. If no output "
 "path is specified, the directory is named ``heatmap_PID``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1089
+#: ../../../library/profiling.sampling.rst:1130
 msgid ""
 "The heatmap visualization displays your source code with a color gradient "
 "indicating how many samples were collected at each line. Hot lines (many "
@@ -1474,21 +1533,21 @@ msgid ""
 "responsible for time consumption."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1095
+#: ../../../library/profiling.sampling.rst:1136
 msgid "The heatmap interface provides several interactive features:"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1097
+#: ../../../library/profiling.sampling.rst:1138
 msgid ""
 "**Coloring modes**: toggle between \"Self Time\" (direct execution) and "
 "\"Total Time\" (cumulative, including time in called functions)"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1099
+#: ../../../library/profiling.sampling.rst:1140
 msgid "**Cold code filtering**: show all lines or only lines with samples"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1100
+#: ../../../library/profiling.sampling.rst:1141
 msgid ""
 "**Call graph navigation**: each line shows navigation buttons (▲ for "
 "callers, ▼ for callees) that let you trace execution paths through your "
@@ -1496,49 +1555,49 @@ msgid ""
 "appears showing all options with their sample counts."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1104
+#: ../../../library/profiling.sampling.rst:1145
 msgid ""
 "**Scroll minimap**: a vertical overview showing the heat distribution across "
 "the entire file"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1106
+#: ../../../library/profiling.sampling.rst:1147
 msgid ""
 "**Hierarchical index**: files organized by type (stdlib, site-packages, "
 "project) with aggregate sample counts per folder"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1108
+#: ../../../library/profiling.sampling.rst:1149
 msgid "**Dark/light theme**: toggle with preference saved across sessions"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1109
+#: ../../../library/profiling.sampling.rst:1150
 msgid "**Line linking**: click line numbers to create shareable URLs"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1111
+#: ../../../library/profiling.sampling.rst:1152
 msgid ""
 "When opcode-level profiling is enabled with :option:`--opcodes`, each hot "
 "line can be expanded to show which bytecode instructions consumed time:"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1114
+#: ../../../library/profiling.sampling.rst:1155
 msgid "Heatmap with expanded bytecode panel"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1119
+#: ../../../library/profiling.sampling.rst:1160
 msgid ""
 "Expanding a hot line reveals the bytecode instructions executed, including "
 "specialized variants. The panel shows sample counts per instruction and the "
 "overall specialization percentage for the line."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1125
+#: ../../../library/profiling.sampling.rst:1166
 msgid ""
 "`Try the interactive example <../_static/tachyon-example-heatmap.html>`__!"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1127
+#: ../../../library/profiling.sampling.rst:1168
 msgid ""
 "Heatmaps are especially useful when you know which file contains a "
 "performance issue but need to identify the specific lines. Many developers "
@@ -1548,46 +1607,46 @@ msgid ""
 "without requiring interpretation of hierarchical visualizations."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1136
+#: ../../../library/profiling.sampling.rst:1177
 msgid "Binary format"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1138
+#: ../../../library/profiling.sampling.rst:1179
 msgid ""
 "Binary format (:option:`--binary`) produces a compact binary file for "
 "efficient storage of profiling data::"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1144
+#: ../../../library/profiling.sampling.rst:1185
 msgid "The :option:`--compression` option controls data compression:"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1146
+#: ../../../library/profiling.sampling.rst:1187
 msgid ""
 "``auto`` (default): Use zstd compression if available, otherwise no "
 "compression"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1148
+#: ../../../library/profiling.sampling.rst:1189
 msgid ""
 "``zstd``: Force zstd compression (requires :mod:`compression.zstd` support)"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1149
+#: ../../../library/profiling.sampling.rst:1190
 msgid "``none``: Disable compression"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1155
+#: ../../../library/profiling.sampling.rst:1196
 msgid ""
 "To analyze binary profiles, use the :ref:`replay-command` to convert them to "
 "other formats like flame graphs or pstats output."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1160
+#: ../../../library/profiling.sampling.rst:1201
 msgid "Record and replay workflow"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1162
+#: ../../../library/profiling.sampling.rst:1203
 msgid ""
 "The binary format combined with the replay command enables a record-and-"
 "replay workflow that separates data capture from analysis. Rather than "
@@ -1595,54 +1654,54 @@ msgid ""
 "compact binary file and convert it to different formats later."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1167
+#: ../../../library/profiling.sampling.rst:1208
 msgid "This approach has three main benefits:"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1169
+#: ../../../library/profiling.sampling.rst:1210
 msgid ""
 "Sampling runs faster because the work of building data structures for "
 "visualization is deferred until replay."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1171
+#: ../../../library/profiling.sampling.rst:1212
 msgid ""
 "A single binary capture can be converted to multiple output formats without "
 "re-profiling: pstats for a quick overview, flame graph for visual "
 "exploration, heatmap for line-level detail."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1174
+#: ../../../library/profiling.sampling.rst:1215
 msgid ""
 "Binary files are compact and easy to share with colleagues who can convert "
 "them to their preferred format."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1177
+#: ../../../library/profiling.sampling.rst:1218
 msgid "A typical workflow::"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1189
+#: ../../../library/profiling.sampling.rst:1230
 msgid "Live mode"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1191
+#: ../../../library/profiling.sampling.rst:1232
 msgid ""
 "Live mode (:option:`--live`) provides a terminal-based real-time view of "
 "profiling data, similar to the ``top`` command for system processes::"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1199
+#: ../../../library/profiling.sampling.rst:1240
 msgid "Tachyon live mode showing all threads"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1204
+#: ../../../library/profiling.sampling.rst:1245
 msgid ""
 "Live mode displays real-time profiling statistics, showing combined data "
 "from multiple threads in a multi-threaded application."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1207
+#: ../../../library/profiling.sampling.rst:1248
 msgid ""
 "The display updates continuously as new samples arrive, showing the current "
 "hottest functions. This mode requires the :mod:`curses` module, which is "
@@ -1651,7 +1710,7 @@ msgid ""
 "columns."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1212
+#: ../../../library/profiling.sampling.rst:1253
 msgid ""
 "The header displays the top 3 hottest functions, sampling efficiency "
 "metrics, and thread status statistics (GIL held percentage, CPU usage, GC "
@@ -1659,7 +1718,7 @@ msgid ""
 "column indicated by an arrow (▼)."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1217
+#: ../../../library/profiling.sampling.rst:1258
 msgid ""
 "When :option:`--opcodes` is enabled, an additional opcode panel appears "
 "below the main table, showing instruction-level statistics for the currently "
@@ -1668,68 +1727,68 @@ msgid ""
 "opcodes."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1224
+#: ../../../library/profiling.sampling.rst:1265
 msgid "Tachyon live mode with opcode panel"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1229
+#: ../../../library/profiling.sampling.rst:1270
 msgid ""
 "Live mode with ``--opcodes`` enabled shows an opcode panel with a bytecode "
 "instruction breakdown for the selected function."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1234
+#: ../../../library/profiling.sampling.rst:1275
 msgid "Keyboard commands"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1236
+#: ../../../library/profiling.sampling.rst:1277
 msgid "Within live mode, keyboard commands control the display:"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1238
+#: ../../../library/profiling.sampling.rst:1279
 msgid ":kbd:`q`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1239
+#: ../../../library/profiling.sampling.rst:1280
 msgid "Quit the profiler and return to the shell."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1241
+#: ../../../library/profiling.sampling.rst:1282
 msgid ":kbd:`s` / :kbd:`S`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1242
+#: ../../../library/profiling.sampling.rst:1283
 msgid ""
 "Cycle through sort orders forward/backward (sample count, percentage, total "
 "time, cumulative percentage, cumulative time)."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1245
+#: ../../../library/profiling.sampling.rst:1286
 msgid ":kbd:`p`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1246
+#: ../../../library/profiling.sampling.rst:1287
 msgid ""
 "Pause or resume display updates. Sampling continues in the background while "
 "the display is paused, so you can freeze the view to examine results without "
 "stopping data collection."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1250
+#: ../../../library/profiling.sampling.rst:1291
 msgid ":kbd:`r`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1251
+#: ../../../library/profiling.sampling.rst:1292
 msgid ""
 "Reset all statistics and start fresh. This is disabled after profiling "
 "finishes to prevent accidental data loss."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1254
+#: ../../../library/profiling.sampling.rst:1295
 msgid ":kbd:`/`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1255
+#: ../../../library/profiling.sampling.rst:1296
 msgid ""
 "Enter filter mode to search for functions by name. The filter uses case-"
 "insensitive substring matching against the filename and function name. Type "
@@ -1737,77 +1796,77 @@ msgid ""
 "regular expressions are not supported."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1260
+#: ../../../library/profiling.sampling.rst:1301
 msgid ":kbd:`c`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1261
+#: ../../../library/profiling.sampling.rst:1302
 msgid "Clear the current filter and show all functions again."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1263
+#: ../../../library/profiling.sampling.rst:1304
 msgid ":kbd:`t`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1264
+#: ../../../library/profiling.sampling.rst:1305
 msgid ""
 "Toggle between viewing all threads combined or per-thread statistics. In per-"
 "thread mode, a thread counter (for example, ``1/4``) appears showing your "
 "position among the available threads."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1268
+#: ../../../library/profiling.sampling.rst:1309
 msgid ":kbd:`←` :kbd:`→` or :kbd:`↑` :kbd:`↓`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1269
+#: ../../../library/profiling.sampling.rst:1310
 msgid ""
 "In per-thread view, navigate between threads. Navigation wraps around from "
 "the last thread to the first and vice versa."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1272
+#: ../../../library/profiling.sampling.rst:1313
 msgid ":kbd:`+` / :kbd:`-`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1273
+#: ../../../library/profiling.sampling.rst:1314
 msgid ""
 "Increase or decrease the display refresh rate. The range is 0.05 seconds (20 "
 "Hz, very responsive) to 1.0 second (1 Hz, lower overhead). Faster refresh "
 "rates use more CPU. The default is 0.1 seconds (10 Hz)."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1277
+#: ../../../library/profiling.sampling.rst:1318
 msgid ":kbd:`x`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1278
+#: ../../../library/profiling.sampling.rst:1319
 msgid ""
 "Toggle trend indicators that show whether functions are becoming hotter or "
 "cooler over time. When enabled, increasing metrics appear in green and "
 "decreasing metrics appear in red, comparing each update to the previous one."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1282
+#: ../../../library/profiling.sampling.rst:1323
 msgid ":kbd:`h` or :kbd:`?`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1283
+#: ../../../library/profiling.sampling.rst:1324
 msgid "Show the help screen with all available commands."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1285
+#: ../../../library/profiling.sampling.rst:1326
 msgid ":kbd:`j` / :kbd:`k` (or :kbd:`Up` / :kbd:`Down`)"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1286
+#: ../../../library/profiling.sampling.rst:1327
 msgid ""
 "Navigate through opcode entries in the opcode panel (when ``--opcodes`` is "
 "enabled). These keys scroll through the instruction-level statistics for the "
 "currently selected function."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1290
+#: ../../../library/profiling.sampling.rst:1331
 msgid ""
 "When profiling finishes (duration expires or target process exits), the "
 "display shows a \"PROFILING COMPLETE\" banner and freezes the final results. "
@@ -1815,25 +1874,25 @@ msgid ""
 "`q` to exit."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1294
+#: ../../../library/profiling.sampling.rst:1335
 msgid ""
 "Live mode is incompatible with output format options (:option:`--"
 "collapsed`, :option:`--flamegraph`, and so on) because it uses an "
 "interactive terminal interface rather than producing file output."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1300
+#: ../../../library/profiling.sampling.rst:1341
 msgid "Async-aware profiling"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1302
+#: ../../../library/profiling.sampling.rst:1343
 msgid ""
 "For programs using :mod:`asyncio`, the profiler offers async-aware mode (:"
 "option:`--async-aware`) that reconstructs call stacks based on the task "
 "structure rather than the raw Python frames::"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1308
+#: ../../../library/profiling.sampling.rst:1349
 msgid ""
 "Standard profiling of async code can be confusing because the physical call "
 "stack often shows event loop internals rather than the logical flow of your "
@@ -1841,31 +1900,31 @@ msgid ""
 "running and presenting stacks that reflect the ``await`` chain."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1334
+#: ../../../library/profiling.sampling.rst:1375
 msgid ""
 "Async-aware profiling requires the target process to have the :mod:`asyncio` "
 "module loaded. If you profile a script before it imports asyncio, async-"
 "aware mode will not be able to capture task information."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1340
+#: ../../../library/profiling.sampling.rst:1381
 msgid "Async modes"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1342
+#: ../../../library/profiling.sampling.rst:1383
 msgid ""
 "The :option:`--async-mode` option controls which tasks appear in the "
 "profile::"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1347
+#: ../../../library/profiling.sampling.rst:1388
 msgid ""
 "With :option:`--async-mode`\\ ``=running`` (the default), only the task "
 "currently executing on the CPU is profiled. This shows where your program is "
 "actively spending time and is the typical choice for performance analysis."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1351
+#: ../../../library/profiling.sampling.rst:1392
 msgid ""
 "With :option:`--async-mode`\\ ``=all``, tasks that are suspended (awaiting I/"
 "O, locks, or other tasks) are also included. This mode is useful for "
@@ -1873,11 +1932,11 @@ msgid ""
 "since every suspended task appears in each sample."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1358
+#: ../../../library/profiling.sampling.rst:1399
 msgid "Task markers and stack reconstruction"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1360
+#: ../../../library/profiling.sampling.rst:1401
 msgid ""
 "In async-aware profiles, you will see ``<task>`` frames that mark boundaries "
 "between asyncio tasks. These are synthetic frames inserted by the profiler "
@@ -1885,7 +1944,7 @@ msgid ""
 "these frames."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1365
+#: ../../../library/profiling.sampling.rst:1406
 msgid ""
 "When a task awaits another task, the profiler reconstructs the logical call "
 "chain by following the ``await`` relationships. Only \"leaf\" tasks (tasks "
@@ -1894,7 +1953,7 @@ msgid ""
 "instead."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1370
+#: ../../../library/profiling.sampling.rst:1411
 msgid ""
 "If a task has multiple awaiters (a diamond pattern in the task graph), the "
 "profiler deterministically selects one parent and annotates the task marker "
@@ -1903,76 +1962,76 @@ msgid ""
 "particular stack."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1377
+#: ../../../library/profiling.sampling.rst:1418
 msgid "Option restrictions"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1379
+#: ../../../library/profiling.sampling.rst:1420
 msgid ""
 "Async-aware mode uses a different stack reconstruction mechanism and is "
 "incompatible with: :option:`--native`, :option:`--no-gc`, :option:`--all-"
 "threads`, and :option:`--mode`\\ ``=cpu`` or :option:`--mode`\\ ``=gil``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1385
+#: ../../../library/profiling.sampling.rst:1426
 msgid "Command-line interface"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1389
+#: ../../../library/profiling.sampling.rst:1430
 msgid "The complete command-line interface for reference."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1393
+#: ../../../library/profiling.sampling.rst:1434
 msgid "Global options"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1397
+#: ../../../library/profiling.sampling.rst:1438
 msgid "Run and profile a Python script or module."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1401
+#: ../../../library/profiling.sampling.rst:1442
 msgid "Attach to and profile a running process by PID."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1405
+#: ../../../library/profiling.sampling.rst:1446
 msgid "Convert a binary profile file to another output format."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1409
+#: ../../../library/profiling.sampling.rst:1450
 msgid "Sampling options"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1413
+#: ../../../library/profiling.sampling.rst:1454
 msgid ""
 "Sampling rate (for example, ``10000``, ``10khz``, ``10k``). Default: "
 "``1khz``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1417
+#: ../../../library/profiling.sampling.rst:1458
 msgid "Profiling duration in seconds. Default: run to completion."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1421
+#: ../../../library/profiling.sampling.rst:1462
 msgid "Sample all threads, not just the main thread."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1425
+#: ../../../library/profiling.sampling.rst:1466
 msgid "Display sampling statistics during profiling."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1429
+#: ../../../library/profiling.sampling.rst:1470
 msgid "Include ``<native>`` frames for non-Python code."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1433
+#: ../../../library/profiling.sampling.rst:1474
 msgid "Exclude ``<GC>`` frames for garbage collection."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1437
+#: ../../../library/profiling.sampling.rst:1478
 msgid "Enable async-aware profiling for asyncio programs."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1441
+#: ../../../library/profiling.sampling.rst:1482
 msgid ""
 "Gather bytecode opcode information for instruction-level profiling. Shows "
 "which bytecode instructions are executing, including specializations. "
@@ -1980,75 +2039,80 @@ msgid ""
 "formats only."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1448
+#: ../../../library/profiling.sampling.rst:1489
 msgid ""
 "Also profile subprocesses. Each subprocess gets its own profiler instance "
 "and output file. Incompatible with ``--live``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1453
+#: ../../../library/profiling.sampling.rst:1494
 msgid ""
 "Pause the target process during each sample. This ensures consistent stack "
 "traces at the cost of slowing down the target. Use with longer intervals "
 "(1000 µs or higher) to minimize impact. See :ref:`blocking-mode` for details."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1460
+#: ../../../library/profiling.sampling.rst:1501
 msgid "Mode options"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1464
+#: ../../../library/profiling.sampling.rst:1505
 msgid ""
 "Sampling mode: ``wall`` (default), ``cpu``, ``gil``, or ``exception``. The "
 "``cpu``, ``gil``, and ``exception`` modes are incompatible with ``--async-"
 "aware``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1470
+#: ../../../library/profiling.sampling.rst:1511
 msgid ""
 "Async profiling mode: ``running`` (default) or ``all``. Requires ``--async-"
 "aware``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1475
+#: ../../../library/profiling.sampling.rst:1516
 msgid "Output options"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1479
+#: ../../../library/profiling.sampling.rst:1520
 msgid ""
 "Generate pstats statistics. This is the default. When written to stdout, the "
 "output is a text table; with :option:`-o`, it is a binary pstats file."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1485
+#: ../../../library/profiling.sampling.rst:1526
 msgid "Generate collapsed stack format for external flame graph tools."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1489
+#: ../../../library/profiling.sampling.rst:1530
 msgid "Generate self-contained HTML flame graph."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1493
+#: ../../../library/profiling.sampling.rst:1534
+msgid ""
+"Generate differential flamegraph comparing to a baseline binary profile."
+msgstr ""
+
+#: ../../../library/profiling.sampling.rst:1538
 msgid "Generate Gecko JSON format for Firefox Profiler."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1497
+#: ../../../library/profiling.sampling.rst:1542
 msgid "Generate HTML heatmap with line-level sample counts."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1501
+#: ../../../library/profiling.sampling.rst:1546
 msgid ""
 "Generate high-performance binary format for later conversion with the "
 "``replay`` command."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1506
+#: ../../../library/profiling.sampling.rst:1551
 msgid ""
 "Compression for binary format: ``auto`` (use zstd if available, default), "
 "``zstd``, or ``none``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1511
+#: ../../../library/profiling.sampling.rst:1556
 msgid ""
 "Output file or directory path. Default behavior varies by format: :option:`--"
 "pstats` prints a text table to stdout, while ``-o`` writes a binary pstats "
@@ -2057,7 +2121,7 @@ msgid ""
 "named ``heatmap_<PID>``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1519
+#: ../../../library/profiling.sampling.rst:1564
 msgid ""
 "Automatically open HTML output (:option:`--flamegraph` and :option:`--"
 "heatmap`) in your default web browser after generation. When profiling with :"
@@ -2065,79 +2129,79 @@ msgid ""
 "outputs are never auto-opened."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1526
+#: ../../../library/profiling.sampling.rst:1571
 msgid "pstats display options"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1528
+#: ../../../library/profiling.sampling.rst:1573
 msgid "These options apply only to pstats format output."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1532
+#: ../../../library/profiling.sampling.rst:1577
 msgid ""
 "Sort order: ``nsamples``, ``tottime``, ``cumtime``, ``sample-pct``, ``cumul-"
 "pct``, ``nsamples-cumul``, or ``name``. Default: ``nsamples``."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1537
+#: ../../../library/profiling.sampling.rst:1582
 msgid "Maximum number of entries to display. Default: 15."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1541
+#: ../../../library/profiling.sampling.rst:1586
 msgid ""
 "Omit the Legend and Summary of Interesting Functions sections from output."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1545
+#: ../../../library/profiling.sampling.rst:1590
 msgid "Run command options"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1549
+#: ../../../library/profiling.sampling.rst:1594
 msgid "Treat the target as a module name rather than a script path."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1553
+#: ../../../library/profiling.sampling.rst:1598
 msgid "Start interactive terminal interface instead of batch profiling."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1558
+#: ../../../library/profiling.sampling.rst:1603
 msgid ":mod:`profiling`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1559
+#: ../../../library/profiling.sampling.rst:1604
 msgid "Overview of Python profiling tools and guidance on choosing a profiler."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1561
+#: ../../../library/profiling.sampling.rst:1606
 msgid ":mod:`profiling.tracing`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1562
+#: ../../../library/profiling.sampling.rst:1607
 msgid "Deterministic tracing profiler for exact call counts and timing."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1564
+#: ../../../library/profiling.sampling.rst:1609
 msgid ":mod:`pstats`"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1565
+#: ../../../library/profiling.sampling.rst:1610
 msgid "Statistics analysis for profile data."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1567
+#: ../../../library/profiling.sampling.rst:1612
 msgid "`Firefox Profiler <https://profiler.firefox.com>`__"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1568
+#: ../../../library/profiling.sampling.rst:1613
 msgid ""
 "Web-based profiler that accepts Gecko format output. See the `documentation "
 "<https://profiler.firefox.com/docs/#/>`__ for usage details."
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1571
+#: ../../../library/profiling.sampling.rst:1616
 msgid "`FlameGraph <https://github.com/brendangregg/FlameGraph>`__"
 msgstr ""
 
-#: ../../../library/profiling.sampling.rst:1572
+#: ../../../library/profiling.sampling.rst:1617
 msgid "Tools for generating flame graphs from collapsed stack format."
 msgstr ""

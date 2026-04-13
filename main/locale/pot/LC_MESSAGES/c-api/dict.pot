@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 09:36+0000\n"
+"POT-Creation-Date: 2026-04-13 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,13 +61,13 @@ msgid ""
 "mapping."
 msgstr ""
 
-#: ../../../c-api/dict.rst:48 ../../../c-api/dict.rst:79
-#: ../../../c-api/dict.rst:93 ../../../c-api/dict.rst:145
-#: ../../../c-api/dict.rst:169 ../../../c-api/dict.rst:180
-#: ../../../c-api/dict.rst:198 ../../../c-api/dict.rst:210
-#: ../../../c-api/dict.rst:278 ../../../c-api/dict.rst:288
-#: ../../../c-api/dict.rst:299 ../../../c-api/dict.rst:312
-#: ../../../c-api/dict.rst:320 ../../../c-api/dict.rst:394
+#: ../../../c-api/dict.rst:48 ../../../c-api/dict.rst:84
+#: ../../../c-api/dict.rst:98 ../../../c-api/dict.rst:165
+#: ../../../c-api/dict.rst:196 ../../../c-api/dict.rst:214
+#: ../../../c-api/dict.rst:239 ../../../c-api/dict.rst:251
+#: ../../../c-api/dict.rst:337 ../../../c-api/dict.rst:347
+#: ../../../c-api/dict.rst:358 ../../../c-api/dict.rst:371
+#: ../../../c-api/dict.rst:379 ../../../c-api/dict.rst:453
 msgid "Also accept :class:`frozendict`."
 msgstr ""
 
@@ -98,25 +98,34 @@ msgid ""
 "is equivalent to the Python expression ``key in p``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:77 ../../../c-api/dict.rst:89
-#: ../../../c-api/dict.rst:141 ../../../c-api/dict.rst:157
-#: ../../../c-api/dict.rst:276 ../../../c-api/dict.rst:286
-#: ../../../c-api/dict.rst:297 ../../../c-api/dict.rst:337
+#: ../../../c-api/dict.rst:77 ../../../c-api/dict.rst:94
+#: ../../../c-api/dict.rst:156 ../../../c-api/dict.rst:177
+#: ../../../c-api/dict.rst:335 ../../../c-api/dict.rst:345
+#: ../../../c-api/dict.rst:356 ../../../c-api/dict.rst:396
 msgid "The first argument can be a :class:`dict` or a :class:`frozendict`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:85
+#: ../../../c-api/dict.rst:81 ../../../c-api/dict.rst:115
+#: ../../../c-api/dict.rst:135 ../../../c-api/dict.rst:160
+#: ../../../c-api/dict.rst:294 ../../../c-api/dict.rst:316
+msgid ""
+"The operation is atomic on :term:`free threading <free-threaded build>` when "
+"*key* is :class:`str`, :class:`int`, :class:`float`, :class:`bool` or :class:"
+"`bytes`."
+msgstr ""
+
+#: ../../../c-api/dict.rst:90
 msgid ""
 "This is the same as :c:func:`PyDict_Contains`, but *key* is specified as a :"
 "c:expr:`const char*` UTF-8 encoded bytes string, rather than a :c:expr:"
 "`PyObject*`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:99
+#: ../../../c-api/dict.rst:104
 msgid "Return a new dictionary that contains the same key-value pairs as *p*."
 msgstr ""
 
-#: ../../../c-api/dict.rst:103
+#: ../../../c-api/dict.rst:108
 msgid ""
 "Insert *val* into the dictionary *p* with a key of *key*.  *key* must be :"
 "term:`hashable`; if it isn't, :exc:`TypeError` will be raised. Return ``0`` "
@@ -124,14 +133,14 @@ msgid ""
 "to *val*."
 msgstr ""
 
-#: ../../../c-api/dict.rst:111
+#: ../../../c-api/dict.rst:121
 msgid ""
 "This is the same as :c:func:`PyDict_SetItem`, but *key* is specified as a :c:"
 "expr:`const char*` UTF-8 encoded bytes string, rather than a :c:expr:"
 "`PyObject*`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:118
+#: ../../../c-api/dict.rst:128
 msgid ""
 "Remove the entry in dictionary *p* with key *key*. *key* must be :term:"
 "`hashable`; if it isn't, :exc:`TypeError` is raised. If *key* is not in the "
@@ -139,72 +148,79 @@ msgid ""
 "failure."
 msgstr ""
 
-#: ../../../c-api/dict.rst:126
+#: ../../../c-api/dict.rst:141
 msgid ""
 "This is the same as :c:func:`PyDict_DelItem`, but *key* is specified as a :c:"
 "expr:`const char*` UTF-8 encoded bytes string, rather than a :c:expr:"
 "`PyObject*`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:133
+#: ../../../c-api/dict.rst:148
 msgid ""
 "Return a new :term:`strong reference` to the object from dictionary *p* "
 "which has a key *key*:"
 msgstr ""
 
-#: ../../../c-api/dict.rst:136
+#: ../../../c-api/dict.rst:151
 msgid ""
 "If the key is present, set *\\*result* to a new :term:`strong reference` to "
 "the value and return ``1``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:138
+#: ../../../c-api/dict.rst:153
 msgid "If the key is missing, set *\\*result* to ``NULL`` and return ``0``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:139 ../../../c-api/dict.rst:255
+#: ../../../c-api/dict.rst:154 ../../../c-api/dict.rst:309
 msgid "On error, raise an exception and return ``-1``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:148
+#: ../../../c-api/dict.rst:168
 msgid "See also the :c:func:`PyObject_GetItem` function."
 msgstr ""
 
-#: ../../../c-api/dict.rst:153
+#: ../../../c-api/dict.rst:173
 msgid ""
 "Return a :term:`borrowed reference` to the object from dictionary *p* which "
 "has a key *key*.  Return ``NULL`` if the key *key* is missing *without* "
 "setting an exception."
 msgstr ""
 
-#: ../../../c-api/dict.rst:161
+#: ../../../c-api/dict.rst:181
 msgid ""
 "Exceptions that occur while this calls :meth:`~object.__hash__` and :meth:"
 "`~object.__eq__` methods are silently ignored. Prefer the :c:func:"
 "`PyDict_GetItemWithError` function instead."
 msgstr ""
 
-#: ../../../c-api/dict.rst:165
+#: ../../../c-api/dict.rst:187 ../../../c-api/dict.rst:209
+msgid ""
+"In the :term:`free-threaded build`, the returned :term:`borrowed reference` "
+"may become invalid if another thread modifies the dictionary concurrently. "
+"Prefer :c:func:`PyDict_GetItemRef`, which returns a :term:`strong reference`."
+msgstr ""
+
+#: ../../../c-api/dict.rst:192
 msgid ""
 "Calling this API without an :term:`attached thread state` had been allowed "
 "for historical reason. It is no longer allowed."
 msgstr ""
 
-#: ../../../c-api/dict.rst:175
+#: ../../../c-api/dict.rst:202
 msgid ""
 "Variant of :c:func:`PyDict_GetItem` that does not suppress exceptions. "
 "Return ``NULL`` **with** an exception set if an exception occurred.  Return "
 "``NULL`` **without** an exception set if the key wasn't present."
 msgstr ""
 
-#: ../../../c-api/dict.rst:186
+#: ../../../c-api/dict.rst:220
 msgid ""
 "This is the same as :c:func:`PyDict_GetItem`, but *key* is specified as a :c:"
 "expr:`const char*` UTF-8 encoded bytes string, rather than a :c:expr:"
 "`PyObject*`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:192
+#: ../../../c-api/dict.rst:226
 msgid ""
 "Exceptions that occur while this calls :meth:`~object.__hash__` and :meth:"
 "`~object.__eq__` methods or while creating the temporary :class:`str` object "
@@ -212,13 +228,21 @@ msgid ""
 "function with your own :c:func:`PyUnicode_FromString` *key* instead."
 msgstr ""
 
-#: ../../../c-api/dict.rst:204
+#: ../../../c-api/dict.rst:234
+msgid ""
+"In the :term:`free-threaded build`, the returned :term:`borrowed reference` "
+"may become invalid if another thread modifies the dictionary concurrently. "
+"Prefer :c:func:`PyDict_GetItemStringRef`, which returns a :term:`strong "
+"reference`."
+msgstr ""
+
+#: ../../../c-api/dict.rst:245
 msgid ""
 "Similar to :c:func:`PyDict_GetItemRef`, but *key* is specified as a :c:expr:"
 "`const char*` UTF-8 encoded bytes string, rather than a :c:expr:`PyObject*`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:216
+#: ../../../c-api/dict.rst:257
 msgid ""
 "This is the same as the Python-level :meth:`dict.setdefault`.  If present, "
 "it returns the value corresponding to *key* from the dictionary *p*.  If the "
@@ -228,7 +252,15 @@ msgid ""
 "the insertion."
 msgstr ""
 
-#: ../../../c-api/dict.rst:227
+#: ../../../c-api/dict.rst:267
+msgid ""
+"In the :term:`free-threaded build`, the returned :term:`borrowed reference` "
+"may become invalid if another thread modifies the dictionary concurrently. "
+"Prefer :c:func:`PyDict_SetDefaultRef`, which returns a :term:`strong "
+"reference`."
+msgstr ""
+
+#: ../../../c-api/dict.rst:276
 msgid ""
 "Inserts *default_value* into the dictionary *p* with a key of *key* if the "
 "key is not already present in the dictionary. If *result* is not ``NULL``, "
@@ -240,7 +272,7 @@ msgid ""
 "exception, and sets ``*result`` to ``NULL``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:237
+#: ../../../c-api/dict.rst:286
 msgid ""
 "For clarity: if you have a strong reference to *default_value* before "
 "calling this function, then after it returns, you hold a strong reference to "
@@ -248,67 +280,67 @@ msgid ""
 "to the same object: in that case you hold two separate references to it."
 msgstr ""
 
-#: ../../../c-api/dict.rst:248
+#: ../../../c-api/dict.rst:302
 msgid ""
 "Remove *key* from dictionary *p* and optionally return the removed value. Do "
 "not raise :exc:`KeyError` if the key is missing."
 msgstr ""
 
-#: ../../../c-api/dict.rst:251
+#: ../../../c-api/dict.rst:305
 msgid ""
 "If the key is present, set *\\*result* to a new reference to the removed "
 "value if *result* is not ``NULL``, and return ``1``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:253
+#: ../../../c-api/dict.rst:307
 msgid ""
 "If the key is missing, set *\\*result* to ``NULL`` if *result* is not "
 "``NULL``, and return ``0``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:257
+#: ../../../c-api/dict.rst:311
 msgid ""
 "Similar to :meth:`dict.pop`, but without the default value and not raising :"
 "exc:`KeyError` if the key is missing."
 msgstr ""
 
-#: ../../../c-api/dict.rst:265
+#: ../../../c-api/dict.rst:324
 msgid ""
 "Similar to :c:func:`PyDict_Pop`, but *key* is specified as a :c:expr:`const "
 "char*` UTF-8 encoded bytes string, rather than a :c:expr:`PyObject*`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:274
+#: ../../../c-api/dict.rst:333
 msgid ""
 "Return a :c:type:`PyListObject` containing all the items from the dictionary."
 msgstr ""
 
-#: ../../../c-api/dict.rst:284
+#: ../../../c-api/dict.rst:343
 msgid ""
 "Return a :c:type:`PyListObject` containing all the keys from the dictionary."
 msgstr ""
 
-#: ../../../c-api/dict.rst:294
+#: ../../../c-api/dict.rst:353
 msgid ""
 "Return a :c:type:`PyListObject` containing all the values from the "
 "dictionary *p*."
 msgstr ""
 
-#: ../../../c-api/dict.rst:307
+#: ../../../c-api/dict.rst:366
 msgid ""
 "Return the number of items in the dictionary.  This is equivalent to "
 "``len(p)`` on a dictionary."
 msgstr ""
 
-#: ../../../c-api/dict.rst:310
+#: ../../../c-api/dict.rst:369
 msgid "The argument can be a :class:`dict` or a :class:`frozendict`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:318
+#: ../../../c-api/dict.rst:377
 msgid "Similar to :c:func:`PyDict_Size`, but without error checking."
 msgstr ""
 
-#: ../../../c-api/dict.rst:326
+#: ../../../c-api/dict.rst:385
 msgid ""
 "Iterate over all key-value pairs in the dictionary *p*.  The :c:type:"
 "`Py_ssize_t` referred to by *ppos* must be initialized to ``0`` prior to the "
@@ -322,18 +354,18 @@ msgid ""
 "structure is sparse, the offsets are not consecutive."
 msgstr ""
 
-#: ../../../c-api/dict.rst:339
+#: ../../../c-api/dict.rst:398
 msgid "For example::"
 msgstr ""
 
-#: ../../../c-api/dict.rst:349
+#: ../../../c-api/dict.rst:408
 msgid ""
 "The dictionary *p* should not be mutated during iteration.  It is safe to "
 "modify the values of the keys as you iterate over the dictionary, but only "
 "so long as the set of keys does not change.  For example::"
 msgstr ""
 
-#: ../../../c-api/dict.rst:371
+#: ../../../c-api/dict.rst:430
 msgid ""
 "The function is not thread-safe in the :term:`free-threaded <free "
 "threading>` build without external synchronization for a mutable :class:"
@@ -341,11 +373,11 @@ msgid ""
 "dictionary while iterating over it::"
 msgstr ""
 
-#: ../../../c-api/dict.rst:382
+#: ../../../c-api/dict.rst:441
 msgid "The function is thread-safe on a :class:`frozendict`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:386
+#: ../../../c-api/dict.rst:445
 msgid ""
 "On the free-threaded build, this function can be used safely inside a "
 "critical section. However, the references returned for *pkey* and *pvalue* "
@@ -356,7 +388,7 @@ msgid ""
 "`Py_NewRef`)."
 msgstr ""
 
-#: ../../../c-api/dict.rst:399
+#: ../../../c-api/dict.rst:458
 msgid ""
 "Iterate over mapping object *b* adding key-value pairs to dictionary *a*. "
 "*b* may be a dictionary, or any object supporting :c:func:`PyMapping_Keys` "
@@ -366,7 +398,15 @@ msgid ""
 "or ``-1`` if an exception was raised."
 msgstr ""
 
-#: ../../../c-api/dict.rst:409
+#: ../../../c-api/dict.rst:467 ../../../c-api/dict.rst:483
+msgid ""
+"In the :term:`free-threaded build`, when *b* is a :class:`dict` (with the "
+"standard iterator), both *a* and *b* are locked for the duration of the "
+"operation. When *b* is a non-dict mapping, only *a* is locked; *b* may be "
+"concurrently modified by another thread."
+msgstr ""
+
+#: ../../../c-api/dict.rst:475
 msgid ""
 "This is the same as ``PyDict_Merge(a, b, 1)`` in C, and is similar to ``a."
 "update(b)`` in Python except that :c:func:`PyDict_Update` doesn't fall back "
@@ -375,7 +415,7 @@ msgid ""
 "exception was raised."
 msgstr ""
 
-#: ../../../c-api/dict.rst:418
+#: ../../../c-api/dict.rst:491
 msgid ""
 "Update or merge into dictionary *a*, from the key-value pairs in *seq2*. "
 "*seq2* must be an iterable object producing iterable objects of length 2, "
@@ -384,7 +424,14 @@ msgid ""
 "if an exception was raised. Equivalent Python (except for the return value)::"
 msgstr ""
 
-#: ../../../c-api/dict.rst:432
+#: ../../../c-api/dict.rst:505
+msgid ""
+"In the :term:`free-threaded <free threading>` build, only *a* is locked. The "
+"iteration over *seq2* is not synchronized; *seq2* may be concurrently "
+"modified by another thread."
+msgstr ""
+
+#: ../../../c-api/dict.rst:512
 msgid ""
 "Register *callback* as a dictionary watcher. Return a non-negative integer "
 "id which must be passed to future calls to :c:func:`PyDict_Watch`. In case "
@@ -392,21 +439,28 @@ msgid ""
 "exception."
 msgstr ""
 
-#: ../../../c-api/dict.rst:441
+#: ../../../c-api/dict.rst:519 ../../../c-api/dict.rst:534
+msgid ""
+"This function is not internally synchronized. In the :term:`free-threaded "
+"<free threading>` build, callers should ensure no concurrent calls to :c:"
+"func:`PyDict_AddWatcher` or :c:func:`PyDict_ClearWatcher` are in progress."
+msgstr ""
+
+#: ../../../c-api/dict.rst:528
 msgid ""
 "Clear watcher identified by *watcher_id* previously returned from :c:func:"
 "`PyDict_AddWatcher`. Return ``0`` on success, ``-1`` on error (e.g. if the "
 "given *watcher_id* was never registered.)"
 msgstr ""
 
-#: ../../../c-api/dict.rst:449
+#: ../../../c-api/dict.rst:543
 msgid ""
 "Mark dictionary *dict* as watched. The callback granted *watcher_id* by :c:"
 "func:`PyDict_AddWatcher` will be called when *dict* is modified or "
 "deallocated. Return ``0`` on success or ``-1`` on error."
 msgstr ""
 
-#: ../../../c-api/dict.rst:457
+#: ../../../c-api/dict.rst:551
 msgid ""
 "Mark dictionary *dict* as no longer watched. The callback granted "
 "*watcher_id* by :c:func:`PyDict_AddWatcher` will no longer be called when "
@@ -414,7 +468,7 @@ msgid ""
 "watched by this watcher. Return ``0`` on success or ``-1`` on error."
 msgstr ""
 
-#: ../../../c-api/dict.rst:466
+#: ../../../c-api/dict.rst:560
 msgid ""
 "Enumeration of possible dictionary watcher events: ``PyDict_EVENT_ADDED``, "
 "``PyDict_EVENT_MODIFIED``, ``PyDict_EVENT_DELETED``, "
@@ -422,11 +476,11 @@ msgid ""
 "``PyDict_EVENT_DEALLOCATED``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:474
+#: ../../../c-api/dict.rst:568
 msgid "Type of a dict watcher callback function."
 msgstr ""
 
-#: ../../../c-api/dict.rst:476
+#: ../../../c-api/dict.rst:570
 msgid ""
 "If *event* is ``PyDict_EVENT_CLEARED`` or ``PyDict_EVENT_DEALLOCATED``, both "
 "*key* and *new_value* will be ``NULL``. If *event* is ``PyDict_EVENT_ADDED`` "
@@ -435,7 +489,7 @@ msgid ""
 "dictionary and *new_value* will be ``NULL``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:482
+#: ../../../c-api/dict.rst:576
 msgid ""
 "``PyDict_EVENT_CLONED`` occurs when *dict* was previously empty and another "
 "dict is merged into it. To maintain efficiency of this operation, per-key "
@@ -443,14 +497,14 @@ msgid ""
 "``PyDict_EVENT_CLONED`` is issued, and *key* will be the source dictionary."
 msgstr ""
 
-#: ../../../c-api/dict.rst:488
+#: ../../../c-api/dict.rst:582
 msgid ""
 "The callback may inspect but must not modify *dict*; doing so could have "
 "unpredictable effects, including infinite recursion. Do not trigger Python "
 "code execution in the callback, as it could modify the dict as a side effect."
 msgstr ""
 
-#: ../../../c-api/dict.rst:492
+#: ../../../c-api/dict.rst:586
 msgid ""
 "If *event* is ``PyDict_EVENT_DEALLOCATED``, taking a new reference in the "
 "callback to the about-to-be-destroyed dictionary will resurrect it and "
@@ -459,20 +513,20 @@ msgid ""
 "again."
 msgstr ""
 
-#: ../../../c-api/dict.rst:498
+#: ../../../c-api/dict.rst:592
 msgid ""
 "Callbacks occur before the notified modification to *dict* takes place, so "
 "the prior state of *dict* can be inspected."
 msgstr ""
 
-#: ../../../c-api/dict.rst:501
+#: ../../../c-api/dict.rst:595
 msgid ""
 "If the callback sets an exception, it must return ``-1``; this exception "
 "will be printed as an unraisable exception using :c:func:"
 "`PyErr_WriteUnraisable`. Otherwise it should return ``0``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:505
+#: ../../../c-api/dict.rst:599
 msgid ""
 "There may already be a pending exception set on entry to the callback. In "
 "this case, the callback should return ``0`` with the same exception still "
@@ -481,204 +535,204 @@ msgid ""
 "it before returning."
 msgstr ""
 
-#: ../../../c-api/dict.rst:515
+#: ../../../c-api/dict.rst:609
 msgid "Dictionary view objects"
 msgstr ""
 
-#: ../../../c-api/dict.rst:519
+#: ../../../c-api/dict.rst:613
 msgid ""
 "Return true if *op* is a view of a set inside a dictionary. This is "
 "currently equivalent to :c:expr:`PyDictKeys_Check(op) || "
 "PyDictItems_Check(op)`. This function always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:526
+#: ../../../c-api/dict.rst:620
 msgid ""
 "Type object for a view of dictionary keys. In Python, this is the type of "
 "the object returned by :meth:`dict.keys`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:532
+#: ../../../c-api/dict.rst:626
 msgid ""
 "Return true if *op* is an instance of a dictionary keys view. This function "
 "always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:538
+#: ../../../c-api/dict.rst:632
 msgid ""
 "Type object for a view of dictionary values. In Python, this is the type of "
 "the object returned by :meth:`dict.values`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:544
+#: ../../../c-api/dict.rst:638
 msgid ""
 "Return true if *op* is an instance of a dictionary values view. This "
 "function always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:550
+#: ../../../c-api/dict.rst:644
 msgid ""
 "Type object for a view of dictionary items. In Python, this is the type of "
 "the object returned by :meth:`dict.items`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:556
+#: ../../../c-api/dict.rst:650
 msgid ""
 "Return true if *op* is an instance of a dictionary items view. This function "
 "always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:561
+#: ../../../c-api/dict.rst:655
 msgid "Frozen dictionary objects"
 msgstr ""
 
-#: ../../../c-api/dict.rst:568
+#: ../../../c-api/dict.rst:662
 msgid ""
 "This instance of :c:type:`PyTypeObject` represents the Python frozen "
 "dictionary type. This is the same object as :class:`frozendict` in the "
 "Python layer."
 msgstr ""
 
-#: ../../../c-api/dict.rst:575
+#: ../../../c-api/dict.rst:669
 msgid ""
 "Return true if *p* is a :class:`dict` object, a :class:`frozendict` object, "
 "or an instance of a subtype of the :class:`!dict` or :class:`!frozendict` "
 "type. This function always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:583
+#: ../../../c-api/dict.rst:677
 msgid ""
 "Return true if *p* is a :class:`dict` object or a :class:`frozendict` "
 "object, but not an instance of a subtype of the :class:`!dict` or :class:`!"
 "frozendict` type. This function always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:591
+#: ../../../c-api/dict.rst:685
 msgid ""
 "Return true if *p* is a :class:`frozendict` object or an instance of a "
 "subtype of the :class:`!frozendict` type. This function always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:598
+#: ../../../c-api/dict.rst:692
 msgid ""
 "Return true if *p* is a :class:`frozendict` object, but not an instance of a "
 "subtype of the :class:`!frozendict` type. This function always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:605
+#: ../../../c-api/dict.rst:699
 msgid ""
 "Return a new :class:`frozendict` from an iterable, or ``NULL`` on failure "
 "with an exception set."
 msgstr ""
 
-#: ../../../c-api/dict.rst:608
+#: ../../../c-api/dict.rst:702
 msgid "Create an empty dictionary if *iterable* is ``NULL``."
 msgstr ""
 
-#: ../../../c-api/dict.rst:612
+#: ../../../c-api/dict.rst:706
 msgid "Ordered dictionaries"
 msgstr ""
 
-#: ../../../c-api/dict.rst:614
+#: ../../../c-api/dict.rst:708
 msgid ""
 "Python's C API provides interface for :class:`collections.OrderedDict` from "
 "C. Since Python 3.7, dictionaries are ordered by default, so there is "
 "usually little need for these functions; prefer ``PyDict*`` where possible."
 msgstr ""
 
-#: ../../../c-api/dict.rst:621
+#: ../../../c-api/dict.rst:715
 msgid ""
 "Type object for ordered dictionaries. This is the same object as :class:"
 "`collections.OrderedDict` in the Python layer."
 msgstr ""
 
-#: ../../../c-api/dict.rst:627
+#: ../../../c-api/dict.rst:721
 msgid ""
 "Return true if *od* is an ordered dictionary object or an instance of a "
 "subtype of the :class:`~collections.OrderedDict` type.  This function always "
 "succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:634
+#: ../../../c-api/dict.rst:728
 msgid ""
 "Return true if *od* is an ordered dictionary object, but not an instance of "
 "a subtype of the :class:`~collections.OrderedDict` type. This function "
 "always succeeds."
 msgstr ""
 
-#: ../../../c-api/dict.rst:641
+#: ../../../c-api/dict.rst:735
 msgid "Analogous to :c:type:`PyDictKeys_Type` for ordered dictionaries."
 msgstr ""
 
-#: ../../../c-api/dict.rst:646
+#: ../../../c-api/dict.rst:740
 msgid "Analogous to :c:type:`PyDictValues_Type` for ordered dictionaries."
 msgstr ""
 
-#: ../../../c-api/dict.rst:651
+#: ../../../c-api/dict.rst:745
 msgid "Analogous to :c:type:`PyDictItems_Type` for ordered dictionaries."
 msgstr ""
 
-#: ../../../c-api/dict.rst:656
+#: ../../../c-api/dict.rst:750
 msgid "Return a new empty ordered dictionary, or ``NULL`` on failure."
 msgstr ""
 
-#: ../../../c-api/dict.rst:658
+#: ../../../c-api/dict.rst:752
 msgid "This is analogous to :c:func:`PyDict_New`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:663
+#: ../../../c-api/dict.rst:757
 msgid ""
 "Insert *value* into the ordered dictionary *od* with a key of *key*. Return "
 "``0`` on success or ``-1`` with an exception set on failure."
 msgstr ""
 
-#: ../../../c-api/dict.rst:666
+#: ../../../c-api/dict.rst:760
 msgid "This is analogous to :c:func:`PyDict_SetItem`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:671
+#: ../../../c-api/dict.rst:765
 msgid ""
 "Remove the entry in the ordered dictionary *od* with key *key*. Return ``0`` "
 "on success or ``-1`` with an exception set on failure."
 msgstr ""
 
-#: ../../../c-api/dict.rst:674
+#: ../../../c-api/dict.rst:768
 msgid "This is analogous to :c:func:`PyDict_DelItem`."
 msgstr ""
 
-#: ../../../c-api/dict.rst:677
+#: ../../../c-api/dict.rst:771
 msgid "These are :term:`soft deprecated` aliases to ``PyDict`` APIs:"
 msgstr ""
 
-#: ../../../c-api/dict.rst:684
+#: ../../../c-api/dict.rst:778
 msgid "``PyODict``"
 msgstr ""
 
-#: ../../../c-api/dict.rst:685
+#: ../../../c-api/dict.rst:779
 msgid "``PyDict``"
 msgstr ""
 
-#: ../../../c-api/dict.rst:687
+#: ../../../c-api/dict.rst:781
 msgid ":c:func:`PyDict_GetItem`"
 msgstr ""
 
-#: ../../../c-api/dict.rst:689
+#: ../../../c-api/dict.rst:783
 msgid ":c:func:`PyDict_GetItemWithError`"
 msgstr ""
 
-#: ../../../c-api/dict.rst:691
+#: ../../../c-api/dict.rst:785
 msgid ":c:func:`PyDict_GetItemString`"
 msgstr ""
 
-#: ../../../c-api/dict.rst:693
+#: ../../../c-api/dict.rst:787
 msgid ":c:func:`PyDict_Contains`"
 msgstr ""
 
-#: ../../../c-api/dict.rst:695
+#: ../../../c-api/dict.rst:789
 msgid ":c:func:`PyDict_Size`"
 msgstr ""
 
-#: ../../../c-api/dict.rst:697
+#: ../../../c-api/dict.rst:791
 msgid ":c:func:`PyDict_GET_SIZE`"
 msgstr ""
 
@@ -690,10 +744,10 @@ msgstr ""
 msgid "dictionary"
 msgstr ""
 
-#: ../../../c-api/dict.rst:305
+#: ../../../c-api/dict.rst:364
 msgid "built-in function"
 msgstr ""
 
-#: ../../../c-api/dict.rst:305
+#: ../../../c-api/dict.rst:364
 msgid "len"
 msgstr ""

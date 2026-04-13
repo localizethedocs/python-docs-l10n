@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-23 09:36+0000\n"
+"POT-Creation-Date: 2026-04-13 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2216,8 +2216,8 @@ msgstr ""
 #: ../../../c-api/unicode.rst:1830 ../../../c-api/unicode.rst:1840
 #: ../../../c-api/unicode.rst:1855 ../../../c-api/unicode.rst:1865
 #: ../../../c-api/unicode.rst:1874 ../../../c-api/unicode.rst:1881
-#: ../../../c-api/unicode.rst:1890 ../../../c-api/unicode.rst:1905
-#: ../../../c-api/unicode.rst:1912 ../../../c-api/unicode.rst:1931
+#: ../../../c-api/unicode.rst:1894 ../../../c-api/unicode.rst:1909
+#: ../../../c-api/unicode.rst:1916 ../../../c-api/unicode.rst:1935
 msgid ""
 "On success, return ``0``. On error, set an exception, leave the writer "
 "unchanged, and return ``-1``."
@@ -2230,7 +2230,7 @@ msgid ""
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1837 ../../../c-api/unicode.rst:1849
-#: ../../../c-api/unicode.rst:1920
+#: ../../../c-api/unicode.rst:1924
 msgid ""
 "*size* is the string length in bytes. If *size* is equal to ``-1``, call "
 "``strlen(str)`` to get the string length."
@@ -2273,101 +2273,108 @@ msgid ""
 "Call :c:func:`PyObject_Str` on *obj* and write the output into *writer*."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1886
+#: ../../../c-api/unicode.rst:1884
+msgid ""
+"To write a :class:`str` subclass which overrides the :meth:`~object.__str__` "
+"method, :c:func:`PyUnicode_FromObject` can be used to get the original "
+"string."
+msgstr ""
+
+#: ../../../c-api/unicode.rst:1890
 msgid ""
 "Call :c:func:`PyObject_Repr` on *obj* and write the output into *writer*."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1888
+#: ../../../c-api/unicode.rst:1892
 msgid "If *obj* is ``NULL``, write the string ``\"<NULL>\"`` into *writer*."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1895
+#: ../../../c-api/unicode.rst:1899
 msgid "Added support for ``NULL``."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1899
+#: ../../../c-api/unicode.rst:1903
 msgid "Write the substring ``str[start:end]`` into *writer*."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1901
+#: ../../../c-api/unicode.rst:1905
 msgid ""
 "*str* must be Python :class:`str` object. *start* must be greater than or "
 "equal to 0, and less than or equal to *end*. *end* must be less than or "
 "equal to *str* length."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1910
+#: ../../../c-api/unicode.rst:1914
 msgid ""
 "Similar to :c:func:`PyUnicode_FromFormat`, but write the output directly "
 "into *writer*."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1917
+#: ../../../c-api/unicode.rst:1921
 msgid ""
 "Decode the string *str* from UTF-8 with *errors* error handler and write the "
 "output into *writer*."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1923
+#: ../../../c-api/unicode.rst:1927
 msgid ""
 "*errors* is an :ref:`error handler <error-handlers>` name, such as "
 "``\"replace\"``. If *errors* is ``NULL``, use the strict error handler."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1926
+#: ../../../c-api/unicode.rst:1930
 msgid ""
 "If *consumed* is not ``NULL``, set *\\*consumed* to the number of decoded "
 "bytes on success. If *consumed* is ``NULL``, treat trailing incomplete UTF-8 "
 "byte sequences as an error."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1934
+#: ../../../c-api/unicode.rst:1938
 msgid "See also :c:func:`PyUnicodeWriter_WriteUTF8`."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1937
+#: ../../../c-api/unicode.rst:1941
 msgid "Deprecated API"
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1939
+#: ../../../c-api/unicode.rst:1943
 msgid "The following API is deprecated."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1943
+#: ../../../c-api/unicode.rst:1947
 msgid ""
 "This is a typedef of :c:type:`wchar_t`, which is a 16-bit type or 32-bit "
 "type depending on the platform. Please use :c:type:`wchar_t` directly "
 "instead."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1947
+#: ../../../c-api/unicode.rst:1951
 msgid ""
 "In previous versions, this was a 16-bit type or a 32-bit type depending on "
 "whether you selected a \"narrow\" or \"wide\" Unicode version of Python at "
 "build time."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1957
+#: ../../../c-api/unicode.rst:1961
 msgid ""
 "Do nothing and return ``0``. This API is kept only for backward "
 "compatibility, but there are no plans to remove it."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1963
+#: ../../../c-api/unicode.rst:1967
 msgid ""
 "This API does nothing since Python 3.12. Previously, this needed to be "
 "called for each string created using the old API (:c:func:`!"
 "PyUnicode_FromUnicode` or similar)."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1971
+#: ../../../c-api/unicode.rst:1975
 msgid ""
 "Do nothing and return ``1``. This API is kept only for backward "
 "compatibility, but there are no plans to remove it."
 msgstr ""
 
-#: ../../../c-api/unicode.rst:1977
+#: ../../../c-api/unicode.rst:1981
 msgid ""
 "This API does nothing since Python 3.12. Previously, this could be called to "
 "check if :c:func:`PyUnicode_READY` is necessary."
