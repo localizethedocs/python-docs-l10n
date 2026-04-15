@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 10:06+0000\n"
+"POT-Creation-Date: 2026-04-13 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -218,7 +218,7 @@ msgid ""
 "path`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:144 ../../../using/cmdline.rst:867
+#: ../../../using/cmdline.rst:144 ../../../using/cmdline.rst:871
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``cpython.run_stdin`` with no "
 "arguments."
@@ -535,8 +535,8 @@ msgstr ""
 msgid "See also :envvar:`PYTHONNOUSERSITE`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:413 ../../../using/cmdline.rst:965
-#: ../../../using/cmdline.rst:980
+#: ../../../using/cmdline.rst:413 ../../../using/cmdline.rst:969
+#: ../../../using/cmdline.rst:984
 msgid ":pep:`370` -- Per user site-packages directory"
 msgstr ""
 
@@ -586,7 +586,7 @@ msgid ""
 "messages to :data:`sys.stderr`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:455 ../../../using/cmdline.rst:996
+#: ../../../using/cmdline.rst:455 ../../../using/cmdline.rst:1000
 msgid ""
 "The simplest settings apply a particular action unconditionally to all "
 "warnings emitted by a process (even those that are otherwise ignored by "
@@ -663,13 +663,13 @@ msgid ""
 "can be used to use a regular expression on the warning message."
 msgstr ""
 
-#: ../../../using/cmdline.rst:512 ../../../using/cmdline.rst:1008
+#: ../../../using/cmdline.rst:512 ../../../using/cmdline.rst:1012
 msgid ""
 "See :ref:`warning-filter` and :ref:`describing-warning-filters` for more "
 "details."
 msgstr ""
 
-#: ../../../using/cmdline.rst:515 ../../../using/cmdline.rst:1011
+#: ../../../using/cmdline.rst:515 ../../../using/cmdline.rst:1015
 msgid "Added regular expression support for *message* and *module*."
 msgstr ""
 
@@ -835,15 +835,20 @@ msgstr ""
 
 #: ../../../using/cmdline.rst:657
 msgid ""
-":samp:`-X presite={package.module}` specifies a module that should be "
-"imported before the :mod:`site` module is executed and before the :mod:"
-"`__main__` module exists.  Therefore, the imported module isn't :mod:"
-"`__main__`. This can be used to execute code early during Python "
-"initialization. Python needs to be :ref:`built in debug mode <debug-build>` "
-"for this option to exist.  See also :envvar:`PYTHON_PRESITE`."
+":samp:`-X presite={module}` or :samp:`-X presite={module:func}` specifies an "
+"entry point that should be executed before the :mod:`site` module is "
+"executed and before the :mod:`__main__` module exists.  Therefore, the "
+"imported module isn't :mod:`__main__`. This can be used to execute code "
+"early during Python initialization. Python needs to be :ref:`built in debug "
+"mode <debug-build>` for this option to exist.  See also :envvar:"
+"`PYTHON_PRESITE`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:666
+#: ../../../using/cmdline.rst:665 ../../../using/cmdline.rst:1465
+msgid "Accept also ``module:func`` entry point format."
+msgstr ""
+
+#: ../../../using/cmdline.rst:670
 msgid ""
 ":samp:`-X gil={0,1}` forces the GIL to be disabled or enabled, respectively. "
 "Setting to ``0`` is only available in builds configured with :option:`--"
@@ -851,7 +856,7 @@ msgid ""
 "threaded-cpython`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:673
+#: ../../../using/cmdline.rst:677
 msgid ""
 ":samp:`-X thread_inherit_context={0,1}` causes :class:`~threading.Thread` "
 "to, by default, use a copy of context of the caller of ``Thread.start()`` "
@@ -860,7 +865,7 @@ msgid ""
 "and to ``0`` otherwise.  See also :envvar:`PYTHON_THREAD_INHERIT_CONTEXT`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:682
+#: ../../../using/cmdline.rst:686
 msgid ""
 ":samp:`-X context_aware_warnings={0,1}` causes the :class:`warnings."
 "catch_warnings` context manager to use a :class:`~contextvars.ContextVar` to "
@@ -869,7 +874,7 @@ msgid ""
 "`PYTHON_CONTEXT_AWARE_WARNINGS`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:690
+#: ../../../using/cmdline.rst:694
 msgid ""
 ":samp:`-X pathconfig_warnings={0,1}` if true (``1``) then :ref:`sys-path-"
 "init` is allowed to log warnings into stderr. If false (``0``) suppress "
@@ -877,7 +882,7 @@ msgid ""
 "`PYTHON_PATHCONFIG_WARNINGS`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:697
+#: ../../../using/cmdline.rst:701
 msgid ""
 ":samp:`-X tlbc={0,1}` enables (1, the default) or disables (0) thread-local "
 "bytecode in builds configured with :option:`--disable-gil`.  When disabled, "
@@ -885,7 +890,7 @@ msgid ""
 "`PYTHON_TLBC`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:704
+#: ../../../using/cmdline.rst:708
 msgid ""
 ":samp:`-X lazy_imports={all,none,normal}` controls lazy import behavior. "
 "``all`` makes all imports lazy by default, ``none`` disables lazy imports "
@@ -894,56 +899,56 @@ msgid ""
 "`PYTHON_LAZY_IMPORTS`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:712
+#: ../../../using/cmdline.rst:716
 msgid ""
 "It also allows passing arbitrary values and retrieving them through the :"
 "data:`sys._xoptions` dictionary."
 msgstr ""
 
-#: ../../../using/cmdline.rst:717
+#: ../../../using/cmdline.rst:721
 msgid "Removed the ``-X showalloccount`` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:720
+#: ../../../using/cmdline.rst:724
 msgid "Removed the ``-X oldparser`` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:725
+#: ../../../using/cmdline.rst:729
 msgid ""
 ":option:`!-J` is no longer reserved for use by Jython_, and now has no "
 "special meaning."
 msgstr ""
 
-#: ../../../using/cmdline.rst:733
+#: ../../../using/cmdline.rst:737
 msgid "Controlling color"
 msgstr ""
 
-#: ../../../using/cmdline.rst:735
+#: ../../../using/cmdline.rst:739
 msgid ""
 "The Python interpreter is configured by default to use colors to highlight "
 "output in certain situations such as when displaying tracebacks. This "
 "behavior can be controlled by setting different environment variables."
 msgstr ""
 
-#: ../../../using/cmdline.rst:739
+#: ../../../using/cmdline.rst:743
 msgid ""
 "Setting the environment variable ``TERM`` to ``dumb`` will disable color."
 msgstr ""
 
-#: ../../../using/cmdline.rst:741
+#: ../../../using/cmdline.rst:745
 msgid ""
 "If the |FORCE_COLOR|_ environment variable is set, then color will be "
 "enabled regardless of the value of TERM. This is useful on CI systems which "
 "aren’t terminals but can still display ANSI escape sequences."
 msgstr ""
 
-#: ../../../using/cmdline.rst:745
+#: ../../../using/cmdline.rst:749
 msgid ""
 "If the |NO_COLOR|_ environment variable is set, Python will disable all "
 "color in the output. This takes precedence over ``FORCE_COLOR``."
 msgstr ""
 
-#: ../../../using/cmdline.rst:748
+#: ../../../using/cmdline.rst:752
 msgid ""
 "All these environment variables are used also by other tools to control "
 "color output. To control the color output only in the Python interpreter, "
@@ -952,11 +957,11 @@ msgid ""
 "``FORCE_COLOR``."
 msgstr ""
 
-#: ../../../using/cmdline.rst:758
+#: ../../../using/cmdline.rst:762
 msgid "Environment variables"
 msgstr "環境變數"
 
-#: ../../../using/cmdline.rst:760
+#: ../../../using/cmdline.rst:764
 msgid ""
 "These environment variables influence Python's behavior, they are processed "
 "before the command-line switches other than -E or -I.  It is customary that "
@@ -964,7 +969,7 @@ msgid ""
 "conflict."
 msgstr ""
 
-#: ../../../using/cmdline.rst:767
+#: ../../../using/cmdline.rst:771
 msgid ""
 "Change the location of the standard Python libraries.  By default, the "
 "libraries are searched in :file:`{prefix}/lib/python{version}` and :file:"
@@ -973,14 +978,14 @@ msgid ""
 "file:`/usr/local`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:773
+#: ../../../using/cmdline.rst:777
 msgid ""
 "When :envvar:`PYTHONHOME` is set to a single directory, its value replaces "
 "both :file:`{prefix}` and :file:`{exec_prefix}`.  To specify different "
 "values for these, set :envvar:`PYTHONHOME` to :file:`{prefix}:{exec_prefix}`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:780
+#: ../../../using/cmdline.rst:784
 msgid ""
 "Augment the default search path for module files.  The format is the same as "
 "the shell's :envvar:`PATH`: one or more directory pathnames separated by :"
@@ -988,21 +993,21 @@ msgid ""
 "existent directories are silently ignored."
 msgstr ""
 
-#: ../../../using/cmdline.rst:785
+#: ../../../using/cmdline.rst:789
 msgid ""
 "In addition to normal directories, individual :envvar:`PYTHONPATH` entries "
 "may refer to zipfiles containing pure Python modules (in either source or "
 "compiled form). Extension modules cannot be imported from zipfiles."
 msgstr ""
 
-#: ../../../using/cmdline.rst:789
+#: ../../../using/cmdline.rst:793
 msgid ""
 "The default search path is installation dependent, but generally begins "
 "with :file:`{prefix}/lib/python{version}` (see :envvar:`PYTHONHOME` above).  "
 "It is *always* appended to :envvar:`PYTHONPATH`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:793
+#: ../../../using/cmdline.rst:797
 msgid ""
 "An additional directory will be inserted in the search path in front of :"
 "envvar:`PYTHONPATH` as described above under :ref:`using-on-interface-"
@@ -1010,19 +1015,19 @@ msgid ""
 "the variable :data:`sys.path`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:801
+#: ../../../using/cmdline.rst:805
 msgid ""
 "If this is set to a non-empty string, don't prepend a potentially unsafe "
 "path to :data:`sys.path`: see the :option:`-P` option for details."
 msgstr ""
 
-#: ../../../using/cmdline.rst:809
+#: ../../../using/cmdline.rst:813
 msgid ""
 "If this is set to a non-empty string, it overrides the :data:`sys."
 "platlibdir` value."
 msgstr ""
 
-#: ../../../using/cmdline.rst:817
+#: ../../../using/cmdline.rst:821
 msgid ""
 "If this is the name of a readable file, the Python commands in that file are "
 "executed before the first prompt is displayed in interactive mode.  The file "
@@ -1033,20 +1038,20 @@ msgid ""
 "file."
 msgstr ""
 
-#: ../../../using/cmdline.rst:824 ../../../using/cmdline.rst:826
+#: ../../../using/cmdline.rst:828 ../../../using/cmdline.rst:830
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``cpython.run_startup`` with the "
 "filename as the argument when called on startup."
 msgstr ""
 
-#: ../../../using/cmdline.rst:832
+#: ../../../using/cmdline.rst:836
 msgid ""
 "If this is set to a non-empty string it is equivalent to specifying the :"
 "option:`-O` option.  If set to an integer, it is equivalent to specifying :"
 "option:`-O` multiple times."
 msgstr ""
 
-#: ../../../using/cmdline.rst:839
+#: ../../../using/cmdline.rst:843
 msgid ""
 "If this is set, it names a callable using dotted-path notation.  The module "
 "containing the callable will be imported and then the callable will be run "
@@ -1057,68 +1062,68 @@ msgid ""
 "breakpointhook` to do nothing but return immediately."
 msgstr ""
 
-#: ../../../using/cmdline.rst:851
+#: ../../../using/cmdline.rst:855
 msgid ""
 "If this is set to a non-empty string it is equivalent to specifying the :"
 "option:`-d` option.  If set to an integer, it is equivalent to specifying :"
 "option:`-d` multiple times."
 msgstr ""
 
-#: ../../../using/cmdline.rst:855
+#: ../../../using/cmdline.rst:859
 msgid ""
 "This environment variable requires a :ref:`debug build of Python <debug-"
 "build>`, otherwise it's ignored."
 msgstr ""
 
-#: ../../../using/cmdline.rst:861
+#: ../../../using/cmdline.rst:865
 msgid ""
 "If this is set to a non-empty string it is equivalent to specifying the :"
 "option:`-i` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:864
+#: ../../../using/cmdline.rst:868
 msgid ""
 "This variable can also be modified by Python code using :data:`os.environ` "
 "to force inspect mode on program termination."
 msgstr ""
 
-#: ../../../using/cmdline.rst:869
+#: ../../../using/cmdline.rst:873
 msgid "(also 3.11.10, 3.10.15, 3.9.20, and 3.8.20) Emits audit events."
 msgstr ""
 
-#: ../../../using/cmdline.rst:872
+#: ../../../using/cmdline.rst:876
 msgid ""
 "Uses PyREPL if possible, in which case :envvar:`PYTHONSTARTUP` is also "
 "executed. Emits audit events."
 msgstr ""
 
-#: ../../../using/cmdline.rst:879
+#: ../../../using/cmdline.rst:883
 msgid ""
 "If this is set to a non-empty string it is equivalent to specifying the :"
 "option:`-u` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:885
+#: ../../../using/cmdline.rst:889
 msgid ""
 "If this is set to a non-empty string it is equivalent to specifying the :"
 "option:`-v` option.  If set to an integer, it is equivalent to specifying :"
 "option:`-v` multiple times."
 msgstr ""
 
-#: ../../../using/cmdline.rst:892
+#: ../../../using/cmdline.rst:896
 msgid ""
 "If this is set, Python ignores case in :keyword:`import` statements.  This "
 "only works on Windows and macOS."
 msgstr ""
 
-#: ../../../using/cmdline.rst:898
+#: ../../../using/cmdline.rst:902
 msgid ""
 "If this is set to a non-empty string, Python won't try to write ``.pyc`` "
 "files on the import of source modules.  This is equivalent to specifying "
 "the :option:`-B` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:905
+#: ../../../using/cmdline.rst:909
 msgid ""
 "If this is set, Python will write ``.pyc`` files in a mirror directory tree "
 "at this path, instead of in ``__pycache__`` directories within the source "
@@ -1126,40 +1131,40 @@ msgid ""
 "``pycache_prefix=PATH`` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:915
+#: ../../../using/cmdline.rst:919
 msgid ""
 "If this variable is not set or set to ``random``, a random value is used to "
 "seed the hashes of str and bytes objects."
 msgstr ""
 
-#: ../../../using/cmdline.rst:918
+#: ../../../using/cmdline.rst:922
 msgid ""
 "If :envvar:`PYTHONHASHSEED` is set to an integer value, it is used as a "
 "fixed seed for generating the hash() of the types covered by the hash "
 "randomization."
 msgstr ""
 
-#: ../../../using/cmdline.rst:922
+#: ../../../using/cmdline.rst:926
 msgid ""
 "Its purpose is to allow repeatable hashing, such as for selftests for the "
 "interpreter itself, or to allow a cluster of python processes to share hash "
 "values."
 msgstr ""
 
-#: ../../../using/cmdline.rst:926
+#: ../../../using/cmdline.rst:930
 msgid ""
 "The integer must be a decimal number in the range [0,4294967295].  "
 "Specifying the value 0 will disable hash randomization."
 msgstr ""
 
-#: ../../../using/cmdline.rst:933
+#: ../../../using/cmdline.rst:937
 msgid ""
 "If this variable is set to an integer, it is used to configure the "
 "interpreter's global :ref:`integer string conversion length limitation "
 "<int_max_str_digits>`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:941
+#: ../../../using/cmdline.rst:945
 msgid ""
 "If this is set before running the interpreter, it overrides the encoding "
 "used for stdin/stdout/stderr, in the syntax ``encodingname:errorhandler``.  "
@@ -1167,17 +1172,17 @@ msgid ""
 "have the same meaning as in :func:`str.encode`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:946
+#: ../../../using/cmdline.rst:950
 msgid ""
 "For stderr, the ``:errorhandler`` part is ignored; the handler will always "
 "be ``'backslashreplace'``."
 msgstr ""
 
-#: ../../../using/cmdline.rst:949
+#: ../../../using/cmdline.rst:953
 msgid "The ``encodingname`` part is now optional."
 msgstr ""
 
-#: ../../../using/cmdline.rst:952
+#: ../../../using/cmdline.rst:956
 msgid ""
 "On Windows, the encoding specified by this variable is ignored for "
 "interactive console buffers unless :envvar:`PYTHONLEGACYWINDOWSSTDIO` is "
@@ -1185,14 +1190,14 @@ msgid ""
 "not affected."
 msgstr ""
 
-#: ../../../using/cmdline.rst:959
+#: ../../../using/cmdline.rst:963
 msgid ""
 "This is equivalent to the :option:`-s` option.  If this is set, Python won't "
 "add the :data:`user site-packages directory <site.USER_SITE>` to :data:`sys."
 "path`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:970
+#: ../../../using/cmdline.rst:974
 msgid ""
 "Defines the :data:`user base directory <site.USER_BASE>`, which is used to "
 "compute the path of the :data:`user site-packages directory <site."
@@ -1200,26 +1205,26 @@ msgid ""
 "``python -m pip install --user``."
 msgstr ""
 
-#: ../../../using/cmdline.rst:975
+#: ../../../using/cmdline.rst:979
 msgid ""
 "To disable the user site-packages, see :envvar:`PYTHONNOUSERSITE` or the :"
 "option:`-s` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:985
+#: ../../../using/cmdline.rst:989
 msgid ""
 "If this environment variable is set, ``sys.argv[0]`` will be set to its "
 "value instead of the value got through the C runtime.  Only works on macOS."
 msgstr ""
 
-#: ../../../using/cmdline.rst:991
+#: ../../../using/cmdline.rst:995
 msgid ""
 "This is equivalent to the :option:`-W` option. If set to a comma separated "
 "string, it is equivalent to specifying :option:`-W` multiple times, with "
 "filters later in the list taking precedence over those earlier in the list."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1017
+#: ../../../using/cmdline.rst:1021
 msgid ""
 "If this environment variable is set to a non-empty string, :func:"
 "`faulthandler.enable` is called at startup: install a handler for :const:"
@@ -1228,7 +1233,7 @@ msgid ""
 "traceback. This is equivalent to :option:`-X` ``faulthandler`` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1029
+#: ../../../using/cmdline.rst:1033
 msgid ""
 "If this environment variable is set to a non-empty string, start tracing "
 "Python memory allocations using the :mod:`tracemalloc` module. The value of "
@@ -1238,7 +1243,7 @@ msgid ""
 "is equivalent to setting the :option:`-X` ``tracemalloc`` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1042
+#: ../../../using/cmdline.rst:1046
 msgid ""
 "If this environment variable is set to ``1``, Python will show how long each "
 "import takes. If set to ``2``, Python will include output for imported "
@@ -1246,75 +1251,75 @@ msgid ""
 "option:`-X` ``importtime`` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1051
+#: ../../../using/cmdline.rst:1055
 msgid ""
 "Added ``PYTHONPROFILEIMPORTTIME=2`` to also trace imports of loaded modules."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1056
+#: ../../../using/cmdline.rst:1060
 msgid ""
 "If this environment variable is set to a non-empty string, enable the :ref:"
 "`debug mode <asyncio-debug-mode>` of the :mod:`asyncio` module."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1064
+#: ../../../using/cmdline.rst:1068
 msgid "Set the Python memory allocators and/or install debug hooks."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1066
+#: ../../../using/cmdline.rst:1070
 msgid "Set the family of memory allocators used by Python:"
 msgstr ""
 
-#: ../../../using/cmdline.rst:1068
+#: ../../../using/cmdline.rst:1072
 msgid ""
 "``default``: use the :ref:`default memory allocators <default-memory-"
 "allocators>`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1070
+#: ../../../using/cmdline.rst:1074
 msgid ""
 "``malloc``: use the :c:func:`malloc` function of the C library for all "
 "domains (:c:macro:`PYMEM_DOMAIN_RAW`, :c:macro:`PYMEM_DOMAIN_MEM`, :c:macro:"
 "`PYMEM_DOMAIN_OBJ`)."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1073
+#: ../../../using/cmdline.rst:1077
 msgid ""
 "``pymalloc``: use the :ref:`pymalloc allocator <pymalloc>` for :c:macro:"
 "`PYMEM_DOMAIN_MEM` and :c:macro:`PYMEM_DOMAIN_OBJ` domains and use the :c:"
 "func:`malloc` function for the :c:macro:`PYMEM_DOMAIN_RAW` domain."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1076
+#: ../../../using/cmdline.rst:1080
 msgid ""
 "``mimalloc``: use the :ref:`mimalloc allocator <mimalloc>` for :c:macro:"
 "`PYMEM_DOMAIN_MEM` and :c:macro:`PYMEM_DOMAIN_OBJ` domains and use the :c:"
 "func:`malloc` function for the :c:macro:`PYMEM_DOMAIN_RAW` domain."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1080
+#: ../../../using/cmdline.rst:1084
 msgid "Install :ref:`debug hooks <pymem-debug-hooks>`:"
 msgstr ""
 
-#: ../../../using/cmdline.rst:1082
+#: ../../../using/cmdline.rst:1086
 msgid ""
 "``debug``: install debug hooks on top of the :ref:`default memory allocators "
 "<default-memory-allocators>`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1084
+#: ../../../using/cmdline.rst:1088
 msgid "``malloc_debug``: same as ``malloc`` but also install debug hooks."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1085
+#: ../../../using/cmdline.rst:1089
 msgid "``pymalloc_debug``: same as ``pymalloc`` but also install debug hooks."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1086
+#: ../../../using/cmdline.rst:1090
 msgid "``mimalloc_debug``: same as ``mimalloc`` but also install debug hooks."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1090
+#: ../../../using/cmdline.rst:1094
 msgid ""
 "In the :term:`free-threaded <free threading>` build, the ``malloc``, "
 "``malloc_debug``, ``pymalloc``, and ``pymalloc_debug`` values are not "
@@ -1322,11 +1327,11 @@ msgid ""
 "``mimalloc_debug`` are accepted."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1097
+#: ../../../using/cmdline.rst:1101
 msgid "Added the ``\"default\"`` allocator."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1103
+#: ../../../using/cmdline.rst:1107
 msgid ""
 "If set to a non-empty string, Python will print statistics of the :ref:"
 "`pymalloc memory allocator <pymalloc>` or the :ref:`mimalloc memory "
@@ -1334,20 +1339,20 @@ msgid ""
 "created, and on shutdown."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1108
+#: ../../../using/cmdline.rst:1112
 msgid ""
 "This variable is ignored if the :envvar:`PYTHONMALLOC` environment variable "
 "is used to force the :c:func:`malloc` allocator of the C library, or if "
 "Python is configured without both ``pymalloc`` and ``mimalloc`` support."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1112
+#: ../../../using/cmdline.rst:1116
 msgid ""
 "This variable can now also be used on Python compiled in release mode. It "
 "now has no effect if set to an empty string."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1119
+#: ../../../using/cmdline.rst:1123
 msgid ""
 "If set to a non-zero integer, enable huge page support for :ref:`pymalloc "
 "<pymalloc>` arenas.  Set to ``0`` or unset to disable. Python must be "
@@ -1355,14 +1360,14 @@ msgid ""
 "any effect."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1124
+#: ../../../using/cmdline.rst:1128
 msgid ""
 "When enabled, arena allocation uses ``MAP_HUGETLB`` (Linux) or "
 "``MEM_LARGE_PAGES`` (Windows) with automatic fallback to regular pages if "
 "huge pages are not available."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1130
+#: ../../../using/cmdline.rst:1134
 msgid ""
 "On Linux, if the huge-page pool is exhausted, page faults — including copy-"
 "on-write faults triggered by :func:`os.fork` — deliver ``SIGBUS`` and kill "
@@ -1370,7 +1375,7 @@ msgid ""
 "properly sized and fork-safety is not a concern."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1135
+#: ../../../using/cmdline.rst:1139
 msgid ""
 "On Windows you need a special privilege. See the `Windows documentation for "
 "large pages <https://learn.microsoft.com/windows/win32/memory/large-page-"
@@ -1380,7 +1385,7 @@ msgid ""
 "policy-settings/lock-pages-in-memory>`_ is not held by the user."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1148
+#: ../../../using/cmdline.rst:1152
 msgid ""
 "If set to a non-empty string, the default :term:`filesystem encoding and "
 "error handler` mode will revert to their pre-3.6 values of 'mbcs' and "
@@ -1388,42 +1393,42 @@ msgid ""
 "'surrogatepass' are used."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1153
+#: ../../../using/cmdline.rst:1157
 msgid ""
 "This may also be enabled at runtime with :func:`sys."
 "_enablelegacywindowsfsencoding`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1156 ../../../using/cmdline.rst:1170
-#: ../../../using/cmdline.rst:1221
+#: ../../../using/cmdline.rst:1160 ../../../using/cmdline.rst:1174
+#: ../../../using/cmdline.rst:1225
 msgid "Availability"
 msgstr ""
 
-#: ../../../using/cmdline.rst:1158
+#: ../../../using/cmdline.rst:1162
 msgid "See :pep:`529` for more details."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1163
+#: ../../../using/cmdline.rst:1167
 msgid ""
 "If set to a non-empty string, does not use the new console reader and "
 "writer. This means that Unicode characters will be encoded according to the "
 "active console code page, rather than using utf-8."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1167
+#: ../../../using/cmdline.rst:1171
 msgid ""
 "This variable is ignored if the standard streams are redirected (to files or "
 "pipes) rather than referring to console buffers."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1177
+#: ../../../using/cmdline.rst:1181
 msgid ""
 "If set to the value ``0``, causes the main Python command line application "
 "to skip coercing the legacy ASCII-based C and POSIX locales to a more "
 "capable UTF-8 based alternative."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1181
+#: ../../../using/cmdline.rst:1185
 msgid ""
 "If this variable is *not* set (or is set to a value other than ``0``), the "
 "``LC_ALL`` locale override environment variable is also not set, and the "
@@ -1434,19 +1439,19 @@ msgid ""
 "runtime:"
 msgstr ""
 
-#: ../../../using/cmdline.rst:1189
+#: ../../../using/cmdline.rst:1193
 msgid "``C.UTF-8``"
 msgstr ""
 
-#: ../../../using/cmdline.rst:1190
+#: ../../../using/cmdline.rst:1194
 msgid "``C.utf8``"
 msgstr ""
 
-#: ../../../using/cmdline.rst:1191
+#: ../../../using/cmdline.rst:1195
 msgid "``UTF-8``"
 msgstr ""
 
-#: ../../../using/cmdline.rst:1193
+#: ../../../using/cmdline.rst:1197
 msgid ""
 "If setting one of these locale categories succeeds, then the ``LC_CTYPE`` "
 "environment variable will also be set accordingly in the current process "
@@ -1459,7 +1464,7 @@ msgid ""
 "(such as Python's own :func:`locale.getdefaultlocale`)."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1203
+#: ../../../using/cmdline.rst:1207
 msgid ""
 "Configuring one of these locales (either explicitly or via the above "
 "implicit locale coercion) automatically enables the ``surrogateescape`` :ref:"
@@ -1469,7 +1474,7 @@ msgid ""
 "envvar:`PYTHONIOENCODING` as usual."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1210
+#: ../../../using/cmdline.rst:1214
 msgid ""
 "For debugging purposes, setting ``PYTHONCOERCECLOCALE=warn`` will cause "
 "Python to emit warning messages on ``stderr`` if either the locale coercion "
@@ -1477,7 +1482,7 @@ msgid ""
 "active when the Python runtime is initialized."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1215
+#: ../../../using/cmdline.rst:1219
 msgid ""
 "Also note that even when locale coercion is disabled, or when it fails to "
 "find a suitable target locale, :envvar:`PYTHONUTF8` will still activate by "
@@ -1486,11 +1491,11 @@ msgid ""
 "system interfaces."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1223
+#: ../../../using/cmdline.rst:1227
 msgid "See :pep:`538` for more details."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1229
+#: ../../../using/cmdline.rst:1233
 msgid ""
 "If this environment variable is set to a non-empty string, enable :ref:"
 "`Python Development Mode <devmode>`, introducing additional runtime checks "
@@ -1498,31 +1503,31 @@ msgid ""
 "setting the :option:`-X` ``dev`` option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1238
+#: ../../../using/cmdline.rst:1242
 msgid "If set to ``1``, enable the :ref:`Python UTF-8 Mode <utf8-mode>`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1240
+#: ../../../using/cmdline.rst:1244
 msgid "If set to ``0``, disable the :ref:`Python UTF-8 Mode <utf8-mode>`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1242
+#: ../../../using/cmdline.rst:1246
 msgid ""
 "Setting any other non-empty string causes an error during interpreter "
 "initialisation."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1249
+#: ../../../using/cmdline.rst:1253
 msgid ""
 "If this environment variable is set to a non-empty string, issue a :class:"
 "`EncodingWarning` when the locale-specific default encoding is used."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1252
+#: ../../../using/cmdline.rst:1256
 msgid "See :ref:`io-encoding-warning` for details."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1258
+#: ../../../using/cmdline.rst:1262
 msgid ""
 "If this variable is set, it disables the inclusion of the tables mapping "
 "extra location information (end line, start column offset and end column "
@@ -1531,36 +1536,36 @@ msgid ""
 "visual location indicators when the interpreter displays tracebacks."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1268
+#: ../../../using/cmdline.rst:1272
 msgid ""
 "If this variable is set to a nonzero value, it enables support for the Linux "
 "``perf`` profiler so Python calls can be detected by it."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1271 ../../../using/cmdline.rst:1284
+#: ../../../using/cmdline.rst:1275 ../../../using/cmdline.rst:1288
 msgid "If set to ``0``, disable Linux ``perf`` profiler support."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1273
+#: ../../../using/cmdline.rst:1277
 msgid ""
 "See also the :option:`-X perf <-X>` command-line option and :ref:"
 "`perf_profiling`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1280
+#: ../../../using/cmdline.rst:1284
 msgid ""
 "If this variable is set to a nonzero value, it enables support for the Linux "
 "``perf`` profiler so Python calls can be detected by it using DWARF "
 "information."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1286
+#: ../../../using/cmdline.rst:1290
 msgid ""
 "See also the :option:`-X perf_jit <-X>` command-line option and :ref:"
 "`perf_profiling`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1293
+#: ../../../using/cmdline.rst:1297
 msgid ""
 "If this variable is set to a non-empty string, it disables the remote "
 "debugging feature described in :pep:`768`. This includes both the "
@@ -1568,21 +1573,21 @@ msgid ""
 "functionality to receive code for execution in the current process."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1298
+#: ../../../using/cmdline.rst:1302
 msgid "See also the :option:`-X disable_remote_debug` command-line option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1304
+#: ../../../using/cmdline.rst:1308
 msgid ""
 "If this variable is set to a positive integer, it overrides the return "
 "values of :func:`os.cpu_count` and :func:`os.process_cpu_count`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1307
+#: ../../../using/cmdline.rst:1311
 msgid "See also the :option:`-X cpu_count <-X>` command-line option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1313
+#: ../../../using/cmdline.rst:1317
 msgid ""
 "If this variable is set to ``on`` or ``off``, it determines whether or not "
 "frozen modules are ignored by the import machinery.  A value of ``on`` means "
@@ -1593,45 +1598,51 @@ msgid ""
 "flag is set to ``off``."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1321
+#: ../../../using/cmdline.rst:1325
 msgid "See also the :option:`-X frozen_modules <-X>` command-line option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1327
+#: ../../../using/cmdline.rst:1331
 msgid ""
 "If this variable is set to ``1``, the interpreter will colorize various "
 "kinds of output. Setting it to ``0`` deactivates this behavior. See also :"
 "ref:`using-on-controlling-color`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1335
+#: ../../../using/cmdline.rst:1339
 msgid ""
 "If this variable is set to any value, the interpreter will not attempt to "
 "load the Python-based :term:`REPL` that requires :mod:`readline`, and will "
 "instead use the traditional parser-based :term:`REPL`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1343
+#: ../../../using/cmdline.rst:1347
+msgid ""
+"If this variable is set to any value, PyREPL will use :mod:`rlcompleter` to "
+"implement tab completion, instead of the default one which uses colors."
+msgstr ""
+
+#: ../../../using/cmdline.rst:1354
 msgid ""
 "This environment variable can be used to set the location of a ``."
 "python_history`` file (by default, it is ``.python_history`` in the user's "
 "home directory)."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1351
+#: ../../../using/cmdline.rst:1362
 msgid ""
 "If this variable is set to ``1``, the global interpreter lock (GIL) will be "
 "forced on. Setting it to ``0`` forces the GIL off (needs Python configured "
 "with the :option:`--disable-gil` build option)."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1355
+#: ../../../using/cmdline.rst:1366
 msgid ""
 "See also the :option:`-X gil <-X>` command-line option, which takes "
 "precedence over this variable, and :ref:`whatsnew313-free-threaded-cpython`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1362
+#: ../../../using/cmdline.rst:1373
 msgid ""
 "If this variable is set to ``1`` then :class:`~threading.Thread` will, by "
 "default, use a copy of context of the caller of ``Thread.start()`` when "
@@ -1640,7 +1651,7 @@ msgid ""
 "otherwise.  See also :option:`-X thread_inherit_context<-X>`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1372
+#: ../../../using/cmdline.rst:1383
 msgid ""
 "If set to ``1`` then the :class:`warnings.catch_warnings` context manager "
 "will use a :class:`~contextvars.ContextVar` to store warnings filter state.  "
@@ -1648,32 +1659,32 @@ msgid ""
 "``0`` otherwise.  See :option:`-X context_aware_warnings<-X>`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1382
+#: ../../../using/cmdline.rst:1393
 msgid ""
 "If true (``1``) then :ref:`sys-path-init` is allowed to log warnings into "
 "stderr. If false (``0``) suppress these warnings. Set to true by default. "
 "See also :option:`-X pathconfig_warnings<-X>`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1390
+#: ../../../using/cmdline.rst:1401
 msgid ""
 "On builds where experimental just-in-time compilation is available, this "
 "variable can force the JIT to be disabled (``0``) or enabled (``1``) at "
 "interpreter startup."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1398
+#: ../../../using/cmdline.rst:1409
 msgid ""
 "If set to ``1`` enables thread-local bytecode. If set to ``0`` thread-local "
 "bytecode and the specializing interpreter are disabled.  Only applies to "
 "builds configured with :option:`--disable-gil`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1402
+#: ../../../using/cmdline.rst:1413
 msgid "See also the :option:`-X tlbc <-X>` command-line option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1408
+#: ../../../using/cmdline.rst:1419
 msgid ""
 "Controls lazy import behavior. Accepts three values: ``all`` makes all "
 "imports lazy by default, ``none`` disables lazy imports entirely (even "
@@ -1681,33 +1692,33 @@ msgid ""
 "respects the ``lazy`` keyword in source code."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1413
+#: ../../../using/cmdline.rst:1424
 msgid "See also the :option:`-X lazy_imports <-X>` command-line option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1418
+#: ../../../using/cmdline.rst:1429
 msgid "Debug-mode variables"
 msgstr ""
 
-#: ../../../using/cmdline.rst:1422
+#: ../../../using/cmdline.rst:1433
 msgid ""
 "If set, Python will dump objects and reference counts still alive after "
 "shutting down the interpreter."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1425 ../../../using/cmdline.rst:1433
+#: ../../../using/cmdline.rst:1436 ../../../using/cmdline.rst:1444
 msgid ""
 "Needs Python configured with the :option:`--with-trace-refs` build option."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1429
+#: ../../../using/cmdline.rst:1440
 msgid ""
 "If set, Python will dump objects and reference counts still alive after "
 "shutting down the interpreter into a file under the path given as the value "
 "to this environment variable."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1439
+#: ../../../using/cmdline.rst:1450
 msgid ""
 "If this variable is set to a module, that module will be imported early in "
 "the interpreter lifecycle, before the :mod:`site` module is executed, and "
@@ -1715,22 +1726,22 @@ msgid ""
 "is not treated as :mod:`__main__`."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1444
+#: ../../../using/cmdline.rst:1455
 msgid "This can be used to execute code early during Python initialization."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1446
+#: ../../../using/cmdline.rst:1457
 msgid ""
 "To import a submodule, use ``package.module`` as the value, like in an "
 "import statement."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1449
+#: ../../../using/cmdline.rst:1460
 msgid ""
 "See also the :option:`-X presite <-X>` command-line option, which takes "
 "precedence over this variable."
 msgstr ""
 
-#: ../../../using/cmdline.rst:1452
+#: ../../../using/cmdline.rst:1463
 msgid "Needs Python configured with the :option:`--with-pydebug` build option."
 msgstr ""

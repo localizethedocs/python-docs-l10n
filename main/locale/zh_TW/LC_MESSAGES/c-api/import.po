@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 09:11+0000\n"
+"POT-Creation-Date: 2026-04-13 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -401,50 +401,52 @@ msgstr ""
 msgid ""
 "Sets the current lazy imports filter. The *filter* should be a callable that "
 "will receive ``(importing_module_name, imported_module_name, [fromlist])`` "
-"when an import can potentially be lazy and that must return ``True`` if the "
-"import should be lazy and ``False`` otherwise."
+"when an import can potentially be lazy. The ``imported_module_name`` value "
+"is the resolved module name, so ``lazy from .spam import eggs`` passes "
+"``package.spam``. The callable must return ``True`` if the import should be "
+"lazy and ``False`` otherwise."
 msgstr ""
 
-#: ../../../c-api/import.rst:378
+#: ../../../c-api/import.rst:380
 msgid "Return ``0`` on success and ``-1`` with an exception set otherwise."
 msgstr ""
 
-#: ../../../c-api/import.rst:384
+#: ../../../c-api/import.rst:386
 msgid "Enumeration of possible lazy import modes."
 msgstr ""
 
-#: ../../../c-api/import.rst:388
+#: ../../../c-api/import.rst:390
 msgid "Respect the ``lazy`` keyword in source code. This is the default mode."
 msgstr ""
 
-#: ../../../c-api/import.rst:392
+#: ../../../c-api/import.rst:394
 msgid "Make all imports lazy by default."
 msgstr ""
 
-#: ../../../c-api/import.rst:396
+#: ../../../c-api/import.rst:398
 msgid ""
 "Disable lazy imports entirely. Even explicit ``lazy`` statements become "
 "eager imports."
 msgstr ""
 
-#: ../../../c-api/import.rst:403
+#: ../../../c-api/import.rst:405
 msgid ""
 "This function is a building block that enables embedders to implement the :"
 "py:meth:`~importlib.abc.Loader.create_module` step of custom static "
 "extension importers (e.g. of statically-linked extensions)."
 msgstr ""
 
-#: ../../../c-api/import.rst:407
+#: ../../../c-api/import.rst:409
 msgid "*spec* must be a :class:`~importlib.machinery.ModuleSpec` object."
 msgstr ""
 
-#: ../../../c-api/import.rst:409
+#: ../../../c-api/import.rst:411
 msgid ""
 "*initfunc* must be an :ref:`initialization function <extension-export-"
 "hook>`, the same as for :c:func:`PyImport_AppendInittab`."
 msgstr ""
 
-#: ../../../c-api/import.rst:412
+#: ../../../c-api/import.rst:414
 msgid ""
 "On success, create and return a module object. This module will not be "
 "initialized; call :c:func:`PyModule_Exec` to initialize it. (Custom "
@@ -452,7 +454,7 @@ msgid ""
 "exec_module` method.)"
 msgstr ""
 
-#: ../../../c-api/import.rst:418
+#: ../../../c-api/import.rst:420
 msgid "On error, return NULL with an exception set."
 msgstr ""
 
