@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-15 08:48+0000\n"
+"POT-Creation-Date: 2026-04-27 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -258,8 +258,8 @@ msgstr ""
 
 #: ../../../c-api/extension-modules.rst:196
 msgid ""
-"This functionality is :term:`soft deprecated`. It will not get new features, "
-"but there are no plans to remove it."
+"This functionality will not get new features, but there are no plans to "
+"remove it."
 msgstr ""
 
 #: ../../../c-api/extension-modules.rst:199
@@ -340,17 +340,16 @@ msgstr ""
 
 #: ../../../c-api/extension-modules.rst:277
 msgid ""
-"Single-phase initialization is :term:`soft deprecated`. It is a legacy "
-"mechanism to initialize extension modules, with known drawbacks and design "
-"flaws. Extension module authors are encouraged to use multi-phase "
-"initialization instead."
+"Single-phase initialization is a legacy mechanism to initialize extension "
+"modules, with known drawbacks and design flaws. Extension module authors are "
+"encouraged to use multi-phase initialization instead."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:282
+#: ../../../c-api/extension-modules.rst:281
 msgid "However, there are no plans to remove support for it."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:284
+#: ../../../c-api/extension-modules.rst:283
 msgid ""
 "In single-phase initialization, the old-style :ref:`initialization function "
 "<extension-pyinit>` (``PyInit_modulename``) should create, populate and "
@@ -358,23 +357,23 @@ msgid ""
 "`PyModule_Create` and functions like :c:func:`PyModule_AddObjectRef`."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:290
+#: ../../../c-api/extension-modules.rst:289
 msgid ""
 "Single-phase initialization differs from the :ref:`default <multi-phase-"
 "initialization>` in the following ways:"
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:293
+#: ../../../c-api/extension-modules.rst:292
 msgid "Single-phase modules are, or rather *contain*, “singletons”."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:295
+#: ../../../c-api/extension-modules.rst:294
 msgid ""
 "When the module is first initialized, Python saves the contents of the "
 "module's ``__dict__`` (that is, typically, the module's functions and types)."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:299
+#: ../../../c-api/extension-modules.rst:298
 msgid ""
 "For subsequent imports, Python does not call the initialization function "
 "again. Instead, it creates a new module object with a new ``__dict__``, and "
@@ -383,12 +382,12 @@ msgid ""
 "an exception class ``error``:"
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:322
+#: ../../../c-api/extension-modules.rst:321
 msgid ""
 "The exact behavior should be considered a CPython implementation detail."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:324
+#: ../../../c-api/extension-modules.rst:323
 msgid ""
 "To work around the fact that ``PyInit_modulename`` does not take a *spec* "
 "argument, some state of the import machinery is saved and applied to the "
@@ -397,27 +396,27 @@ msgid ""
 "parent package name to the name of the module."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:330
+#: ../../../c-api/extension-modules.rst:329
 msgid ""
 "A single-phase ``PyInit_modulename`` function should create “its” module "
 "object as soon as possible, before any other module objects can be created."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:333
+#: ../../../c-api/extension-modules.rst:332
 msgid "Non-ASCII module names (``PyInitU_modulename``) are not supported."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:335
+#: ../../../c-api/extension-modules.rst:334
 msgid ""
 "Single-phase modules support module lookup functions like :c:func:"
 "`PyState_FindModule`."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:338
+#: ../../../c-api/extension-modules.rst:337
 msgid "The module's :c:member:`PyModuleDef.m_slots` must be NULL."
 msgstr ""
 
-#: ../../../c-api/extension-modules.rst:340
+#: ../../../c-api/extension-modules.rst:339
 msgid ""
 "``_testsinglephase`` is an internal module used in CPython's self-test "
 "suite; your installation may or may not include it."
