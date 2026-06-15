@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.15\n"
+"Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 09:17+0000\n"
+"POT-Creation-Date: 2026-06-15 14:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -460,12 +460,33 @@ msgstr ""
 #: ../../../library/email.policy.rst:405
 msgid ""
 "If ``False``, follow :rfc:`5322`, supporting non-ASCII characters in headers "
-"by encoding them as \"encoded words\".  If ``True``, follow :rfc:`6532` and "
-"use ``utf-8`` encoding for headers.  Messages formatted in this way may be "
-"passed to SMTP servers that support the ``SMTPUTF8`` extension (:rfc:`6531`)."
+"by encoding them as :rfc:`2047` \"encoded words\".  If ``True``, follow :rfc:"
+"`6532` and use ``utf-8`` encoding for headers.  Messages formatted in this "
+"way may be passed to SMTP servers that support the ``SMTPUTF8`` extension (:"
+"rfc:`6531`)."
 msgstr ""
 
-#: ../../../library/email.policy.rst:414
+#: ../../../library/email.policy.rst:411
+msgid ""
+"When ``False``, the generator will raise :exc:`~email.errors."
+"HeaderWriteError` if any header includes non-ASCII characters in a context "
+"where :rfc:`2047` does not permit encoded words. This particularly applies "
+"to mailboxes (\"addr-spec\") with non-ASCII characters, which can be created "
+"via :class:`~email.headerregistry.Address`. To use a mailbox with a non-"
+"ASCII domain name with ``utf8=False``, first encode the domain using the "
+"third-party :pypi:`idna` or :pypi:`uts46` module or with :mod:`encodings."
+"idna`. It is not possible to use a non-ASCII username (\"local-part\") in a "
+"mailbox when ``utf8=False``."
+msgstr ""
+
+#: ../../../library/email.policy.rst:422
+msgid ""
+"Can trigger the raising of :exc:`~email.errors.HeaderWriteError`. (Earlier "
+"versions incorrectly applied :rfc:`2047` in certain contexts, mostly notably "
+"in addr-specs.)"
+msgstr ""
+
+#: ../../../library/email.policy.rst:429
 msgid ""
 "If the value for a header in the ``Message`` object originated from a :mod:"
 "`~email.parser` (as opposed to being set by a program), this attribute "
@@ -473,37 +494,37 @@ msgid ""
 "transforming the message back into serialized form.  The possible values are:"
 msgstr ""
 
-#: ../../../library/email.policy.rst:421
+#: ../../../library/email.policy.rst:436
 msgid "``none``"
 msgstr ""
 
-#: ../../../library/email.policy.rst:421
+#: ../../../library/email.policy.rst:436
 msgid "all source values use original folding"
 msgstr ""
 
-#: ../../../library/email.policy.rst:423
+#: ../../../library/email.policy.rst:438
 msgid "``long``"
 msgstr ""
 
-#: ../../../library/email.policy.rst:423
+#: ../../../library/email.policy.rst:438
 msgid ""
 "source values that have any line that is longer than ``max_line_length`` "
 "will be refolded"
 msgstr ""
 
-#: ../../../library/email.policy.rst:426
+#: ../../../library/email.policy.rst:441
 msgid "``all``"
 msgstr ""
 
-#: ../../../library/email.policy.rst:426
+#: ../../../library/email.policy.rst:441
 msgid "all values are refolded."
 msgstr ""
 
-#: ../../../library/email.policy.rst:429
+#: ../../../library/email.policy.rst:444
 msgid "The default is ``long``."
 msgstr ""
 
-#: ../../../library/email.policy.rst:434
+#: ../../../library/email.policy.rst:449
 msgid ""
 "A callable that takes two arguments, ``name`` and ``value``, where ``name`` "
 "is a header field name and ``value`` is an unfolded header field value, and "
@@ -514,7 +535,7 @@ msgid ""
 "custom parsing will be added in the future."
 msgstr ""
 
-#: ../../../library/email.policy.rst:445
+#: ../../../library/email.policy.rst:460
 msgid ""
 "An object with at least two methods: get_content and set_content.  When the :"
 "meth:`~email.message.EmailMessage.get_content` or :meth:`~email.message."
@@ -525,20 +546,20 @@ msgid ""
 "``content_manager`` is set to :data:`~email.contentmanager.raw_data_manager`."
 msgstr ""
 
-#: ../../../library/email.policy.rst:457 ../../../library/email.policy.rst:615
+#: ../../../library/email.policy.rst:472 ../../../library/email.policy.rst:630
 msgid ""
 "The class provides the following concrete implementations of the abstract "
 "methods of :class:`Policy`:"
 msgstr ""
 
-#: ../../../library/email.policy.rst:463
+#: ../../../library/email.policy.rst:478
 msgid ""
 "Returns the value of the :attr:`~email.headerregistry.BaseHeader.max_count` "
 "attribute of the specialized class used to represent the header with the "
 "given name."
 msgstr ""
 
-#: ../../../library/email.policy.rst:471 ../../../library/email.policy.rst:621
+#: ../../../library/email.policy.rst:486 ../../../library/email.policy.rst:636
 msgid ""
 "The name is parsed as everything up to the '``:``' and returned unmodified.  "
 "The value is determined by stripping leading whitespace off the remainder of "
@@ -546,7 +567,7 @@ msgid ""
 "trailing carriage return or linefeed characters."
 msgstr ""
 
-#: ../../../library/email.policy.rst:479
+#: ../../../library/email.policy.rst:494
 msgid ""
 "The name is returned unchanged.  If the input value has a ``name`` attribute "
 "and it matches *name* ignoring case, the value is returned unchanged.  "
@@ -555,7 +576,7 @@ msgid ""
 "``ValueError`` is raised if the input value contains CR or LF characters."
 msgstr ""
 
-#: ../../../library/email.policy.rst:489
+#: ../../../library/email.policy.rst:504
 msgid ""
 "If the value has a ``name`` attribute, it is returned to unmodified. "
 "Otherwise the *name*, and the *value* with any CR or LF characters removed, "
@@ -564,7 +585,7 @@ msgid ""
 "character glyph."
 msgstr ""
 
-#: ../../../library/email.policy.rst:498
+#: ../../../library/email.policy.rst:513
 msgid ""
 "Header folding is controlled by the :attr:`refold_source` policy setting. A "
 "value is considered to be a 'source value' if and only if it does not have a "
@@ -576,7 +597,7 @@ msgid ""
 "current policy."
 msgstr ""
 
-#: ../../../library/email.policy.rst:507
+#: ../../../library/email.policy.rst:522
 msgid ""
 "Source values are split into lines using :meth:`~str.splitlines`.  If the "
 "value is not to be refolded, the lines are rejoined using the ``linesep`` "
@@ -586,13 +607,13 @@ msgid ""
 "using the ``unknown-8bit`` charset."
 msgstr ""
 
-#: ../../../library/email.policy.rst:517
+#: ../../../library/email.policy.rst:532
 msgid ""
 "The same as :meth:`fold` if :attr:`~Policy.cte_type` is ``7bit``, except "
 "that the returned value is bytes."
 msgstr ""
 
-#: ../../../library/email.policy.rst:520
+#: ../../../library/email.policy.rst:535
 msgid ""
 "If :attr:`~Policy.cte_type` is ``8bit``, non-ASCII binary data is converted "
 "back into bytes.  Headers with binary data are not refolded, regardless of "
@@ -600,7 +621,7 @@ msgid ""
 "binary data consists of single byte characters or multibyte characters."
 msgstr ""
 
-#: ../../../library/email.policy.rst:527
+#: ../../../library/email.policy.rst:542
 msgid ""
 "The following instances of :class:`EmailPolicy` provide defaults suitable "
 "for specific application domains.  Note that in the future the behavior of "
@@ -608,20 +629,20 @@ msgid ""
 "conform even more closely to the RFCs relevant to their domains."
 msgstr ""
 
-#: ../../../library/email.policy.rst:535
+#: ../../../library/email.policy.rst:550
 msgid ""
 "An instance of ``EmailPolicy`` with all defaults unchanged.  This policy "
 "uses the standard Python ``\\n`` line endings rather than the RFC-correct "
 "``\\r\\n``."
 msgstr ""
 
-#: ../../../library/email.policy.rst:542
+#: ../../../library/email.policy.rst:557
 msgid ""
 "Suitable for serializing messages in conformance with the email RFCs. Like "
 "``default``, but with ``linesep`` set to ``\\r\\n``, which is RFC compliant."
 msgstr ""
 
-#: ../../../library/email.policy.rst:549
+#: ../../../library/email.policy.rst:564
 msgid ""
 "The same as ``SMTP`` except that :attr:`~EmailPolicy.utf8` is ``True``. "
 "Useful for serializing messages to a message store without using encoded "
@@ -630,46 +651,46 @@ msgid ""
 "SMTP.send_message` method handles this automatically)."
 msgstr ""
 
-#: ../../../library/email.policy.rst:558
+#: ../../../library/email.policy.rst:573
 msgid ""
 "Suitable for serializing headers with for use in HTTP traffic.  Like "
 "``SMTP`` except that ``max_line_length`` is set to ``None`` (unlimited)."
 msgstr ""
 
-#: ../../../library/email.policy.rst:564
+#: ../../../library/email.policy.rst:579
 msgid ""
 "Convenience instance.  The same as ``default`` except that "
 "``raise_on_defect`` is set to ``True``.  This allows any policy to be made "
 "strict by writing::"
 msgstr ""
 
-#: ../../../library/email.policy.rst:571
+#: ../../../library/email.policy.rst:586
 msgid ""
 "With all of these :class:`EmailPolicies <.EmailPolicy>`, the effective API "
 "of the email package is changed from the Python 3.2 API in the following "
 "ways:"
 msgstr ""
 
-#: ../../../library/email.policy.rst:574
+#: ../../../library/email.policy.rst:589
 msgid ""
 "Setting a header on a :class:`~email.message.Message` results in that header "
 "being parsed and a header object created."
 msgstr ""
 
-#: ../../../library/email.policy.rst:577
+#: ../../../library/email.policy.rst:592
 msgid ""
 "Fetching a header value from a :class:`~email.message.Message` results in "
 "that header being parsed and a header object created and returned."
 msgstr ""
 
-#: ../../../library/email.policy.rst:581
+#: ../../../library/email.policy.rst:596
 msgid ""
 "Any header object, or any header that is refolded due to the policy "
 "settings, is folded using an algorithm that fully implements the RFC folding "
 "algorithms, including knowing where encoded words are required and allowed."
 msgstr ""
 
-#: ../../../library/email.policy.rst:586
+#: ../../../library/email.policy.rst:601
 msgid ""
 "From the application view, this means that any header obtained through the :"
 "class:`~email.message.EmailMessage` is a header object with extra "
@@ -679,13 +700,13 @@ msgid ""
 "the unicode string into the correct RFC encoded form."
 msgstr ""
 
-#: ../../../library/email.policy.rst:593
+#: ../../../library/email.policy.rst:608
 msgid ""
 "The header objects and their attributes are described in :mod:`~email."
 "headerregistry`."
 msgstr ""
 
-#: ../../../library/email.policy.rst:600
+#: ../../../library/email.policy.rst:615
 msgid ""
 "This concrete :class:`Policy` is the backward compatibility policy.  It "
 "replicates the behavior of the email package in Python 3.2.  The :mod:`!"
@@ -694,28 +715,28 @@ msgid ""
 "package is to maintain compatibility with Python 3.2."
 msgstr ""
 
-#: ../../../library/email.policy.rst:606
+#: ../../../library/email.policy.rst:621
 msgid ""
 "The following attributes have values that are different from the :class:"
 "`Policy` default:"
 msgstr ""
 
-#: ../../../library/email.policy.rst:612
+#: ../../../library/email.policy.rst:627
 msgid "The default is ``True``."
 msgstr ""
 
-#: ../../../library/email.policy.rst:629
+#: ../../../library/email.policy.rst:644
 msgid "The name and value are returned unmodified."
 msgstr ""
 
-#: ../../../library/email.policy.rst:634
+#: ../../../library/email.policy.rst:649
 msgid ""
 "If the value contains binary data, it is converted into a :class:`~email."
 "header.Header` object using the ``unknown-8bit`` charset. Otherwise it is "
 "returned unmodified."
 msgstr ""
 
-#: ../../../library/email.policy.rst:641
+#: ../../../library/email.policy.rst:656
 msgid ""
 "Headers are folded using the :class:`~email.header.Header` folding "
 "algorithm, which preserves existing line breaks in the value, and wraps each "
@@ -723,7 +744,7 @@ msgid ""
 "encoded using the ``unknown-8bit`` charset."
 msgstr ""
 
-#: ../../../library/email.policy.rst:649
+#: ../../../library/email.policy.rst:664
 msgid ""
 "Headers are folded using the :class:`~email.header.Header` folding "
 "algorithm, which preserves existing line breaks in the value, and wraps each "
@@ -733,24 +754,24 @@ msgid ""
 "and any (RFC invalid) binary data it may contain."
 msgstr ""
 
-#: ../../../library/email.policy.rst:659
+#: ../../../library/email.policy.rst:674
 msgid ""
 "An instance of :class:`Compat32`, providing  backward compatibility with the "
 "behavior of the email package in Python 3.2."
 msgstr ""
 
-#: ../../../library/email.policy.rst:664
+#: ../../../library/email.policy.rst:679
 msgid ""
 "The :const:`compat32` policy should not be used as a policy for :class:"
 "`~email.message.EmailMessage` objects, and should only be used to serialize "
 "messages that were created using the :const:`compat32` policy."
 msgstr ""
 
-#: ../../../library/email.policy.rst:671
+#: ../../../library/email.policy.rst:686
 msgid "Footnotes"
 msgstr ""
 
-#: ../../../library/email.policy.rst:672
+#: ../../../library/email.policy.rst:687
 msgid ""
 "Originally added in 3.3 as a :term:`provisional feature <provisional "
 "package>`."
