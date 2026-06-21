@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.15\n"
+"Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:55+0000\n"
+"POT-Creation-Date: 2026-06-15 14:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -433,7 +433,7 @@ msgstr ""
 
 #: ../../../c-api/exceptions.rst:415
 msgid ""
-"Function similar to :c:func:`PyErr_WarnEx`, but use :c:func:"
+"Function similar to :c:func:`PyErr_WarnEx`, but uses :c:func:"
 "`PyUnicode_FromFormat` to format the warning message.  *format* is an ASCII-"
 "encoded string."
 msgstr ""
@@ -1084,7 +1084,7 @@ msgid ""
 "requires special recursion handling.  In addition to protecting the stack, :"
 "c:member:`~PyTypeObject.tp_repr` also needs to track objects to prevent "
 "cycles.  The following two functions facilitate this functionality.  "
-"Effectively, these are the C equivalent to :func:`reprlib.recursive_repr`."
+"Effectively, these are the C equivalent to :deco:`reprlib.recursive_repr`."
 msgstr ""
 
 #: ../../../c-api/exceptions.rst:1045
@@ -1547,6 +1547,81 @@ msgstr ""
 
 #: ../../../c-api/exceptions.rst:1347
 msgid "Write the traceback *tb* into the file *f*."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1354
+msgid ""
+"Write a trace of the Python stack in *tstate* into the file *fd*.  The "
+"format looks like::"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1363
+msgid ""
+"This function is meant to debug situations such as segfaults, fatal errors, "
+"and similar. The file and function names it outputs are encoded to ASCII "
+"with backslashreplace and truncated to 500 characters. It writes only the "
+"first 100 frames; further frames are truncated with the line ``...``."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1368 ../../../c-api/exceptions.rst:1393
+msgid ""
+"This function will return ``NULL`` on success, or an error message on error."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1370 ../../../c-api/exceptions.rst:1401
+msgid ""
+"This function is intended for use in crash scenarios such as signal handlers "
+"for SIGSEGV, where the interpreter may be in an inconsistent state. Given "
+"that it reads interpreter data structures that may be partially modified, "
+"the function might produce incomplete output or it may even crash itself."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1375
+msgid ""
+"The caller does not need to hold an :term:`attached thread state`, nor does "
+"*tstate* need to be attached."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1382
+msgid "Write the traces of all Python threads in *interp* into the file *fd*."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1384
+msgid ""
+"If *interp* is ``NULL`` then this function will try to identify the current "
+"interpreter using thread-specific storage. If it cannot, it will return an "
+"error."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1388
+msgid ""
+"If *current_tstate* is not ``NULL`` then it will be used to identify what "
+"the current thread is in the written output. If it is ``NULL`` then this "
+"function will identify the current thread using thread-specific storage. It "
+"is not an error if the function is unable to get the current Python thread "
+"state."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1395
+msgid ""
+"This function is meant to debug situations such as segfaults, fatal errors, "
+"and similar. It calls :c:func:`PyUnstable_DumpTraceback` for each thread. It "
+"only writes the tracebacks of the first *max_threads* threads, further "
+"output is truncated with the line ``...``. If *max_threads* is 0, the "
+"function will use a default value of 100 for the argument."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1406
+msgid ""
+"The caller does not need to hold an :term:`attached thread state`, nor does "
+"*current_tstate* need to be attached."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:1410
+msgid ""
+"On the :term:`free-threaded build`, this function is not thread-safe. If "
+"another thread deletes its :term:`thread state` while this function is being "
+"called, the process will likely crash."
 msgstr ""
 
 #: ../../../c-api/exceptions.rst:183

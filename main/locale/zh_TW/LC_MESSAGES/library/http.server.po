@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.15\n"
+"Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:55+0000\n"
+"POT-Creation-Date: 2026-06-15 14:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -433,72 +433,96 @@ msgid ""
 "now always returns the IP address."
 msgstr ""
 
-#: ../../../library/http.server.rst:371
+#: ../../../library/http.server.rst:372
 msgid ""
 "This class serves files from the directory *directory* and below, or the "
 "current directory if *directory* is not provided, directly mapping the "
 "directory structure to HTTP requests."
 msgstr ""
 
-#: ../../../library/http.server.rst:375
+#: ../../../library/http.server.rst:376
 msgid "Added the *directory* parameter."
 msgstr ""
 
-#: ../../../library/http.server.rst:378
+#: ../../../library/http.server.rst:379
 msgid "The *directory* parameter accepts a :term:`path-like object`."
 msgstr ""
 
-#: ../../../library/http.server.rst:381
+#: ../../../library/http.server.rst:382
+msgid "Added *extra_response_headers* parameter."
+msgstr ""
+
+#: ../../../library/http.server.rst:385
 msgid ""
 "A lot of the work, such as parsing the request, is done by the base class :"
 "class:`BaseHTTPRequestHandler`.  This class implements the :func:`do_GET` "
 "and :func:`do_HEAD` functions."
 msgstr ""
 
-#: ../../../library/http.server.rst:385
+#: ../../../library/http.server.rst:389
 msgid ""
 "The following are defined as class-level attributes of :class:"
 "`SimpleHTTPRequestHandler`:"
 msgstr ""
 
-#: ../../../library/http.server.rst:390
+#: ../../../library/http.server.rst:394
 msgid ""
 "This will be ``\"SimpleHTTP/\" + __version__``, where ``__version__`` is "
 "defined at the module level."
 msgstr ""
 
-#: ../../../library/http.server.rst:395
+#: ../../../library/http.server.rst:399
+msgid ""
+"Specifies the Content-Type header value sent when the MIME type cannot be "
+"guessed from the file extension of the requested URL. By default, it is set "
+"to ``'application/octet-stream'``."
+msgstr ""
+
+#: ../../../library/http.server.rst:407
 msgid ""
 "A dictionary mapping suffixes into MIME types, contains custom overrides for "
 "the default system mappings. The mapping is used case-insensitively, and so "
 "should contain only lower-cased keys."
 msgstr ""
 
-#: ../../../library/http.server.rst:399
+#: ../../../library/http.server.rst:411
 msgid ""
 "This dictionary is no longer filled with the default system mappings, but "
 "only contains overrides."
 msgstr ""
 
-#: ../../../library/http.server.rst:403
+#: ../../../library/http.server.rst:417
+msgid ""
+"A sequence of ``(name, value)`` pairs containing user-defined extra HTTP "
+"response headers to add to each successful HTTP status 200 response. These "
+"headers are not included in other status code responses."
+msgstr ""
+
+#: ../../../library/http.server.rst:421
+msgid ""
+"Headers that the server sends automatically such as ``Content-Type`` will "
+"not be overwritten by :attr:`!extra_response_headers`."
+msgstr ""
+
+#: ../../../library/http.server.rst:424
 msgid ""
 "The :class:`SimpleHTTPRequestHandler` class defines the following methods:"
 msgstr ""
 
-#: ../../../library/http.server.rst:407
+#: ../../../library/http.server.rst:428
 msgid ""
 "This method serves the ``'HEAD'`` request type: it sends the headers it "
 "would send for the equivalent ``GET`` request. See the :meth:`do_GET` method "
 "for a more complete explanation of the possible headers."
 msgstr ""
 
-#: ../../../library/http.server.rst:413
+#: ../../../library/http.server.rst:434
 msgid ""
 "The request is mapped to a local file by interpreting the request as a path "
 "relative to the current working directory."
 msgstr ""
 
-#: ../../../library/http.server.rst:416
+#: ../../../library/http.server.rst:437
 msgid ""
 "If the request was mapped to a directory, the directory is checked for a "
 "file named ``index.html`` or ``index.htm`` (in that order). If found, the "
@@ -508,7 +532,7 @@ msgid ""
 "func:`~os.listdir` fails."
 msgstr ""
 
-#: ../../../library/http.server.rst:423
+#: ../../../library/http.server.rst:444
 msgid ""
 "If the request was mapped to a file, it is opened. Any :exc:`OSError` "
 "exception in opening the requested file is mapped to a ``404``, ``'File not "
@@ -519,65 +543,71 @@ msgid ""
 "*extensions_map* variable, and the file contents are returned."
 msgstr ""
 
-#: ../../../library/http.server.rst:431
+#: ../../../library/http.server.rst:452
 msgid ""
 "A ``'Content-type:'`` header with the guessed content type is output, "
 "followed by a ``'Content-Length:'`` header with the file's size and a "
 "``'Last-Modified:'`` header with the file's modification time."
 msgstr ""
 
-#: ../../../library/http.server.rst:435
+#: ../../../library/http.server.rst:456
+msgid ""
+"The instance attribute :attr:`extra_response_headers` is a sequence of "
+"``(name, value)`` pairs containing user-defined extra response headers."
+msgstr ""
+
+#: ../../../library/http.server.rst:459
 msgid ""
 "Then follows a blank line signifying the end of the headers, and then the "
 "contents of the file are output."
 msgstr ""
 
-#: ../../../library/http.server.rst:438
+#: ../../../library/http.server.rst:462
 msgid ""
 "For example usage, see the implementation of the ``test`` function in :"
 "source:`Lib/http/server.py`."
 msgstr ""
 
-#: ../../../library/http.server.rst:441
+#: ../../../library/http.server.rst:465
 msgid "Support of the ``'If-Modified-Since'`` header."
 msgstr ""
 
-#: ../../../library/http.server.rst:444
+#: ../../../library/http.server.rst:468
 msgid ""
 "The :class:`SimpleHTTPRequestHandler` class can be used in the following "
 "manner in order to create a very basic webserver serving files relative to "
 "the current directory::"
 msgstr ""
 
-#: ../../../library/http.server.rst:460
+#: ../../../library/http.server.rst:484
 msgid ""
 ":class:`SimpleHTTPRequestHandler` can also be subclassed to enhance "
 "behavior, such as using different index file names by overriding the class "
 "attribute :attr:`index_pages`."
 msgstr ""
 
-#: ../../../library/http.server.rst:468
+#: ../../../library/http.server.rst:492
 msgid "Command-line interface"
 msgstr ""
 
-#: ../../../library/http.server.rst:470
+#: ../../../library/http.server.rst:494
 msgid ""
 ":mod:`!http.server` can also be invoked directly using the :option:`-m` "
 "switch of the interpreter.  The following example illustrates how to serve "
 "files relative to the current directory:"
 msgstr ""
 
-#: ../../../library/http.server.rst:478
+#: ../../../library/http.server.rst:502
 msgid "The following options are accepted:"
 msgstr ""
 
-#: ../../../library/http.server.rst:484
+#: ../../../library/http.server.rst:508
 msgid ""
 "The server listens to port 8000 by default. The default can be overridden by "
 "passing the desired port number as an argument:"
 msgstr ""
 
-#: ../../../library/http.server.rst:493
+#: ../../../library/http.server.rst:517
 msgid ""
 "Specifies a specific address to which it should bind. Both IPv4 and IPv6 "
 "addresses are supported. By default, the server binds itself to all "
@@ -585,52 +615,67 @@ msgid ""
 "localhost only:"
 msgstr ""
 
-#: ../../../library/http.server.rst:504
+#: ../../../library/http.server.rst:528
 msgid "Support IPv6 in the ``--bind`` option."
 msgstr ""
 
-#: ../../../library/http.server.rst:509
+#: ../../../library/http.server.rst:533
 msgid ""
 "Specifies a directory to which it should serve the files. By default, the "
 "server uses the current directory. For example, the following command uses a "
 "specific directory:"
 msgstr ""
 
-#: ../../../library/http.server.rst:521
+#: ../../../library/http.server.rst:545
 msgid ""
 "Specifies the HTTP version to which the server is conformant. By default, "
 "the server is conformant to HTTP/1.0. For example, the following command "
 "runs an HTTP/1.1 conformant server:"
 msgstr ""
 
-#: ../../../library/http.server.rst:533
+#: ../../../library/http.server.rst:557
+msgid ""
+"Specifies the default Content-Type HTTP header used when the MIME type "
+"cannot be guessed from the URL's file extension. By default, the server uses "
+"``'application/octet-stream'``:"
+msgstr ""
+
+#: ../../../library/http.server.rst:569
 msgid "Specifies a TLS certificate chain for HTTPS connections:"
 msgstr ""
 
-#: ../../../library/http.server.rst:543
+#: ../../../library/http.server.rst:579
 msgid "Specifies a private key file for HTTPS connections."
 msgstr ""
 
-#: ../../../library/http.server.rst:545 ../../../library/http.server.rst:560
+#: ../../../library/http.server.rst:581 ../../../library/http.server.rst:596
 msgid "This option requires ``--tls-cert`` to be specified."
 msgstr ""
 
-#: ../../../library/http.server.rst:551
+#: ../../../library/http.server.rst:587
 msgid "Specifies the password file for password-protected private keys:"
 msgstr ""
 
-#: ../../../library/http.server.rst:568
+#: ../../../library/http.server.rst:602
+msgid ""
+"Specify an additional extra HTTP Response Header to send on successful HTTP "
+"200 responses. Can be used multiple times to send additional custom response "
+"headers. Headers that are sent automatically by the server (for instance "
+"Content-Type) will not be overwritten by the server."
+msgstr ""
+
+#: ../../../library/http.server.rst:613
 msgid "Security considerations"
 msgstr ""
 
-#: ../../../library/http.server.rst:572
+#: ../../../library/http.server.rst:617
 msgid ""
 ":class:`SimpleHTTPRequestHandler` will follow symbolic links when handling "
 "requests, this makes it possible for files outside of the specified "
 "directory to be served."
 msgstr ""
 
-#: ../../../library/http.server.rst:576
+#: ../../../library/http.server.rst:621
 msgid ""
 "Methods :meth:`BaseHTTPRequestHandler.send_header` and :meth:"
 "`BaseHTTPRequestHandler.send_response_only` assume sanitized input and do "
@@ -638,7 +683,7 @@ msgid ""
 "sequences. Untrusted input may result in HTTP Header injection attacks."
 msgstr ""
 
-#: ../../../library/http.server.rst:581
+#: ../../../library/http.server.rst:626
 msgid ""
 "Earlier versions of Python did not scrub control characters from the log "
 "messages emitted to stderr from ``python -m http.server`` or the default :"
@@ -647,7 +692,7 @@ msgid ""
 "codes to your terminal."
 msgstr ""
 
-#: ../../../library/http.server.rst:587
+#: ../../../library/http.server.rst:632
 msgid "Control characters are scrubbed in stderr logs."
 msgstr ""
 
@@ -675,10 +720,10 @@ msgstr ""
 msgid "httpd"
 msgstr ""
 
-#: ../../../library/http.server.rst:570
+#: ../../../library/http.server.rst:615
 msgid "http.server"
 msgstr ""
 
-#: ../../../library/http.server.rst:570
+#: ../../../library/http.server.rst:615
 msgid "security"
 msgstr ""

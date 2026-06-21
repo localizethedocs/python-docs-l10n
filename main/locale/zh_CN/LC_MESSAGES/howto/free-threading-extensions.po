@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.15\n"
+"Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:55+0000\n"
+"POT-Creation-Date: 2026-06-15 14:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -305,27 +305,33 @@ msgid ""
 msgstr ""
 
 #: ../../../howto/free-threading-extensions.rst:221
-msgid ":c:func:`PyGILState_Ensure` and :c:func:`PyGILState_Release`"
-msgstr ""
-
-#: ../../../howto/free-threading-extensions.rst:222
-msgid ":c:func:`PyEval_SaveThread` and :c:func:`PyEval_RestoreThread`"
+msgid ""
+":c:func:`PyThreadState_Ensure`, :c:func:`PyThreadState_EnsureFromView`, and :"
+"c:func:`PyThreadState_Release`"
 msgstr ""
 
 #: ../../../howto/free-threading-extensions.rst:223
-msgid ":c:macro:`Py_BEGIN_ALLOW_THREADS` and :c:macro:`Py_END_ALLOW_THREADS`"
+msgid ":c:func:`PyGILState_Ensure` and :c:func:`PyGILState_Release`"
+msgstr ""
+
+#: ../../../howto/free-threading-extensions.rst:224
+msgid ":c:func:`PyEval_SaveThread` and :c:func:`PyEval_RestoreThread`"
 msgstr ""
 
 #: ../../../howto/free-threading-extensions.rst:225
+msgid ":c:macro:`Py_BEGIN_ALLOW_THREADS` and :c:macro:`Py_END_ALLOW_THREADS`"
+msgstr ""
+
+#: ../../../howto/free-threading-extensions.rst:227
 msgid ""
 "These functions should still be used in the free-threaded build to manage "
 "thread state even when the :term:`GIL` is disabled.  For example, if you "
-"create a thread outside of Python, you must call :c:func:`PyGILState_Ensure` "
-"before calling into the Python API to ensure that the thread has a valid "
-"Python thread state."
+"create a thread outside of Python, you must call :c:func:"
+"`PyThreadState_Ensure` before calling into the Python API to ensure that the "
+"thread has a valid Python thread state."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:231
+#: ../../../howto/free-threading-extensions.rst:233
 msgid ""
 "You should continue to call :c:func:`PyEval_SaveThread` or :c:macro:"
 "`Py_BEGIN_ALLOW_THREADS` around blocking operations, such as I/O or lock "
@@ -333,25 +339,25 @@ msgid ""
 "collector <garbage collection>`."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:238
+#: ../../../howto/free-threading-extensions.rst:240
 msgid "Protecting Internal Extension State"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:240
+#: ../../../howto/free-threading-extensions.rst:242
 msgid ""
 "Your extension may have internal state that was previously protected by the "
 "GIL.  You may need to add locking to protect this state.  The approach will "
 "depend on your extension, but some common patterns include:"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:244
+#: ../../../howto/free-threading-extensions.rst:246
 msgid ""
 "**Caches**: global caches are a common source of shared state.  Consider "
 "using a lock to protect the cache or disabling it in the free-threaded build "
 "if the cache is not critical for performance."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:247
+#: ../../../howto/free-threading-extensions.rst:249
 msgid ""
 "**Global State**: global state may need to be protected by a lock or moved "
 "to thread local storage. C11 and C++11 provide the ``thread_local`` or "
@@ -359,11 +365,11 @@ msgid ""
 "language/storage_duration>`_."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:254
+#: ../../../howto/free-threading-extensions.rst:256
 msgid "Critical Sections"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:258
+#: ../../../howto/free-threading-extensions.rst:260
 msgid ""
 "In the free-threaded build, CPython provides a mechanism called \"critical "
 "sections\" to protect data that would otherwise be protected by the GIL. "
@@ -372,11 +378,11 @@ msgid ""
 "certain C API functions or managing shared state in the free-threaded build."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:265
+#: ../../../howto/free-threading-extensions.rst:267
 msgid "What Are Critical Sections?"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:267
+#: ../../../howto/free-threading-extensions.rst:269
 msgid ""
 "Conceptually, critical sections act as a deadlock avoidance layer built on "
 "top of simple mutexes. Each thread maintains a stack of active critical "
@@ -386,27 +392,27 @@ msgid ""
 "the underlying mutex."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:275
+#: ../../../howto/free-threading-extensions.rst:277
 msgid "Using Critical Sections"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:277
+#: ../../../howto/free-threading-extensions.rst:279
 msgid "The primary APIs for using critical sections are:"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:279
+#: ../../../howto/free-threading-extensions.rst:281
 msgid ""
 ":c:macro:`Py_BEGIN_CRITICAL_SECTION` and :c:macro:`Py_END_CRITICAL_SECTION` "
 "- For locking a single object"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:282
+#: ../../../howto/free-threading-extensions.rst:284
 msgid ""
 ":c:macro:`Py_BEGIN_CRITICAL_SECTION2` and :c:macro:"
 "`Py_END_CRITICAL_SECTION2` - For locking two objects simultaneously"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:285
+#: ../../../howto/free-threading-extensions.rst:287
 msgid ""
 "These macros must be used in matching pairs and must appear in the same C "
 "scope, since they establish a new local scope.  These macros are no-ops in "
@@ -414,7 +420,7 @@ msgid ""
 "support both build types."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:290
+#: ../../../howto/free-threading-extensions.rst:292
 msgid ""
 "A common use of a critical section would be to lock an object while "
 "accessing an internal attribute of it.  For example, if an extension type "
@@ -422,11 +428,11 @@ msgid ""
 "or writing that field::"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:309
+#: ../../../howto/free-threading-extensions.rst:311
 msgid "How Critical Sections Work"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:311
+#: ../../../howto/free-threading-extensions.rst:313
 msgid ""
 "Unlike traditional locks, critical sections do not guarantee exclusive "
 "access throughout their entire duration. If a thread would block while "
@@ -435,51 +441,51 @@ msgid ""
 "then resumed when the blocking operation completes."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:317
+#: ../../../howto/free-threading-extensions.rst:319
 msgid ""
 "This behavior is similar to what happens with the GIL when a thread makes a "
 "blocking call. The key differences are:"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:320
+#: ../../../howto/free-threading-extensions.rst:322
 msgid "Critical sections operate on a per-object basis rather than globally"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:322
+#: ../../../howto/free-threading-extensions.rst:324
 msgid ""
 "Critical sections follow a stack discipline within each thread (the "
 "\"begin\" and \"end\" macros enforce this since they must be paired and "
 "within the same scope)"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:325
+#: ../../../howto/free-threading-extensions.rst:327
 msgid ""
 "Critical sections automatically release and reacquire locks around potential "
 "blocking operations"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:329
+#: ../../../howto/free-threading-extensions.rst:331
 msgid "Deadlock Avoidance"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:331
+#: ../../../howto/free-threading-extensions.rst:333
 msgid "Critical sections help avoid deadlocks in two ways:"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:333
+#: ../../../howto/free-threading-extensions.rst:335
 msgid ""
 "If a thread tries to acquire a lock that's already held by another thread, "
 "it first suspends all of its active critical sections, temporarily releasing "
 "their locks"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:337
+#: ../../../howto/free-threading-extensions.rst:339
 msgid ""
 "When the blocking operation completes, only the top-most critical section is "
 "reacquired first"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:340
+#: ../../../howto/free-threading-extensions.rst:342
 msgid ""
 "This means you cannot rely on nested critical sections to lock multiple "
 "objects at once, as the inner critical section may suspend the outer ones. "
@@ -487,7 +493,7 @@ msgid ""
 "simultaneously."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:344
+#: ../../../howto/free-threading-extensions.rst:346
 msgid ""
 "Note that the locks described above are only :c:type:`PyMutex` based locks. "
 "The critical section implementation does not know about or affect other "
@@ -498,18 +504,18 @@ msgid ""
 "not be released and therefore does not get the same deadlock avoidance."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:353
+#: ../../../howto/free-threading-extensions.rst:355
 msgid "Important Considerations"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:355
+#: ../../../howto/free-threading-extensions.rst:357
 msgid ""
 "Critical sections may temporarily release their locks, allowing other "
 "threads to modify the protected data. Be careful about making assumptions "
 "about the state of the data after operations that might block."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:359
+#: ../../../howto/free-threading-extensions.rst:361
 msgid ""
 "Because locks can be temporarily released (suspended), entering a critical "
 "section does not guarantee exclusive access to the protected resource "
@@ -519,34 +525,34 @@ msgid ""
 "This is similar to how the GIL can be released during blocking calls."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:366
+#: ../../../howto/free-threading-extensions.rst:368
 msgid ""
 "Only the lock(s) associated with the most recently entered (top-most) "
 "critical section are guaranteed to be held at any given time. Locks for "
 "outer, nested critical sections might have been suspended."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:370
+#: ../../../howto/free-threading-extensions.rst:372
 msgid ""
 "You can lock at most two objects simultaneously with these APIs. If you need "
 "to lock more objects, you'll need to restructure your code."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:373
+#: ../../../howto/free-threading-extensions.rst:375
 msgid ""
 "While critical sections will not deadlock if you attempt to lock the same "
 "object twice, they are less efficient than purpose-built reentrant locks for "
 "this use case."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:377
+#: ../../../howto/free-threading-extensions.rst:379
 msgid ""
 "When using :c:macro:`Py_BEGIN_CRITICAL_SECTION2`, the order of the objects "
 "doesn't affect correctness (the implementation handles deadlock avoidance), "
 "but it's good practice to always lock objects in a consistent order."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:381
+#: ../../../howto/free-threading-extensions.rst:383
 msgid ""
 "Remember that the critical section macros are primarily for protecting "
 "access to *Python objects* that might be involved in internal CPython "
@@ -555,11 +561,11 @@ msgid ""
 "synchronization primitives might be more appropriate."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:390
+#: ../../../howto/free-threading-extensions.rst:392
 msgid "Per-Object Locks (``ob_mutex``)"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:392
+#: ../../../howto/free-threading-extensions.rst:394
 msgid ""
 "In the free-threaded build, each Python object contains a :c:member:"
 "`~PyObject.ob_mutex` field of type :c:type:`PyMutex`.  This mutex is "
@@ -567,21 +573,21 @@ msgid ""
 "`Py_BEGIN_CRITICAL_SECTION` / :c:macro:`Py_END_CRITICAL_SECTION`)."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:399
+#: ../../../howto/free-threading-extensions.rst:401
 msgid ""
 "Do **not** lock ``ob_mutex`` directly with ``PyMutex_Lock(&obj->ob_mutex)``. "
 "Mixing direct ``PyMutex_Lock`` calls with the critical section API on the "
 "same mutex can cause deadlocks."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:403
+#: ../../../howto/free-threading-extensions.rst:405
 msgid ""
 "Even if your own code never uses critical sections on a particular object "
 "type, **CPython internals may use the critical section API on any Python "
 "object**."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:406
+#: ../../../howto/free-threading-extensions.rst:408
 msgid ""
 "If your extension type needs its own lock, add a separate :c:type:`PyMutex` "
 "field (or another synchronization primitive) to your object struct. :c:type:"
@@ -589,33 +595,33 @@ msgid ""
 "additional one."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:413
+#: ../../../howto/free-threading-extensions.rst:415
 msgid "Building Extensions for the Free-Threaded Build"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:415
+#: ../../../howto/free-threading-extensions.rst:417
 msgid ""
 "C API extensions need to be built specifically for the free-threaded build. "
 "The wheels, shared libraries, and binaries are indicated by a ``t`` suffix."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:418
+#: ../../../howto/free-threading-extensions.rst:420
 msgid ""
 "`pypa/manylinux <https://github.com/pypa/manylinux>`_ supports the free-"
 "threaded build, with the ``t`` suffix, such as ``python3.14t``."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:420
+#: ../../../howto/free-threading-extensions.rst:422
 msgid ""
 "`pypa/cibuildwheel <https://github.com/pypa/cibuildwheel>`_ supports "
 "building wheels for the free-threaded build of Python 3.14 and newer."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:424
+#: ../../../howto/free-threading-extensions.rst:426
 msgid "Limited C API and Stable ABI"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:426
+#: ../../../howto/free-threading-extensions.rst:428
 msgid ""
 "The free-threaded build does not currently support the :ref:`Limited C API "
 "<limited-c-api>` or the stable ABI.  If you use `setuptools <https://"
@@ -625,24 +631,24 @@ msgid ""
 "API when building with the free-threaded build."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:434
+#: ../../../howto/free-threading-extensions.rst:436
 msgid ""
 "You will need to build separate wheels specifically for the free-threaded "
 "build.  If you currently use the stable ABI, you can continue to build a "
 "single wheel for multiple non-free-threaded Python versions."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:440
+#: ../../../howto/free-threading-extensions.rst:442
 msgid "Windows"
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:442
+#: ../../../howto/free-threading-extensions.rst:444
 msgid ""
 "Due to a limitation of the official Windows installer, you will need to "
 "manually define ``Py_GIL_DISABLED=1`` when building extensions from source."
 msgstr ""
 
-#: ../../../howto/free-threading-extensions.rst:447
+#: ../../../howto/free-threading-extensions.rst:449
 msgid ""
 "`Porting Extension Modules to Support Free-Threading <https://py-free-"
 "threading.github.io/porting/>`_: A community-maintained porting guide for "

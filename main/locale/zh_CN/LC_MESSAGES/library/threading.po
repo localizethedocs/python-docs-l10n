@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.15\n"
+"Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-29 08:59+0000\n"
+"POT-Creation-Date: 2026-06-15 14:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -548,8 +548,8 @@ msgstr ""
 
 #: ../../../library/threading.rst:518
 msgid ""
-"*group* should be ``None``; reserved for future extension when a :class:`!"
-"ThreadGroup` class is implemented."
+"*group* must be ``None`` as it is reserved for future extension when a :"
+"class:`!ThreadGroup` class is implemented."
 msgstr ""
 
 #: ../../../library/threading.rst:521
@@ -1646,6 +1646,133 @@ msgid ""
 "Currently, :class:`Lock`, :class:`RLock`, :class:`Condition`, :class:"
 "`Semaphore`, and :class:`BoundedSemaphore` objects may be used as :keyword:"
 "`with` statement context managers."
+msgstr ""
+
+#: ../../../library/threading.rst:1442
+msgid "Iterator synchronization"
+msgstr ""
+
+#: ../../../library/threading.rst:1444
+msgid ""
+"By default, Python iterators do not support concurrent access. Most "
+"iterators make no guarantees when accessed simultaneously from multiple "
+"threads. Generator iterators, for example, raise :exc:`ValueError` if one of "
+"their iterator methods is called while the generator is already executing. "
+"The tools in this section allow reliable concurrency support to be added to "
+"ordinary iterators and iterator-producing callables."
+msgstr ""
+
+#: ../../../library/threading.rst:1451
+msgid ""
+"The :class:`serialize_iterator` wrapper lets multiple threads share a single "
+"iterator and take turns consuming from it. While one thread is running "
+"``__next__()``, the others block until the iterator becomes available. Each "
+"value produced by the underlying iterator is delivered to exactly one caller."
+msgstr ""
+
+#: ../../../library/threading.rst:1456
+msgid ""
+"The :func:`concurrent_tee` function lets multiple threads each receive the "
+"full stream of values from one underlying iterator. It creates independent "
+"iterators that all draw from the same source. Values are buffered until "
+"consumed by all of the derived iterators."
+msgstr ""
+
+#: ../../../library/threading.rst:1463
+msgid ""
+"Return an iterator wrapper that serializes concurrent calls to :meth:"
+"`~iterator.__next__` using a lock."
+msgstr ""
+
+#: ../../../library/threading.rst:1466
+msgid ""
+"If the wrapped iterator also defines :meth:`~generator.send`, :meth:"
+"`~generator.throw`, or :meth:`~generator.close`, those calls are serialized "
+"as well."
+msgstr ""
+
+#: ../../../library/threading.rst:1470
+msgid ""
+"This makes it possible to share a single iterator, including a generator "
+"iterator, between multiple threads. A lock ensures that calls are handled "
+"one at a time. No values are duplicated or skipped by the wrapper itself. "
+"Each item from the underlying iterator is given to exactly one caller."
+msgstr ""
+
+#: ../../../library/threading.rst:1475
+msgid ""
+"This wrapper does not copy or buffer values. Threads that call :func:`next` "
+"while another thread is already advancing the iterator will block until the "
+"active call completes."
+msgstr ""
+
+#: ../../../library/threading.rst:1479 ../../../library/threading.rst:1516
+#: ../../../library/threading.rst:1567
+msgid "Example:"
+msgstr ""
+
+#: ../../../library/threading.rst:1502
+msgid ""
+"In this example, each number is printed exactly once, but the work is shared "
+"between the two threads."
+msgstr ""
+
+#: ../../../library/threading.rst:1510
+msgid ""
+"Wrap an iterator-producing callable so that each iterator it returns is "
+"automatically passed through :class:`serialize_iterator`."
+msgstr ""
+
+#: ../../../library/threading.rst:1513
+msgid ""
+"This is especially useful as a :term:`decorator` for generator functions, "
+"allowing their generator-iterators to be consumed from multiple threads."
+msgstr ""
+
+#: ../../../library/threading.rst:1540
+msgid ""
+"The returned wrapper preserves the metadata of *func*, such as its name and "
+"wrapped function reference."
+msgstr ""
+
+#: ../../../library/threading.rst:1548
+msgid ""
+"Return *n* independent iterators from a single input *iterable*, with "
+"guaranteed behavior when the derived iterators are consumed concurrently."
+msgstr ""
+
+#: ../../../library/threading.rst:1551
+msgid ""
+"This function is similar to :func:`itertools.tee`, but is intended for cases "
+"where the source iterator may feed consumers running in different threads. "
+"Each returned iterator yields every value from the underlying iterable, in "
+"the same order."
+msgstr ""
+
+#: ../../../library/threading.rst:1556
+msgid ""
+"Internally, values are buffered until every derived iterator has consumed "
+"them."
+msgstr ""
+
+#: ../../../library/threading.rst:1559
+msgid ""
+"The returned iterators share the same underlying synchronization lock. Each "
+"individual derived iterator is intended to be consumed by one thread at a "
+"time. If a single derived iterator must itself be shared by multiple "
+"threads, wrap it with :class:`serialize_iterator`."
+msgstr ""
+
+#: ../../../library/threading.rst:1564
+msgid ""
+"If *n* is ``0``, return an empty tuple. If *n* is negative, raise :exc:"
+"`ValueError`."
+msgstr ""
+
+#: ../../../library/threading.rst:1591
+msgid ""
+"In this example, both consumer threads see the full sequence of squares from "
+"a single generator expression."
 msgstr ""
 
 #: ../../../library/threading.rst:225 ../../../library/threading.rst:243
