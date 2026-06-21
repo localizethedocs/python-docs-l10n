@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Python 3.15\n"
+"Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-27 10:55+0000\n"
+"POT-Creation-Date: 2026-06-15 14:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,7 +177,7 @@ msgstr ""
 #: ../../../reference/simple_stmts.rst:183
 msgid ""
 "This description does not necessarily apply to descriptor attributes, such "
-"as properties created with :func:`property`."
+"as properties created with :deco:`property`."
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:190
@@ -705,18 +705,19 @@ msgstr ""
 
 #: ../../../reference/simple_stmts.rst:764
 msgid ""
-"define a name or names in the local namespace for the scope where the :"
-"keyword:`import` statement occurs."
+"define a name or names in the current namespace for the scope where the :"
+"keyword:`import` statement occurs, just as an assignment statement would "
+"(including :keyword:`global` and :keyword:`nonlocal` semantics)."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:767
+#: ../../../reference/simple_stmts.rst:768
 msgid ""
 "When the statement contains multiple clauses (separated by commas) the two "
 "steps are carried out separately for each clause, just as though the clauses "
 "had been separated out into individual import statements."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:772
+#: ../../../reference/simple_stmts.rst:773
 msgid ""
 "The details of the first step, finding and loading modules, are described in "
 "greater detail in the section on the :ref:`import system <importsystem>`, "
@@ -727,26 +728,26 @@ msgid ""
 "module, which includes execution of the module's code."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:780
+#: ../../../reference/simple_stmts.rst:781
 msgid ""
 "If the requested module is retrieved successfully, it will be made available "
 "in the local namespace in one of three ways:"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:785
+#: ../../../reference/simple_stmts.rst:786
 msgid ""
 "If the module name is followed by :keyword:`!as`, then the name following :"
 "keyword:`!as` is bound directly to the imported module."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:787
+#: ../../../reference/simple_stmts.rst:788
 msgid ""
 "If no other name is specified, and the module being imported is a top level "
 "module, the module's name is bound in the local namespace as a reference to "
 "the imported module"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:790
+#: ../../../reference/simple_stmts.rst:791
 msgid ""
 "If the module being imported is *not* a top level module, then the name of "
 "the top level package that contains the module is bound in the local "
@@ -754,53 +755,53 @@ msgid ""
 "be accessed using its full qualified name rather than directly"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:800
+#: ../../../reference/simple_stmts.rst:801
 msgid "The :keyword:`from` form uses a slightly more complex process:"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:802
+#: ../../../reference/simple_stmts.rst:803
 msgid ""
 "find the module specified in the :keyword:`from` clause, loading and "
 "initializing it if necessary;"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:804
+#: ../../../reference/simple_stmts.rst:805
 msgid "for each of the identifiers specified in the :keyword:`import` clauses:"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:806
+#: ../../../reference/simple_stmts.rst:807
 msgid "check if the imported module has an attribute by that name"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:807
+#: ../../../reference/simple_stmts.rst:808
 msgid ""
 "if not, attempt to import a submodule with that name and then check the "
 "imported module again for that attribute"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:809
+#: ../../../reference/simple_stmts.rst:810
 msgid "if the attribute is not found, :exc:`ImportError` is raised."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:810
+#: ../../../reference/simple_stmts.rst:811
 msgid ""
-"otherwise, a reference to that value is stored in the local namespace, using "
-"the name in the :keyword:`!as` clause if it is present, otherwise using the "
-"attribute name"
+"otherwise, a reference to that value is stored in the current namespace, "
+"using the name in the :keyword:`!as` clause if it is present, otherwise "
+"using the attribute name"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:814
+#: ../../../reference/simple_stmts.rst:815
 msgid "Examples::"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:824
+#: ../../../reference/simple_stmts.rst:825
 msgid ""
 "If the list of identifiers is replaced by a star (``'*'``), all public names "
 "defined in the module are bound in the local namespace for the scope where "
 "the :keyword:`import` statement occurs."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:833
+#: ../../../reference/simple_stmts.rst:834
 msgid ""
 "The *public names* defined by a module are determined by checking the "
 "module's namespace for a variable named ``__all__``; if defined, it must be "
@@ -815,14 +816,14 @@ msgid ""
 "library modules which were imported and used within the module)."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:845
+#: ../../../reference/simple_stmts.rst:846
 msgid ""
 "The wild card form of import --- ``from module import *`` --- is only "
 "allowed at the module level.  Attempting to use it in class or function "
 "definitions will raise a :exc:`SyntaxError`."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:852
+#: ../../../reference/simple_stmts.rst:853
 msgid ""
 "When specifying what module to import you do not have to specify the "
 "absolute name of the module. When a module or package is contained within "
@@ -839,24 +840,24 @@ msgid ""
 "the :ref:`relativeimports` section."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:866
+#: ../../../reference/simple_stmts.rst:867
 msgid ""
 ":func:`importlib.import_module` is provided to support applications that "
 "determine dynamically the modules to be loaded."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:869
+#: ../../../reference/simple_stmts.rst:870
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``import`` with arguments "
 "``module``, ``filename``, ``sys.path``, ``sys.meta_path``, ``sys."
 "path_hooks``."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:877
+#: ../../../reference/simple_stmts.rst:878
 msgid "Lazy imports"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:883
+#: ../../../reference/simple_stmts.rst:884
 msgid ""
 "The :keyword:`lazy` keyword is a :ref:`soft keyword <soft-keywords>` that "
 "only has special meaning when it appears immediately before an :keyword:"
@@ -867,7 +868,7 @@ msgid ""
 "that name."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:891
+#: ../../../reference/simple_stmts.rst:892
 msgid ""
 "Lazy imports are only permitted at module scope. Using :keyword:`lazy` "
 "inside a function, class body, or :keyword:`try`/:keyword:`except`/:keyword:"
@@ -876,7 +877,7 @@ msgid ""
 "statements <future>` cannot be lazy."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:898
+#: ../../../reference/simple_stmts.rst:899
 msgid ""
 "When using ``lazy from ... import``, each imported name is bound to a lazy "
 "proxy object. The first access to any of these names triggers loading of the "
@@ -884,26 +885,26 @@ msgid ""
 "Other names remain as lazy proxies until they are accessed."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:903
+#: ../../../reference/simple_stmts.rst:904
 msgid "Example::"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:915
+#: ../../../reference/simple_stmts.rst:916
 msgid ""
 "If an error occurs during module loading (such as :exc:`ImportError` or :exc:"
 "`SyntaxError`), it is raised at the point where the lazy import is first "
 "used, not at the import statement itself."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:919
+#: ../../../reference/simple_stmts.rst:920
 msgid "See :pep:`810` for the full specification of lazy imports."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:926
+#: ../../../reference/simple_stmts.rst:927
 msgid "Compatibility via ``__lazy_modules__``"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:931
+#: ../../../reference/simple_stmts.rst:932
 msgid ""
 "As an alternative to using the :keyword:`lazy` keyword, a module can opt "
 "into lazy loading for specific imports by defining a module-level :attr:"
@@ -914,51 +915,44 @@ msgid ""
 "`lazy` keyword had been used."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:939
+#: ../../../reference/simple_stmts.rst:940
 msgid ""
 "This provides a way to enable lazy loading for specific dependencies without "
 "changing individual ``import`` statements. This is useful when supporting "
 "Python versions older than 3.15 while using lazy imports in 3.15+::"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:950
+#: ../../../reference/simple_stmts.rst:951
 msgid ""
 "Relative imports are resolved to their absolute name before the lookup, so :"
 "attr:`!__lazy_modules__` must always contain fully qualified module names."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:953
+#: ../../../reference/simple_stmts.rst:954
 msgid ""
 "For ``from``-style imports, the relevant name is the module following "
 "``from``, not the names of its members::"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:963
+#: ../../../reference/simple_stmts.rst:964
 msgid ""
 "Imports inside functions, class bodies, or :keyword:`try`/:keyword:`except`/:"
 "keyword:`finally` blocks are always eager, regardless of :attr:`!"
 "__lazy_modules__`."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:967
-msgid ""
-"Setting ``-X lazy_imports=none`` (or the :envvar:`PYTHON_LAZY_IMPORTS` "
-"environment variable to ``none``) overrides :attr:`!__lazy_modules__` and "
-"forces all imports to be eager."
-msgstr ""
-
-#: ../../../reference/simple_stmts.rst:976
+#: ../../../reference/simple_stmts.rst:973
 msgid "Future statements"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:982
+#: ../../../reference/simple_stmts.rst:979
 msgid ""
 "A :dfn:`future statement` is a directive to the compiler that a particular "
 "module should be compiled using syntax or semantics that will be available "
 "in a specified future release of Python where the feature becomes standard."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:986
+#: ../../../reference/simple_stmts.rst:983
 msgid ""
 "The future statement is intended to ease migration to future versions of "
 "Python that introduce incompatible changes to the language.  It allows use "
@@ -966,35 +960,35 @@ msgid ""
 "feature becomes standard."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:998
+#: ../../../reference/simple_stmts.rst:995
 msgid ""
 "A future statement must appear near the top of the module.  The only lines "
 "that can appear before a future statement are:"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1001
+#: ../../../reference/simple_stmts.rst:998
 msgid "the module docstring (if any),"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1002
+#: ../../../reference/simple_stmts.rst:999
 msgid "comments,"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1003
+#: ../../../reference/simple_stmts.rst:1000
 msgid "blank lines, and"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1004
+#: ../../../reference/simple_stmts.rst:1001
 msgid "other future statements."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1006
+#: ../../../reference/simple_stmts.rst:1003
 msgid ""
 "The only feature that requires using the future statement is ``annotations`` "
 "(see :pep:`563`)."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1009
+#: ../../../reference/simple_stmts.rst:1006
 msgid ""
 "All historical features enabled by the future statement are still recognized "
 "by Python 3.  The list includes ``absolute_import``, ``division``, "
@@ -1004,7 +998,7 @@ msgid ""
 "compatibility."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1016
+#: ../../../reference/simple_stmts.rst:1013
 msgid ""
 "A future statement is recognized and treated specially at compile time: "
 "Changes to the semantics of core constructs are often implemented by "
@@ -1014,37 +1008,37 @@ msgid ""
 "cannot be pushed off until runtime."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1023
+#: ../../../reference/simple_stmts.rst:1020
 msgid ""
 "For any given release, the compiler knows which feature names have been "
 "defined, and raises a compile-time error if a future statement contains a "
 "feature not known to it."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1027
+#: ../../../reference/simple_stmts.rst:1024
 msgid ""
 "The direct runtime semantics are the same as for any import statement: there "
 "is a standard module :mod:`__future__`, described later, and it will be "
 "imported in the usual way at the time the future statement is executed."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1031
+#: ../../../reference/simple_stmts.rst:1028
 msgid ""
 "The interesting runtime semantics depend on the specific feature enabled by "
 "the future statement."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1034
+#: ../../../reference/simple_stmts.rst:1031
 msgid "Note that there is nothing special about the statement::"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1038
+#: ../../../reference/simple_stmts.rst:1035
 msgid ""
 "That is not a future statement; it's an ordinary import statement with no "
 "special semantics or syntax restrictions."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1041
+#: ../../../reference/simple_stmts.rst:1038
 msgid ""
 "Code compiled by calls to the built-in functions :func:`exec` and :func:"
 "`compile` that occur in a module :mod:`!M` containing a future statement "
@@ -1053,7 +1047,7 @@ msgid ""
 "--- see the documentation of that function for details."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1047
+#: ../../../reference/simple_stmts.rst:1044
 msgid ""
 "A future statement typed at an interactive interpreter prompt will take "
 "effect for the rest of the interpreter session.  If an interpreter is "
@@ -1062,19 +1056,19 @@ msgid ""
 "interactive session started after the script is executed."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1055
+#: ../../../reference/simple_stmts.rst:1052
 msgid ":pep:`236` - Back to the __future__"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1056
+#: ../../../reference/simple_stmts.rst:1053
 msgid "The original proposal for the __future__ mechanism."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1062
+#: ../../../reference/simple_stmts.rst:1059
 msgid "The :keyword:`!global` statement"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1072
+#: ../../../reference/simple_stmts.rst:1069
 msgid ""
 "The :keyword:`global` statement causes the listed identifiers to be "
 "interpreted as globals. It would be impossible to assign to a global "
@@ -1082,7 +1076,7 @@ msgid ""
 "globals without being declared global."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1077
+#: ../../../reference/simple_stmts.rst:1074
 msgid ""
 "The :keyword:`!global` statement applies to the entire current scope "
 "(module, function body or class definition). A :exc:`SyntaxError` is raised "
@@ -1090,7 +1084,7 @@ msgid ""
 "scope."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1082
+#: ../../../reference/simple_stmts.rst:1079
 msgid ""
 "At the module level, all variables are global, so a :keyword:`!global` "
 "statement has no effect. However, variables must still not be used or "
@@ -1098,7 +1092,7 @@ msgid ""
 "is relaxed in the interactive prompt (:term:`REPL`)."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1093
+#: ../../../reference/simple_stmts.rst:1090
 msgid ""
 "**Programmer's note:** :keyword:`global` is a directive to the parser.  It "
 "applies only to code parsed at the same time as the :keyword:`!global` "
@@ -1110,11 +1104,11 @@ msgid ""
 "func:`compile` functions."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1105
+#: ../../../reference/simple_stmts.rst:1102
 msgid "The :keyword:`!nonlocal` statement"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1113
+#: ../../../reference/simple_stmts.rst:1110
 msgid ""
 "When the definition of a function or class is nested (enclosed) within the "
 "definitions of other functions, its nonlocal scopes are the local scopes of "
@@ -1126,53 +1120,53 @@ msgid ""
 "`SyntaxError` is raised."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1122
+#: ../../../reference/simple_stmts.rst:1119
 msgid ""
 "The :keyword:`nonlocal` statement applies to the entire scope of a function "
 "or class body. A :exc:`SyntaxError` is raised if a variable is used or "
 "assigned to prior to its nonlocal declaration in the scope."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1128
+#: ../../../reference/simple_stmts.rst:1125
 msgid ":pep:`3104` - Access to Names in Outer Scopes"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1129
+#: ../../../reference/simple_stmts.rst:1126
 msgid "The specification for the :keyword:`nonlocal` statement."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1131
+#: ../../../reference/simple_stmts.rst:1128
 msgid ""
 "**Programmer's note:** :keyword:`nonlocal` is a directive to the parser and "
 "applies only to code parsed along with it.  See the note for the :keyword:"
 "`global` statement."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1139
+#: ../../../reference/simple_stmts.rst:1136
 msgid "The :keyword:`!type` statement"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1146
+#: ../../../reference/simple_stmts.rst:1143
 msgid ""
 "The :keyword:`!type` statement declares a type alias, which is an instance "
 "of :class:`typing.TypeAliasType`."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1149
+#: ../../../reference/simple_stmts.rst:1146
 msgid "For example, the following statement creates a type alias::"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1153
+#: ../../../reference/simple_stmts.rst:1150
 msgid "This code is roughly equivalent to::"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1159
+#: ../../../reference/simple_stmts.rst:1156
 msgid ""
 "``annotation-def`` indicates an :ref:`annotation scope <annotation-scopes>`, "
 "which behaves mostly like a function, but with several small differences."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1162
+#: ../../../reference/simple_stmts.rst:1159
 msgid ""
 "The value of the type alias is evaluated in the annotation scope. It is not "
 "evaluated when the type alias is created, but only when the value is "
@@ -1181,21 +1175,21 @@ msgid ""
 "not yet defined."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1168
+#: ../../../reference/simple_stmts.rst:1165
 msgid ""
 "Type aliases may be made generic by adding a :ref:`type parameter list <type-"
 "params>` after the name. See :ref:`generic-type-aliases` for more."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1171
+#: ../../../reference/simple_stmts.rst:1168
 msgid ":keyword:`!type` is a :ref:`soft keyword <soft-keywords>`."
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1177
+#: ../../../reference/simple_stmts.rst:1174
 msgid ":pep:`695` - Type Parameter Syntax"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1178
+#: ../../../reference/simple_stmts.rst:1175
 msgid ""
 "Introduced the :keyword:`!type` statement and syntax for generic classes and "
 "functions."
@@ -1219,10 +1213,10 @@ msgstr ""
 #: ../../../reference/simple_stmts.rst:681
 #: ../../../reference/simple_stmts.rst:715
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:978
-#: ../../../reference/simple_stmts.rst:1064
-#: ../../../reference/simple_stmts.rst:1107
-#: ../../../reference/simple_stmts.rst:1141
+#: ../../../reference/simple_stmts.rst:975
+#: ../../../reference/simple_stmts.rst:1061
+#: ../../../reference/simple_stmts.rst:1104
+#: ../../../reference/simple_stmts.rst:1138
 msgid "statement"
 msgstr ""
 
@@ -1241,7 +1235,7 @@ msgid "list"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:56
-#: ../../../reference/simple_stmts.rst:1088
+#: ../../../reference/simple_stmts.rst:1085
 msgid "built-in function"
 msgstr ""
 
@@ -1314,16 +1308,16 @@ msgstr ""
 
 #: ../../../reference/simple_stmts.rst:75
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:796
-#: ../../../reference/simple_stmts.rst:1064
+#: ../../../reference/simple_stmts.rst:797
+#: ../../../reference/simple_stmts.rst:1061
 msgid "binding"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:75
 #: ../../../reference/simple_stmts.rst:457
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:796
-#: ../../../reference/simple_stmts.rst:1064
+#: ../../../reference/simple_stmts.rst:797
+#: ../../../reference/simple_stmts.rst:1061
 msgid "name"
 msgstr ""
 
@@ -1352,8 +1346,8 @@ msgstr ""
 #: ../../../reference/simple_stmts.rst:115
 #: ../../../reference/simple_stmts.rst:379
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:1064
-#: ../../../reference/simple_stmts.rst:1107
+#: ../../../reference/simple_stmts.rst:1061
+#: ../../../reference/simple_stmts.rst:1104
 msgid ", (comma)"
 msgstr ""
 
@@ -1362,7 +1356,7 @@ msgid "in target list"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:115
-#: ../../../reference/simple_stmts.rst:822
+#: ../../../reference/simple_stmts.rst:823
 msgid "* (asterisk)"
 msgstr ""
 
@@ -1532,7 +1526,7 @@ msgid "deletion"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:457
-#: ../../../reference/simple_stmts.rst:1064
+#: ../../../reference/simple_stmts.rst:1061
 msgid "global"
 msgstr ""
 
@@ -1647,8 +1641,8 @@ msgid "continue"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:849
-#: ../../../reference/simple_stmts.rst:879
+#: ../../../reference/simple_stmts.rst:850
+#: ../../../reference/simple_stmts.rst:880
 msgid "import"
 msgstr ""
 
@@ -1661,17 +1655,17 @@ msgid "importing"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:796
+#: ../../../reference/simple_stmts.rst:797
 msgid "from"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:783
+#: ../../../reference/simple_stmts.rst:784
 msgid "as"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:879
+#: ../../../reference/simple_stmts.rst:880
 msgid "lazy"
 msgstr ""
 
@@ -1680,61 +1674,61 @@ msgid "ImportError"
 msgstr ""
 
 #: ../../../reference/simple_stmts.rst:740
-#: ../../../reference/simple_stmts.rst:783
-#: ../../../reference/simple_stmts.rst:796
-#: ../../../reference/simple_stmts.rst:822
+#: ../../../reference/simple_stmts.rst:784
+#: ../../../reference/simple_stmts.rst:797
+#: ../../../reference/simple_stmts.rst:823
 msgid "import statement"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:828
+#: ../../../reference/simple_stmts.rst:829
 msgid "__all__ (optional module attribute)"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:849
+#: ../../../reference/simple_stmts.rst:850
 msgid "relative"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:879
+#: ../../../reference/simple_stmts.rst:880
 msgid "lazy import"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:928
+#: ../../../reference/simple_stmts.rst:929
 msgid "__lazy_modules__"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:978
+#: ../../../reference/simple_stmts.rst:975
 msgid "future"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:978
+#: ../../../reference/simple_stmts.rst:975
 msgid "__future__"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:978
+#: ../../../reference/simple_stmts.rst:975
 msgid "future statement"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1064
-#: ../../../reference/simple_stmts.rst:1107
+#: ../../../reference/simple_stmts.rst:1061
+#: ../../../reference/simple_stmts.rst:1104
 msgid "identifier list"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1088
+#: ../../../reference/simple_stmts.rst:1085
 msgid "exec"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1088
+#: ../../../reference/simple_stmts.rst:1085
 msgid "eval"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1088
+#: ../../../reference/simple_stmts.rst:1085
 msgid "compile"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1107
+#: ../../../reference/simple_stmts.rst:1104
 msgid "nonlocal"
 msgstr ""
 
-#: ../../../reference/simple_stmts.rst:1141
+#: ../../../reference/simple_stmts.rst:1138
 msgid "type"
 msgstr ""
