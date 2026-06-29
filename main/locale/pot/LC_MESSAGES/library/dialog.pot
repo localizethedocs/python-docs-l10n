@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 14:16+0000\n"
+"POT-Creation-Date: 2026-06-29 13:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,34 +48,44 @@ msgid ""
 "window over which the dialog is shown. :func:`askinteger` and :func:"
 "`askfloat` also accept *minvalue* and *maxvalue*, which bound the accepted "
 "value. :func:`askstring` also accepts *show*, a character used to mask the "
-"entered text, for example ``'*'`` to hide a password."
+"entered text, for example ``'*'`` to hide a password. They use the themed :"
+"mod:`tkinter.ttk` widgets; pass ``use_ttk=False`` for the classic widgets."
 msgstr ""
 
-#: ../../../library/dialog.rst:35
+#: ../../../library/dialog.rst:37
 msgid ""
 "The base class for custom dialogs. Instantiating it shows the dialog modally "
 "and returns once the user closes it; the entered value is then available in "
-"the :attr:`!result` attribute."
+"the :attr:`!result` attribute. When *use_ttk* is false (the default), the "
+"dialog is built from the classic :mod:`tkinter` widgets, modelled on the "
+"classic ``tk_dialog``; when true, from the themed :mod:`tkinter.ttk` "
+"widgets, modelled on the Tk message box. The default is classic for "
+"compatibility, since the themed widgets set a themed background that classic "
+"widgets added in :meth:`body` would not match."
 msgstr ""
 
-#: ../../../library/dialog.rst:41
+#: ../../../library/dialog.rst:46
+msgid "Added the *use_ttk* parameter."
+msgstr ""
+
+#: ../../../library/dialog.rst:51
 msgid ""
 "The value produced by :meth:`apply`, or ``None`` if the dialog was cancelled."
 msgstr ""
 
-#: ../../../library/dialog.rst:46
+#: ../../../library/dialog.rst:56
 msgid ""
 "Override to construct the dialog's interface and return the widget that "
 "should have initial focus."
 msgstr ""
 
-#: ../../../library/dialog.rst:51
+#: ../../../library/dialog.rst:61
 msgid ""
 "Default behaviour adds OK and Cancel buttons. Override for custom button "
 "layouts."
 msgstr ""
 
-#: ../../../library/dialog.rst:56
+#: ../../../library/dialog.rst:66
 msgid ""
 "Validate the data entered by the user. Return true if it is valid, in which "
 "case the dialog proceeds to :meth:`apply`; return false to keep the dialog "
@@ -83,7 +93,7 @@ msgid ""
 "the input."
 msgstr ""
 
-#: ../../../library/dialog.rst:64
+#: ../../../library/dialog.rst:74
 msgid ""
 "Process the data entered by the user, for example by storing it in the :attr:"
 "`!result` attribute. Called after :meth:`validate` succeeds and just before "
@@ -91,47 +101,65 @@ msgid ""
 "it to act on or store the result."
 msgstr ""
 
-#: ../../../library/dialog.rst:73
+#: ../../../library/dialog.rst:83
 msgid ""
 "Destroy the dialog window, clearing the reference to the widget that had the "
 "initial focus."
 msgstr ""
 
-#: ../../../library/dialog.rst:79
+#: ../../../library/dialog.rst:89
 msgid ""
 "A simple modal dialog that displays the message *text* above a row of push "
-"buttons whose labels are given by *buttons*, and returns the index of the "
-"button the user presses. *default* is the index of the button activated by "
-"the Return key, *cancel* the index returned when the window is closed "
-"through the window manager, *title* the window title, and *class_* the Tk "
-"class name of the window."
+"buttons given by *buttons*, and returns the index of the button the user "
+"presses. Each entry of *buttons* is either a button label, or a mapping of "
+"button options such as ``{'text': 'OK', 'underline': 0}``; an ``underline`` "
+"option makes :kbd:`Alt` plus the underlined character invoke the button. "
+"*default* is the index of the default button, activated by the Return key "
+"when no button has the focus, *cancel* the index returned when the window is "
+"closed through the window manager, *title* the window title, and *class_* "
+"the Tk class name of the window. *bitmap* is the name of a bitmap displayed "
+"beside the message (for example ``'warning'`` or ``'question'``); the "
+"standard names ``'error'``, ``'info'``, ``'question'`` and ``'warning'`` are "
+"shown as themed icons when *use_ttk* is true. *detail* is a secondary "
+"message displayed below *text*. When *use_ttk* is true (the default), the "
+"dialog is built from the themed :mod:`tkinter.ttk` widgets, modelled on the "
+"Tk message box; when false, from the classic :mod:`tkinter` widgets, "
+"modelled on ``tk_dialog``."
 msgstr ""
 
-#: ../../../library/dialog.rst:88
+#: ../../../library/dialog.rst:108
+msgid ""
+"The dialog is now built from the themed :mod:`tkinter.ttk` widgets by "
+"default, instead of the classic :mod:`tkinter` widgets. Added the *bitmap*, "
+"*detail* and *use_ttk* parameters. Entries of *buttons* may be mappings of "
+"button options."
+msgstr ""
+
+#: ../../../library/dialog.rst:116
 msgid ""
 "Display the dialog, wait until the user presses a button or closes the "
 "window, and return the index of the chosen button."
 msgstr ""
 
-#: ../../../library/dialog.rst:94
+#: ../../../library/dialog.rst:122
 msgid ":mod:`!tkinter.filedialog` --- File selection dialogs"
 msgstr ""
 
-#: ../../../library/dialog.rst:99
+#: ../../../library/dialog.rst:127
 msgid "**Source code:** :source:`Lib/tkinter/filedialog.py`"
 msgstr ""
 
-#: ../../../library/dialog.rst:103
+#: ../../../library/dialog.rst:131
 msgid ""
 "The :mod:`!tkinter.filedialog` module provides classes and factory functions "
 "for creating file/directory selection windows."
 msgstr ""
 
-#: ../../../library/dialog.rst:107
+#: ../../../library/dialog.rst:135
 msgid "Native load/save dialogs"
 msgstr ""
 
-#: ../../../library/dialog.rst:109
+#: ../../../library/dialog.rst:137
 msgid ""
 "The following classes and functions provide file dialog windows that combine "
 "a native look-and-feel with configuration options to customize behaviour. "
@@ -168,11 +196,11 @@ msgstr ""
 msgid "*multiple* - when true, selection of multiple items is allowed"
 msgstr ""
 
-#: ../../../library/dialog.rst:129
+#: ../../../library/dialog.rst:157
 msgid "**Static factory functions**"
 msgstr ""
 
-#: ../../../library/dialog.rst:131
+#: ../../../library/dialog.rst:159
 msgid ""
 "The below functions when called create a modal, native look-and-feel dialog, "
 "wait for the user's selection, and return it. The exact return value depends "
@@ -180,7 +208,7 @@ msgid ""
 "string, an empty tuple, an empty list or ``None``."
 msgstr ""
 
-#: ../../../library/dialog.rst:139
+#: ../../../library/dialog.rst:167
 msgid ""
 "Create an :class:`Open` dialog. :func:`askopenfile` returns the opened file "
 "object, or ``None`` if the dialog is cancelled. :func:`askopenfiles` returns "
@@ -188,14 +216,14 @@ msgid ""
 "are opened in mode *mode* (read-only ``'r'`` by default)."
 msgstr ""
 
-#: ../../../library/dialog.rst:148
+#: ../../../library/dialog.rst:176
 msgid ""
 "Create a :class:`SaveAs` dialog and return the opened file object, or "
 "``None`` if the dialog is cancelled. The file is opened in mode *mode* "
 "(``'w'`` by default)."
 msgstr ""
 
-#: ../../../library/dialog.rst:155
+#: ../../../library/dialog.rst:183
 msgid ""
 "Create an :class:`Open` dialog. :func:`askopenfilename` returns the selected "
 "filename as a string, or an empty string if the dialog is cancelled. :func:"
@@ -203,13 +231,13 @@ msgid ""
 "tuple if cancelled."
 msgstr ""
 
-#: ../../../library/dialog.rst:163
+#: ../../../library/dialog.rst:191
 msgid ""
 "Create a :class:`SaveAs` dialog and return the selected filename as a "
 "string, or an empty string if the dialog is cancelled."
 msgstr ""
 
-#: ../../../library/dialog.rst:168
+#: ../../../library/dialog.rst:196
 msgid ""
 "Prompt the user to select a directory, and return its path as a string, or "
 "an empty string if the dialog is cancelled. Additional keyword option: "
@@ -217,158 +245,158 @@ msgid ""
 "by default)."
 msgstr ""
 
-#: ../../../library/dialog.rst:176
+#: ../../../library/dialog.rst:204
 msgid ""
 "The above two classes provide native dialog windows for saving and loading "
 "files."
 msgstr ""
 
-#: ../../../library/dialog.rst:179
+#: ../../../library/dialog.rst:207
 msgid "**Convenience classes**"
 msgstr ""
 
-#: ../../../library/dialog.rst:181
+#: ../../../library/dialog.rst:209
 msgid ""
 "The below classes are used for creating file/directory windows from scratch. "
 "These do not emulate the native look-and-feel of the platform."
 msgstr ""
 
-#: ../../../library/dialog.rst:186
+#: ../../../library/dialog.rst:214
 msgid "Create a dialog prompting the user to select a directory."
 msgstr ""
 
-#: ../../../library/dialog.rst:188
+#: ../../../library/dialog.rst:216
 msgid ""
 "The *FileDialog* class should be subclassed for custom event handling and "
 "behaviour."
 msgstr ""
 
-#: ../../../library/dialog.rst:193
+#: ../../../library/dialog.rst:221
 msgid "Create a basic file selection dialog."
 msgstr ""
 
-#: ../../../library/dialog.rst:197
+#: ../../../library/dialog.rst:225
 msgid "Trigger the termination of the dialog window."
 msgstr ""
 
-#: ../../../library/dialog.rst:201
+#: ../../../library/dialog.rst:229
 msgid "Event handler for double-click event on directory."
 msgstr ""
 
-#: ../../../library/dialog.rst:205
+#: ../../../library/dialog.rst:233
 msgid "Event handler for click event on directory."
 msgstr ""
 
-#: ../../../library/dialog.rst:209
+#: ../../../library/dialog.rst:237
 msgid "Event handler for double-click event on file."
 msgstr ""
 
-#: ../../../library/dialog.rst:213
+#: ../../../library/dialog.rst:241
 msgid "Event handler for single-click event on file."
 msgstr ""
 
-#: ../../../library/dialog.rst:217
+#: ../../../library/dialog.rst:245
 msgid "Filter the files by directory."
 msgstr ""
 
-#: ../../../library/dialog.rst:221
+#: ../../../library/dialog.rst:249
 msgid "Retrieve the file filter currently in use."
 msgstr ""
 
-#: ../../../library/dialog.rst:225
+#: ../../../library/dialog.rst:253
 msgid "Retrieve the currently selected item."
 msgstr ""
 
-#: ../../../library/dialog.rst:229
+#: ../../../library/dialog.rst:257
 msgid "Render dialog and start event loop."
 msgstr ""
 
-#: ../../../library/dialog.rst:233
+#: ../../../library/dialog.rst:261
 msgid "Exit dialog returning current selection."
 msgstr ""
 
-#: ../../../library/dialog.rst:237
+#: ../../../library/dialog.rst:265
 msgid ""
 "Called when the user confirms the current selection. The base implementation "
 "accepts the selection and closes the dialog; :class:`LoadFileDialog` and :"
 "class:`SaveFileDialog` override it to check the selection first."
 msgstr ""
 
-#: ../../../library/dialog.rst:244
+#: ../../../library/dialog.rst:272
 msgid "Exit dialog returning filename, if any."
 msgstr ""
 
-#: ../../../library/dialog.rst:248
+#: ../../../library/dialog.rst:276
 msgid "Set the file filter."
 msgstr ""
 
-#: ../../../library/dialog.rst:252
+#: ../../../library/dialog.rst:280
 msgid "Update the current file selection to *file*."
 msgstr ""
 
-#: ../../../library/dialog.rst:257
+#: ../../../library/dialog.rst:285
 msgid ""
 "A subclass of FileDialog that creates a dialog window for selecting an "
 "existing file."
 msgstr ""
 
-#: ../../../library/dialog.rst:262
+#: ../../../library/dialog.rst:290
 msgid ""
 "Test that a file is provided and that the selection indicates an already "
 "existing file."
 msgstr ""
 
-#: ../../../library/dialog.rst:267
+#: ../../../library/dialog.rst:295
 msgid ""
 "A subclass of FileDialog that creates a dialog window for selecting a "
 "destination file."
 msgstr ""
 
-#: ../../../library/dialog.rst:272
+#: ../../../library/dialog.rst:300
 msgid ""
 "Test whether or not the selection points to a valid file that is not a "
 "directory. Confirmation is required if an already existing file is selected."
 msgstr ""
 
-#: ../../../library/dialog.rst:277
+#: ../../../library/dialog.rst:305
 msgid ":mod:`!tkinter.commondialog` --- Dialog window templates"
 msgstr ""
 
-#: ../../../library/dialog.rst:282
+#: ../../../library/dialog.rst:310
 msgid "**Source code:** :source:`Lib/tkinter/commondialog.py`"
 msgstr ""
 
-#: ../../../library/dialog.rst:286
+#: ../../../library/dialog.rst:314
 msgid ""
 "The :mod:`!tkinter.commondialog` module provides the :class:`Dialog` class "
 "that is the base class for dialogs defined in other supporting modules."
 msgstr ""
 
-#: ../../../library/dialog.rst:293
+#: ../../../library/dialog.rst:321
 msgid "Render the Dialog window."
 msgstr ""
 
-#: ../../../library/dialog.rst:297
+#: ../../../library/dialog.rst:325
 msgid ":mod:`!tkinter.dialog` --- Classic Tk dialog boxes"
 msgstr ""
 
-#: ../../../library/dialog.rst:302
+#: ../../../library/dialog.rst:330
 msgid "**Source code:** :source:`Lib/tkinter/dialog.py`"
 msgstr ""
 
-#: ../../../library/dialog.rst:306
+#: ../../../library/dialog.rst:334
 msgid ""
 "The :mod:`!tkinter.dialog` module provides a simple modal dialog box built "
 "on the classic (non-themed) Tk widgets."
 msgstr ""
 
-#: ../../../library/dialog.rst:311
+#: ../../../library/dialog.rst:339
 msgid ""
 "The name of the default bitmap (``'questhead'``) displayed by a :class:"
 "`Dialog`."
 msgstr ""
 
-#: ../../../library/dialog.rst:316
+#: ../../../library/dialog.rst:344
 msgid ""
 "Display a modal dialog box built from the classic (non-themed) Tk widgets "
 "and wait for the user to press one of its buttons. The options, given "
@@ -379,10 +407,10 @@ msgid ""
 "index of the button the user pressed."
 msgstr ""
 
-#: ../../../library/dialog.rst:327
+#: ../../../library/dialog.rst:355
 msgid "Destroy the dialog window."
 msgstr ""
 
-#: ../../../library/dialog.rst:332
+#: ../../../library/dialog.rst:360
 msgid "Modules :mod:`tkinter.messagebox`, :ref:`tut-files`"
 msgstr ""
