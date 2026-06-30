@@ -1,0 +1,289 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>bisect — Array bisection algorithm &#8212; Python 3.0.1 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/bisect.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.0.1 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="array — Efficient arrays of numeric values" href="array.html" />
+    <link rel="prev" title="heapq — Heap queue algorithm" href="heapq.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/bisect.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="array.html" title="array — Efficient arrays of numeric values"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="heapq.html" title="heapq — Heap queue algorithm"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="datatypes.html" accesskey="U">Data Types</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-bisect">
+<span id="bisect-array-bisection-algorithm"></span><h1><a class="reference internal" href="#module-bisect" title="bisect: Array bisection algorithms for binary searching."><code class="xref py py-mod docutils literal notranslate"><span class="pre">bisect</span></code></a> — Array bisection algorithm<a class="headerlink" href="#module-bisect" title="本標題的永久連結">¶</a></h1>
+<p>This module provides support for maintaining a list in sorted order without
+having to sort the list after each insertion.  For long lists of items with
+expensive comparison operations, this can be an improvement over the more common
+approach.  The module is called <a class="reference internal" href="#module-bisect" title="bisect: Array bisection algorithms for binary searching."><code class="xref py py-mod docutils literal notranslate"><span class="pre">bisect</span></code></a> because it uses a basic bisection
+algorithm to do its work.  The source code may be most useful as a working
+example of the algorithm (the boundary conditions are already right!).</p>
+<p>The following functions are provided:</p>
+<dl class="function">
+<dt id="bisect.bisect_left">
+<code class="descclassname">bisect.</code><code class="descname">bisect_left</code><span class="sig-paren">(</span><em>list</em>, <em>item</em><span class="optional">[</span>, <em>lo</em><span class="optional">[</span>, <em>hi</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bisect.bisect_left" title="本定義的永久連結">¶</a></dt>
+<dd><p>Locate the proper insertion point for <em>item</em> in <em>list</em> to maintain sorted order.
+The parameters <em>lo</em> and <em>hi</em> may be used to specify a subset of the list which
+should be considered; by default the entire list is used.  If <em>item</em> is already
+present in <em>list</em>, the insertion point will be before (to the left of) any
+existing entries.  The return value is suitable for use as the first parameter
+to <code class="docutils literal notranslate"><span class="pre">list.insert()</span></code>.  This assumes that <em>list</em> is already sorted.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bisect.bisect_right">
+<code class="descclassname">bisect.</code><code class="descname">bisect_right</code><span class="sig-paren">(</span><em>list</em>, <em>item</em><span class="optional">[</span>, <em>lo</em><span class="optional">[</span>, <em>hi</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bisect.bisect_right" title="本定義的永久連結">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#bisect.bisect_left" title="bisect.bisect_left"><code class="xref py py-func docutils literal notranslate"><span class="pre">bisect_left()</span></code></a>, but returns an insertion point which comes after
+(to the right of) any existing entries of <em>item</em> in <em>list</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bisect.bisect">
+<code class="descclassname">bisect.</code><code class="descname">bisect</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#bisect.bisect" title="本定義的永久連結">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#bisect.bisect_right" title="bisect.bisect_right"><code class="xref py py-func docutils literal notranslate"><span class="pre">bisect_right()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bisect.insort_left">
+<code class="descclassname">bisect.</code><code class="descname">insort_left</code><span class="sig-paren">(</span><em>list</em>, <em>item</em><span class="optional">[</span>, <em>lo</em><span class="optional">[</span>, <em>hi</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bisect.insort_left" title="本定義的永久連結">¶</a></dt>
+<dd><p>Insert <em>item</em> in <em>list</em> in sorted order.  This is equivalent to
+<code class="docutils literal notranslate"><span class="pre">list.insert(bisect.bisect_left(list,</span> <span class="pre">item,</span> <span class="pre">lo,</span> <span class="pre">hi),</span> <span class="pre">item)</span></code>.  This assumes
+that <em>list</em> is already sorted.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bisect.insort_right">
+<code class="descclassname">bisect.</code><code class="descname">insort_right</code><span class="sig-paren">(</span><em>list</em>, <em>item</em><span class="optional">[</span>, <em>lo</em><span class="optional">[</span>, <em>hi</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bisect.insort_right" title="本定義的永久連結">¶</a></dt>
+<dd><p>Similar to <a class="reference internal" href="#bisect.insort_left" title="bisect.insort_left"><code class="xref py py-func docutils literal notranslate"><span class="pre">insort_left()</span></code></a>, but inserting <em>item</em> in <em>list</em> after any
+existing entries of <em>item</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bisect.insort">
+<code class="descclassname">bisect.</code><code class="descname">insort</code><span class="sig-paren">(</span><em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#bisect.insort" title="本定義的永久連結">¶</a></dt>
+<dd><p>Alias for <a class="reference internal" href="#bisect.insort_right" title="bisect.insort_right"><code class="xref py py-func docutils literal notranslate"><span class="pre">insort_right()</span></code></a>.</p>
+</dd></dl>
+
+<div class="section" id="examples">
+<h2>範例<a class="headerlink" href="#examples" title="本標題的永久連結">¶</a></h2>
+<p id="bisect-example">The <a class="reference internal" href="#module-bisect" title="bisect: Array bisection algorithms for binary searching."><code class="xref py py-func docutils literal notranslate"><span class="pre">bisect()</span></code></a> function is generally useful for categorizing numeric data.
+This example uses <a class="reference internal" href="#module-bisect" title="bisect: Array bisection algorithms for binary searching."><code class="xref py py-func docutils literal notranslate"><span class="pre">bisect()</span></code></a> to look up a letter grade for an exam total
+(say) based on a set of ordered numeric breakpoints: 85 and up is an 『A』, 75..84
+is a 『B』, etc.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grades</span> <span class="o">=</span> <span class="s2">&quot;FEDCBA&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">breakpoints</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">bisect</span> <span class="kn">import</span> <span class="n">bisect</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">grade</span><span class="p">(</span><span class="n">total</span><span class="p">):</span>
+<span class="gp">... </span>          <span class="k">return</span> <span class="n">grades</span><span class="p">[</span><span class="n">bisect</span><span class="p">(</span><span class="n">breakpoints</span><span class="p">,</span> <span class="n">total</span><span class="p">)]</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grade</span><span class="p">(</span><span class="mi">66</span><span class="p">)</span>
+<span class="go">&#39;C&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">map</span><span class="p">(</span><span class="n">grade</span><span class="p">,</span> <span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">88</span><span class="p">])</span>
+<span class="go">[&#39;E&#39;, &#39;A&#39;, &#39;B&#39;, &#39;D&#39;, &#39;F&#39;, &#39;A&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">bisect</span></code> — Array bisection algorithm</a><ul>
+<li><a class="reference internal" href="#examples">範例</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上個主題</h4>
+  <p class="topless"><a href="heapq.html"
+                        title="上一章"><code class="docutils literal notranslate"><span class="pre">heapq</span></code> — Heap queue algorithm</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="array.html"
+                        title="下一章"><code class="docutils literal notranslate"><span class="pre">array</span></code> — Efficient arrays of numeric values</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/bisect.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="array.html" title="array — Efficient arrays of numeric values"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="heapq.html" title="heapq — Heap queue algorithm"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="datatypes.html" >Data Types</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 04, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>
