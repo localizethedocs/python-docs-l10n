@@ -1,0 +1,1926 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../faq/programming.rst:5
+msgid "Programming FAQ"
+msgstr ""
+
+#: ../../../faq/programming.rst:7
+msgid "Contents"
+msgstr ""
+
+#: ../../../faq/programming.rst:10
+msgid "General Questions"
+msgstr ""
+
+#: ../../../faq/programming.rst:13
+msgid ""
+"Is there a source code level debugger with breakpoints, single-stepping, "
+"etc.?"
+msgstr ""
+
+#: ../../../faq/programming.rst:15 ../../../faq/programming.rst:58
+msgid "Yes."
+msgstr ""
+
+#: ../../../faq/programming.rst:17
+msgid ""
+"The pdb module is a simple but adequate console-mode debugger for Python. It "
+"is part of the standard Python library, and is :mod:`documented in the "
+"Library Reference Manual <pdb>`. You can also write your own debugger by "
+"using the code for pdb as an example."
+msgstr ""
+
+#: ../../../faq/programming.rst:22
+msgid ""
+"The IDLE interactive development environment, which is part of the standard "
+"Python distribution (normally available as Tools/scripts/idle), includes a "
+"graphical debugger.  There is documentation for the IDLE debugger at http://"
+"www.python.org/idle/doc/idle2.html#Debugger."
+msgstr ""
+
+#: ../../../faq/programming.rst:27
+msgid ""
+"PythonWin is a Python IDE that includes a GUI debugger based on pdb.  The "
+"Pythonwin debugger colors breakpoints and has quite a few cool features such "
+"as debugging non-Pythonwin programs.  Pythonwin is available as part of the "
+"`Python for Windows Extensions <http://sourceforge.net/projects/pywin32/>`__ "
+"project and as a part of the ActivePython distribution (see http://www."
+"activestate.com/Products/ActivePython/index.html)."
+msgstr ""
+
+#: ../../../faq/programming.rst:34
+msgid ""
+"`Boa Constructor <http://boa-constructor.sourceforge.net/>`_ is an IDE and "
+"GUI builder that uses wxWidgets.  It offers visual frame creation and "
+"manipulation, an object inspector, many views on the source like object "
+"browsers, inheritance hierarchies, doc string generated html documentation, "
+"an advanced debugger, integrated help, and Zope support."
+msgstr ""
+
+#: ../../../faq/programming.rst:40
+msgid ""
+"`Eric <http://www.die-offenbachs.de/eric/index.html>`_ is an IDE built on "
+"PyQt and the Scintilla editing component."
+msgstr ""
+
+#: ../../../faq/programming.rst:43
+msgid ""
+"Pydb is a version of the standard Python debugger pdb, modified for use with "
+"DDD (Data Display Debugger), a popular graphical debugger front end.  Pydb "
+"can be found at http://bashdb.sourceforge.net/pydb/ and DDD can be found at "
+"http://www.gnu.org/software/ddd."
+msgstr ""
+
+#: ../../../faq/programming.rst:48
+msgid ""
+"There are a number of commercial Python IDEs that include graphical "
+"debuggers. They include:"
+msgstr ""
+
+#: ../../../faq/programming.rst:51
+msgid "Wing IDE (http://wingware.com/)"
+msgstr ""
+
+#: ../../../faq/programming.rst:52
+msgid "Komodo IDE (http://www.activestate.com/Products/Komodo)"
+msgstr ""
+
+#: ../../../faq/programming.rst:56
+msgid "Is there a tool to help find bugs or perform static analysis?"
+msgstr ""
+
+#: ../../../faq/programming.rst:60
+msgid ""
+"PyChecker is a static analysis tool that finds bugs in Python source code "
+"and warns about code complexity and style.  You can get PyChecker from "
+"http://pychecker.sf.net."
+msgstr ""
+
+#: ../../../faq/programming.rst:64
+msgid ""
+"`Pylint <http://www.logilab.org/projects/pylint>`_ is another tool that "
+"checks if a module satisfies a coding standard, and also makes it possible "
+"to write plug-ins to add a custom feature.  In addition to the bug checking "
+"that PyChecker performs, Pylint offers some additional features such as "
+"checking line length, whether variable names are well-formed according to "
+"your coding standard, whether declared interfaces are fully implemented, and "
+"more. http://www.logilab.org/card/pylint_manual provides a full list of "
+"Pylint's features."
+msgstr ""
+
+#: ../../../faq/programming.rst:75
+msgid "How can I create a stand-alone binary from a Python script?"
+msgstr ""
+
+#: ../../../faq/programming.rst:77
+msgid ""
+"You don't need the ability to compile Python to C code if all you want is a "
+"stand-alone program that users can download and run without having to "
+"install the Python distribution first.  There are a number of tools that "
+"determine the set of modules required by a program and bind these modules "
+"together with a Python binary to produce a single executable."
+msgstr ""
+
+#: ../../../faq/programming.rst:83
+msgid ""
+"One is to use the freeze tool, which is included in the Python source tree "
+"as ``Tools/freeze``. It converts Python byte code to C arrays; a C compiler "
+"you can embed all your modules into a new program, which is then linked with "
+"the standard Python modules."
+msgstr ""
+
+#: ../../../faq/programming.rst:88
+msgid ""
+"It works by scanning your source recursively for import statements (in both "
+"forms) and looking for the modules in the standard Python path as well as in "
+"the source directory (for built-in modules).  It then turns the bytecode for "
+"modules written in Python into C code (array initializers that can be turned "
+"into code objects using the marshal module) and creates a custom-made config "
+"file that only contains those built-in modules which are actually used in "
+"the program.  It then compiles the generated C code and links it with the "
+"rest of the Python interpreter to form a self-contained binary which acts "
+"exactly like your script."
+msgstr ""
+
+#: ../../../faq/programming.rst:97
+msgid ""
+"Obviously, freeze requires a C compiler.  There are several other utilities "
+"which don't. One is Thomas Heller's py2exe (Windows only) at"
+msgstr ""
+
+#: ../../../faq/programming.rst:100
+msgid "http://www.py2exe.org/"
+msgstr ""
+
+#: ../../../faq/programming.rst:102
+msgid ""
+"Another is Christian Tismer's `SQFREEZE <http://starship.python.net/crew/"
+"pirx>`_ which appends the byte code to a specially-prepared Python "
+"interpreter that can find the byte code in the executable."
+msgstr ""
+
+#: ../../../faq/programming.rst:106
+msgid ""
+"Other tools include Fredrik Lundh's `Squeeze <http://www.pythonware.com/"
+"products/python/squeeze>`_ and Anthony Tuininga's `cx_Freeze <http://"
+"starship.python.net/crew/atuining/cx_Freeze/index.html>`_."
+msgstr ""
+
+#: ../../../faq/programming.rst:112
+msgid "Are there coding standards or a style guide for Python programs?"
+msgstr ""
+
+#: ../../../faq/programming.rst:114
+msgid ""
+"Yes.  The coding style required for standard library modules is documented "
+"as :pep:`8`."
+msgstr ""
+
+#: ../../../faq/programming.rst:119
+msgid "Core Language"
+msgstr ""
+
+#: ../../../faq/programming.rst:122
+msgid "Why am I getting an UnboundLocalError when the variable has a value?"
+msgstr ""
+
+#: ../../../faq/programming.rst:124
+msgid ""
+"It can be a surprise to get the UnboundLocalError in previously working code "
+"when it is modified by adding an assignment statement somewhere in the body "
+"of a function."
+msgstr ""
+
+#: ../../../faq/programming.rst:128
+msgid "This code:"
+msgstr ""
+
+#: ../../../faq/programming.rst:136
+msgid "works, but this code:"
+msgstr ""
+
+#: ../../../faq/programming.rst:143
+msgid "results in an UnboundLocalError:"
+msgstr ""
+
+#: ../../../faq/programming.rst:150
+msgid ""
+"This is because when you make an assignment to a variable in a scope, that "
+"variable becomes local to that scope and shadows any similarly named "
+"variable in the outer scope.  Since the last statement in foo assigns a new "
+"value to ``x``, the compiler recognizes it as a local variable.  "
+"Consequently when the earlier ``print(x)`` attempts to print the "
+"uninitialized local variable and an error results."
+msgstr ""
+
+#: ../../../faq/programming.rst:157
+msgid ""
+"In the example above you can access the outer scope variable by declaring it "
+"global:"
+msgstr ""
+
+#: ../../../faq/programming.rst:168
+msgid ""
+"This explicit declaration is required in order to remind you that (unlike "
+"the superficially analogous situation with class and instance variables) you "
+"are actually modifying the value of the variable in the outer scope:"
+msgstr ""
+
+#: ../../../faq/programming.rst:175
+msgid ""
+"You can do a similar thing in a nested scope using the :keyword:`nonlocal` "
+"keyword:"
+msgstr ""
+
+#: ../../../faq/programming.rst:192
+msgid "What are the rules for local and global variables in Python?"
+msgstr ""
+
+#: ../../../faq/programming.rst:194
+msgid ""
+"In Python, variables that are only referenced inside a function are "
+"implicitly global.  If a variable is assigned a new value anywhere within "
+"the function's body, it's assumed to be a local.  If a variable is ever "
+"assigned a new value inside the function, the variable is implicitly local, "
+"and you need to explicitly declare it as 'global'."
+msgstr ""
+
+#: ../../../faq/programming.rst:200
+msgid ""
+"Though a bit surprising at first, a moment's consideration explains this.  "
+"On one hand, requiring :keyword:`global` for assigned variables provides a "
+"bar against unintended side-effects.  On the other hand, if ``global`` was "
+"required for all global references, you'd be using ``global`` all the time.  "
+"You'd have to declare as global every reference to a built-in function or to "
+"a component of an imported module.  This clutter would defeat the usefulness "
+"of the ``global`` declaration for identifying side-effects."
+msgstr ""
+
+#: ../../../faq/programming.rst:210
+msgid ""
+"Why do lambdas defined in a loop with different values all return the same "
+"result?"
+msgstr ""
+
+#: ../../../faq/programming.rst:212
+msgid ""
+"Assume you use a for loop to define a few different lambdas (or even plain "
+"functions), e.g.::"
+msgstr ""
+
+#: ../../../faq/programming.rst:219
+msgid ""
+"This gives you a list that contains 5 lambdas that calculate ``x**2``.  You "
+"might expect that, when called, they would return, respectively, ``0``, "
+"``1``, ``4``, ``9``, and ``16``.  However, when you actually try you will "
+"see that they all return ``16``::"
+msgstr ""
+
+#: ../../../faq/programming.rst:229
+msgid ""
+"This happens because ``x`` is not local to the lambdas, but is defined in "
+"the outer scope, and it is accessed when the lambda is called --- not when "
+"it is defined.  At the end of the loop, the value of ``x`` is ``4``, so all "
+"the functions now return ``4**2``, i.e. ``16``.  You can also verify this by "
+"changing the value of ``x`` and see how the results of the lambdas change::"
+msgstr ""
+
+#: ../../../faq/programming.rst:239
+msgid ""
+"In order to avoid this, you need to save the values in variables local to "
+"the lambdas, so that they don't rely on the value of the global ``x``::"
+msgstr ""
+
+#: ../../../faq/programming.rst:246
+msgid ""
+"Here, ``n=x`` creates a new variable ``n`` local to the lambda and computed "
+"when the lambda is defined so that it has the same value that ``x`` had at "
+"that point in the loop.  This means that the value of ``n`` will be ``0`` in "
+"the first lambda, ``1`` in the second, ``2`` in the third, and so on. "
+"Therefore each lambda will now return the correct result::"
+msgstr ""
+
+#: ../../../faq/programming.rst:257
+msgid ""
+"Note that this behaviour is not peculiar to lambdas, but applies to regular "
+"functions too."
+msgstr ""
+
+#: ../../../faq/programming.rst:262
+msgid "How do I share global variables across modules?"
+msgstr ""
+
+#: ../../../faq/programming.rst:264
+msgid ""
+"The canonical way to share information across modules within a single "
+"program is to create a special module (often called config or cfg).  Just "
+"import the config module in all modules of your application; the module then "
+"becomes available as a global name.  Because there is only one instance of "
+"each module, any changes made to the module object get reflected "
+"everywhere.  For example:"
+msgstr ""
+
+#: ../../../faq/programming.rst:270
+msgid "config.py::"
+msgstr ""
+
+#: ../../../faq/programming.rst:274
+msgid "mod.py::"
+msgstr ""
+
+#: ../../../faq/programming.rst:279
+msgid "main.py::"
+msgstr ""
+
+#: ../../../faq/programming.rst:285
+msgid ""
+"Note that using a module is also the basis for implementing the Singleton "
+"design pattern, for the same reason."
+msgstr ""
+
+#: ../../../faq/programming.rst:290
+msgid "What are the \"best practices\" for using import in a module?"
+msgstr ""
+
+#: ../../../faq/programming.rst:292
+msgid ""
+"In general, don't use ``from modulename import *``.  Doing so clutters the "
+"importer's namespace.  Some people avoid this idiom even with the few "
+"modules that were designed to be imported in this manner.  Modules designed "
+"in this manner include :mod:`tkinter`, and :mod:`threading`."
+msgstr ""
+
+#: ../../../faq/programming.rst:297
+msgid ""
+"Import modules at the top of a file.  Doing so makes it clear what other "
+"modules your code requires and avoids questions of whether the module name "
+"is in scope. Using one import per line makes it easy to add and delete "
+"module imports, but using multiple imports per line uses less screen space."
+msgstr ""
+
+#: ../../../faq/programming.rst:302
+msgid "It's good practice if you import modules in the following order:"
+msgstr ""
+
+#: ../../../faq/programming.rst:304
+msgid "standard library modules -- e.g. ``sys``, ``os``, ``getopt``, ``re``"
+msgstr ""
+
+#: ../../../faq/programming.rst:305
+msgid ""
+"third-party library modules (anything installed in Python's site-packages "
+"directory) -- e.g. mx.DateTime, ZODB, PIL.Image, etc."
+msgstr ""
+
+#: ../../../faq/programming.rst:307
+msgid "locally-developed modules"
+msgstr ""
+
+#: ../../../faq/programming.rst:309
+msgid ""
+"Never use relative package imports.  If you're writing code that's in the "
+"``package.sub.m1`` module and want to import ``package.sub.m2``, do not just "
+"write ``from . import m2``, even though it's legal.  Write ``from package."
+"sub import m2`` instead.  See :pep:`328` for details."
+msgstr ""
+
+#: ../../../faq/programming.rst:314
+msgid ""
+"It is sometimes necessary to move imports to a function or class to avoid "
+"problems with circular imports.  Gordon McMillan says:"
+msgstr ""
+
+#: ../../../faq/programming.rst:317
+msgid ""
+"Circular imports are fine where both modules use the \"import <module>\" "
+"form of import.  They fail when the 2nd module wants to grab a name out of "
+"the first (\"from module import name\") and the import is at the top level.  "
+"That's because names in the 1st are not yet available, because the first "
+"module is busy importing the 2nd."
+msgstr ""
+
+#: ../../../faq/programming.rst:323
+msgid ""
+"In this case, if the second module is only used in one function, then the "
+"import can easily be moved into that function.  By the time the import is "
+"called, the first module will have finished initializing, and the second "
+"module can do its import."
+msgstr ""
+
+#: ../../../faq/programming.rst:328
+msgid ""
+"It may also be necessary to move imports out of the top level of code if "
+"some of the modules are platform-specific.  In that case, it may not even be "
+"possible to import all of the modules at the top of the file.  In this case, "
+"importing the correct modules in the corresponding platform-specific code is "
+"a good option."
+msgstr ""
+
+#: ../../../faq/programming.rst:333
+msgid ""
+"Only move imports into a local scope, such as inside a function definition, "
+"if it's necessary to solve a problem such as avoiding a circular import or "
+"are trying to reduce the initialization time of a module.  This technique is "
+"especially helpful if many of the imports are unnecessary depending on how "
+"the program executes.  You may also want to move imports into a function if "
+"the modules are only ever used in that function.  Note that loading a module "
+"the first time may be expensive because of the one time initialization of "
+"the module, but loading a module multiple times is virtually free, costing "
+"only a couple of dictionary lookups.  Even if the module name has gone out "
+"of scope, the module is probably available in :data:`sys.modules`."
+msgstr ""
+
+#: ../../../faq/programming.rst:344
+msgid ""
+"If only instances of a specific class use a module, then it is reasonable to "
+"import the module in the class's ``__init__`` method and then assign the "
+"module to an instance variable so that the module is always available (via "
+"that instance variable) during the life of the object.  Note that to delay "
+"an import until the class is instantiated, the import must be inside a "
+"method.  Putting the import inside the class but outside of any method still "
+"causes the import to occur when the module is initialized."
+msgstr ""
+
+#: ../../../faq/programming.rst:354
+msgid ""
+"How can I pass optional or keyword parameters from one function to another?"
+msgstr ""
+
+#: ../../../faq/programming.rst:356
+msgid ""
+"Collect the arguments using the ``*`` and ``**`` specifiers in the "
+"function's parameter list; this gives you the positional arguments as a "
+"tuple and the keyword arguments as a dictionary.  You can then pass these "
+"arguments when calling another function by using ``*`` and ``**``::"
+msgstr ""
+
+#: ../../../faq/programming.rst:375
+msgid "What is the difference between arguments and parameters?"
+msgstr ""
+
+#: ../../../faq/programming.rst:377
+msgid ""
+":term:`Parameters <parameter>` are defined by the names that appear in a "
+"function definition, whereas :term:`arguments <argument>` are the values "
+"actually passed to a function when calling it.  Parameters define what types "
+"of arguments a function can accept.  For example, given the function "
+"definition::"
+msgstr ""
+
+#: ../../../faq/programming.rst:385
+msgid ""
+"*foo*, *bar* and *kwargs* are parameters of ``func``.  However, when calling "
+"``func``, for example::"
+msgstr ""
+
+#: ../../../faq/programming.rst:390
+msgid "the values ``42``, ``314``, and ``somevar`` are arguments."
+msgstr ""
+
+#: ../../../faq/programming.rst:394
+msgid "How do I write a function with output parameters (call by reference)?"
+msgstr ""
+
+#: ../../../faq/programming.rst:396
+msgid ""
+"Remember that arguments are passed by assignment in Python.  Since "
+"assignment just creates references to objects, there's no alias between an "
+"argument name in the caller and callee, and so no call-by-reference per se.  "
+"You can achieve the desired effect in a number of ways."
+msgstr ""
+
+#: ../../../faq/programming.rst:401
+msgid "By returning a tuple of the results::"
+msgstr ""
+
+#: ../../../faq/programming.rst:412
+msgid "This is almost always the clearest solution."
+msgstr ""
+
+#: ../../../faq/programming.rst:414
+msgid ""
+"By using global variables.  This isn't thread-safe, and is not recommended."
+msgstr ""
+
+#: ../../../faq/programming.rst:416
+msgid "By passing a mutable (changeable in-place) object::"
+msgstr ""
+
+#: ../../../faq/programming.rst:426
+msgid "By passing in a dictionary that gets mutated::"
+msgstr ""
+
+#: ../../../faq/programming.rst:436
+msgid "Or bundle up values in a class instance::"
+msgstr ""
+
+#: ../../../faq/programming.rst:452
+msgid "There's almost never a good reason to get this complicated."
+msgstr ""
+
+#: ../../../faq/programming.rst:454
+msgid "Your best choice is to return a tuple containing the multiple results."
+msgstr ""
+
+#: ../../../faq/programming.rst:458
+msgid "How do you make a higher order function in Python?"
+msgstr ""
+
+#: ../../../faq/programming.rst:460
+msgid ""
+"You have two choices: you can use nested scopes or you can use callable "
+"objects. For example, suppose you wanted to define ``linear(a,b)`` which "
+"returns a function ``f(x)`` that computes the value ``a*x+b``.  Using nested "
+"scopes::"
+msgstr ""
+
+#: ../../../faq/programming.rst:469
+msgid "Or using a callable object::"
+msgstr ""
+
+#: ../../../faq/programming.rst:479
+msgid "In both cases, ::"
+msgstr ""
+
+#: ../../../faq/programming.rst:483
+msgid "gives a callable object where ``taxes(10e6) == 0.3 * 10e6 + 2``."
+msgstr ""
+
+#: ../../../faq/programming.rst:485
+msgid ""
+"The callable object approach has the disadvantage that it is a bit slower "
+"and results in slightly longer code.  However, note that a collection of "
+"callables can share their signature via inheritance::"
+msgstr ""
+
+#: ../../../faq/programming.rst:494
+msgid "Object can encapsulate state for several methods::"
+msgstr ""
+
+#: ../../../faq/programming.rst:512
+msgid ""
+"Here ``inc()``, ``dec()`` and ``reset()`` act like functions which share the "
+"same counting variable."
+msgstr ""
+
+#: ../../../faq/programming.rst:517
+msgid "How do I copy an object in Python?"
+msgstr ""
+
+#: ../../../faq/programming.rst:519
+msgid ""
+"In general, try :func:`copy.copy` or :func:`copy.deepcopy` for the general "
+"case. Not all objects can be copied, but most can."
+msgstr ""
+
+#: ../../../faq/programming.rst:522
+msgid ""
+"Some objects can be copied more easily.  Dictionaries have a :meth:`~dict."
+"copy` method::"
+msgstr ""
+
+#: ../../../faq/programming.rst:527
+msgid "Sequences can be copied by slicing::"
+msgstr ""
+
+#: ../../../faq/programming.rst:533
+msgid "How can I find the methods or attributes of an object?"
+msgstr ""
+
+#: ../../../faq/programming.rst:535
+msgid ""
+"For an instance x of a user-defined class, ``dir(x)`` returns an "
+"alphabetized list of the names containing the instance attributes and "
+"methods and attributes defined by its class."
+msgstr ""
+
+#: ../../../faq/programming.rst:541
+msgid "How can my code discover the name of an object?"
+msgstr ""
+
+#: ../../../faq/programming.rst:543
+msgid ""
+"Generally speaking, it can't, because objects don't really have names. "
+"Essentially, assignment always binds a name to a value; The same is true of "
+"``def`` and ``class`` statements, but in that case the value is a callable. "
+"Consider the following code::"
+msgstr ""
+
+#: ../../../faq/programming.rst:560
+msgid ""
+"Arguably the class has a name: even though it is bound to two names and "
+"invoked through the name B the created instance is still reported as an "
+"instance of class A.  However, it is impossible to say whether the "
+"instance's name is a or b, since both names are bound to the same value."
+msgstr ""
+
+#: ../../../faq/programming.rst:565
+msgid ""
+"Generally speaking it should not be necessary for your code to \"know the "
+"names\" of particular values. Unless you are deliberately writing "
+"introspective programs, this is usually an indication that a change of "
+"approach might be beneficial."
+msgstr ""
+
+#: ../../../faq/programming.rst:570
+msgid ""
+"In comp.lang.python, Fredrik Lundh once gave an excellent analogy in answer "
+"to this question:"
+msgstr ""
+
+#: ../../../faq/programming.rst:573
+msgid ""
+"The same way as you get the name of that cat you found on your porch: the "
+"cat (object) itself cannot tell you its name, and it doesn't really care -- "
+"so the only way to find out what it's called is to ask all your neighbours "
+"(namespaces) if it's their cat (object)..."
+msgstr ""
+
+#: ../../../faq/programming.rst:578
+msgid ""
+"....and don't be surprised if you'll find that it's known by many names, or "
+"no name at all!"
+msgstr ""
+
+#: ../../../faq/programming.rst:583
+msgid "What's up with the comma operator's precedence?"
+msgstr ""
+
+#: ../../../faq/programming.rst:585
+msgid "Comma is not an operator in Python.  Consider this session::"
+msgstr ""
+
+#: ../../../faq/programming.rst:590
+msgid ""
+"Since the comma is not an operator, but a separator between expressions the "
+"above is evaluated as if you had entered::"
+msgstr ""
+
+#: ../../../faq/programming.rst:595
+msgid "not::"
+msgstr ""
+
+#: ../../../faq/programming.rst:599
+msgid ""
+"The same is true of the various assignment operators (``=``, ``+=`` etc).  "
+"They are not truly operators but syntactic delimiters in assignment "
+"statements."
+msgstr ""
+
+#: ../../../faq/programming.rst:604
+msgid "Is there an equivalent of C's \"?:\" ternary operator?"
+msgstr ""
+
+#: ../../../faq/programming.rst:606
+msgid "Yes, there is. The syntax is as follows::"
+msgstr ""
+
+#: ../../../faq/programming.rst:613
+msgid ""
+"Before this syntax was introduced in Python 2.5, a common idiom was to use "
+"logical operators::"
+msgstr ""
+
+#: ../../../faq/programming.rst:618
+msgid ""
+"However, this idiom is unsafe, as it can give wrong results when *on_true* "
+"has a false boolean value.  Therefore, it is always better to use the ``... "
+"if ... else ...`` form."
+msgstr ""
+
+#: ../../../faq/programming.rst:624
+msgid "Is it possible to write obfuscated one-liners in Python?"
+msgstr ""
+
+#: ../../../faq/programming.rst:626
+msgid ""
+"Yes.  Usually this is done by nesting :keyword:`lambda` within :keyword:"
+"`lambda`.  See the following three examples, due to Ulf Bartelt::"
+msgstr ""
+
+#: ../../../faq/programming.rst:653
+msgid "Don't try this at home, kids!"
+msgstr ""
+
+#: ../../../faq/programming.rst:657
+msgid "Numbers and strings"
+msgstr ""
+
+#: ../../../faq/programming.rst:660
+msgid "How do I specify hexadecimal and octal integers?"
+msgstr ""
+
+#: ../../../faq/programming.rst:662
+msgid ""
+"To specify an octal digit, precede the octal value with a zero, and then a "
+"lower or uppercase \"o\".  For example, to set the variable \"a\" to the "
+"octal value \"10\" (8 in decimal), type::"
+msgstr ""
+
+#: ../../../faq/programming.rst:670
+msgid ""
+"Hexadecimal is just as easy.  Simply precede the hexadecimal number with a "
+"zero, and then a lower or uppercase \"x\".  Hexadecimal digits can be "
+"specified in lower or uppercase.  For example, in the Python interpreter::"
+msgstr ""
+
+#: ../../../faq/programming.rst:683
+msgid "Why does -22 // 10 return -3?"
+msgstr ""
+
+#: ../../../faq/programming.rst:685
+msgid ""
+"It's primarily driven by the desire that ``i % j`` have the same sign as "
+"``j``. If you want that, and also want::"
+msgstr ""
+
+#: ../../../faq/programming.rst:690
+msgid ""
+"then integer division has to return the floor.  C also requires that "
+"identity to hold, and then compilers that truncate ``i // j`` need to make "
+"``i % j`` have the same sign as ``i``."
+msgstr ""
+
+#: ../../../faq/programming.rst:694
+msgid ""
+"There are few real use cases for ``i % j`` when ``j`` is negative.  When "
+"``j`` is positive, there are many, and in virtually all of them it's more "
+"useful for ``i % j`` to be ``>= 0``.  If the clock says 10 now, what did it "
+"say 200 hours ago?  ``-190 % 12 == 2`` is useful; ``-190 % 12 == -10`` is a "
+"bug waiting to bite."
+msgstr ""
+
+#: ../../../faq/programming.rst:702
+msgid "How do I convert a string to a number?"
+msgstr ""
+
+#: ../../../faq/programming.rst:704
+msgid ""
+"For integers, use the built-in :func:`int` type constructor, e.g. "
+"``int('144') == 144``.  Similarly, :func:`float` converts to floating-point, "
+"e.g. ``float('144') == 144.0``."
+msgstr ""
+
+#: ../../../faq/programming.rst:708
+msgid ""
+"By default, these interpret the number as decimal, so that ``int('0144') == "
+"144`` and ``int('0x144')`` raises :exc:`ValueError`. ``int(string, base)`` "
+"takes the base to convert from as a second optional argument, so "
+"``int('0x144', 16) == 324``.  If the base is specified as 0, the number is "
+"interpreted using Python's rules: a leading '0' indicates octal, and '0x' "
+"indicates a hex number."
+msgstr ""
+
+#: ../../../faq/programming.rst:714
+msgid ""
+"Do not use the built-in function :func:`eval` if all you need is to convert "
+"strings to numbers.  :func:`eval` will be significantly slower and it "
+"presents a security risk: someone could pass you a Python expression that "
+"might have unwanted side effects.  For example, someone could pass "
+"``__import__('os').system(\"rm -rf $HOME\")`` which would erase your home "
+"directory."
+msgstr ""
+
+#: ../../../faq/programming.rst:721
+msgid ""
+":func:`eval` also has the effect of interpreting numbers as Python "
+"expressions, so that e.g. ``eval('09')`` gives a syntax error because Python "
+"does not allow leading '0' in a decimal number (except '0')."
+msgstr ""
+
+#: ../../../faq/programming.rst:727
+msgid "How do I convert a number to a string?"
+msgstr ""
+
+#: ../../../faq/programming.rst:729
+msgid ""
+"To convert, e.g., the number 144 to the string '144', use the built-in type "
+"constructor :func:`str`.  If you want a hexadecimal or octal representation, "
+"use the built-in functions :func:`hex` or :func:`oct`.  For fancy "
+"formatting, see the :ref:`string-formatting` section, e.g. ``\"{:04d}\"."
+"format(144)`` yields ``'0144'`` and ``\"{:.3f}\".format(1/3)`` yields "
+"``'0.333'``."
+msgstr ""
+
+#: ../../../faq/programming.rst:737
+msgid "How do I modify a string in place?"
+msgstr ""
+
+#: ../../../faq/programming.rst:739
+msgid ""
+"You can't, because strings are immutable.  In most situations, you should "
+"simply construct a new string from the various parts you want to assemble it "
+"from.  However, if you need an object with the ability to modify in-place "
+"unicode data, try using a :class:`io.StringIO` object or the :mod:`array` "
+"module::"
+msgstr ""
+
+#: ../../../faq/programming.rst:768
+msgid "How do I use strings to call functions/methods?"
+msgstr ""
+
+#: ../../../faq/programming.rst:770
+msgid "There are various techniques."
+msgstr ""
+
+#: ../../../faq/programming.rst:772
+msgid ""
+"The best is to use a dictionary that maps strings to functions.  The primary "
+"advantage of this technique is that the strings do not need to match the "
+"names of the functions.  This is also the primary technique used to emulate "
+"a case construct::"
+msgstr ""
+
+#: ../../../faq/programming.rst:787
+msgid "Use the built-in function :func:`getattr`::"
+msgstr ""
+
+#: ../../../faq/programming.rst:792
+msgid ""
+"Note that :func:`getattr` works on any object, including classes, class "
+"instances, modules, and so on."
+msgstr ""
+
+#: ../../../faq/programming.rst:795
+msgid "This is used in several places in the standard library, like this::"
+msgstr ""
+
+#: ../../../faq/programming.rst:808
+msgid "Use :func:`locals` or :func:`eval` to resolve the function name::"
+msgstr ""
+
+#: ../../../faq/programming.rst:821
+msgid ""
+"Note: Using :func:`eval` is slow and dangerous.  If you don't have absolute "
+"control over the contents of the string, someone could pass a string that "
+"resulted in an arbitrary function being executed."
+msgstr ""
+
+#: ../../../faq/programming.rst:826
+msgid ""
+"Is there an equivalent to Perl's chomp() for removing trailing newlines from "
+"strings?"
+msgstr ""
+
+#: ../../../faq/programming.rst:828
+msgid ""
+"You can use ``S.rstrip(\"\\r\\n\")`` to remove all occurrences of any line "
+"terminator from the end of the string ``S`` without removing other trailing "
+"whitespace.  If the string ``S`` represents more than one line, with several "
+"empty lines at the end, the line terminators for all the blank lines will be "
+"removed::"
+msgstr ""
+
+#: ../../../faq/programming.rst:840
+msgid ""
+"Since this is typically only desired when reading text one line at a time, "
+"using ``S.rstrip()`` this way works well."
+msgstr ""
+
+#: ../../../faq/programming.rst:845
+msgid "Is there a scanf() or sscanf() equivalent?"
+msgstr ""
+
+#: ../../../faq/programming.rst:847
+msgid "Not as such."
+msgstr ""
+
+#: ../../../faq/programming.rst:849
+msgid ""
+"For simple input parsing, the easiest approach is usually to split the line "
+"into whitespace-delimited words using the :meth:`~str.split` method of "
+"string objects and then convert decimal strings to numeric values using :"
+"func:`int` or :func:`float`.  ``split()`` supports an optional \"sep\" "
+"parameter which is useful if the line uses something other than whitespace "
+"as a separator."
+msgstr ""
+
+#: ../../../faq/programming.rst:855
+msgid ""
+"For more complicated input parsing, regular expressions are more powerful "
+"than C's :c:func:`sscanf` and better suited for the task."
+msgstr ""
+
+#: ../../../faq/programming.rst:860
+msgid "What does 'UnicodeDecodeError' or 'UnicodeEncodeError' error  mean?"
+msgstr ""
+
+#: ../../../faq/programming.rst:862
+msgid "See the :ref:`unicode-howto`."
+msgstr ""
+
+#: ../../../faq/programming.rst:866
+msgid "Performance"
+msgstr ""
+
+#: ../../../faq/programming.rst:869
+msgid "My program is too slow. How do I speed it up?"
+msgstr ""
+
+#: ../../../faq/programming.rst:871
+msgid ""
+"That's a tough one, in general.  First, here are a list of things to "
+"remember before diving further:"
+msgstr ""
+
+#: ../../../faq/programming.rst:874
+msgid ""
+"Performance characteristics vary across Python implementations.  This FAQ "
+"focusses on :term:`CPython`."
+msgstr ""
+
+#: ../../../faq/programming.rst:876
+msgid ""
+"Behaviour can vary across operating systems, especially when talking about I/"
+"O or multi-threading."
+msgstr ""
+
+#: ../../../faq/programming.rst:878
+msgid ""
+"You should always find the hot spots in your program *before* attempting to "
+"optimize any code (see the :mod:`profile` module)."
+msgstr ""
+
+#: ../../../faq/programming.rst:880
+msgid ""
+"Writing benchmark scripts will allow you to iterate quickly when searching "
+"for improvements (see the :mod:`timeit` module)."
+msgstr ""
+
+#: ../../../faq/programming.rst:882
+msgid ""
+"It is highly recommended to have good code coverage (through unit testing or "
+"any other technique) before potentially introducing regressions hidden in "
+"sophisticated optimizations."
+msgstr ""
+
+#: ../../../faq/programming.rst:886
+msgid ""
+"That being said, there are many tricks to speed up Python code.  Here are "
+"some general principles which go a long way towards reaching acceptable "
+"performance levels:"
+msgstr ""
+
+#: ../../../faq/programming.rst:890
+msgid ""
+"Making your algorithms faster (or changing to faster ones) can yield much "
+"larger benefits than trying to sprinkle micro-optimization tricks all over "
+"your code."
+msgstr ""
+
+#: ../../../faq/programming.rst:894
+msgid ""
+"Use the right data structures.  Study documentation for the :ref:`bltin-"
+"types` and the :mod:`collections` module."
+msgstr ""
+
+#: ../../../faq/programming.rst:897
+msgid ""
+"When the standard library provides a primitive for doing something, it is "
+"likely (although not guaranteed) to be faster than any alternative you may "
+"come up with.  This is doubly true for primitives written in C, such as "
+"builtins and some extension types.  For example, be sure to use either the :"
+"meth:`list.sort` built-in method or the related :func:`sorted` function to "
+"do sorting (and see the `sorting mini-HOWTO <http://wiki.python.org/moin/"
+"HowTo/Sorting>`_ for examples of moderately advanced usage)."
+msgstr ""
+
+#: ../../../faq/programming.rst:906
+msgid ""
+"Abstractions tend to create indirections and force the interpreter to work "
+"more.  If the levels of indirection outweigh the amount of useful work done, "
+"your program will be slower.  You should avoid excessive abstraction, "
+"especially under the form of tiny functions or methods (which are also often "
+"detrimental to readability)."
+msgstr ""
+
+#: ../../../faq/programming.rst:912
+msgid ""
+"If you have reached the limit of what pure Python can allow, there are tools "
+"to take you further away.  For example, `Cython <http://cython.org>`_ can "
+"compile a slightly modified version of Python code into a C extension, and "
+"can be used on many different platforms.  Cython can take advantage of "
+"compilation (and optional type annotations) to make your code significantly "
+"faster than when interpreted.  If you are confident in your C programming "
+"skills, you can also :ref:`write a C extension module <extending-index>` "
+"yourself."
+msgstr ""
+
+#: ../../../faq/programming.rst:922
+msgid ""
+"The wiki page devoted to `performance tips <http://wiki.python.org/moin/"
+"PythonSpeed/PerformanceTips>`_."
+msgstr ""
+
+#: ../../../faq/programming.rst:928
+msgid "What is the most efficient way to concatenate many strings together?"
+msgstr ""
+
+#: ../../../faq/programming.rst:930
+msgid ""
+":class:`str` and :class:`bytes` objects are immutable, therefore "
+"concatenating many strings together is inefficient as each concatenation "
+"creates a new object.  In the general case, the total runtime cost is "
+"quadratic in the total string length."
+msgstr ""
+
+#: ../../../faq/programming.rst:935
+msgid ""
+"To accumulate many :class:`str` objects, the recommended idiom is to place "
+"them into a list and call :meth:`str.join` at the end::"
+msgstr ""
+
+#: ../../../faq/programming.rst:943
+msgid "(another reasonably efficient idiom is to use :class:`io.StringIO`)"
+msgstr ""
+
+#: ../../../faq/programming.rst:945
+msgid ""
+"To accumulate many :class:`bytes` objects, the recommended idiom is to "
+"extend a :class:`bytearray` object using in-place concatenation (the ``+=`` "
+"operator)::"
+msgstr ""
+
+#: ../../../faq/programming.rst:954
+msgid "Sequences (Tuples/Lists)"
+msgstr ""
+
+#: ../../../faq/programming.rst:957
+msgid "How do I convert between tuples and lists?"
+msgstr ""
+
+#: ../../../faq/programming.rst:959
+msgid ""
+"The type constructor ``tuple(seq)`` converts any sequence (actually, any "
+"iterable) into a tuple with the same items in the same order."
+msgstr ""
+
+#: ../../../faq/programming.rst:962
+msgid ""
+"For example, ``tuple([1, 2, 3])`` yields ``(1, 2, 3)`` and ``tuple('abc')`` "
+"yields ``('a', 'b', 'c')``.  If the argument is a tuple, it does not make a "
+"copy but returns the same object, so it is cheap to call :func:`tuple` when "
+"you aren't sure that an object is already a tuple."
+msgstr ""
+
+#: ../../../faq/programming.rst:967
+msgid ""
+"The type constructor ``list(seq)`` converts any sequence or iterable into a "
+"list with the same items in the same order.  For example, ``list((1, 2, "
+"3))`` yields ``[1, 2, 3]`` and ``list('abc')`` yields ``['a', 'b', 'c']``.  "
+"If the argument is a list, it makes a copy just like ``seq[:]`` would."
+msgstr ""
+
+#: ../../../faq/programming.rst:974
+msgid "What's a negative index?"
+msgstr ""
+
+#: ../../../faq/programming.rst:976
+msgid ""
+"Python sequences are indexed with positive numbers and negative numbers.  "
+"For positive numbers 0 is the first index 1 is the second index and so "
+"forth.  For negative indices -1 is the last index and -2 is the penultimate "
+"(next to last) index and so forth.  Think of ``seq[-n]`` as the same as "
+"``seq[len(seq)-n]``."
+msgstr ""
+
+#: ../../../faq/programming.rst:981
+msgid ""
+"Using negative indices can be very convenient.  For example ``S[:-1]`` is "
+"all of the string except for its last character, which is useful for "
+"removing the trailing newline from a string."
+msgstr ""
+
+#: ../../../faq/programming.rst:987
+msgid "How do I iterate over a sequence in reverse order?"
+msgstr ""
+
+#: ../../../faq/programming.rst:989
+msgid ""
+"Use the :func:`reversed` built-in function, which is new in Python 2.4::"
+msgstr ""
+
+#: ../../../faq/programming.rst:994
+msgid ""
+"This won't touch your original sequence, but build a new copy with reversed "
+"order to iterate over."
+msgstr ""
+
+#: ../../../faq/programming.rst:997
+msgid "With Python 2.3, you can use an extended slice syntax::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1004
+msgid "How do you remove duplicates from a list?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1006
+msgid "See the Python Cookbook for a long discussion of many ways to do this:"
+msgstr ""
+
+#: ../../../faq/programming.rst:1008
+msgid "http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/52560"
+msgstr ""
+
+#: ../../../faq/programming.rst:1010
+msgid ""
+"If you don't mind reordering the list, sort it and then scan from the end of "
+"the list, deleting duplicates as you go::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1022
+msgid ""
+"If all elements of the list may be used as set keys (i.e. they are all :term:"
+"`hashable`) this is often faster ::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1027
+msgid ""
+"This converts the list into a set, thereby removing duplicates, and then "
+"back into a list."
+msgstr ""
+
+#: ../../../faq/programming.rst:1032
+msgid "How do you make an array in Python?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1034
+msgid "Use a list::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1038
+msgid ""
+"Lists are equivalent to C or Pascal arrays in their time complexity; the "
+"primary difference is that a Python list can contain objects of many "
+"different types."
+msgstr ""
+
+#: ../../../faq/programming.rst:1041
+msgid ""
+"The ``array`` module also provides methods for creating arrays of fixed "
+"types with compact representations, but they are slower to index than "
+"lists.  Also note that the Numeric extensions and others define array-like "
+"structures with various characteristics as well."
+msgstr ""
+
+#: ../../../faq/programming.rst:1046
+msgid ""
+"To get Lisp-style linked lists, you can emulate cons cells using tuples::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1050
+msgid ""
+"If mutability is desired, you could use lists instead of tuples.  Here the "
+"analogue of lisp car is ``lisp_list[0]`` and the analogue of cdr is "
+"``lisp_list[1]``.  Only do this if you're sure you really need to, because "
+"it's usually a lot slower than using Python lists."
+msgstr ""
+
+#: ../../../faq/programming.rst:1057
+msgid "How do I create a multidimensional list?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1059
+msgid "You probably tried to make a multidimensional array like this::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1063
+msgid "This looks correct if you print it::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1068
+msgid "But when you assign a value, it shows up in multiple places:"
+msgstr ""
+
+#: ../../../faq/programming.rst:1074
+msgid ""
+"The reason is that replicating a list with ``*`` doesn't create copies, it "
+"only creates references to the existing objects.  The ``*3`` creates a list "
+"containing 3 references to the same list of length two.  Changes to one row "
+"will show in all rows, which is almost certainly not what you want."
+msgstr ""
+
+#: ../../../faq/programming.rst:1079
+msgid ""
+"The suggested approach is to create a list of the desired length first and "
+"then fill in each element with a newly created list::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1086
+msgid ""
+"This generates a list containing 3 different lists of length two.  You can "
+"also use a list comprehension::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1092
+msgid ""
+"Or, you can use an extension that provides a matrix datatype; `Numeric "
+"Python <http://numpy.scipy.org/>`_ is the best known."
+msgstr ""
+
+#: ../../../faq/programming.rst:1097
+msgid "How do I apply a method to a sequence of objects?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1099
+msgid "Use a list comprehension::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1105
+msgid "Dictionaries"
+msgstr ""
+
+#: ../../../faq/programming.rst:1108
+msgid "How can I get a dictionary to display its keys in a consistent order?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1110
+msgid ""
+"You can't.  Dictionaries store their keys in an unpredictable order, so the "
+"display order of a dictionary's elements will be similarly unpredictable."
+msgstr ""
+
+#: ../../../faq/programming.rst:1113
+msgid ""
+"This can be frustrating if you want to save a printable version to a file, "
+"make some changes and then compare it with some other printed dictionary.  "
+"In this case, use the ``pprint`` module to pretty-print the dictionary; the "
+"items will be presented in order sorted by the key."
+msgstr ""
+
+#: ../../../faq/programming.rst:1118
+msgid ""
+"A more complicated solution is to subclass ``dict`` to create a "
+"``SortedDict`` class that prints itself in a predictable order.  Here's one "
+"simpleminded implementation of such a class::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1130
+msgid ""
+"This will work for many common situations you might encounter, though it's "
+"far from a perfect solution. The largest flaw is that if some values in the "
+"dictionary are also dictionaries, their values won't be presented in any "
+"particular order."
+msgstr ""
+
+#: ../../../faq/programming.rst:1137
+msgid ""
+"I want to do a complicated sort: can you do a Schwartzian Transform in "
+"Python?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1139
+msgid ""
+"The technique, attributed to Randal Schwartz of the Perl community, sorts "
+"the elements of a list by a metric which maps each element to its \"sort "
+"value\". In Python, just use the ``key`` argument for the ``sort()`` method::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1146
+msgid ""
+"The ``key`` argument is new in Python 2.4, for older versions this kind of "
+"sorting is quite simple to do with list comprehensions.  To sort a list of "
+"strings by their uppercase values::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1154
+msgid ""
+"To sort by the integer value of a subfield extending from positions 10-15 in "
+"each string::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1161
+msgid "For versions prior to 3.0, Isorted may also be computed by ::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1172
+msgid ""
+"but since this method calls ``intfield()`` many times for each element of L, "
+"it is slower than the Schwartzian Transform."
+msgstr ""
+
+#: ../../../faq/programming.rst:1177
+msgid "How can I sort one list by values from another list?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1179
+msgid ""
+"Merge them into an iterator of tuples, sort the resulting list, and then "
+"pick out the element you want. ::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1193
+msgid "An alternative for the last step is::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1198
+msgid ""
+"If you find this more legible, you might prefer to use this instead of the "
+"final list comprehension.  However, it is almost twice as slow for long "
+"lists.  Why? First, the ``append()`` operation has to reallocate memory, and "
+"while it uses some tricks to avoid doing that each time, it still has to do "
+"it occasionally, and that costs quite a bit.  Second, the expression "
+"\"result.append\" requires an extra attribute lookup, and third, there's a "
+"speed reduction from having to make all those function calls."
+msgstr ""
+
+#: ../../../faq/programming.rst:1208
+msgid "Objects"
+msgstr ""
+
+#: ../../../faq/programming.rst:1211
+msgid "What is a class?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1213
+msgid ""
+"A class is the particular object type created by executing a class "
+"statement. Class objects are used as templates to create instance objects, "
+"which embody both the data (attributes) and code (methods) specific to a "
+"datatype."
+msgstr ""
+
+#: ../../../faq/programming.rst:1217
+msgid ""
+"A class can be based on one or more other classes, called its base "
+"class(es). It then inherits the attributes and methods of its base classes. "
+"This allows an object model to be successively refined by inheritance.  You "
+"might have a generic ``Mailbox`` class that provides basic accessor methods "
+"for a mailbox, and subclasses such as ``MboxMailbox``, ``MaildirMailbox``, "
+"``OutlookMailbox`` that handle various specific mailbox formats."
+msgstr ""
+
+#: ../../../faq/programming.rst:1226
+msgid "What is a method?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1228
+msgid ""
+"A method is a function on some object ``x`` that you normally call as ``x."
+"name(arguments...)``.  Methods are defined as functions inside the class "
+"definition::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1238
+msgid "What is self?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1240
+msgid ""
+"Self is merely a conventional name for the first argument of a method.  A "
+"method defined as ``meth(self, a, b, c)`` should be called as ``x.meth(a, b, "
+"c)`` for some instance ``x`` of the class in which the definition occurs; "
+"the called method will think it is called as ``meth(x, a, b, c)``."
+msgstr ""
+
+#: ../../../faq/programming.rst:1245
+msgid "See also :ref:`why-self`."
+msgstr ""
+
+#: ../../../faq/programming.rst:1249
+msgid ""
+"How do I check if an object is an instance of a given class or of a subclass "
+"of it?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1251
+msgid ""
+"Use the built-in function ``isinstance(obj, cls)``.  You can check if an "
+"object is an instance of any of a number of classes by providing a tuple "
+"instead of a single class, e.g. ``isinstance(obj, (class1, class2, ...))``, "
+"and can also check whether an object is one of Python's built-in types, e.g. "
+"``isinstance(obj, str)`` or ``isinstance(obj, (int, float, complex))``."
+msgstr ""
+
+#: ../../../faq/programming.rst:1257
+msgid ""
+"Note that most programs do not use :func:`isinstance` on user-defined "
+"classes very often.  If you are developing the classes yourself, a more "
+"proper object-oriented style is to define methods on the classes that "
+"encapsulate a particular behaviour, instead of checking the object's class "
+"and doing a different thing based on what class it is.  For example, if you "
+"have a function that does something::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1271
+msgid ""
+"A better approach is to define a ``search()`` method on all the classes and "
+"just call it::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1286
+msgid "What is delegation?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1288
+msgid ""
+"Delegation is an object oriented technique (also called a design pattern). "
+"Let's say you have an object ``x`` and want to change the behaviour of just "
+"one of its methods.  You can create a new class that provides a new "
+"implementation of the method you're interested in changing and delegates all "
+"other methods to the corresponding method of ``x``."
+msgstr ""
+
+#: ../../../faq/programming.rst:1294
+msgid ""
+"Python programmers can easily implement delegation.  For example, the "
+"following class implements a class that behaves like a file but converts all "
+"written data to uppercase::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1309
+msgid ""
+"Here the ``UpperOut`` class redefines the ``write()`` method to convert the "
+"argument string to uppercase before calling the underlying ``self.__outfile."
+"write()`` method.  All other methods are delegated to the underlying ``self."
+"__outfile`` object.  The delegation is accomplished via the ``__getattr__`` "
+"method; consult :ref:`the language reference <attribute-access>` for more "
+"information about controlling attribute access."
+msgstr ""
+
+#: ../../../faq/programming.rst:1316
+msgid ""
+"Note that for more general cases delegation can get trickier. When "
+"attributes must be set as well as retrieved, the class must define a :meth:"
+"`__setattr__` method too, and it must do so carefully.  The basic "
+"implementation of :meth:`__setattr__` is roughly equivalent to the "
+"following::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1327
+msgid ""
+"Most :meth:`__setattr__` implementations must modify ``self.__dict__`` to "
+"store local state for self without causing an infinite recursion."
+msgstr ""
+
+#: ../../../faq/programming.rst:1332
+msgid ""
+"How do I call a method defined in a base class from a derived class that "
+"overrides it?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1334
+msgid "Use the built-in :func:`super` function::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1340
+msgid ""
+"For version prior to 3.0, you may be using classic classes: For a class "
+"definition such as ``class Derived(Base): ...`` you can call method "
+"``meth()`` defined in ``Base`` (or one of ``Base``'s base classes) as ``Base."
+"meth(self, arguments...)``.  Here, ``Base.meth`` is an unbound method, so "
+"you need to provide the ``self`` argument."
+msgstr ""
+
+#: ../../../faq/programming.rst:1348
+msgid "How can I organize my code to make it easier to change the base class?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1350
+msgid ""
+"You could define an alias for the base class, assign the real base class to "
+"it before your class definition, and use the alias throughout your class.  "
+"Then all you have to change is the value assigned to the alias.  "
+"Incidentally, this trick is also handy if you want to decide dynamically (e."
+"g. depending on availability of resources) which base class to use.  "
+"Example::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1365
+msgid "How do I create static class data and static class methods?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1367
+msgid ""
+"Both static data and static methods (in the sense of C++ or Java) are "
+"supported in Python."
+msgstr ""
+
+#: ../../../faq/programming.rst:1370
+msgid ""
+"For static data, simply define a class attribute.  To assign a new value to "
+"the attribute, you have to explicitly use the class name in the assignment::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1382
+msgid ""
+"``c.count`` also refers to ``C.count`` for any ``c`` such that "
+"``isinstance(c, C)`` holds, unless overridden by ``c`` itself or by some "
+"class on the base-class search path from ``c.__class__`` back to ``C``."
+msgstr ""
+
+#: ../../../faq/programming.rst:1386
+msgid ""
+"Caution: within a method of C, an assignment like ``self.count = 42`` "
+"creates a new and unrelated instance named \"count\" in ``self``'s own "
+"dict.  Rebinding of a class-static data name must always specify the class "
+"whether inside a method or not::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1393
+msgid "Static methods are possible::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1401
+msgid ""
+"However, a far more straightforward way to get the effect of a static method "
+"is via a simple module-level function::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1407
+msgid ""
+"If your code is structured so as to define one class (or tightly related "
+"class hierarchy) per module, this supplies the desired encapsulation."
+msgstr ""
+
+#: ../../../faq/programming.rst:1412
+msgid "How can I overload constructors (or methods) in Python?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1414
+msgid ""
+"This answer actually applies to all methods, but the question usually comes "
+"up first in the context of constructors."
+msgstr ""
+
+#: ../../../faq/programming.rst:1417
+msgid "In C++ you'd write"
+msgstr ""
+
+#: ../../../faq/programming.rst:1426
+msgid ""
+"In Python you have to write a single constructor that catches all cases "
+"using default arguments.  For example::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1436
+msgid "This is not entirely equivalent, but close enough in practice."
+msgstr ""
+
+#: ../../../faq/programming.rst:1438
+msgid "You could also try a variable-length argument list, e.g. ::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1443
+msgid "The same approach works for all method definitions."
+msgstr ""
+
+#: ../../../faq/programming.rst:1447
+msgid "I try to use __spam and I get an error about _SomeClassName__spam."
+msgstr ""
+
+#: ../../../faq/programming.rst:1449
+msgid ""
+"Variable names with double leading underscores are \"mangled\" to provide a "
+"simple but effective way to define class private variables.  Any identifier "
+"of the form ``__spam`` (at least two leading underscores, at most one "
+"trailing underscore) is textually replaced with ``_classname__spam``, where "
+"``classname`` is the current class name with any leading underscores "
+"stripped."
+msgstr ""
+
+#: ../../../faq/programming.rst:1455
+msgid ""
+"This doesn't guarantee privacy: an outside user can still deliberately "
+"access the \"_classname__spam\" attribute, and private values are visible in "
+"the object's ``__dict__``.  Many Python programmers never bother to use "
+"private variable names at all."
+msgstr ""
+
+#: ../../../faq/programming.rst:1462
+msgid "My class defines __del__ but it is not called when I delete the object."
+msgstr ""
+
+#: ../../../faq/programming.rst:1464
+msgid "There are several possible reasons for this."
+msgstr ""
+
+#: ../../../faq/programming.rst:1466
+msgid ""
+"The del statement does not necessarily call :meth:`__del__` -- it simply "
+"decrements the object's reference count, and if this reaches zero :meth:"
+"`__del__` is called."
+msgstr ""
+
+#: ../../../faq/programming.rst:1470
+msgid ""
+"If your data structures contain circular links (e.g. a tree where each child "
+"has a parent reference and each parent has a list of children) the reference "
+"counts will never go back to zero.  Once in a while Python runs an algorithm "
+"to detect such cycles, but the garbage collector might run some time after "
+"the last reference to your data structure vanishes, so your :meth:`__del__` "
+"method may be called at an inconvenient and random time. This is "
+"inconvenient if you're trying to reproduce a problem. Worse, the order in "
+"which object's :meth:`__del__` methods are executed is arbitrary.  You can "
+"run :func:`gc.collect` to force a collection, but there *are* pathological "
+"cases where objects will never be collected."
+msgstr ""
+
+#: ../../../faq/programming.rst:1481
+msgid ""
+"Despite the cycle collector, it's still a good idea to define an explicit "
+"``close()`` method on objects to be called whenever you're done with them.  "
+"The ``close()`` method can then remove attributes that refer to subobjecs.  "
+"Don't call :meth:`__del__` directly -- :meth:`__del__` should call "
+"``close()`` and ``close()`` should make sure that it can be called more than "
+"once for the same object."
+msgstr ""
+
+#: ../../../faq/programming.rst:1488
+msgid ""
+"Another way to avoid cyclical references is to use the :mod:`weakref` "
+"module, which allows you to point to objects without incrementing their "
+"reference count. Tree data structures, for instance, should use weak "
+"references for their parent and sibling references (if they need them!)."
+msgstr ""
+
+#: ../../../faq/programming.rst:1501
+msgid ""
+"Finally, if your :meth:`__del__` method raises an exception, a warning "
+"message is printed to :data:`sys.stderr`."
+msgstr ""
+
+#: ../../../faq/programming.rst:1506
+msgid "How do I get a list of all instances of a given class?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1508
+msgid ""
+"Python does not keep track of all instances of a class (or of a built-in "
+"type). You can program the class's constructor to keep track of all "
+"instances by keeping a list of weak references to each instance."
+msgstr ""
+
+#: ../../../faq/programming.rst:1514
+msgid "Modules"
+msgstr ""
+
+#: ../../../faq/programming.rst:1517
+msgid "How do I create a .pyc file?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1519
+msgid ""
+"When a module is imported for the first time (or when the source is more "
+"recent than the current compiled file) a ``.pyc`` file containing the "
+"compiled code should be created in the same directory as the ``.py`` file."
+msgstr ""
+
+#: ../../../faq/programming.rst:1523
+msgid ""
+"One reason that a ``.pyc`` file may not be created is permissions problems "
+"with the directory. This can happen, for example, if you develop as one user "
+"but run as another, such as if you are testing with a web server.  Creation "
+"of a .pyc file is automatic if you're importing a module and Python has the "
+"ability (permissions, free space, etc...) to write the compiled module back "
+"to the directory."
+msgstr ""
+
+#: ../../../faq/programming.rst:1530
+msgid ""
+"Running Python on a top level script is not considered an import and no ``."
+"pyc`` will be created.  For example, if you have a top-level module ``abc."
+"py`` that imports another module ``xyz.py``, when you run abc, ``xyz.pyc`` "
+"will be created since xyz is imported, but no ``abc.pyc`` file will be "
+"created since ``abc.py`` isn't being imported."
+msgstr ""
+
+#: ../../../faq/programming.rst:1536
+msgid ""
+"If you need to create abc.pyc -- that is, to create a .pyc file for a module "
+"that is not imported -- you can, using the :mod:`py_compile` and :mod:"
+"`compileall` modules."
+msgstr ""
+
+#: ../../../faq/programming.rst:1540
+msgid ""
+"The :mod:`py_compile` module can manually compile any module.  One way is to "
+"use the ``compile()`` function in that module interactively::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1546
+msgid ""
+"This will write the ``.pyc`` to the same location as ``abc.py`` (or you can "
+"override that with the optional parameter ``cfile``)."
+msgstr ""
+
+#: ../../../faq/programming.rst:1549
+msgid ""
+"You can also automatically compile all files in a directory or directories "
+"using the :mod:`compileall` module.  You can do it from the shell prompt by "
+"running ``compileall.py`` and providing the path of a directory containing "
+"Python files to compile::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1558
+msgid "How do I find the current module name?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1560
+msgid ""
+"A module can find out its own module name by looking at the predefined "
+"global variable ``__name__``.  If this has the value ``'__main__'``, the "
+"program is running as a script.  Many modules that are usually used by "
+"importing them also provide a command-line interface or a self-test, and "
+"only execute this code after checking ``__name__``::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1575
+msgid "How can I have modules that mutually import each other?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1577
+msgid "Suppose you have the following modules:"
+msgstr ""
+
+#: ../../../faq/programming.rst:1579
+msgid "foo.py::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1584
+msgid "bar.py::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1589
+msgid "The problem is that the interpreter will perform the following steps:"
+msgstr ""
+
+#: ../../../faq/programming.rst:1591
+msgid "main imports foo"
+msgstr ""
+
+#: ../../../faq/programming.rst:1592
+msgid "Empty globals for foo are created"
+msgstr ""
+
+#: ../../../faq/programming.rst:1593
+msgid "foo is compiled and starts executing"
+msgstr ""
+
+#: ../../../faq/programming.rst:1594
+msgid "foo imports bar"
+msgstr ""
+
+#: ../../../faq/programming.rst:1595
+msgid "Empty globals for bar are created"
+msgstr ""
+
+#: ../../../faq/programming.rst:1596
+msgid "bar is compiled and starts executing"
+msgstr ""
+
+#: ../../../faq/programming.rst:1597
+msgid ""
+"bar imports foo (which is a no-op since there already is a module named foo)"
+msgstr ""
+
+#: ../../../faq/programming.rst:1598
+msgid "bar.foo_var = foo.foo_var"
+msgstr ""
+
+#: ../../../faq/programming.rst:1600
+msgid ""
+"The last step fails, because Python isn't done with interpreting ``foo`` yet "
+"and the global symbol dictionary for ``foo`` is still empty."
+msgstr ""
+
+#: ../../../faq/programming.rst:1603
+msgid ""
+"The same thing happens when you use ``import foo``, and then try to access "
+"``foo.foo_var`` in global code."
+msgstr ""
+
+#: ../../../faq/programming.rst:1606
+msgid "There are (at least) three possible workarounds for this problem."
+msgstr ""
+
+#: ../../../faq/programming.rst:1608
+msgid ""
+"Guido van Rossum recommends avoiding all uses of ``from <module> import ..."
+"``, and placing all code inside functions.  Initializations of global "
+"variables and class variables should use constants or built-in functions "
+"only.  This means everything from an imported module is referenced as "
+"``<module>.<name>``."
+msgstr ""
+
+#: ../../../faq/programming.rst:1613
+msgid ""
+"Jim Roskind suggests performing steps in the following order in each module:"
+msgstr ""
+
+#: ../../../faq/programming.rst:1615
+msgid ""
+"exports (globals, functions, and classes that don't need imported base "
+"classes)"
+msgstr ""
+
+#: ../../../faq/programming.rst:1617
+msgid "``import`` statements"
+msgstr ""
+
+#: ../../../faq/programming.rst:1618
+msgid ""
+"active code (including globals that are initialized from imported values)."
+msgstr ""
+
+#: ../../../faq/programming.rst:1620
+msgid ""
+"van Rossum doesn't like this approach much because the imports appear in a "
+"strange place, but it does work."
+msgstr ""
+
+#: ../../../faq/programming.rst:1623
+msgid ""
+"Matthias Urlichs recommends restructuring your code so that the recursive "
+"import is not necessary in the first place."
+msgstr ""
+
+#: ../../../faq/programming.rst:1626
+msgid "These solutions are not mutually exclusive."
+msgstr ""
+
+#: ../../../faq/programming.rst:1630
+msgid "__import__('x.y.z') returns <module 'x'>; how do I get z?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1632
+msgid "Try::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1636
+msgid "For more realistic situations, you may have to do something like ::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1642
+msgid ""
+"See :mod:`importlib` for a convenience function called :func:`~importlib."
+"import_module`."
+msgstr ""
+
+#: ../../../faq/programming.rst:1648
+msgid ""
+"When I edit an imported module and reimport it, the changes don't show up.  "
+"Why does this happen?"
+msgstr ""
+
+#: ../../../faq/programming.rst:1650
+msgid ""
+"For reasons of efficiency as well as consistency, Python only reads the "
+"module file on the first time a module is imported.  If it didn't, in a "
+"program consisting of many modules where each one imports the same basic "
+"module, the basic module would be parsed and re-parsed many times.  To force "
+"rereading of a changed module, do this::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1660
+msgid ""
+"Warning: this technique is not 100% fool-proof.  In particular, modules "
+"containing statements like ::"
+msgstr ""
+
+#: ../../../faq/programming.rst:1665
+msgid ""
+"will continue to work with the old version of the imported objects.  If the "
+"module contains class definitions, existing class instances will *not* be "
+"updated to use the new class definition.  This can result in the following "
+"paradoxical behaviour:"
+msgstr ""
+
+#: ../../../faq/programming.rst:1678
+msgid ""
+"The nature of the problem is made clear if you print out the \"identity\" of "
+"the class objects:"
+msgstr ""
+
+#: ../../../faq/programming.rst:368
+msgid "argument"
+msgstr ""
+
+#: ../../../faq/programming.rst:368
+msgid "difference from parameter"
+msgstr ""
+
+#: ../../../faq/programming.rst:368
+msgid "parameter"
+msgstr ""
+
+#: ../../../faq/programming.rst:368
+msgid "difference from argument"
+msgstr ""
