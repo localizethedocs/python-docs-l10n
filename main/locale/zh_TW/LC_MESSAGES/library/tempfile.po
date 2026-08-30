@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 09:17+0000\n"
+"POT-Creation-Date: 2026-08-24 09:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,13 +29,14 @@ msgstr ""
 msgid ""
 "This module creates temporary files and directories.  It works on all "
 "supported platforms. :class:`TemporaryFile`, :class:`NamedTemporaryFile`, :"
-"class:`TemporaryDirectory`, and :class:`SpooledTemporaryFile` are high-level "
-"interfaces which provide automatic cleanup and can be used as :term:`context "
-"managers <context manager>`. :func:`mkstemp` and :func:`mkdtemp` are lower-"
-"level functions which require manual cleanup."
+"class:`TemporaryFileWrapper`, :class:`TemporaryDirectory`, and :class:"
+"`SpooledTemporaryFile` are high-level interfaces which provide automatic "
+"cleanup and can be used as :term:`context managers <context manager>`. :func:"
+"`mkstemp` and :func:`mkdtemp` are lower-level functions which require manual "
+"cleanup."
 msgstr ""
 
-#: ../../../library/tempfile.rst:22
+#: ../../../library/tempfile.rst:23
 msgid ""
 "All the user-callable functions and constructors take additional arguments "
 "which allow direct control over the location and name of temporary files and "
@@ -46,11 +47,11 @@ msgid ""
 "clarity."
 msgstr ""
 
-#: ../../../library/tempfile.rst:30
+#: ../../../library/tempfile.rst:31
 msgid "The module defines the following user-callable items:"
 msgstr ""
 
-#: ../../../library/tempfile.rst:34
+#: ../../../library/tempfile.rst:35
 msgid ""
 "Return a :term:`file-like object` that can be used as a temporary storage "
 "area. The file is created securely, using the same rules as :func:`mkstemp`. "
@@ -62,14 +63,14 @@ msgid ""
 "visible name in the file system."
 msgstr ""
 
-#: ../../../library/tempfile.rst:42
+#: ../../../library/tempfile.rst:43
 msgid ""
 "The resulting object can be used as a :term:`context manager` (see :ref:"
 "`tempfile-examples`).  On completion of the context or destruction of the "
 "file object the temporary file will be removed from the filesystem."
 msgstr ""
 
-#: ../../../library/tempfile.rst:47
+#: ../../../library/tempfile.rst:48
 msgid ""
 "The *mode* parameter defaults to ``'w+b'`` so that the file created can be "
 "read and written without being closed.  Binary mode is used so that it "
@@ -78,78 +79,79 @@ msgid ""
 "for :func:`open`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:53
+#: ../../../library/tempfile.rst:54
 msgid ""
 "The *dir*, *prefix* and *suffix* parameters have the same meaning and "
 "defaults as with :func:`mkstemp`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:56
+#: ../../../library/tempfile.rst:57
 msgid ""
 "The returned object is a true file object on POSIX platforms.  On other "
 "platforms, it is a file-like object whose :attr:`!file` attribute is the "
 "underlying true file object."
 msgstr ""
 
-#: ../../../library/tempfile.rst:60
+#: ../../../library/tempfile.rst:61
 msgid ""
 "The :py:const:`os.O_TMPFILE` flag is used if it is available and works "
 "(Linux-specific, requires Linux kernel 3.11 or later)."
 msgstr ""
 
-#: ../../../library/tempfile.rst:63
+#: ../../../library/tempfile.rst:64
 msgid ""
 "On platforms that are neither Posix nor Cygwin, TemporaryFile is an alias "
 "for NamedTemporaryFile."
 msgstr ""
 
-#: ../../../library/tempfile.rst:66 ../../../library/tempfile.rst:135
-#: ../../../library/tempfile.rst:263
+#: ../../../library/tempfile.rst:67 ../../../library/tempfile.rst:136
+#: ../../../library/tempfile.rst:293
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``tempfile.mkstemp`` with "
 "argument ``fullpath``."
 msgstr ""
 
-#: ../../../library/tempfile.rst:70
+#: ../../../library/tempfile.rst:71
 msgid "The :py:const:`os.O_TMPFILE` flag is now used if available."
 msgstr ""
 
-#: ../../../library/tempfile.rst:72 ../../../library/tempfile.rst:137
-#: ../../../library/tempfile.rst:167
+#: ../../../library/tempfile.rst:73 ../../../library/tempfile.rst:138
+#: ../../../library/tempfile.rst:196
 msgid "Added *errors* parameter."
 msgstr ""
 
-#: ../../../library/tempfile.rst:78
+#: ../../../library/tempfile.rst:79
 msgid ""
 "This function operates exactly as :func:`TemporaryFile` does, except the "
 "following differences:"
 msgstr ""
 
-#: ../../../library/tempfile.rst:81
+#: ../../../library/tempfile.rst:82
 msgid ""
 "This function returns a file that is guaranteed to have a visible name in "
 "the file system."
 msgstr ""
 
-#: ../../../library/tempfile.rst:83
+#: ../../../library/tempfile.rst:84
 msgid ""
 "To manage the named file, it extends the parameters of :func:`TemporaryFile` "
 "with *delete* and *delete_on_close* parameters that determine whether and "
 "how the named file should be automatically deleted."
 msgstr ""
 
-#: ../../../library/tempfile.rst:87
+#: ../../../library/tempfile.rst:88
 msgid ""
-"The returned object is always a :term:`file-like object` whose :attr:`!file` "
-"attribute is the underlying true file object. This file-like object can be "
-"used in a :keyword:`with` statement, just like a normal file.  The name of "
-"the temporary file can be retrieved from the :attr:`!name` attribute of the "
+"The returned object is always a :class:`TemporaryFileWrapper` instance (a :"
+"term:`file-like object`) whose :attr:`~TemporaryFileWrapper.file` attribute "
+"is the underlying true file object. This file-like object can be used in a :"
+"keyword:`with` statement, just like a normal file.  The name of the "
+"temporary file can be retrieved from the :attr:`!name` attribute of the "
 "returned file-like object. On Unix, unlike with the :func:`TemporaryFile`, "
 "the directory entry does not get unlinked immediately after the file "
 "creation."
 msgstr ""
 
-#: ../../../library/tempfile.rst:95
+#: ../../../library/tempfile.rst:96
 msgid ""
 "If *delete* is true (the default) and *delete_on_close* is true (the "
 "default), the file is deleted as soon as it is closed. If *delete* is true "
@@ -159,7 +161,7 @@ msgid ""
 "is false, the value of *delete_on_close* is ignored."
 msgstr ""
 
-#: ../../../library/tempfile.rst:102
+#: ../../../library/tempfile.rst:103
 msgid ""
 "Therefore to use the name of the temporary file to reopen the file after "
 "closing it, either make sure not to delete the file upon closure (set the "
@@ -169,33 +171,33 @@ msgid ""
 "automatic cleaning of the temporary file upon the context manager exit."
 msgstr ""
 
-#: ../../../library/tempfile.rst:109
+#: ../../../library/tempfile.rst:110
 msgid ""
 "Opening the temporary file again by its name while it is still open works as "
 "follows:"
 msgstr ""
 
-#: ../../../library/tempfile.rst:112
+#: ../../../library/tempfile.rst:113
 msgid "On POSIX the file can always be opened again."
 msgstr ""
 
-#: ../../../library/tempfile.rst:113
+#: ../../../library/tempfile.rst:114
 msgid ""
 "On Windows, make sure that at least one of the following conditions are "
 "fulfilled:"
 msgstr ""
 
-#: ../../../library/tempfile.rst:116
+#: ../../../library/tempfile.rst:117
 msgid "*delete* is false"
 msgstr ""
 
-#: ../../../library/tempfile.rst:117
+#: ../../../library/tempfile.rst:118
 msgid ""
 "additional open shares delete access (e.g. by calling :func:`os.open` with "
 "the flag ``O_TEMPORARY``)"
 msgstr ""
 
-#: ../../../library/tempfile.rst:119
+#: ../../../library/tempfile.rst:120
 msgid ""
 "*delete* is true but *delete_on_close* is false. Note, that in this case the "
 "additional opens that do not share delete access (e.g. created via builtin :"
@@ -204,7 +206,7 @@ msgid ""
 "`PermissionError`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:125
+#: ../../../library/tempfile.rst:126
 msgid ""
 "On Windows, if *delete_on_close* is false, and the file is created in a "
 "directory for which the user lacks delete access, then the :func:`os.unlink` "
@@ -214,17 +216,44 @@ msgid ""
 "not granted."
 msgstr ""
 
-#: ../../../library/tempfile.rst:132
+#: ../../../library/tempfile.rst:133
 msgid ""
 "On POSIX (only), a process that is terminated abruptly with SIGKILL cannot "
 "automatically delete any NamedTemporaryFiles it created."
 msgstr ""
 
-#: ../../../library/tempfile.rst:140
+#: ../../../library/tempfile.rst:141
 msgid "Added *delete_on_close* parameter."
 msgstr ""
 
 #: ../../../library/tempfile.rst:146
+msgid ""
+"A mutable wrapper returned by :func:`NamedTemporaryFile`. It wraps the "
+"underlying file object, delegating attribute access to it, and ensures the "
+"temporary file is deleted when appropriate."
+msgstr ""
+
+#: ../../../library/tempfile.rst:152
+msgid "The underlying :term:`file-like object`."
+msgstr ""
+
+#: ../../../library/tempfile.rst:156
+msgid "The file name of the temporary file."
+msgstr ""
+
+#: ../../../library/tempfile.rst:160
+msgid ""
+"Close the temporary file, possibly deleting it depending on the *delete* and "
+"*delete_on_close* arguments passed to :func:`NamedTemporaryFile`."
+msgstr ""
+
+#: ../../../library/tempfile.rst:166
+msgid ""
+"``tempfile._TemporaryFileWrapper`` is kept as a backwards compatible "
+"deprecated alias for this class. It will be removed in Python 3.21"
+msgstr ""
+
+#: ../../../library/tempfile.rst:175
 msgid ""
 "This class operates exactly as :func:`TemporaryFile` does, except that data "
 "is spooled in memory until the file size exceeds *max_size*, or until the "
@@ -233,13 +262,13 @@ msgid ""
 "`TemporaryFile`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:154
+#: ../../../library/tempfile.rst:183
 msgid ""
 "The resulting file has one additional method, :meth:`!rollover`, which "
 "causes the file to roll over to an on-disk file regardless of its size."
 msgstr ""
 
-#: ../../../library/tempfile.rst:157
+#: ../../../library/tempfile.rst:186
 msgid ""
 "The returned object is a file-like object whose :attr:`!_file` attribute is "
 "either an :class:`io.BytesIO` or :class:`io.TextIOWrapper` object (depending "
@@ -248,18 +277,18 @@ msgid ""
 "object can be used in a :keyword:`with` statement, just like a normal file."
 msgstr ""
 
-#: ../../../library/tempfile.rst:164
+#: ../../../library/tempfile.rst:193
 msgid "the truncate method now accepts a *size* argument."
 msgstr ""
 
-#: ../../../library/tempfile.rst:170
+#: ../../../library/tempfile.rst:199
 msgid ""
 "Fully implements the :class:`io.BufferedIOBase` and :class:`io.TextIOBase` "
 "abstract base classes (depending on whether binary or text *mode* was "
 "specified)."
 msgstr ""
 
-#: ../../../library/tempfile.rst:178
+#: ../../../library/tempfile.rst:207
 msgid ""
 "This class securely creates a temporary directory using the same rules as :"
 "func:`mkdtemp`. The resulting object can be used as a :term:`context "
@@ -268,7 +297,7 @@ msgid ""
 "directory and all its contents are removed from the filesystem."
 msgstr ""
 
-#: ../../../library/tempfile.rst:186
+#: ../../../library/tempfile.rst:215
 msgid ""
 "The directory name can be retrieved from the :attr:`!name` attribute of the "
 "returned object.  When the returned object is used as a :term:`context "
@@ -276,7 +305,7 @@ msgid ""
 "as` clause in the :keyword:`with` statement, if there is one."
 msgstr ""
 
-#: ../../../library/tempfile.rst:193
+#: ../../../library/tempfile.rst:222
 msgid ""
 "The directory can be explicitly cleaned up by calling the :meth:`!cleanup` "
 "method. If *ignore_cleanup_errors* is true, any unhandled exceptions during "
@@ -288,7 +317,7 @@ msgid ""
 "shutdown)."
 msgstr ""
 
-#: ../../../library/tempfile.rst:202
+#: ../../../library/tempfile.rst:231
 msgid ""
 "The *delete* parameter can be used to disable cleanup of the directory tree "
 "upon exiting the context.  While it may seem unusual for a context manager "
@@ -297,21 +326,21 @@ msgid ""
 "based on other logic."
 msgstr ""
 
-#: ../../../library/tempfile.rst:208 ../../../library/tempfile.rst:289
+#: ../../../library/tempfile.rst:237 ../../../library/tempfile.rst:319
 msgid ""
 "Raises an :ref:`auditing event <auditing>` ``tempfile.mkdtemp`` with "
 "argument ``fullpath``."
 msgstr ""
 
-#: ../../../library/tempfile.rst:212
+#: ../../../library/tempfile.rst:241
 msgid "Added *ignore_cleanup_errors* parameter."
 msgstr ""
 
-#: ../../../library/tempfile.rst:215
+#: ../../../library/tempfile.rst:244
 msgid "Added the *delete* parameter."
 msgstr ""
 
-#: ../../../library/tempfile.rst:221
+#: ../../../library/tempfile.rst:250
 msgid ""
 "Creates a temporary file in the most secure manner possible.  There are no "
 "race conditions in the file's creation, assuming that the platform properly "
@@ -321,19 +350,20 @@ msgid ""
 "executable by no one."
 msgstr ""
 
-#: ../../../library/tempfile.rst:228
+#: ../../../library/tempfile.rst:257
 msgid ""
 "The file descriptor is :ref:`not inherited by child processes "
 "<fd_inheritance>`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:230
+#: ../../../library/tempfile.rst:259
 msgid ""
 "Unlike :func:`TemporaryFile`, the user of :func:`mkstemp` is responsible for "
-"deleting the temporary file when done with it."
+"closing the file descriptor (for example, using :func:`os.close`) and "
+"deleting the temporary file (for example, using :func:`os.remove`)."
 msgstr ""
 
-#: ../../../library/tempfile.rst:233
+#: ../../../library/tempfile.rst:263
 msgid ""
 "If *suffix* is not ``None``, the file name will end with that suffix, "
 "otherwise there will be no suffix.  :func:`mkstemp` does not put a dot "
@@ -341,14 +371,14 @@ msgid ""
 "beginning of *suffix*."
 msgstr ""
 
-#: ../../../library/tempfile.rst:238
+#: ../../../library/tempfile.rst:268
 msgid ""
 "If *prefix* is not ``None``, the file name will begin with that prefix; "
 "otherwise, a default prefix is used.  The default is the return value of :"
 "func:`gettempprefix` or :func:`gettempprefixb`, as appropriate."
 msgstr ""
 
-#: ../../../library/tempfile.rst:242
+#: ../../../library/tempfile.rst:272
 msgid ""
 "If *dir* is not ``None``, the file will be created in that directory; "
 "otherwise, a default directory is used.  The default directory is chosen "
@@ -359,7 +389,7 @@ msgid ""
 "commands via ``os.popen()``."
 msgstr ""
 
-#: ../../../library/tempfile.rst:250
+#: ../../../library/tempfile.rst:280
 msgid ""
 "If any of *suffix*, *prefix*, and *dir* are not ``None``, they must be the "
 "same type. If they are bytes, the returned name will be bytes instead of "
@@ -367,20 +397,20 @@ msgid ""
 "behavior, pass ``suffix=b''``."
 msgstr ""
 
-#: ../../../library/tempfile.rst:256
+#: ../../../library/tempfile.rst:286
 msgid ""
 "If *text* is specified and true, the file is opened in text mode. Otherwise, "
 "(the default) the file is opened in binary mode."
 msgstr ""
 
-#: ../../../library/tempfile.rst:259
+#: ../../../library/tempfile.rst:289
 msgid ""
 ":func:`mkstemp` returns a tuple containing an OS-level handle to an open "
 "file (as would be returned by :func:`os.open`) and the absolute pathname of "
 "that file, in that order."
 msgstr ""
 
-#: ../../../library/tempfile.rst:265 ../../../library/tempfile.rst:291
+#: ../../../library/tempfile.rst:295 ../../../library/tempfile.rst:321
 msgid ""
 "*suffix*, *prefix*, and *dir* may now be supplied in bytes in order to "
 "obtain a bytes return value.  Prior to this, only str was allowed. *suffix* "
@@ -388,110 +418,111 @@ msgid ""
 "default value to be used."
 msgstr ""
 
-#: ../../../library/tempfile.rst:271 ../../../library/tempfile.rst:297
+#: ../../../library/tempfile.rst:301 ../../../library/tempfile.rst:327
 msgid "The *dir* parameter now accepts a :term:`path-like object`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:277
+#: ../../../library/tempfile.rst:307
 msgid ""
 "Creates a temporary directory in the most secure manner possible. There are "
 "no race conditions in the directory's creation.  The directory is readable, "
 "writable, and searchable only by the creating user ID."
 msgstr ""
 
-#: ../../../library/tempfile.rst:281
+#: ../../../library/tempfile.rst:311
 msgid ""
 "The user of :func:`mkdtemp` is responsible for deleting the temporary "
 "directory and its contents when done with it."
 msgstr ""
 
-#: ../../../library/tempfile.rst:284
+#: ../../../library/tempfile.rst:314
 msgid ""
 "The *prefix*, *suffix*, and *dir* arguments are the same as for :func:"
 "`mkstemp`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:287
+#: ../../../library/tempfile.rst:317
 msgid ":func:`mkdtemp` returns the absolute pathname of the new directory."
 msgstr ""
 
-#: ../../../library/tempfile.rst:300
+#: ../../../library/tempfile.rst:330
 msgid ""
 ":func:`mkdtemp` now always returns an absolute path, even if *dir* is "
 "relative."
 msgstr ""
 
-#: ../../../library/tempfile.rst:306
+#: ../../../library/tempfile.rst:336
 msgid ""
 "Return the name of the directory used for temporary files. This defines the "
 "default value for the *dir* argument to all functions in this module."
 msgstr ""
 
-#: ../../../library/tempfile.rst:310
+#: ../../../library/tempfile.rst:340
 msgid ""
 "Python searches a standard list of directories to find one which the calling "
 "user can create files in.  The list is:"
 msgstr ""
 
-#: ../../../library/tempfile.rst:313
+#: ../../../library/tempfile.rst:343
 msgid "The directory named by the :envvar:`TMPDIR` environment variable."
 msgstr ""
 
-#: ../../../library/tempfile.rst:315
+#: ../../../library/tempfile.rst:345
 msgid "The directory named by the :envvar:`TEMP` environment variable."
 msgstr ""
 
-#: ../../../library/tempfile.rst:317
+#: ../../../library/tempfile.rst:347
 msgid "The directory named by the :envvar:`TMP` environment variable."
 msgstr ""
 
-#: ../../../library/tempfile.rst:319
+#: ../../../library/tempfile.rst:349
 msgid "A platform-specific location:"
 msgstr ""
 
-#: ../../../library/tempfile.rst:321
+#: ../../../library/tempfile.rst:351
 msgid ""
-"On Windows, the directories :file:`C:\\\\TEMP`, :file:`C:\\\\TMP`, :file:`\\"
-"\\TEMP`, and :file:`\\\\TMP`, in that order."
+"On Windows, the directories :file:`%USERPROFILE%\\\\AppData\\\\Local\\"
+"\\Temp`, :file:`%SYSTEMROOT%\\\\Temp`, :file:`C:\\\\TEMP`, :file:`C:\\"
+"\\TMP`, :file:`\\\\TEMP`, and :file:`\\\\TMP`, in that order."
 msgstr ""
 
-#: ../../../library/tempfile.rst:324
+#: ../../../library/tempfile.rst:357
 msgid ""
 "On all other platforms, the directories :file:`/tmp`, :file:`/var/tmp`, and :"
 "file:`/usr/tmp`, in that order."
 msgstr ""
 
-#: ../../../library/tempfile.rst:327
+#: ../../../library/tempfile.rst:360
 msgid "As a last resort, the current working directory."
 msgstr ""
 
-#: ../../../library/tempfile.rst:329
+#: ../../../library/tempfile.rst:362
 msgid ""
 "The result of this search is cached, see the description of :data:`tempdir` "
 "below."
 msgstr ""
 
-#: ../../../library/tempfile.rst:334
+#: ../../../library/tempfile.rst:367
 msgid ""
 "Always returns a str.  Previously it would return any :data:`tempdir` value "
 "regardless of type so long as it was not ``None``."
 msgstr ""
 
-#: ../../../library/tempfile.rst:339
+#: ../../../library/tempfile.rst:372
 msgid "Same as :func:`gettempdir` but the return value is in bytes."
 msgstr ""
 
-#: ../../../library/tempfile.rst:345
+#: ../../../library/tempfile.rst:378
 msgid ""
 "Return the filename prefix used to create temporary files.  This does not "
 "contain the directory component."
 msgstr ""
 
-#: ../../../library/tempfile.rst:350
+#: ../../../library/tempfile.rst:383
 msgid "Same as :func:`gettempprefix` but the return value is in bytes."
 msgstr ""
 
-#: ../../../library/tempfile.rst:354
+#: ../../../library/tempfile.rst:387
 msgid ""
 "The module uses a global variable to store the name of the directory used "
 "for temporary files returned by :func:`gettempdir`.  It can be set directly "
@@ -501,21 +532,21 @@ msgid ""
 "unsuspecting code by changing global API behavior."
 msgstr ""
 
-#: ../../../library/tempfile.rst:363
+#: ../../../library/tempfile.rst:396
 msgid ""
 "When set to a value other than ``None``, this variable defines the default "
 "value for the *dir* argument to the functions defined in this module, "
 "including its type, bytes or str.  It cannot be a :term:`path-like object`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:368
+#: ../../../library/tempfile.rst:401
 msgid ""
 "If ``tempdir`` is ``None`` (the default) at any call to any of the above "
 "functions except :func:`gettempprefix` it is initialized following the "
 "algorithm described in :func:`gettempdir`."
 msgstr ""
 
-#: ../../../library/tempfile.rst:374
+#: ../../../library/tempfile.rst:407
 msgid ""
 "Beware that if you set ``tempdir`` to a bytes value, there is a nasty side "
 "effect: The global default return type of :func:`mkstemp` and :func:"
@@ -525,20 +556,20 @@ msgid ""
 "compatibility with the historical implementation."
 msgstr ""
 
-#: ../../../library/tempfile.rst:385
+#: ../../../library/tempfile.rst:418
 msgid "Examples"
 msgstr "範例"
 
-#: ../../../library/tempfile.rst:387
+#: ../../../library/tempfile.rst:420
 msgid ""
 "Here are some examples of typical usage of the :mod:`!tempfile` module::"
 msgstr ""
 
-#: ../../../library/tempfile.rst:432
+#: ../../../library/tempfile.rst:465
 msgid "Deprecated functions and variables"
 msgstr ""
 
-#: ../../../library/tempfile.rst:434
+#: ../../../library/tempfile.rst:467
 msgid ""
 "A historical way to create temporary files was to first generate a file name "
 "with the :func:`mktemp` function and then create a file using this name. "
@@ -549,11 +580,11 @@ msgid ""
 "used by :func:`mkstemp` and the other functions described above."
 msgstr ""
 
-#: ../../../library/tempfile.rst:445
+#: ../../../library/tempfile.rst:478
 msgid "Use :func:`mkstemp` instead."
 msgstr ""
 
-#: ../../../library/tempfile.rst:448
+#: ../../../library/tempfile.rst:481
 msgid ""
 "Return an absolute pathname of a file that did not exist at the time the "
 "call is made.  The *prefix*, *suffix*, and *dir* arguments are similar to "
@@ -561,7 +592,7 @@ msgid ""
 "``prefix=None`` are not supported."
 msgstr ""
 
-#: ../../../library/tempfile.rst:455
+#: ../../../library/tempfile.rst:488
 msgid ""
 "Use of this function may introduce a security hole in your program.  By the "
 "time you get around to doing anything with the file name it returns, someone "

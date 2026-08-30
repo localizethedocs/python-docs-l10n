@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-22 14:16+0000\n"
+"POT-Creation-Date: 2026-08-24 09:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -270,47 +270,56 @@ msgstr ""
 
 #: ../../../library/curses.ascii.rst:179
 msgid ""
-"These functions accept either integers or single-character strings; when the "
-"argument is a string, it is first converted using the built-in function :"
-"func:`ord`."
+"These functions accept an integer, a single-character string, or a :class:"
+"`curses.complexchar`. A string is converted using the built-in function :"
+"func:`ord`, and a complexchar by the code of its single character; a "
+"complexchar that holds combining characters is not a single character and "
+"matches no class."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:182
+#: ../../../library/curses.ascii.rst:185
 msgid ""
 "Note that all these functions check ordinal bit values derived from the "
 "character of the string you pass in; they do not actually know anything "
 "about the host machine's character encoding."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:186
+#: ../../../library/curses.ascii.rst:189
 msgid ""
-"The following two functions take either a single-character string or integer "
-"byte value; they return a value of the same type."
+"The following three functions take either a single-character string or an "
+"integer byte value; they return a value of the same type."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:192
+#: ../../../library/curses.ascii.rst:195
 msgid "Return the ASCII value corresponding to the low 7 bits of *c*."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:197
+#: ../../../library/curses.ascii.rst:200
 msgid ""
-"Return the control character corresponding to the given character (the "
-"character bit value is bitwise-anded with 0x1f)."
+"Return the control character corresponding to the given ASCII character (the "
+"character bit value is bitwise-anded with 0x1f).  A non-ASCII character has "
+"no control character and is returned unchanged."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:203
+#: ../../../library/curses.ascii.rst:204
+msgid ""
+"A non-ASCII argument is now returned unchanged instead of masked to a "
+"control character."
+msgstr ""
+
+#: ../../../library/curses.ascii.rst:211
 msgid ""
 "Return the 8-bit character corresponding to the given ASCII character (the "
 "character bit value is bitwise-ored with 0x80)."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:206
+#: ../../../library/curses.ascii.rst:214
 msgid ""
-"The following function takes either a single-character string or integer "
-"value; it returns a string."
+"The following function takes a single-character string, an integer value, or "
+"a :class:`curses.complexchar`; it returns a string."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:216
+#: ../../../library/curses.ascii.rst:225
 msgid ""
 "Return a string representation of the ASCII character *c*.  If *c* is "
 "printable, this string is the character itself.  If the character is a "
@@ -321,21 +330,21 @@ msgid ""
 "``'!'`` prepended to the result."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:226
+#: ../../../library/curses.ascii.rst:235
 msgid ""
 "A 33-element string array that contains the ASCII mnemonics for the thirty-"
 "two ASCII control characters from 0 (NUL) to 0x1f (US), in order, plus the "
 "mnemonic ``SP`` for the space character."
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:210
+#: ../../../library/curses.ascii.rst:219
 msgid "^ (caret)"
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:210
+#: ../../../library/curses.ascii.rst:219
 msgid "in curses module"
 msgstr ""
 
-#: ../../../library/curses.ascii.rst:210
+#: ../../../library/curses.ascii.rst:219
 msgid "! (exclamation)"
 msgstr ""

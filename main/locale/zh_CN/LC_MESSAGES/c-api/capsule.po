@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-10 09:04+0000\n"
+"POT-Creation-Date: 2026-08-24 09:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -145,35 +145,26 @@ msgstr ""
 msgid ""
 "Import a pointer to a C object from a capsule attribute in a module.  The "
 "*name* parameter should specify the full name to the attribute, as in "
-"``module.attribute``.  The *name* stored in the capsule must match this "
-"string exactly."
+"``package.module.attribute``. Modules are imported if needed, other "
+"components are looked up as attributes. The *name* stored in the capsule "
+"must match this string exactly."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:114
-msgid ""
-"This function splits *name* on the ``.`` character, and imports the first "
-"element. It then processes further elements using attribute lookups."
-msgstr ""
-
-#: ../../../c-api/capsule.rst:117
+#: ../../../c-api/capsule.rst:116
 msgid ""
 "Return the capsule's internal *pointer* on success.  On failure, set an "
 "exception and return ``NULL``."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:122
-msgid ""
-"If *name* points to an attribute of some submodule or subpackage, this "
-"submodule or subpackage must be previously imported using other means (for "
-"example, by using :c:func:`PyImport_ImportModule`) for the attribute lookups "
-"to succeed."
-msgstr ""
-
-#: ../../../c-api/capsule.rst:127
+#: ../../../c-api/capsule.rst:119
 msgid "*no_block* has no effect anymore."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:133
+#: ../../../c-api/capsule.rst:122
+msgid "Submodules are now imported if needed."
+msgstr ""
+
+#: ../../../c-api/capsule.rst:128
 msgid ""
 "Determines whether or not *capsule* is a valid capsule.  A valid capsule is "
 "non-``NULL``, passes :c:func:`PyCapsule_CheckExact`, has a non-``NULL`` "
@@ -182,41 +173,41 @@ msgid ""
 "compared.)"
 msgstr ""
 
-#: ../../../c-api/capsule.rst:139
+#: ../../../c-api/capsule.rst:134
 msgid ""
 "In other words, if :c:func:`PyCapsule_IsValid` returns a true value, calls "
 "to any of the accessors (any function starting with ``PyCapsule_Get``) are "
 "guaranteed to succeed."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:143
+#: ../../../c-api/capsule.rst:138
 msgid ""
 "Return a nonzero value if the object is valid and matches the name passed "
 "in. Return ``0`` otherwise.  This function will not fail."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:149
+#: ../../../c-api/capsule.rst:144
 msgid "Set the context pointer inside *capsule* to *context*."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:151 ../../../c-api/capsule.rst:158
-#: ../../../c-api/capsule.rst:167 ../../../c-api/capsule.rst:175
+#: ../../../c-api/capsule.rst:146 ../../../c-api/capsule.rst:153
+#: ../../../c-api/capsule.rst:162 ../../../c-api/capsule.rst:170
 msgid ""
 "Return ``0`` on success.  Return nonzero and set an exception on failure."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:156
+#: ../../../c-api/capsule.rst:151
 msgid "Set the destructor inside *capsule* to *destructor*."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:163
+#: ../../../c-api/capsule.rst:158
 msgid ""
 "Set the name inside *capsule* to *name*.  If non-``NULL``, the name must "
 "outlive the capsule.  If the previous *name* stored in the capsule was not "
 "``NULL``, no attempt is made to free it."
 msgstr ""
 
-#: ../../../c-api/capsule.rst:172
+#: ../../../c-api/capsule.rst:167
 msgid ""
 "Set the void pointer inside *capsule* to *pointer*.  The pointer may not be "
 "``NULL``."
