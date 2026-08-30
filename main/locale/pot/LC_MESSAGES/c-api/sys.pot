@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-24 08:42+0000\n"
+"POT-Creation-Date: 2026-08-24 09:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -520,7 +520,7 @@ msgid ""
 "This function is safe to call before :c:func:`Py_Initialize`. When called "
 "after runtime initialization, existing audit hooks are notified and may "
 "silently abort the operation by raising an error subclassed from :class:"
-"`Exception` (other errors will not be silenced)."
+"`RuntimeError` (other errors will not be silenced)."
 msgstr ""
 
 #: ../../../c-api/sys.rst:438
@@ -540,7 +540,7 @@ msgstr ""
 msgid ""
 "If the interpreter is initialized, this function raises an auditing event "
 "``sys.addaudithook`` with no arguments. If any existing hooks raise an "
-"exception derived from :class:`Exception`, the new hook will not be added "
+"exception derived from :class:`RuntimeError`, the new hook will not be added "
 "and the exception is cleared. As a result, callers cannot assume that their "
 "hook has been added unless they control all existing hooks."
 msgstr ""
@@ -553,11 +553,17 @@ msgid ""
 "PySys_AddAuditHook()."
 msgstr ""
 
-#: ../../../c-api/sys.rst:469
+#: ../../../c-api/sys.rst:467
+msgid ""
+"Exceptions derived from :class:`Exception` but not :class:`RuntimeError` are "
+"no longer suppressed."
+msgstr ""
+
+#: ../../../c-api/sys.rst:474
 msgid "Process Control"
 msgstr ""
 
-#: ../../../c-api/sys.rst:476
+#: ../../../c-api/sys.rst:481
 msgid ""
 "Print a fatal error message and kill the process.  No cleanup is performed. "
 "This function should only be invoked when a condition is detected that would "
@@ -567,29 +573,29 @@ msgid ""
 "file:`core` file."
 msgstr ""
 
-#: ../../../c-api/sys.rst:483
+#: ../../../c-api/sys.rst:488
 msgid ""
 "The ``Py_FatalError()`` function is replaced with a macro which logs "
 "automatically the name of the current function, unless the "
 "``Py_LIMITED_API`` macro is defined."
 msgstr ""
 
-#: ../../../c-api/sys.rst:487
+#: ../../../c-api/sys.rst:492
 msgid "Log the function name automatically."
 msgstr ""
 
-#: ../../../c-api/sys.rst:497
+#: ../../../c-api/sys.rst:502
 msgid ""
 "Exit the current process.  This calls :c:func:`Py_FinalizeEx` and then calls "
 "the standard C library function ``exit(status)``.  If :c:func:"
 "`Py_FinalizeEx` indicates an error, the exit status is set to 120."
 msgstr ""
 
-#: ../../../c-api/sys.rst:501
+#: ../../../c-api/sys.rst:506
 msgid "Errors from finalization no longer ignored."
 msgstr ""
 
-#: ../../../c-api/sys.rst:511
+#: ../../../c-api/sys.rst:516
 msgid ""
 "Register a cleanup function to be called by :c:func:`Py_FinalizeEx`.  The "
 "cleanup function will be called with no arguments and should return no "
@@ -601,7 +607,7 @@ msgid ""
 "should be called by *func*."
 msgstr ""
 
-#: ../../../c-api/sys.rst:521
+#: ../../../c-api/sys.rst:526
 msgid ":c:func:`PyUnstable_AtExit` for passing a ``void *data`` argument."
 msgstr ""
 
@@ -609,18 +615,18 @@ msgstr ""
 msgid "USE_STACKCHECK (C macro)"
 msgstr ""
 
-#: ../../../c-api/sys.rst:474
+#: ../../../c-api/sys.rst:479
 msgid "abort (C function)"
 msgstr ""
 
-#: ../../../c-api/sys.rst:493 ../../../c-api/sys.rst:507
+#: ../../../c-api/sys.rst:498 ../../../c-api/sys.rst:512
 msgid "Py_FinalizeEx (C function)"
 msgstr ""
 
-#: ../../../c-api/sys.rst:493
+#: ../../../c-api/sys.rst:498
 msgid "exit (C function)"
 msgstr ""
 
-#: ../../../c-api/sys.rst:507
+#: ../../../c-api/sys.rst:512
 msgid "cleanup functions"
 msgstr ""
