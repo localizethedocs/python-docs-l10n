@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 09:54+0000\n"
+"POT-Creation-Date: 2026-08-31 16:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -342,7 +342,7 @@ msgstr ""
 #: ../../../library/os.rst:4441 ../../../library/os.rst:4495
 #: ../../../library/os.rst:4504 ../../../library/os.rst:4513
 #: ../../../library/os.rst:4521 ../../../library/os.rst:4530
-#: ../../../library/os.rst:4539 ../../../library/os.rst:4611
+#: ../../../library/os.rst:4539 ../../../library/os.rst:4612
 #: ../../../library/os.rst:4674 ../../../library/os.rst:4684
 #: ../../../library/os.rst:4702 ../../../library/os.rst:4711
 #: ../../../library/os.rst:4721 ../../../library/os.rst:4731
@@ -4732,9 +4732,9 @@ msgstr ""
 #: ../../../library/os.rst:4579
 msgid ""
 "If *clockid* is :const:`time.CLOCK_REALTIME`, a settable system-wide real-"
-"time clock is used. If system clock is changed, timer setting need to be "
-"updated. To cancel timer when system clock is changed, see :const:"
-"`TFD_TIMER_CANCEL_ON_SET`."
+"time clock is used. If the system clock is changed, the timer setting needs "
+"to be updated. To cancel the timer when the system clock is changed, see :"
+"const:`TFD_TIMER_CANCEL_ON_SET`."
 msgstr ""
 
 #: ../../../library/os.rst:4584
@@ -4746,84 +4746,82 @@ msgstr ""
 
 #: ../../../library/os.rst:4588
 msgid ""
-"If *clockid* is :const:`time.CLOCK_BOOTTIME`, same as :const:`time."
+"If *clockid* is :const:`time.CLOCK_BOOTTIME`, it is the same as :const:`time."
 "CLOCK_MONOTONIC` except it includes any time that the system is suspended."
 msgstr ""
 
-#: ../../../library/os.rst:4591
+#: ../../../library/os.rst:4592
 msgid ""
 "The file descriptor's behaviour can be modified by specifying a *flags* "
 "value. Any of the following variables may be used, combined using bitwise OR "
 "(the ``|`` operator):"
 msgstr ""
 
-#: ../../../library/os.rst:4595
+#: ../../../library/os.rst:4596
 msgid ":const:`TFD_NONBLOCK`"
 msgstr ""
 
-#: ../../../library/os.rst:4596
+#: ../../../library/os.rst:4597
 msgid ":const:`TFD_CLOEXEC`"
 msgstr ""
 
-#: ../../../library/os.rst:4598
+#: ../../../library/os.rst:4599
 msgid ""
 "If :const:`TFD_NONBLOCK` is not set as a flag, :func:`read` blocks until the "
-"timer expires. If it is set as a flag, :func:`read` doesn't block, but If "
+"timer expires. If it is set as a flag, :func:`read` doesn't block, but if "
 "there hasn't been an expiration since the last call to read, :func:`read` "
-"raises :class:`OSError` with ``errno`` is set to :const:`errno.EAGAIN`."
+"raises :class:`OSError` with ``errno`` set to :const:`errno.EAGAIN`."
 msgstr ""
 
-#: ../../../library/os.rst:4604
+#: ../../../library/os.rst:4605
 msgid ":const:`TFD_CLOEXEC` is always set by Python automatically."
 msgstr ""
 
-#: ../../../library/os.rst:4606
+#: ../../../library/os.rst:4607
 msgid ""
 "The file descriptor must be closed with :func:`os.close` when it is no "
 "longer needed, or else the file descriptor will be leaked."
 msgstr ""
 
-#: ../../../library/os.rst:4609
+#: ../../../library/os.rst:4610
 msgid "The :manpage:`timerfd_create(2)` man page."
 msgstr ""
 
-#: ../../../library/os.rst:4618
+#: ../../../library/os.rst:4619
 msgid ""
 "Alter a timer file descriptor's internal timer. This function operates the "
 "same interval timer as :func:`timerfd_settime_ns`."
 msgstr ""
 
-#: ../../../library/os.rst:4621
+#: ../../../library/os.rst:4622
 msgid "*fd* must be a valid timer file descriptor."
 msgstr ""
 
-#: ../../../library/os.rst:4623
+#: ../../../library/os.rst:4624
 msgid ""
 "The timer's behaviour can be modified by specifying a *flags* value. Any of "
 "the following variables may be used, combined using bitwise OR (the ``|`` "
 "operator):"
 msgstr ""
 
-#: ../../../library/os.rst:4627
+#: ../../../library/os.rst:4628
 msgid ":const:`TFD_TIMER_ABSTIME`"
 msgstr ""
 
-#: ../../../library/os.rst:4628
+#: ../../../library/os.rst:4629
 msgid ":const:`TFD_TIMER_CANCEL_ON_SET`"
 msgstr ""
 
-#: ../../../library/os.rst:4630
+#: ../../../library/os.rst:4631
 msgid ""
 "The timer is disabled by setting *initial* to zero (``0``). If *initial* is "
-"equal to or greater than zero, the timer is enabled. If *initial* is less "
-"than zero, it raises an :class:`OSError` exception with ``errno`` set to :"
-"const:`errno.EINVAL`"
+"greater than zero, the timer is enabled. If *initial* is less than zero, it "
+"raises an :class:`OSError` exception with ``errno`` set to :const:`errno."
+"EINVAL`."
 msgstr ""
 
-#: ../../../library/os.rst:4635
-msgid ""
-"By default the timer will fire when *initial* seconds have elapsed. (If "
-"*initial* is zero, timer will fire immediately.)"
+#: ../../../library/os.rst:4636
+msgid "By default the timer will fire when *initial* seconds have elapsed."
 msgstr ""
 
 #: ../../../library/os.rst:4638
@@ -4839,7 +4837,7 @@ msgid ""
 "zero, the timer only fires once, on the initial expiration. If *interval* is "
 "greater than zero, the timer fires every time *interval* seconds have "
 "elapsed since the previous expiration. If *interval* is less than zero, it "
-"raises :class:`OSError` with ``errno`` set to :const:`errno.EINVAL`"
+"raises :class:`OSError` with ``errno`` set to :const:`errno.EINVAL`."
 msgstr ""
 
 #: ../../../library/os.rst:4649
@@ -4847,8 +4845,8 @@ msgid ""
 "If the :const:`TFD_TIMER_CANCEL_ON_SET` flag is set along with :const:"
 "`TFD_TIMER_ABSTIME` and the clock for this timer is :const:`time."
 "CLOCK_REALTIME`, the timer is marked as cancelable if the real-time clock is "
-"changed discontinuously. Reading the descriptor is aborted with the error "
-"ECANCELED."
+"changed discontinuously. Reading the descriptor is aborted with the error :"
+"const:`errno.ECANCELED`."
 msgstr ""
 
 #: ../../../library/os.rst:4655
