@@ -1,0 +1,281 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Data Types &#8212; Python 3.0.1 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/datatypes.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.0.1 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="datetime — Basic date and time types" href="datetime.html" />
+    <link rel="prev" title="stringprep — Internet String Preparation" href="stringprep.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/datatypes.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="datetime.html" title="datetime — Basic date and time types"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="stringprep.html" title="stringprep — Internet String Preparation"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="data-types">
+<span id="datatypes"></span><h1>Data Types<a class="headerlink" href="#data-types" title="永久链接至标题">¶</a></h1>
+<p>The modules described in this chapter provide a variety of specialized data
+types such as dates and times, fixed-type arrays, heap queues, synchronized
+queues, and sets.</p>
+<p>Python also provides some built-in data types, in particular,
+<a class="reference internal" href="stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <a class="reference internal" href="functions.html#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, <a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> and <a class="reference internal" href="stdtypes.html#frozenset" title="frozenset"><code class="xref py py-class docutils literal notranslate"><span class="pre">frozenset</span></code></a>, and
+<a class="reference internal" href="functions.html#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>.  The <a class="reference internal" href="functions.html#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> class is used to hold
+Unicode strings, and the <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> class is used to hold binary data.</p>
+<p>The following modules are documented in this chapter:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="datetime.html"><code class="docutils literal notranslate"><span class="pre">datetime</span></code> — Basic date and time types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#available-types">Available Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#timedelta-objects"><code class="docutils literal notranslate"><span class="pre">timedelta</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#date-objects"><code class="docutils literal notranslate"><span class="pre">date</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#datetime-objects"><code class="docutils literal notranslate"><span class="pre">datetime</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#time-objects"><code class="docutils literal notranslate"><span class="pre">time</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#tzinfo-objects"><code class="docutils literal notranslate"><span class="pre">tzinfo</span></code> Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datetime.html#strftime-behavior"><code class="docutils literal notranslate"><span class="pre">strftime()</span></code> Behavior</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calendar.html"><code class="docutils literal notranslate"><span class="pre">calendar</span></code> — General calendar-related functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collections.html"><code class="docutils literal notranslate"><span class="pre">collections</span></code> — Container datatypes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#abcs-abstract-base-classes">ABCs - abstract base classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#deque-objects"><code class="docutils literal notranslate"><span class="pre">deque</span></code> objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="collections.html#deque-recipes"><code class="docutils literal notranslate"><span class="pre">deque</span></code> Recipes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#defaultdict-objects"><code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="collections.html#defaultdict-examples"><code class="docutils literal notranslate"><span class="pre">defaultdict</span></code> Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#namedtuple-factory-function-for-tuples-with-named-fields"><code class="docutils literal notranslate"><span class="pre">namedtuple()</span></code> Factory Function for Tuples with Named Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#userdict-objects"><code class="docutils literal notranslate"><span class="pre">UserDict</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#userlist-objects"><code class="docutils literal notranslate"><span class="pre">UserList</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collections.html#userstring-objects"><code class="docutils literal notranslate"><span class="pre">UserString</span></code> objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heapq.html"><code class="docutils literal notranslate"><span class="pre">heapq</span></code> — Heap queue algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heapq.html#theory">Theory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bisect.html"><code class="docutils literal notranslate"><span class="pre">bisect</span></code> — Array bisection algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bisect.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="array.html"><code class="docutils literal notranslate"><span class="pre">array</span></code> — Efficient arrays of numeric values</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sched.html"><code class="docutils literal notranslate"><span class="pre">sched</span></code> — Event scheduler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sched.html#scheduler-objects">Scheduler Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="queue.html"><code class="docutils literal notranslate"><span class="pre">queue</span></code> — A synchronized queue class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="queue.html#queue-objects">Queue Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weakref.html"><code class="docutils literal notranslate"><span class="pre">weakref</span></code> — Weak references</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="weakref.html#weak-reference-objects">Weak Reference Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="weakref.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types.html"><code class="docutils literal notranslate"><span class="pre">types</span></code> — Names for built-in types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="copy.html"><code class="docutils literal notranslate"><span class="pre">copy</span></code> — Shallow and deep copy operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pprint.html"><code class="docutils literal notranslate"><span class="pre">pprint</span></code> — Data pretty printer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pprint.html#prettyprinter-objects">PrettyPrinter Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pprint.html#pprint-example">pprint Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reprlib.html"><code class="docutils literal notranslate"><span class="pre">reprlib</span></code> — Alternate <code class="docutils literal notranslate"><span class="pre">repr()</span></code> implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reprlib.html#repr-objects">Repr Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reprlib.html#subclassing-repr-objects">Subclassing Repr Objects</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="stringprep.html"
+                        title="上一章"><code class="docutils literal notranslate"><span class="pre">stringprep</span></code> — Internet String Preparation</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="datetime.html"
+                        title="下一章"><code class="docutils literal notranslate"><span class="pre">datetime</span></code> — Basic date and time types</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/datatypes.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="datetime.html" title="datetime — Basic date and time types"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="stringprep.html" title="stringprep — Internet String Preparation"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 04, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,257 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>10. File and Directory Access &#8212; Python 3.2.6 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/filesys.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.2.6 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="10.1. os.path — Common pathname manipulations" href="os.path.html" />
+    <link rel="prev" title="9.3. operator — Standard operators as functions" href="operator.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/filesys.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="os.path.html" title="10.1. os.path — Common pathname manipulations"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="operator.html" title="9.3. operator — Standard operators as functions"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">3.2.6 Documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="file-and-directory-access">
+<span id="filesys"></span><h1>10. File and Directory Access<a class="headerlink" href="#file-and-directory-access" title="本標題的永久連結">¶</a></h1>
+<p>The modules described in this chapter deal with disk files and directories.  For
+example, there are modules for reading the properties of files, manipulating
+paths in a portable way, and creating temporary files.  The full list of modules
+in this chapter is:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="os.path.html">10.1. <code class="docutils literal notranslate"><span class="pre">os.path</span></code> — Common pathname manipulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fileinput.html">10.2. <code class="docutils literal notranslate"><span class="pre">fileinput</span></code> — Iterate over lines from multiple input streams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stat.html">10.3. <code class="docutils literal notranslate"><span class="pre">stat</span></code> — Interpreting <code class="docutils literal notranslate"><span class="pre">stat()</span></code> results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filecmp.html">10.4. <code class="docutils literal notranslate"><span class="pre">filecmp</span></code> — File and Directory Comparisons</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="filecmp.html#the-dircmp-class">10.4.1. The <code class="docutils literal notranslate"><span class="pre">dircmp</span></code> class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tempfile.html">10.5. <code class="docutils literal notranslate"><span class="pre">tempfile</span></code> — Generate temporary files and directories</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tempfile.html#examples">10.5.1. 範例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glob.html">10.6. <code class="docutils literal notranslate"><span class="pre">glob</span></code> — Unix style pathname pattern expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fnmatch.html">10.7. <code class="docutils literal notranslate"><span class="pre">fnmatch</span></code> — Unix filename pattern matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linecache.html">10.8. <code class="docutils literal notranslate"><span class="pre">linecache</span></code> — Random access to text lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shutil.html">10.9. <code class="docutils literal notranslate"><span class="pre">shutil</span></code> — High-level file operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shutil.html#directory-and-files-operations">10.9.1. Directory and files operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shutil.html#copytree-example">10.9.1.1. copytree example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shutil.html#archiving-operations">10.9.2. Archiving operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shutil.html#archiving-example">10.9.2.1. Archiving example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="macpath.html">10.10. <code class="docutils literal notranslate"><span class="pre">macpath</span></code> — Mac OS 9 path manipulation functions</a></li>
+</ul>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">也參考</p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a></dt>
+<dd>Operating system interfaces, including functions to work with files at a
+lower level than Python <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file objects</span></a>.</dd>
+<dt>Module <a class="reference internal" href="io.html#module-io" title="io: Core tools for working with streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a></dt>
+<dd>Python’s built-in I/O library, including both abstract classes and
+some concrete classes such as file I/O.</dd>
+<dt>Built-in function <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a></dt>
+<dd>The standard way to open files for reading and writing with Python.</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上個主題</h4>
+  <p class="topless"><a href="operator.html"
+                        title="上一章">9.3. <code class="docutils literal notranslate"><span class="pre">operator</span></code> — Standard operators as functions</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="os.path.html"
+                        title="下一章">10.1. <code class="docutils literal notranslate"><span class="pre">os.path</span></code> — Common pathname manipulations</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/filesys.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="os.path.html" title="10.1. os.path — Common pathname manipulations"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="operator.html" title="9.3. operator — Standard operators as functions"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">3.2.6 Documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 04, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

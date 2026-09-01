@@ -1,0 +1,378 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Exception Handling &#8212; Python 3.0.1 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/c-api/exceptions.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.0.1 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="Utilities" href="utilities.html" />
+    <link rel="prev" title="Reference Counting" href="refcounting.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/c-api/exceptions.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="utilities.html" title="Utilities"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="refcounting.html" title="Reference Counting"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python/C API Reference Manual</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="exception-handling">
+<span id="exceptionhandling"></span><h1>Exception Handling<a class="headerlink" href="#exception-handling" title="永久链接至标题">¶</a></h1>
+<p>The functions described in this chapter will let you handle and raise Python
+exceptions.  It is important to understand some of the basics of Python
+exception handling.  It works somewhat like the Unix <a href="#id1"><span class="problematic" id="id2">:cdata:`errno`</span></a> variable:
+there is a global indicator (per thread) of the last error that occurred.  Most
+functions don’t clear this on success, but will set it to indicate the cause of
+the error on failure.  Most functions also return an error indicator, usually
+<em>NULL</em> if they are supposed to return a pointer, or <code class="docutils literal notranslate"><span class="pre">-1</span></code> if they return an
+integer (exception: the <a href="#id3"><span class="problematic" id="id4">:cfunc:`PyArg_\*`</span></a> functions return <code class="docutils literal notranslate"><span class="pre">1</span></code> for success and
+<code class="docutils literal notranslate"><span class="pre">0</span></code> for failure).</p>
+<p>When a function must fail because some function it called failed, it generally
+doesn’t set the error indicator; the function it called already set it.  It is
+responsible for either handling the error and clearing the exception or
+returning after cleaning up any resources it holds (such as object references or
+memory allocations); it should <em>not</em> continue normally if it is not prepared to
+handle the error.  If returning due to an error, it is important to indicate to
+the caller that an error has been set.  If the error is not handled or carefully
+propagated, additional calls into the Python/C API may not behave as intended
+and may fail in mysterious ways.</p>
+<p>The error indicator consists of three Python objects corresponding to the result
+of <code class="docutils literal notranslate"><span class="pre">sys.exc_info()</span></code>.  API functions exist to interact with the error indicator
+in various ways.  There is a separate error indicator for each thread.</p>
+<div class="section" id="standard-exceptions">
+<span id="standardexceptions"></span><h2>Standard Exceptions<a class="headerlink" href="#standard-exceptions" title="永久链接至标题">¶</a></h2>
+<p>All standard Python exceptions are available as global variables whose names are
+<code class="docutils literal notranslate"><span class="pre">PyExc_</span></code> followed by the Python exception name.  These have the type
+<a href="#id5"><span class="problematic" id="id6">:ctype:`PyObject\*`</span></a>; they are all class objects.  For completeness, here are all
+the variables:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="38%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">C Name</th>
+<th class="head">Python Name</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a href="#id7"><span class="problematic" id="id8">:cdata:`PyExc_BaseException`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.BaseException" title="exceptions.BaseException"><code class="xref py py-exc docutils literal notranslate"><span class="pre">BaseException</span></code></a></td>
+<td>(1)</td>
+</tr>
+<tr class="row-odd"><td><a href="#id9"><span class="problematic" id="id10">:cdata:`PyExc_Exception`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.Exception" title="exceptions.Exception"><code class="xref py py-exc docutils literal notranslate"><span class="pre">Exception</span></code></a></td>
+<td>(1)</td>
+</tr>
+<tr class="row-even"><td><a href="#id11"><span class="problematic" id="id12">:cdata:`PyExc_ArithmeticError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.ArithmeticError" title="exceptions.ArithmeticError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ArithmeticError</span></code></a></td>
+<td>(1)</td>
+</tr>
+<tr class="row-odd"><td><a href="#id13"><span class="problematic" id="id14">:cdata:`PyExc_LookupError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.LookupError" title="exceptions.LookupError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">LookupError</span></code></a></td>
+<td>(1)</td>
+</tr>
+<tr class="row-even"><td><a href="#id15"><span class="problematic" id="id16">:cdata:`PyExc_AssertionError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.AssertionError" title="exceptions.AssertionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AssertionError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id17"><span class="problematic" id="id18">:cdata:`PyExc_AttributeError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.AttributeError" title="exceptions.AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id19"><span class="problematic" id="id20">:cdata:`PyExc_EOFError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.EOFError" title="exceptions.EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id21"><span class="problematic" id="id22">:cdata:`PyExc_EnvironmentError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.EnvironmentError" title="exceptions.EnvironmentError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EnvironmentError</span></code></a></td>
+<td>(1)</td>
+</tr>
+<tr class="row-even"><td><a href="#id23"><span class="problematic" id="id24">:cdata:`PyExc_FloatingPointError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.FloatingPointError" title="exceptions.FloatingPointError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">FloatingPointError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id25"><span class="problematic" id="id26">:cdata:`PyExc_IOError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.IOError" title="exceptions.IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id27"><span class="problematic" id="id28">:cdata:`PyExc_ImportError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.ImportError" title="exceptions.ImportError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ImportError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id29"><span class="problematic" id="id30">:cdata:`PyExc_IndexError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.IndexError" title="exceptions.IndexError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IndexError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id31"><span class="problematic" id="id32">:cdata:`PyExc_KeyError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.KeyError" title="exceptions.KeyError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id33"><span class="problematic" id="id34">:cdata:`PyExc_KeyboardInterrupt`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.KeyboardInterrupt" title="exceptions.KeyboardInterrupt"><code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id35"><span class="problematic" id="id36">:cdata:`PyExc_MemoryError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.MemoryError" title="exceptions.MemoryError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">MemoryError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id37"><span class="problematic" id="id38">:cdata:`PyExc_NameError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.NameError" title="exceptions.NameError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NameError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id39"><span class="problematic" id="id40">:cdata:`PyExc_NotImplementedError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.NotImplementedError" title="exceptions.NotImplementedError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">NotImplementedError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id41"><span class="problematic" id="id42">:cdata:`PyExc_OSError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.OSError" title="exceptions.OSError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OSError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id43"><span class="problematic" id="id44">:cdata:`PyExc_OverflowError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.OverflowError" title="exceptions.OverflowError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">OverflowError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id45"><span class="problematic" id="id46">:cdata:`PyExc_ReferenceError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.ReferenceError" title="exceptions.ReferenceError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ReferenceError</span></code></a></td>
+<td>(2)</td>
+</tr>
+<tr class="row-even"><td><a href="#id47"><span class="problematic" id="id48">:cdata:`PyExc_RuntimeError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.RuntimeError" title="exceptions.RuntimeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">RuntimeError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id49"><span class="problematic" id="id50">:cdata:`PyExc_SyntaxError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.SyntaxError" title="exceptions.SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id51"><span class="problematic" id="id52">:cdata:`PyExc_SystemError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.SystemError" title="exceptions.SystemError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id53"><span class="problematic" id="id54">:cdata:`PyExc_SystemExit`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.SystemExit" title="exceptions.SystemExit"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SystemExit</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id55"><span class="problematic" id="id56">:cdata:`PyExc_TypeError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a href="#id57"><span class="problematic" id="id58">:cdata:`PyExc_ValueError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.ValueError" title="exceptions.ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td><a href="#id59"><span class="problematic" id="id60">:cdata:`PyExc_WindowsError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.WindowsError" title="exceptions.WindowsError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">WindowsError</span></code></a></td>
+<td>(3)</td>
+</tr>
+<tr class="row-odd"><td><a href="#id61"><span class="problematic" id="id62">:cdata:`PyExc_ZeroDivisionError`</span></a></td>
+<td><a class="reference internal" href="../library/exceptions.html#exceptions.ZeroDivisionError" title="exceptions.ZeroDivisionError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code></a></td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p id="index-0">Notes:</p>
+<ol class="arabic simple">
+<li>This is a base class for other standard exceptions.</li>
+<li>This is the same as <a class="reference internal" href="../library/weakref.html#weakref.ReferenceError" title="weakref.ReferenceError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">weakref.ReferenceError</span></code></a>.</li>
+<li>Only defined on Windows; protect code that uses this by testing that the
+preprocessor macro <code class="docutils literal notranslate"><span class="pre">MS_WINDOWS</span></code> is defined.</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Exception Handling</a><ul>
+<li><a class="reference internal" href="#standard-exceptions">Standard Exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="refcounting.html"
+                        title="上一章">Reference Counting</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="utilities.html"
+                        title="下一章">Utilities</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/c-api/exceptions.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="utilities.html" title="Utilities"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="refcounting.html" title="Reference Counting"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 04, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>

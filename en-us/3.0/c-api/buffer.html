@@ -1,0 +1,250 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Buffer Objects &#8212; Python 3.0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/c-api/buffer.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Python 3.0.1 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Tuple Objects" href="tuple.html" />
+    <link rel="prev" title="Unicode Objects and Codecs" href="unicode.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/c-api/buffer.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tuple.html" title="Tuple Objects"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="unicode.html" title="Unicode Objects and Codecs"
+             accesskey="P">previous</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html" accesskey="U">Concrete Objects Layer</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="buffer-objects">
+<span id="bufferobjects"></span><h1>Buffer Objects<a class="headerlink" href="#buffer-objects" title="Permalink to this headline">¶</a></h1>
+<p id="index-0">Python objects implemented in C can export a “buffer interface.”  These
+functions can be used by an object to expose its data in a raw, byte-oriented
+format. Clients of the object can use the buffer interface to access the object
+data directly, without needing to copy it first.</p>
+<p>Two examples of objects that support the buffer interface are bytes and
+arrays. The bytes object exposes the character contents in the buffer
+interface’s byte-oriented form. An array can also expose its contents, but it
+should be noted that array elements may be multi-byte values.</p>
+<p>An example user of the buffer interface is the file object’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code>
+method. Any object that can export a series of bytes through the buffer
+interface can be written to a file. There are a number of format codes to
+<a href="#id1"><span class="problematic" id="id2">:cfunc:`PyArg_ParseTuple`</span></a> that operate against an object’s buffer interface,
+returning data from the target object.</p>
+<p id="index-1">More information on the buffer interface is provided in the section
+<a class="reference internal" href="typeobj.html#buffer-structs"><span class="std std-ref">Buffer Object Structures</span></a>, under the description for <a href="#id3"><span class="problematic" id="id4">:ctype:`PyBufferProcs`</span></a>.</p>
+<p>Buffer objects are useful as a way to expose the data from another object’s
+buffer interface to the Python programmer.  They can also be used as a zero-copy
+slicing mechanism.  Using their ability to reference a block of memory, it is
+possible to expose any data to the Python programmer quite easily.  The memory
+could be a large, constant array in a C extension, it could be a raw block of
+memory for manipulation before passing to an operating system library, or it
+could be used to pass around structured data in its native, in-memory format.</p>
+<div class="section" id="buffer-related-functions">
+<h2>Buffer related functions<a class="headerlink" href="#buffer-related-functions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="memoryview-objects">
+<h2>MemoryView objects<a class="headerlink" href="#memoryview-objects" title="Permalink to this headline">¶</a></h2>
+<p>A memoryview object is an extended buffer object that could replace the buffer
+object (but doesn’t have to as that could be kept as a simple 1-d memoryview
+object).  It, unlike <a href="#id5"><span class="problematic" id="id6">:ctype:`Py_buffer`</span></a>, is a Python object (exposed as
+<a class="reference internal" href="../library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal notranslate"><span class="pre">memoryview</span></code></a> in <a class="reference internal" href="../library/builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a>), so it can be used with Python code.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Buffer Objects</a><ul>
+<li><a class="reference internal" href="#buffer-related-functions">Buffer related functions</a></li>
+<li><a class="reference internal" href="#memoryview-objects">MemoryView objects</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="unicode.html"
+                        title="previous chapter">Unicode Objects and Codecs</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tuple.html"
+                        title="next chapter">Tuple Objects</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/c-api/buffer.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tuple.html" title="Tuple Objects"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="unicode.html" title="Unicode Objects and Codecs"
+             >previous</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python/C API Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="concrete.html" >Concrete Objects Layer</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on Feb 04, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>
