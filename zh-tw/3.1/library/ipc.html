@@ -1,0 +1,282 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_TW">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>17. Interprocess Communication and Networking &#8212; Python 3.1.5 說明文件</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/ipc.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.1.5 說明文件 中搜尋"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="關於這些文件" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜尋" href="../search.html" />
+    <link rel="copyright" title="版權所有" href="../copyright.html" />
+    <link rel="next" title="17.1. subprocess — Subprocess management" href="subprocess.html" />
+    <link rel="prev" title="16.9. _dummy_thread — Drop-in replacement for the _thread module" href="_dummy_thread.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/ipc.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="subprocess.html" title="17.1. subprocess — Subprocess management"
+             accesskey="N">下一頁</a> |</li>
+        <li class="right" >
+          <a href="_dummy_thread.html" title="16.9. _dummy_thread — Drop-in replacement for the _thread module"
+             accesskey="P">上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.1.5 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="interprocess-communication-and-networking">
+<span id="ipc"></span><h1>17. Interprocess Communication and Networking<a class="headerlink" href="#interprocess-communication-and-networking" title="本標題的永久連結">¶</a></h1>
+<p>The modules described in this chapter provide mechanisms for different processes
+to communicate.</p>
+<p>Some modules only work for two processes that are on the same machine, e.g.
+<a class="reference internal" href="signal.html#module-signal" title="signal: Set handlers for asynchronous events."><code class="xref py py-mod docutils literal notranslate"><span class="pre">signal</span></code></a> and <a class="reference internal" href="subprocess.html#module-subprocess" title="subprocess: Subprocess management."><code class="xref py py-mod docutils literal notranslate"><span class="pre">subprocess</span></code></a>.  Other modules support networking protocols
+that two or more processes can used to communicate across machines.</p>
+<p>The list of modules described in this chapter is:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="subprocess.html">17.1. <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> — Subprocess management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="subprocess.html#using-the-subprocess-module">17.1.1. Using the subprocess Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#convenience-functions">17.1.1.1. Convenience Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#exceptions">17.1.1.2. Exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#security">17.1.1.3. Security</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="subprocess.html#popen-objects">17.1.2. Popen Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subprocess.html#windows-popen-helpers">17.1.3. Windows Popen Helpers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#constants">17.1.3.1. Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="subprocess.html#replacing-older-functions-with-the-subprocess-module">17.1.4. Replacing Older Functions with the subprocess Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#replacing-bin-sh-shell-backquote">17.1.4.1. Replacing /bin/sh shell backquote</a></li>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#replacing-shell-pipeline">17.1.4.2. Replacing shell pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#replacing-os-system">17.1.4.3. Replacing <code class="docutils literal notranslate"><span class="pre">os.system()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#replacing-the-os-spawn-family">17.1.4.4. Replacing the <code class="docutils literal notranslate"><span class="pre">os.spawn</span></code> family</a></li>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#replacing-os-popen-os-popen2-os-popen3">17.1.4.5. Replacing <code class="docutils literal notranslate"><span class="pre">os.popen()</span></code>, <code class="docutils literal notranslate"><span class="pre">os.popen2()</span></code>, <code class="docutils literal notranslate"><span class="pre">os.popen3()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#replacing-functions-from-the-popen2-module">17.1.4.6. Replacing functions from the <code class="docutils literal notranslate"><span class="pre">popen2</span></code> module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="subprocess.html#notes">17.1.5. Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="subprocess.html#converting-an-argument-sequence-to-a-string-on-windows">17.1.5.1. Converting an argument sequence to a string on Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">17.2. <code class="docutils literal notranslate"><span class="pre">socket</span></code> — Low-level networking interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#socket-families">17.2.1. Socket families</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#module-contents">17.2.2. Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#socket-objects">17.2.3. Socket Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#notes-on-socket-timeouts">17.2.4. Notes on socket timeouts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="socket.html#timeouts-and-the-connect-method">17.2.4.1. Timeouts and the <code class="docutils literal notranslate"><span class="pre">connect</span></code> method</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="socket.html#example">17.2.5. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ssl.html">17.3. <code class="docutils literal notranslate"><span class="pre">ssl</span></code> — TLS/SSL wrapper for socket objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#functions-constants-and-exceptions">17.3.1. Functions, Constants, and Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#sslsocket-objects">17.3.2. SSLSocket Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#certificates">17.3.3. Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssl.html#examples">17.3.4. 範例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssl.html#testing-for-ssl-support">17.3.4.1. Testing for SSL support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ssl.html#client-side-operation">17.3.4.2. Client-side operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ssl.html#server-side-operation">17.3.4.3. Server-side operation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signal.html">17.4. <code class="docutils literal notranslate"><span class="pre">signal</span></code> — Set handlers for asynchronous events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signal.html#example">17.4.1. Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="asyncore.html">17.5. <code class="docutils literal notranslate"><span class="pre">asyncore</span></code> — Asynchronous socket handler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="asyncore.html#asyncore-example-basic-http-client">17.5.1. asyncore Example basic HTTP client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asyncore.html#asyncore-example-basic-echo-server">17.5.2. asyncore Example basic echo server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="asynchat.html">17.6. <code class="docutils literal notranslate"><span class="pre">asynchat</span></code> — Asynchronous socket command/response handler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="asynchat.html#asynchat-auxiliary-classes">17.6.1. asynchat - Auxiliary Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="asynchat.html#asynchat-example">17.6.2. asynchat Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上個主題</h4>
+  <p class="topless"><a href="_dummy_thread.html"
+                        title="上一章">16.9. <code class="docutils literal notranslate"><span class="pre">_dummy_thread</span></code> — Drop-in replacement for the <code class="docutils literal notranslate"><span class="pre">_thread</span></code> module</a></p>
+  <h4>下個主題</h4>
+  <p class="topless"><a href="subprocess.html"
+                        title="下一章">17.1. <code class="docutils literal notranslate"><span class="pre">subprocess</span></code> — Subprocess management</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本頁</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/ipc.rst.txt"
+            rel="nofollow">顯示原始碼</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜尋</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="搜" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>瀏覽</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="總索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模組索引"
+             >模組</a> |</li>
+        <li class="right" >
+          <a href="subprocess.html" title="17.1. subprocess — Subprocess management"
+             >下一頁</a> |</li>
+        <li class="right" >
+          <a href="_dummy_thread.html" title="16.9. _dummy_thread — Drop-in replacement for the _thread module"
+             >上一頁</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.1.5 說明文件</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜尋" type="text" name="q" />
+          <input type="submit" value="搜" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版權所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最後更新於 2月 04, 2026。
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>
