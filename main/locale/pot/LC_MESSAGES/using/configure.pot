@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 09:54+0000\n"
+"POT-Creation-Date: 2026-09-21 15:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -858,11 +858,11 @@ msgstr ""
 msgid "C compiler options"
 msgstr ""
 
-#: ../../../using/configure.rst:499 ../../../using/configure.rst:1609
+#: ../../../using/configure.rst:499 ../../../using/configure.rst:1619
 msgid "C compiler command."
 msgstr ""
 
-#: ../../../using/configure.rst:503 ../../../using/configure.rst:1621
+#: ../../../using/configure.rst:503 ../../../using/configure.rst:1631
 msgid "C compiler flags."
 msgstr ""
 
@@ -1973,11 +1973,25 @@ msgstr ""
 msgid "Specify the name for the framework (default: ``Python``)."
 msgstr ""
 
-#: ../../../using/configure.rst:1347
+#: ../../../using/configure.rst:1345
+msgid ""
+"An iOS build configured without ``--enable-framework`` produces a static "
+"``libpython``, for embedding directly in an app binary. Such a build cannot "
+"load extension modules at runtime, and so does not support binary wheels; it "
+"requires ``MODULE_BUILDTYPE=static`` and :option:`--disable-test-modules`, "
+"and rejects :option:`--enable-shared`. See :source:`Platforms/Apple/iOS/"
+"README.md` for the full list of limitations."
+msgstr ""
+
+#: ../../../using/configure.rst:1352
+msgid "iOS builds may be configured without a framework."
+msgstr ""
+
+#: ../../../using/configure.rst:1357
 msgid "Cross Compiling Options"
 msgstr ""
 
-#: ../../../using/configure.rst:1349
+#: ../../../using/configure.rst:1359
 msgid ""
 "Cross compiling, also known as cross building, can be used to build Python "
 "for another CPU architecture or platform. Cross compiling requires a Python "
@@ -1985,93 +1999,93 @@ msgid ""
 "match the version of the cross compiled host Python."
 msgstr ""
 
-#: ../../../using/configure.rst:1356
+#: ../../../using/configure.rst:1366
 msgid ""
 "configure for building on BUILD, usually guessed by :program:`config.guess`."
 msgstr ""
 
-#: ../../../using/configure.rst:1360
+#: ../../../using/configure.rst:1370
 msgid "cross-compile to build programs to run on HOST (target platform)"
 msgstr ""
 
-#: ../../../using/configure.rst:1364
+#: ../../../using/configure.rst:1374
 msgid "path to build ``python`` binary for cross compiling"
 msgstr ""
 
-#: ../../../using/configure.rst:1370
+#: ../../../using/configure.rst:1380
 msgid "An environment variable that points to a file with configure overrides."
 msgstr ""
 
-#: ../../../using/configure.rst:1372
+#: ../../../using/configure.rst:1382
 msgid "Example *config.site* file:"
 msgstr ""
 
-#: ../../../using/configure.rst:1383
+#: ../../../using/configure.rst:1393
 msgid "Program to run CPython for the host platform for cross-compilation."
 msgstr ""
 
-#: ../../../using/configure.rst:1388
+#: ../../../using/configure.rst:1398
 msgid "Cross compiling example::"
 msgstr ""
 
-#: ../../../using/configure.rst:1397
+#: ../../../using/configure.rst:1407
 msgid "Python Build System"
 msgstr ""
 
-#: ../../../using/configure.rst:1400
+#: ../../../using/configure.rst:1410
 msgid "Main files of the build system"
 msgstr ""
 
-#: ../../../using/configure.rst:1402
+#: ../../../using/configure.rst:1412
 msgid ":file:`configure.ac` => :file:`configure`;"
 msgstr ""
 
-#: ../../../using/configure.rst:1403
+#: ../../../using/configure.rst:1413
 msgid ""
 ":file:`Makefile.pre.in` => :file:`Makefile` (created by :file:`configure`);"
 msgstr ""
 
-#: ../../../using/configure.rst:1404
+#: ../../../using/configure.rst:1414
 msgid ":file:`pyconfig.h` (created by :file:`configure`);"
 msgstr ""
 
-#: ../../../using/configure.rst:1405
+#: ../../../using/configure.rst:1415
 msgid ""
 ":file:`Modules/Setup`: C extensions built by the Makefile using :file:"
 "`Module/makesetup` shell script;"
 msgstr ""
 
-#: ../../../using/configure.rst:1409
+#: ../../../using/configure.rst:1419
 msgid "Main build steps"
 msgstr ""
 
-#: ../../../using/configure.rst:1411
+#: ../../../using/configure.rst:1421
 msgid "C files (``.c``) are built as object files (``.o``)."
 msgstr ""
 
-#: ../../../using/configure.rst:1412
+#: ../../../using/configure.rst:1422
 msgid "A static ``libpython`` library (``.a``) is created from objects files."
 msgstr ""
 
-#: ../../../using/configure.rst:1413
+#: ../../../using/configure.rst:1423
 msgid ""
 "``python.o`` and the static ``libpython`` library are linked into the final "
 "``python`` program."
 msgstr ""
 
-#: ../../../using/configure.rst:1415
+#: ../../../using/configure.rst:1425
 msgid "C extensions are built by the Makefile (see :file:`Modules/Setup`)."
 msgstr ""
 
-#: ../../../using/configure.rst:1418
+#: ../../../using/configure.rst:1428
 msgid "Main Makefile targets"
 msgstr ""
 
-#: ../../../using/configure.rst:1421
+#: ../../../using/configure.rst:1431
 msgid "make"
 msgstr ""
 
-#: ../../../using/configure.rst:1423
+#: ../../../using/configure.rst:1433
 msgid ""
 "For the most part, when rebuilding after editing some code or refreshing "
 "your checkout from upstream, all you need to do is execute ``make``, which "
@@ -2082,22 +2096,22 @@ msgid ""
 "all`` will build. The three choices are:"
 msgstr ""
 
-#: ../../../using/configure.rst:1432
+#: ../../../using/configure.rst:1442
 msgid "``profile-opt`` (configured with ``--enable-optimizations``)"
 msgstr ""
 
-#: ../../../using/configure.rst:1433
+#: ../../../using/configure.rst:1443
 msgid ""
 "``build_wasm`` (chosen if the host platform matches ``wasm32-wasi*`` or "
 "``wasm32-emscripten``)"
 msgstr ""
 
-#: ../../../using/configure.rst:1435
+#: ../../../using/configure.rst:1445
 msgid ""
 "``build_all`` (configured without explicitly using either of the others)"
 msgstr ""
 
-#: ../../../using/configure.rst:1437
+#: ../../../using/configure.rst:1447
 msgid ""
 "Depending on the most recent source file changes, Make will rebuild any "
 "targets (object files and executables) deemed out-of-date, including running "
@@ -2110,11 +2124,11 @@ msgid ""
 "problems, at the expense of longer build times."
 msgstr ""
 
-#: ../../../using/configure.rst:1450
+#: ../../../using/configure.rst:1460
 msgid "make platform"
 msgstr ""
 
-#: ../../../using/configure.rst:1452
+#: ../../../using/configure.rst:1462
 msgid ""
 "Build the ``python`` program, but don't build the standard library extension "
 "modules. This generates a file named ``platform`` which contains a single "
@@ -2122,91 +2136,91 @@ msgid ""
 "arm64-3.12`` or ``linux-x86_64-3.13``."
 msgstr ""
 
-#: ../../../using/configure.rst:1459
+#: ../../../using/configure.rst:1469
 msgid "make profile-opt"
 msgstr ""
 
-#: ../../../using/configure.rst:1461
+#: ../../../using/configure.rst:1471
 msgid ""
 "Build Python using profile-guided optimization (PGO).  You can use the "
 "configure :option:`--enable-optimizations` option to make this the default "
 "target of the ``make`` command (``make all`` or just ``make``)."
 msgstr ""
 
-#: ../../../using/configure.rst:1469
+#: ../../../using/configure.rst:1479
 msgid "make clean"
 msgstr ""
 
-#: ../../../using/configure.rst:1471
+#: ../../../using/configure.rst:1481
 msgid "Remove built files."
 msgstr ""
 
-#: ../../../using/configure.rst:1475
+#: ../../../using/configure.rst:1485
 msgid "make distclean"
 msgstr ""
 
-#: ../../../using/configure.rst:1477
+#: ../../../using/configure.rst:1487
 msgid ""
 "In addition to the work done by ``make clean``, remove files created by the "
 "configure script.  ``configure`` will have to be run before building again. "
 "[#]_"
 msgstr ""
 
-#: ../../../using/configure.rst:1483
+#: ../../../using/configure.rst:1493
 msgid "make install"
 msgstr ""
 
-#: ../../../using/configure.rst:1485
+#: ../../../using/configure.rst:1495
 msgid "Build the ``all`` target and install Python."
 msgstr ""
 
-#: ../../../using/configure.rst:1489
+#: ../../../using/configure.rst:1499
 msgid "make test"
 msgstr ""
 
-#: ../../../using/configure.rst:1491
+#: ../../../using/configure.rst:1501
 msgid ""
 "Build the ``all`` target and run the Python test suite with the ``--fast-"
 "ci`` option without GUI tests. Variables:"
 msgstr ""
 
-#: ../../../using/configure.rst:1494
+#: ../../../using/configure.rst:1504
 msgid "``TESTOPTS``: additional regrtest command-line options."
 msgstr ""
 
-#: ../../../using/configure.rst:1495
+#: ../../../using/configure.rst:1505
 msgid "``TESTPYTHONOPTS``: additional Python command-line options."
 msgstr ""
 
-#: ../../../using/configure.rst:1496
+#: ../../../using/configure.rst:1506
 msgid "``TESTTIMEOUT``: timeout in seconds (default: 10 minutes)."
 msgstr ""
 
-#: ../../../using/configure.rst:1500
+#: ../../../using/configure.rst:1510
 msgid "make ci"
 msgstr ""
 
-#: ../../../using/configure.rst:1502
+#: ../../../using/configure.rst:1512
 msgid ""
 "This is similar to ``make test``, but uses the ``-ugui`` to also run GUI "
 "tests."
 msgstr ""
 
-#: ../../../using/configure.rst:1508
+#: ../../../using/configure.rst:1518
 msgid "make buildbottest"
 msgstr ""
 
-#: ../../../using/configure.rst:1510
+#: ../../../using/configure.rst:1520
 msgid ""
 "This is similar to ``make test``, but uses the ``--slow-ci`` option and "
 "default timeout of 20 minutes, instead of ``--fast-ci`` option."
 msgstr ""
 
-#: ../../../using/configure.rst:1515
+#: ../../../using/configure.rst:1525
 msgid "make regen-all"
 msgstr ""
 
-#: ../../../using/configure.rst:1517
+#: ../../../using/configure.rst:1527
 msgid ""
 "Regenerate (almost) all generated files. These include (but are not limited "
 "to) bytecode cases, and parser generator file. ``make regen-stdlib-module-"
@@ -2214,25 +2228,25 @@ msgid ""
 "files <#generated-files>`_."
 msgstr ""
 
-#: ../../../using/configure.rst:1524
+#: ../../../using/configure.rst:1534
 msgid "C extensions"
 msgstr ""
 
-#: ../../../using/configure.rst:1526
+#: ../../../using/configure.rst:1536
 msgid ""
 "Some C extensions are built as built-in modules, like the ``sys`` module. "
 "They are built with the ``Py_BUILD_CORE_BUILTIN`` macro defined. Built-in "
 "modules have no ``__file__`` attribute:"
 msgstr ""
 
-#: ../../../using/configure.rst:1540
+#: ../../../using/configure.rst:1550
 msgid ""
 "Other C extensions are built as dynamic libraries, like the ``_asyncio`` "
 "module. They are built with the ``Py_BUILD_CORE_MODULE`` macro defined. "
 "Example on Linux x86-64:"
 msgstr ""
 
-#: ../../../using/configure.rst:1552
+#: ../../../using/configure.rst:1562
 msgid ""
 ":file:`Modules/Setup` is used to generate Makefile targets to build C "
 "extensions. At the beginning of the files, C extensions are built as built-"
@@ -2240,334 +2254,334 @@ msgid ""
 "dynamic libraries."
 msgstr ""
 
-#: ../../../using/configure.rst:1556
+#: ../../../using/configure.rst:1566
 msgid ""
 "The :c:macro:`!PyAPI_FUNC()`, :c:macro:`!PyAPI_DATA()` and :c:macro:"
 "`PyMODINIT_FUNC` macros of :file:`Include/exports.h` are defined differently "
 "depending if the ``Py_BUILD_CORE_MODULE`` macro is defined:"
 msgstr ""
 
-#: ../../../using/configure.rst:1560
+#: ../../../using/configure.rst:1570
 msgid "Use ``Py_EXPORTED_SYMBOL`` if the ``Py_BUILD_CORE_MODULE`` is defined"
 msgstr ""
 
-#: ../../../using/configure.rst:1561
+#: ../../../using/configure.rst:1571
 msgid "Use ``Py_IMPORTED_SYMBOL`` otherwise."
 msgstr ""
 
-#: ../../../using/configure.rst:1563
+#: ../../../using/configure.rst:1573
 msgid ""
 "If the ``Py_BUILD_CORE_BUILTIN`` macro is used by mistake on a C extension "
 "built as a shared library, its :samp:`PyInit_{xxx}()` function is not "
 "exported, causing an :exc:`ImportError` on import."
 msgstr ""
 
-#: ../../../using/configure.rst:1569
+#: ../../../using/configure.rst:1579
 msgid "Compiler and linker flags"
 msgstr ""
 
-#: ../../../using/configure.rst:1571
+#: ../../../using/configure.rst:1581
 msgid ""
 "Options set by the ``./configure`` script and environment variables and used "
 "by ``Makefile``."
 msgstr ""
 
-#: ../../../using/configure.rst:1575
+#: ../../../using/configure.rst:1585
 msgid "Preprocessor flags"
 msgstr ""
 
-#: ../../../using/configure.rst:1579
+#: ../../../using/configure.rst:1589
 msgid ""
 "Value of :envvar:`CPPFLAGS` variable passed to the ``./configure`` script."
 msgstr ""
 
-#: ../../../using/configure.rst:1585
+#: ../../../using/configure.rst:1595
 msgid ""
 "(Objective) C/C++ preprocessor flags, e.g. :samp:`-I{include_dir}` if you "
 "have headers in a nonstandard directory *include_dir*."
 msgstr ""
 
-#: ../../../using/configure.rst:1588 ../../../using/configure.rst:1784
+#: ../../../using/configure.rst:1598 ../../../using/configure.rst:1794
 msgid ""
 "Both :envvar:`CPPFLAGS` and :envvar:`LDFLAGS` need to contain the shell's "
 "value to be able to build extension modules using the directories specified "
 "in the environment variables."
 msgstr ""
 
-#: ../../../using/configure.rst:1598
+#: ../../../using/configure.rst:1608
 msgid ""
 "Extra preprocessor flags added for building the interpreter object files."
 msgstr ""
 
-#: ../../../using/configure.rst:1600
+#: ../../../using/configure.rst:1610
 msgid ""
 "Default: ``$(BASECPPFLAGS) -I. -I$(srcdir)/Include $(CONFIGURE_CPPFLAGS) "
 "$(CPPFLAGS)``."
 msgstr ""
 
-#: ../../../using/configure.rst:1605
+#: ../../../using/configure.rst:1615
 msgid "Compiler flags"
 msgstr ""
 
-#: ../../../using/configure.rst:1611
+#: ../../../using/configure.rst:1621
 msgid "Example: ``gcc -pthread``."
 msgstr ""
 
-#: ../../../using/configure.rst:1615
+#: ../../../using/configure.rst:1625
 msgid "C++ compiler command."
 msgstr ""
 
-#: ../../../using/configure.rst:1617
+#: ../../../using/configure.rst:1627
 msgid "Example: ``g++ -pthread``."
 msgstr ""
 
-#: ../../../using/configure.rst:1625
+#: ../../../using/configure.rst:1635
 msgid ""
 ":envvar:`CFLAGS_NODIST` is used for building the interpreter and stdlib C "
 "extensions.  Use it when a compiler flag should *not* be part of :envvar:"
 "`CFLAGS` once Python is installed (:gh:`65320`)."
 msgstr ""
 
-#: ../../../using/configure.rst:1629
+#: ../../../using/configure.rst:1639
 msgid "In particular, :envvar:`CFLAGS` should not contain:"
 msgstr ""
 
-#: ../../../using/configure.rst:1631
+#: ../../../using/configure.rst:1641
 msgid ""
 "the compiler flag ``-I`` (for setting the search path for include files). "
 "The ``-I`` flags are processed from left to right, and any flags in :envvar:"
 "`CFLAGS` would take precedence over user- and package-supplied ``-I`` flags."
 msgstr ""
 
-#: ../../../using/configure.rst:1636
+#: ../../../using/configure.rst:1646
 msgid ""
 "hardening flags such as ``-Werror`` because distributions cannot control "
 "whether packages installed by users conform to such heightened standards."
 msgstr ""
 
-#: ../../../using/configure.rst:1644
+#: ../../../using/configure.rst:1654
 msgid ""
 "Options passed to the :mod:`compileall` command line when building PYC files "
 "in ``make install``. Default: ``-j0``."
 msgstr ""
 
-#: ../../../using/configure.rst:1651
+#: ../../../using/configure.rst:1661
 msgid "Extra C compiler flags."
 msgstr ""
 
-#: ../../../using/configure.rst:1655
+#: ../../../using/configure.rst:1665
 msgid ""
 "Value of :envvar:`CFLAGS` variable passed to the ``./configure`` script."
 msgstr ""
 
-#: ../../../using/configure.rst:1662
+#: ../../../using/configure.rst:1672
 msgid ""
 "Value of :envvar:`CFLAGS_NODIST` variable passed to the ``./configure`` "
 "script."
 msgstr ""
 
-#: ../../../using/configure.rst:1669
+#: ../../../using/configure.rst:1679
 msgid "Base compiler flags."
 msgstr ""
 
-#: ../../../using/configure.rst:1673
+#: ../../../using/configure.rst:1683
 msgid "Optimization flags."
 msgstr ""
 
-#: ../../../using/configure.rst:1677
+#: ../../../using/configure.rst:1687
 msgid "Strict or non-strict aliasing flags used to compile ``Python/dtoa.c``."
 msgstr ""
 
-#: ../../../using/configure.rst:1683
+#: ../../../using/configure.rst:1693
 msgid "Flags used to compile ``Python/ceval.c``."
 msgstr ""
 
-#: ../../../using/configure.rst:1689
+#: ../../../using/configure.rst:1699
 msgid "Compiler flags used to build a shared library."
 msgstr ""
 
-#: ../../../using/configure.rst:1691
+#: ../../../using/configure.rst:1701
 msgid "For example, ``-fPIC`` is used on Linux and on BSD."
 msgstr ""
 
-#: ../../../using/configure.rst:1695
+#: ../../../using/configure.rst:1705
 msgid "Extra C flags added for building the interpreter object files."
 msgstr ""
 
-#: ../../../using/configure.rst:1697
+#: ../../../using/configure.rst:1707
 msgid ""
 "Default: ``$(CCSHARED)`` when :option:`--enable-shared` is used, or an empty "
 "string otherwise."
 msgstr ""
 
-#: ../../../using/configure.rst:1702
+#: ../../../using/configure.rst:1712
 msgid ""
 "Default: ``$(BASECFLAGS) $(OPT) $(CONFIGURE_CFLAGS) $(CFLAGS) "
 "$(EXTRA_CFLAGS)``."
 msgstr ""
 
-#: ../../../using/configure.rst:1706
+#: ../../../using/configure.rst:1716
 msgid ""
 "Default: ``$(CONFIGURE_CFLAGS_NODIST) $(CFLAGS_NODIST) -I$(srcdir)/Include/"
 "internal``."
 msgstr ""
 
-#: ../../../using/configure.rst:1712
+#: ../../../using/configure.rst:1722
 msgid "C flags used for building the interpreter object files."
 msgstr ""
 
-#: ../../../using/configure.rst:1714
+#: ../../../using/configure.rst:1724
 msgid ""
 "Default: ``$(PY_CFLAGS) $(PY_CFLAGS_NODIST) $(PY_CPPFLAGS) "
 "$(CFLAGSFORSHARED)``."
 msgstr ""
 
-#: ../../../using/configure.rst:1720
+#: ../../../using/configure.rst:1730
 msgid "Default: ``$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE``."
 msgstr ""
 
-#: ../../../using/configure.rst:1726
+#: ../../../using/configure.rst:1736
 msgid ""
 "Compiler flags to build a standard library extension module as a built-in "
 "module, like the :mod:`posix` module."
 msgstr ""
 
-#: ../../../using/configure.rst:1729
+#: ../../../using/configure.rst:1739
 msgid "Default: ``$(PY_STDMODULE_CFLAGS) -DPy_BUILD_CORE_BUILTIN``."
 msgstr ""
 
-#: ../../../using/configure.rst:1735
+#: ../../../using/configure.rst:1745
 msgid "Purify command. Purify is a memory debugger program."
 msgstr ""
 
-#: ../../../using/configure.rst:1737
+#: ../../../using/configure.rst:1747
 msgid "Default: empty string (not used)."
 msgstr ""
 
-#: ../../../using/configure.rst:1741
+#: ../../../using/configure.rst:1751
 msgid "Linker flags"
 msgstr ""
 
-#: ../../../using/configure.rst:1745
+#: ../../../using/configure.rst:1755
 msgid ""
 "Linker command used to build programs like ``python`` and ``_testembed``."
 msgstr ""
 
-#: ../../../using/configure.rst:1747
+#: ../../../using/configure.rst:1757
 msgid "Default: ``$(PURIFY) $(CC)``."
 msgstr ""
 
-#: ../../../using/configure.rst:1751
+#: ../../../using/configure.rst:1761
 msgid ""
 "Value of :envvar:`LDFLAGS` variable passed to the ``./configure`` script."
 msgstr ""
 
-#: ../../../using/configure.rst:1753
+#: ../../../using/configure.rst:1763
 msgid ""
 "Avoid assigning :envvar:`CFLAGS`, :envvar:`LDFLAGS`, etc. so users can use "
 "them on the command line to append to these values without stomping the pre-"
 "set values."
 msgstr ""
 
-#: ../../../using/configure.rst:1761
+#: ../../../using/configure.rst:1771
 msgid ""
 ":envvar:`LDFLAGS_NODIST` is used in the same manner as :envvar:"
 "`CFLAGS_NODIST`.  Use it when a linker flag should *not* be part of :envvar:"
 "`LDFLAGS` once Python is installed (:gh:`65320`)."
 msgstr ""
 
-#: ../../../using/configure.rst:1765
+#: ../../../using/configure.rst:1775
 msgid "In particular, :envvar:`LDFLAGS` should not contain:"
 msgstr ""
 
-#: ../../../using/configure.rst:1767
+#: ../../../using/configure.rst:1777
 msgid ""
 "the compiler flag ``-L`` (for setting the search path for libraries). The ``-"
 "L`` flags are processed from left to right, and any flags in :envvar:"
 "`LDFLAGS` would take precedence over user- and package-supplied ``-L`` flags."
 msgstr ""
 
-#: ../../../using/configure.rst:1774
+#: ../../../using/configure.rst:1784
 msgid ""
 "Value of :envvar:`LDFLAGS_NODIST` variable passed to the ``./configure`` "
 "script."
 msgstr ""
 
-#: ../../../using/configure.rst:1781
+#: ../../../using/configure.rst:1791
 msgid ""
 "Linker flags, e.g. :samp:`-L{lib_dir}` if you have libraries in a "
 "nonstandard directory *lib_dir*."
 msgstr ""
 
-#: ../../../using/configure.rst:1788
+#: ../../../using/configure.rst:1798
 msgid ""
 "Please consider using ``EXE_LDFLAGS`` if the supplied linker flags are "
 "executable specific, e.g. GCC's ``-pie`` flag."
 msgstr ""
 
-#: ../../../using/configure.rst:1793
+#: ../../../using/configure.rst:1803
 msgid ""
 "Linker flags to pass libraries to the linker when linking the Python "
 "executable."
 msgstr ""
 
-#: ../../../using/configure.rst:1796
+#: ../../../using/configure.rst:1806
 msgid "Example: ``-lrt``."
 msgstr ""
 
-#: ../../../using/configure.rst:1800
+#: ../../../using/configure.rst:1810
 msgid "Command to build a shared library."
 msgstr ""
 
-#: ../../../using/configure.rst:1802
+#: ../../../using/configure.rst:1812
 msgid "Default: ``@LDSHARED@ $(PY_LDFLAGS)``."
 msgstr ""
 
-#: ../../../using/configure.rst:1806
+#: ../../../using/configure.rst:1816
 msgid "Command to build ``libpython`` shared library."
 msgstr ""
 
-#: ../../../using/configure.rst:1808
+#: ../../../using/configure.rst:1818
 msgid "Default: ``@BLDSHARED@ $(PY_CORE_LDFLAGS)``."
 msgstr ""
 
-#: ../../../using/configure.rst:1812
+#: ../../../using/configure.rst:1822
 msgid "Default: ``$(CONFIGURE_LDFLAGS) $(LDFLAGS)``."
 msgstr ""
 
-#: ../../../using/configure.rst:1816
+#: ../../../using/configure.rst:1826
 msgid "Default: ``$(CONFIGURE_LDFLAGS_NODIST) $(LDFLAGS_NODIST)``."
 msgstr ""
 
-#: ../../../using/configure.rst:1822
+#: ../../../using/configure.rst:1832
 msgid "Linker flags used for building the interpreter object files."
 msgstr ""
 
-#: ../../../using/configure.rst:1828
+#: ../../../using/configure.rst:1838
 msgid ""
 "Linker flags used for building executable targets such as the interpreter. "
 "If supplied, :envvar:`PY_CORE_EXE_LDFLAGS` will be used in replacement of :"
 "envvar:`PY_CORE_LDFLAGS`."
 msgstr ""
 
-#: ../../../using/configure.rst:1836
+#: ../../../using/configure.rst:1846
 msgid ""
 "Value of :envvar:`EXE_LDFLAGS` variable passed to the ``./configure`` script."
 msgstr ""
 
-#: ../../../using/configure.rst:1843
+#: ../../../using/configure.rst:1853
 msgid "Linker flags used for building the interpreter and executable targets."
 msgstr ""
 
-#: ../../../using/configure.rst:1846
+#: ../../../using/configure.rst:1856
 msgid "Default: ``$(PY_CORE_LDFLAGS)``"
 msgstr ""
 
-#: ../../../using/configure.rst:1852
+#: ../../../using/configure.rst:1862
 msgid "Footnotes"
 msgstr ""
 
-#: ../../../using/configure.rst:1853
+#: ../../../using/configure.rst:1863
 msgid ""
 "``git clean -fdx`` is an even more extreme way to \"clean\" your checkout. "
 "It removes all files not known to Git. When bug hunting using ``git "
