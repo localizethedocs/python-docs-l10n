@@ -1,0 +1,444 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>15. Generic Operating System Services &#8212; Python 3.1.5 documentation</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/allos.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Python 3.1.5 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="15.1. os — Miscellaneous operating system interfaces" href="os.html" />
+    <link rel="prev" title="14.2. hmac — Keyed-Hashing for Message Authentication" href="hmac.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/allos.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="os.html" title="15.1. os — Miscellaneous operating system interfaces"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hmac.html" title="14.2. hmac — Keyed-Hashing for Message Authentication"
+             accesskey="P">previous</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.1.5 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="generic-operating-system-services">
+<span id="allos"></span><h1>15. Generic Operating System Services<a class="headerlink" href="#generic-operating-system-services" title="Permalink to this headline">¶</a></h1>
+<p>The modules described in this chapter provide interfaces to operating system
+features that are available on (almost) all operating systems, such as files and
+a clock.  The interfaces are generally modeled after the Unix or C interfaces,
+but they are available on most other systems as well.  Here’s an overview:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="os.html">15.1. <code class="docutils literal notranslate"><span class="pre">os</span></code> — Miscellaneous operating system interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="os.html#file-names-command-line-arguments-and-environment-variables">15.1.1. File Names, Command Line Arguments, and Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html#process-parameters">15.1.2. Process Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html#file-object-creation">15.1.3. File Object Creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html#file-descriptor-operations">15.1.4. File Descriptor Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="os.html#open-flag-constants">15.1.4.1. <code class="docutils literal notranslate"><span class="pre">open()</span></code> flag constants</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="os.html#files-and-directories">15.1.5. Files and Directories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html#process-management">15.1.6. Process Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html#miscellaneous-system-information">15.1.7. Miscellaneous System Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="os.html#miscellaneous-functions">15.1.8. Miscellaneous Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io.html">15.2. <code class="docutils literal notranslate"><span class="pre">io</span></code> — Core tools for working with streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io.html#overview">15.2.1. Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io.html#text-i-o">15.2.1.1. Text I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html#binary-i-o">15.2.1.2. Binary I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html#raw-i-o">15.2.1.3. Raw I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io.html#high-level-module-interface">15.2.2. High-level Module Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io.html#in-memory-streams">15.2.2.1. In-memory streams</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io.html#class-hierarchy">15.2.3. Class hierarchy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io.html#i-o-base-classes">15.2.3.1. I/O Base Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html#raw-file-i-o">15.2.3.2. Raw File I/O</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html#buffered-streams">15.2.3.3. Buffered Streams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html#id1">15.2.3.4. Text I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io.html#advanced-topics">15.2.4. Advanced topics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io.html#performance">15.2.4.1. Performance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="io.html#id2">15.2.4.1.1. Binary I/O</a></li>
+<li class="toctree-l4"><a class="reference internal" href="io.html#id3">15.2.4.1.2. Text I/O</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="io.html#multi-threading">15.2.4.2. Multi-threading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io.html#reentrancy">15.2.4.3. Reentrancy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="time.html">15.3. <code class="docutils literal notranslate"><span class="pre">time</span></code> — Time access and conversions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optparse.html">15.4. <code class="docutils literal notranslate"><span class="pre">optparse</span></code> — More powerful command line option parser</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#background">15.4.1. Background</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#terminology">15.4.1.1. Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#what-are-options-for">15.4.1.2. What are options for?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#what-are-positional-arguments-for">15.4.1.3. What are positional arguments for?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#tutorial">15.4.2. Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#understanding-option-actions">15.4.2.1. Understanding option actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#the-store-action">15.4.2.2. The store action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#handling-boolean-flag-options">15.4.2.3. Handling boolean (flag) options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#other-actions">15.4.2.4. Other actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#default-values">15.4.2.5. Default values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#generating-help">15.4.2.6. Generating help</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="optparse.html#grouping-options">15.4.2.6.1. Grouping Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#printing-a-version-string">15.4.2.7. Printing a version string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#how-optparse-handles-errors">15.4.2.8. How <code class="docutils literal notranslate"><span class="pre">optparse</span></code> handles errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#putting-it-all-together">15.4.2.9. Putting it all together</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#reference-guide">15.4.3. Reference Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#creating-the-parser">15.4.3.1. Creating the parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#populating-the-parser">15.4.3.2. Populating the parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#defining-options">15.4.3.3. Defining options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#option-attributes">15.4.3.4. Option attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#standard-option-actions">15.4.3.5. Standard option actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#standard-option-types">15.4.3.6. Standard option types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#parsing-arguments">15.4.3.7. Parsing arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#querying-and-manipulating-your-option-parser">15.4.3.8. Querying and manipulating your option parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#conflicts-between-options">15.4.3.9. Conflicts between options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#cleanup">15.4.3.10. Cleanup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#other-methods">15.4.3.11. Other methods</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#option-callbacks">15.4.4. Option Callbacks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#defining-a-callback-option">15.4.4.1. Defining a callback option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#how-callbacks-are-called">15.4.4.2. How callbacks are called</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#raising-errors-in-a-callback">15.4.4.3. Raising errors in a callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-1-trivial-callback">15.4.4.4. Callback example 1: trivial callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-2-check-option-order">15.4.4.5. Callback example 2: check option order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-3-check-option-order-generalized">15.4.4.6. Callback example 3: check option order (generalized)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-4-check-arbitrary-condition">15.4.4.7. Callback example 4: check arbitrary condition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-5-fixed-arguments">15.4.4.8. Callback example 5: fixed arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#callback-example-6-variable-arguments">15.4.4.9. Callback example 6: variable arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optparse.html#extending-optparse">15.4.5. Extending <code class="docutils literal notranslate"><span class="pre">optparse</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#adding-new-types">15.4.5.1. Adding new types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optparse.html#adding-new-actions">15.4.5.2. Adding new actions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getopt.html">15.5. <code class="docutils literal notranslate"><span class="pre">getopt</span></code> — Parser for command line options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="logging.html">15.6. <code class="docutils literal notranslate"><span class="pre">logging</span></code> — Logging facility for Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#logging-tutorial">15.6.1. Logging tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#simple-examples">15.6.1.1. Simple examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#loggers">15.6.1.2. Loggers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#handlers">15.6.1.3. Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#formatters">15.6.1.4. Formatters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#configuring-logging">15.6.1.5. Configuring Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#configuring-logging-for-a-library">15.6.1.6. Configuring Logging for a Library</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#logging-levels">15.6.2. Logging Levels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#useful-handlers">15.6.3. Useful Handlers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#module-level-functions">15.6.4. Module-Level Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#logger-objects">15.6.5. Logger Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#basic-example">15.6.6. Basic example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#logging-to-multiple-destinations">15.6.7. Logging to multiple destinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#exceptions-raised-during-logging">15.6.8. Exceptions raised during logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#adding-contextual-information-to-your-logging-output">15.6.9. Adding contextual information to your logging output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#using-loggeradapters-to-impart-contextual-information">15.6.9.1. Using LoggerAdapters to impart contextual information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#using-filters-to-impart-contextual-information">15.6.9.2. Using Filters to impart contextual information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#logging-to-a-single-file-from-multiple-processes">15.6.10. Logging to a single file from multiple processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#sending-and-receiving-logging-events-across-a-network">15.6.11. Sending and receiving logging events across a network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#using-arbitrary-objects-as-messages">15.6.12. Using arbitrary objects as messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#optimization">15.6.13. Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#handler-objects">15.6.14. Handler Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#streamhandler">15.6.14.1. StreamHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#filehandler">15.6.14.2. FileHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#nullhandler">15.6.14.3. NullHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#watchedfilehandler">15.6.14.4. WatchedFileHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#rotatingfilehandler">15.6.14.5. RotatingFileHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#timedrotatingfilehandler">15.6.14.6. TimedRotatingFileHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#sockethandler">15.6.14.7. SocketHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#datagramhandler">15.6.14.8. DatagramHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#sysloghandler">15.6.14.9. SysLogHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#nteventloghandler">15.6.14.10. NTEventLogHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#smtphandler">15.6.14.11. SMTPHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#memoryhandler">15.6.14.12. MemoryHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#httphandler">15.6.14.13. HTTPHandler</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#formatter-objects">15.6.15. Formatter Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#filter-objects">15.6.16. Filter Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#logrecord-objects">15.6.17. LogRecord Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#loggeradapter-objects">15.6.18. LoggerAdapter Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#thread-safety">15.6.19. Thread Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#configuration">15.6.20. Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#configuration-functions">15.6.20.1. Configuration functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#configuration-file-format">15.6.20.2. Configuration file format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#configuration-server-example">15.6.20.3. Configuration server example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html#more-examples">15.6.21. More examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#multiple-handlers-and-formatters">15.6.21.1. Multiple handlers and formatters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="logging.html#using-logging-in-multiple-modules">15.6.21.2. Using logging in multiple modules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getpass.html">15.7. <code class="docutils literal notranslate"><span class="pre">getpass</span></code> — Portable password input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curses.html">15.8. <code class="docutils literal notranslate"><span class="pre">curses</span></code> — Terminal handling for character-cell displays</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curses.html#functions">15.8.1. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curses.html#window-objects">15.8.2. Window Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curses.html#constants">15.8.3. Constants</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="curses.html#module-curses.textpad">15.9. <code class="docutils literal notranslate"><span class="pre">curses.textpad</span></code> — Text input widget for curses programs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curses.html#textbox-objects">15.9.1. Textbox objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="curses.html#module-curses.wrapper">15.10. <code class="docutils literal notranslate"><span class="pre">curses.wrapper</span></code> — Terminal handler for curses programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curses.ascii.html">15.11. <code class="docutils literal notranslate"><span class="pre">curses.ascii</span></code> — Utilities for ASCII characters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curses.panel.html">15.12. <code class="docutils literal notranslate"><span class="pre">curses.panel</span></code> — A panel stack extension for curses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="curses.panel.html#functions">15.12.1. Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curses.panel.html#panel-objects">15.12.2. Panel Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="platform.html">15.13. <code class="docutils literal notranslate"><span class="pre">platform</span></code> —  Access to underlying platform’s identifying data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="platform.html#cross-platform">15.13.1. Cross Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.html#java-platform">15.13.2. Java Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.html#windows-platform">15.13.3. Windows Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="platform.html#win95-98-specific">15.13.3.1. Win95/98 specific</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="platform.html#mac-os-platform">15.13.4. Mac OS Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="platform.html#unix-platforms">15.13.5. Unix Platforms</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errno.html">15.14. <code class="docutils literal notranslate"><span class="pre">errno</span></code> — Standard errno system symbols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ctypes.html">15.15. <code class="docutils literal notranslate"><span class="pre">ctypes</span></code> — A foreign function library for Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ctypes.html#ctypes-tutorial">15.15.1. ctypes tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#loading-dynamic-link-libraries">15.15.1.1. Loading dynamic link libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#accessing-functions-from-loaded-dlls">15.15.1.2. Accessing functions from loaded dlls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#calling-functions">15.15.1.3. Calling functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#fundamental-data-types">15.15.1.4. Fundamental data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#calling-functions-continued">15.15.1.5. Calling functions, continued</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#calling-functions-with-your-own-custom-data-types">15.15.1.6. Calling functions with your own custom data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#specifying-the-required-argument-types-function-prototypes">15.15.1.7. Specifying the required argument types (function prototypes)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#return-types">15.15.1.8. Return types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#passing-pointers-or-passing-parameters-by-reference">15.15.1.9. Passing pointers (or: passing parameters by reference)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#structures-and-unions">15.15.1.10. Structures and unions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#structure-union-alignment-and-byte-order">15.15.1.11. Structure/union alignment and byte order</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#bit-fields-in-structures-and-unions">15.15.1.12. Bit fields in structures and unions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#arrays">15.15.1.13. Arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#pointers">15.15.1.14. Pointers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#type-conversions">15.15.1.15. Type conversions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#incomplete-types">15.15.1.16. Incomplete Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#callback-functions">15.15.1.17. Callback functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#accessing-values-exported-from-dlls">15.15.1.18. Accessing values exported from dlls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#surprises">15.15.1.19. Surprises</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#variable-sized-data-types">15.15.1.20. Variable-sized data types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ctypes.html#ctypes-reference">15.15.2. ctypes reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#finding-shared-libraries">15.15.2.1. Finding shared libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#loading-shared-libraries">15.15.2.2. Loading shared libraries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#foreign-functions">15.15.2.3. Foreign functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#function-prototypes">15.15.2.4. Function prototypes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#utility-functions">15.15.2.5. Utility functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#data-types">15.15.2.6. Data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#ctypes-fundamental-data-types-2">15.15.2.7. Fundamental data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#structured-data-types">15.15.2.8. Structured data types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ctypes.html#arrays-and-pointers">15.15.2.9. Arrays and pointers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hmac.html"
+                        title="previous chapter">14.2. <code class="docutils literal notranslate"><span class="pre">hmac</span></code> — Keyed-Hashing for Message Authentication</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="os.html"
+                        title="next chapter">15.1. <code class="docutils literal notranslate"><span class="pre">os</span></code> — Miscellaneous operating system interfaces</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/allos.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="os.html" title="15.1. os — Miscellaneous operating system interfaces"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hmac.html" title="14.2. hmac — Keyed-Hashing for Message Authentication"
+             >previous</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.1.5 documentation</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on Feb 04, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>
