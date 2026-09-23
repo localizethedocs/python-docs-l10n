@@ -1,0 +1,378 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/test.rst:3
+msgid ":mod:`test` --- Regression tests package for Python"
+msgstr ""
+
+#: ../../../library/test.rst:10
+msgid ""
+"The :mod:`test` package contains all regression tests for Python as well as "
+"the modules :mod:`test.test_support` and :mod:`test.regrtest`. :mod:`test."
+"test_support` is used to enhance your tests while :mod:`test.regrtest` "
+"drives the testing suite."
+msgstr ""
+
+#: ../../../library/test.rst:15
+msgid ""
+"Each module in the :mod:`test` package whose name starts with ``test_`` is a "
+"testing suite for a specific module or feature. All new tests should be "
+"written using the :mod:`unittest` or :mod:`doctest` module.  Some older "
+"tests are written using a \"traditional\" testing style that compares output "
+"printed to ``sys.stdout``; this style of test is considered deprecated."
+msgstr ""
+
+#: ../../../library/test.rst:25
+msgid "Module :mod:`unittest`"
+msgstr ""
+
+#: ../../../library/test.rst:25
+msgid "Writing PyUnit regression tests."
+msgstr ""
+
+#: ../../../library/test.rst:27
+msgid "Module :mod:`doctest`"
+msgstr ""
+
+#: ../../../library/test.rst:28
+msgid "Tests embedded in documentation strings."
+msgstr ""
+
+#: ../../../library/test.rst:34
+msgid "Writing Unit Tests for the :mod:`test` package"
+msgstr ""
+
+#: ../../../library/test.rst:36
+msgid ""
+"It is preferred that tests that use the :mod:`unittest` module follow a few "
+"guidelines. One is to name the test module by starting it with ``test_`` and "
+"end it with the name of the module being tested. The test methods in the "
+"test module should start with ``test_`` and end with a description of what "
+"the method is testing. This is needed so that the methods are recognized by "
+"the test driver as test methods. Also, no documentation string for the "
+"method should be included. A comment (such as ``# Tests function returns "
+"only True or False``) should be used to provide documentation for test "
+"methods. This is done because documentation strings get printed out if they "
+"exist and thus what test is being run is not stated."
+msgstr ""
+
+#: ../../../library/test.rst:47
+msgid "A basic boilerplate is often used::"
+msgstr ""
+
+#: ../../../library/test.rst:86
+msgid ""
+"This boilerplate code allows the testing suite to be run by :mod:`test."
+"regrtest` as well as on its own as a script."
+msgstr ""
+
+#: ../../../library/test.rst:89
+msgid ""
+"The goal for regression testing is to try to break code. This leads to a few "
+"guidelines to be followed:"
+msgstr ""
+
+#: ../../../library/test.rst:92
+msgid ""
+"The testing suite should exercise all classes, functions, and constants. "
+"This includes not just the external API that is to be presented to the "
+"outside world but also \"private\" code."
+msgstr ""
+
+#: ../../../library/test.rst:96
+msgid ""
+"Whitebox testing (examining the code being tested when the tests are being "
+"written) is preferred. Blackbox testing (testing only the published user "
+"interface) is not complete enough to make sure all boundary and edge cases "
+"are tested."
+msgstr ""
+
+#: ../../../library/test.rst:101
+msgid ""
+"Make sure all possible values are tested including invalid ones. This makes "
+"sure that not only all valid values are acceptable but also that improper "
+"values are handled correctly."
+msgstr ""
+
+#: ../../../library/test.rst:105
+msgid ""
+"Exhaust as many code paths as possible. Test where branching occurs and thus "
+"tailor input to make sure as many different paths through the code are taken."
+msgstr ""
+
+#: ../../../library/test.rst:108
+msgid ""
+"Add an explicit test for any bugs discovered for the tested code. This will "
+"make sure that the error does not crop up again if the code is changed in "
+"the future."
+msgstr ""
+
+#: ../../../library/test.rst:112
+msgid ""
+"Make sure to clean up after your tests (such as close and remove all "
+"temporary files)."
+msgstr ""
+
+#: ../../../library/test.rst:115
+msgid ""
+"If a test is dependent on a specific condition of the operating system then "
+"verify the condition already exists before attempting the test."
+msgstr ""
+
+#: ../../../library/test.rst:118
+msgid ""
+"Import as few modules as possible and do it as soon as possible. This "
+"minimizes external dependencies of tests and also minimizes possible "
+"anomalous behavior from side-effects of importing a module."
+msgstr ""
+
+#: ../../../library/test.rst:122
+msgid ""
+"Try to maximize code reuse. On occasion, tests will vary by something as "
+"small as what type of input is used. Minimize code duplication by "
+"subclassing a basic test class with a class that specifies the input::"
+msgstr ""
+
+#: ../../../library/test.rst:145
+msgid "Test Driven Development"
+msgstr ""
+
+#: ../../../library/test.rst:146
+msgid "A book by Kent Beck on writing tests before code."
+msgstr ""
+
+#: ../../../library/test.rst:152
+msgid "Running tests using :mod:`test.regrtest`"
+msgstr ""
+
+#: ../../../library/test.rst:154
+msgid ""
+":mod:`test.regrtest` can be used as a script to drive Python's regression "
+"test suite. Running the script by itself automatically starts running all "
+"regression tests in the :mod:`test` package. It does this by finding all "
+"modules in the package whose name starts with ``test_``, importing them, and "
+"executing the function :func:`test_main` if present. The names of tests to "
+"execute may also be passed to the script. Specifying a single regression "
+"test (:program:`python regrtest.py` :option:`test_spam.py`) will minimize "
+"output and only print whether the test passed or failed and thus minimize "
+"output."
+msgstr ""
+
+#: ../../../library/test.rst:163
+msgid ""
+"Running :mod:`test.regrtest` directly allows what resources are available "
+"for tests to use to be set. You do this by using the :option:`-u` command-"
+"line option. Run :program:`python regrtest.py` :option:`-uall` to turn on "
+"all resources; specifying :option:`all` as an option for :option:`-u` "
+"enables all possible resources. If all but one resource is desired (a more "
+"common case), a comma-separated list of resources that are not desired may "
+"be listed after :option:`all`. The command :program:`python regrtest.py` :"
+"option:`-uall,-audio,-largefile` will run :mod:`test.regrtest` with all "
+"resources except the :option:`audio` and :option:`largefile` resources. For "
+"a list of all resources and more command-line options, run :program:`python "
+"regrtest.py` :option:`-h`."
+msgstr ""
+
+#: ../../../library/test.rst:175
+msgid ""
+"Some other ways to execute the regression tests depend on what platform the "
+"tests are being executed on. On Unix, you can run :program:`make` :option:"
+"`test` at the top-level directory where Python was built. On Windows, "
+"executing :program:`rt.bat` from your :file:`PCBuild` directory will run all "
+"regression tests."
+msgstr ""
+
+#: ../../../library/test.rst:183
+msgid ":mod:`test.support` --- Utility functions for tests"
+msgstr ""
+
+#: ../../../library/test.rst:189
+msgid ""
+"The :mod:`test.support` module provides support for Python's regression "
+"tests."
+msgstr ""
+
+#: ../../../library/test.rst:192
+msgid "This module defines the following exceptions:"
+msgstr ""
+
+#: ../../../library/test.rst:197
+msgid ""
+"Exception to be raised when a test fails. This is deprecated in favor of :"
+"mod:`unittest`\\ -based tests and :class:`unittest.TestCase`'s assertion "
+"methods."
+msgstr ""
+
+#: ../../../library/test.rst:204
+msgid ""
+"Subclass of :exc:`TestFailed`. Raised when a test is skipped. This occurs "
+"when a needed resource (such as a network connection) is not available at "
+"the time of testing."
+msgstr ""
+
+#: ../../../library/test.rst:211
+msgid ""
+"Subclass of :exc:`TestSkipped`. Raised when a resource (such as a network "
+"connection) is not available. Raised by the :func:`requires` function."
+msgstr ""
+
+#: ../../../library/test.rst:214
+msgid "The :mod:`test.support` module defines the following constants:"
+msgstr ""
+
+#: ../../../library/test.rst:219
+msgid ""
+":const:`True` when verbose output is enabled. Should be checked when more "
+"detailed information is desired about a running test. *verbose* is set by :"
+"mod:`test.regrtest`."
+msgstr ""
+
+#: ../../../library/test.rst:226
+msgid ":const:`True` if the running interpreter is Jython."
+msgstr ""
+
+#: ../../../library/test.rst:231
+msgid ""
+"Set to the path that a temporary file may be created at. Any temporary that "
+"is created should be closed and unlinked (removed)."
+msgstr ""
+
+#: ../../../library/test.rst:234
+msgid "The :mod:`test.support` module defines the following functions:"
+msgstr ""
+
+#: ../../../library/test.rst:239
+msgid ""
+"Removes the module named *module_name* from ``sys.modules`` and deletes any "
+"byte-compiled files of the module."
+msgstr ""
+
+#: ../../../library/test.rst:245
+msgid ""
+"Returns :const:`True` if *resource* is enabled and available. The list of "
+"available resources is only set when :mod:`test.regrtest` is executing the "
+"tests."
+msgstr ""
+
+#: ../../../library/test.rst:252
+msgid ""
+"Raises :exc:`ResourceDenied` if *resource* is not available. *msg* is the "
+"argument to :exc:`ResourceDenied` if it is raised. Always returns true if "
+"called by a function whose ``__name__`` is ``'__main__'``. Used when tests "
+"are executed by :mod:`test.regrtest`."
+msgstr ""
+
+#: ../../../library/test.rst:260
+msgid ""
+"Return the path to the file named *filename*. If no match is found "
+"*filename* is returned. This does not equal a failure since it could be the "
+"path to the file."
+msgstr ""
+
+#: ../../../library/test.rst:266
+msgid ""
+"Execute :class:`unittest.TestCase` subclasses passed to the function. The "
+"function scans the classes for methods starting with the prefix ``test_`` "
+"and executes the tests individually."
+msgstr ""
+
+#: ../../../library/test.rst:270
+msgid ""
+"It is also legal to pass strings as parameters; these should be keys in "
+"``sys.modules``. Each associated module will be scanned by ``unittest."
+"TestLoader.loadTestsFromModule()``. This is usually seen in the following :"
+"func:`test_main` function::"
+msgstr ""
+
+#: ../../../library/test.rst:278
+msgid "This will run all tests defined in the named module."
+msgstr ""
+
+#: ../../../library/test.rst:283
+msgid ""
+"A convenience wrapper for ``warnings.catch_warnings()`` that makes it easier "
+"to test that a warning was correctly raised with a single assertion. It is "
+"approximately equivalent to calling ``warnings.catch_warnings(record=True)``."
+msgstr ""
+
+#: ../../../library/test.rst:288
+msgid ""
+"The main difference is that on entry to the context manager, a :class:"
+"`WarningRecorder` instance is returned instead of a simple list. The "
+"underlying warnings list is available via the recorder object's :attr:"
+"`warnings` attribute, while the attributes of the last raised warning are "
+"also accessible directly on the object. If no warning has been raised, then "
+"the latter attributes will all be :const:`None`."
+msgstr ""
+
+#: ../../../library/test.rst:295
+msgid ""
+"A :meth:`reset` method is also provided on the recorder object. This method "
+"simply clears the warning list."
+msgstr ""
+
+#: ../../../library/test.rst:298
+msgid "The context manager is used like this::"
+msgstr ""
+
+#: ../../../library/test.rst:314
+msgid ""
+"This is a context manager than runs the :keyword:`with` statement body using "
+"a :class:`StringIO.StringIO` object as sys.stdout.  That object can be "
+"retrieved using the ``as`` clause of the :keyword:`with` statement."
+msgstr ""
+
+#: ../../../library/test.rst:318
+msgid "Example use::"
+msgstr ""
+
+#: ../../../library/test.rst:325
+msgid "The :mod:`test.support` module defines the following classes:"
+msgstr ""
+
+#: ../../../library/test.rst:329
+msgid ""
+"Instances are a context manager that raises :exc:`ResourceDenied` if the "
+"specified exception type is raised.  Any keyword arguments are treated as "
+"attribute/value pairs to be compared against any exception raised within "
+"the :keyword:`with` statement.  Only if all pairs match properly against "
+"attributes on the exception is :exc:`ResourceDenied` raised."
+msgstr ""
+
+#: ../../../library/test.rst:338
+msgid ""
+"Class used to temporarily set or unset environment variables.  Instances can "
+"be used as a context manager."
+msgstr ""
+
+#: ../../../library/test.rst:344
+msgid ""
+"Temporarily set the environment variable ``envvar`` to the value of "
+"``value``."
+msgstr ""
+
+#: ../../../library/test.rst:349
+msgid "Temporarily unset the environment variable ``envvar``."
+msgstr ""
+
+#: ../../../library/test.rst:353
+msgid ""
+"Class used to record warnings for unit tests. See documentation of :func:"
+"`check_warnings` above for more details."
+msgstr ""
