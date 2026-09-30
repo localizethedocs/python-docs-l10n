@@ -1,0 +1,160 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../library/contextlib.rst:2
+msgid ""
+":mod:`contextlib` --- Utilities for :keyword:`with`\\ -statement contexts"
+msgstr ""
+
+#: ../../../library/contextlib.rst:8
+msgid ""
+"This module provides utilities for common tasks involving the :keyword:"
+"`with` statement. For more information see also :ref:`typecontextmanager` "
+"and :ref:`context-managers`."
+msgstr ""
+
+#: ../../../library/contextlib.rst:12
+msgid "Functions provided:"
+msgstr ""
+
+#: ../../../library/contextlib.rst:17
+msgid ""
+"This function is a :term:`decorator` that can be used to define a factory "
+"function for :keyword:`with` statement context managers, without needing to "
+"create a class or separate :meth:`__enter__` and :meth:`__exit__` methods."
+msgstr ""
+
+#: ../../../library/contextlib.rst:21
+msgid ""
+"A simple example (this is not recommended as a real way of generating "
+"HTML!)::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:38
+msgid ""
+"The function being decorated must return a :term:`generator`-iterator when "
+"called. This iterator must yield exactly one value, which will be bound to "
+"the targets in the :keyword:`with` statement's :keyword:`as` clause, if any."
+msgstr ""
+
+#: ../../../library/contextlib.rst:42
+msgid ""
+"At the point where the generator yields, the block nested in the :keyword:"
+"`with` statement is executed.  The generator is then resumed after the block "
+"is exited. If an unhandled exception occurs in the block, it is reraised "
+"inside the generator at the point where the yield occurred.  Thus, you can "
+"use a :keyword:`try`...\\ :keyword:`except`...\\ :keyword:`finally` "
+"statement to trap the error (if any), or ensure that some cleanup takes "
+"place. If an exception is trapped merely in order to log it or to perform "
+"some action (rather than to suppress it entirely), the generator must "
+"reraise that exception. Otherwise the generator context manager will "
+"indicate to the :keyword:`with` statement that the exception has been "
+"handled, and execution will resume with the statement immediately following "
+"the :keyword:`with` statement."
+msgstr ""
+
+#: ../../../library/contextlib.rst:57
+msgid "Combine multiple context managers into a single nested context manager."
+msgstr ""
+
+#: ../../../library/contextlib.rst:59
+msgid ""
+"This function has been deprecated in favour of the multiple manager form of "
+"the :keyword:`with` statement."
+msgstr ""
+
+#: ../../../library/contextlib.rst:62
+msgid ""
+"The one advantage of this function over the multiple manager form of the :"
+"keyword:`with` statement is that argument unpacking allows it to be used "
+"with a variable number of context managers as follows::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:71
+msgid ""
+"Note that if the :meth:`__exit__` method of one of the nested context "
+"managers indicates an exception should be suppressed, no exception "
+"information will be passed to any remaining outer context managers. "
+"Similarly, if the :meth:`__exit__` method of one of the nested managers "
+"raises an exception, any previous exception state will be lost; the new "
+"exception will be passed to the :meth:`__exit__` methods of any remaining "
+"outer context managers. In general, :meth:`__exit__` methods should avoid "
+"raising exceptions, and in particular they should not re-raise a passed-in "
+"exception."
+msgstr ""
+
+#: ../../../library/contextlib.rst:80
+msgid ""
+"This function has two major quirks that have led to it being deprecated. "
+"Firstly, as the context managers are all constructed before the function is "
+"invoked, the :meth:`__new__` and :meth:`__init__` methods of the inner "
+"context managers are not actually covered by the scope of the outer context "
+"managers. That means, for example, that using :func:`nested` to open two "
+"files is a programming error as the first file will not be closed promptly "
+"if an exception is thrown when opening the second file."
+msgstr ""
+
+#: ../../../library/contextlib.rst:88
+msgid ""
+"Secondly, if the :meth:`__enter__` method of one of the inner context "
+"managers raises an exception that is caught and suppressed by the :meth:"
+"`__exit__` method of one of the outer context managers, this construct will "
+"raise :exc:`RuntimeError` rather than skipping the body of the :keyword:"
+"`with` statement."
+msgstr ""
+
+#: ../../../library/contextlib.rst:94
+msgid ""
+"Developers that need to support nesting of a variable number of context "
+"managers can either use the :mod:`warnings` module to suppress the "
+"DeprecationWarning raised by this function or else use this function as a "
+"model for an application specific implementation."
+msgstr ""
+
+#: ../../../library/contextlib.rst:99
+msgid ""
+"The with-statement now supports this functionality directly (without the "
+"confusing error prone quirks)."
+msgstr ""
+
+#: ../../../library/contextlib.rst:106
+msgid ""
+"Return a context manager that closes *thing* upon completion of the block.  "
+"This is basically equivalent to::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:118
+msgid "And lets you write code like this::"
+msgstr ""
+
+#: ../../../library/contextlib.rst:127
+msgid ""
+"without needing to explicitly close ``page``.  Even if an error occurs, "
+"``page.close()`` will be called when the :keyword:`with` block is exited."
+msgstr ""
+
+#: ../../../library/contextlib.rst:134
+msgid ":pep:`0343` - The \"with\" statement"
+msgstr ""
+
+#: ../../../library/contextlib.rst:134
+msgid ""
+"The specification, background, and examples for the Python :keyword:`with` "
+"statement."
+msgstr ""
