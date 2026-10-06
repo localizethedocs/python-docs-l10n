@@ -1,6 +1,8 @@
 <div align="center">
 <picture>
-  <img height="100" src="https://cdn.jsdelivr.net/gh/localizethedocs/static/mark/python.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/python-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/python-light.svg">
+  <img height="100" src="https://cdn.jsdelivr.net/gh/localizethedocs/static/logo/python-light.svg">
 </picture>
 </div>
 
