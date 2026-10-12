@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 09:54+0000\n"
+"POT-Creation-Date: 2026-10-05 17:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1340,8 +1340,8 @@ msgstr ""
 msgid ""
 "``STACK[-1]`` is an :term:`iterator`.  Call its :meth:`~iterator.__next__` "
 "method. If this yields a new value, push it on the stack (leaving the "
-"iterator below it).  If the iterator indicates it is exhausted then the byte "
-"code counter is incremented by *delta*."
+"iterator below it).  If the iterator indicates it is :term:`exhausted` then "
+"the byte code counter is incremented by *delta*."
 msgstr ""
 
 #: ../../../library/dis.rst:1433
@@ -1951,7 +1951,20 @@ msgstr ""
 msgid "Adds an annotation index to the ``__conditional_annotations__`` set."
 msgstr ""
 
+#: ../../../library/dis.rst:1925
+msgid "``INTRINSIC_MATCH_CLASS_ISINSTANCE``"
+msgstr ""
+
+#: ../../../library/dis.rst:1925
+msgid ""
+"Do :func:`isinstance` checks for :ref:`Class patterns <class-patterns>`."
+msgstr ""
+
 #: ../../../library/dis.rst:1931
+msgid "Added ``INTRINSIC_MATCH_CLASS_ISINSTANCE``."
+msgstr ""
+
+#: ../../../library/dis.rst:1937
 msgid ""
 "Performs special method lookup on ``STACK[-1]``. If ``type(STACK[-1])."
 "__xxx__`` is a method, leave ``type(STACK[-1]).__xxx__; STACK[-1]`` on the "
@@ -1959,25 +1972,25 @@ msgid ""
 "__xxx__; NULL`` on the stack."
 msgstr ""
 
-#: ../../../library/dis.rst:1940
+#: ../../../library/dis.rst:1946
 msgid "**Pseudo-instructions**"
 msgstr ""
 
-#: ../../../library/dis.rst:1942
+#: ../../../library/dis.rst:1948
 msgid ""
 "These opcodes do not appear in Python bytecode. They are used by the "
 "compiler but are replaced by real opcodes or removed before bytecode is "
 "generated."
 msgstr ""
 
-#: ../../../library/dis.rst:1947
+#: ../../../library/dis.rst:1953
 msgid ""
 "Set up an exception handler for the following code block. If an exception "
 "occurs, the value stack level is restored to its current state and control "
 "is transferred to the exception handler at ``target``."
 msgstr ""
 
-#: ../../../library/dis.rst:1954
+#: ../../../library/dis.rst:1960
 msgid ""
 "Like ``SETUP_FINALLY``, but in case of an exception also pushes the last "
 "instruction (``lasti``) to the stack so that ``RERAISE`` can restore it. If "
@@ -1986,91 +1999,91 @@ msgid ""
 "exception handler at ``target``."
 msgstr ""
 
-#: ../../../library/dis.rst:1963
+#: ../../../library/dis.rst:1969
 msgid ""
 "Like ``SETUP_CLEANUP``, but in case of an exception one more item is popped "
 "from the stack before control is transferred to the exception handler at "
 "``target``."
 msgstr ""
 
-#: ../../../library/dis.rst:1967
+#: ../../../library/dis.rst:1973
 msgid ""
 "This variant is used in :keyword:`with` and :keyword:`async with` "
 "constructs, which push the return value of the context manager's :meth:"
 "`~object.__enter__` or :meth:`~object.__aenter__` to the stack."
 msgstr ""
 
-#: ../../../library/dis.rst:1974
+#: ../../../library/dis.rst:1980
 msgid ""
 "Marks the end of the code block associated with the last ``SETUP_FINALLY``, "
 "``SETUP_CLEANUP`` or ``SETUP_WITH``."
 msgstr ""
 
-#: ../../../library/dis.rst:1981
+#: ../../../library/dis.rst:1987
 msgid ""
 "Undirected relative jump instructions which are replaced by their directed "
 "(forward/backward) counterparts by the assembler."
 msgstr ""
 
-#: ../../../library/dis.rst:1987
+#: ../../../library/dis.rst:1993
 msgid ""
 "Conditional jumps which do not impact the stack. Replaced by the sequence "
 "``COPY 1``, ``TO_BOOL``, ``POP_JUMP_IF_TRUE/FALSE``."
 msgstr ""
 
-#: ../../../library/dis.rst:1992
+#: ../../../library/dis.rst:1998
 msgid ""
 "Pushes a reference to the cell contained in slot ``i`` of the \"fast "
 "locals\" storage."
 msgstr ""
 
-#: ../../../library/dis.rst:1995
+#: ../../../library/dis.rst:2001
 msgid ""
 "Note that ``LOAD_CLOSURE`` is replaced with ``LOAD_FAST`` in the assembler."
 msgstr ""
 
-#: ../../../library/dis.rst:1997
+#: ../../../library/dis.rst:2003
 msgid "This opcode is now a pseudo-instruction."
 msgstr ""
 
-#: ../../../library/dis.rst:2004
+#: ../../../library/dis.rst:2010
 msgid "Opcode collections"
 msgstr ""
 
-#: ../../../library/dis.rst:2006
+#: ../../../library/dis.rst:2012
 msgid ""
 "These collections are provided for automatic introspection of bytecode "
 "instructions:"
 msgstr ""
 
-#: ../../../library/dis.rst:2009
+#: ../../../library/dis.rst:2015
 msgid ""
 "The collections now contain pseudo instructions and instrumented "
 "instructions as well. These are opcodes with values ``>= MIN_PSEUDO_OPCODE`` "
 "and ``>= MIN_INSTRUMENTED_OPCODE``."
 msgstr ""
 
-#: ../../../library/dis.rst:2016
+#: ../../../library/dis.rst:2022
 msgid "Sequence of operation names, indexable using the bytecode."
 msgstr ""
 
-#: ../../../library/dis.rst:2021
+#: ../../../library/dis.rst:2027
 msgid "Dictionary mapping operation names to bytecodes."
 msgstr ""
 
-#: ../../../library/dis.rst:2026
+#: ../../../library/dis.rst:2032
 msgid "Sequence of all compare operation names."
 msgstr ""
 
-#: ../../../library/dis.rst:2031
+#: ../../../library/dis.rst:2037
 msgid "Sequence of bytecodes that use their argument."
 msgstr ""
 
-#: ../../../library/dis.rst:2038
+#: ../../../library/dis.rst:2044
 msgid "Sequence of bytecodes that access a constant."
 msgstr ""
 
-#: ../../../library/dis.rst:2043
+#: ../../../library/dis.rst:2049
 msgid ""
 "Sequence of bytecodes that access a :term:`free (closure) variable <closure "
 "variable>`. 'free' in this context refers to names in the current scope that "
@@ -2079,39 +2092,39 @@ msgid ""
 "scopes."
 msgstr ""
 
-#: ../../../library/dis.rst:2051
+#: ../../../library/dis.rst:2057
 msgid "Sequence of bytecodes that access an attribute by name."
 msgstr ""
 
-#: ../../../library/dis.rst:2056
+#: ../../../library/dis.rst:2062
 msgid "Sequence of bytecodes that have a jump target. All jumps are relative."
 msgstr ""
 
-#: ../../../library/dis.rst:2063
+#: ../../../library/dis.rst:2069
 msgid "Sequence of bytecodes that access a local variable."
 msgstr ""
 
-#: ../../../library/dis.rst:2068
+#: ../../../library/dis.rst:2074
 msgid "Sequence of bytecodes of Boolean operations."
 msgstr ""
 
-#: ../../../library/dis.rst:2072
+#: ../../../library/dis.rst:2078
 msgid "Sequence of bytecodes that set an exception handler."
 msgstr ""
 
-#: ../../../library/dis.rst:2079
+#: ../../../library/dis.rst:2085
 msgid "Sequence of bytecodes that have a relative jump target."
 msgstr ""
 
-#: ../../../library/dis.rst:2081
+#: ../../../library/dis.rst:2087
 msgid "All jumps are now relative. Use :data:`hasjump`."
 msgstr ""
 
-#: ../../../library/dis.rst:2087
+#: ../../../library/dis.rst:2093
 msgid "Sequence of bytecodes that have an absolute jump target."
 msgstr ""
 
-#: ../../../library/dis.rst:2089
+#: ../../../library/dis.rst:2095
 msgid "All jumps are now relative. This list is empty."
 msgstr ""
 
