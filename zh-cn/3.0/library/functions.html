@@ -1,0 +1,1436 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Built-in Functions &#8212; Python 3.0.1 文档</title>
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <link rel="canonical" href="https://projects.localizethedocs.org/python-docs-l10n/library/functions.html" />
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="在 Python 3.0.1 文档 中搜索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="关于这些文档" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="copyright" title="版权所有" href="../copyright.html" />
+    <link rel="next" title="Built-in Constants" href="constants.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    
+    <link rel="canonical" href="https://docs.python.org/3/library/functions.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    
+     
+
+            <script type="text/javascript" src="../_static/rtd_switcher.js"></script>
+            <meta name="readthedocs-addons-api-version" content="1">
+            <script type="text/javascript" src="../ltd-provenance.js"></script>
+            <script type="text/javascript" src="../ltd-current.js"></script>
+            <script type="text/javascript" src="../../../ltd-config.js"></script>
+            <script type="text/javascript" src="../../../ltd-flyout.js"></script>
+
+  </head><body>
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="constants.html" title="Built-in Constants"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="built-in-functions">
+<span id="built-in-funcs"></span><h1>Built-in Functions<a class="headerlink" href="#built-in-functions" title="永久链接至标题">¶</a></h1>
+<p>The Python interpreter has a number of functions and types built into it that
+are always available.  They are listed here in alphabetical order.</p>
+<dl class="function">
+<dt id="abs">
+<code class="descname">abs</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#abs" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the absolute value of a number.  The argument may be an
+integer or a floating point number.  If the argument is a complex number, its
+magnitude is returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="all">
+<code class="descname">all</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#all" title="永久链接至目标">¶</a></dt>
+<dd><p>Return True if all elements of the <em>iterable</em> are true. Equivalent to:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="any">
+<code class="descname">any</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#any" title="永久链接至目标">¶</a></dt>
+<dd><p>Return True if any element of the <em>iterable</em> is true. Equivalent to:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">any</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="ascii">
+<code class="descname">ascii</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#ascii" title="永久链接至目标">¶</a></dt>
+<dd><p>As <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a>, return a string containing a printable representation of an
+object, but escape the non-ASCII characters in the string returned by
+<a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> using <code class="docutils literal notranslate"><span class="pre">\x</span></code>, <code class="docutils literal notranslate"><span class="pre">\u</span></code> or <code class="docutils literal notranslate"><span class="pre">\U</span></code> escapes.  This generates a string
+similar to that returned by <a class="reference internal" href="#repr" title="repr"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> in Python 2.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bin">
+<code class="descname">bin</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#bin" title="永久链接至目标">¶</a></dt>
+<dd><p>Convert an integer number to a binary string. The result is a valid Python
+expression.  If <em>x</em> is not a Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> object, it has to define an
+<a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method that returns an integer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bool">
+<code class="descname">bool</code><span class="sig-paren">(</span><span class="optional">[</span><em>x</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bool" title="永久链接至目标">¶</a></dt>
+<dd><p>Convert a value to a Boolean, using the standard truth testing procedure.  If
+<em>x</em> is false or omitted, this returns <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a>; otherwise it returns
+<a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a>. <a class="reference internal" href="#bool" title="bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> is also a class, which is a subclass of
+<a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>. Class <a class="reference internal" href="#bool" title="bool"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a> cannot be subclassed further.  Its only
+instances are <a class="reference internal" href="constants.html#False" title="False"><code class="xref py py-const docutils literal notranslate"><span class="pre">False</span></code></a> and <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal notranslate"><span class="pre">True</span></code></a>.</p>
+<span class="target" id="index-0"></span></dd></dl>
+
+<dl class="function">
+<dt id="bytearray">
+<code class="descname">bytearray</code><span class="sig-paren">(</span><span class="optional">[</span><em>arg</em><span class="optional">[</span>, <em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a new array of bytes.  The <a class="reference internal" href="#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> type is a mutable
+sequence of integers in the range 0 &lt;= x &lt; 256.  It has most of the usual
+methods of mutable sequences, described in <a class="reference internal" href="stdtypes.html#typesseq-mutable"><span class="std std-ref">Mutable Sequence Types</span></a>, as well
+as most methods that the <a class="reference internal" href="#str" title="str"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> type has, see <a class="reference internal" href="stdtypes.html#bytes-methods"><span class="std std-ref">Bytes and Byte Array Methods</span></a>.</p>
+<p>The optional <em>arg</em> parameter can be used to initialize the array in a few
+different ways:</p>
+<ul class="simple">
+<li>If it is a <em>string</em>, you must also give the <em>encoding</em> (and optionally,
+<em>errors</em>) parameters; <a class="reference internal" href="#bytearray" title="bytearray"><code class="xref py py-func docutils literal notranslate"><span class="pre">bytearray()</span></code></a> then converts the string to
+bytes using <a class="reference internal" href="stdtypes.html#str.encode" title="str.encode"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.encode()</span></code></a>.</li>
+<li>If it is an <em>integer</em>, the array will have that size and will be
+initialized with null bytes.</li>
+<li>If it is an object conforming to the <em>buffer</em> interface, a read-only buffer
+of the object will be used to initialize the bytes array.</li>
+<li>If it is an <em>iterable</em>, it must be an iterable of integers in the range
+<code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">256</span></code>, which are used as the initial contents of the array.</li>
+</ul>
+<p>Without an argument, an array of size 0 is created.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="bytes">
+<code class="descname">bytes</code><span class="sig-paren">(</span><span class="optional">[</span><em>arg</em><span class="optional">[</span>, <em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a new “bytes” object, which is an immutable sequence of integers in
+the range <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">256</span></code>.  <a class="reference internal" href="#bytes" title="bytes"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> is an immutable version of
+<a class="reference internal" href="#bytearray" title="bytearray"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytearray</span></code></a> – it has the same non-mutating methods and the same
+indexing and slicing behavior.</p>
+<p>Accordingly, constructor arguments are interpreted as for <code class="xref py py-func docutils literal notranslate"><span class="pre">buffer()</span></code>.</p>
+<p>Bytes objects can also be created with literals, see <a class="reference internal" href="../reference/lexical_analysis.html#strings"><span class="std std-ref">String and Bytes literals</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="chr">
+<code class="descname">chr</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="headerlink" href="#chr" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the string of one character whose Unicode codepoint is the integer
+<em>i</em>.  For example, <code class="docutils literal notranslate"><span class="pre">chr(97)</span></code> returns the string <code class="docutils literal notranslate"><span class="pre">'a'</span></code>. This is the
+inverse of <a class="reference internal" href="#ord" title="ord"><code class="xref py py-func docutils literal notranslate"><span class="pre">ord()</span></code></a>.  The valid range for the argument depends how Python
+was configured – it may be either UCS2 [0..0xFFFF] or UCS4 [0..0x10FFFF].
+<a class="reference internal" href="exceptions.html#exceptions.ValueError" title="exceptions.ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> will be raised if <em>i</em> is outside that range.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="classmethod">
+<code class="descname">classmethod</code><span class="sig-paren">(</span><em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#classmethod" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a class method for <em>function</em>.</p>
+<p>A class method receives the class as implicit first argument, just like an
+instance method receives the instance. To declare a class method, use this
+idiom:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;classmethod</span></code> form is a function <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> – see the description
+of function definitions in <a class="reference internal" href="../reference/compound_stmts.html#function"><span class="std std-ref">Function definitions</span></a> for details.</p>
+<p>It can be called either on the class (such as <code class="docutils literal notranslate"><span class="pre">C.f()</span></code>) or on an instance (such
+as <code class="docutils literal notranslate"><span class="pre">C().f()</span></code>).  The instance is ignored except for its class. If a class
+method is called for a derived class, the derived class object is passed as the
+implied first argument.</p>
+<p>Class methods are different than C++ or Java static methods. If you want those,
+see <a class="reference internal" href="#staticmethod" title="staticmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">staticmethod()</span></code></a> in this section.</p>
+<p>For more information on class methods, consult the documentation on the standard
+type hierarchy in <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">The standard type hierarchy</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="compile">
+<code class="descname">compile</code><span class="sig-paren">(</span><em>source</em>, <em>filename</em>, <em>mode</em><span class="optional">[</span>, <em>flags</em><span class="optional">[</span>, <em>dont_inherit</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#compile" title="永久链接至目标">¶</a></dt>
+<dd><p>Compile the <em>source</em> into a code or AST object.  Code objects can be executed
+by an <code class="xref std std-keyword docutils literal notranslate"><span class="pre">exec</span></code> statement or evaluated by a call to <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>.
+<em>source</em> can either be a string or an AST object.  Refer to the <a class="reference internal" href="ast.html#module-ast" title="ast: Abstract Syntax Tree classes and manipulation."><code class="xref py py-mod docutils literal notranslate"><span class="pre">ast</span></code></a>
+module documentation for information on how to work with AST objects.</p>
+<p>The <em>filename</em> argument should give the file from which the code was read;
+pass some recognizable value if it wasn’t read from a file (<code class="docutils literal notranslate"><span class="pre">'&lt;string&gt;'</span></code> is
+commonly used).</p>
+<p>The <em>mode</em> argument specifies what kind of code must be compiled; it can be
+<code class="docutils literal notranslate"><span class="pre">'exec'</span></code> if <em>source</em> consists of a sequence of statements, <code class="docutils literal notranslate"><span class="pre">'eval'</span></code> if it
+consists of a single expression, or <code class="docutils literal notranslate"><span class="pre">'single'</span></code> if it consists of a single
+interactive statement (in the latter case, expression statements that
+evaluate to something else than <code class="docutils literal notranslate"><span class="pre">None</span></code> will be printed).</p>
+<p>The optional arguments <em>flags</em> and <em>dont_inherit</em> control which future
+statements (see <span class="target" id="index-1"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a>) affect the compilation of <em>source</em>.  If neither
+is present (or both are zero) the code is compiled with those future
+statements that are in effect in the code that is calling compile.  If the
+<em>flags</em> argument is given and <em>dont_inherit</em> is not (or is zero) then the
+future statements specified by the <em>flags</em> argument are used in addition to
+those that would be used anyway. If <em>dont_inherit</em> is a non-zero integer then
+the <em>flags</em> argument is it – the future statements in effect around the call
+to compile are ignored.</p>
+<p>Future statements are specified by bits which can be bitwise ORed together to
+specify multiple statements.  The bitfield required to specify a given feature
+can be found as the <code class="xref py py-attr docutils literal notranslate"><span class="pre">compiler_flag</span></code> attribute on the <code class="xref py py-class docutils literal notranslate"><span class="pre">_Feature</span></code>
+instance in the <a class="reference internal" href="__future__.html#module-__future__" title="__future__: Future statement definitions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">__future__</span></code></a> module.</p>
+<p>This function raises <a class="reference internal" href="exceptions.html#exceptions.SyntaxError" title="exceptions.SyntaxError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">SyntaxError</span></code></a> if the compiled source is invalid,
+and <a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> if the source contains null bytes.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">When compiling a string with multi-line statements, line endings must be
+represented by a single newline character (<code class="docutils literal notranslate"><span class="pre">'\n'</span></code>), and the input must
+be terminated by at least one newline character.  If line endings are
+represented by <code class="docutils literal notranslate"><span class="pre">'\r\n'</span></code>, use <a class="reference internal" href="stdtypes.html#str.replace" title="str.replace"><code class="xref py py-meth docutils literal notranslate"><span class="pre">str.replace()</span></code></a> to change them into
+<code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="complex">
+<code class="descname">complex</code><span class="sig-paren">(</span><span class="optional">[</span><em>real</em><span class="optional">[</span>, <em>imag</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#complex" title="永久链接至目标">¶</a></dt>
+<dd><p>Create a complex number with the value <em>real</em> + <em>imag</em>*j or convert a string or
+number to a complex number.  If the first parameter is a string, it will be
+interpreted as a complex number and the function must be called without a second
+parameter.  The second parameter can never be a string. Each argument may be any
+numeric type (including complex). If <em>imag</em> is omitted, it defaults to zero and
+the function serves as a numeric conversion function like <a class="reference internal" href="#int" title="int"><code class="xref py py-func docutils literal notranslate"><span class="pre">int()</span></code></a>
+and <a class="reference internal" href="#float" title="float"><code class="xref py py-func docutils literal notranslate"><span class="pre">float()</span></code></a>.  If both arguments are omitted, returns <code class="docutils literal notranslate"><span class="pre">0j</span></code>.</p>
+<p>The complex type is described in <a class="reference internal" href="stdtypes.html#typesnumeric"><span class="std std-ref">Numeric Types — int, float, complex</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="delattr">
+<code class="descname">delattr</code><span class="sig-paren">(</span><em>object</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#delattr" title="永久链接至目标">¶</a></dt>
+<dd><p>This is a relative of <a class="reference internal" href="#setattr" title="setattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">setattr()</span></code></a>.  The arguments are an object and a
+string.  The string must be the name of one of the object’s attributes.  The
+function deletes the named attribute, provided the object allows it.  For
+example, <code class="docutils literal notranslate"><span class="pre">delattr(x,</span> <span class="pre">'foobar')</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">x.foobar</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">dict</code><span class="sig-paren">(</span><span class="optional">[</span><em>arg</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><p>Create a new data dictionary, optionally with items taken from <em>arg</em>.
+The dictionary type is described in <a class="reference internal" href="stdtypes.html#typesmapping"><span class="std std-ref">Mapping Types — dict</span></a>.</p>
+<p>For other containers see the built in <a class="reference internal" href="#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, <a class="reference internal" href="stdtypes.html#set" title="set"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a>, and
+<a class="reference internal" href="#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> classes, and the <a class="reference internal" href="collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a> module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dir">
+<code class="descname">dir</code><span class="sig-paren">(</span><span class="optional">[</span><em>object</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#dir" title="永久链接至目标">¶</a></dt>
+<dd><p>Without arguments, return the list of names in the current local scope.  With an
+argument, attempt to return a list of valid attributes for that object.</p>
+<p>If the object has a method named <a class="reference internal" href="../reference/datamodel.html#object.__dir__" title="object.__dir__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__dir__()</span></code></a>, this method will be called and
+must return the list of attributes. This allows objects that implement a custom
+<a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getattr__()</span></code></a> or <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a> function to customize the way
+<a class="reference internal" href="#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> reports their attributes.</p>
+<p>If the object does not provide <a class="reference internal" href="../reference/datamodel.html#object.__dir__" title="object.__dir__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__dir__()</span></code></a>, the function tries its best to
+gather information from the object’s <code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code> attribute, if defined, and
+from its type object.  The resulting list is not necessarily complete, and may
+be inaccurate when the object has a custom <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__getattr__()</span></code></a>.</p>
+<p>The default <a class="reference internal" href="#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> mechanism behaves differently with different types of
+objects, as it attempts to produce the most relevant, rather than complete,
+information:</p>
+<ul class="simple">
+<li>If the object is a module object, the list contains the names of the module’s
+attributes.</li>
+<li>If the object is a type or class object, the list contains the names of its
+attributes, and recursively of the attributes of its bases.</li>
+<li>Otherwise, the list contains the object’s attributes’ names, the names of its
+class’s attributes, and recursively of the attributes of its class’s base
+classes.</li>
+</ul>
+<p>The resulting list is sorted alphabetically.  For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">struct</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">()</span>   <span class="c1"># doctest: +SKIP</span>
+<span class="go">[&#39;__builtins__&#39;, &#39;__doc__&#39;, &#39;__name__&#39;, &#39;struct&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">struct</span><span class="p">)</span>   <span class="c1"># doctest: +NORMALIZE_WHITESPACE</span>
+<span class="go">[&#39;Struct&#39;, &#39;__builtins__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__name__&#39;,</span>
+<span class="go"> &#39;__package__&#39;, &#39;_clearcache&#39;, &#39;calcsize&#39;, &#39;error&#39;, &#39;pack&#39;, &#39;pack_into&#39;,</span>
+<span class="go"> &#39;unpack&#39;, &#39;unpack_from&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;kan&quot;</span><span class="p">,</span> <span class="s2">&quot;ga&quot;</span><span class="p">,</span> <span class="s2">&quot;roo&quot;</span><span class="p">]</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="go">[&#39;ga&#39;, &#39;kan&#39;, &#39;roo&#39;]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">Because <a class="reference internal" href="#dir" title="dir"><code class="xref py py-func docutils literal notranslate"><span class="pre">dir()</span></code></a> is supplied primarily as a convenience for use at an
+interactive prompt, it tries to supply an interesting set of names more than it
+tries to supply a rigorously or consistently defined set of names, and its
+detailed behavior may change across releases.  For example, metaclass attributes
+are not in the result list when the argument is a class.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="divmod">
+<code class="descname">divmod</code><span class="sig-paren">(</span><em>a</em>, <em>b</em><span class="sig-paren">)</span><a class="headerlink" href="#divmod" title="永久链接至目标">¶</a></dt>
+<dd><p>Take two (non complex) numbers as arguments and return a pair of numbers
+consisting of their quotient and remainder when using integer division.  With mixed
+operand types, the rules for binary arithmetic operators apply.  For integers,
+the result is the same as <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">//</span> <span class="pre">b,</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b)</span></code>. For floating point
+numbers the result is <code class="docutils literal notranslate"><span class="pre">(q,</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b)</span></code>, where <em>q</em> is usually <code class="docutils literal notranslate"><span class="pre">math.floor(a</span> <span class="pre">/</span> <span class="pre">b)</span></code>
+but may be 1 less than that.  In any case <code class="docutils literal notranslate"><span class="pre">q</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code> is very close to
+<em>a</em>, if <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code> is non-zero it has the same sign as <em>b</em>, and <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">abs(a</span> <span class="pre">%</span> <span class="pre">b)</span>
+<span class="pre">&lt;</span> <span class="pre">abs(b)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="enumerate">
+<code class="descname">enumerate</code><span class="sig-paren">(</span><em>iterable</em><span class="optional">[</span>, <em>start=0</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#enumerate" title="永久链接至目标">¶</a></dt>
+<dd><p>Return an enumerate object. <em>iterable</em> must be a sequence, an
+<a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a>, or some other object which supports iteration.  The
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code> method of the iterator returned by <a class="reference internal" href="#enumerate" title="enumerate"><code class="xref py py-func docutils literal notranslate"><span class="pre">enumerate()</span></code></a> returns a
+tuple containing a count (from <em>start</em> which defaults to 0) and the
+corresponding value obtained from iterating over <em>iterable</em>.
+<a class="reference internal" href="#enumerate" title="enumerate"><code class="xref py py-func docutils literal notranslate"><span class="pre">enumerate()</span></code></a> is useful for obtaining an indexed series: <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">seq[0])</span></code>,
+<code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">seq[1])</span></code>, <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">seq[2])</span></code>, …. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">season</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">season</span><span class="p">)</span>
+<span class="go">0 Spring</span>
+<span class="go">1 Summer</span>
+<span class="go">2 Fall</span>
+<span class="go">3 Winter</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="eval">
+<code class="descname">eval</code><span class="sig-paren">(</span><em>expression</em><span class="optional">[</span>, <em>globals</em><span class="optional">[</span>, <em>locals</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#eval" title="永久链接至目标">¶</a></dt>
+<dd><p>The arguments are a string and optional globals and locals.  If provided,
+<em>globals</em> must be a dictionary.  If provided, <em>locals</em> can be any mapping
+object.</p>
+<p>The <em>expression</em> argument is parsed and evaluated as a Python expression
+(technically speaking, a condition list) using the <em>globals</em> and <em>locals</em>
+dictionaries as global and local namespace.  If the <em>globals</em> dictionary is
+present and lacks ‘__builtins__’, the current globals are copied into <em>globals</em>
+before <em>expression</em> is parsed.  This means that <em>expression</em> normally has full
+access to the standard <a class="reference internal" href="builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> module and restricted environments are
+propagated.  If the <em>locals</em> dictionary is omitted it defaults to the <em>globals</em>
+dictionary.  If both dictionaries are omitted, the expression is executed in the
+environment where <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> is called.  The return value is the result of
+the evaluated expression. Syntax errors are reported as exceptions.  Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;x+1&#39;</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p>This function can also be used to execute arbitrary code objects (such as
+those created by <a class="reference internal" href="#compile" title="compile"><code class="xref py py-func docutils literal notranslate"><span class="pre">compile()</span></code></a>).  In this case pass a code object instead
+of a string.  If the code object has been compiled with <code class="docutils literal notranslate"><span class="pre">'exec'</span></code> as the
+<em>kind</em> argument, <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>’s return value will be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Hints: dynamic execution of statements is supported by the <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a>
+function.  The <a class="reference internal" href="#globals" title="globals"><code class="xref py py-func docutils literal notranslate"><span class="pre">globals()</span></code></a> and <a class="reference internal" href="#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> functions
+returns the current global and local dictionary, respectively, which may be
+useful to pass around for use by <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a> or <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="exec">
+<code class="descname">exec</code><span class="sig-paren">(</span><em>object</em><span class="optional">[</span>, <em>globals</em><span class="optional">[</span>, <em>locals</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#exec" title="永久链接至目标">¶</a></dt>
+<dd><p>This function supports dynamic execution of Python code. <em>object</em> must be
+either a string or a code object.  If it is a string, the string is parsed as
+a suite of Python statements which is then executed (unless a syntax error
+occurs).  If it is a code object, it is simply executed.  In all cases, the
+code that’s executed is expected to be valid as file input (see the section
+“File input” in the Reference Manual). Be aware that the <a class="reference internal" href="../reference/simple_stmts.html#return"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">return</span></code></a>
+and <a class="reference internal" href="../reference/simple_stmts.html#yield"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">yield</span></code></a> statements may not be used outside of function
+definitions even within the context of code passed to the <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a>
+function. The return value is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>In all cases, if the optional parts are omitted, the code is executed in the
+current scope.  If only <em>globals</em> is provided, it must be a dictionary, which
+will be used for both the global and the local variables.  If <em>globals</em> and
+<em>locals</em> are given, they are used for the global and local variables,
+respectively.  If provided, <em>locals</em> can be any mapping object.</p>
+<p>If the <em>globals</em> dictionary does not contain a value for the key
+<code class="docutils literal notranslate"><span class="pre">__builtins__</span></code>, a reference to the dictionary of the built-in module
+<a class="reference internal" href="builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> is inserted under that key.  That way you can control what
+builtins are available to the executed code by inserting your own
+<code class="docutils literal notranslate"><span class="pre">__builtins__</span></code> dictionary into <em>globals</em> before passing it to <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The built-in functions <a class="reference internal" href="#globals" title="globals"><code class="xref py py-func docutils literal notranslate"><span class="pre">globals()</span></code></a> and <a class="reference internal" href="#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> return the current
+global and local dictionary, respectively, which may be useful to pass around
+for use as the second and third argument to <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a>.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">The default <em>locals</em> act as described for function <a class="reference internal" href="#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> below:
+modifications to the default <em>locals</em> dictionary should not be attempted.
+Pass an explicit <em>locals</em> dictionary if you need to see effects of the
+code on <em>locals</em> after function <a class="reference internal" href="#exec" title="exec"><code class="xref py py-func docutils literal notranslate"><span class="pre">exec()</span></code></a> returns.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="filter">
+<code class="descname">filter</code><span class="sig-paren">(</span><em>function</em>, <em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#filter" title="永久链接至目标">¶</a></dt>
+<dd><p>Construct an iterator from those elements of <em>iterable</em> for which <em>function</em>
+returns true.  <em>iterable</em> may be either a sequence, a container which
+supports iteration, or an iterator.  If <em>function</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the identity
+function is assumed, that is, all elements of <em>iterable</em> that are false are
+removed.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">filter(function,</span> <span class="pre">iterable)</span></code> is equivalent to the generator
+expression <code class="docutils literal notranslate"><span class="pre">(item</span> <span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">iterable</span> <span class="pre">if</span> <span class="pre">function(item))</span></code> if function is
+not <code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">(item</span> <span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">iterable</span> <span class="pre">if</span> <span class="pre">item)</span></code> if function is
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="float">
+<code class="descname">float</code><span class="sig-paren">(</span><span class="optional">[</span><em>x</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#float" title="永久链接至目标">¶</a></dt>
+<dd><p>Convert a string or a number to floating point.  If the argument is a string,
+it must contain a possibly signed decimal or floating point number, possibly
+embedded in whitespace. The argument may also be <code class="docutils literal notranslate"><span class="pre">'[+|-]nan'</span></code> or
+<code class="docutils literal notranslate"><span class="pre">'[+|-]inf'</span></code>.  Otherwise, the argument may be an integer or a floating
+point number, and a floating point number with the same value (within
+Python’s floating point precision) is returned.  If no argument is given,
+<code class="docutils literal notranslate"><span class="pre">0.0</span></code> is returned.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last" id="index-2">When passing in a string, values for NaN and Infinity may be returned,
+depending on the underlying C library.  Float accepts the strings
+<code class="docutils literal notranslate"><span class="pre">'nan'</span></code>, <code class="docutils literal notranslate"><span class="pre">'inf'</span></code> and <code class="docutils literal notranslate"><span class="pre">'-inf'</span></code> for NaN and positive or negative
+infinity.  The case and a leading + are ignored as well as a leading - is
+ignored for NaN.  Float always represents NaN and infinity as <code class="docutils literal notranslate"><span class="pre">nan</span></code>,
+<code class="docutils literal notranslate"><span class="pre">inf</span></code> or <code class="docutils literal notranslate"><span class="pre">-inf</span></code>.</p>
+</div>
+<p>The float type is described in <a class="reference internal" href="stdtypes.html#typesnumeric"><span class="std std-ref">Numeric Types — int, float, complex</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="format">
+<code class="descname">format</code><span class="sig-paren">(</span><em>value</em><span class="optional">[</span>, <em>format_spec</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#format" title="永久链接至目标">¶</a></dt>
+<dd><p id="index-3">Convert a string or a number to a “formatted” representation, as controlled
+by <em>format_spec</em>.  The interpretation of <em>format_spec</em> will depend on the
+type of the <em>value</em> argument, however there is a standard formatting syntax
+that is used by most built-in types: <a class="reference internal" href="string.html#formatspec"><span class="std std-ref">Format Specification Mini-Language</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">format(value,</span> <span class="pre">format_spec)</span></code> merely calls <code class="docutils literal notranslate"><span class="pre">value.__format__(format_spec)</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">frozenset</code><span class="sig-paren">(</span><span class="optional">[</span><em>iterable</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><p>Return a frozenset object, optionally with elements taken from <em>iterable</em>.
+The frozenset type is described in <a class="reference internal" href="stdtypes.html#types-set"><span class="std std-ref">Set Types — set, frozenset</span></a>.</p>
+<p>For other containers see the built in <a class="reference internal" href="stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>, <a class="reference internal" href="#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>, and
+<a class="reference internal" href="#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> classes, and the <a class="reference internal" href="collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal notranslate"><span class="pre">collections</span></code></a> module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="getattr">
+<code class="descname">getattr</code><span class="sig-paren">(</span><em>object</em>, <em>name</em><span class="optional">[</span>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#getattr" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the value of the named attributed of <em>object</em>.  <em>name</em> must be a string.
+If the string is the name of one of the object’s attributes, the result is the
+value of that attribute.  For example, <code class="docutils literal notranslate"><span class="pre">getattr(x,</span> <span class="pre">'foobar')</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">x.foobar</span></code>.  If the named attribute does not exist, <em>default</em> is returned if
+provided, otherwise <a class="reference internal" href="exceptions.html#exceptions.AttributeError" title="exceptions.AttributeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">AttributeError</span></code></a> is raised.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="globals">
+<code class="descname">globals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#globals" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a dictionary representing the current global symbol table. This is always
+the dictionary of the current module (inside a function or method, this is the
+module where it is defined, not the module from which it is called).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hasattr">
+<code class="descname">hasattr</code><span class="sig-paren">(</span><em>object</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#hasattr" title="永久链接至目标">¶</a></dt>
+<dd><p>The arguments are an object and a string.  The result is <code class="docutils literal notranslate"><span class="pre">True</span></code> if the string
+is the name of one of the object’s attributes, <code class="docutils literal notranslate"><span class="pre">False</span></code> if not. (This is
+implemented by calling <code class="docutils literal notranslate"><span class="pre">getattr(object,</span> <span class="pre">name)</span></code> and seeing whether it raises an
+exception or not.)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hash">
+<code class="descname">hash</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#hash" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the hash value of the object (if it has one).  Hash values are integers.
+They are used to quickly compare dictionary keys during a dictionary lookup.
+Numeric values that compare equal have the same hash value (even if they are of
+different types, as is the case for 1 and 1.0).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="help">
+<code class="descname">help</code><span class="sig-paren">(</span><span class="optional">[</span><em>object</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#help" title="永久链接至目标">¶</a></dt>
+<dd><p>Invoke the built-in help system.  (This function is intended for interactive
+use.)  If no argument is given, the interactive help system starts on the
+interpreter console.  If the argument is a string, then the string is looked up
+as the name of a module, function, class, method, keyword, or documentation
+topic, and a help page is printed on the console.  If the argument is any other
+kind of object, a help page on the object is generated.</p>
+<p>This function is added to the built-in namespace by the <a class="reference internal" href="site.html#module-site" title="site: A standard way to reference site-specific modules."><code class="xref py py-mod docutils literal notranslate"><span class="pre">site</span></code></a> module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hex">
+<code class="descname">hex</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#hex" title="永久链接至目标">¶</a></dt>
+<dd><p>Convert an integer number to a hexadecimal string. The result is a valid Python
+expression.  If <em>x</em> is not a Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> object, it has to define an
+<a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method that returns an integer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="id">
+<code class="descname">id</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#id" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the “identity” of an object.  This is an integer which
+is guaranteed to be unique and constant for this object during its lifetime.
+Two objects with non-overlapping lifetimes may have the same <a class="reference internal" href="#id" title="id"><code class="xref py py-func docutils literal notranslate"><span class="pre">id()</span></code></a> value.
+(Implementation note: this is the address of the object.)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="input">
+<code class="descname">input</code><span class="sig-paren">(</span><span class="optional">[</span><em>prompt</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#input" title="永久链接至目标">¶</a></dt>
+<dd><p>If the <em>prompt</em> argument is present, it is written to standard output without
+a trailing newline.  The function then reads a line from input, converts it
+to a string (stripping a trailing newline), and returns that.  When EOF is
+read, <a class="reference internal" href="exceptions.html#exceptions.EOFError" title="exceptions.EOFError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">EOFError</span></code></a> is raised.  Example:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;--&gt; &#39;</span><span class="p">)</span>
+<span class="go">--&gt; Monty Python&#39;s Flying Circus</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">&quot;Monty Python&#39;s Flying Circus&quot;</span>
+</pre></div>
+</div>
+<p>If the <a class="reference internal" href="readline.html#module-readline" title="readline: GNU readline support for Python. (Unix)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">readline</span></code></a> module was loaded, then <a class="reference internal" href="#input" title="input"><code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code></a> will use it
+to provide elaborate line editing and history features.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="int">
+<code class="descname">int</code><span class="sig-paren">(</span><span class="optional">[</span><em>number | string</em><span class="optional">[</span>, <em>radix</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#int" title="永久链接至目标">¶</a></dt>
+<dd><p>Convert a number or string to an integer.  If no arguments are given, return
+<code class="docutils literal notranslate"><span class="pre">0</span></code>.  If a number is given, return <code class="docutils literal notranslate"><span class="pre">number.__int__()</span></code>.  Conversion of
+floating point numbers to integers truncates towards zero.  A string must be
+a base-radix integer literal optionally preceded by ‘+’ or ‘-’ (with no space
+in between) and optionally surrounded by whitespace.  A base-n literal
+consists of the digits 0 to n-1, with ‘a’ to ‘z’ (or ‘A’ to ‘Z’) having
+values 10 to 35.  The default radix is 10. The allowed values are 0 and 2-36.
+Base-2, -8, and -16 literals can be optionally prefixed with <code class="docutils literal notranslate"><span class="pre">0b</span></code>/<code class="docutils literal notranslate"><span class="pre">0B</span></code>,
+<code class="docutils literal notranslate"><span class="pre">0o</span></code>/<code class="docutils literal notranslate"><span class="pre">0O</span></code>, or <code class="docutils literal notranslate"><span class="pre">0x</span></code>/<code class="docutils literal notranslate"><span class="pre">0X</span></code>, as with integer literals in code.  Radix 0
+means to interpret exactly as a code literal, so that the actual radix is 2,
+8, 10, or 16, and so that <code class="docutils literal notranslate"><span class="pre">int('010',</span> <span class="pre">0)</span></code> is not legal, while
+<code class="docutils literal notranslate"><span class="pre">int('010')</span></code> is, as well as <code class="docutils literal notranslate"><span class="pre">int('010',</span> <span class="pre">8)</span></code>.</p>
+<p>The integer type is described in <a class="reference internal" href="stdtypes.html#typesnumeric"><span class="std std-ref">Numeric Types — int, float, complex</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="isinstance">
+<code class="descname">isinstance</code><span class="sig-paren">(</span><em>object</em>, <em>classinfo</em><span class="sig-paren">)</span><a class="headerlink" href="#isinstance" title="永久链接至目标">¶</a></dt>
+<dd><p>Return true if the <em>object</em> argument is an instance of the <em>classinfo</em>
+argument, or of a (direct or indirect) subclass thereof.  If <em>object</em> is not
+an object of the given type, the function always returns false.  If
+<em>classinfo</em> is not a class (type object), it may be a tuple of type objects,
+or may recursively contain other such tuples (other sequence types are not
+accepted).  If <em>classinfo</em> is not a type or tuple of types and such tuples,
+a <a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> exception is raised.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="issubclass">
+<code class="descname">issubclass</code><span class="sig-paren">(</span><em>class</em>, <em>classinfo</em><span class="sig-paren">)</span><a class="headerlink" href="#issubclass" title="永久链接至目标">¶</a></dt>
+<dd><p>Return true if <em>class</em> is a subclass (direct or indirect) of <em>classinfo</em>.  A
+class is considered a subclass of itself. <em>classinfo</em> may be a tuple of class
+objects, in which case every entry in <em>classinfo</em> will be checked. In any other
+case, a <a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> exception is raised.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="iter">
+<code class="descname">iter</code><span class="sig-paren">(</span><em>o</em><span class="optional">[</span>, <em>sentinel</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#iter" title="永久链接至目标">¶</a></dt>
+<dd><p>Return an <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a> object.  The first argument is interpreted very differently
+depending on the presence of the second argument. Without a second argument, <em>o</em>
+must be a collection object which supports the iteration protocol (the
+<a class="reference internal" href="../reference/datamodel.html#object.__iter__" title="object.__iter__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__iter__()</span></code></a> method), or it must support the sequence protocol (the
+<a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method with integer arguments starting at <code class="docutils literal notranslate"><span class="pre">0</span></code>).  If it
+does not support either of those protocols, <a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> is raised. If the
+second argument, <em>sentinel</em>, is given, then <em>o</em> must be a callable object.  The
+iterator created in this case will call <em>o</em> with no arguments for each call to
+its <code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code> method; if the value returned is equal to <em>sentinel</em>,
+<a class="reference internal" href="exceptions.html#exceptions.StopIteration" title="exceptions.StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> will be raised, otherwise the value will be returned.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="len">
+<code class="descname">len</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#len" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the length (the number of items) of an object.  The argument may be a
+sequence (string, tuple or list) or a mapping (dictionary).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="list">
+<code class="descname">list</code><span class="sig-paren">(</span><span class="optional">[</span><em>iterable</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#list" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a list whose items are the same and in the same order as <em>iterable</em>’s
+items.  <em>iterable</em> may be either a sequence, a container that supports
+iteration, or an iterator object.  If <em>iterable</em> is already a list, a copy is
+made and returned, similar to <code class="docutils literal notranslate"><span class="pre">iterable[:]</span></code>.  For instance, <code class="docutils literal notranslate"><span class="pre">list('abc')</span></code>
+returns <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'b',</span> <span class="pre">'c']</span></code> and <code class="docutils literal notranslate"><span class="pre">list(</span> <span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3)</span> <span class="pre">)</span></code> returns <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code>.  If
+no argument is given, returns a new empty list, <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<p><a class="reference internal" href="#list" title="list"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> is a mutable sequence type, as documented in <a class="reference internal" href="stdtypes.html#typesseq"><span class="std std-ref">Sequence Types — str, bytes, bytearray, list, tuple, range</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="locals">
+<code class="descname">locals</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#locals" title="永久链接至目标">¶</a></dt>
+<dd><p>Update and return a dictionary representing the current local symbol table.</p>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">The contents of this dictionary should not be modified; changes may not affect
+the values of local variables used by the interpreter.</p>
+</div>
+<p>Free variables are returned by <a class="reference internal" href="#locals" title="locals"><code class="xref py py-func docutils literal notranslate"><span class="pre">locals()</span></code></a> when it is called in a function block.
+Modifications of free variables may not affect the values used by the
+interpreter.  Free variables are not returned in class blocks.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="map">
+<code class="descname">map</code><span class="sig-paren">(</span><em>function</em>, <em>iterable</em>, <em>...</em><span class="sig-paren">)</span><a class="headerlink" href="#map" title="永久链接至目标">¶</a></dt>
+<dd><p>Return an iterator that applies <em>function</em> to every item of <em>iterable</em>,
+yielding the results.  If additional <em>iterable</em> arguments are passed,
+<em>function</em> must take that many arguments and is applied to the items from all
+iterables in parallel.  With multiple iterables, the iterator stops when the
+shortest iterable is exhausted.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="max">
+<code class="descname">max</code><span class="sig-paren">(</span><em>iterable</em>, <span class="optional">[</span><em>args...</em>, <span class="optional">]</span><em>*</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#max" title="永久链接至目标">¶</a></dt>
+<dd><p>With a single argument <em>iterable</em>, return the largest item of a non-empty
+iterable (such as a string, tuple or list).  With more than one argument, return
+the largest of the arguments.</p>
+<p>The optional keyword-only <em>key</em> argument specifies a one-argument ordering
+function like that used for <code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">memoryview</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span></dt>
+<dd><p>Return a “memory view” object created from the given argument.  See
+<a class="reference internal" href="stdtypes.html#typememoryview"><span class="std std-ref">memoryview Types</span></a> for more information.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="min">
+<code class="descname">min</code><span class="sig-paren">(</span><em>iterable</em>, <span class="optional">[</span><em>args...</em>, <span class="optional">]</span><em>*</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#min" title="永久链接至目标">¶</a></dt>
+<dd><p>With a single argument <em>iterable</em>, return the smallest item of a non-empty
+iterable (such as a string, tuple or list).  With more than one argument, return
+the smallest of the arguments.</p>
+<p>The optional keyword-only <em>key</em> argument specifies a one-argument ordering
+function like that used for <code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="next">
+<code class="descname">next</code><span class="sig-paren">(</span><em>iterator</em><span class="optional">[</span>, <em>default</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#next" title="永久链接至目标">¶</a></dt>
+<dd><p>Retrieve the next item from the <em>iterator</em> by calling its <code class="xref py py-meth docutils literal notranslate"><span class="pre">__next__()</span></code>
+method.  If <em>default</em> is given, it is returned if the iterator is exhausted,
+otherwise <a class="reference internal" href="exceptions.html#exceptions.StopIteration" title="exceptions.StopIteration"><code class="xref py py-exc docutils literal notranslate"><span class="pre">StopIteration</span></code></a> is raised.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="object">
+<code class="descname">object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#object" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a new featureless object.  <a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> is a base for all classes.
+It has the methods that are common to all instances of Python classes.  This
+function does not accept any arguments.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last"><a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> does <em>not</em> have a <code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code>, so you can’t assign
+arbitrary attributes to an instance of the <a class="reference internal" href="#object" title="object"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a> class.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="oct">
+<code class="descname">oct</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#oct" title="永久链接至目标">¶</a></dt>
+<dd><p>Convert an integer number to an octal string.  The result is a valid Python
+expression.  If <em>x</em> is not a Python <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> object, it has to define an
+<a class="reference internal" href="../reference/datamodel.html#object.__index__" title="object.__index__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__index__()</span></code></a> method that returns an integer.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="open">
+<code class="descname">open</code><span class="sig-paren">(</span><em>file</em><span class="optional">[</span>, <em>mode='r'</em><span class="optional">[</span>, <em>buffering=None</em><span class="optional">[</span>, <em>encoding=None</em><span class="optional">[</span>, <em>errors=None</em><span class="optional">[</span>, <em>newline=None</em><span class="optional">[</span>, <em>closefd=True</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#open" title="永久链接至目标">¶</a></dt>
+<dd><p>Open a file.  If the file cannot be opened, <a class="reference internal" href="exceptions.html#exceptions.IOError" title="exceptions.IOError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">IOError</span></code></a> is raised.</p>
+<p><em>file</em> is either a string or bytes object giving the name (and the path if
+the file isn’t in the current working directory) of the file to be opened or
+an integer file descriptor of the file to be wrapped.  (If a file descriptor
+is given, it is closed when the returned I/O object is closed, unless
+<em>closefd</em> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.)</p>
+<p><em>mode</em> is an optional string that specifies the mode in which the file is
+opened.  It defaults to <code class="docutils literal notranslate"><span class="pre">'r'</span></code> which means open for reading in text mode.
+Other common values are <code class="docutils literal notranslate"><span class="pre">'w'</span></code> for writing (truncating the file if it
+already exists), and <code class="docutils literal notranslate"><span class="pre">'a'</span></code> for appending (which on <em>some</em> Unix systems,
+means that <em>all</em> writes append to the end of the file regardless of the
+current seek position).  In text mode, if <em>encoding</em> is not specified the
+encoding used is platform dependent. (For reading and writing raw bytes use
+binary mode and leave <em>encoding</em> unspecified.)  The available modes are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Character</td>
+<td>Meaning</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'r'</span></code></td>
+<td>open for reading (default)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'w'</span></code></td>
+<td>open for writing, truncating the file first</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'a'</span></code></td>
+<td>open for writing, appending to the end of the file if it exists</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'b'</span></code></td>
+<td>binary mode</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'t'</span></code></td>
+<td>text mode (default)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">'+'</span></code></td>
+<td>open a disk file for updating (reading and writing)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">'U'</span></code></td>
+<td>universal newline mode (for backwards compatibility; unneeded
+for new code)</td>
+</tr>
+</tbody>
+</table>
+<p>The default mode is <code class="docutils literal notranslate"><span class="pre">'rt'</span></code> (open for reading text).  For binary random
+access, the mode <code class="docutils literal notranslate"><span class="pre">'w+b'</span></code> opens and truncates the file to 0 bytes, while
+<code class="docutils literal notranslate"><span class="pre">'r+b'</span></code> opens the file without truncation.</p>
+<p>Python distinguishes between files opened in binary and text modes, even
+when the underlying operating system doesn’t.  Files opened in binary
+mode (appending <code class="docutils literal notranslate"><span class="pre">'b'</span></code> to the <em>mode</em> argument) return contents as
+<code class="docutils literal notranslate"><span class="pre">bytes</span></code> objects without any decoding.  In text mode (the default, or when
+<code class="docutils literal notranslate"><span class="pre">'t'</span></code> is appended to the <em>mode</em> argument) the contents of
+the file are returned as strings, the bytes having been first decoded
+using a platform-dependent encoding or using the specified <em>encoding</em>
+if given.</p>
+<p><em>buffering</em> is an optional integer used to set the buffering policy.  By
+default full buffering is on. Pass 0 to switch buffering off (only allowed in
+binary mode), 1 to set line buffering, and an integer &gt; 1 for full buffering.</p>
+<p><em>encoding</em> is the name of the encoding used to decode or encode the file.
+This should only be used in text mode.  The default encoding is platform
+dependent, but any encoding supported by Python can be passed.  See the
+<a class="reference internal" href="codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code></a> module for the list of supported encodings.</p>
+<p><em>errors</em> is an optional string that specifies how encoding errors are to be
+handled—this argument should not be used in binary mode. Pass <code class="docutils literal notranslate"><span class="pre">'strict'</span></code>
+to raise a <a class="reference internal" href="exceptions.html#exceptions.ValueError" title="exceptions.ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> exception if there is an encoding error (the
+default of <code class="docutils literal notranslate"><span class="pre">None</span></code> has the same effect), or pass <code class="docutils literal notranslate"><span class="pre">'ignore'</span></code> to ignore
+errors. (Note that ignoring encoding errors can lead to data loss.) See the
+documentation for <a class="reference internal" href="codecs.html#codecs.register" title="codecs.register"><code class="xref py py-func docutils literal notranslate"><span class="pre">codecs.register()</span></code></a> for a list of the permitted
+encoding error strings.</p>
+<p><em>newline</em> controls how universal newlines works (it only applies to text
+mode).  It can be <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">''</span></code>, <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>, <code class="docutils literal notranslate"><span class="pre">'\r'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'\r\n'</span></code>.  It
+works as follows:</p>
+<ul class="simple">
+<li>On input, if <em>newline</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, universal newlines mode is enabled.
+Lines in the input can end in <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>, <code class="docutils literal notranslate"><span class="pre">'\r'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'\r\n'</span></code>, and these
+are translated into <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> before being returned to the caller.  If it is
+<code class="docutils literal notranslate"><span class="pre">''</span></code>, universal newline mode is enabled, but line endings are returned to
+the caller untranslated.  If it has any of the other legal values, input
+lines are only terminated by the given string, and the line ending is
+returned to the caller untranslated.</li>
+<li>On output, if <em>newline</em> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, any <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> characters written are
+translated to the system default line separator, <a class="reference internal" href="os.html#os.linesep" title="os.linesep"><code class="xref py py-data docutils literal notranslate"><span class="pre">os.linesep</span></code></a>.  If
+<em>newline</em> is <code class="docutils literal notranslate"><span class="pre">''</span></code>, no translation takes place.  If <em>newline</em> is any of
+the other legal values, any <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> characters written are translated to
+the given string.</li>
+</ul>
+<p>If <em>closefd</em> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the underlying file descriptor will be kept open
+when the file is closed.  This does not work when a file name is given and
+must be <code class="docutils literal notranslate"><span class="pre">True</span></code> in that case.</p>
+<p id="index-4">See also the file handling modules, such as, <a class="reference internal" href="fileinput.html#module-fileinput" title="fileinput: Loop over standard input or a list of files."><code class="xref py py-mod docutils literal notranslate"><span class="pre">fileinput</span></code></a>, <a class="reference internal" href="io.html#module-io" title="io: Core tools for working with streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">io</span></code></a>
+(where <a class="reference internal" href="#open" title="open"><code class="xref py py-func docutils literal notranslate"><span class="pre">open()</span></code></a> is declared), <a class="reference internal" href="os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os</span></code></a>, <a class="reference internal" href="os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal notranslate"><span class="pre">os.path</span></code></a>,
+<a class="reference internal" href="tempfile.html#module-tempfile" title="tempfile: Generate temporary files and directories."><code class="xref py py-mod docutils literal notranslate"><span class="pre">tempfile</span></code></a>, and <a class="reference internal" href="shutil.html#module-shutil" title="shutil: High-level file operations, including copying."><code class="xref py py-mod docutils literal notranslate"><span class="pre">shutil</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="ord">
+<code class="descname">ord</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#ord" title="永久链接至目标">¶</a></dt>
+<dd><p>Given a string of length one, return an integer representing the Unicode code
+point of the character.  For example, <code class="docutils literal notranslate"><span class="pre">ord('a')</span></code> returns the integer <code class="docutils literal notranslate"><span class="pre">97</span></code>
+and <code class="docutils literal notranslate"><span class="pre">ord('\u2020')</span></code> returns <code class="docutils literal notranslate"><span class="pre">8224</span></code>.  This is the inverse of <a class="reference internal" href="#chr" title="chr"><code class="xref py py-func docutils literal notranslate"><span class="pre">chr()</span></code></a>.</p>
+<p>If the argument length is not one, a <a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TypeError</span></code></a> will be raised.  (If
+Python was built with UCS2 Unicode, then the character’s code point must be
+in the range [0..65535] inclusive; otherwise the string length is two!)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pow">
+<code class="descname">pow</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="optional">[</span>, <em>z</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#pow" title="永久链接至目标">¶</a></dt>
+<dd><p>Return <em>x</em> to the power <em>y</em>; if <em>z</em> is present, return <em>x</em> to the power <em>y</em>,
+modulo <em>z</em> (computed more efficiently than <code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span> <span class="pre">%</span> <span class="pre">z</span></code>). The two-argument
+form <code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span></code> is equivalent to using the power operator: <code class="docutils literal notranslate"><span class="pre">x**y</span></code>.</p>
+<p>The arguments must have numeric types.  With mixed operand types, the
+coercion rules for binary arithmetic operators apply.  For <a class="reference internal" href="#int" title="int"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>
+operands, the result has the same type as the operands (after coercion)
+unless the second argument is negative; in that case, all arguments are
+converted to float and a float result is delivered.  For example, <code class="docutils literal notranslate"><span class="pre">10**2</span></code>
+returns <code class="docutils literal notranslate"><span class="pre">100</span></code>, but <code class="docutils literal notranslate"><span class="pre">10**-2</span></code> returns <code class="docutils literal notranslate"><span class="pre">0.01</span></code>.  If the second argument is
+negative, the third argument must be omitted.  If <em>z</em> is present, <em>x</em> and <em>y</em>
+must be of integer types, and <em>y</em> must be non-negative.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="print">
+<code class="descname">print</code><span class="sig-paren">(</span><em>[object, ...][, sep=' '][, end='\n'][, file=sys.stdout]</em><span class="sig-paren">)</span><a class="headerlink" href="#print" title="永久链接至目标">¶</a></dt>
+<dd><p>Print <em>object</em>(s) to the stream <em>file</em>, separated by <em>sep</em> and followed by
+<em>end</em>.  <em>sep</em>, <em>end</em> and <em>file</em>, if present, must be given as keyword
+arguments.</p>
+<p>All non-keyword arguments are converted to strings like <a class="reference internal" href="#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> does and
+written to the stream, separated by <em>sep</em> and followed by <em>end</em>.  Both <em>sep</em>
+and <em>end</em> must be strings; they can also be <code class="docutils literal notranslate"><span class="pre">None</span></code>, which means to use the
+default values.  If no <em>object</em> is given, <a class="reference internal" href="#print" title="print"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> will just write
+<em>end</em>.</p>
+<p>The <em>file</em> argument must be an object with a <code class="docutils literal notranslate"><span class="pre">write(string)</span></code> method; if it
+is not present or <code class="docutils literal notranslate"><span class="pre">None</span></code>, <a class="reference internal" href="sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.stdout</span></code></a> will be used.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="property">
+<code class="descname">property</code><span class="sig-paren">(</span><span class="optional">[</span><em>fget</em><span class="optional">[</span>, <em>fset</em><span class="optional">[</span>, <em>fdel</em><span class="optional">[</span>, <em>doc</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#property" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a property attribute.</p>
+<p><em>fget</em> is a function for getting an attribute value, likewise <em>fset</em> is a
+function for setting, and <em>fdel</em> a function for del’ing, an attribute.  Typical
+use is to define a managed attribute x:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="k">def</span> <span class="nf">setx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">delx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">getx</span><span class="p">,</span> <span class="n">setx</span><span class="p">,</span> <span class="n">delx</span><span class="p">,</span> <span class="s2">&quot;I&#39;m the &#39;x&#39; property.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If given, <em>doc</em> will be the docstring of the property attribute. Otherwise, the
+property will copy <em>fget</em>’s docstring (if it exists).  This makes it possible to
+create read-only properties easily using <a class="reference internal" href="#property" title="property"><code class="xref py py-func docutils literal notranslate"><span class="pre">property()</span></code></a> as a <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Parrot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_voltage</span> <span class="o">=</span> <span class="mi">100000</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the current voltage.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_voltage</span>
+</pre></div>
+</div>
+<p>turns the <code class="xref py py-meth docutils literal notranslate"><span class="pre">voltage()</span></code> method into a “getter” for a read-only attribute
+with the same name.</p>
+<p>A property object has <code class="xref py py-attr docutils literal notranslate"><span class="pre">getter</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">setter</span></code>, and <code class="xref py py-attr docutils literal notranslate"><span class="pre">deleter</span></code>
+methods usable as decorators that create a copy of the property with the
+corresponding accessor function set to the decorated function.  This is
+best explained with an example:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;I&#39;m the &#39;x&#39; property.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+    <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@x</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+</pre></div>
+</div>
+<p>This code is exactly equivalent to the first example.  Be sure to give the
+additional functions the same name as the original property (<code class="docutils literal notranslate"><span class="pre">x</span></code> in this
+case.)</p>
+<p>The returned property also has the attributes <code class="docutils literal notranslate"><span class="pre">fget</span></code>, <code class="docutils literal notranslate"><span class="pre">fset</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">fdel</span></code> corresponding to the constructor arguments.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="range">
+<code class="descname">range</code><span class="sig-paren">(</span><span class="optional">[</span><em>start</em>, <span class="optional">]</span><em>stop</em><span class="optional">[</span>, <em>step</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#range" title="永久链接至目标">¶</a></dt>
+<dd><p>This is a versatile function to create iterables yielding arithmetic
+progressions.  It is most often used in <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">for</span></code></a> loops.  The arguments
+must be integers.  If the <em>step</em> argument is omitted, it defaults to <code class="docutils literal notranslate"><span class="pre">1</span></code>.
+If the <em>start</em> argument is omitted, it defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.  The full form
+returns an iterable of integers <code class="docutils literal notranslate"><span class="pre">[start,</span> <span class="pre">start</span> <span class="pre">+</span> <span class="pre">step,</span> <span class="pre">start</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">step,</span>
+<span class="pre">...]</span></code>.  If <em>step</em> is positive, the last element is the largest <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">+</span> <span class="pre">i</span> <span class="pre">*</span>
+<span class="pre">step</span></code> less than <em>stop</em>; if <em>step</em> is negative, the last element is the
+smallest <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">+</span> <span class="pre">i</span> <span class="pre">*</span> <span class="pre">step</span></code> greater than <em>stop</em>.  <em>step</em> must not be zero
+(or else <a class="reference internal" href="exceptions.html#exceptions.ValueError" title="exceptions.ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised).  Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="go">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="go">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="go">[0, 5, 10, 15, 20, 25]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="go">[0, 3, 6, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="go">[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="repr">
+<code class="descname">repr</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#repr" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a string containing a printable representation of an object.  For many
+types, this function makes an attempt to return a string that would yield an
+object with the same value when passed to <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>, otherwise the
+representation is a string enclosed in angle brackets that contains the name
+of the type of the object together with additional information often
+including the name and address of the object.  A class can control what this
+function returns for its instances by defining a <a class="reference internal" href="../reference/datamodel.html#object.__repr__" title="object.__repr__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__repr__()</span></code></a> method.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="reversed">
+<code class="descname">reversed</code><span class="sig-paren">(</span><em>seq</em><span class="sig-paren">)</span><a class="headerlink" href="#reversed" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a reverse <a class="reference internal" href="../glossary.html#term-iterator"><span class="xref std std-term">iterator</span></a>.  <em>seq</em> must be an object which has
+a <a class="reference internal" href="../reference/datamodel.html#object.__reversed__" title="object.__reversed__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__reversed__()</span></code></a> method or supports the sequence protocol (the
+<a class="reference internal" href="../reference/datamodel.html#object.__len__" title="object.__len__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__len__()</span></code></a> method and the <a class="reference internal" href="../reference/datamodel.html#object.__getitem__" title="object.__getitem__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getitem__()</span></code></a> method with integer
+arguments starting at <code class="docutils literal notranslate"><span class="pre">0</span></code>).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="round">
+<code class="descname">round</code><span class="sig-paren">(</span><em>x</em><span class="optional">[</span>, <em>n</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#round" title="永久链接至目标">¶</a></dt>
+<dd><p>Return the floating point value <em>x</em> rounded to <em>n</em> digits after the decimal
+point.  If <em>n</em> is omitted, it defaults to zero.  Delegates to
+<code class="docutils literal notranslate"><span class="pre">x.__round__(n)</span></code>.</p>
+<p>For the built-in types supporting <a class="reference internal" href="#round" title="round"><code class="xref py py-func docutils literal notranslate"><span class="pre">round()</span></code></a>, values are rounded to the
+closest multiple of 10 to the power minus <em>n</em>; if two multiples are equally
+close, rounding is done toward the even choice (so, for example, both
+<code class="docutils literal notranslate"><span class="pre">round(0.5)</span></code> and <code class="docutils literal notranslate"><span class="pre">round(-0.5)</span></code> are <code class="docutils literal notranslate"><span class="pre">0</span></code>, and <code class="docutils literal notranslate"><span class="pre">round(1.5)</span></code> is <code class="docutils literal notranslate"><span class="pre">2</span></code>).
+The return value is an integer if called with one argument, otherwise of the
+same type as <em>x</em>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">set</code><span class="sig-paren">(</span><span class="optional">[</span><em>iterable</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dd><p>Return a new set, optionally with elements are taken from <em>iterable</em>.
+The set type is described in <a class="reference internal" href="stdtypes.html#types-set"><span class="std std-ref">Set Types — set, frozenset</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="setattr">
+<code class="descname">setattr</code><span class="sig-paren">(</span><em>object</em>, <em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#setattr" title="永久链接至目标">¶</a></dt>
+<dd><p>This is the counterpart of <a class="reference internal" href="#getattr" title="getattr"><code class="xref py py-func docutils literal notranslate"><span class="pre">getattr()</span></code></a>.  The arguments are an object, a
+string and an arbitrary value.  The string may name an existing attribute or a
+new attribute.  The function assigns the value to the attribute, provided the
+object allows it.  For example, <code class="docutils literal notranslate"><span class="pre">setattr(x,</span> <span class="pre">'foobar',</span> <span class="pre">123)</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">x.foobar</span> <span class="pre">=</span> <span class="pre">123</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="slice">
+<code class="descname">slice</code><span class="sig-paren">(</span><span class="optional">[</span><em>start</em>, <span class="optional">]</span><em>stop</em><span class="optional">[</span>, <em>step</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#slice" title="永久链接至目标">¶</a></dt>
+<dd><p id="index-5">Return a <a class="reference internal" href="../glossary.html#term-slice"><span class="xref std std-term">slice</span></a> object representing the set of indices specified by
+<code class="docutils literal notranslate"><span class="pre">range(start,</span> <span class="pre">stop,</span> <span class="pre">step)</span></code>.  The <em>start</em> and <em>step</em> arguments default to
+<code class="docutils literal notranslate"><span class="pre">None</span></code>.  Slice objects have read-only data attributes <code class="xref py py-attr docutils literal notranslate"><span class="pre">start</span></code>,
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">stop</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">step</span></code> which merely return the argument values (or their
+default).  They have no other explicit functionality; however they are used by
+Numerical Python and other third party extensions.  Slice objects are also
+generated when extended indexing syntax is used.  For example:
+<code class="docutils literal notranslate"><span class="pre">a[start:stop:step]</span></code> or <code class="docutils literal notranslate"><span class="pre">a[start:stop,</span> <span class="pre">i]</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sorted">
+<code class="descname">sorted</code><span class="sig-paren">(</span><em>iterable</em><span class="optional">[</span>, <em>key</em><span class="optional">[</span>, <em>reverse</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#sorted" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a new sorted list from the items in <em>iterable</em>.</p>
+<p>Has two optional arguments which must be specified as keyword arguments.</p>
+<p><em>key</em> specifies a function of one argument that is used to extract a comparison
+key from each list element: <code class="docutils literal notranslate"><span class="pre">key=str.lower</span></code>.  The default value is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p><em>reverse</em> is a boolean value.  If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, then the list elements are
+sorted as if each comparison were reversed.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="staticmethod">
+<code class="descname">staticmethod</code><span class="sig-paren">(</span><em>function</em><span class="sig-paren">)</span><a class="headerlink" href="#staticmethod" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a static method for <em>function</em>.</p>
+<p>A static method does not receive an implicit first argument. To declare a static
+method, use this idiom:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code> form is a function <a class="reference internal" href="../glossary.html#term-decorator"><span class="xref std std-term">decorator</span></a> – see the
+description of function definitions in <a class="reference internal" href="../reference/compound_stmts.html#function"><span class="std std-ref">Function definitions</span></a> for details.</p>
+<p>It can be called either on the class (such as <code class="docutils literal notranslate"><span class="pre">C.f()</span></code>) or on an instance (such
+as <code class="docutils literal notranslate"><span class="pre">C().f()</span></code>).  The instance is ignored except for its class.</p>
+<p>Static methods in Python are similar to those found in Java or C++. For a more
+advanced concept, see <a class="reference internal" href="#classmethod" title="classmethod"><code class="xref py py-func docutils literal notranslate"><span class="pre">classmethod()</span></code></a> in this section.</p>
+<p>For more information on static methods, consult the documentation on the
+standard type hierarchy in <a class="reference internal" href="../reference/datamodel.html#types"><span class="std std-ref">The standard type hierarchy</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="str">
+<code class="descname">str</code><span class="sig-paren">(</span><span class="optional">[</span><em>object</em><span class="optional">[</span>, <em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#str" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a string version of an object, using one of the following modes:</p>
+<p>If <em>encoding</em> and/or <em>errors</em> are given, <a class="reference internal" href="#str" title="str"><code class="xref py py-func docutils literal notranslate"><span class="pre">str()</span></code></a> will decode the
+<em>object</em> which can either be a byte string or a character buffer using
+the codec for <em>encoding</em>. The <em>encoding</em> parameter is a string giving
+the name of an encoding; if the encoding is not known, <a class="reference internal" href="exceptions.html#exceptions.LookupError" title="exceptions.LookupError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">LookupError</span></code></a>
+is raised.  Error handling is done according to <em>errors</em>; this specifies the
+treatment of characters which are invalid in the input encoding. If
+<em>errors</em> is <code class="docutils literal notranslate"><span class="pre">'strict'</span></code> (the default), a <a class="reference internal" href="exceptions.html#exceptions.ValueError" title="exceptions.ValueError"><code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code></a> is raised on
+errors, while a value of <code class="docutils literal notranslate"><span class="pre">'ignore'</span></code> causes errors to be silently ignored,
+and a value of <code class="docutils literal notranslate"><span class="pre">'replace'</span></code> causes the official Unicode replacement character,
+U+FFFD, to be used to replace input characters which cannot be decoded.
+See also the <a class="reference internal" href="codecs.html#module-codecs" title="codecs: Encode and decode data and streams."><code class="xref py py-mod docutils literal notranslate"><span class="pre">codecs</span></code></a> module.</p>
+<p>When only <em>object</em> is given, this returns its nicely printable representation.
+For strings, this is the string itself.  The difference with <code class="docutils literal notranslate"><span class="pre">repr(object)</span></code>
+is that <code class="docutils literal notranslate"><span class="pre">str(object)</span></code> does not always attempt to return a string that is
+acceptable to <a class="reference internal" href="#eval" title="eval"><code class="xref py py-func docutils literal notranslate"><span class="pre">eval()</span></code></a>; its goal is to return a printable string.
+With no arguments, this returns the empty string.</p>
+<p>Objects can specify what <code class="docutils literal notranslate"><span class="pre">str(object)</span></code> returns by defining a <a class="reference internal" href="../reference/datamodel.html#object.__str__" title="object.__str__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__str__()</span></code></a>
+special method.</p>
+<p>For more information on strings see <a class="reference internal" href="stdtypes.html#typesseq"><span class="std std-ref">Sequence Types — str, bytes, bytearray, list, tuple, range</span></a> which describes sequence
+functionality (strings are sequences), and also the string-specific methods
+described in the <a class="reference internal" href="stdtypes.html#string-methods"><span class="std std-ref">String Methods</span></a> section. To output formatted strings,
+see the <a class="reference internal" href="string.html#string-formatting"><span class="std std-ref">String Formatting</span></a> section. In addition see the
+<a class="reference internal" href="strings.html#stringservices"><span class="std std-ref">String Services</span></a> section.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="sum">
+<code class="descname">sum</code><span class="sig-paren">(</span><em>iterable</em><span class="optional">[</span>, <em>start</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#sum" title="永久链接至目标">¶</a></dt>
+<dd><p>Sums <em>start</em> and the items of an <em>iterable</em> from left to right and returns the
+total.  <em>start</em> defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>. The <em>iterable</em>’s items are normally numbers,
+and are not allowed to be strings.  The fast, correct way to concatenate a
+sequence of strings is by calling <code class="docutils literal notranslate"><span class="pre">''.join(sequence)</span></code>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="super">
+<code class="descname">super</code><span class="sig-paren">(</span><span class="optional">[</span><em>type</em><span class="optional">[</span>, <em>object-or-type</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#super" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a <em>super</em> object that acts as a proxy to superclasses of <em>type</em>.</p>
+<p>If the second argument is omitted the super object returned is unbound.  If
+the second argument is an object, <code class="docutils literal notranslate"><span class="pre">isinstance(obj,</span> <span class="pre">type)</span></code> must be true.  If
+the second argument is a type, <code class="docutils literal notranslate"><span class="pre">issubclass(type2,</span> <span class="pre">type)</span></code> must be true.
+Calling <a class="reference internal" href="#super" title="super"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> without arguments is equivalent to <code class="docutils literal notranslate"><span class="pre">super(this_class,</span>
+<span class="pre">first_arg)</span></code>.</p>
+<p>There are two typical use cases for <a class="reference internal" href="#super" title="super"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a>.  In a class hierarchy with
+single inheritance, <a class="reference internal" href="#super" title="super"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> can be used to refer to parent classes without
+naming them explicitly, thus making the code more maintainable.  This use
+closely parallels the use of “super” in other programming languages.</p>
+<p>The second use case is to support cooperative multiple inheritence in a
+dynamic execution environment.  This use case is unique to Python and is
+not found in statically compiled languages or languages that only support
+single inheritance.  This makes in possible to implement “diamond diagrams”
+where multiple base classes implement the same method.  Good design dictates
+that this method have the same calling signature in every case (because the
+order of parent calls is determined at runtime and because that order adapts
+to changes in the class hierarchy).</p>
+<p>For both use cases, a typical superclass call looks like this:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>    <span class="c1"># This does the same thing as: super(C, self).method(arg)</span>
+</pre></div>
+</div>
+<p>Note that <a class="reference internal" href="#super" title="super"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> is implemented as part of the binding process for
+explicit dotted attribute lookups such as <code class="docutils literal notranslate"><span class="pre">super().__getitem__(name)</span></code>.
+It does so by implementing its own <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__getattribute__()</span></code></a> method for searching
+parent classes in a predictable order that supports cooperative multiple inheritance.
+Accordingly, <a class="reference internal" href="#super" title="super"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> is undefined for implicit lookups using statements or
+operators such as <code class="docutils literal notranslate"><span class="pre">super()[name]</span></code>.</p>
+<p>Also note that <a class="reference internal" href="#super" title="super"><code class="xref py py-func docutils literal notranslate"><span class="pre">super()</span></code></a> is not limited to use inside methods.  The
+two argument specifies the arguments exactly and makes the appropriate
+references.  The zero argument form automatically searches the stack frame
+for the class (<code class="docutils literal notranslate"><span class="pre">__class__</span></code>) and the first argument.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="tuple">
+<code class="descname">tuple</code><span class="sig-paren">(</span><span class="optional">[</span><em>iterable</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tuple" title="永久链接至目标">¶</a></dt>
+<dd><p>Return a tuple whose items are the same and in the same order as <em>iterable</em>’s
+items.  <em>iterable</em> may be a sequence, a container that supports iteration, or an
+iterator object. If <em>iterable</em> is already a tuple, it is returned unchanged.
+For instance, <code class="docutils literal notranslate"><span class="pre">tuple('abc')</span></code> returns <code class="docutils literal notranslate"><span class="pre">('a',</span> <span class="pre">'b',</span> <span class="pre">'c')</span></code> and <code class="docutils literal notranslate"><span class="pre">tuple([1,</span> <span class="pre">2,</span>
+<span class="pre">3])</span></code> returns <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2,</span> <span class="pre">3)</span></code>.  If no argument is given, returns a new empty
+tuple, <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+<p><a class="reference internal" href="#tuple" title="tuple"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> is an immutable sequence type, as documented in <a class="reference internal" href="stdtypes.html#typesseq"><span class="std std-ref">Sequence Types — str, bytes, bytearray, list, tuple, range</span></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="type">
+<code class="descname">type</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#type" title="永久链接至目标">¶</a></dt>
+<dd><p id="index-6">Return the type of an <em>object</em>.  The return value is a type object and
+generally the same object as returned by <code class="docutils literal notranslate"><span class="pre">object.__class__</span></code>.</p>
+<p>The <a class="reference internal" href="#isinstance" title="isinstance"><code class="xref py py-func docutils literal notranslate"><span class="pre">isinstance()</span></code></a> built-in function is recommended for testing the type
+of an object, because it takes subclasses into account.</p>
+<p>With three arguments, <a class="reference internal" href="#type" title="type"><code class="xref py py-func docutils literal notranslate"><span class="pre">type()</span></code></a> functions as a constructor as detailed
+below.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">type</code><span class="sig-paren">(</span><em>name</em>, <em>bases</em>, <em>dict</em><span class="sig-paren">)</span></dt>
+<dd><p>Return a new type object.  This is essentially a dynamic form of the
+<a class="reference internal" href="../reference/compound_stmts.html#class"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">class</span></code></a> statement. The <em>name</em> string is the class name and becomes the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">__name__</span></code> attribute; the <em>bases</em> tuple itemizes the base classes and
+becomes the <code class="xref py py-attr docutils literal notranslate"><span class="pre">__bases__</span></code> attribute; and the <em>dict</em> dictionary is the
+namespace containing definitions for class body and becomes the <code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code>
+attribute.  For example, the following two statements create identical
+<a class="reference internal" href="#type" title="type"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a> objects:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">X</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="vars">
+<code class="descname">vars</code><span class="sig-paren">(</span><span class="optional">[</span><em>object</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#vars" title="永久链接至目标">¶</a></dt>
+<dd><p>Without arguments, return a dictionary corresponding to the current local symbol
+table.  With a module, class or class instance object as argument (or anything
+else that has a <code class="xref py py-attr docutils literal notranslate"><span class="pre">__dict__</span></code> attribute), returns a dictionary corresponding
+to the object’s symbol table.  The returned dictionary should not be modified:
+the effects on the corresponding symbol table are undefined. <a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="zip">
+<code class="descname">zip</code><span class="sig-paren">(</span><em>*iterables</em><span class="sig-paren">)</span><a class="headerlink" href="#zip" title="永久链接至目标">¶</a></dt>
+<dd><p>Make an iterator that aggregates elements from each of the iterables.</p>
+<p>Returns an iterator of tuples, where the <em>i</em>-th tuple contains
+the <em>i</em>-th element from each of the argument sequences or iterables.  The
+iterator stops when the shortest input iterable is exhausted. With a single
+iterable argument, it returns an iterator of 1-tuples.  With no arguments,
+it returns an empty iterator.  Equivalent to:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">zip</span><span class="p">(</span><span class="o">*</span><span class="n">iterables</span><span class="p">):</span>
+    <span class="c1"># zip(&#39;ABCD&#39;, &#39;xy&#39;) --&gt; Ax By</span>
+    <span class="n">iterables</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">iter</span><span class="p">,</span> <span class="n">iterables</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">iterables</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">it</span><span class="o">.</span><span class="n">next</span><span class="p">()</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">iterables</span><span class="p">]</span>
+        <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The left-to-right evaluation order of the iterables is guaranteed. This
+makes possible an idiom for clustering a data series into n-length groups
+using <code class="docutils literal notranslate"><span class="pre">zip(*[iter(s)]*n)</span></code>.</p>
+<p><a class="reference internal" href="#zip" title="zip"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> should only be used with unequal length inputs when you don’t
+care about trailing, unmatched values from the longer iterables.  If those
+values are important, use <a class="reference internal" href="itertools.html#itertools.zip_longest" title="itertools.zip_longest"><code class="xref py py-func docutils literal notranslate"><span class="pre">itertools.zip_longest()</span></code></a> instead.</p>
+<p><a class="reference internal" href="#zip" title="zip"><code class="xref py py-func docutils literal notranslate"><span class="pre">zip()</span></code></a> in conjunction with the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator can be used to unzip a
+list:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">zipped</span><span class="p">)</span>
+<span class="go">[(1, 4), (2, 5), (3, 6)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y</span> <span class="o">==</span> <span class="n">y2</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="__import__">
+<code class="descname">__import__</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>globals</em><span class="optional">[</span>, <em>locals</em><span class="optional">[</span>, <em>fromlist</em><span class="optional">[</span>, <em>level</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#__import__" title="永久链接至目标">¶</a></dt>
+<dd><div class="admonition note" id="index-7">
+<p class="first admonition-title">注解</p>
+<p class="last">This is an advanced function that is not needed in everyday Python
+programming.</p>
+</div>
+<p>This function is invoked by the <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement.  It can be
+replaced (by importing the <a class="reference internal" href="builtins.html#module-builtins" title="builtins: The module that provides the built-in namespace."><code class="xref py py-mod docutils literal notranslate"><span class="pre">builtins</span></code></a> module and assigning to
+<code class="docutils literal notranslate"><span class="pre">builtins.__import__</span></code>) in order to change semantics of the
+<a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement, but nowadays it is usually simpler to use import
+hooks (see <span class="target" id="index-8"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0302"><strong>PEP 302</strong></a>).  Direct use of <a class="reference internal" href="#__import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a> is rare, except in
+cases where you want to import a module whose name is only known at runtime.</p>
+<p>The function imports the module <em>name</em>, potentially using the given <em>globals</em>
+and <em>locals</em> to determine how to interpret the name in a package context.
+The <em>fromlist</em> gives the names of objects or submodules that should be
+imported from the module given by <em>name</em>.  The standard implementation does
+not use its <em>locals</em> argument at all, and uses its <em>globals</em> only to
+determine the package context of the <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement.</p>
+<p><em>level</em> specifies whether to use absolute or relative imports.  The default
+is <code class="docutils literal notranslate"><span class="pre">-1</span></code> which indicates both absolute and relative imports will be
+attempted.  <code class="docutils literal notranslate"><span class="pre">0</span></code> means only perform absolute imports.  Positive values for
+<em>level</em> indicate the number of parent directories to search relative to the
+directory of the module calling <a class="reference internal" href="#__import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a>.</p>
+<p>When the <em>name</em> variable is of the form <code class="docutils literal notranslate"><span class="pre">package.module</span></code>, normally, the
+top-level package (the name up till the first dot) is returned, <em>not</em> the
+module named by <em>name</em>.  However, when a non-empty <em>fromlist</em> argument is
+given, the module named by <em>name</em> is returned.</p>
+<p>For example, the statement <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">spam</span></code> results in bytecode resembling the
+following code:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">spam</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The statement <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">spam.ham</span></code> results in this call:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">spam</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;spam.ham&#39;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note how <a class="reference internal" href="#__import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a> returns the toplevel module here because this is
+the object that is bound to a name by the <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal notranslate"><span class="pre">import</span></code></a> statement.</p>
+<p>On the other hand, the statement <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">spam.ham</span> <span class="pre">import</span> <span class="pre">eggs,</span> <span class="pre">sausage</span> <span class="pre">as</span>
+<span class="pre">saus</span></code> results in</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">_temp</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;spam.ham&#39;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[</span><span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="s1">&#39;sausage&#39;</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">eggs</span> <span class="o">=</span> <span class="n">_temp</span><span class="o">.</span><span class="n">eggs</span>
+<span class="n">saus</span> <span class="o">=</span> <span class="n">_temp</span><span class="o">.</span><span class="n">sausage</span>
+</pre></div>
+</div>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">spam.ham</span></code> module is returned from <a class="reference internal" href="#__import__" title="__import__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__import__()</span></code></a>.  From this
+object, the names to import are retrieved and assigned to their respective
+names.</p>
+<p>If you simply want to import a module (potentially within a package) by name,
+you can get it from <a class="reference internal" href="sys.html#sys.modules" title="sys.modules"><code class="xref py py-data docutils literal notranslate"><span class="pre">sys.modules</span></code></a>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;foo.bar.baz&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">__import__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="go">&lt;module &#39;foo&#39; from ...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">baz</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">baz</span>
+<span class="go">&lt;module &#39;foo.bar.baz&#39; from ...&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Specifying a buffer size currently has no effect on systems that don’t have
+<a href="#id3"><span class="problematic" id="id4">:cfunc:`setvbuf`</span></a>.  The interface to specify the buffer size is not done using a
+method that calls <a href="#id5"><span class="problematic" id="id6">:cfunc:`setvbuf`</span></a>, because that may dump core when called after
+any I/O has been performed, and there’s no reliable way to determine whether
+this is the case.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>In the current implementation, local variable bindings cannot normally be
+affected this way, but variables retrieved from other scopes (such as modules)
+can be.  This may change.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一个主题</h4>
+  <p class="topless"><a href="intro.html"
+                        title="上一章">Introduction</a></p>
+  <h4>下一个主题</h4>
+  <p class="topless"><a href="constants.html"
+                        title="下一章">Built-in Constants</a></p>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/library/functions.rst.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>导航</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="总目录"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python 模块索引"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="constants.html" title="Built-in Constants"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >上一页</a> |</li>
+
+    <li><img src="../_static/py.png" alt=""
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://www.python.org/">Python</a> &#187;</li>
+    
+
+          <li id="cpython-language-and-version">
+            <a href="../index.html">Python 3.0.1 文档</a> &#187;
+          </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Python Standard Library</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="快速搜索" type="text" name="q" />
+          <input type="submit" value="转向" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">版权所有</a> 1990-2026, Python Software Foundation.
+    <br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    最后更新于 2月 04, 2026.
+    
+    <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.8.4.
+    </div>
+
+  </body>
+</html>
