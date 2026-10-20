@@ -1,0 +1,508 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 1990-2025, Python Software Foundation
+# This file is distributed under the same license as the Python package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Python 2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-11 04:42+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../c-api/exceptions.rst:8
+msgid "Exception Handling"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:10
+msgid ""
+"The functions described in this chapter will let you handle and raise Python "
+"exceptions.  It is important to understand some of the basics of Python "
+"exception handling.  It works somewhat like the Unix :cdata:`errno` "
+"variable: there is a global indicator (per thread) of the last error that "
+"occurred.  Most functions don't clear this on success, but will set it to "
+"indicate the cause of the error on failure.  Most functions also return an "
+"error indicator, usually *NULL* if they are supposed to return a pointer, or "
+"``-1`` if they return an integer (exception: the :cfunc:`PyArg_\\*` "
+"functions return ``1`` for success and ``0`` for failure)."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:20
+msgid ""
+"When a function must fail because some function it called failed, it "
+"generally doesn't set the error indicator; the function it called already "
+"set it.  It is responsible for either handling the error and clearing the "
+"exception or returning after cleaning up any resources it holds (such as "
+"object references or memory allocations); it should *not* continue normally "
+"if it is not prepared to handle the error.  If returning due to an error, it "
+"is important to indicate to the caller that an error has been set.  If the "
+"error is not handled or carefully propagated, additional calls into the "
+"Python/C API may not behave as intended and may fail in mysterious ways."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:35
+msgid ""
+"The error indicator consists of three Python objects corresponding to   the "
+"Python variables ``sys.exc_type``, ``sys.exc_value`` and ``sys."
+"exc_traceback``. API functions exist to interact with the error indicator in "
+"various ways.  There is a separate error indicator for each thread."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:433
+msgid "Recursion Control"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:435
+msgid ""
+"These two functions provide a way to perform safe recursive calls at the C "
+"level, both in the core and in extension modules.  They are needed if the "
+"recursive code does not necessarily invoke Python code (which tracks its "
+"recursion depth automatically)."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:465
+msgid "Standard Exceptions"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:467
+msgid ""
+"All standard Python exceptions are available as global variables whose names "
+"are ``PyExc_`` followed by the Python exception name.  These have the type :"
+"ctype:`PyObject\\*`; they are all class objects.  For completeness, here are "
+"all the variables:"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:473
+msgid "C Name"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:473
+msgid "Python Name"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:473
+msgid "Notes"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:475
+msgid ":cdata:`PyExc_BaseException`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:475
+msgid ":exc:`BaseException`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:475
+msgid "(1), (4)"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:477
+msgid ":cdata:`PyExc_Exception`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:477
+msgid ":exc:`Exception`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:477 ../../../c-api/exceptions.rst:479
+#: ../../../c-api/exceptions.rst:481 ../../../c-api/exceptions.rst:483
+#: ../../../c-api/exceptions.rst:491
+msgid "\\(1)"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:479
+msgid ":cdata:`PyExc_StandardError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:479
+msgid ":exc:`StandardError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:481
+msgid ":cdata:`PyExc_ArithmeticError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:481
+msgid ":exc:`ArithmeticError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:483
+msgid ":cdata:`PyExc_LookupError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:483
+msgid ":exc:`LookupError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:485
+msgid ":cdata:`PyExc_AssertionError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:485
+msgid ":exc:`AssertionError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:487
+msgid ":cdata:`PyExc_AttributeError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:487
+msgid ":exc:`AttributeError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:489
+msgid ":cdata:`PyExc_EOFError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:489
+msgid ":exc:`EOFError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:491
+msgid ":cdata:`PyExc_EnvironmentError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:491
+msgid ":exc:`EnvironmentError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:493
+msgid ":cdata:`PyExc_FloatingPointError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:493
+msgid ":exc:`FloatingPointError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:495
+msgid ":cdata:`PyExc_IOError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:495
+msgid ":exc:`IOError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:497
+msgid ":cdata:`PyExc_ImportError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:497
+msgid ":exc:`ImportError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:499
+msgid ":cdata:`PyExc_IndexError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:499
+msgid ":exc:`IndexError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:501
+msgid ":cdata:`PyExc_KeyError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:501
+msgid ":exc:`KeyError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:503
+msgid ":cdata:`PyExc_KeyboardInterrupt`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:503
+msgid ":exc:`KeyboardInterrupt`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:505
+msgid ":cdata:`PyExc_MemoryError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:505
+msgid ":exc:`MemoryError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:507
+msgid ":cdata:`PyExc_NameError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:507
+msgid ":exc:`NameError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:509
+msgid ":cdata:`PyExc_NotImplementedError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:509
+msgid ":exc:`NotImplementedError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:511
+msgid ":cdata:`PyExc_OSError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:511
+msgid ":exc:`OSError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:513
+msgid ":cdata:`PyExc_OverflowError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:513
+msgid ":exc:`OverflowError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:515
+msgid ":cdata:`PyExc_ReferenceError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:515
+msgid ":exc:`ReferenceError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:515
+msgid "\\(2)"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:517
+msgid ":cdata:`PyExc_RuntimeError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:517
+msgid ":exc:`RuntimeError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:519
+msgid ":cdata:`PyExc_SyntaxError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:519
+msgid ":exc:`SyntaxError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:521
+msgid ":cdata:`PyExc_SystemError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:521
+msgid ":exc:`SystemError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:523
+msgid ":cdata:`PyExc_SystemExit`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:523
+msgid ":exc:`SystemExit`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:525
+msgid ":cdata:`PyExc_TypeError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:525
+msgid ":exc:`TypeError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:527
+msgid ":cdata:`PyExc_ValueError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:527
+msgid ":exc:`ValueError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:529
+msgid ":cdata:`PyExc_WindowsError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:529
+msgid ":exc:`WindowsError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:529
+msgid "\\(3)"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:531
+msgid ":cdata:`PyExc_ZeroDivisionError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:531
+msgid ":exc:`ZeroDivisionError`"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:565
+msgid "Notes:"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:568
+msgid "This is a base class for other standard exceptions."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:571
+msgid "This is the same as :exc:`weakref.ReferenceError`."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:574
+msgid ""
+"Only defined on Windows; protect code that uses this by testing that the "
+"preprocessor macro ``MS_WINDOWS`` is defined."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:582
+msgid "Deprecation of String Exceptions"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:586
+msgid ""
+"All exceptions built into Python or provided in the standard library are "
+"derived from :exc:`BaseException`."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:589
+msgid ""
+"String exceptions are still supported in the interpreter to allow existing "
+"code to run unmodified, but this will also change in a future release."
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:30
+msgid "exc_type (in module sys)"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:30
+msgid "exc_value (in module sys)"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:30
+msgid "exc_traceback (in module sys)"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_BaseException"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_Exception"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_StandardError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_ArithmeticError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_LookupError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_AssertionError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_AttributeError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_EOFError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_EnvironmentError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_FloatingPointError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_IOError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_ImportError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_IndexError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_KeyError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_KeyboardInterrupt"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_MemoryError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_NameError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_NotImplementedError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_OSError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_OverflowError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_ReferenceError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_RuntimeError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_SyntaxError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_SystemError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_SystemExit"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_TypeError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_ValueError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_WindowsError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:534
+msgid "PyExc_ZeroDivisionError"
+msgstr ""
+
+#: ../../../c-api/exceptions.rst:584
+msgid "BaseException (built-in exception)"
+msgstr ""
