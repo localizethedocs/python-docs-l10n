@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.13\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 08:30+0000\n"
+"POT-Creation-Date: 2026-10-21 13:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,17 +29,18 @@ msgstr ""
 msgid ""
 "This module provides the infrastructure for defining :term:`abstract base "
 "classes <abstract base class>` (ABCs) in Python, as outlined in :pep:`3119`; "
-"see the PEP for why this was added to Python. (See also :pep:`3141` and the :"
-"mod:`numbers` module regarding a type hierarchy for numbers based on ABCs.)"
+"see the PEP for why this was added to Python. (See also :pep:`3141` and "
+"the :mod:`numbers` module regarding a type hierarchy for numbers based on "
+"ABCs.)"
 msgstr ""
 
 #: ../../../library/abc.rst:20
 msgid ""
 "The :mod:`collections` module has some concrete classes that derive from "
-"ABCs; these can, of course, be further derived. In addition, the :mod:"
-"`collections.abc` submodule has some ABCs that can be used to test whether a "
-"class or instance provides a particular interface, for example, if it is :"
-"term:`hashable` or if it is a :term:`mapping`."
+"ABCs; these can, of course, be further derived. In addition, "
+"the :mod:`collections.abc` submodule has some ABCs that can be used to test "
+"whether a class or instance provides a particular interface, for example, if "
+"it is :term:`hashable` or if it is a :term:`mapping`."
 msgstr ""
 
 #: ../../../library/abc.rst:27
@@ -97,8 +98,8 @@ msgstr ""
 
 #: ../../../library/abc.rst:88
 msgid ""
-"To detect calls to :meth:`!register`, you can use the :func:"
-"`get_cache_token` function."
+"To detect calls to :meth:`!register`, you can use "
+"the :func:`get_cache_token` function."
 msgstr ""
 
 #: ../../../library/abc.rst:92
@@ -114,8 +115,8 @@ msgid ""
 "Check whether *subclass* is considered a subclass of this ABC.  This means "
 "that you can customize the behavior of :func:`issubclass` further without "
 "the need to call :meth:`register` on every class you want to consider a "
-"subclass of the ABC.  (This class method is called from the :meth:`~type."
-"__subclasscheck__` method of the ABC.)"
+"subclass of the ABC.  (This class method is called from "
+"the :meth:`~type.__subclasscheck__` method of the ABC.)"
 msgstr ""
 
 #: ../../../library/abc.rst:104
@@ -134,19 +135,19 @@ msgstr ""
 
 #: ../../../library/abc.rst:143
 msgid ""
-"The ABC ``MyIterable`` defines the standard iterable method, :meth:`~object."
-"__iter__`, as an abstract method.  The implementation given here can still "
-"be called from subclasses.  The :meth:`!get_iterator` method is also part of "
-"the ``MyIterable`` abstract base class, but it does not have to be "
-"overridden in non-abstract derived classes."
+"The ABC ``MyIterable`` defines the standard iterable "
+"method, :meth:`~object.__iter__`, as an abstract method.  The implementation "
+"given here can still be called from subclasses.  The :meth:`!get_iterator` "
+"method is also part of the ``MyIterable`` abstract base class, but it does "
+"not have to be overridden in non-abstract derived classes."
 msgstr ""
 
 #: ../../../library/abc.rst:149
 msgid ""
 "The :meth:`__subclasshook__` class method defined here says that any class "
 "that has an :meth:`~object.__iter__` method in its :attr:`~object.__dict__` "
-"(or in that of one of its base classes, accessed via the :attr:`~type."
-"__mro__` list) is considered a ``MyIterable`` too."
+"(or in that of one of its base classes, accessed via "
+"the :attr:`~type.__mro__` list) is considered a ``MyIterable`` too."
 msgstr ""
 
 #: ../../../library/abc.rst:154
@@ -173,7 +174,7 @@ msgid ""
 "or is derived from it.  A class that has a metaclass derived from :class:`!"
 "ABCMeta` cannot be instantiated unless all of its abstract methods and "
 "properties are overridden.  The abstract methods can be called using any of "
-"the normal 'super' call mechanisms.  :func:`!abstractmethod` may be used to "
+"the normal 'super' call mechanisms.  :deco:`!abstractmethod` may be used to "
 "declare abstract methods for properties and descriptors."
 msgstr ""
 
@@ -181,7 +182,7 @@ msgstr ""
 msgid ""
 "Dynamically adding abstract methods to a class, or attempting to modify the "
 "abstraction status of a method or class once it is created, are only "
-"supported using the :func:`update_abstractmethods` function.  The :func:`!"
+"supported using the :func:`update_abstractmethods` function.  The :deco:`!"
 "abstractmethod` only affects subclasses derived using regular inheritance; "
 "\"virtual subclasses\" registered with the ABC's :meth:`~ABCMeta.register` "
 "method are not affected."
@@ -189,7 +190,7 @@ msgstr ""
 
 #: ../../../library/abc.rst:183
 msgid ""
-"When :func:`!abstractmethod` is applied in combination with other method "
+"When :deco:`!abstractmethod` is applied in combination with other method "
 "descriptors, it should be applied as the innermost decorator, as shown in "
 "the following usage examples::"
 msgstr ""
@@ -200,7 +201,7 @@ msgid ""
 "the descriptor must identify itself as abstract using :attr:`!"
 "__isabstractmethod__`. In general, this attribute should be ``True`` if any "
 "of the methods used to compose the descriptor are abstract. For example, "
-"Python's built-in :class:`property` does the equivalent of::"
+"Python's built-in :deco:`property` does the equivalent of::"
 msgstr ""
 
 #: ../../../library/abc.rst:232
@@ -218,55 +219,57 @@ msgstr ""
 
 #: ../../../library/abc.rst:244
 msgid ""
-"It is now possible to use :class:`classmethod` with :func:`abstractmethod`, "
+"It is now possible to use :deco:`classmethod` with :deco:`abstractmethod`, "
 "making this decorator redundant."
 msgstr ""
 
 #: ../../../library/abc.rst:248
 msgid ""
-"A subclass of the built-in :func:`classmethod`, indicating an abstract "
-"classmethod. Otherwise it is similar to :func:`abstractmethod`."
+"A subclass of the built-in :class:`classmethod`, indicating an abstract "
+"classmethod. Otherwise it is similar to :deco:`abstractmethod`."
 msgstr ""
 
 #: ../../../library/abc.rst:251
 msgid ""
-"This special case is deprecated, as the :func:`classmethod` decorator is now "
+"This special case is deprecated, as the :deco:`classmethod` decorator is now "
 "correctly identified as abstract when applied to an abstract method::"
 msgstr ""
 
 #: ../../../library/abc.rst:265
 msgid ""
-"It is now possible to use :class:`staticmethod` with :func:`abstractmethod`, "
+"It is now possible to use :deco:`staticmethod` with :deco:`abstractmethod`, "
 "making this decorator redundant."
 msgstr ""
 
 #: ../../../library/abc.rst:269
 msgid ""
-"A subclass of the built-in :func:`staticmethod`, indicating an abstract "
-"staticmethod. Otherwise it is similar to :func:`abstractmethod`."
+"A subclass of the built-in :class:`staticmethod`, indicating an abstract "
+"staticmethod. Otherwise it is similar to :deco:`abstractmethod`."
 msgstr ""
 
 #: ../../../library/abc.rst:272
 msgid ""
-"This special case is deprecated, as the :func:`staticmethod` decorator is "
+"This special case is deprecated, as the :deco:`staticmethod` decorator is "
 "now correctly identified as abstract when applied to an abstract method::"
 msgstr ""
 
 #: ../../../library/abc.rst:285
 msgid ""
-"It is now possible to use :class:`property`, :meth:`property.getter`, :meth:"
-"`property.setter` and :meth:`property.deleter` with :func:`abstractmethod`, "
-"making this decorator redundant."
+"It is now possible to "
+"use :deco:`property`, :deco:`property.getter`, :deco:`property.setter` "
+"and :deco:`property.deleter` with :deco:`abstractmethod`, making this "
+"decorator redundant."
 msgstr ""
 
 #: ../../../library/abc.rst:290
 msgid ""
-"A subclass of the built-in :func:`property`, indicating an abstract property."
+"A subclass of the built-in :class:`property`, indicating an abstract "
+"property."
 msgstr ""
 
 #: ../../../library/abc.rst:293
 msgid ""
-"This special case is deprecated, as the :func:`property` decorator is now "
+"This special case is deprecated, as the :deco:`property` decorator is now "
 "correctly identified as abstract when applied to an abstract method::"
 msgstr ""
 
