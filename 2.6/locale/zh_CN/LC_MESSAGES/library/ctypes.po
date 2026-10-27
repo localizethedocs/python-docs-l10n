@@ -43,8 +43,8 @@ msgstr ""
 msgid ""
 "Note: Some code samples reference the ctypes :class:`c_int` type. This type "
 "is an alias for the :class:`c_long` type on 32-bit systems.  So, you should "
-"not be confused if :class:`c_long` is printed if you would expect :class:"
-"`c_int` --- they are actually the same type."
+"not be confused if :class:`c_long` is printed if you would "
+"expect :class:`c_int` --- they are actually the same type."
 msgstr ""
 
 #: ../../../library/ctypes.rst:34
@@ -117,8 +117,8 @@ msgstr ""
 #: ../../../library/ctypes.rst:114
 msgid ""
 "Sometimes, dlls export functions with names which aren't valid Python "
-"identifiers, like ``\"??2@YAPAXI@Z\"``. In this case you have to use :func:"
-"`getattr` to retrieve the function::"
+"identifiers, like ``\"??2@YAPAXI@Z\"``. In this case you have to "
+"use :func:`getattr` to retrieve the function::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:122
@@ -403,29 +403,29 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:284
 msgid ""
-"Assigning a new value to instances of the pointer types :class:`c_char_p`, :"
-"class:`c_wchar_p`, and :class:`c_void_p` changes the *memory location* they "
-"point to, *not the contents* of the memory block (of course not, because "
-"Python strings are immutable)::"
+"Assigning a new value to instances of the pointer "
+"types :class:`c_char_p`, :class:`c_wchar_p`, and :class:`c_void_p` changes "
+"the *memory location* they point to, *not the contents* of the memory block "
+"(of course not, because Python strings are immutable)::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:300
 msgid ""
 "You should be careful, however, not to pass them to functions expecting "
-"pointers to mutable memory. If you need mutable memory blocks, ctypes has a :"
-"func:`create_string_buffer` function which creates these in various ways.  "
-"The current memory block contents can be accessed (or changed) with the "
-"``raw`` property; if you want to access it as NUL terminated string, use the "
-"``value`` property::"
+"pointers to mutable memory. If you need mutable memory blocks, ctypes has "
+"a :func:`create_string_buffer` function which creates these in various "
+"ways.  The current memory block contents can be accessed (or changed) with "
+"the ``raw`` property; if you want to access it as NUL terminated string, use "
+"the ``value`` property::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:324
 msgid ""
 "The :func:`create_string_buffer` function replaces the :func:`c_buffer` "
-"function (which is still available as an alias), as well as the :func:"
-"`c_string` function from earlier ctypes releases.  To create a mutable "
-"memory block containing unicode characters of the C type :ctype:`wchar_t` "
-"use the :func:`create_unicode_buffer` function."
+"function (which is still available as an alias), as well as "
+"the :func:`c_string` function from earlier ctypes releases.  To create a "
+"mutable memory block containing unicode characters of the C "
+"type :ctype:`wchar_t` use the :func:`create_unicode_buffer` function."
 msgstr ""
 
 #: ../../../library/ctypes.rst:334
@@ -434,9 +434,9 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:336
 msgid ""
-"Note that printf prints to the real standard output channel, *not* to :data:"
-"`sys.stdout`, so these examples will only work at the console prompt, not "
-"from within *IDLE* or *PythonWin*::"
+"Note that printf prints to the real standard output channel, *not* "
+"to :data:`sys.stdout`, so these examples will only work at the console "
+"prompt, not from within *IDLE* or *PythonWin*::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:356
@@ -522,9 +522,9 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:455
 msgid ""
-"If you want to avoid the ``ord(\"x\")`` calls above, you can set the :attr:"
-"`argtypes` attribute, and the second argument will be converted from a "
-"single character Python string into a C char::"
+"If you want to avoid the ``ord(\"x\")`` calls above, you can set "
+"the :attr:`argtypes` attribute, and the second argument will be converted "
+"from a single character Python string into a C char::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:473
@@ -566,10 +566,10 @@ msgstr ""
 #: ../../../library/ctypes.rst:514
 msgid ""
 ":mod:`ctypes` exports the :func:`byref` function which is used to pass "
-"parameters by reference.  The same effect can be achieved with the :func:"
-"`pointer` function, although :func:`pointer` does a lot more work since it "
-"constructs a real pointer object, so it is faster to use :func:`byref` if "
-"you don't need the pointer object in Python itself::"
+"parameters by reference.  The same effect can be achieved with "
+"the :func:`pointer` function, although :func:`pointer` does a lot more work "
+"since it constructs a real pointer object, so it is faster to "
+"use :func:`byref` if you don't need the pointer object in Python itself::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:536
@@ -578,10 +578,11 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:538
 msgid ""
-"Structures and unions must derive from the :class:`Structure` and :class:"
-"`Union` base classes which are defined in the :mod:`ctypes` module. Each "
-"subclass must define a :attr:`_fields_` attribute.  :attr:`_fields_` must be "
-"a list of *2-tuples*, containing a *field name* and a *field type*."
+"Structures and unions must derive from the :class:`Structure` "
+"and :class:`Union` base classes which are defined in the :mod:`ctypes` "
+"module. Each subclass must define a :attr:`_fields_` "
+"attribute.  :attr:`_fields_` must be a list of *2-tuples*, containing a "
+"*field name* and a *field type*."
 msgstr ""
 
 #: ../../../library/ctypes.rst:543
@@ -628,19 +629,19 @@ msgstr ""
 #: ../../../library/ctypes.rst:603
 msgid ""
 "By default, Structure and Union fields are aligned in the same way the C "
-"compiler does it. It is possible to override this behavior be specifying a :"
-"attr:`_pack_` class attribute in the subclass definition. This must be set "
-"to a positive integer and specifies the maximum alignment for the fields. "
-"This is what ``#pragma pack(n)`` also does in MSVC."
+"compiler does it. It is possible to override this behavior be specifying "
+"a :attr:`_pack_` class attribute in the subclass definition. This must be "
+"set to a positive integer and specifies the maximum alignment for the "
+"fields. This is what ``#pragma pack(n)`` also does in MSVC."
 msgstr ""
 
 #: ../../../library/ctypes.rst:609
 msgid ""
 ":mod:`ctypes` uses the native byte order for Structures and Unions.  To "
-"build structures with non-native byte order, you can use one of the :class:"
-"`BigEndianStructure`, :class:`LittleEndianStructure`, :class:"
-"`BigEndianUnion`, and :class:`LittleEndianUnion` base classes.  These "
-"classes cannot contain pointer fields."
+"build structures with non-native byte order, you can use one of "
+"the :class:`BigEndianStructure`, :class:`LittleEndianStructure`, :class:`BigEndianUnion`, "
+"and :class:`LittleEndianUnion` base classes.  These classes cannot contain "
+"pointer fields."
 msgstr ""
 
 #: ../../../library/ctypes.rst:619
@@ -696,8 +697,8 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:691
 msgid ""
-"Pointer instances are created by calling the :func:`pointer` function on a :"
-"mod:`ctypes` type::"
+"Pointer instances are created by calling the :func:`pointer` function on "
+"a :mod:`ctypes` type::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:699
@@ -823,8 +824,8 @@ msgstr ""
 #: ../../../library/ctypes.rst:885
 msgid ""
 "because the new ``class cell`` is not available in the class statement "
-"itself. In :mod:`ctypes`, we can define the ``cell`` class and set the :attr:"
-"`_fields_` attribute later, after the class statement::"
+"itself. In :mod:`ctypes`, we can define the ``cell`` class and set "
+"the :attr:`_fields_` attribute later, after the class statement::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:897
@@ -867,9 +868,10 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:936
 msgid ""
-"I will present an example here which uses the standard C library's :func:"
-"`qsort` function, this is used to sort items with the help of a callback "
-"function. :func:`qsort` will be used to sort an array of integers::"
+"I will present an example here which uses the standard C "
+"library's :func:`qsort` function, this is used to sort items with the help "
+"of a callback function. :func:`qsort` will be used to sort an array of "
+"integers::"
 msgstr ""
 
 #: ../../../library/ctypes.rst:946
@@ -1194,10 +1196,11 @@ msgstr ""
 msgid ""
 "Windows only: Instances of this class represent loaded shared libraries, "
 "functions in these libraries use the ``stdcall`` calling convention, and are "
-"assumed to return the windows specific :class:`HRESULT` code.  :class:"
-"`HRESULT` values contain information specifying whether the function call "
-"failed or succeeded, together with additional error code.  If the return "
-"value signals a failure, an :class:`WindowsError` is automatically raised."
+"assumed to return the windows specific :class:`HRESULT` "
+"code.  :class:`HRESULT` values contain information specifying whether the "
+"function call failed or succeeded, together with additional error code.  If "
+"the return value signals a failure, an :class:`WindowsError` is "
+"automatically raised."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1351
@@ -1252,11 +1255,12 @@ msgstr ""
 #: ../../../library/ctypes.rst:1383
 msgid ""
 "The *use_errno* parameter, when set to True, enables a ctypes mechanism that "
-"allows to access the system :data:`errno` error number in a safe way. :mod:"
-"`ctypes` maintains a thread-local copy of the systems :data:`errno` "
-"variable; if you call foreign functions created with ``use_errno=True`` then "
-"the :data:`errno` value before the function call is swapped with the ctypes "
-"private copy, the same happens immediately after the function call."
+"allows to access the system :data:`errno` error number in a safe "
+"way. :mod:`ctypes` maintains a thread-local copy of the "
+"systems :data:`errno` variable; if you call foreign functions created with "
+"``use_errno=True`` then the :data:`errno` value before the function call is "
+"swapped with the ctypes private copy, the same happens immediately after the "
+"function call."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1390
@@ -1269,10 +1273,11 @@ msgstr ""
 #: ../../../library/ctypes.rst:1394
 msgid ""
 "The *use_last_error* parameter, when set to True, enables the same mechanism "
-"for the Windows error code which is managed by the :func:`GetLastError` and :"
-"func:`SetLastError` Windows API functions; :func:`ctypes.get_last_error` "
-"and :func:`ctypes.set_last_error` are used to request and change the ctypes "
-"private copy of the windows error code."
+"for the Windows error code which is managed by the :func:`GetLastError` "
+"and :func:`SetLastError` Windows API "
+"functions; :func:`ctypes.get_last_error` and :func:`ctypes.set_last_error` "
+"are used to request and change the ctypes private copy of the windows error "
+"code."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1400
@@ -1299,11 +1304,12 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:1423
 msgid ""
-"Instances of these classes have no public methods, however :meth:"
-"`__getattr__` and :meth:`__getitem__` have special behavior: functions "
-"exported by the shared library can be accessed as attributes of by index.  "
-"Please note that both :meth:`__getattr__` and :meth:`__getitem__` cache "
-"their result, so calling them repeatedly returns the same object each time."
+"Instances of these classes have no public methods, "
+"however :meth:`__getattr__` and :meth:`__getitem__` have special behavior: "
+"functions exported by the shared library can be accessed as attributes of by "
+"index.  Please note that both :meth:`__getattr__` and :meth:`__getitem__` "
+"cache their result, so calling them repeatedly returns the same object each "
+"time."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1429
@@ -1330,8 +1336,8 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:1450
 msgid ""
-"Class which loads shared libraries.  *dlltype* should be one of the :class:"
-"`CDLL`, :class:`PyDLL`, :class:`WinDLL`, or :class:`OleDLL` types."
+"Class which loads shared libraries.  *dlltype* should be one of "
+"the :class:`CDLL`, :class:`PyDLL`, :class:`WinDLL`, or :class:`OleDLL` types."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1453
@@ -1376,9 +1382,9 @@ msgstr ""
 #: ../../../library/ctypes.rst:1496
 msgid ""
 "An instance of :class:`PyDLL` that exposes Python C API functions as "
-"attributes.  Note that all these functions are assumed to return C :ctype:"
-"`int`, which is of course not always the truth, so you have to assign the "
-"correct :attr:`restype` attribute to use these functions."
+"attributes.  Note that all these functions are assumed to return "
+"C :ctype:`int`, which is of course not always the truth, so you have to "
+"assign the correct :attr:`restype` attribute to use these functions."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1505
@@ -1437,12 +1443,12 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:1546
 msgid ""
-"When a foreign function is called, each actual argument is passed to the :"
-"meth:`from_param` class method of the items in the :attr:`argtypes` tuple, "
-"this method allows to adapt the actual argument to an object that the "
-"foreign function accepts.  For example, a :class:`c_char_p` item in the :"
-"attr:`argtypes` tuple will convert a unicode string passed as argument into "
-"an byte string using ctypes conversion rules."
+"When a foreign function is called, each actual argument is passed to "
+"the :meth:`from_param` class method of the items in the :attr:`argtypes` "
+"tuple, this method allows to adapt the actual argument to an object that the "
+"foreign function accepts.  For example, a :class:`c_char_p` item in "
+"the :attr:`argtypes` tuple will convert a unicode string passed as argument "
+"into an byte string using ctypes conversion rules."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1553
@@ -1461,8 +1467,8 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:1567
 msgid ""
-"*result* is what the foreign function returns, as specified by the :attr:"
-"`restype` attribute."
+"*result* is what the foreign function returns, as specified by "
+"the :attr:`restype` attribute."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1570
@@ -1507,9 +1513,10 @@ msgstr ""
 msgid ""
 "The returned function prototype creates functions that use the standard C "
 "calling convention.  The function will release the GIL during the call.  If "
-"*use_errno* is set to True, the ctypes private copy of the system :data:"
-"`errno` variable is exchanged with the real :data:`errno` value before and "
-"after the call; *use_last_error* does the same for the Windows error code."
+"*use_errno* is set to True, the ctypes private copy of the "
+"system :data:`errno` variable is exchanged with the real :data:`errno` value "
+"before and after the call; *use_last_error* does the same for the Windows "
+"error code."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1610
@@ -1519,10 +1526,10 @@ msgstr ""
 #: ../../../library/ctypes.rst:1616
 msgid ""
 "Windows only: The returned function prototype creates functions that use the "
-"``stdcall`` calling convention, except on Windows CE where :func:"
-"`WINFUNCTYPE` is the same as :func:`CFUNCTYPE`.  The function will release "
-"the GIL during the call.  *use_errno* and *use_last_error* have the same "
-"meaning as above."
+"``stdcall`` calling convention, except on Windows CE "
+"where :func:`WINFUNCTYPE` is the same as :func:`CFUNCTYPE`.  The function "
+"will release the GIL during the call.  *use_errno* and *use_last_error* have "
+"the same meaning as above."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1625
@@ -1833,8 +1840,8 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:1910
 msgid ""
-"Returns the current value of the ctypes-private copy of the system :data:"
-"`errno` variable in the calling thread."
+"Returns the current value of the ctypes-private copy of the "
+"system :data:`errno` variable in the calling thread."
 msgstr ""
 
 #: ../../../library/ctypes.rst:1917
@@ -1951,9 +1958,9 @@ msgstr ""
 msgid ""
 "This non-public class is the common base class of all ctypes data types. "
 "Among other things, all ctypes type instances contain a memory block that "
-"hold C compatible data; the address of the memory block is returned by the :"
-"func:`addressof` helper function.  Another instance variable is exposed as :"
-"attr:`_objects`; this contains other Python objects that need to be kept "
+"hold C compatible data; the address of the memory block is returned by "
+"the :func:`addressof` helper function.  Another instance variable is exposed "
+"as :attr:`_objects`; this contains other Python objects that need to be kept "
 "alive in case the memory block contains pointers."
 msgstr ""
 
@@ -1968,8 +1975,8 @@ msgid ""
 "This method returns a ctypes instance that shares the buffer of the *source* "
 "object.  The *source* object must support the writeable buffer interface.  "
 "The optional *offset* parameter specifies an offset into the source buffer "
-"in bytes; the default is zero.  If the source buffer is not large enough a :"
-"exc:`ValueError` is raised."
+"in bytes; the default is zero.  If the source buffer is not large enough "
+"a :exc:`ValueError` is raised."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2052
@@ -2015,9 +2022,9 @@ msgstr ""
 #: ../../../library/ctypes.rst:2090
 msgid ""
 "Sometimes ctypes data instances do not own the memory block they contain, "
-"instead they share part of the memory block of a base object.  The :attr:"
-"`_b_base_` read-only member is the root ctypes object that owns the memory "
-"block."
+"instead they share part of the memory block of a base object.  "
+"The :attr:`_b_base_` read-only member is the root ctypes object that owns "
+"the memory block."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2098
@@ -2038,8 +2045,8 @@ msgstr ""
 msgid ""
 "This non-public class is the base class of all fundamental ctypes data "
 "types. It is mentioned here because it contains the common attributes of the "
-"fundamental ctypes data types.  :class:`_SimpleCData` is a subclass of :"
-"class:`_CData`, so it inherits their methods and attributes."
+"fundamental ctypes data types.  :class:`_SimpleCData` is a subclass "
+"of :class:`_CData`, so it inherits their methods and attributes."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2123
@@ -2139,26 +2146,26 @@ msgstr ""
 
 #: ../../../library/ctypes.rst:2206
 msgid ""
-"Represents the C 8-bit :ctype:`signed int` datatype.  Usually an alias for :"
-"class:`c_byte`."
+"Represents the C 8-bit :ctype:`signed int` datatype.  Usually an alias "
+"for :class:`c_byte`."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2212
 msgid ""
-"Represents the C 16-bit :ctype:`signed int` datatype.  Usually an alias for :"
-"class:`c_short`."
+"Represents the C 16-bit :ctype:`signed int` datatype.  Usually an alias "
+"for :class:`c_short`."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2218
 msgid ""
-"Represents the C 32-bit :ctype:`signed int` datatype.  Usually an alias for :"
-"class:`c_int`."
+"Represents the C 32-bit :ctype:`signed int` datatype.  Usually an alias "
+"for :class:`c_int`."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2224
 msgid ""
-"Represents the C 64-bit :ctype:`signed int` datatype.  Usually an alias for :"
-"class:`c_longlong`."
+"Represents the C 64-bit :ctype:`signed int` datatype.  Usually an alias "
+"for :class:`c_longlong`."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2230
@@ -2314,9 +2321,9 @@ msgstr ""
 #: ../../../library/ctypes.rst:2380
 msgid ""
 "Concrete structure and union types must be created by subclassing one of "
-"these types, and at least define a :attr:`_fields_` class variable. :mod:"
-"`ctypes` will create :term:`descriptor`\\s which allow reading and writing "
-"the fields by direct attribute accesses.  These are the"
+"these types, and at least define a :attr:`_fields_` class "
+"variable. :mod:`ctypes` will create :term:`descriptor`\\s which allow "
+"reading and writing the fields by direct attribute accesses.  These are the"
 msgstr ""
 
 #: ../../../library/ctypes.rst:2388
@@ -2372,23 +2379,23 @@ msgstr ""
 #: ../../../library/ctypes.rst:2426
 msgid ""
 "An optional small integer that allows to override the alignment of structure "
-"fields in the instance.  :attr:`_pack_` must already be defined when :attr:"
-"`_fields_` is assigned, otherwise it will have no effect."
+"fields in the instance.  :attr:`_pack_` must already be defined "
+"when :attr:`_fields_` is assigned, otherwise it will have no effect."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2433
 msgid ""
-"An optional sequence that lists the names of unnamed (anonymous) fields. :"
-"attr:`_anonymous_` must be already defined when :attr:`_fields_` is "
+"An optional sequence that lists the names of unnamed (anonymous) "
+"fields. :attr:`_anonymous_` must be already defined when :attr:`_fields_` is "
 "assigned, otherwise it will have no effect."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2437
 msgid ""
-"The fields listed in this variable must be structure or union type fields. :"
-"mod:`ctypes` will create descriptors in the structure type that allows to "
-"access the nested fields directly, without the need to create the structure "
-"or union field."
+"The fields listed in this variable must be structure or union type "
+"fields. :mod:`ctypes` will create descriptors in the structure type that "
+"allows to access the nested fields directly, without the need to create the "
+"structure or union field."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2442
@@ -2408,9 +2415,9 @@ msgstr ""
 #: ../../../library/ctypes.rst:2467
 msgid ""
 "It is possible to defined sub-subclasses of structures, they inherit the "
-"fields of the base class.  If the subclass definition has a separate :attr:"
-"`_fields_` variable, the fields specified in this are appended to the fields "
-"of the base class."
+"fields of the base class.  If the subclass definition has a "
+"separate :attr:`_fields_` variable, the fields specified in this are "
+"appended to the fields of the base class."
 msgstr ""
 
 #: ../../../library/ctypes.rst:2472

@@ -40,10 +40,10 @@ msgid ""
 "TCP protocol, which provides for continuous streams of data between the "
 "client and server.  :class:`UDPServer` uses datagrams, which are discrete "
 "packets of information that may arrive out of order or be lost while in "
-"transit.  The more infrequently used :class:`UnixStreamServer` and :class:"
-"`UnixDatagramServer` classes are similar, but use Unix domain sockets; "
-"they're not available on non-Unix platforms.  For more details on network "
-"programming, consult a book such as W. Richard Steven's UNIX Network "
+"transit.  The more infrequently used :class:`UnixStreamServer` "
+"and :class:`UnixDatagramServer` classes are similar, but use Unix domain "
+"sockets; they're not available on non-Unix platforms.  For more details on "
+"network programming, consult a book such as W. Richard Steven's UNIX Network "
 "Programming or Ralph Davis's Win32 Network Programming."
 msgstr ""
 
@@ -64,9 +64,9 @@ msgid ""
 "handler class by subclassing the :class:`BaseRequestHandler` class and "
 "overriding its :meth:`handle` method; this method will process incoming "
 "requests.  Second, you must instantiate one of the server classes, passing "
-"it the server's address and the request handler class.  Finally, call the :"
-"meth:`handle_request` or :meth:`serve_forever` method of the server object "
-"to process one or many requests."
+"it the server's address and the request handler class.  Finally, call "
+"the :meth:`handle_request` or :meth:`serve_forever` method of the server "
+"object to process one or many requests."
 msgstr ""
 
 #: ../../../library/socketserver.rst:44
@@ -77,8 +77,8 @@ msgid ""
 "attribute *daemon_threads*, which indicates whether or not the server should "
 "wait for thread termination. You should set the flag explicitly if you would "
 "like threads to behave autonomously; the default is :const:`False`, meaning "
-"that Python will not exit until all threads created by :class:"
-"`ThreadingMixIn` have exited."
+"that Python will not exit until all threads created "
+"by :class:`ThreadingMixIn` have exited."
 msgstr ""
 
 #: ../../../library/socketserver.rst:52
@@ -114,20 +114,20 @@ msgstr ""
 
 #: ../../../library/socketserver.rst:87
 msgid ""
-"The mix-in class must come first, since it overrides a method defined in :"
-"class:`UDPServer`.  Setting the various member variables also changes the "
-"behavior of the underlying server mechanism."
+"The mix-in class must come first, since it overrides a method defined "
+"in :class:`UDPServer`.  Setting the various member variables also changes "
+"the behavior of the underlying server mechanism."
 msgstr ""
 
 #: ../../../library/socketserver.rst:91
 msgid ""
-"To implement a service, you must derive a class from :class:"
-"`BaseRequestHandler` and redefine its :meth:`handle` method.  You can then "
-"run various versions of the service by combining one of the server classes "
-"with your request handler class.  The request handler class must be "
-"different for datagram or stream services.  This can be hidden by using the "
-"handler subclasses :class:`StreamRequestHandler` or :class:"
-"`DatagramRequestHandler`."
+"To implement a service, you must derive a class "
+"from :class:`BaseRequestHandler` and redefine its :meth:`handle` method.  "
+"You can then run various versions of the service by combining one of the "
+"server classes with your request handler class.  The request handler class "
+"must be different for datagram or stream services.  This can be hidden by "
+"using the handler subclasses :class:`StreamRequestHandler` "
+"or :class:`DatagramRequestHandler`."
 msgstr ""
 
 #: ../../../library/socketserver.rst:98
@@ -192,12 +192,12 @@ msgstr ""
 #: ../../../library/socketserver.rst:148
 msgid ""
 "Process a single request.  This function calls the following methods in "
-"order: :meth:`get_request`, :meth:`verify_request`, and :meth:"
-"`process_request`.  If the user-provided :meth:`handle` method of the "
-"handler class raises an exception, the server's :meth:`handle_error` method "
-"will be called.  If no request is received within :attr:`self.timeout` "
-"seconds, :meth:`handle_timeout` will be called and :meth:`handle_request` "
-"will return."
+"order: :meth:`get_request`, :meth:`verify_request`, "
+"and :meth:`process_request`.  If the user-provided :meth:`handle` method of "
+"the handler class raises an exception, the server's :meth:`handle_error` "
+"method will be called.  If no request is received "
+"within :attr:`self.timeout` seconds, :meth:`handle_timeout` will be called "
+"and :meth:`handle_request` will return."
 msgstr ""
 
 #: ../../../library/socketserver.rst:159
@@ -242,8 +242,8 @@ msgstr ""
 
 #: ../../../library/socketserver.rst:201
 msgid ""
-"Whether the server will allow the reuse of an address. This defaults to :"
-"const:`False`, and can be set in subclasses to change the policy."
+"Whether the server will allow the reuse of an address. This defaults "
+"to :const:`False`, and can be set in subclasses to change the policy."
 msgstr ""
 
 #: ../../../library/socketserver.rst:207
@@ -257,8 +257,8 @@ msgstr ""
 
 #: ../../../library/socketserver.rst:216
 msgid ""
-"The type of socket used by the server; :const:`socket.SOCK_STREAM` and :"
-"const:`socket.SOCK_DGRAM` are two common values."
+"The type of socket used by the server; :const:`socket.SOCK_STREAM` "
+"and :const:`socket.SOCK_DGRAM` are two common values."
 msgstr ""
 
 #: ../../../library/socketserver.rst:222
@@ -306,10 +306,10 @@ msgstr ""
 
 #: ../../../library/socketserver.rst:265
 msgid ""
-"Calls :meth:`finish_request` to create an instance of the :attr:"
-"`RequestHandlerClass`.  If desired, this function can create a new process "
-"or thread to handle the request; the :class:`ForkingMixIn` and :class:"
-"`ThreadingMixIn` classes do this."
+"Calls :meth:`finish_request` to create an instance of "
+"the :attr:`RequestHandlerClass`.  If desired, this function can create a new "
+"process or thread to handle the request; the :class:`ForkingMixIn` "
+"and :class:`ThreadingMixIn` classes do this."
 msgstr ""
 
 #: ../../../library/socketserver.rst:277
@@ -346,8 +346,8 @@ msgstr ""
 #: ../../../library/socketserver.rst:305
 msgid ""
 "Called after the :meth:`handle` method to perform any clean-up actions "
-"required.  The default implementation does nothing.  If :meth:`setup` or :"
-"meth:`handle` raise an exception, this function will not be called."
+"required.  The default implementation does nothing.  If :meth:`setup` "
+"or :meth:`handle` raise an exception, this function will not be called."
 msgstr ""
 
 #: ../../../library/socketserver.rst:312
@@ -355,8 +355,8 @@ msgid ""
 "This function must do all the work required to service a request.  The "
 "default implementation does nothing.  Several instance attributes are "
 "available to it; the request is available as :attr:`self.request`; the "
-"client address as :attr:`self.client_address`; and the server instance as :"
-"attr:`self.server`, in case it needs access to per-server information."
+"client address as :attr:`self.client_address`; and the server instance "
+"as :attr:`self.server`, in case it needs access to per-server information."
 msgstr ""
 
 #: ../../../library/socketserver.rst:318
@@ -364,12 +364,12 @@ msgid ""
 "The type of :attr:`self.request` is different for datagram or stream "
 "services.  For stream services, :attr:`self.request` is a socket object; for "
 "datagram services, :attr:`self.request` is a pair of string and socket. "
-"However, this can be hidden by using the request handler subclasses :class:"
-"`StreamRequestHandler` or :class:`DatagramRequestHandler`, which override "
-"the :meth:`setup` and :meth:`finish` methods, and provide :attr:`self.rfile` "
-"and :attr:`self.wfile` attributes.  :attr:`self.rfile` and :attr:`self."
-"wfile` can be read or written, respectively, to get the request data or "
-"return data to the client."
+"However, this can be hidden by using the request handler "
+"subclasses :class:`StreamRequestHandler` or :class:`DatagramRequestHandler`, "
+"which override the :meth:`setup` and :meth:`finish` methods, and "
+"provide :attr:`self.rfile` and :attr:`self.wfile` "
+"attributes.  :attr:`self.rfile` and :attr:`self.wfile` can be read or "
+"written, respectively, to get the request data or return data to the client."
 msgstr ""
 
 #: ../../../library/socketserver.rst:331
@@ -437,8 +437,8 @@ msgstr ""
 
 #: ../../../library/socketserver.rst:488
 msgid ""
-"To build asynchronous handlers, use the :class:`ThreadingMixIn` and :class:"
-"`ForkingMixIn` classes."
+"To build asynchronous handlers, use the :class:`ThreadingMixIn` "
+"and :class:`ForkingMixIn` classes."
 msgstr ""
 
 #: ../../../library/socketserver.rst:491

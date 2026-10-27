@@ -346,8 +346,9 @@ msgstr ""
 msgid ""
 "The second objection is typically cast as: \"I am really telling a sequence "
 "to join its members together with a string constant\".  Sadly, you aren't.  "
-"For some reason there seems to be much less difficulty with having :meth:"
-"`~str.split` as a string method, since in that case it is easy to see that ::"
+"For some reason there seems to be much less difficulty with "
+"having :meth:`~str.split` as a string method, since in that case it is easy "
+"to see that ::"
 msgstr ""
 
 #: ../../../faq/design.rst:274
@@ -401,8 +402,8 @@ msgstr ""
 
 #: ../../../faq/design.rst:320
 msgid ""
-"In Python 2.0 and higher, you can code this as ``value = mydict."
-"setdefault(key, getvalue(key))``."
+"In Python 2.0 and higher, you can code this as ``value = "
+"mydict.setdefault(key, getvalue(key))``."
 msgstr ""
 
 #: ../../../faq/design.rst:325
@@ -413,8 +414,8 @@ msgstr ""
 msgid ""
 "You can do this easily enough with a sequence of ``if... elif... elif... "
 "else``. There have been some proposals for switch statement syntax, but "
-"there is no consensus (yet) on whether and how to do range tests.  See :pep:"
-"`275` for complete details and the current status."
+"there is no consensus (yet) on whether and how to do range tests.  "
+"See :pep:`275` for complete details and the current status."
 msgstr ""
 
 #: ../../../faq/design.rst:332
@@ -426,8 +427,8 @@ msgstr ""
 
 #: ../../../faq/design.rst:346
 msgid ""
-"For calling methods on objects, you can simplify yet further by using the :"
-"func:`getattr` built-in to retrieve methods with a particular name::"
+"For calling methods on objects, you can simplify yet further by using "
+"the :func:`getattr` built-in to retrieve methods with a particular name::"
 msgstr ""
 
 #: ../../../faq/design.rst:358
@@ -454,11 +455,12 @@ msgstr ""
 
 #: ../../../faq/design.rst:371
 msgid ""
-"Answer 2: Fortunately, there is `Stackless Python <http://www.stackless."
-"com>`_, which has a completely redesigned interpreter loop that avoids the C "
-"stack. It's still experimental but looks very promising.  Although it is "
-"binary compatible with standard Python, it's still unclear whether Stackless "
-"will make it into the core -- maybe it's just too revolutionary."
+"Answer 2: Fortunately, there is `Stackless Python <http://"
+"www.stackless.com>`_, which has a completely redesigned interpreter loop "
+"that avoids the C stack. It's still experimental but looks very promising.  "
+"Although it is binary compatible with standard Python, it's still unclear "
+"whether Stackless will make it into the core -- maybe it's just too "
+"revolutionary."
 msgstr ""
 
 #: ../../../faq/design.rst:379
@@ -491,10 +493,10 @@ msgstr ""
 #: ../../../faq/design.rst:397
 msgid ""
 "Not easily.  Python's high level data types, dynamic typing of objects and "
-"run-time invocation of the interpreter (using :func:`eval` or :keyword:"
-"`exec`) together mean that a \"compiled\" Python program would probably "
-"consist mostly of calls into the Python run-time system, even for seemingly "
-"simple operations like ``x+1``."
+"run-time invocation of the interpreter (using :func:`eval` "
+"or :keyword:`exec`) together mean that a \"compiled\" Python program would "
+"probably consist mostly of calls into the Python run-time system, even for "
+"seemingly simple operations like ``x+1``."
 msgstr ""
 
 #: ../../../faq/design.rst:403
@@ -505,8 +507,8 @@ msgid ""
 "(e.g. 2x).  Jython uses the same strategy for compiling to Java bytecode.  "
 "(Jim Hugunin has demonstrated that in combination with whole-program "
 "analysis, speedups of 1000x are feasible for small demo programs.  See the "
-"proceedings from the `1997 Python conference <http://python.org/"
-"workshops/1997-10/proceedings/>`_ for more information.)"
+"proceedings from the `1997 Python conference <http://python.org/workshops/"
+"1997-10/proceedings/>`_ for more information.)"
 msgstr ""
 
 #: ../../../faq/design.rst:412
@@ -533,8 +535,8 @@ msgstr ""
 
 #: ../../../faq/design.rst:427
 msgid ""
-"Note that the main script executed by Python, even if its filename ends in ."
-"py, is not compiled to a .pyc file.  It is compiled to bytecode, but the "
+"Note that the main script executed by Python, even if its filename ends "
+"in .py, is not compiled to a .pyc file.  It is compiled to bytecode, but the "
 "bytecode is not saved to a file.  Usually main scripts are quite short, so "
 "this doesn't cost much speed."
 msgstr ""
@@ -543,10 +545,10 @@ msgstr ""
 msgid ""
 "There are also several programs which make it easier to intermingle Python "
 "and C code in various ways to increase performance.  See, for example, "
-"`Psyco <http://psyco.sourceforge.net/>`_, `Pyrex <http://www.cosc.canterbury."
-"ac.nz/~greg/python/Pyrex/>`_, `PyInline <http://pyinline.sourceforge.net/"
-">`_, `Py2Cmod <http://sourceforge.net/projects/py2cmod/>`_, and `Weave "
-"<http://www.scipy.org/Weave>`_."
+"`Psyco <http://psyco.sourceforge.net/>`_, `Pyrex <http://"
+"www.cosc.canterbury.ac.nz/~greg/python/Pyrex/>`_, `PyInline <http://"
+"pyinline.sourceforge.net/>`_, `Py2Cmod <http://sourceforge.net/projects/"
+"py2cmod/>`_, and `Weave <http://www.scipy.org/Weave>`_."
 msgstr ""
 
 #: ../../../faq/design.rst:444
@@ -621,8 +623,8 @@ msgid ""
 "Using the current reference counting and destructor scheme, each new "
 "assignment to f closes the previous file.  Using GC, this is not "
 "guaranteed.  If you want to write code that will work with any Python "
-"implementation, you should explicitly close the file or use the :keyword:"
-"`with` statement; this will work regardless of GC::"
+"implementation, you should explicitly close the file or use "
+"the :keyword:`with` statement; this will work regardless of GC::"
 msgstr ""
 
 #: ../../../faq/design.rst:507
@@ -816,11 +818,11 @@ msgstr ""
 
 #: ../../../faq/design.rst:647
 msgid ""
-"Furthermore it must always be the case that if ``o1 == o2`` (ie ``o1."
-"__eq__(o2) is True``) then ``hash(o1) == hash(o2)`` (ie, ``o1.__hash__() == "
-"o2.__hash__()``), regardless of whether the object is in a dictionary or "
-"not.  If you fail to meet these restrictions dictionaries and other hash "
-"based structures will misbehave."
+"Furthermore it must always be the case that if ``o1 == o2`` (ie "
+"``o1.__eq__(o2) is True``) then ``hash(o1) == hash(o2)`` (ie, "
+"``o1.__hash__() == o2.__hash__()``), regardless of whether the object is in "
+"a dictionary or not.  If you fail to meet these restrictions dictionaries "
+"and other hash based structures will misbehave."
 msgstr ""
 
 #: ../../../faq/design.rst:652
@@ -869,9 +871,9 @@ msgstr ""
 msgid ""
 "Python 2.6 adds an :mod:`abc` module that lets you define Abstract Base "
 "Classes (ABCs).  You can then use :func:`isinstance` and :func:`issubclass` "
-"to check whether an instance or a class implements a particular ABC.  The :"
-"mod:`collections` modules defines a set of useful ABCs such as :class:"
-"`Iterable`, :class:`Container`, and :class:`MutableMapping`."
+"to check whether an instance or a class implements a particular ABC.  "
+"The :mod:`collections` modules defines a set of useful ABCs such "
+"as :class:`Iterable`, :class:`Container`, and :class:`MutableMapping`."
 msgstr ""
 
 #: ../../../faq/design.rst:690
@@ -887,10 +889,10 @@ msgid ""
 "as a module interface specification and a set of examples.  Many Python "
 "modules can be run as a script to provide a simple \"self test.\"  Even "
 "modules which use complex external interfaces can often be tested in "
-"isolation using trivial \"stub\" emulations of the external interface.  The :"
-"mod:`doctest` and :mod:`unittest` modules or third-party test frameworks can "
-"be used to construct exhaustive test suites that exercise every line of code "
-"in a module."
+"isolation using trivial \"stub\" emulations of the external interface.  "
+"The :mod:`doctest` and :mod:`unittest` modules or third-party test "
+"frameworks can be used to construct exhaustive test suites that exercise "
+"every line of code in a module."
 msgstr ""
 
 #: ../../../faq/design.rst:702

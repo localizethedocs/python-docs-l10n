@@ -88,16 +88,16 @@ msgstr ""
 
 #: ../../../library/unittest.rst:48
 msgid ""
-"The test case and test fixture concepts are supported through the :class:"
-"`TestCase` and :class:`FunctionTestCase` classes; the former should be used "
-"when creating new tests, and the latter can be used when integrating "
-"existing test code with a :mod:`unittest`\\ -driven framework. When building "
-"test fixtures using :class:`TestCase`, the :meth:`setUp` and :meth:"
-"`tearDown` methods can be overridden to provide initialization and cleanup "
-"for the fixture.  With :class:`FunctionTestCase`, existing functions can be "
-"passed to the constructor for these purposes.  When the test is run, the "
-"fixture initialization is run first; if it succeeds, the cleanup method is "
-"run after the test has been executed, regardless of the outcome of the "
+"The test case and test fixture concepts are supported through "
+"the :class:`TestCase` and :class:`FunctionTestCase` classes; the former "
+"should be used when creating new tests, and the latter can be used when "
+"integrating existing test code with a :mod:`unittest`\\ -driven framework. "
+"When building test fixtures using :class:`TestCase`, the :meth:`setUp` "
+"and :meth:`tearDown` methods can be overridden to provide initialization and "
+"cleanup for the fixture.  With :class:`FunctionTestCase`, existing functions "
+"can be passed to the constructor for these purposes.  When the test is run, "
+"the fixture initialization is run first; if it succeeds, the cleanup method "
+"is run after the test has been executed, regardless of the outcome of the "
 "test.  Each instance of the :class:`TestCase` will only be used to run a "
 "single test method, so a new fixture is created for each test."
 msgstr ""
@@ -144,8 +144,8 @@ msgstr ""
 
 #: ../../../library/unittest.rst:85
 msgid ""
-"`Nose <http://code.google.com/p/python-nose/>`_ and `py.test <http://pytest."
-"org>`_"
+"`Nose <http://code.google.com/p/python-nose/>`_ and `py.test <http://"
+"pytest.org>`_"
 msgstr ""
 
 #: ../../../library/unittest.rst:84
@@ -193,18 +193,18 @@ msgstr ""
 #: ../../../library/unittest.rst:132
 msgid ""
 "The crux of each test is a call to :meth:`assertEqual` to check for an "
-"expected result; :meth:`assert_` to verify a condition; or :meth:"
-"`assertRaises` to verify that an expected exception gets raised.  These "
-"methods are used instead of the :keyword:`assert` statement so the test "
-"runner can accumulate all test results and produce a report."
+"expected result; :meth:`assert_` to verify a condition; "
+"or :meth:`assertRaises` to verify that an expected exception gets raised.  "
+"These methods are used instead of the :keyword:`assert` statement so the "
+"test runner can accumulate all test results and produce a report."
 msgstr ""
 
 #: ../../../library/unittest.rst:138
 msgid ""
 "When a :meth:`setUp` method is defined, the test runner will run that method "
 "prior to each test.  Likewise, if a :meth:`tearDown` method is defined, the "
-"test runner will invoke that method after each test.  In the example, :meth:"
-"`setUp` was used to create a fresh sequence for each test."
+"test runner will invoke that method after each test.  In the "
+"example, :meth:`setUp` was used to create a fresh sequence for each test."
 msgstr ""
 
 #: ../../../library/unittest.rst:143
@@ -242,10 +242,11 @@ msgstr ""
 #: ../../../library/unittest.rst:182
 msgid ""
 "The basic building blocks of unit testing are :dfn:`test cases` --- single "
-"scenarios that must be set up and checked for correctness.  In :mod:"
-"`unittest`, test cases are represented by instances of :mod:`unittest`'s :"
-"class:`TestCase` class. To make your own test cases you must write "
-"subclasses of :class:`TestCase`, or use :class:`FunctionTestCase`."
+"scenarios that must be set up and checked for correctness.  "
+"In :mod:`unittest`, test cases are represented by instances "
+"of :mod:`unittest`'s :class:`TestCase` class. To make your own test cases "
+"you must write subclasses of :class:`TestCase`, or "
+"use :class:`FunctionTestCase`."
 msgstr ""
 
 #: ../../../library/unittest.rst:188
@@ -264,20 +265,21 @@ msgstr ""
 
 #: ../../../library/unittest.rst:196
 msgid ""
-"The simplest :class:`TestCase` subclass will simply override the :meth:"
-"`runTest` method in order to perform specific testing code::"
+"The simplest :class:`TestCase` subclass will simply override "
+"the :meth:`runTest` method in order to perform specific testing code::"
 msgstr ""
 
 #: ../../../library/unittest.rst:206
 msgid ""
-"Note that in order to test something, we use the one of the :meth:"
-"`assert\\*` or :meth:`fail\\*` methods provided by the :class:`TestCase` "
-"base class.  If the test fails, an exception will be raised, and :mod:"
-"`unittest` will identify the test case as a :dfn:`failure`.  Any other "
-"exceptions will be treated as :dfn:`errors`. This helps you identify where "
-"the problem is: :dfn:`failures` are caused by incorrect results - a 5 where "
-"you expected a 6. :dfn:`Errors` are caused by incorrect code - e.g., a :exc:"
-"`TypeError` caused by an incorrect function call."
+"Note that in order to test something, we use the one of "
+"the :meth:`assert\\*` or :meth:`fail\\*` methods provided by "
+"the :class:`TestCase` base class.  If the test fails, an exception will be "
+"raised, and :mod:`unittest` will identify the test case as "
+"a :dfn:`failure`.  Any other exceptions will be treated as :dfn:`errors`. "
+"This helps you identify where the problem is: :dfn:`failures` are caused by "
+"incorrect results - a 5 where you expected a 6. :dfn:`Errors` are caused by "
+"incorrect code - e.g., a :exc:`TypeError` caused by an incorrect function "
+"call."
 msgstr ""
 
 #: ../../../library/unittest.rst:215
@@ -296,16 +298,16 @@ msgstr ""
 
 #: ../../../library/unittest.rst:225
 msgid ""
-"Luckily, we can factor out such set-up code by implementing a method called :"
-"meth:`setUp`, which the testing framework will automatically call for us "
-"when we run the test::"
+"Luckily, we can factor out such set-up code by implementing a method "
+"called :meth:`setUp`, which the testing framework will automatically call "
+"for us when we run the test::"
 msgstr ""
 
 #: ../../../library/unittest.rst:246
 msgid ""
 "If the :meth:`setUp` method raises an exception while the test is running, "
-"the framework will consider the test to have suffered an error, and the :"
-"meth:`runTest` method will not be executed."
+"the framework will consider the test to have suffered an error, and "
+"the :meth:`runTest` method will not be executed."
 msgstr ""
 
 #: ../../../library/unittest.rst:250
@@ -316,8 +318,8 @@ msgstr ""
 
 #: ../../../library/unittest.rst:263
 msgid ""
-"If :meth:`setUp` succeeded, the :meth:`tearDown` method will be run whether :"
-"meth:`runTest` succeeded or not."
+"If :meth:`setUp` succeeded, the :meth:`tearDown` method will be run "
+"whether :meth:`runTest` succeeded or not."
 msgstr ""
 
 #: ../../../library/unittest.rst:266
@@ -365,17 +367,18 @@ msgstr ""
 #: ../../../library/unittest.rst:328
 msgid ""
 "Since it is a common pattern to create a :class:`TestCase` subclass with "
-"many similarly named test functions, :mod:`unittest` provides a :class:"
-"`TestLoader` class that can be used to automate the process of creating a "
-"test suite and populating it with individual tests. For example, ::"
+"many similarly named test functions, :mod:`unittest` provides "
+"a :class:`TestLoader` class that can be used to automate the process of "
+"creating a test suite and populating it with individual tests. For "
+"example, ::"
 msgstr ""
 
 #: ../../../library/unittest.rst:335
 msgid ""
-"will create a test suite that will run ``WidgetTestCase."
-"test_default_size()`` and ``WidgetTestCase.test_resize``. :class:"
-"`TestLoader` uses the ``'test'`` method name prefix to identify test methods "
-"automatically."
+"will create a test suite that will run "
+"``WidgetTestCase.test_default_size()`` and "
+"``WidgetTestCase.test_resize``. :class:`TestLoader` uses the ``'test'`` "
+"method name prefix to identify test methods automatically."
 msgstr ""
 
 #: ../../../library/unittest.rst:339
@@ -471,9 +474,9 @@ msgstr ""
 msgid ""
 "To make migrating existing test suites easier, :mod:`unittest` supports "
 "tests raising :exc:`AssertionError` to indicate test failure. However, it is "
-"recommended that you use the explicit :meth:`TestCase.fail\\*` and :meth:"
-"`TestCase.assert\\*` methods instead, as future versions of :mod:`unittest` "
-"may treat :exc:`AssertionError` differently."
+"recommended that you use the explicit :meth:`TestCase.fail\\*` "
+"and :meth:`TestCase.assert\\*` methods instead, as future versions "
+"of :mod:`unittest` may treat :exc:`AssertionError` differently."
 msgstr ""
 
 #: ../../../library/unittest.rst:412
@@ -520,8 +523,8 @@ msgid ""
 "This class implements the portion of the :class:`TestCase` interface which "
 "allows the test runner to drive the test, but does not provide the methods "
 "which test code can use to check and report errors. This is used to create "
-"test cases using legacy test code, allowing it to be integrated into a :mod:"
-"`unittest`\\ -based test framework."
+"test cases using legacy test code, allowing it to be integrated into "
+"a :mod:`unittest`\\ -based test framework."
 msgstr ""
 
 #: ../../../library/unittest.rst:460
@@ -582,10 +585,11 @@ msgstr ""
 
 #: ../../../library/unittest.rst:509
 msgid ""
-"In some cases, the existing tests may have been written using the :mod:"
-"`doctest` module.  If so, that module provides a  :class:`DocTestSuite` "
-"class that can automatically build :class:`unittest.TestSuite` instances "
-"from the existing :mod:`doctest`\\ -based tests."
+"In some cases, the existing tests may have been written using "
+"the :mod:`doctest` module.  If so, that module provides "
+"a  :class:`DocTestSuite` class that can automatically "
+"build :class:`unittest.TestSuite` instances from the "
+"existing :mod:`doctest`\\ -based tests."
 msgstr ""
 
 #: ../../../library/unittest.rst:520
@@ -666,21 +670,21 @@ msgstr ""
 #: ../../../library/unittest.rst:584
 msgid ""
 "Test that *first* and *second* are equal.  If the values do not compare "
-"equal, the test will fail with the explanation given by *msg*, or :const:"
-"`None`.  Note that using :meth:`failUnlessEqual` improves upon doing the "
-"comparison as the first parameter to :meth:`failUnless`:  the default value "
-"for *msg* can be computed to include representations of both *first* and "
-"*second*."
+"equal, the test will fail with the explanation given by *msg*, "
+"or :const:`None`.  Note that using :meth:`failUnlessEqual` improves upon "
+"doing the comparison as the first parameter to :meth:`failUnless`:  the "
+"default value for *msg* can be computed to include representations of both "
+"*first* and *second*."
 msgstr ""
 
 #: ../../../library/unittest.rst:594
 msgid ""
 "Test that *first* and *second* are not equal.  If the values do compare "
-"equal, the test will fail with the explanation given by *msg*, or :const:"
-"`None`.  Note that using :meth:`failIfEqual` improves upon doing the "
-"comparison as the first parameter to :meth:`failUnless` is that the default "
-"value for *msg* can be computed to include representations of both *first* "
-"and *second*."
+"equal, the test will fail with the explanation given by *msg*, "
+"or :const:`None`.  Note that using :meth:`failIfEqual` improves upon doing "
+"the comparison as the first parameter to :meth:`failUnless` is that the "
+"default value for *msg* can be computed to include representations of both "
+"*first* and *second*."
 msgstr ""
 
 #: ../../../library/unittest.rst:604
@@ -706,11 +710,11 @@ msgstr ""
 #: ../../../library/unittest.rst:626
 msgid ""
 "Test that an exception is raised when *callable* is called with any "
-"positional or keyword arguments that are also passed to :meth:"
-"`assertRaises`.  The test passes if *exception* is raised, is an error if "
-"another exception is raised, or fails if no exception is raised.  To catch "
-"any of a group of exceptions, a tuple containing the exception classes may "
-"be passed as *exception*."
+"positional or keyword arguments that are also passed "
+"to :meth:`assertRaises`.  The test passes if *exception* is raised, is an "
+"error if another exception is raised, or fails if no exception is raised.  "
+"To catch any of a group of exceptions, a tuple containing the exception "
+"classes may be passed as *exception*."
 msgstr ""
 
 #: ../../../library/unittest.rst:636
@@ -731,8 +735,8 @@ msgid ""
 "This class attribute gives the exception raised by the :meth:`test` method.  "
 "If a test framework needs to use a specialized exception, possibly to carry "
 "additional information, it must subclass this exception in order to \"play "
-"fair\" with the framework.  The initial value of this attribute is :exc:"
-"`AssertionError`."
+"fair\" with the framework.  The initial value of this attribute "
+"is :exc:`AssertionError`."
 msgstr ""
 
 #: ../../../library/unittest.rst:655
@@ -743,8 +747,8 @@ msgstr ""
 
 #: ../../../library/unittest.rst:661
 msgid ""
-"Return the number of tests represented by this test object.  For :class:"
-"`TestCase` instances, this will always be ``1``."
+"Return the number of tests represented by this test object.  "
+"For :class:`TestCase` instances, this will always be ``1``."
 msgstr ""
 
 #: ../../../library/unittest.rst:667
@@ -756,9 +760,9 @@ msgstr ""
 
 #: ../../../library/unittest.rst:670
 msgid ""
-"For :class:`TestCase` instances, this will always be an instance of :class:"
-"`TestResult`;  subclasses of :class:`TestCase` should override this as "
-"necessary."
+"For :class:`TestCase` instances, this will always be an instance "
+"of :class:`TestResult`;  subclasses of :class:`TestCase` should override "
+"this as necessary."
 msgstr ""
 
 #: ../../../library/unittest.rst:677
@@ -771,8 +775,8 @@ msgstr ""
 msgid ""
 "Returns a one-line description of the test, or :const:`None` if no "
 "description has been provided.  The default implementation of this method "
-"returns the first line of the test method's docstring, if available, or :"
-"const:`None`."
+"returns the first line of the test method's docstring, if available, "
+"or :const:`None`."
 msgstr ""
 
 #: ../../../library/unittest.rst:691
@@ -794,8 +798,8 @@ msgstr ""
 
 #: ../../../library/unittest.rst:706
 msgid ""
-"Add all the tests from an iterable of :class:`TestCase` and :class:"
-"`TestSuite` instances to this test suite."
+"Add all the tests from an iterable of :class:`TestCase` "
+"and :class:`TestSuite` instances to this test suite."
 msgstr ""
 
 #: ../../../library/unittest.rst:709
@@ -811,8 +815,9 @@ msgstr ""
 #: ../../../library/unittest.rst:717
 msgid ""
 "Run the tests associated with this suite, collecting the result into the "
-"test result object passed as *result*.  Note that unlike :meth:`TestCase."
-"run`, :meth:`TestSuite.run` requires the result object to be passed in."
+"test result object passed as *result*.  Note that "
+"unlike :meth:`TestCase.run`, :meth:`TestSuite.run` requires the result "
+"object to be passed in."
 msgstr ""
 
 #: ../../../library/unittest.rst:724
@@ -840,18 +845,18 @@ msgstr ""
 
 #: ../../../library/unittest.rst:743
 msgid ""
-"A :class:`TestResult` object stores the results of a set of tests.  The :"
-"class:`TestCase` and :class:`TestSuite` classes ensure that results are "
+"A :class:`TestResult` object stores the results of a set of tests.  "
+"The :class:`TestCase` and :class:`TestSuite` classes ensure that results are "
 "properly recorded; test authors do not need to worry about recording the "
 "outcome of tests."
 msgstr ""
 
 #: ../../../library/unittest.rst:748
 msgid ""
-"Testing frameworks built on top of :mod:`unittest` may want access to the :"
-"class:`TestResult` object generated by running a set of tests for reporting "
-"purposes; a :class:`TestResult` instance is returned by the :meth:"
-"`TestRunner.run` method for this purpose."
+"Testing frameworks built on top of :mod:`unittest` may want access to "
+"the :class:`TestResult` object generated by running a set of tests for "
+"reporting purposes; a :class:`TestResult` instance is returned by "
+"the :meth:`TestRunner.run` method for this purpose."
 msgstr ""
 
 #: ../../../library/unittest.rst:753
@@ -875,8 +880,8 @@ msgstr ""
 msgid ""
 "A list containing 2-tuples of :class:`TestCase` instances and strings "
 "holding formatted tracebacks. Each tuple represents a test where a failure "
-"was explicitly signalled using the :meth:`TestCase.fail\\*` or :meth:"
-"`TestCase.assert\\*` methods."
+"was explicitly signalled using the :meth:`TestCase.fail\\*` "
+"or :meth:`TestCase.assert\\*` methods."
 msgstr ""
 
 #: ../../../library/unittest.rst:780
@@ -892,8 +897,8 @@ msgstr ""
 #: ../../../library/unittest.rst:791
 msgid ""
 "This method can be called to signal that the set of tests being run should "
-"be aborted by setting the :class:`TestResult`'s ``shouldStop`` attribute to :"
-"const:`True`.  :class:`TestRunner` objects should respect this flag and "
+"be aborted by setting the :class:`TestResult`'s ``shouldStop`` attribute "
+"to :const:`True`.  :class:`TestRunner` objects should respect this flag and "
 "return without running any additional tests."
 msgstr ""
 
@@ -983,8 +988,8 @@ msgstr ""
 
 #: ../../../library/unittest.rst:865
 msgid ""
-"Return a suite of all tests cases contained in the :class:`TestCase`\\ -"
-"derived :class:`testCaseClass`."
+"Return a suite of all tests cases contained in the :class:`TestCase`\\ "
+"-derived :class:`testCaseClass`."
 msgstr ""
 
 #: ../../../library/unittest.rst:871
@@ -1010,25 +1015,25 @@ msgstr ""
 #: ../../../library/unittest.rst:888
 msgid ""
 "The specifier *name* is a \"dotted name\" that may resolve either to a "
-"module, a test case class, a test method within a test case class, a :class:"
-"`TestSuite` instance, or a callable object which returns a :class:`TestCase` "
-"or :class:`TestSuite` instance.  These checks are applied in the order "
-"listed here; that is, a method on a possible test case class will be picked "
-"up as \"a test method within a test case class\", rather than \"a callable "
-"object\"."
+"module, a test case class, a test method within a test case class, "
+"a :class:`TestSuite` instance, or a callable object which returns "
+"a :class:`TestCase` or :class:`TestSuite` instance.  These checks are "
+"applied in the order listed here; that is, a method on a possible test case "
+"class will be picked up as \"a test method within a test case class\", "
+"rather than \"a callable object\"."
 msgstr ""
 
 #: ../../../library/unittest.rst:895
 msgid ""
-"For example, if you have a module :mod:`SampleTests` containing a :class:"
-"`TestCase`\\ -derived class :class:`SampleTestCase` with three test methods "
-"(:meth:`test_one`, :meth:`test_two`, and :meth:`test_three`), the specifier "
-"``'SampleTests.SampleTestCase'`` would cause this method to return a suite "
-"which will run all three test methods.  Using the specifier ``'SampleTests."
-"SampleTestCase.test_two'`` would cause it to return a test suite which will "
-"run only the :meth:`test_two` test method.  The specifier can refer to "
-"modules and packages which have not been imported; they will be imported as "
-"a side-effect."
+"For example, if you have a module :mod:`SampleTests` containing "
+"a :class:`TestCase`\\ -derived class :class:`SampleTestCase` with three test "
+"methods (:meth:`test_one`, :meth:`test_two`, and :meth:`test_three`), the "
+"specifier ``'SampleTests.SampleTestCase'`` would cause this method to return "
+"a suite which will run all three test methods.  Using the specifier "
+"``'SampleTests.SampleTestCase.test_two'`` would cause it to return a test "
+"suite which will run only the :meth:`test_two` test method.  The specifier "
+"can refer to modules and packages which have not been imported; they will be "
+"imported as a side-effect."
 msgstr ""
 
 #: ../../../library/unittest.rst:905
@@ -1068,17 +1073,17 @@ msgstr ""
 
 #: ../../../library/unittest.rst:935
 msgid ""
-"Function to be used to compare method names when sorting them in :meth:"
-"`getTestCaseNames` and all the :meth:`loadTestsFrom\\*` methods. The default "
-"value is the built-in :func:`cmp` function; the attribute can also be set "
-"to :const:`None` to disable the sort."
+"Function to be used to compare method names when sorting them "
+"in :meth:`getTestCaseNames` and all the :meth:`loadTestsFrom\\*` methods. "
+"The default value is the built-in :func:`cmp` function; the attribute can "
+"also be set to :const:`None` to disable the sort."
 msgstr ""
 
 #: ../../../library/unittest.rst:943
 msgid ""
 "Callable object that constructs a test suite from a list of tests. No "
-"methods on the resulting object are needed.  The default value is the :class:"
-"`TestSuite` class."
+"methods on the resulting object are needed.  The default value is "
+"the :class:`TestSuite` class."
 msgstr ""
 
 #: ../../../library/unittest.rst:947
