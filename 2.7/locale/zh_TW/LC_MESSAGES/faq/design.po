@@ -308,12 +308,12 @@ msgstr ""
 msgid ""
 "(b) When I read code that says len(x) I *know* that it is asking for the "
 "length of something. This tells me two things: the result is an integer, and "
-"the argument is some kind of container. To the contrary, when I read x."
-"len(), I have to already know that x is some kind of container implementing "
-"an interface or inheriting from a class that has a standard len(). Witness "
-"the confusion we occasionally have when a class that is not implementing a "
-"mapping has a get() or keys() method, or something that isn't a file has a "
-"write() method."
+"the argument is some kind of container. To the contrary, when I read "
+"x.len(), I have to already know that x is some kind of container "
+"implementing an interface or inheriting from a class that has a standard "
+"len(). Witness the confusion we occasionally have when a class that is not "
+"implementing a mapping has a get() or keys() method, or something that isn't "
+"a file has a write() method."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:265
@@ -354,8 +354,9 @@ msgstr ""
 msgid ""
 "The second objection is typically cast as: \"I am really telling a sequence "
 "to join its members together with a string constant\".  Sadly, you aren't.  "
-"For some reason there seems to be much less difficulty with having :meth:"
-"`~str.split` as a string method, since in that case it is easy to see that ::"
+"For some reason there seems to be much less difficulty with "
+"having :meth:`~str.split` as a string method, since in that case it is easy "
+"to see that ::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:280
@@ -409,8 +410,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:326
 msgid ""
-"In Python 2.0 and higher, you can code this as ``value = mydict."
-"setdefault(key, getvalue(key))``."
+"In Python 2.0 and higher, you can code this as ``value = "
+"mydict.setdefault(key, getvalue(key))``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:331
@@ -421,8 +422,8 @@ msgstr ""
 msgid ""
 "You can do this easily enough with a sequence of ``if... elif... elif... "
 "else``. There have been some proposals for switch statement syntax, but "
-"there is no consensus (yet) on whether and how to do range tests.  See :pep:"
-"`275` for complete details and the current status."
+"there is no consensus (yet) on whether and how to do range tests.  "
+"See :pep:`275` for complete details and the current status."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:338
@@ -434,8 +435,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:352
 msgid ""
-"For calling methods on objects, you can simplify yet further by using the :"
-"func:`getattr` built-in to retrieve methods with a particular name::"
+"For calling methods on objects, you can simplify yet further by using "
+"the :func:`getattr` built-in to retrieve methods with a particular name::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:364
@@ -462,9 +463,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:377
 msgid ""
-"Answer 2: Fortunately, there is `Stackless Python <http://www.stackless."
-"com>`_, which has a completely redesigned interpreter loop that avoids the C "
-"stack."
+"Answer 2: Fortunately, there is `Stackless Python <http://"
+"www.stackless.com>`_, which has a completely redesigned interpreter loop "
+"that avoids the C stack."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:382
@@ -575,8 +576,8 @@ msgid ""
 "Using the current reference counting and destructor scheme, each new "
 "assignment to f closes the previous file.  Using GC, this is not "
 "guaranteed.  If you want to write code that will work with any Python "
-"implementation, you should explicitly close the file or use the :keyword:"
-"`with` statement; this will work regardless of GC::"
+"implementation, you should explicitly close the file or use "
+"the :keyword:`with` statement; this will work regardless of GC::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:471
@@ -771,11 +772,11 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:613
 msgid ""
-"Furthermore it must always be the case that if ``o1 == o2`` (ie ``o1."
-"__eq__(o2) is True``) then ``hash(o1) == hash(o2)`` (ie, ``o1.__hash__() == "
-"o2.__hash__()``), regardless of whether the object is in a dictionary or "
-"not.  If you fail to meet these restrictions dictionaries and other hash "
-"based structures will misbehave."
+"Furthermore it must always be the case that if ``o1 == o2`` (ie "
+"``o1.__eq__(o2) is True``) then ``hash(o1) == hash(o2)`` (ie, "
+"``o1.__hash__() == o2.__hash__()``), regardless of whether the object is in "
+"a dictionary or not.  If you fail to meet these restrictions dictionaries "
+"and other hash based structures will misbehave."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:618
@@ -824,10 +825,10 @@ msgstr ""
 msgid ""
 "Python 2.6 adds an :mod:`abc` module that lets you define Abstract Base "
 "Classes (ABCs).  You can then use :func:`isinstance` and :func:`issubclass` "
-"to check whether an instance or a class implements a particular ABC.  The :"
-"mod:`collections` module defines a set of useful ABCs such as :class:"
-"`~collections.Iterable`, :class:`~collections.Container`, and :class:"
-"`~collections.MutableMapping`."
+"to check whether an instance or a class implements a particular ABC.  "
+"The :mod:`collections` module defines a set of useful ABCs such "
+"as :class:`~collections.Iterable`, :class:`~collections.Container`, "
+"and :class:`~collections.MutableMapping`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:657
@@ -843,10 +844,10 @@ msgid ""
 "as a module interface specification and a set of examples.  Many Python "
 "modules can be run as a script to provide a simple \"self test.\"  Even "
 "modules which use complex external interfaces can often be tested in "
-"isolation using trivial \"stub\" emulations of the external interface.  The :"
-"mod:`doctest` and :mod:`unittest` modules or third-party test frameworks can "
-"be used to construct exhaustive test suites that exercise every line of code "
-"in a module."
+"isolation using trivial \"stub\" emulations of the external interface.  "
+"The :mod:`doctest` and :mod:`unittest` modules or third-party test "
+"frameworks can be used to construct exhaustive test suites that exercise "
+"every line of code in a module."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/faq/design.rst:669

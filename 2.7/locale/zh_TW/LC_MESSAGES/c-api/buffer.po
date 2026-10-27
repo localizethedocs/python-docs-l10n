@@ -44,9 +44,9 @@ msgstr ""
 msgid ""
 "An example user of the buffer interface is the file object's :meth:`write` "
 "method. Any object that can export a series of bytes through the buffer "
-"interface can be written to a file. There are a number of format codes to :c:"
-"func:`PyArg_ParseTuple` that operate against an object's buffer interface, "
-"returning data from the target object."
+"interface can be written to a file. There are a number of format codes "
+"to :c:func:`PyArg_ParseTuple` that operate against an object's buffer "
+"interface, returning data from the target object."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:35
@@ -55,16 +55,16 @@ msgid ""
 "objects and a C-level buffer API so that any built-in or used-defined type "
 "can expose its characteristics. Both, however, have been deprecated because "
 "of various shortcomings, and have been officially removed in Python 3 in "
-"favour of a new C-level buffer API and a new Python-level object named :"
-"class:`memoryview`."
+"favour of a new C-level buffer API and a new Python-level object "
+"named :class:`memoryview`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:42
 msgid ""
-"The new buffer API has been backported to Python 2.6, and the :class:"
-"`memoryview` object has been backported to Python 2.7. It is strongly "
-"advised to use them rather than the old APIs, unless you are blocked from "
-"doing so for compatibility reasons."
+"The new buffer API has been backported to Python 2.6, and "
+"the :class:`memoryview` object has been backported to Python 2.7. It is "
+"strongly advised to use them rather than the old APIs, unless you are "
+"blocked from doing so for compatibility reasons."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:49
@@ -136,11 +136,11 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:124
 msgid ""
 "This is a storage for the itemsize (in bytes) of each element of the shared "
-"memory. It is technically un-necessary as it can be obtained using :c:func:"
-"`PyBuffer_SizeFromFormat`, however an exporter may know this information "
-"without parsing the format string and it is necessary to know the itemsize "
-"for proper interpretation of striding. Therefore, storing it is more "
-"convenient and faster."
+"memory. It is technically un-necessary as it can be obtained "
+"using :c:func:`PyBuffer_SizeFromFormat`, however an exporter may know this "
+"information without parsing the format string and it is necessary to know "
+"the itemsize for proper interpretation of striding. Therefore, storing it is "
+"more convenient and faster."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:133
@@ -247,9 +247,7 @@ msgid ""
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:206
-msgid ""
-":c:macro:`PyBUF_C_CONTIGUOUS` :c:macro:`PyBUF_F_CONTIGUOUS` :c:macro:"
-"`PyBUF_ANY_CONTIGUOUS`"
+msgid ":c:macro:`PyBUF_C_CONTIGUOUS` :c:macro:`PyBUF_F_CONTIGUOUS` :c:macro:`PyBUF_ANY_CONTIGUOUS`"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:206
@@ -361,8 +359,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:270
 msgid ""
-"Return the implied :c:data:`~Py_buffer.itemsize` from the struct-stype :c:"
-"data:`~Py_buffer.format`."
+"Return the implied :c:data:`~Py_buffer.itemsize` from the struct-"
+"stype :c:data:`~Py_buffer.format`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:276
@@ -437,8 +435,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:344
 msgid ""
-"More information on the old buffer interface is provided in the section :ref:"
-"`buffer-structs`, under the description for :c:type:`PyBufferProcs`."
+"More information on the old buffer interface is provided in the "
+"section :ref:`buffer-structs`, under the description "
+"for :c:type:`PyBufferProcs`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:347
@@ -476,9 +475,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:380
 msgid ""
-"This constant may be passed as the *size* parameter to :c:func:"
-"`PyBuffer_FromObject` or :c:func:`PyBuffer_FromReadWriteObject`.  It "
-"indicates that the new :c:type:`PyBufferObject` should refer to *base* "
+"This constant may be passed as the *size* parameter "
+"to :c:func:`PyBuffer_FromObject` or :c:func:`PyBuffer_FromReadWriteObject`.  "
+"It indicates that the new :c:type:`PyBufferObject` should refer to *base* "
 "object from the specified *offset* to the end of its exported buffer. Using "
 "this enables the caller to avoid querying the *base* object for its length."
 msgstr ""
@@ -494,8 +493,8 @@ msgid ""
 "exactly one buffer segment, or it raises :exc:`ValueError` if *offset* is "
 "less than zero.  The buffer will hold a reference to the *base* object, and "
 "the buffer's contents will refer to the *base* object's buffer interface, "
-"starting as position *offset* and extending for *size* bytes. If *size* is :"
-"const:`Py_END_OF_BUFFER`, then the new buffer's contents extend to the "
+"starting as position *offset* and extending for *size* bytes. If *size* "
+"is :const:`Py_END_OF_BUFFER`, then the new buffer's contents extend to the "
 "length of the *base* object's exported buffer data."
 msgstr ""
 
@@ -541,8 +540,8 @@ msgstr ""
 msgid ""
 "Return a new writable buffer object that maintains its own memory buffer of "
 "*size* bytes.  :exc:`ValueError` is returned if *size* is not zero or "
-"positive.  Note that the memory buffer (as returned by :c:func:"
-"`PyObject_AsWriteBuffer`) is not specifically aligned."
+"positive.  Note that the memory buffer (as returned "
+"by :c:func:`PyObject_AsWriteBuffer`) is not specifically aligned."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/buffer.rst:12

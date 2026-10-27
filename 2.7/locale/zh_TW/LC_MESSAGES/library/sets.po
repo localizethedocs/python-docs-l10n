@@ -71,8 +71,8 @@ msgid ""
 "Constructs a new empty :class:`Set` object.  If the optional *iterable* "
 "parameter is supplied, updates the set with elements obtained from "
 "iteration. All of the elements in *iterable* should be immutable or be "
-"transformable to an immutable using the protocol described in section :ref:"
-"`immutable-transforms`."
+"transformable to an immutable using the protocol described in "
+"section :ref:`immutable-transforms`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:57
@@ -80,16 +80,17 @@ msgid ""
 "Constructs a new empty :class:`ImmutableSet` object.  If the optional "
 "*iterable* parameter is supplied, updates the set with elements obtained "
 "from iteration. All of the elements in *iterable* should be immutable or be "
-"transformable to an immutable using the protocol described in section :ref:"
-"`immutable-transforms`."
+"transformable to an immutable using the protocol described in "
+"section :ref:`immutable-transforms`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:62
 msgid ""
 "Because :class:`ImmutableSet` objects provide a :meth:`__hash__` method, "
-"they can be used as set elements or as dictionary keys.  :class:"
-"`ImmutableSet` objects do not have methods for adding or removing elements, "
-"so all of the elements must be known when the constructor is called."
+"they can be used as set elements or as dictionary "
+"keys.  :class:`ImmutableSet` objects do not have methods for adding or "
+"removing elements, so all of the elements must be known when the constructor "
+"is called."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:71
@@ -225,12 +226,12 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:109
 msgid ""
-"Note, the non-operator versions of :meth:`union`, :meth:`intersection`, :"
-"meth:`difference`, and :meth:`symmetric_difference` will accept any iterable "
-"as an argument. In contrast, their operator based counterparts require their "
-"arguments to be sets.  This precludes error-prone constructions like "
-"``Set('abc') & 'cbs'`` in favor of the more readable ``Set('abc')."
-"intersection('cbs')``."
+"Note, the non-operator versions "
+"of :meth:`union`, :meth:`intersection`, :meth:`difference`, "
+"and :meth:`symmetric_difference` will accept any iterable as an argument. In "
+"contrast, their operator based counterparts require their arguments to be "
+"sets.  This precludes error-prone constructions like ``Set('abc') & 'cbs'`` "
+"in favor of the more readable ``Set('abc').intersection('cbs')``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:116
@@ -376,9 +377,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:178
 msgid ""
-"Note, the non-operator versions of :meth:`update`, :meth:"
-"`intersection_update`, :meth:`difference_update`, and :meth:"
-"`symmetric_difference_update` will accept any iterable as an argument."
+"Note, the non-operator versions "
+"of :meth:`update`, :meth:`intersection_update`, :meth:`difference_update`, "
+"and :meth:`symmetric_difference_update` will accept any iterable as an "
+"argument."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:185
@@ -400,16 +402,16 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:226
 msgid ""
-"Sets can only contain immutable elements.  For convenience, mutable :class:"
-"`Set` objects are automatically copied to an :class:`ImmutableSet` before "
-"being added as a set element."
+"Sets can only contain immutable elements.  For convenience, "
+"mutable :class:`Set` objects are automatically copied to "
+"an :class:`ImmutableSet` before being added as a set element."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:230
 msgid ""
 "The mechanism is to always add a :term:`hashable` element, or if it is not "
-"hashable, the element is checked to see if it has an :meth:"
-"`__as_immutable__` method which returns an immutable equivalent."
+"hashable, the element is checked to see if it has "
+"an :meth:`__as_immutable__` method which returns an immutable equivalent."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:234
@@ -423,10 +425,10 @@ msgstr ""
 msgid ""
 "A similar mechanism is needed by the :meth:`__contains__` and :meth:`remove` "
 "methods which need to hash an element to check for membership in a set.  "
-"Those methods check an element for hashability and, if not, check for a :"
-"meth:`__as_temporarily_immutable__` method which returns the element wrapped "
-"by a class that provides temporary methods for :meth:`__hash__`, :meth:"
-"`__eq__`, and :meth:`__ne__`."
+"Those methods check an element for hashability and, if not, check for "
+"a :meth:`__as_temporarily_immutable__` method which returns the element "
+"wrapped by a class that provides temporary methods "
+"for :meth:`__hash__`, :meth:`__eq__`, and :meth:`__ne__`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:244
@@ -438,17 +440,17 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:247
 msgid ""
 ":class:`Set` objects implement the :meth:`__as_temporarily_immutable__` "
-"method which returns the :class:`Set` object wrapped by a new class :class:"
-"`_TemporarilyImmutableSet`."
+"method which returns the :class:`Set` object wrapped by a new "
+"class :class:`_TemporarilyImmutableSet`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:251
 msgid ""
 "The two mechanisms for adding hashability are normally invisible to the "
 "user; however, a conflict can arise in a multi-threaded environment where "
-"one thread is updating a set while another has temporarily wrapped it in :"
-"class:`_TemporarilyImmutableSet`.  In other words, sets of mutable sets are "
-"not thread-safe."
+"one thread is updating a set while another has temporarily wrapped it "
+"in :class:`_TemporarilyImmutableSet`.  In other words, sets of mutable sets "
+"are not thread-safe."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:261
@@ -463,8 +465,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:266
 msgid ""
-":class:`Set` and :class:`ImmutableSet` were renamed to :class:`set` and :"
-"class:`frozenset`."
+":class:`Set` and :class:`ImmutableSet` were renamed to :class:`set` "
+"and :class:`frozenset`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sets.rst:269

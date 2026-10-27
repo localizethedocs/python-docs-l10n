@@ -32,8 +32,8 @@ msgid ""
 "Language). In fact, it does not provide a full SGML parser --- it only "
 "parses SGML insofar as it is used by HTML, and the module only exists as a "
 "base for the :mod:`htmllib` module.  Another HTML parser which supports "
-"XHTML and offers a somewhat different interface is available in the :mod:"
-"`HTMLParser` module."
+"XHTML and offers a somewhat different interface is available in "
+"the :mod:`HTMLParser` module."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:23
@@ -96,8 +96,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:69
 msgid ""
 "Feed some text to the parser.  It is processed insofar as it consists of "
-"complete elements; incomplete data is buffered until more data is fed or :"
-"meth:`close` is called."
+"complete elements; incomplete data is buffered until more data is fed "
+"or :meth:`close` is called."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:76
@@ -118,12 +118,13 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:92
 msgid ""
-"This method is called to handle start tags for which either a :meth:"
-"`start_tag` or :meth:`do_tag` method has been defined.  The *tag* argument "
-"is the name of the tag converted to lower case, and the *method* argument is "
-"the bound method which should be used to support semantic interpretation of "
-"the start tag. The *attributes* argument is a list of ``(name, value)`` "
-"pairs containing the attributes found inside the tag's ``<>`` brackets."
+"This method is called to handle start tags for which either "
+"a :meth:`start_tag` or :meth:`do_tag` method has been defined.  The *tag* "
+"argument is the name of the tag converted to lower case, and the *method* "
+"argument is the bound method which should be used to support semantic "
+"interpretation of the start tag. The *attributes* argument is a list of "
+"``(name, value)`` pairs containing the attributes found inside the tag's "
+"``<>`` brackets."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:99
@@ -139,9 +140,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:106
 msgid ""
 "For instance, for the tag ``<A HREF=\"http://www.cwi.nl/\">``, this method "
-"would be called as ``unknown_starttag('a', [('href', 'http://www.cwi."
-"nl/')])``.  The base implementation simply calls *method* with *attributes* "
-"as the only argument."
+"would be called as ``unknown_starttag('a', [('href', 'http://"
+"www.cwi.nl/')])``.  The base implementation simply calls *method* with "
+"*attributes* as the only argument."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:111
@@ -153,9 +154,9 @@ msgid ""
 "This method is called to handle endtags for which an :meth:`end_tag` method "
 "has been defined.  The *tag* argument is the name of the tag converted to "
 "lower case, and the *method* argument is the bound method which should be "
-"used to support semantic interpretation of the end tag.  If no :meth:"
-"`end_tag` method is defined for the closing element, this handler is not "
-"called.  The base implementation simply calls *method*."
+"used to support semantic interpretation of the end tag.  If "
+"no :meth:`end_tag` method is defined for the closing element, this handler "
+"is not called.  The base implementation simply calls *method*."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:127
@@ -166,11 +167,11 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:133
 msgid ""
-"This method is called to process a character reference of the form ``&#ref;"
-"``. The base implementation uses :meth:`convert_charref` to convert the "
-"reference to a string.  If that method returns a string, it is passed to :"
-"meth:`handle_data`, otherwise ``unknown_charref(ref)`` is called to handle "
-"the error."
+"This method is called to process a character reference of the form "
+"``&#ref;``. The base implementation uses :meth:`convert_charref` to convert "
+"the reference to a string.  If that method returns a string, it is passed "
+"to :meth:`handle_data`, otherwise ``unknown_charref(ref)`` is called to "
+"handle the error."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:138
@@ -183,8 +184,9 @@ msgid ""
 "reference passed in as a string.  In the base implementation, *ref* must be "
 "a decimal number in the range 0--255.  It converts the code point found "
 "using the :meth:`convert_codepoint` method. If *ref* is invalid or out of "
-"range, this method returns ``None``.  This method is called by the default :"
-"meth:`handle_charref` implementation and by the attribute value parser."
+"range, this method returns ``None``.  This method is called by the "
+"default :meth:`handle_charref` implementation and by the attribute value "
+"parser."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:156
@@ -216,8 +218,9 @@ msgid ""
 "entity. The default implementation looks for *ref* in the instance (or "
 "class) variable :attr:`entitydefs` which should be a mapping from entity "
 "names to corresponding translations.  If no translation is available for "
-"*ref*, this method returns ``None``.  This method is called by the default :"
-"meth:`handle_entityref` implementation and by the attribute value parser."
+"*ref*, this method returns ``None``.  This method is called by the "
+"default :meth:`handle_entityref` implementation and by the attribute value "
+"parser."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:190
@@ -289,9 +292,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:255
 msgid ""
-"This method is called to process an opening tag *tag*  for which no :meth:"
-"`start_tag` method is defined.   The *attributes* argument has the same "
-"meaning as described for :meth:`handle_starttag` above."
+"This method is called to process an opening tag *tag*  for which "
+"no :meth:`start_tag` method is defined.   The *attributes* argument has the "
+"same meaning as described for :meth:`handle_starttag` above."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:263
@@ -303,10 +306,10 @@ msgid ""
 "Note that the parser maintains a stack of open elements for which no end tag "
 "has been found yet.  Only tags processed by :meth:`start_tag` are pushed on "
 "this stack.  Definition of an :meth:`end_tag` method is optional for these "
-"tags.  For tags processed by :meth:`do_tag` or by :meth:`unknown_tag`, no :"
-"meth:`end_tag` method must be defined; if defined, it will not be used.  If "
-"both :meth:`start_tag` and :meth:`do_tag` methods exist for a tag, the :meth:"
-"`start_tag` method takes precedence."
+"tags.  For tags processed by :meth:`do_tag` or by :meth:`unknown_tag`, "
+"no :meth:`end_tag` method must be defined; if defined, it will not be used.  "
+"If both :meth:`start_tag` and :meth:`do_tag` methods exist for a tag, "
+"the :meth:`start_tag` method takes precedence."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/sgmllib.rst:11

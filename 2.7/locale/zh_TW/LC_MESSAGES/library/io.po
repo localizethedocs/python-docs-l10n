@@ -24,9 +24,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:16
 msgid ""
 "The :mod:`io` module provides the Python interfaces to stream handling. "
-"Under Python 2.x, this is proposed as an alternative to the built-in :class:"
-"`file` object, but in Python 3.x it is the default interface to access files "
-"and streams."
+"Under Python 2.x, this is proposed as an alternative to the built-"
+"in :class:`file` object, but in Python 3.x it is the default interface to "
+"access files and streams."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:23
@@ -49,34 +49,35 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:34
 msgid ""
 "Extending :class:`IOBase` is :class:`RawIOBase` which deals simply with the "
-"reading and writing of raw bytes to a stream.  :class:`FileIO` subclasses :"
-"class:`RawIOBase` to provide an interface to files in the machine's file "
-"system."
+"reading and writing of raw bytes to a stream.  :class:`FileIO` "
+"subclasses :class:`RawIOBase` to provide an interface to files in the "
+"machine's file system."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:39
 msgid ""
-":class:`BufferedIOBase` deals with buffering on a raw byte stream (:class:"
-"`RawIOBase`).  Its subclasses, :class:`BufferedWriter`, :class:"
-"`BufferedReader`, and :class:`BufferedRWPair` buffer streams that are "
-"readable, writable, and both readable and writable. :class:`BufferedRandom` "
-"provides a buffered interface to random access streams.  :class:`BytesIO` is "
-"a simple stream of in-memory bytes."
+":class:`BufferedIOBase` deals with buffering on a raw byte stream "
+"(:class:`RawIOBase`).  Its "
+"subclasses, :class:`BufferedWriter`, :class:`BufferedReader`, "
+"and :class:`BufferedRWPair` buffer streams that are readable, writable, and "
+"both readable and writable. :class:`BufferedRandom` provides a buffered "
+"interface to random access streams.  :class:`BytesIO` is a simple stream of "
+"in-memory bytes."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:46
 msgid ""
 "Another :class:`IOBase` subclass, :class:`TextIOBase`, deals with streams "
-"whose bytes represent text, and handles encoding and decoding from and to :"
-"class:`unicode` strings.  :class:`TextIOWrapper`, which extends it, is a "
+"whose bytes represent text, and handles encoding and decoding from and "
+"to :class:`unicode` strings.  :class:`TextIOWrapper`, which extends it, is a "
 "buffered text interface to a buffered raw stream (:class:`BufferedIOBase`). "
 "Finally, :class:`~io.StringIO` is an in-memory stream for unicode text."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:53
 msgid ""
-"Argument names are not part of the specification, and only the arguments of :"
-"func:`.open` are intended to be used as keyword arguments."
+"Argument names are not part of the specification, and only the arguments "
+"of :func:`.open` are intended to be used as keyword arguments."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:58
@@ -86,8 +87,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:62
 msgid ""
 "An int containing the default buffer size used by the module's buffered I/O "
-"classes.  :func:`.open` uses the file's blksize (as obtained by :func:`os."
-"stat`) if possible."
+"classes.  :func:`.open` uses the file's blksize (as obtained "
+"by :func:`os.stat`) if possible."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:68
@@ -196,8 +197,8 @@ msgid ""
 "when the underlying operating system doesn't.  Files opened in binary mode "
 "(including ``'b'`` in the *mode* argument) return contents as :class:`bytes` "
 "objects without any decoding.  In text mode (the default, or when ``'t'`` is "
-"included in the *mode* argument), the contents of the file are returned as :"
-"class:`unicode` strings, the bytes having been first decoded using a "
+"included in the *mode* argument), the contents of the file are returned "
+"as :class:`unicode` strings, the bytes having been first decoded using a "
 "platform-dependent encoding or using the specified *encoding* if given."
 msgstr ""
 
@@ -245,8 +246,8 @@ msgid ""
 "where there is malformed data.  When writing, ``'xmlcharrefreplace'`` "
 "(replace with the appropriate XML character reference) or "
 "``'backslashreplace'`` (replace with backslashed escape sequences) can be "
-"used.  Any other error handling name that has been registered with :func:"
-"`codecs.register_error` is also valid."
+"used.  Any other error handling name that has been registered "
+"with :func:`codecs.register_error` is also valid."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:147
@@ -289,22 +290,23 @@ msgstr ""
 msgid ""
 "The type of file object returned by the :func:`.open` function depends on "
 "the mode.  When :func:`.open` is used to open a file in a text mode "
-"(``'w'``, ``'r'``, ``'wt'``, ``'rt'``, etc.), it returns a subclass of :"
-"class:`TextIOBase` (specifically :class:`TextIOWrapper`).  When used to open "
-"a file in a binary mode with buffering, the returned class is a subclass of :"
-"class:`BufferedIOBase`.  The exact class varies: in read binary mode, it "
-"returns a :class:`BufferedReader`; in write binary and append binary modes, "
-"it returns a :class:`BufferedWriter`, and in read/write mode, it returns a :"
-"class:`BufferedRandom`.  When buffering is disabled, the raw stream, a "
-"subclass of :class:`RawIOBase`, :class:`FileIO`, is returned."
+"(``'w'``, ``'r'``, ``'wt'``, ``'rt'``, etc.), it returns a subclass "
+"of :class:`TextIOBase` (specifically :class:`TextIOWrapper`).  When used to "
+"open a file in a binary mode with buffering, the returned class is a "
+"subclass of :class:`BufferedIOBase`.  The exact class varies: in read binary "
+"mode, it returns a :class:`BufferedReader`; in write binary and append "
+"binary modes, it returns a :class:`BufferedWriter`, and in read/write mode, "
+"it returns a :class:`BufferedRandom`.  When buffering is disabled, the raw "
+"stream, a subclass of :class:`RawIOBase`, :class:`FileIO`, is returned."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:181
 msgid ""
 "It is also possible to use an :class:`unicode` or :class:`bytes` string as a "
-"file for both reading and writing.  For :class:`unicode` strings :class:`~io."
-"StringIO` can be used like a file opened in text mode, and for :class:"
-"`bytes` a :class:`BytesIO` can be used like a file opened in a binary mode."
+"file for both reading and writing.  For :class:`unicode` "
+"strings :class:`~io.StringIO` can be used like a file opened in text mode, "
+"and for :class:`bytes` a :class:`BytesIO` can be used like a file opened in "
+"a binary mode."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:190
@@ -359,11 +361,12 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:227
 msgid ""
-"The basic type used for binary data read from or written to a file is :class:"
-"`bytes` (also known as :class:`str`).  Method arguments may also be :class:"
-"`bytearray` or :class:`memoryview` of arrays of bytes. In some cases, such "
-"as :meth:`~RawIOBase.readinto`, a writable object such as :class:`bytearray` "
-"is required. Text I/O classes work with :class:`unicode` data."
+"The basic type used for binary data read from or written to a file "
+"is :class:`bytes` (also known as :class:`str`).  Method arguments may also "
+"be :class:`bytearray` or :class:`memoryview` of arrays of bytes. In some "
+"cases, such as :meth:`~RawIOBase.readinto`, a writable object such "
+"as :class:`bytearray` is required. Text I/O classes work "
+"with :class:`unicode` data."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:234
@@ -378,11 +381,11 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:240
 msgid ""
-"IOBase (and its subclasses) support the iterator protocol, meaning that an :"
-"class:`IOBase` object can be iterated over yielding the lines in a stream. "
-"Lines are defined slightly differently depending on whether the stream is a "
-"binary stream (yielding :class:`bytes`), or a text stream (yielding :class:"
-"`unicode` strings).  See :meth:`~IOBase.readline` below."
+"IOBase (and its subclasses) support the iterator protocol, meaning that "
+"an :class:`IOBase` object can be iterated over yielding the lines in a "
+"stream. Lines are defined slightly differently depending on whether the "
+"stream is a binary stream (yielding :class:`bytes`), or a text stream "
+"(yielding :class:`unicode` strings).  See :meth:`~IOBase.readline` below."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:246
@@ -498,8 +501,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:327
 msgid ""
-"Return ``True`` if the stream supports random access.  If ``False``, :meth:"
-"`seek`, :meth:`tell` and :meth:`truncate` will raise :exc:`IOError`."
+"Return ``True`` if the stream supports random access.  If "
+"``False``, :meth:`seek`, :meth:`tell` and :meth:`truncate` will "
+"raise :exc:`IOError`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:332
@@ -531,8 +535,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:356
 msgid ""
 "Prepare for object destruction. :class:`IOBase` provides a default "
-"implementation of this method that calls the instance's :meth:`~IOBase."
-"close` method."
+"implementation of this method that calls the "
+"instance's :meth:`~IOBase.close` method."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:363
@@ -578,21 +582,22 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:391
 msgid ""
 "Read up to len(b) bytes into *b*, and return the number of bytes read.  The "
-"object *b* should be a pre-allocated, writable array of bytes, either :class:"
-"`bytearray` or :class:`memoryview`. If the object is in non-blocking mode "
-"and no bytes are available, ``None`` is returned."
+"object *b* should be a pre-allocated, writable array of bytes, "
+"either :class:`bytearray` or :class:`memoryview`. If the object is in non-"
+"blocking mode and no bytes are available, ``None`` is returned."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:399
 msgid ""
 "Write *b* to the underlying raw stream, and return the number of bytes "
-"written.  The object *b* should be an array of bytes, either :class:"
-"`bytes`, :class:`bytearray`, or :class:`memoryview`.  The return value can "
-"be less than ``len(b)``, depending on specifics of the underlying raw "
-"stream, and especially if it is in non-blocking mode.  ``None`` is returned "
-"if the raw stream is set not to block and no single byte could be readily "
-"written to it.  The caller may release or mutate *b* after this method "
-"returns, so the implementation should only access *b* during the method call."
+"written.  The object *b* should be an array of bytes, "
+"either :class:`bytes`, :class:`bytearray`, or :class:`memoryview`.  The "
+"return value can be less than ``len(b)``, depending on specifics of the "
+"underlying raw stream, and especially if it is in non-blocking mode.  "
+"``None`` is returned if the raw stream is set not to block and no single "
+"byte could be readily written to it.  The caller may release or mutate *b* "
+"after this method returns, so the implementation should only access *b* "
+"during the method call."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:413
@@ -603,10 +608,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:416
 msgid ""
-"The main difference with :class:`RawIOBase` is that methods :meth:`read`, :"
-"meth:`readinto` and :meth:`write` will try (respectively) to read as much "
-"input as requested or to consume all given output, at the expense of making "
-"perhaps more than one system call."
+"The main difference with :class:`RawIOBase` is that "
+"methods :meth:`read`, :meth:`readinto` and :meth:`write` will try "
+"(respectively) to read as much input as requested or to consume all given "
+"output, at the expense of making perhaps more than one system call."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:421
@@ -625,9 +630,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:429
 msgid ""
-"A typical :class:`BufferedIOBase` implementation should not inherit from a :"
-"class:`RawIOBase` implementation, but wrap one, like :class:`BufferedWriter` "
-"and :class:`BufferedReader` do."
+"A typical :class:`BufferedIOBase` implementation should not inherit from "
+"a :class:`RawIOBase` implementation, but wrap one, "
+"like :class:`BufferedWriter` and :class:`BufferedReader` do."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:433
@@ -638,9 +643,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:438
 msgid ""
-"The underlying raw stream (a :class:`RawIOBase` instance) that :class:"
-"`BufferedIOBase` deals with.  This is not part of the :class:"
-"`BufferedIOBase` API and may not exist on some implementations."
+"The underlying raw stream (a :class:`RawIOBase` instance) "
+"that :class:`BufferedIOBase` deals with.  This is not part of "
+"the :class:`BufferedIOBase` API and may not exist on some implementations."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:444
@@ -691,8 +696,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:479
 msgid ""
 "Read up to len(b) bytes into *b*, and return the number of bytes read. The "
-"object *b* should be a pre-allocated, writable array of bytes, either :class:"
-"`bytearray` or :class:`memoryview`."
+"object *b* should be a pre-allocated, writable array of bytes, "
+"either :class:`bytearray` or :class:`memoryview`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:483
@@ -705,10 +710,11 @@ msgstr ""
 msgid ""
 "Write *b*, and return the number of bytes written (always equal to "
 "``len(b)``, since if the write fails an :exc:`IOError` will be raised).  The "
-"object *b* should be an array of bytes, either :class:`bytes`, :class:"
-"`bytearray`, or :class:`memoryview`.  Depending on the actual "
-"implementation, these bytes may be readily written to the underlying stream, "
-"or held in a buffer for performance and latency reasons."
+"object *b* should be an array of bytes, "
+"either :class:`bytes`, :class:`bytearray`, or :class:`memoryview`.  "
+"Depending on the actual implementation, these bytes may be readily written "
+"to the underlying stream, or held in a buffer for performance and latency "
+"reasons."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:499
@@ -731,8 +737,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:512
 msgid ""
 ":class:`FileIO` represents an OS-level file containing bytes data. It "
-"implements the :class:`RawIOBase` interface (and therefore the :class:"
-"`IOBase` interface, too)."
+"implements the :class:`RawIOBase` interface (and therefore "
+"the :class:`IOBase` interface, too)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:516
@@ -766,9 +772,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:530
 msgid ""
-"In addition to the attributes and methods from :class:`IOBase` and :class:"
-"`RawIOBase`, :class:`FileIO` provides the following data attributes and "
-"methods:"
+"In addition to the attributes and methods from :class:`IOBase` "
+"and :class:`RawIOBase`, :class:`FileIO` provides the following data "
+"attributes and methods:"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:536
@@ -793,8 +799,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:552
 msgid ""
-"A stream implementation using an in-memory bytes buffer.  It inherits :class:"
-"`BufferedIOBase`."
+"A stream implementation using an in-memory bytes buffer.  It "
+"inherits :class:`BufferedIOBase`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:555
@@ -819,18 +825,18 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:572
 msgid ""
-"A buffer providing higher-level access to a readable, sequential :class:"
-"`RawIOBase` object.  It inherits :class:`BufferedIOBase`. When reading data "
-"from this object, a larger amount of data may be requested from the "
-"underlying raw stream, and kept in an internal buffer. The buffered data can "
-"then be returned directly on subsequent reads."
+"A buffer providing higher-level access to a readable, "
+"sequential :class:`RawIOBase` object.  It inherits :class:`BufferedIOBase`. "
+"When reading data from this object, a larger amount of data may be requested "
+"from the underlying raw stream, and kept in an internal buffer. The buffered "
+"data can then be returned directly on subsequent reads."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:578
 msgid ""
 "The constructor creates a :class:`BufferedReader` for the given readable "
-"*raw* stream and *buffer_size*.  If *buffer_size* is omitted, :data:"
-"`DEFAULT_BUFFER_SIZE` is used."
+"*raw* stream and *buffer_size*.  If *buffer_size* is "
+"omitted, :data:`DEFAULT_BUFFER_SIZE` is used."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:582
@@ -861,11 +867,11 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:605
 msgid ""
-"A buffer providing higher-level access to a writeable, sequential :class:"
-"`RawIOBase` object.  It inherits :class:`BufferedIOBase`. When writing to "
-"this object, data is normally held into an internal buffer.  The buffer will "
-"be written out to the underlying :class:`RawIOBase` object under various "
-"conditions, including:"
+"A buffer providing higher-level access to a writeable, "
+"sequential :class:`RawIOBase` object.  It inherits :class:`BufferedIOBase`. "
+"When writing to this object, data is normally held into an internal buffer.  "
+"The buffer will be written out to the underlying :class:`RawIOBase` object "
+"under various conditions, including:"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:611
@@ -888,8 +894,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:616
 msgid ""
 "The constructor creates a :class:`BufferedWriter` for the given writeable "
-"*raw* stream.  If the *buffer_size* is not given, it defaults to :data:"
-"`DEFAULT_BUFFER_SIZE`."
+"*raw* stream.  If the *buffer_size* is not given, it defaults "
+"to :data:`DEFAULT_BUFFER_SIZE`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:620
@@ -906,36 +912,36 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:627
 msgid ""
-"Force bytes held in the buffer into the raw stream.  A :exc:"
-"`BlockingIOError` should be raised if the raw stream blocks."
+"Force bytes held in the buffer into the raw stream.  "
+"A :exc:`BlockingIOError` should be raised if the raw stream blocks."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:632
 msgid ""
 "Write *b*, and return the number of bytes written. The object *b* should be "
-"an array of bytes, either :class:`bytes`, :class:`bytearray`, or :class:"
-"`memoryview`. When in non-blocking mode, a :exc:`BlockingIOError` is raised "
-"if the buffer needs to be written out but the raw stream blocks."
+"an array of bytes, either :class:`bytes`, :class:`bytearray`, "
+"or :class:`memoryview`. When in non-blocking mode, a :exc:`BlockingIOError` "
+"is raised if the buffer needs to be written out but the raw stream blocks."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:641
 msgid ""
-"A buffered interface to random access streams.  It inherits :class:"
-"`BufferedReader` and :class:`BufferedWriter`, and further supports :meth:"
-"`seek` and :meth:`tell` functionality."
+"A buffered interface to random access streams.  It "
+"inherits :class:`BufferedReader` and :class:`BufferedWriter`, and further "
+"supports :meth:`seek` and :meth:`tell` functionality."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:645
 msgid ""
 "The constructor creates a reader and writer for a seekable raw stream, given "
-"in the first argument.  If the *buffer_size* is omitted it defaults to :data:"
-"`DEFAULT_BUFFER_SIZE`."
+"in the first argument.  If the *buffer_size* is omitted it defaults "
+"to :data:`DEFAULT_BUFFER_SIZE`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:651
 msgid ""
-":class:`BufferedRandom` is capable of anything :class:`BufferedReader` or :"
-"class:`BufferedWriter` can do."
+":class:`BufferedRandom` is capable of anything :class:`BufferedReader` "
+"or :class:`BufferedWriter` can do."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:657
@@ -948,8 +954,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:661
 msgid ""
 "*reader* and *writer* are :class:`RawIOBase` objects that are readable and "
-"writeable respectively.  If the *buffer_size* is omitted it defaults to :"
-"data:`DEFAULT_BUFFER_SIZE`."
+"writeable respectively.  If the *buffer_size* is omitted it defaults "
+"to :data:`DEFAULT_BUFFER_SIZE`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:665
@@ -961,8 +967,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:668
 msgid ""
 ":class:`BufferedRWPair` implements all of :class:`BufferedIOBase`\\'s "
-"methods except for :meth:`~BufferedIOBase.detach`, which raises :exc:"
-"`UnsupportedOperation`."
+"methods except for :meth:`~BufferedIOBase.detach`, which "
+"raises :exc:`UnsupportedOperation`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:674
@@ -981,8 +987,8 @@ msgstr ""
 msgid ""
 "Base class for text streams.  This class provides a unicode character and "
 "line based interface to stream I/O.  There is no :meth:`readinto` method "
-"because Python's :class:`unicode` strings are immutable. It inherits :class:"
-"`IOBase`.  There is no public constructor."
+"because Python's :class:`unicode` strings are immutable. It "
+"inherits :class:`IOBase`.  There is no public constructor."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:689
@@ -1010,9 +1016,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:709
 msgid ""
-"The underlying binary buffer (a :class:`BufferedIOBase` instance) that :"
-"class:`TextIOBase` deals with.  This is not part of the :class:`TextIOBase` "
-"API and may not exist on some implementations."
+"The underlying binary buffer (a :class:`BufferedIOBase` instance) "
+"that :class:`TextIOBase` deals with.  This is not part of "
+"the :class:`TextIOBase` API and may not exist on some implementations."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:715
@@ -1036,8 +1042,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:729
 msgid ""
-"Read and return at most *n* characters from the stream as a single :class:"
-"`unicode`.  If *n* is negative or ``None``, reads until EOF."
+"Read and return at most *n* characters from the stream as a "
+"single :class:`unicode`.  If *n* is negative or ``None``, reads until EOF."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:734
@@ -1146,8 +1152,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:814
 msgid ""
-":class:`TextIOWrapper` provides one attribute in addition to those of :class:"
-"`TextIOBase` and its parents:"
+":class:`TextIOWrapper` provides one attribute in addition to those "
+"of :class:`TextIOBase` and its parents:"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:819
@@ -1162,8 +1168,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:826
 msgid ""
 "The initial value of the buffer can be set by providing *initial_value*. If "
-"newline translation is enabled, newlines will be encoded as if by :meth:"
-"`~TextIOBase.write`.  The stream is positioned at the start of the buffer."
+"newline translation is enabled, newlines will be encoded as if "
+"by :meth:`~TextIOBase.write`.  The stream is positioned at the start of the "
+"buffer."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:831
@@ -1177,8 +1184,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:837
 msgid ""
-":class:`~io.StringIO` provides this method in addition to those from :class:"
-"`TextIOWrapper` and its parents:"
+":class:`~io.StringIO` provides this method in addition to those "
+"from :class:`TextIOWrapper` and its parents:"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:842
@@ -1259,10 +1266,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:915
 msgid ""
-"Binary buffered objects (instances of :class:`BufferedReader`, :class:"
-"`BufferedWriter`, :class:`BufferedRandom` and :class:`BufferedRWPair`) "
-"protect their internal structures using a lock; it is therefore safe to call "
-"them from multiple threads at once."
+"Binary buffered objects (instances "
+"of :class:`BufferedReader`, :class:`BufferedWriter`, :class:`BufferedRandom` "
+"and :class:`BufferedRWPair`) protect their internal structures using a lock; "
+"it is therefore safe to call them from multiple threads at once."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:920
@@ -1275,20 +1282,21 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:925
 msgid ""
-"Binary buffered objects (instances of :class:`BufferedReader`, :class:"
-"`BufferedWriter`, :class:`BufferedRandom` and :class:`BufferedRWPair`) are "
-"not reentrant.  While reentrant calls will not happen in normal situations, "
-"they can arise if you are doing I/O in a :mod:`signal` handler.  If it is "
-"attempted to enter a buffered object again while already being accessed "
-"*from the same thread*, then a :exc:`RuntimeError` is raised."
+"Binary buffered objects (instances "
+"of :class:`BufferedReader`, :class:`BufferedWriter`, :class:`BufferedRandom` "
+"and :class:`BufferedRWPair`) are not reentrant.  While reentrant calls will "
+"not happen in normal situations, they can arise if you are doing I/O in "
+"a :mod:`signal` handler.  If it is attempted to enter a buffered object "
+"again while already being accessed *from the same thread*, then "
+"a :exc:`RuntimeError` is raised."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:932
 msgid ""
 "The above implicitly extends to text files, since the :func:`open()` "
 "function will wrap a buffered object inside a :class:`TextIOWrapper`.  This "
-"includes standard streams and therefore affects the built-in function :func:"
-"`print()` as well."
+"includes standard streams and therefore affects the built-in "
+"function :func:`print()` as well."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/io.rst:144
