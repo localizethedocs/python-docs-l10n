@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 12:19+0000\n"
+"POT-Creation-Date: 2026-10-21 13:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,8 +47,8 @@ msgstr ""
 
 #: ../../../c-api/frame.rst:24
 msgid ""
-"The type of frame objects. It is the same object as :py:class:`types."
-"FrameType` in the Python layer."
+"The type of frame objects. It is the same object "
+"as :py:class:`types.FrameType` in the Python layer."
 msgstr ""
 
 #: ../../../c-api/frame.rst:29
@@ -69,8 +69,8 @@ msgstr ""
 
 #: ../../../c-api/frame.rst:44
 msgid ""
-"Previously, this function was only available after including ``<frameobject."
-"h>``."
+"Previously, this function was only available after including "
+"``<frameobject.h>``."
 msgstr ""
 
 #: ../../../c-api/frame.rst:49
@@ -157,15 +157,15 @@ msgstr ""
 msgid ""
 "Get the *frame*'s :attr:`~frame.f_locals` attribute. If the frame refers to "
 "an :term:`optimized scope`, this returns a write-through proxy object that "
-"allows modifying the locals. In all other cases (classes, modules, :func:"
-"`exec`, :func:`eval`) it returns the mapping representing the frame locals "
-"directly (as described for :func:`locals`)."
+"allows modifying the locals. In all other cases (classes, "
+"modules, :func:`exec`, :func:`eval`) it returns the mapping representing the "
+"frame locals directly (as described for :func:`locals`)."
 msgstr ""
 
 #: ../../../c-api/frame.rst:141
 msgid ""
-"As part of :pep:`667`, return an instance of :c:var:"
-"`PyFrameLocalsProxy_Type`."
+"As part of :pep:`667`, return an instance "
+"of :c:var:`PyFrameLocalsProxy_Type`."
 msgstr ""
 
 #: ../../../c-api/frame.rst:147
@@ -224,16 +224,16 @@ msgstr ""
 #: ../../../c-api/frame.rst:193
 msgid ""
 "Prior to Python 3.13, this function would copy the internal \"fast\" array "
-"of local variables (which is used by the interpreter) to the :attr:`~frame."
-"f_locals` attribute of *f*, allowing changes in local variables to be "
-"visible to frame objects."
+"of local variables (which is used by the interpreter) to "
+"the :attr:`~frame.f_locals` attribute of *f*, allowing changes in local "
+"variables to be visible to frame objects."
 msgstr ""
 
 #: ../../../c-api/frame.rst:204
 msgid ""
-"Prior to Python 3.13, this function was similar to :c:func:"
-"`PyFrame_FastToLocals`, but would return ``0`` on success, and ``-1`` with "
-"an exception set on failure."
+"Prior to Python 3.13, this function was similar "
+"to :c:func:`PyFrame_FastToLocals`, but would return ``0`` on success, and "
+"``-1`` with an exception set on failure."
 msgstr ""
 
 #: ../../../c-api/frame.rst:213
@@ -263,4 +263,52 @@ msgstr ""
 #: ../../../c-api/frame.rst:243
 msgid ""
 "Return the currently executing line number, or -1 if there is no line number."
+msgstr ""
+
+#: ../../../c-api/frame.rst:250
+msgid ""
+"An array of executable kinds (executor types) for frames, used for internal "
+"debugging and tracing."
+msgstr ""
+
+#: ../../../c-api/frame.rst:253
+msgid ""
+"Tools like debuggers and profilers can use this to identify the type of "
+"execution context associated with a frame (such as to filter out internal "
+"frames). The entries are indexed by the following constants:"
+msgstr ""
+
+#: ../../../c-api/frame.rst:261
+msgid "Constant"
+msgstr ""
+
+#: ../../../c-api/frame.rst:262
+msgid "Description"
+msgstr ""
+
+#: ../../../c-api/frame.rst:264
+msgid ""
+"The frame is internal (For example: inlined) and should be skipped by tools."
+msgstr ""
+
+#: ../../../c-api/frame.rst:266
+msgid "The frame corresponds to a standard Python function."
+msgstr ""
+
+#: ../../../c-api/frame.rst:268
+msgid "The frame corresponds to a function defined in native code."
+msgstr ""
+
+#: ../../../c-api/frame.rst:270
+msgid "The frame corresponds to a method on a class instance."
+msgstr ""
+
+#: ../../../c-api/frame.rst:272
+msgid ""
+"Note that reading the executable kind from a frame is currently only "
+"possible with undocumented internal APIs."
+msgstr ""
+
+#: ../../../c-api/frame.rst:280
+msgid "The number of entries in :c:data:`PyUnstable_ExecutableKinds`."
 msgstr ""
