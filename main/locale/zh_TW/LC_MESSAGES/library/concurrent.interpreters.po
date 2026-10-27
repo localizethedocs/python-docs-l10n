@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 17:48+0000\n"
+"POT-Creation-Date: 2026-10-26 15:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -167,9 +167,9 @@ msgstr ""
 msgid ""
 "Running in a different interpreter involves switching to it in the current "
 "thread and then calling some function.  The runtime will execute the "
-"function using the current interpreter's state.  The :mod:`!concurrent."
-"interpreters` module provides a basic API for creating and managing "
-"interpreters, as well as the switch-and-call operation."
+"function using the current interpreter's state.  The :mod:`!"
+"concurrent.interpreters` module provides a basic API for creating and "
+"managing interpreters, as well as the switch-and-call operation."
 msgstr ""
 
 #: ../../../library/concurrent.interpreters.rst:110
@@ -252,8 +252,9 @@ msgstr ""
 
 #: ../../../library/concurrent.interpreters.rst:166
 msgid ""
-"With this in mind, the :mod:`!concurrent.interpreters` module provides a :"
-"class:`queue.Queue` implementation, available through :func:`create_queue`."
+"With this in mind, the :mod:`!concurrent.interpreters` module provides "
+"a :class:`queue.Queue` implementation, available "
+"through :func:`create_queue`."
 msgstr ""
 
 #: ../../../library/concurrent.interpreters.rst:173
@@ -357,132 +358,200 @@ msgid ""
 "for it."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:234
-msgid "Interpreter objects"
+#: ../../../library/concurrent.interpreters.rst:232
+msgid ""
+"*maxsize* is an integer that sets the upperbound limit on the number of "
+"items that can be placed in the queue. Insertion will be blocked once this "
+"size has been reached, until queue items are consumed. If *maxsize* is less "
+"than or equal to zero, the queue size is infinite."
 msgstr ""
 
 #: ../../../library/concurrent.interpreters.rst:238
+msgid "Interpreter objects"
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:242
 msgid "A single interpreter in the current process."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:240
+#: ../../../library/concurrent.interpreters.rst:244
 msgid ""
-"Generally, :class:`Interpreter` shouldn't be called directly. Instead, use :"
-"func:`create` or one of the other module functions."
-msgstr ""
-
-#: ../../../library/concurrent.interpreters.rst:245
-#: ../../../library/concurrent.interpreters.rst:251
-#: ../../../library/concurrent.interpreters.rst:330
-msgid "(read-only)"
+"Generally, :class:`Interpreter` shouldn't be called directly. Instead, "
+"use :func:`create` or one of the other module functions."
 msgstr ""
 
 #: ../../../library/concurrent.interpreters.rst:247
-msgid "The underlying interpreter's ID."
+msgid ""
+":class:`!Interpreter` objects support the :term:`context manager` protocol. "
+"Exiting the :keyword:`with` block calls :meth:`close`::"
 msgstr ""
 
 #: ../../../library/concurrent.interpreters.rst:253
+msgid ""
+"Added support for using :class:`!Interpreter` objects in a :term:`context "
+"manager`."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:259
+#: ../../../library/concurrent.interpreters.rst:265
+#: ../../../library/concurrent.interpreters.rst:346
+msgid "(read-only)"
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:261
+msgid "The underlying interpreter's ID."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:267
 msgid "A string describing where the interpreter came from."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:257
+#: ../../../library/concurrent.interpreters.rst:271
 msgid ""
 "Return ``True`` if the interpreter is currently executing code in its :mod:`!"
 "__main__` module and ``False`` otherwise."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:262
+#: ../../../library/concurrent.interpreters.rst:276
 msgid "Finalize and destroy the interpreter."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:266
+#: ../../../library/concurrent.interpreters.rst:280
 msgid "Bind objects in the interpreter's :mod:`!__main__` module."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:268
-#: ../../../library/concurrent.interpreters.rst:325
+#: ../../../library/concurrent.interpreters.rst:282
+#: ../../../library/concurrent.interpreters.rst:341
 msgid ""
 "Some objects are actually shared and some are copied efficiently, but most "
 "are copied via :mod:`pickle`.  See :ref:`interp-object-sharing`."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:273
+#: ../../../library/concurrent.interpreters.rst:287
 msgid "Run the given source code in the interpreter (in the current thread)."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:277
+#: ../../../library/concurrent.interpreters.rst:291
 msgid ""
 "Return the result of running the given function in the interpreter (in the "
 "current thread)."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:284
+#: ../../../library/concurrent.interpreters.rst:298
 msgid "Run the given function in the interpreter (in a new thread)."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:287
+#: ../../../library/concurrent.interpreters.rst:301
 msgid "Exceptions"
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:291
+#: ../../../library/concurrent.interpreters.rst:305
 msgid ""
 "This exception, a subclass of :exc:`Exception`, is raised when an "
 "interpreter-related error happens."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:296
+#: ../../../library/concurrent.interpreters.rst:310
 msgid ""
 "This exception, a subclass of :exc:`InterpreterError`, is raised when the "
 "targeted interpreter no longer exists."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:301
+#: ../../../library/concurrent.interpreters.rst:315
 msgid ""
 "This exception, a subclass of :exc:`InterpreterError`, is raised when the "
 "running code raised an uncaught exception."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:306
+#: ../../../library/concurrent.interpreters.rst:320
 msgid "A basic snapshot of the exception raised in the other interpreter."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:312
+#: ../../../library/concurrent.interpreters.rst:326
 msgid ""
 "This exception, a subclass of :exc:`TypeError`, is raised when an object "
 "cannot be sent to another interpreter."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:317
+#: ../../../library/concurrent.interpreters.rst:331
 msgid "Communicating Between Interpreters"
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:321
+#: ../../../library/concurrent.interpreters.rst:335
 msgid ""
-"A wrapper around a low-level, cross-interpreter queue, which implements the :"
-"class:`queue.Queue` interface.  The underlying queue can only be created "
+"A wrapper around a low-level, cross-interpreter queue, which implements all "
+"the methods of :class:`queue.Queue` except "
+"for :meth:`~queue.Queue.task_done`, :meth:`~queue.Queue.join` "
+"and :meth:`~queue.Queue.shutdown`.  The underlying queue can only be created "
 "through :func:`create_queue`."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:332
+#: ../../../library/concurrent.interpreters.rst:348
 msgid "The queue's ID."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:337
-msgid ""
-"This exception, a subclass of :exc:`queue.Empty`, is raised from :meth:`!"
-"Queue.get` and :meth:`!Queue.get_nowait` when the queue is empty."
+#: ../../../library/concurrent.interpreters.rst:352
+msgid "Return the number of items in the queue."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:343
-msgid ""
-"This exception, a subclass of :exc:`queue.Full`, is raised from :meth:`!"
-"Queue.put` and :meth:`!Queue.put_nowait` when the queue is full."
+#: ../../../library/concurrent.interpreters.rst:356
+msgid "Return ``True`` if the queue is empty, ``False`` otherwise."
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:349
+#: ../../../library/concurrent.interpreters.rst:360
+msgid "Return ``True`` if the queue is full, ``False`` otherwise."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:364
+msgid ""
+"Put *obj* into the queue.  If optional args *block* is true and *timeout* is "
+"``None`` (the default), block if necessary until a free slot is available.  "
+"If *timeout* is a positive number, it blocks at most *timeout* seconds and "
+"raises the :exc:`QueueFull` exception if no free slot was available within "
+"that time.  Otherwise (*block* is false), put an object on the queue if a "
+"free slot is immediately available, else raise the :exc:`QueueFull` "
+"exception (*timeout* is ignored in that case)."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:375
+msgid "Equivalent to ``put(obj, block=False)``."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:379
+msgid ""
+"Remove and return an object from the queue.  If optional args *block* is "
+"true and *timeout* is ``None`` (the default), block if necessary until an "
+"object is available.  If *timeout* is a positive number, it blocks at most "
+"*timeout* seconds and raises the :exc:`QueueEmpty` exception if no object "
+"was available within that time.  Otherwise (*block* is false), return an "
+"object if one is immediately available, else raise the :exc:`QueueEmpty` "
+"exception (*timeout* is ignored in that case)."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:390
+msgid "Equivalent to ``get(block=False)``."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:395
+msgid ""
+"This exception, a subclass of :exc:`queue.Empty`, is raised "
+"from :meth:`Queue.get` and :meth:`Queue.get_nowait` when the queue is empty."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:401
+msgid ""
+"This exception, a subclass of :exc:`queue.Full`, is raised "
+"from :meth:`Queue.put` and :meth:`Queue.put_nowait` when the queue is full."
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:407
 msgid "Basic usage"
 msgstr ""
 
-#: ../../../library/concurrent.interpreters.rst:351
+#: ../../../library/concurrent.interpreters.rst:409
 msgid "Creating an interpreter and running code in it::"
+msgstr ""
+
+#: ../../../library/concurrent.interpreters.rst:444
+msgid "Communicating between interpreters with a queue::"
 msgstr ""

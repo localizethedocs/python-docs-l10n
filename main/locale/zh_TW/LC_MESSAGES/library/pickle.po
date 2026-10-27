@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-15 14:52+0000\n"
+"POT-Creation-Date: 2026-10-26 15:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,9 +30,9 @@ msgid ""
 "The :mod:`!pickle` module implements binary protocols for serializing and de-"
 "serializing a Python object structure.  *\"Pickling\"* is the process "
 "whereby a Python object hierarchy is converted into a byte stream, and "
-"*\"unpickling\"* is the inverse operation, whereby a byte stream (from a :"
-"term:`binary file` or :term:`bytes-like object`) is converted back into an "
-"object hierarchy.  Pickling (and unpickling) is alternatively known as "
+"*\"unpickling\"* is the inverse operation, whereby a byte stream (from "
+"a :term:`binary file` or :term:`bytes-like object`) is converted back into "
+"an object hierarchy.  Pickling (and unpickling) is alternatively known as "
 "\"serialization\", \"marshalling,\" [#]_ or \"flattening\"; however, to "
 "avoid confusion, the terms used here are \"pickling\" and \"unpickling\"."
 msgstr ""
@@ -72,8 +72,8 @@ msgstr ""
 msgid ""
 "Python has a more primitive serialization module called :mod:`marshal`, but "
 "in general :mod:`!pickle` should always be the preferred way to serialize "
-"Python objects.  :mod:`marshal` exists primarily to support Python's :file:`."
-"pyc` files."
+"Python objects.  :mod:`marshal` exists primarily to support "
+"Python's :file:`.pyc` files."
 msgstr ""
 
 #: ../../../library/pickle.rst:54
@@ -93,14 +93,14 @@ msgstr ""
 #: ../../../library/pickle.rst:61
 msgid ""
 "The :mod:`marshal` serialization format is not guaranteed to be portable "
-"across Python versions.  Because its primary job in life is to support :file:"
-"`.pyc` files, the Python implementers reserve the right to change the "
-"serialization format in non-backwards compatible ways should the need arise. "
-"The :mod:`!pickle` serialization format is guaranteed to be backwards "
-"compatible across Python releases provided a compatible pickle protocol is "
-"chosen and pickling and unpickling code deals with Python 2 to Python 3 type "
-"differences if your data is crossing that unique breaking change language "
-"boundary."
+"across Python versions.  Because its primary job in life is to "
+"support :file:`.pyc` files, the Python implementers reserve the right to "
+"change the serialization format in non-backwards compatible ways should the "
+"need arise. The :mod:`!pickle` serialization format is guaranteed to be "
+"backwards compatible across Python releases provided a compatible pickle "
+"protocol is chosen and pickling and unpickling code deals with Python 2 to "
+"Python 3 type differences if your data is crossing that unique breaking "
+"change language boundary."
 msgstr ""
 
 #: ../../../library/pickle.rst:74
@@ -135,8 +135,8 @@ msgid ""
 "JSON, by default, can only represent a subset of the Python built-in types, "
 "and no custom classes; pickle can represent an extremely large number of "
 "Python types (many of them automatically, by clever usage of Python's "
-"introspection facilities; complex cases can be tackled by implementing :ref:"
-"`specific object APIs <pickle-inst>`);"
+"introspection facilities; complex cases can be tackled by "
+"implementing :ref:`specific object APIs <pickle-inst>`);"
 msgstr ""
 
 #: ../../../library/pickle.rst:94
@@ -205,17 +205,17 @@ msgstr ""
 
 #: ../../../library/pickle.rst:137
 msgid ""
-"Protocol version 3 was added in Python 3.0.  It has explicit support for :"
-"class:`bytes` objects and cannot be unpickled by Python 2.x.  This was the "
-"default protocol in Python 3.0--3.7."
+"Protocol version 3 was added in Python 3.0.  It has explicit support "
+"for :class:`bytes` objects and cannot be unpickled by Python 2.x.  This was "
+"the default protocol in Python 3.0--3.7."
 msgstr ""
 
 #: ../../../library/pickle.rst:141
 msgid ""
 "Protocol version 4 was added in Python 3.4.  It adds support for very large "
 "objects, pickling more kinds of objects, and some data format "
-"optimizations.  This was the default protocol in Python 3.8--3.13. Refer to :"
-"pep:`3154` for information about improvements brought by protocol 4."
+"optimizations.  This was the default protocol in Python 3.8--3.13. Refer "
+"to :pep:`3154` for information about improvements brought by protocol 4."
 msgstr ""
 
 #: ../../../library/pickle.rst:147
@@ -247,10 +247,10 @@ msgstr ""
 #: ../../../library/pickle.rst:168
 msgid ""
 "To serialize an object hierarchy, you simply call the :func:`dumps` "
-"function. Similarly, to de-serialize a data stream, you call the :func:"
-"`loads` function. However, if you want more control over serialization and "
-"de-serialization, you can create a :class:`Pickler` or an :class:`Unpickler` "
-"object, respectively."
+"function. Similarly, to de-serialize a data stream, you call "
+"the :func:`loads` function. However, if you want more control over "
+"serialization and de-serialization, you can create a :class:`Pickler` or "
+"an :class:`Unpickler` object, respectively."
 msgstr ""
 
 #: ../../../library/pickle.rst:173
@@ -260,8 +260,9 @@ msgstr ""
 #: ../../../library/pickle.rst:178
 msgid ""
 "An integer, the highest :ref:`protocol version <pickle-protocols>` "
-"available.  This value can be passed as a *protocol* value to functions :"
-"func:`dump` and :func:`dumps` as well as the :class:`Pickler` constructor."
+"available.  This value can be passed as a *protocol* value to "
+"functions :func:`dump` and :func:`dumps` as well as the :class:`Pickler` "
+"constructor."
 msgstr ""
 
 #: ../../../library/pickle.rst:185
@@ -269,9 +270,9 @@ msgid ""
 "An integer, the default :ref:`protocol version <pickle-protocols>` used for "
 "pickling.  May be less than :data:`HIGHEST_PROTOCOL`.  Currently the default "
 "protocol is 5, introduced in Python 3.8 and incompatible with previous "
-"versions. This version introduces support for out-of-band buffers, where :"
-"pep:`3118`-compatible data can be transmitted separately from the main "
-"pickle stream."
+"versions. This version introduces support for out-of-band buffers, "
+"where :pep:`3118`-compatible data can be transmitted separately from the "
+"main pickle stream."
 msgstr ""
 
 #: ../../../library/pickle.rst:194
@@ -364,8 +365,8 @@ msgstr ""
 
 #: ../../../library/pickle.rst:266
 msgid ""
-"Common base class for the other pickling exceptions.  It inherits from :exc:"
-"`Exception`."
+"Common base class for the other pickling exceptions.  It inherits "
+"from :exc:`Exception`."
 msgstr ""
 
 #: ../../../library/pickle.rst:271
@@ -395,8 +396,8 @@ msgstr ""
 
 #: ../../../library/pickle.rst:287
 msgid ""
-"The :mod:`!pickle` module exports three classes, :class:`Pickler`, :class:"
-"`Unpickler` and :class:`PickleBuffer`:"
+"The :mod:`!pickle` module exports three "
+"classes, :class:`Pickler`, :class:`Unpickler` and :class:`PickleBuffer`:"
 msgstr ""
 
 #: ../../../library/pickle.rst:292
@@ -414,8 +415,8 @@ msgstr ""
 #: ../../../library/pickle.rst:299
 msgid ""
 "The *file* argument must have a write() method that accepts a single bytes "
-"argument.  It can thus be an on-disk file opened for binary writing, an :"
-"class:`io.BytesIO` instance, or any other custom object that meets this "
+"argument.  It can thus be an on-disk file opened for binary writing, "
+"an :class:`io.BytesIO` instance, or any other custom object that meets this "
 "interface."
 msgstr ""
 
@@ -471,8 +472,8 @@ msgstr ""
 
 #: ../../../library/pickle.rst:339
 msgid ""
-"Add the default implementation of this method in the C implementation of :"
-"class:`!Pickler`."
+"Add the default implementation of this method in the C implementation "
+"of :class:`!Pickler`."
 msgstr ""
 
 #: ../../../library/pickle.rst:345
@@ -487,12 +488,12 @@ msgstr ""
 #: ../../../library/pickle.rst:353
 msgid ""
 "By default, a pickler object will not have a :attr:`dispatch_table` "
-"attribute, and it will instead use the global dispatch table managed by the :"
-"mod:`copyreg` module. However, to customize the pickling for a specific "
+"attribute, and it will instead use the global dispatch table managed by "
+"the :mod:`copyreg` module. However, to customize the pickling for a specific "
 "pickler object one can set the :attr:`dispatch_table` attribute to a dict-"
-"like object.  Alternatively, if a subclass of :class:`Pickler` has a :attr:"
-"`dispatch_table` attribute then this will be used as the default dispatch "
-"table for instances of that class."
+"like object.  Alternatively, if a subclass of :class:`Pickler` has "
+"a :attr:`dispatch_table` attribute then this will be used as the default "
+"dispatch table for instances of that class."
 msgstr ""
 
 #: ../../../library/pickle.rst:362
@@ -504,8 +505,8 @@ msgid ""
 "Special reducer that can be defined in :class:`Pickler` subclasses. This "
 "method has priority over any reducer in the :attr:`dispatch_table`.  It "
 "should conform to the same interface as a :meth:`~object.__reduce__` method, "
-"and can optionally return :data:`NotImplemented` to fallback on :attr:"
-"`dispatch_table`-registered reducers to pickle ``obj``."
+"and can optionally return :data:`NotImplemented` to fallback "
+"on :attr:`dispatch_table`-registered reducers to pickle ``obj``."
 msgstr ""
 
 #: ../../../library/pickle.rst:374
@@ -549,10 +550,10 @@ msgstr ""
 msgid ""
 "The argument *file* must have three methods, a read() method that takes an "
 "integer argument, a readinto() method that takes a buffer argument and a "
-"readline() method that requires no arguments, as in the :class:`io."
-"BufferedIOBase` interface.  Thus *file* can be an on-disk file opened for "
-"binary reading, an :class:`io.BytesIO` object, or any other custom object "
-"that meets this interface."
+"readline() method that requires no arguments, as in "
+"the :class:`io.BufferedIOBase` interface.  Thus *file* can be an on-disk "
+"file opened for binary reading, an :class:`io.BytesIO` object, or any other "
+"custom object that meets this interface."
 msgstr ""
 
 #: ../../../library/pickle.rst:412
@@ -564,9 +565,9 @@ msgid ""
 "decode 8-bit string instances pickled by Python 2; these default to 'ASCII' "
 "and 'strict', respectively.  The *encoding* can be 'bytes' to read these 8-"
 "bit string instances as bytes objects. Using ``encoding='latin1'`` is "
-"required for unpickling NumPy arrays and instances of :class:`~datetime."
-"datetime`, :class:`~datetime.date` and :class:`~datetime.time` pickled by "
-"Python 2."
+"required for unpickling NumPy arrays and instances "
+"of :class:`~datetime.datetime`, :class:`~datetime.date` "
+"and :class:`~datetime.time` pickled by Python 2."
 msgstr ""
 
 #: ../../../library/pickle.rst:423
@@ -599,14 +600,14 @@ msgstr ""
 #: ../../../library/pickle.rst:447
 msgid ""
 "If defined, :meth:`persistent_load` should return the object specified by "
-"the persistent ID *pid*.  If an invalid persistent ID is encountered, an :"
-"exc:`UnpicklingError` should be raised."
+"the persistent ID *pid*.  If an invalid persistent ID is encountered, "
+"an :exc:`UnpicklingError` should be raised."
 msgstr ""
 
 #: ../../../library/pickle.rst:453
 msgid ""
-"Add the default implementation of this method in the C implementation of :"
-"class:`!Unpickler`."
+"Add the default implementation of this method in the C implementation "
+"of :class:`!Unpickler`."
 msgstr ""
 
 #: ../../../library/pickle.rst:459
@@ -620,8 +621,8 @@ msgstr ""
 #: ../../../library/pickle.rst:464
 msgid ""
 "Subclasses may override this to gain control over what type of objects and "
-"how they can be loaded, potentially reducing security risks. Refer to :ref:"
-"`pickle-restrict` for details."
+"how they can be loaded, potentially reducing security risks. Refer "
+"to :ref:`pickle-restrict` for details."
 msgstr ""
 
 #: ../../../library/pickle.rst:468
@@ -632,16 +633,16 @@ msgstr ""
 
 #: ../../../library/pickle.rst:472
 msgid ""
-"A wrapper for a buffer representing picklable data.  *buffer* must be a :ref:"
-"`buffer-providing <bufferobjects>` object, such as a :term:`bytes-like "
-"object` or a N-dimensional array."
+"A wrapper for a buffer representing picklable data.  *buffer* must be "
+"a :ref:`buffer-providing <bufferobjects>` object, such as a :term:`bytes-"
+"like object` or a N-dimensional array."
 msgstr ""
 
 #: ../../../library/pickle.rst:476
 msgid ""
 ":class:`PickleBuffer` is itself a buffer provider, therefore it is possible "
-"to pass it to other APIs expecting a buffer-providing object, such as :class:"
-"`memoryview`."
+"to pass it to other APIs expecting a buffer-providing object, such "
+"as :class:`memoryview`."
 msgstr ""
 
 #: ../../../library/pickle.rst:480
@@ -673,8 +674,8 @@ msgstr ""
 
 #: ../../../library/pickle.rst:505
 msgid ""
-"built-in constants (``None``, ``True``, ``False``, ``Ellipsis``, and :data:"
-"`NotImplemented`);"
+"built-in constants (``None``, ``True``, ``False``, ``Ellipsis``, "
+"and :data:`NotImplemented`);"
 msgstr ""
 
 #: ../../../library/pickle.rst:508
@@ -702,32 +703,40 @@ msgstr ""
 
 #: ../../../library/pickle.rst:519
 msgid ""
-"instances of such classes for which the result of calling :meth:`~object."
-"__getstate__` is picklable  (see section :ref:`pickle-inst` for details)."
+"instances of such classes for which the result of "
+"calling :meth:`~object.__getstate__` is picklable  (see section :ref:`pickle-"
+"inst` for details);"
 msgstr ""
 
 #: ../../../library/pickle.rst:522
 msgid ""
+"weak references and the weak containers from the :mod:`weakref` module, "
+"provided that the weakly referenced objects are strongly referenced "
+"elsewhere in the same pickle (see :class:`weakref.ref`)."
+msgstr ""
+
+#: ../../../library/pickle.rst:526
+msgid ""
 "Attempts to pickle unpicklable objects will raise the :exc:`PicklingError` "
 "exception; when this happens, an unspecified number of bytes may have "
 "already been written to the underlying file.  Trying to pickle a highly "
-"recursive data structure may exceed the maximum recursion depth, a :exc:"
-"`RecursionError` will be raised in this case.  You can carefully raise this "
-"limit with :func:`sys.setrecursionlimit`."
+"recursive data structure may exceed the maximum recursion depth, "
+"a :exc:`RecursionError` will be raised in this case.  You can carefully "
+"raise this limit with :func:`sys.setrecursionlimit`."
 msgstr ""
 
-#: ../../../library/pickle.rst:529
+#: ../../../library/pickle.rst:533
 msgid ""
-"Note that functions (built-in and user-defined) are pickled by fully :term:"
-"`qualified name`, not by value. [#]_  This means that only the function name "
-"is pickled, along with the name of the containing module and classes.  "
-"Neither the function's code, nor any of its function attributes are "
-"pickled.  Thus the defining module must be importable in the unpickling "
+"Note that functions (built-in and user-defined) are pickled by "
+"fully :term:`qualified name`, not by value. [#]_  This means that only the "
+"function name is pickled, along with the name of the containing module and "
+"classes.  Neither the function's code, nor any of its function attributes "
+"are pickled.  Thus the defining module must be importable in the unpickling "
 "environment, and the module must contain the named object, otherwise an "
 "exception will be raised. [#]_"
 msgstr ""
 
-#: ../../../library/pickle.rst:536
+#: ../../../library/pickle.rst:540
 msgid ""
 "Similarly, classes are pickled by fully qualified name, so the same "
 "restrictions in the unpickling environment apply.  Note that none of the "
@@ -735,13 +744,13 @@ msgid ""
 "attribute ``attr`` is not restored in the unpickling environment::"
 msgstr ""
 
-#: ../../../library/pickle.rst:546
+#: ../../../library/pickle.rst:550
 msgid ""
 "These restrictions are why picklable functions and classes must be defined "
 "at the top level of a module."
 msgstr ""
 
-#: ../../../library/pickle.rst:549
+#: ../../../library/pickle.rst:553
 msgid ""
 "Similarly, when class instances are pickled, their class's code and data are "
 "not pickled along with them.  Only the instance data are pickled.  This is "
@@ -749,77 +758,78 @@ msgid ""
 "and still load objects that were created with an earlier version of the "
 "class.  If you plan to have long-lived objects that will see many versions "
 "of a class, it may be worthwhile to put a version number in the objects so "
-"that suitable conversions can be made by the class's :meth:`~object."
-"__setstate__` method."
-msgstr ""
-
-#: ../../../library/pickle.rst:561
-msgid "Pickling Class Instances"
+"that suitable conversions can be made by the "
+"class's :meth:`~object.__setstate__` method."
 msgstr ""
 
 #: ../../../library/pickle.rst:565
+msgid "Pickling Class Instances"
+msgstr ""
+
+#: ../../../library/pickle.rst:569
 msgid ""
 "In this section, we describe the general mechanisms available to you to "
 "define, customize, and control how class instances are pickled and unpickled."
 msgstr ""
 
-#: ../../../library/pickle.rst:568
+#: ../../../library/pickle.rst:572
 msgid ""
 "In most cases, no additional code is needed to make instances picklable.  By "
 "default, pickle will retrieve the class and the attributes of an instance "
-"via introspection. When a class instance is unpickled, its :meth:`~object."
-"__init__` method is usually *not* invoked.  The default behaviour first "
-"creates an uninitialized instance and then restores the saved attributes.  "
-"The following code shows an implementation of this behaviour::"
+"via introspection. When a class instance is unpickled, "
+"its :meth:`~object.__init__` method is usually *not* invoked.  The default "
+"behaviour first creates an uninitialized instance and then restores the "
+"saved attributes.  The following code shows an implementation of this "
+"behaviour::"
 msgstr ""
 
-#: ../../../library/pickle.rst:583
+#: ../../../library/pickle.rst:587
 msgid ""
 "Classes can alter the default behaviour by providing one or several special "
 "methods:"
 msgstr ""
 
-#: ../../../library/pickle.rst:588
+#: ../../../library/pickle.rst:592
 msgid ""
-"In protocols 2 and newer, classes that implement the :meth:"
-"`__getnewargs_ex__` method can dictate the values passed to the :meth:"
-"`__new__` method upon unpickling.  The method must return a pair ``(args, "
-"kwargs)`` where *args* is a tuple of positional arguments and *kwargs* a "
-"dictionary of named arguments for constructing the object.  Those will be "
-"passed to the :meth:`__new__` method upon unpickling."
+"In protocols 2 and newer, classes that implement "
+"the :meth:`__getnewargs_ex__` method can dictate the values passed to "
+"the :meth:`__new__` method upon unpickling.  The method must return a pair "
+"``(args, kwargs)`` where *args* is a tuple of positional arguments and "
+"*kwargs* a dictionary of named arguments for constructing the object.  Those "
+"will be passed to the :meth:`__new__` method upon unpickling."
 msgstr ""
 
-#: ../../../library/pickle.rst:596
+#: ../../../library/pickle.rst:600
 msgid ""
 "You should implement this method if the :meth:`__new__` method of your class "
 "requires keyword-only arguments.  Otherwise, it is recommended for "
 "compatibility to implement :meth:`__getnewargs__`."
 msgstr ""
 
-#: ../../../library/pickle.rst:600
+#: ../../../library/pickle.rst:604
 msgid ":meth:`__getnewargs_ex__` is now used in protocols 2 and 3."
 msgstr ""
 
-#: ../../../library/pickle.rst:606
+#: ../../../library/pickle.rst:610
 msgid ""
 "This method serves a similar purpose as :meth:`__getnewargs_ex__`, but "
 "supports only positional arguments.  It must return a tuple of arguments "
 "``args`` which will be passed to the :meth:`__new__` method upon unpickling."
 msgstr ""
 
-#: ../../../library/pickle.rst:610
+#: ../../../library/pickle.rst:614
 msgid ""
 ":meth:`__getnewargs__` will not be called if :meth:`__getnewargs_ex__` is "
 "defined."
 msgstr ""
 
-#: ../../../library/pickle.rst:613
+#: ../../../library/pickle.rst:617
 msgid ""
-"Before Python 3.6, :meth:`__getnewargs__` was called instead of :meth:"
-"`__getnewargs_ex__` in protocols 2 and 3."
+"Before Python 3.6, :meth:`__getnewargs__` was called instead "
+"of :meth:`__getnewargs_ex__` in protocols 2 and 3."
 msgstr ""
 
-#: ../../../library/pickle.rst:620
+#: ../../../library/pickle.rst:624
 msgid ""
 "Classes can further influence how their instances are pickled by overriding "
 "the method :meth:`__getstate__`.  It is called and the returned object is "
@@ -827,41 +837,41 @@ msgid ""
 "are several cases:"
 msgstr ""
 
-#: ../../../library/pickle.rst:625
+#: ../../../library/pickle.rst:629
 msgid ""
-"For a class that has no instance :attr:`~object.__dict__` and no :attr:"
-"`~object.__slots__`, the default state is ``None``."
+"For a class that has no instance :attr:`~object.__dict__` and "
+"no :attr:`~object.__slots__`, the default state is ``None``."
 msgstr ""
 
-#: ../../../library/pickle.rst:628
+#: ../../../library/pickle.rst:632
 msgid ""
-"For a class that has an instance :attr:`~object.__dict__` and no :attr:"
-"`~object.__slots__`, the default state is ``self.__dict__``."
+"For a class that has an instance :attr:`~object.__dict__` and "
+"no :attr:`~object.__slots__`, the default state is ``self.__dict__``."
 msgstr ""
 
-#: ../../../library/pickle.rst:631
+#: ../../../library/pickle.rst:635
 msgid ""
-"For a class that has an instance :attr:`~object.__dict__` and :attr:`~object."
-"__slots__`, the default state is a tuple consisting of two dictionaries:  "
-"``self.__dict__``, and a dictionary mapping slot names to slot values.  Only "
-"slots that have a value are included in the latter."
+"For a class that has an instance :attr:`~object.__dict__` "
+"and :attr:`~object.__slots__`, the default state is a tuple consisting of "
+"two dictionaries:  ``self.__dict__``, and a dictionary mapping slot names to "
+"slot values.  Only slots that have a value are included in the latter."
 msgstr ""
 
-#: ../../../library/pickle.rst:637
+#: ../../../library/pickle.rst:641
 msgid ""
-"For a class that has :attr:`~object.__slots__` and no instance :attr:"
-"`~object.__dict__`, the default state is a tuple whose first item is "
-"``None`` and whose second item is a dictionary mapping slot names to slot "
-"values described in the previous bullet."
+"For a class that has :attr:`~object.__slots__` and no "
+"instance :attr:`~object.__dict__`, the default state is a tuple whose first "
+"item is ``None`` and whose second item is a dictionary mapping slot names to "
+"slot values described in the previous bullet."
 msgstr ""
 
-#: ../../../library/pickle.rst:642
+#: ../../../library/pickle.rst:646
 msgid ""
-"Added the default implementation of the ``__getstate__()`` method in the :"
-"class:`object` class."
+"Added the default implementation of the ``__getstate__()`` method in "
+"the :class:`object` class."
 msgstr ""
 
-#: ../../../library/pickle.rst:649
+#: ../../../library/pickle.rst:653
 msgid ""
 "Upon unpickling, if the class defines :meth:`__setstate__`, it is called "
 "with the unpickled state.  In that case, there is no requirement for the "
@@ -869,56 +879,57 @@ msgid ""
 "dictionary and its items are assigned to the new instance's dictionary."
 msgstr ""
 
-#: ../../../library/pickle.rst:656
-msgid ""
-"If :meth:`__reduce__` returns a state with value ``None`` at pickling, the :"
-"meth:`__setstate__` method will not be called upon unpickling."
-msgstr ""
-
 #: ../../../library/pickle.rst:660
 msgid ""
-"Refer to the section :ref:`pickle-state` for more information about how to "
-"use the methods :meth:`~object.__getstate__` and :meth:`~object."
-"__setstate__`."
+"If :meth:`__reduce__` returns a state with value ``None`` at pickling, "
+"the :meth:`__setstate__` method will not be called upon unpickling."
 msgstr ""
 
-#: ../../../library/pickle.rst:665
+#: ../../../library/pickle.rst:664
 msgid ""
-"At unpickling time, some methods like :meth:`~object.__getattr__`, :meth:"
-"`~object.__getattribute__`, or :meth:`~object.__setattr__` may be called "
-"upon the instance.  In case those methods rely on some internal invariant "
-"being true, the type should implement :meth:`~object.__new__` to establish "
-"such an invariant, as :meth:`~object.__init__` is not called when unpickling "
-"an instance."
+"Refer to the section :ref:`pickle-state` for more information about how to "
+"use the methods :meth:`~object.__getstate__` "
+"and :meth:`~object.__setstate__`."
 msgstr ""
 
-#: ../../../library/pickle.rst:674
+#: ../../../library/pickle.rst:669
+msgid ""
+"At unpickling time, some methods "
+"like :meth:`~object.__getattr__`, :meth:`~object.__getattribute__`, "
+"or :meth:`~object.__setattr__` may be called upon the instance.  In case "
+"those methods rely on some internal invariant being true, the type should "
+"implement :meth:`~object.__new__` to establish such an invariant, "
+"as :meth:`~object.__init__` is not called when unpickling an instance."
+msgstr ""
+
+#: ../../../library/pickle.rst:678
 msgid ""
 "As we shall see, pickle does not use directly the methods described above.  "
-"In fact, these methods are part of the copy protocol which implements the :"
-"meth:`~object.__reduce__` special method.  The copy protocol provides a "
+"In fact, these methods are part of the copy protocol which implements "
+"the :meth:`~object.__reduce__` special method.  The copy protocol provides a "
 "unified interface for retrieving the data necessary for pickling and copying "
 "objects. [#]_"
 msgstr ""
 
-#: ../../../library/pickle.rst:680
+#: ../../../library/pickle.rst:684
 msgid ""
 "Although powerful, implementing :meth:`~object.__reduce__` directly in your "
 "classes is error prone.  For this reason, class designers should use the "
-"high-level interface (i.e., :meth:`~object.__getnewargs_ex__`, :meth:"
-"`~object.__getstate__` and :meth:`~object.__setstate__`) whenever possible.  "
-"We will show, however, cases where using :meth:`!__reduce__` is the only "
-"option or leads to more efficient pickling or both."
+"high-level interface "
+"(i.e., :meth:`~object.__getnewargs_ex__`, :meth:`~object.__getstate__` "
+"and :meth:`~object.__setstate__`) whenever possible.  We will show, however, "
+"cases where using :meth:`!__reduce__` is the only option or leads to more "
+"efficient pickling or both."
 msgstr ""
 
-#: ../../../library/pickle.rst:689
+#: ../../../library/pickle.rst:693
 msgid ""
 "The interface is currently defined as follows.  The :meth:`__reduce__` "
 "method takes no argument and shall return either a string or preferably a "
 "tuple (the returned object is often referred to as the \"reduce value\")."
 msgstr ""
 
-#: ../../../library/pickle.rst:693
+#: ../../../library/pickle.rst:697
 msgid ""
 "If a string is returned, the string should be interpreted as the name of a "
 "global variable.  It should be the object's local name relative to its "
@@ -929,46 +940,46 @@ msgid ""
 "behaviour is typically useful for singletons."
 msgstr ""
 
-#: ../../../library/pickle.rst:701
+#: ../../../library/pickle.rst:705
 msgid ""
 "When a tuple is returned, it must be between two and six items long. "
 "Optional items can either be omitted, or ``None`` can be provided as their "
 "value.  The semantics of each item are in order:"
 msgstr ""
 
-#: ../../../library/pickle.rst:707
+#: ../../../library/pickle.rst:711
 msgid ""
 "A callable object that will be called to create the initial version of the "
 "object."
 msgstr ""
 
-#: ../../../library/pickle.rst:710
+#: ../../../library/pickle.rst:714
 msgid ""
 "A tuple of arguments for the callable object.  An empty tuple must be given "
 "if the callable does not accept any argument."
 msgstr ""
 
-#: ../../../library/pickle.rst:713
+#: ../../../library/pickle.rst:717
 msgid ""
-"Optionally, the object's state, which will be passed to the object's :meth:"
-"`__setstate__` method as previously described.  If the object has no such "
-"method then, the value must be a dictionary and it will be added to the "
-"object's :attr:`~object.__dict__` attribute."
+"Optionally, the object's state, which will be passed to the "
+"object's :meth:`__setstate__` method as previously described.  If the object "
+"has no such method then, the value must be a dictionary and it will be added "
+"to the object's :attr:`~object.__dict__` attribute."
 msgstr ""
 
-#: ../../../library/pickle.rst:718
+#: ../../../library/pickle.rst:722
 msgid ""
 "Optionally, an iterator (and not a sequence) yielding successive items. "
 "These items will be appended to the object either using ``obj.append(item)`` "
 "or, in batch, using ``obj.extend(list_of_items)``. This is primarily used "
-"for list subclasses, but may be used by other classes as long as they have :"
-"meth:`~sequence.append` and :meth:`~sequence.extend` methods with the "
+"for list subclasses, but may be used by other classes as long as they "
+"have :meth:`~sequence.append` and :meth:`~sequence.extend` methods with the "
 "appropriate signature.  (Whether :meth:`!append` or :meth:`!extend` is used "
 "depends on which pickle protocol version is used as well as the number of "
 "items to append, so both must be supported.)"
 msgstr ""
 
-#: ../../../library/pickle.rst:728
+#: ../../../library/pickle.rst:732
 msgid ""
 "Optionally, an iterator (not a sequence) yielding successive key-value "
 "pairs.  These items will be stored to the object using ``obj[key] = "
@@ -976,34 +987,35 @@ msgid ""
 "by other classes as long as they implement :meth:`__setitem__`."
 msgstr ""
 
-#: ../../../library/pickle.rst:733
+#: ../../../library/pickle.rst:737
 msgid ""
 "Optionally, a callable with a ``(obj, state)`` signature. This callable "
 "allows the user to programmatically control the state-updating behavior of a "
 "specific object, instead of using ``obj``'s static :meth:`__setstate__` "
-"method. If not ``None``, this callable will have priority over ``obj``'s :"
-"meth:`__setstate__`."
+"method. If not ``None``, this callable will have priority over "
+"``obj``'s :meth:`__setstate__`."
 msgstr ""
 
-#: ../../../library/pickle.rst:739
+#: ../../../library/pickle.rst:743
 msgid "The optional sixth tuple item, ``(obj, state)``, was added."
 msgstr ""
 
-#: ../../../library/pickle.rst:745
+#: ../../../library/pickle.rst:749
 msgid ""
 "Alternatively, a :meth:`__reduce_ex__` method may be defined.  The only "
 "difference is this method should take a single integer argument, the "
-"protocol version.  When defined, pickle will prefer it over the :meth:"
-"`__reduce__` method.  In addition, :meth:`__reduce__` automatically becomes "
-"a synonym for the extended version.  The main use for this method is to "
-"provide backwards-compatible reduce values for older Python releases."
+"protocol version.  When defined, pickle will prefer it over "
+"the :meth:`__reduce__` method.  In addition, :meth:`__reduce__` "
+"automatically becomes a synonym for the extended version.  The main use for "
+"this method is to provide backwards-compatible reduce values for older "
+"Python releases."
 msgstr ""
 
-#: ../../../library/pickle.rst:757
+#: ../../../library/pickle.rst:761
 msgid "Persistence of External Objects"
 msgstr ""
 
-#: ../../../library/pickle.rst:763
+#: ../../../library/pickle.rst:767
 msgid ""
 "For the benefit of object persistence, the :mod:`!pickle` module supports "
 "the notion of a reference to an object outside the pickled data stream.  "
@@ -1012,15 +1024,15 @@ msgid ""
 "object (for any newer protocol)."
 msgstr ""
 
-#: ../../../library/pickle.rst:769
+#: ../../../library/pickle.rst:773
 msgid ""
 "The resolution of such persistent IDs is not defined by the :mod:`!pickle` "
 "module; it will delegate this resolution to the user-defined methods on the "
-"pickler and unpickler, :meth:`~Pickler.persistent_id` and :meth:`~Unpickler."
-"persistent_load` respectively."
+"pickler and unpickler, :meth:`~Pickler.persistent_id` "
+"and :meth:`~Unpickler.persistent_load` respectively."
 msgstr ""
 
-#: ../../../library/pickle.rst:774
+#: ../../../library/pickle.rst:778
 msgid ""
 "To pickle objects that have an external persistent ID, the pickler must have "
 "a custom :meth:`~Pickler.persistent_id` method that takes an object as an "
@@ -1031,64 +1043,64 @@ msgid ""
 "persistent ID."
 msgstr ""
 
-#: ../../../library/pickle.rst:781
+#: ../../../library/pickle.rst:785
 msgid ""
-"To unpickle external objects, the unpickler must have a custom :meth:"
-"`~Unpickler.persistent_load` method that takes a persistent ID object and "
-"returns the referenced object."
+"To unpickle external objects, the unpickler must have a "
+"custom :meth:`~Unpickler.persistent_load` method that takes a persistent ID "
+"object and returns the referenced object."
 msgstr ""
 
-#: ../../../library/pickle.rst:785
+#: ../../../library/pickle.rst:789
 msgid ""
 "Here is a comprehensive example presenting how persistent ID can be used to "
 "pickle external objects by reference."
 msgstr ""
 
-#: ../../../library/pickle.rst:793
+#: ../../../library/pickle.rst:797
 msgid "Dispatch Tables"
 msgstr ""
 
-#: ../../../library/pickle.rst:795
+#: ../../../library/pickle.rst:799
 msgid ""
 "If one wants to customize pickling of some classes without disturbing any "
 "other code which depends on pickling, then one can create a pickler with a "
 "private dispatch table."
 msgstr ""
 
-#: ../../../library/pickle.rst:799
+#: ../../../library/pickle.rst:803
 msgid ""
 "The global dispatch table managed by the :mod:`copyreg` module is available "
 "as :data:`!copyreg.dispatch_table`.  Therefore, one may choose to use a "
 "modified copy of :data:`!copyreg.dispatch_table` as a private dispatch table."
 msgstr ""
 
-#: ../../../library/pickle.rst:804
+#: ../../../library/pickle.rst:808
 msgid "For example ::"
 msgstr ""
 
-#: ../../../library/pickle.rst:811
+#: ../../../library/pickle.rst:815
 msgid ""
 "creates an instance of :class:`pickle.Pickler` with a private dispatch table "
 "which handles the ``SomeClass`` class specially.  Alternatively, the code ::"
 msgstr ""
 
-#: ../../../library/pickle.rst:821
+#: ../../../library/pickle.rst:825
 msgid ""
 "does the same but all instances of ``MyPickler`` will by default share the "
 "private dispatch table.  On the other hand, the code ::"
 msgstr ""
 
-#: ../../../library/pickle.rst:828
+#: ../../../library/pickle.rst:832
 msgid ""
 "modifies the global dispatch table shared by all users of the :mod:`copyreg` "
 "module."
 msgstr ""
 
-#: ../../../library/pickle.rst:833
+#: ../../../library/pickle.rst:837
 msgid "Handling Stateful Objects"
 msgstr ""
 
-#: ../../../library/pickle.rst:839
+#: ../../../library/pickle.rst:843
 msgid ""
 "Here's an example that shows how to modify pickling behavior for a class. "
 "The :class:`!TextReader` class below opens a text file, and returns the line "
@@ -1100,15 +1112,15 @@ msgid ""
 "behavior. ::"
 msgstr ""
 
-#: ../../../library/pickle.rst:885
+#: ../../../library/pickle.rst:889
 msgid "A sample usage might be something like this::"
 msgstr ""
 
-#: ../../../library/pickle.rst:899
+#: ../../../library/pickle.rst:903
 msgid "Custom Reduction for Types, Functions, and Other Objects"
 msgstr ""
 
-#: ../../../library/pickle.rst:903
+#: ../../../library/pickle.rst:907
 msgid ""
 "Sometimes, :attr:`~Pickler.dispatch_table` may not be flexible enough. In "
 "particular we may want to customize pickling based on another criterion than "
@@ -1116,7 +1128,7 @@ msgid ""
 "classes."
 msgstr ""
 
-#: ../../../library/pickle.rst:908
+#: ../../../library/pickle.rst:912
 msgid ""
 "For those cases, it is possible to subclass from the :class:`Pickler` class "
 "and implement a :meth:`~Pickler.reducer_override` method. This method can "
@@ -1125,33 +1137,33 @@ msgid ""
 "behavior."
 msgstr ""
 
-#: ../../../library/pickle.rst:913
+#: ../../../library/pickle.rst:917
 msgid ""
-"If both the :attr:`~Pickler.dispatch_table` and :meth:`~Pickler."
-"reducer_override` are defined, then :meth:`~Pickler.reducer_override` method "
-"takes priority."
+"If both the :attr:`~Pickler.dispatch_table` "
+"and :meth:`~Pickler.reducer_override` are defined, "
+"then :meth:`~Pickler.reducer_override` method takes priority."
 msgstr ""
 
-#: ../../../library/pickle.rst:918
+#: ../../../library/pickle.rst:922
 msgid ""
 "For performance reasons, :meth:`~Pickler.reducer_override` may not be called "
 "for the following objects: ``None``, ``True``, ``False``, and exact "
-"instances of :class:`int`, :class:`float`, :class:`bytes`, :class:`str`, :"
-"class:`dict`, :class:`set`, :class:`frozenset`, :class:`list` and :class:"
-"`tuple`."
+"instances "
+"of :class:`int`, :class:`float`, :class:`bytes`, :class:`str`, :class:`dict`, :class:`set`, :class:`frozenset`, :class:`list` "
+"and :class:`tuple`."
 msgstr ""
 
-#: ../../../library/pickle.rst:924
+#: ../../../library/pickle.rst:928
 msgid ""
 "Here is a simple example where we allow pickling and reconstructing a given "
 "class::"
 msgstr ""
 
-#: ../../../library/pickle.rst:959
+#: ../../../library/pickle.rst:963
 msgid "Out-of-band Buffers"
 msgstr ""
 
-#: ../../../library/pickle.rst:963
+#: ../../../library/pickle.rst:967
 msgid ""
 "In some contexts, the :mod:`!pickle` module is used to transfer massive "
 "amounts of data.  Therefore, it can be important to minimize the number of "
@@ -1161,7 +1173,7 @@ msgid ""
 "involves copying data to and from the pickle stream."
 msgstr ""
 
-#: ../../../library/pickle.rst:970
+#: ../../../library/pickle.rst:974
 msgid ""
 "This constraint can be eschewed if both the *provider* (the implementation "
 "of the object types to be transferred) and the *consumer* (the "
@@ -1169,19 +1181,19 @@ msgid ""
 "transfer facilities provided by pickle protocol 5 and higher."
 msgstr ""
 
-#: ../../../library/pickle.rst:976
+#: ../../../library/pickle.rst:980
 msgid "Provider API"
 msgstr ""
 
-#: ../../../library/pickle.rst:978
+#: ../../../library/pickle.rst:982
 msgid ""
-"The large data objects to be pickled must implement a :meth:`~object."
-"__reduce_ex__` method specialized for protocol 5 and higher, which returns "
-"a :class:`PickleBuffer` instance (instead of e.g. a :class:`bytes` object) "
-"for any large data."
+"The large data objects to be pickled must implement "
+"a :meth:`~object.__reduce_ex__` method specialized for protocol 5 and "
+"higher, which returns a :class:`PickleBuffer` instance (instead of e.g. "
+"a :class:`bytes` object) for any large data."
 msgstr ""
 
-#: ../../../library/pickle.rst:983
+#: ../../../library/pickle.rst:987
 msgid ""
 "A :class:`PickleBuffer` object *signals* that the underlying buffer is "
 "eligible for out-of-band data transfer.  Those objects remain compatible "
@@ -1190,37 +1202,38 @@ msgid ""
 "themselves."
 msgstr ""
 
-#: ../../../library/pickle.rst:990
+#: ../../../library/pickle.rst:994
 msgid "Consumer API"
 msgstr ""
 
-#: ../../../library/pickle.rst:992
+#: ../../../library/pickle.rst:996
 msgid ""
-"A communications system can enable custom handling of the :class:"
-"`PickleBuffer` objects generated when serializing an object graph."
+"A communications system can enable custom handling of "
+"the :class:`PickleBuffer` objects generated when serializing an object graph."
 msgstr ""
 
-#: ../../../library/pickle.rst:995
+#: ../../../library/pickle.rst:999
 msgid ""
-"On the sending side, it needs to pass a *buffer_callback* argument to :class:"
-"`Pickler` (or to the :func:`dump` or :func:`dumps` function), which will be "
-"called with each :class:`PickleBuffer` generated while pickling the object "
-"graph.  Buffers accumulated by the *buffer_callback* will not see their data "
-"copied into the pickle stream, only a cheap marker will be inserted."
+"On the sending side, it needs to pass a *buffer_callback* argument "
+"to :class:`Pickler` (or to the :func:`dump` or :func:`dumps` function), "
+"which will be called with each :class:`PickleBuffer` generated while "
+"pickling the object graph.  Buffers accumulated by the *buffer_callback* "
+"will not see their data copied into the pickle stream, only a cheap marker "
+"will be inserted."
 msgstr ""
 
-#: ../../../library/pickle.rst:1002
+#: ../../../library/pickle.rst:1006
 msgid ""
-"On the receiving side, it needs to pass a *buffers* argument to :class:"
-"`Unpickler` (or to the :func:`load` or :func:`loads` function), which is an "
-"iterable of the buffers which were passed to *buffer_callback*. That "
-"iterable should produce buffers in the same order as they were passed to "
-"*buffer_callback*.  Those buffers will provide the data expected by the "
-"reconstructors of the objects whose pickling produced the original :class:"
-"`PickleBuffer` objects."
+"On the receiving side, it needs to pass a *buffers* argument "
+"to :class:`Unpickler` (or to the :func:`load` or :func:`loads` function), "
+"which is an iterable of the buffers which were passed to *buffer_callback*. "
+"That iterable should produce buffers in the same order as they were passed "
+"to *buffer_callback*.  Those buffers will provide the data expected by the "
+"reconstructors of the objects whose pickling produced the "
+"original :class:`PickleBuffer` objects."
 msgstr ""
 
-#: ../../../library/pickle.rst:1010
+#: ../../../library/pickle.rst:1014
 msgid ""
 "Between the sending side and the receiving side, the communications system "
 "is free to implement its own transfer mechanism for out-of-band buffers. "
@@ -1228,36 +1241,36 @@ msgid ""
 "dependent compression."
 msgstr ""
 
-#: ../../../library/pickle.rst:1016
+#: ../../../library/pickle.rst:1020
 msgid "Example"
 msgstr "範例"
 
-#: ../../../library/pickle.rst:1018
+#: ../../../library/pickle.rst:1022
 msgid ""
 "Here is a trivial example where we implement a :class:`bytearray` subclass "
 "able to participate in out-of-band buffer pickling::"
 msgstr ""
 
-#: ../../../library/pickle.rst:1042
+#: ../../../library/pickle.rst:1046
 msgid ""
 "The reconstructor (the ``_reconstruct`` class method) returns the buffer's "
 "providing object if it has the right type.  This is an easy way to simulate "
 "zero-copy behaviour on this toy example."
 msgstr ""
 
-#: ../../../library/pickle.rst:1046
+#: ../../../library/pickle.rst:1050
 msgid ""
 "On the consumer side, we can pickle those objects the usual way, which when "
 "unserialized will give us a copy of the original object::"
 msgstr ""
 
-#: ../../../library/pickle.rst:1055
+#: ../../../library/pickle.rst:1059
 msgid ""
 "But if we pass a *buffer_callback* and then give back the accumulated "
 "buffers when unserializing, we are able to get back the original object::"
 msgstr ""
 
-#: ../../../library/pickle.rst:1065
+#: ../../../library/pickle.rst:1069
 msgid ""
 "This example is limited by the fact that :class:`bytearray` allocates its "
 "own memory: you cannot create a :class:`bytearray` instance that is backed "
@@ -1267,15 +1280,15 @@ msgid ""
 "processes or systems."
 msgstr ""
 
-#: ../../../library/pickle.rst:1072
+#: ../../../library/pickle.rst:1076
 msgid ":pep:`574` -- Pickle protocol 5 with out-of-band data"
 msgstr ""
 
-#: ../../../library/pickle.rst:1078
+#: ../../../library/pickle.rst:1082
 msgid "Restricting Globals"
 msgstr ""
 
-#: ../../../library/pickle.rst:1083
+#: ../../../library/pickle.rst:1087
 msgid ""
 "By default, unpickling will import any class or function that it finds in "
 "the pickle data.  For many applications, this behaviour is unacceptable as "
@@ -1283,7 +1296,7 @@ msgid ""
 "what this hand-crafted pickle data stream does when loaded::"
 msgstr ""
 
-#: ../../../library/pickle.rst:1093
+#: ../../../library/pickle.rst:1097
 msgid ""
 "In this example, the unpickler imports the :func:`os.system` function and "
 "then apply the string argument \"echo hello world\".  Although this example "
@@ -1291,26 +1304,26 @@ msgid ""
 "system."
 msgstr ""
 
-#: ../../../library/pickle.rst:1097
+#: ../../../library/pickle.rst:1101
 msgid ""
-"For this reason, you may want to control what gets unpickled by customizing :"
-"meth:`Unpickler.find_class`.  Unlike its name suggests, :meth:`Unpickler."
-"find_class` is called whenever a global (i.e., a class or a function) is "
-"requested.  Thus it is possible to either completely forbid globals or "
-"restrict them to a safe subset."
+"For this reason, you may want to control what gets unpickled by "
+"customizing :meth:`Unpickler.find_class`.  Unlike its name "
+"suggests, :meth:`Unpickler.find_class` is called whenever a global (i.e., a "
+"class or a function) is requested.  Thus it is possible to either completely "
+"forbid globals or restrict them to a safe subset."
 msgstr ""
 
-#: ../../../library/pickle.rst:1103
+#: ../../../library/pickle.rst:1107
 msgid ""
-"Here is an example of an unpickler allowing only few safe classes from the :"
-"mod:`builtins` module to be loaded::"
+"Here is an example of an unpickler allowing only few safe classes from "
+"the :mod:`builtins` module to be loaded::"
 msgstr ""
 
-#: ../../../library/pickle.rst:1132
+#: ../../../library/pickle.rst:1136
 msgid "A sample usage of our unpickler working as intended::"
 msgstr ""
 
-#: ../../../library/pickle.rst:1151
+#: ../../../library/pickle.rst:1155
 msgid ""
 "As our examples shows, you have to be careful with what you allow to be "
 "unpickled.  Therefore if security is a concern, you may want to consider "
@@ -1318,119 +1331,119 @@ msgid ""
 "party solutions."
 msgstr ""
 
-#: ../../../library/pickle.rst:1158
+#: ../../../library/pickle.rst:1162
 msgid "Performance"
 msgstr ""
 
-#: ../../../library/pickle.rst:1160
+#: ../../../library/pickle.rst:1164
 msgid ""
 "Recent versions of the pickle protocol (from protocol 2 and upwards) feature "
 "efficient binary encodings for several common features and built-in types. "
 "Also, the :mod:`!pickle` module has a transparent optimizer written in C."
 msgstr ""
 
-#: ../../../library/pickle.rst:1168
+#: ../../../library/pickle.rst:1172
 msgid "Examples"
 msgstr "範例"
 
-#: ../../../library/pickle.rst:1170
+#: ../../../library/pickle.rst:1174
 msgid ""
 "For the simplest code, use the :func:`dump` and :func:`load` functions. ::"
 msgstr ""
 
-#: ../../../library/pickle.rst:1186
+#: ../../../library/pickle.rst:1190
 msgid "The following example reads the resulting pickled data. ::"
 msgstr ""
 
-#: ../../../library/pickle.rst:1203
+#: ../../../library/pickle.rst:1207
 msgid "Command-line interface"
 msgstr ""
 
-#: ../../../library/pickle.rst:1205
+#: ../../../library/pickle.rst:1209
 msgid ""
 "The :mod:`!pickle` module can be invoked as a script from the command line, "
 "it will display contents of the pickle files. However, when the pickle file "
 "that you want to examine comes from an untrusted source, ``-m pickletools`` "
-"is a safer option because it does not execute pickle bytecode, see :ref:"
-"`pickletools CLI usage <pickletools-cli>`."
+"is a safer option because it does not execute pickle bytecode, "
+"see :ref:`pickletools CLI usage <pickletools-cli>`."
 msgstr ""
 
-#: ../../../library/pickle.rst:1215
+#: ../../../library/pickle.rst:1219
 msgid "The following option is accepted:"
 msgstr ""
 
-#: ../../../library/pickle.rst:1221
+#: ../../../library/pickle.rst:1225
 msgid ""
 "A pickle file to read, or ``-`` to indicate reading from standard input."
 msgstr ""
 
-#: ../../../library/pickle.rst:1226
+#: ../../../library/pickle.rst:1230
 msgid "Module :mod:`copyreg`"
 msgstr ""
 
-#: ../../../library/pickle.rst:1227
+#: ../../../library/pickle.rst:1231
 msgid "Pickle interface constructor registration for extension types."
 msgstr ""
 
-#: ../../../library/pickle.rst:1229
+#: ../../../library/pickle.rst:1233
 msgid "Module :mod:`pickletools`"
 msgstr ""
 
-#: ../../../library/pickle.rst:1230
+#: ../../../library/pickle.rst:1234
 msgid "Tools for working with and analyzing pickled data."
 msgstr ""
 
-#: ../../../library/pickle.rst:1232
+#: ../../../library/pickle.rst:1236
 msgid "Module :mod:`shelve`"
 msgstr ""
 
-#: ../../../library/pickle.rst:1233
+#: ../../../library/pickle.rst:1237
 msgid "Indexed databases of objects; uses :mod:`!pickle`."
 msgstr ""
 
-#: ../../../library/pickle.rst:1235
+#: ../../../library/pickle.rst:1239
 msgid "Module :mod:`copy`"
 msgstr ""
 
-#: ../../../library/pickle.rst:1236
+#: ../../../library/pickle.rst:1240
 msgid "Shallow and deep object copying."
 msgstr ""
 
-#: ../../../library/pickle.rst:1238
+#: ../../../library/pickle.rst:1242
 msgid "Module :mod:`marshal`"
 msgstr ""
 
-#: ../../../library/pickle.rst:1239
+#: ../../../library/pickle.rst:1243
 msgid "High-performance serialization of built-in types."
 msgstr ""
 
-#: ../../../library/pickle.rst:1243
+#: ../../../library/pickle.rst:1247
 msgid "Footnotes"
 msgstr "腳註"
 
-#: ../../../library/pickle.rst:1244
+#: ../../../library/pickle.rst:1248
 msgid "Don't confuse this with the :mod:`marshal` module"
 msgstr ""
 
-#: ../../../library/pickle.rst:1246
+#: ../../../library/pickle.rst:1250
 msgid ""
 "This is why :keyword:`lambda` functions cannot be pickled:  all :keyword:`!"
 "lambda` functions share the same name:  ``<lambda>``."
 msgstr ""
 
-#: ../../../library/pickle.rst:1249
+#: ../../../library/pickle.rst:1253
 msgid ""
-"The exception raised will likely be an :exc:`ImportError` or an :exc:"
-"`AttributeError` but it could be something else."
+"The exception raised will likely be an :exc:`ImportError` or "
+"an :exc:`AttributeError` but it could be something else."
 msgstr ""
 
-#: ../../../library/pickle.rst:1252
+#: ../../../library/pickle.rst:1256
 msgid ""
 "The :mod:`copy` module uses this protocol for shallow and deep copying "
 "operations."
 msgstr ""
 
-#: ../../../library/pickle.rst:1255
+#: ../../../library/pickle.rst:1259
 msgid ""
 "The limitation on alphanumeric characters is due to the fact that persistent "
 "IDs in protocol 0 are delimited by the newline character.  Therefore if any "
@@ -1470,30 +1483,30 @@ msgstr ""
 msgid "External Data Representation"
 msgstr ""
 
-#: ../../../library/pickle.rst:672
+#: ../../../library/pickle.rst:676
 msgid "copy"
 msgstr ""
 
-#: ../../../library/pickle.rst:672
+#: ../../../library/pickle.rst:676
 msgid "protocol"
 msgstr ""
 
-#: ../../../library/pickle.rst:759
+#: ../../../library/pickle.rst:763
 msgid "persistent_id (pickle protocol)"
 msgstr ""
 
-#: ../../../library/pickle.rst:759
+#: ../../../library/pickle.rst:763
 msgid "persistent_load (pickle protocol)"
 msgstr ""
 
-#: ../../../library/pickle.rst:835
+#: ../../../library/pickle.rst:839
 msgid "__getstate__() (copy protocol)"
 msgstr ""
 
-#: ../../../library/pickle.rst:835
+#: ../../../library/pickle.rst:839
 msgid "__setstate__() (copy protocol)"
 msgstr ""
 
-#: ../../../library/pickle.rst:1080
+#: ../../../library/pickle.rst:1084
 msgid "find_class() (pickle protocol)"
 msgstr ""

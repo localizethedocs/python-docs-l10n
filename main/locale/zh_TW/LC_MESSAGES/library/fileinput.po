@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-02 09:17+0000\n"
+"POT-Creation-Date: 2026-10-26 15:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,9 +49,9 @@ msgstr ""
 #: ../../../library/fileinput.rst:27
 msgid ""
 "All files are opened in text mode by default, but you can override this by "
-"specifying the *mode* parameter in the call to :func:`.input` or :class:"
-"`FileInput`.  If an I/O error occurs during opening or reading a file, :exc:"
-"`OSError` is raised."
+"specifying the *mode* parameter in the call to :func:`.input` "
+"or :class:`FileInput`.  If an I/O error occurs during opening or reading a "
+"file, :exc:`OSError` is raised."
 msgstr ""
 
 #: ../../../library/fileinput.rst:32
@@ -103,9 +103,9 @@ msgstr ""
 
 #: ../../../library/fileinput.rst:63
 msgid ""
-"The :class:`FileInput` instance can be used as a context manager in the :"
-"keyword:`with` statement.  In this example, *input* is closed after the :"
-"keyword:`!with` statement is exited, even if an exception occurs::"
+"The :class:`FileInput` instance can be used as a context manager in "
+"the :keyword:`with` statement.  In this example, *input* is closed after "
+"the :keyword:`!with` statement is exited, even if an exception occurs::"
 msgstr ""
 
 #: ../../../library/fileinput.rst:71 ../../../library/fileinput.rst:167
@@ -117,14 +117,15 @@ msgid "The keyword parameters *mode* and *openhook* are now keyword-only."
 msgstr ""
 
 #: ../../../library/fileinput.rst:77 ../../../library/fileinput.rst:173
-#: ../../../library/fileinput.rst:207
+#: ../../../library/fileinput.rst:217
 msgid "The keyword-only parameter *encoding* and *errors* are added."
 msgstr ""
 
 #: ../../../library/fileinput.rst:81
 msgid ""
-"The following functions use the global state created by :func:`fileinput."
-"input`; if there is no active state, :exc:`RuntimeError` is raised."
+"The following functions use the global state created "
+"by :func:`fileinput.input`; if there is no active state, :exc:`RuntimeError` "
+"is raised."
 msgstr ""
 
 #: ../../../library/fileinput.rst:87
@@ -188,14 +189,13 @@ msgstr ""
 
 #: ../../../library/fileinput.rst:143
 msgid ""
-"Class :class:`FileInput` is the implementation; its methods :meth:"
-"`filename`, :meth:`fileno`, :meth:`lineno`, :meth:`filelineno`, :meth:"
-"`isfirstline`, :meth:`isstdin`, :meth:`nextfile` and :meth:`close` "
-"correspond to the functions of the same name in the module. In addition it "
-"is :term:`iterable` and has a :meth:`~io.TextIOBase.readline` method which "
-"returns the next input line. The sequence must be accessed in strictly "
-"sequential order; random access and :meth:`~io.TextIOBase.readline` cannot "
-"be mixed."
+"Class :class:`FileInput` is the implementation; its "
+"methods :meth:`filename`, :meth:`fileno`, :meth:`lineno`, :meth:`filelineno`, :meth:`isfirstline`, :meth:`isstdin`, :meth:`nextfile` "
+"and :meth:`close` correspond to the functions of the same name in the "
+"module. In addition it is :term:`iterable` and has "
+"a :meth:`~io.TextIOBase.readline` method which returns the next input line. "
+"The sequence must be accessed in strictly sequential order; random access "
+"and :meth:`~io.TextIOBase.readline` cannot be mixed."
 msgstr ""
 
 #: ../../../library/fileinput.rst:151
@@ -219,9 +219,9 @@ msgstr ""
 
 #: ../../../library/fileinput.rst:160
 msgid ""
-"A :class:`FileInput` instance can be used as a context manager in the :"
-"keyword:`with` statement.  In this example, *input* is closed after the :"
-"keyword:`!with` statement is exited, even if an exception occurs::"
+"A :class:`FileInput` instance can be used as a context manager in "
+"the :keyword:`with` statement.  In this example, *input* is closed after "
+"the :keyword:`!with` statement is exited, even if an exception occurs::"
 msgstr ""
 
 #: ../../../library/fileinput.rst:170
@@ -248,11 +248,26 @@ msgid ""
 "In-place filtering is disabled when standard input is read."
 msgstr ""
 
-#: ../../../library/fileinput.rst:193
+#: ../../../library/fileinput.rst:192
+msgid ""
+"The output file is created exclusively: if something else creates a file or "
+"symbolic link with the name of the input file after it has been moved to the "
+"backup file, :exc:`FileExistsError` is raised.  If the output file cannot be "
+"created, the backup file is kept.  In-place filtering of files in a "
+"directory that other, untrusted users can modify is not supported."
+msgstr ""
+
+#: ../../../library/fileinput.rst:198
+msgid ""
+"The output file is now created exclusively, and the backup file is no longer "
+"deleted if the output file cannot be created."
+msgstr ""
+
+#: ../../../library/fileinput.rst:203
 msgid "The two following opening hooks are provided by this module:"
 msgstr ""
 
-#: ../../../library/fileinput.rst:197
+#: ../../../library/fileinput.rst:207
 msgid ""
 "Transparently opens files compressed with gzip and bzip2 (recognized by the "
 "extensions ``'.gz'`` and ``'.bz2'``) using the :mod:`gzip` and :mod:`bz2` "
@@ -260,36 +275,37 @@ msgid ""
 "is opened normally (ie, using :func:`open` without any decompression)."
 msgstr ""
 
-#: ../../../library/fileinput.rst:202
+#: ../../../library/fileinput.rst:212
 msgid ""
 "The *encoding* and *errors* values are passed to :class:`io.TextIOWrapper` "
 "for compressed files and open for normal files."
 msgstr ""
 
-#: ../../../library/fileinput.rst:205
+#: ../../../library/fileinput.rst:215
 msgid ""
-"Usage example:  ``fi = fileinput.FileInput(openhook=fileinput."
-"hook_compressed, encoding=\"utf-8\")``"
+"Usage example:  ``fi = "
+"fileinput.FileInput(openhook=fileinput.hook_compressed, encoding=\"utf-8\")``"
 msgstr ""
 
-#: ../../../library/fileinput.rst:213
+#: ../../../library/fileinput.rst:223
 msgid ""
 "Returns a hook which opens each file with :func:`open`, using the given "
 "*encoding* and *errors* to read the file."
 msgstr ""
 
-#: ../../../library/fileinput.rst:216
+#: ../../../library/fileinput.rst:226
 msgid ""
-"Usage example: ``fi = fileinput.FileInput(openhook=fileinput."
-"hook_encoded(\"utf-8\", \"surrogateescape\"))``"
+"Usage example: ``fi = "
+"fileinput.FileInput(openhook=fileinput.hook_encoded(\"utf-8\", "
+"\"surrogateescape\"))``"
 msgstr ""
 
-#: ../../../library/fileinput.rst:220
+#: ../../../library/fileinput.rst:230
 msgid "Added the optional *errors* parameter."
 msgstr ""
 
-#: ../../../library/fileinput.rst:223
+#: ../../../library/fileinput.rst:233
 msgid ""
-"This function is deprecated since :func:`fileinput.input` and :class:"
-"`FileInput` now have *encoding* and *errors* parameters."
+"This function is deprecated since :func:`fileinput.input` "
+"and :class:`FileInput` now have *encoding* and *errors* parameters."
 msgstr ""

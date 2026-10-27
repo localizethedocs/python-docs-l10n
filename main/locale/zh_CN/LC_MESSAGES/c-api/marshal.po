@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 17:48+0000\n"
+"POT-Creation-Date: 2026-10-26 15:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,8 +36,8 @@ msgstr ""
 
 #: ../../../c-api/marshal.rst:16
 msgid ""
-"The module supports several versions of the data format; see the :py:mod:"
-"`Python module documentation <marshal>` for details."
+"The module supports several versions of the data format; see "
+"the :py:mod:`Python module documentation <marshal>` for details."
 msgstr ""
 
 #: ../../../c-api/marshal.rst:19
@@ -53,9 +53,9 @@ msgstr ""
 #: ../../../c-api/marshal.rst:27
 msgid ""
 "Previously, in functions taking a :c:expr:`FILE*`, the reading functions "
-"raised :exc:`EOFError` instead of :exc:`OSError` and :exc:"
-"`KeyboardInterrupt`, and the writing functions ignored I/O errors and "
-"interruptions."
+"raised :exc:`EOFError` instead of :exc:`OSError` "
+"and :exc:`KeyboardInterrupt`, and the writing functions ignored I/O errors "
+"and interruptions."
 msgstr ""
 
 #: ../../../c-api/marshal.rst:35
@@ -69,58 +69,89 @@ msgid ""
 "native :c:expr:`long` type.  *version* indicates the file format."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:43 ../../../c-api/marshal.rst:51
+#: ../../../c-api/marshal.rst:43 ../../../c-api/marshal.rst:61
 msgid ""
-"This function can fail, in which case it sets the error indicator. Use :c:"
-"func:`PyErr_Occurred` to check for that."
+"This function can fail, in which case it sets the error indicator. "
+"Use :c:func:`PyErr_Occurred` to check for that."
 msgstr ""
 
 #: ../../../c-api/marshal.rst:48
+msgid ""
+"In Python 3.15 and earlier, this function does not set the error indicator "
+"if writing to *file* fails. The same caveat applies as "
+"for :c:func:`PyMarshal_WriteObjectToFile`."
+msgstr ""
+
+#: ../../../c-api/marshal.rst:54
 msgid ""
 "Marshal a Python object, *value*, to *file*. *version* indicates the file "
 "format."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:56
+#: ../../../c-api/marshal.rst:57
+msgid ""
+"The marshalled representation of *value* is built in memory and then written "
+"to *file*. Nothing is written if *value* cannot be marshalled."
+msgstr ""
+
+#: ../../../c-api/marshal.rst:66
+msgid ""
+"In Python 3.15 and earlier, this function can write only part of the data to "
+"*file* and return without setting the error indicator, for example if "
+"*value* contains an object which cannot be marshalled or if writing to "
+"*file* fails (see :gh:`155907`). Code which has to support these versions "
+"cannot rely on :c:func:`PyErr_Occurred` alone to know that all the data was "
+"written. It can use :c:func:`PyMarshal_WriteObjectToString` and write the "
+"result itself, or validate what was written."
+msgstr ""
+
+#: ../../../c-api/marshal.rst:75
+msgid ""
+"Previously, the data was written to *file* as it was produced, using a "
+"buffer of constant size, and incomplete data was written if *value* could "
+"not be marshalled."
+msgstr ""
+
+#: ../../../c-api/marshal.rst:82
 msgid ""
 "Return a bytes object containing the marshalled representation of *value*. "
 "*version* indicates the file format."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:59 ../../../c-api/marshal.rst:88
-#: ../../../c-api/marshal.rst:101 ../../../c-api/marshal.rst:109
+#: ../../../c-api/marshal.rst:85 ../../../c-api/marshal.rst:114
+#: ../../../c-api/marshal.rst:127 ../../../c-api/marshal.rst:135
 msgid "On error, raises an exception and returns ``NULL``."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:62
+#: ../../../c-api/marshal.rst:88
 msgid "The following functions allow marshalled values to be read back in."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:67
+#: ../../../c-api/marshal.rst:93
 msgid ""
 "Return a C :c:expr:`long` from the data stream in a :c:expr:`FILE*` opened "
 "for reading.  Only a 32-bit value can be read in using this function, "
 "regardless of the native size of :c:expr:`long`."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:71 ../../../c-api/marshal.rst:80
+#: ../../../c-api/marshal.rst:97 ../../../c-api/marshal.rst:106
 msgid "On error, raises an exception and returns ``-1``."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:76
+#: ../../../c-api/marshal.rst:102
 msgid ""
 "Return a C :c:expr:`short` from the data stream in a :c:expr:`FILE*` opened "
 "for reading.  Only a 16-bit value can be read in using this function, "
 "regardless of the native size of :c:expr:`short`."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:85
+#: ../../../c-api/marshal.rst:111
 msgid ""
 "Return a Python object from the data stream in a :c:expr:`FILE*` opened for "
 "reading."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:93
+#: ../../../c-api/marshal.rst:119
 msgid ""
 "Return a Python object from the data stream in a :c:expr:`FILE*` opened for "
 "reading.  Unlike :c:func:`PyMarshal_ReadObjectFromFile`, this function "
@@ -131,7 +162,7 @@ msgid ""
 "anything else from the file."
 msgstr ""
 
-#: ../../../c-api/marshal.rst:106
+#: ../../../c-api/marshal.rst:132
 msgid ""
 "Return a Python object from the data stream in a byte buffer containing "
 "*len* bytes pointed to by *data*."
