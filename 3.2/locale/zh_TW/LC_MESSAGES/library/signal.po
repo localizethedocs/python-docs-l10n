@@ -42,8 +42,8 @@ msgstr ""
 msgid ""
 "A handler for a particular signal, once set, remains installed until it is "
 "explicitly reset (Python emulates the BSD style interface regardless of the "
-"underlying implementation), with the exception of the handler for :const:"
-"`SIGCHLD`, which follows the underlying implementation."
+"underlying implementation), with the exception of the handler "
+"for :const:`SIGCHLD`, which follows the underlying implementation."
 msgstr ""
 
 #: ../../../library/signal.rst:25
@@ -67,8 +67,8 @@ msgstr ""
 
 #: ../../../library/signal.rst:38
 msgid ""
-"It makes little sense to catch synchronous errors like :const:`SIGFPE` or :"
-"const:`SIGSEGV`."
+"It makes little sense to catch synchronous errors like :const:`SIGFPE` "
+"or :const:`SIGSEGV`."
 msgstr ""
 
 #: ../../../library/signal.rst:41
@@ -123,9 +123,10 @@ msgid ""
 "signal is defined as :const:`signal.SIGHUP`; the variable names are "
 "identical to the names used in C programs, as found in ``<signal.h>``. The "
 "Unix man page for ':c:func:`signal`' lists the existing signals (on some "
-"systems this is :manpage:`signal(2)`, on others the list is in :manpage:"
-"`signal(7)`). Note that not all systems define the same set of signal names; "
-"only those names defined by the system are defined by this module."
+"systems this is :manpage:`signal(2)`, on others the list is "
+"in :manpage:`signal(7)`). Note that not all systems define the same set of "
+"signal names; only those names defined by the system are defined by this "
+"module."
 msgstr ""
 
 #: ../../../library/signal.rst:91
@@ -174,10 +175,10 @@ msgstr ""
 
 #: ../../../library/signal.rst:138
 msgid ""
-"Raised to signal an error from the underlying :func:`setitimer` or :func:"
-"`getitimer` implementation. Expect this error if an invalid interval timer "
-"or a negative time is passed to :func:`setitimer`. This error is a subtype "
-"of :exc:`IOError`."
+"Raised to signal an error from the underlying :func:`setitimer` "
+"or :func:`getitimer` implementation. Expect this error if an invalid "
+"interval timer or a negative time is passed to :func:`setitimer`. This error "
+"is a subtype of :exc:`IOError`."
 msgstr ""
 
 #: ../../../library/signal.rst:144
@@ -198,12 +199,12 @@ msgstr ""
 #: ../../../library/signal.rst:160
 msgid ""
 "Return the current signal handler for the signal *signalnum*. The returned "
-"value may be a callable Python object, or one of the special values :const:"
-"`signal.SIG_IGN`, :const:`signal.SIG_DFL` or :const:`None`.  Here, :const:"
-"`signal.SIG_IGN` means that the signal was previously ignored, :const:"
-"`signal.SIG_DFL` means that the default way of handling the signal was "
-"previously in use, and ``None`` means that the previous signal handler was "
-"not installed from Python."
+"value may be a callable Python object, or one of the special "
+"values :const:`signal.SIG_IGN`, :const:`signal.SIG_DFL` or :const:`None`.  "
+"Here, :const:`signal.SIG_IGN` means that the signal was previously "
+"ignored, :const:`signal.SIG_DFL` means that the default way of handling the "
+"signal was previously in use, and ``None`` means that the previous signal "
+"handler was not installed from Python."
 msgstr ""
 
 #: ../../../library/signal.rst:171
@@ -215,19 +216,21 @@ msgstr ""
 
 #: ../../../library/signal.rst:178
 msgid ""
-"Sets given interval timer (one of :const:`signal.ITIMER_REAL`, :const:"
-"`signal.ITIMER_VIRTUAL` or :const:`signal.ITIMER_PROF`) specified by *which* "
-"to fire after *seconds* (float is accepted, different from :func:`alarm`) "
-"and after that every *interval* seconds. The interval timer specified by "
-"*which* can be cleared by setting seconds to zero."
+"Sets given interval timer (one "
+"of :const:`signal.ITIMER_REAL`, :const:`signal.ITIMER_VIRTUAL` "
+"or :const:`signal.ITIMER_PROF`) specified by *which* to fire after *seconds* "
+"(float is accepted, different from :func:`alarm`) and after that every "
+"*interval* seconds. The interval timer specified by *which* can be cleared "
+"by setting seconds to zero."
 msgstr ""
 
 #: ../../../library/signal.rst:184
 msgid ""
 "When an interval timer fires, a signal is sent to the process. The signal "
 "sent is dependent on the timer being used; :const:`signal.ITIMER_REAL` will "
-"deliver :const:`SIGALRM`, :const:`signal.ITIMER_VIRTUAL` sends :const:"
-"`SIGVTALRM`, and :const:`signal.ITIMER_PROF` will deliver :const:`SIGPROF`."
+"deliver :const:`SIGALRM`, :const:`signal.ITIMER_VIRTUAL` "
+"sends :const:`SIGVTALRM`, and :const:`signal.ITIMER_PROF` will "
+"deliver :const:`SIGPROF`."
 msgstr ""
 
 #: ../../../library/signal.rst:190
@@ -236,8 +239,8 @@ msgstr ""
 
 #: ../../../library/signal.rst:192
 msgid ""
-"Attempting to pass an invalid interval timer will cause an :exc:"
-"`ItimerError`.  Availability: Unix."
+"Attempting to pass an invalid interval timer will cause "
+"an :exc:`ItimerError`.  Availability: Unix."
 msgstr ""
 
 #: ../../../library/signal.rst:198
@@ -262,8 +265,8 @@ msgstr ""
 #: ../../../library/signal.rst:211 ../../../library/signal.rst:236
 msgid ""
 "When threads are enabled, this function can only be called from the main "
-"thread; attempting to call it from other threads will cause a :exc:"
-"`ValueError` exception to be raised."
+"thread; attempting to call it from other threads will cause "
+"a :exc:`ValueError` exception to be raised."
 msgstr ""
 
 #: ../../../library/signal.rst:218
@@ -277,8 +280,8 @@ msgstr ""
 #: ../../../library/signal.rst:223
 msgid ""
 "Note that installing a signal handler with :func:`signal` will reset the "
-"restart behaviour to interruptible by implicitly calling :c:func:"
-"`siginterrupt` with a true *flag* value for the given signal."
+"restart behaviour to interruptible by implicitly "
+"calling :c:func:`siginterrupt` with a true *flag* value for the given signal."
 msgstr ""
 
 #: ../../../library/signal.rst:230
@@ -286,8 +289,8 @@ msgid ""
 "Set the handler for signal *signalnum* to the function *handler*.  *handler* "
 "can be a callable Python object taking two arguments (see below), or one of "
 "the special values :const:`signal.SIG_IGN` or :const:`signal.SIG_DFL`.  The "
-"previous signal handler will be returned (see the description of :func:"
-"`getsignal` above).  (See the Unix man page :manpage:`signal(2)`.)"
+"previous signal handler will be returned (see the description "
+"of :func:`getsignal` above).  (See the Unix man page :manpage:`signal(2)`.)"
 msgstr ""
 
 #: ../../../library/signal.rst:240
@@ -300,9 +303,9 @@ msgstr ""
 
 #: ../../../library/signal.rst:245
 msgid ""
-"On Windows, :func:`signal` can only be called with :const:`SIGABRT`, :const:"
-"`SIGFPE`, :const:`SIGILL`, :const:`SIGINT`, :const:`SIGSEGV`, or :const:"
-"`SIGTERM`. A :exc:`ValueError` will be raised in any other case."
+"On Windows, :func:`signal` can only be called "
+"with :const:`SIGABRT`, :const:`SIGFPE`, :const:`SIGILL`, :const:`SIGINT`, :const:`SIGSEGV`, "
+"or :const:`SIGTERM`. A :exc:`ValueError` will be raised in any other case."
 msgstr ""
 
 #: ../../../library/signal.rst:253

@@ -46,9 +46,9 @@ msgid ""
 "intended to be used in C functions that import other modules to execute a "
 "function. The import may block if another thread holds the import lock. The "
 "function :c:func:`PyImport_ImportModuleNoBlock` never blocks. It first tries "
-"to fetch the module from sys.modules and falls back to :c:func:"
-"`PyImport_ImportModule` unless the lock is held, in which case the function "
-"will raise an :exc:`ImportError`."
+"to fetch the module from sys.modules and falls back "
+"to :c:func:`PyImport_ImportModule` unless the lock is held, in which case "
+"the function will raise an :exc:`ImportError`."
 msgstr ""
 
 #: ../../../c-api/import.rst:46 ../../../c-api/import.rst:62
@@ -61,15 +61,16 @@ msgstr ""
 #: ../../../c-api/import.rst:50 ../../../c-api/import.rst:66
 msgid ""
 "The return value is a new reference to the imported module or top-level "
-"package, or *NULL* with an exception set on failure.  Like for :func:"
-"`__import__`, the return value when a submodule of a package was requested "
-"is normally the top-level package, unless a non-empty *fromlist* was given."
+"package, or *NULL* with an exception set on failure.  Like "
+"for :func:`__import__`, the return value when a submodule of a package was "
+"requested is normally the top-level package, unless a non-empty *fromlist* "
+"was given."
 msgstr ""
 
 #: ../../../c-api/import.rst:56
 msgid ""
-"Failing imports remove incomplete module objects, like with :c:func:"
-"`PyImport_ImportModule`."
+"Failing imports remove incomplete module objects, like "
+"with :c:func:`PyImport_ImportModule`."
 msgstr ""
 
 #: ../../../c-api/import.rst:74
@@ -98,10 +99,10 @@ msgstr ""
 #: ../../../c-api/import.rst:98
 msgid ""
 "This function does not load or import the module; if the module wasn't "
-"already loaded, you will get an empty module object. Use :c:func:"
-"`PyImport_ImportModule` or one of its variants to import a module.  Package "
-"structures implied by a dotted name for *name* are not created if not "
-"already present."
+"already loaded, you will get an empty module object. "
+"Use :c:func:`PyImport_ImportModule` or one of its variants to import a "
+"module.  Package structures implied by a dotted name for *name* are not "
+"created if not already present."
 msgstr ""
 
 #: ../../../c-api/import.rst:108
@@ -111,23 +112,23 @@ msgid ""
 "function :func:`compile`, load the module.  Return a new reference to the "
 "module object, or *NULL* with an exception set if an error occurred.  *name* "
 "is removed from :attr:`sys.modules` in error cases, even if *name* was "
-"already in :attr:`sys.modules` on entry to :c:func:"
-"`PyImport_ExecCodeModule`.  Leaving incompletely initialized modules in :"
-"attr:`sys.modules` is dangerous, as imports of such modules have no way to "
-"know that the module object is an unknown (and probably damaged with respect "
-"to the module author's intents) state."
+"already in :attr:`sys.modules` on entry "
+"to :c:func:`PyImport_ExecCodeModule`.  Leaving incompletely initialized "
+"modules in :attr:`sys.modules` is dangerous, as imports of such modules have "
+"no way to know that the module object is an unknown (and probably damaged "
+"with respect to the module author's intents) state."
 msgstr ""
 
 #: ../../../c-api/import.rst:118
 msgid ""
-"The module's :attr:`__file__` attribute will be set to the code object's :c:"
-"member:`co_filename`."
+"The module's :attr:`__file__` attribute will be set to the code "
+"object's :c:member:`co_filename`."
 msgstr ""
 
 #: ../../../c-api/import.rst:121
 msgid ""
-"This function will reload the module if it was already imported.  See :c:"
-"func:`PyImport_ReloadModule` for the intended way to reload a module."
+"This function will reload the module if it was already imported.  "
+"See :c:func:`PyImport_ReloadModule` for the intended way to reload a module."
 msgstr ""
 
 #: ../../../c-api/import.rst:124
@@ -138,8 +139,8 @@ msgstr ""
 
 #: ../../../c-api/import.rst:127
 msgid ""
-"See also :c:func:`PyImport_ExecCodeModuleEx` and :c:func:"
-"`PyImport_ExecCodeModuleWithPathnames`."
+"See also :c:func:`PyImport_ExecCodeModuleEx` "
+"and :c:func:`PyImport_ExecCodeModuleWithPathnames`."
 msgstr ""
 
 #: ../../../c-api/import.rst:133
@@ -161,9 +162,9 @@ msgstr ""
 
 #: ../../../c-api/import.rst:149
 msgid ""
-"Return the magic number for Python bytecode files (a.k.a. :file:`.pyc` and :"
-"file:`.pyo` files).  The magic number should be present in the first four "
-"bytes of the bytecode file, in little-endian byte order."
+"Return the magic number for Python bytecode files (a.k.a. :file:`.pyc` "
+"and :file:`.pyo` files).  The magic number should be present in the first "
+"four bytes of the bytecode file, in little-endian byte order."
 msgstr ""
 
 #: ../../../c-api/import.rst:156
@@ -174,8 +175,8 @@ msgstr ""
 
 #: ../../../c-api/import.rst:163
 msgid ""
-"Return the dictionary used for the module administration (a.k.a. ``sys."
-"modules``).  Note that this is a per-interpreter variable."
+"Return the dictionary used for the module administration (a.k.a. "
+"``sys.modules``).  Note that this is a per-interpreter variable."
 msgstr ""
 
 #: ../../../c-api/import.rst:169
@@ -209,17 +210,17 @@ msgstr ""
 msgid ""
 "Load a frozen module named *name*.  Return ``1`` for success, ``0`` if the "
 "module is not found, and ``-1`` with an exception set if the initialization "
-"failed.  To access the imported module on a successful load, use :c:func:"
-"`PyImport_ImportModule`.  (Note the misnomer --- this function would reload "
-"the module if it was already imported.)"
+"failed.  To access the imported module on a successful load, "
+"use :c:func:`PyImport_ImportModule`.  (Note the misnomer --- this function "
+"would reload the module if it was already imported.)"
 msgstr ""
 
 #: ../../../c-api/import.rst:216
 msgid ""
 "This is the structure type definition for frozen module descriptors, as "
 "generated by the :program:`freeze` utility (see :file:`Tools/freeze/` in the "
-"Python source distribution).  Its definition, found in :file:`Include/import."
-"h`, is::"
+"Python source distribution).  Its definition, found in :file:`Include/"
+"import.h`, is::"
 msgstr ""
 
 #: ../../../c-api/import.rst:230
@@ -247,19 +248,19 @@ msgid ""
 "of these structures gives the name and initialization function for a module "
 "built into the interpreter.  Programs which embed Python may use an array of "
 "these structures in conjunction with :c:func:`PyImport_ExtendInittab` to "
-"provide additional built-in modules.  The structure is defined in :file:"
-"`Include/import.h` as::"
+"provide additional built-in modules.  The structure is defined "
+"in :file:`Include/import.h` as::"
 msgstr ""
 
 #: ../../../c-api/import.rst:263
 msgid ""
 "Add a collection of modules to the table of built-in modules.  The *newtab* "
-"array must end with a sentinel entry which contains *NULL* for the :attr:"
-"`name` field; failure to provide the sentinel value can result in a memory "
-"fault. Returns ``0`` on success or ``-1`` if insufficient memory could be "
-"allocated to extend the internal table.  In the event of failure, no modules "
-"are added to the internal table.  This should be called before :c:func:"
-"`Py_Initialize`."
+"array must end with a sentinel entry which contains *NULL* for "
+"the :attr:`name` field; failure to provide the sentinel value can result in "
+"a memory fault. Returns ``0`` on success or ``-1`` if insufficient memory "
+"could be allocated to extend the internal table.  In the event of failure, "
+"no modules are added to the internal table.  This should be called "
+"before :c:func:`Py_Initialize`."
 msgstr ""
 
 #: ../../../c-api/import.rst:11

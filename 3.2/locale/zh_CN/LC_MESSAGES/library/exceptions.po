@@ -23,12 +23,13 @@ msgstr ""
 
 #: ../../../library/exceptions.rst:10
 msgid ""
-"In Python, all exceptions must be instances of a class that derives from :"
-"class:`BaseException`.  In a :keyword:`try` statement with an :keyword:"
-"`except` clause that mentions a particular class, that clause also handles "
-"any exception classes derived from that class (but not exception classes "
-"from which *it* is derived).  Two exception classes that are not related via "
-"subclassing are never equivalent, even if they have the same name."
+"In Python, all exceptions must be instances of a class that derives "
+"from :class:`BaseException`.  In a :keyword:`try` statement with "
+"an :keyword:`except` clause that mentions a particular class, that clause "
+"also handles any exception classes derived from that class (but not "
+"exception classes from which *it* is derived).  Two exception classes that "
+"are not related via subclassing are never equivalent, even if they have the "
+"same name."
 msgstr ""
 
 #: ../../../library/exceptions.rst:19
@@ -53,9 +54,9 @@ msgstr ""
 #: ../../../library/exceptions.rst:31
 msgid ""
 "The built-in exception classes can be sub-classed to define new exceptions; "
-"programmers are encouraged to at least derive new exceptions from the :exc:"
-"`Exception` class and not :exc:`BaseException`.  More information on "
-"defining exceptions is available in the Python Tutorial under :ref:`tut-"
+"programmers are encouraged to at least derive new exceptions from "
+"the :exc:`Exception` class and not :exc:`BaseException`.  More information "
+"on defining exceptions is available in the Python Tutorial under :ref:`tut-"
 "userexceptions`."
 msgstr ""
 
@@ -68,9 +69,9 @@ msgstr ""
 #: ../../../library/exceptions.rst:41
 msgid ""
 "The base class for all built-in exceptions.  It is not meant to be directly "
-"inherited by user-defined classes (for that, use :exc:`Exception`).  If :"
-"func:`str` is called on an instance of this class, the representation of the "
-"argument(s) to the instance are returned, or the empty string when there "
+"inherited by user-defined classes (for that, use :exc:`Exception`).  "
+"If :func:`str` is called on an instance of this class, the representation of "
+"the argument(s) to the instance are returned, or the empty string when there "
 "were no arguments."
 msgstr ""
 
@@ -97,8 +98,8 @@ msgstr ""
 #: ../../../library/exceptions.rst:75
 msgid ""
 "The base class for those built-in exceptions that are raised for various "
-"arithmetic errors: :exc:`OverflowError`, :exc:`ZeroDivisionError`, :exc:"
-"`FloatingPointError`."
+"arithmetic "
+"errors: :exc:`OverflowError`, :exc:`ZeroDivisionError`, :exc:`FloatingPointError`."
 msgstr ""
 
 #: ../../../library/exceptions.rst:82
@@ -116,13 +117,13 @@ msgstr ""
 
 #: ../../../library/exceptions.rst:95
 msgid ""
-"The base class for exceptions that can occur outside the Python system: :exc:"
-"`IOError`, :exc:`OSError`.  When exceptions of this type are created with a "
-"2-tuple, the first item is available on the instance's :attr:`errno` "
-"attribute (it is assumed to be an error number), and the second item is "
-"available on the :attr:`strerror` attribute (it is usually the associated "
-"error message).  The tuple itself is also available on the :attr:`args` "
-"attribute."
+"The base class for exceptions that can occur outside the Python "
+"system: :exc:`IOError`, :exc:`OSError`.  When exceptions of this type are "
+"created with a 2-tuple, the first item is available on the "
+"instance's :attr:`errno` attribute (it is assumed to be an error number), "
+"and the second item is available on the :attr:`strerror` attribute (it is "
+"usually the associated error message).  The tuple itself is also available "
+"on the :attr:`args` attribute."
 msgstr ""
 
 #: ../../../library/exceptions.rst:102
@@ -160,10 +161,10 @@ msgstr ""
 
 #: ../../../library/exceptions.rst:133
 msgid ""
-"Raised when one of the built-in functions (:func:`input` or :func:"
-"`raw_input`) hits an end-of-file condition (EOF) without reading any data. "
-"(N.B.: the :meth:`file.read` and :meth:`file.readline` methods return an "
-"empty string when they hit EOF.)"
+"Raised when one of the built-in functions (:func:`input` "
+"or :func:`raw_input`) hits an end-of-file condition (EOF) without reading "
+"any data. (N.B.: the :meth:`file.read` and :meth:`file.readline` methods "
+"return an empty string when they hit EOF.)"
 msgstr ""
 
 #: ../../../library/exceptions.rst:141
@@ -183,9 +184,9 @@ msgstr ""
 
 #: ../../../library/exceptions.rst:156
 msgid ""
-"Raised when an I/O operation (such as the built-in :func:`print` or :func:"
-"`open` functions or a method of a :term:`file object`) fails for an I/O-"
-"related reason, e.g., \"file not found\" or \"disk full\"."
+"Raised when an I/O operation (such as the built-in :func:`print` "
+"or :func:`open` functions or a method of a :term:`file object`) fails for an "
+"I/O-related reason, e.g., \"file not found\" or \"disk full\"."
 msgstr ""
 
 #: ../../../library/exceptions.rst:160
@@ -216,9 +217,9 @@ msgstr ""
 
 #: ../../../library/exceptions.rst:188
 msgid ""
-"Raised when the user hits the interrupt key (normally :kbd:`Control-C` or :"
-"kbd:`Delete`).  During execution, a check for interrupts is made regularly. "
-"The exception inherits from :exc:`BaseException` so as to not be "
+"Raised when the user hits the interrupt key (normally :kbd:`Control-C` "
+"or :kbd:`Delete`).  During execution, a check for interrupts is made "
+"regularly. The exception inherits from :exc:`BaseException` so as to not be "
 "accidentally caught by code that catches :exc:`Exception` and thus prevent "
 "the interpreter from exiting."
 msgstr ""
@@ -228,10 +229,11 @@ msgid ""
 "Raised when an operation runs out of memory but the situation may still be "
 "rescued (by deleting some objects).  The associated value is a string "
 "indicating what kind of (internal) operation ran out of memory. Note that "
-"because of the underlying memory management architecture (C's :c:func:"
-"`malloc` function), the interpreter may not always be able to completely "
-"recover from this situation; it nevertheless raises an exception so that a "
-"stack traceback can be printed, in case a run-away program was the cause."
+"because of the underlying memory management architecture "
+"(C's :c:func:`malloc` function), the interpreter may not always be able to "
+"completely recover from this situation; it nevertheless raises an exception "
+"so that a stack traceback can be printed, in case a run-away program was the "
+"cause."
 msgstr ""
 
 #: ../../../library/exceptions.rst:208
@@ -254,32 +256,32 @@ msgid ""
 "function returns a system-related error (not for illegal argument types or "
 "other incidental errors).  The :attr:`errno` attribute is a numeric error "
 "code from :c:data:`errno`, and the :attr:`strerror` attribute is the "
-"corresponding string, as would be printed by the C function :c:func:"
-"`perror`. See the module :mod:`errno`, which contains names for the error "
-"codes defined by the underlying operating system."
+"corresponding string, as would be printed by the C "
+"function :c:func:`perror`. See the module :mod:`errno`, which contains names "
+"for the error codes defined by the underlying operating system."
 msgstr ""
 
 #: ../../../library/exceptions.rst:232
 msgid ""
-"For exceptions that involve a file system path (such as :func:`chdir` or :"
-"func:`unlink`), the exception instance will contain a third attribute, :attr:"
-"`filename`, which is the file name passed to the function."
+"For exceptions that involve a file system path (such as :func:`chdir` "
+"or :func:`unlink`), the exception instance will contain a third "
+"attribute, :attr:`filename`, which is the file name passed to the function."
 msgstr ""
 
 #: ../../../library/exceptions.rst:239
 msgid ""
 "Raised when the result of an arithmetic operation is too large to be "
-"represented.  This cannot occur for integers (which would rather raise :exc:"
-"`MemoryError` than give up).  Because of the lack of standardization of "
-"floating point exception handling in C, most floating point operations also "
-"aren't checked."
+"represented.  This cannot occur for integers (which would rather "
+"raise :exc:`MemoryError` than give up).  Because of the lack of "
+"standardization of floating point exception handling in C, most floating "
+"point operations also aren't checked."
 msgstr ""
 
 #: ../../../library/exceptions.rst:248
 msgid ""
-"This exception is raised when a weak reference proxy, created by the :func:"
-"`weakref.proxy` function, is used to access an attribute of the referent "
-"after it has been garbage collected. For more information on weak "
+"This exception is raised when a weak reference proxy, created by "
+"the :func:`weakref.proxy` function, is used to access an attribute of the "
+"referent after it has been garbage collected. For more information on weak "
 "references, see the :mod:`weakref` module."
 msgstr ""
 
@@ -293,23 +295,25 @@ msgstr ""
 
 #: ../../../library/exceptions.rst:264
 msgid ""
-"Raised by built-in function :func:`next` and an :term:`iterator`\\'s :meth:"
-"`~iterator.__next__` method to signal that there are no further values."
+"Raised by built-in function :func:`next` and "
+"an :term:`iterator`\\'s :meth:`~iterator.__next__` method to signal that "
+"there are no further values."
 msgstr ""
 
 #: ../../../library/exceptions.rst:270
 msgid ""
-"Raised when the parser encounters a syntax error.  This may occur in an :"
-"keyword:`import` statement, in a call to the built-in functions :func:`exec` "
-"or :func:`eval`, or when reading the initial script or standard input (also "
-"interactively)."
+"Raised when the parser encounters a syntax error.  This may occur in "
+"an :keyword:`import` statement, in a call to the built-in "
+"functions :func:`exec` or :func:`eval`, or when reading the initial script "
+"or standard input (also interactively)."
 msgstr ""
 
 #: ../../../library/exceptions.rst:275
 msgid ""
-"Instances of this class have attributes :attr:`filename`, :attr:`lineno`, :"
-"attr:`offset` and :attr:`text` for easier access to the details.  :func:"
-"`str` of the exception instance returns only the message."
+"Instances of this class have "
+"attributes :attr:`filename`, :attr:`lineno`, :attr:`offset` and :attr:`text` "
+"for easier access to the details.  :func:`str` of the exception instance "
+"returns only the message."
 msgstr ""
 
 #: ../../../library/exceptions.rst:282
@@ -334,8 +338,8 @@ msgstr ""
 #: ../../../library/exceptions.rst:298
 msgid ""
 "You should report this to the author or maintainer of your Python "
-"interpreter. Be sure to report the version of the Python interpreter (``sys."
-"version``; it is also printed at the start of an interactive Python "
+"interpreter. Be sure to report the version of the Python interpreter "
+"(``sys.version``; it is also printed at the start of an interactive Python "
 "session), the exact error message (the exception's associated value) and if "
 "possible the source of the program that triggered the error."
 msgstr ""
@@ -371,9 +375,9 @@ msgstr ""
 #: ../../../library/exceptions.rst:326
 msgid ""
 "The exception inherits from :exc:`BaseException` instead of :exc:`Exception` "
-"so that it is not accidentally caught by code that catches :exc:"
-"`Exception`.  This allows the exception to properly propagate up and cause "
-"the interpreter to exit."
+"so that it is not accidentally caught by code that "
+"catches :exc:`Exception`.  This allows the exception to properly propagate "
+"up and cause the interpreter to exit."
 msgstr ""
 
 #: ../../../library/exceptions.rst:333
@@ -386,8 +390,8 @@ msgstr ""
 #: ../../../library/exceptions.rst:339
 msgid ""
 "Raised when a reference is made to a local variable in a function or method, "
-"but no value has been bound to that variable.  This is a subclass of :exc:"
-"`NameError`."
+"but no value has been bound to that variable.  This is a subclass "
+"of :exc:`NameError`."
 msgstr ""
 
 #: ../../../library/exceptions.rst:346
@@ -428,11 +432,12 @@ msgstr ""
 #: ../../../library/exceptions.rst:382
 msgid ""
 "Raised when a Windows-specific error occurs or when the error number does "
-"not correspond to an :c:data:`errno` value.  The :attr:`winerror` and :attr:"
-"`strerror` values are created from the return values of the :c:func:"
-"`GetLastError` and :c:func:`FormatMessage` functions from the Windows "
-"Platform API. The :attr:`errno` value maps the :attr:`winerror` value to "
-"corresponding ``errno.h`` values. This is a subclass of :exc:`OSError`."
+"not correspond to an :c:data:`errno` value.  The :attr:`winerror` "
+"and :attr:`strerror` values are created from the return values of "
+"the :c:func:`GetLastError` and :c:func:`FormatMessage` functions from the "
+"Windows Platform API. The :attr:`errno` value maps the :attr:`winerror` "
+"value to corresponding ``errno.h`` values. This is a subclass "
+"of :exc:`OSError`."
 msgstr ""
 
 #: ../../../library/exceptions.rst:392
@@ -444,8 +449,8 @@ msgstr ""
 
 #: ../../../library/exceptions.rst:397
 msgid ""
-"The following exceptions are used as warning categories; see the :mod:"
-"`warnings` module for more information."
+"The following exceptions are used as warning categories; see "
+"the :mod:`warnings` module for more information."
 msgstr ""
 
 #: ../../../library/exceptions.rst:402

@@ -107,9 +107,9 @@ msgid ""
 "``foo``, loggers with names of ``foo.bar``, ``foo.bar.baz``, and ``foo.bam`` "
 "are all descendants of ``foo``.  The logger name hierarchy is analogous to "
 "the Python package hierarchy, and identical to it if you organise your "
-"loggers on a per-module basis using the recommended construction ``logging."
-"getLogger(__name__)``.  That's because in a module, ``__name__`` is the "
-"module's name in the Python package namespace."
+"loggers on a per-module basis using the recommended construction "
+"``logging.getLogger(__name__)``.  That's because in a module, ``__name__`` "
+"is the module's name in the Python package namespace."
 msgstr ""
 
 #: ../../../library/logging.rst:73
@@ -149,8 +149,8 @@ msgid ""
 "severe than *lvl* will be ignored. When a logger is created, the level is "
 "set to :const:`NOTSET` (which causes all messages to be processed when the "
 "logger is the root logger, or delegation to the parent when the logger is a "
-"non-root logger). Note that the root logger is created with level :const:"
-"`WARNING`."
+"non-root logger). Note that the root logger is created with "
+"level :const:`WARNING`."
 msgstr ""
 
 #: ../../../library/logging.rst:101
@@ -183,26 +183,27 @@ msgstr ""
 #: ../../../library/logging.rst:120
 msgid ""
 "Indicates if a message of severity *lvl* would be processed by this logger. "
-"This method checks first the module-level level set by ``logging."
-"disable(lvl)`` and then the logger's effective level as determined by :meth:"
-"`getEffectiveLevel`."
+"This method checks first the module-level level set by "
+"``logging.disable(lvl)`` and then the logger's effective level as determined "
+"by :meth:`getEffectiveLevel`."
 msgstr ""
 
 #: ../../../library/logging.rst:128
 msgid ""
-"Indicates the effective level for this logger. If a value other than :const:"
-"`NOTSET` has been set using :meth:`setLevel`, it is returned. Otherwise, the "
-"hierarchy is traversed towards the root until a value other than :const:"
-"`NOTSET` is found, and that value is returned."
+"Indicates the effective level for this logger. If a value other "
+"than :const:`NOTSET` has been set using :meth:`setLevel`, it is returned. "
+"Otherwise, the hierarchy is traversed towards the root until a value other "
+"than :const:`NOTSET` is found, and that value is returned."
 msgstr ""
 
 #: ../../../library/logging.rst:136
 msgid ""
 "Returns a logger which is a descendant to this logger, as determined by the "
 "suffix. Thus, ``logging.getLogger('abc').getChild('def.ghi')`` would return "
-"the same logger as would be returned by ``logging.getLogger('abc.def."
-"ghi')``. This is a convenience method, useful when the parent logger is "
-"named using e.g. ``__name__`` rather than a literal string."
+"the same logger as would be returned by "
+"``logging.getLogger('abc.def.ghi')``. This is a convenience method, useful "
+"when the parent logger is named using e.g. ``__name__`` rather than a "
+"literal string."
 msgstr ""
 
 #: ../../../library/logging.rst:147
@@ -271,10 +272,10 @@ msgstr ""
 #: ../../../library/logging.rst:196 ../../../library/logging.rst:896
 msgid ""
 "If you choose to use these attributes in logged messages, you need to "
-"exercise some care. In the above example, for instance, the :class:"
-"`Formatter` has been set up with a format string which expects 'clientip' "
-"and 'user' in the attribute dictionary of the LogRecord. If these are "
-"missing, the message will not be logged because a string formatting "
+"exercise some care. In the above example, for instance, "
+"the :class:`Formatter` has been set up with a format string which expects "
+"'clientip' and 'user' in the attribute dictionary of the LogRecord. If these "
+"are missing, the message will not be logged because a string formatting "
 "exception will occur. So in this case, you always need to pass the *extra* "
 "dictionary with these keys."
 msgstr ""
@@ -368,8 +369,8 @@ msgid ""
 "Handles a record by passing it to all handlers associated with this logger "
 "and its ancestors (until a false value of *propagate* is found). This method "
 "is used for unpickled records received from a socket, as well as those "
-"created locally. Logger-level filtering is applied using :meth:`~Logger."
-"filter`."
+"created locally. Logger-level filtering is applied "
+"using :meth:`~Logger.filter`."
 msgstr ""
 
 #: ../../../library/logging.rst:297
@@ -394,17 +395,17 @@ msgstr ""
 
 #: ../../../library/logging.rst:317
 msgid ""
-"Handlers have the following attributes and methods. Note that :class:"
-"`Handler` is never instantiated directly; this class acts as a base for more "
-"useful subclasses. However, the :meth:`__init__` method in subclasses needs "
-"to call :meth:`Handler.__init__`."
+"Handlers have the following attributes and methods. Note "
+"that :class:`Handler` is never instantiated directly; this class acts as a "
+"base for more useful subclasses. However, the :meth:`__init__` method in "
+"subclasses needs to call :meth:`Handler.__init__`."
 msgstr ""
 
 #: ../../../library/logging.rst:325
 msgid ""
 "Initializes the :class:`Handler` instance by setting its level, setting the "
-"list of filters to the empty list and creating a lock (using :meth:"
-"`createLock`) for serializing access to an I/O mechanism."
+"list of filters to the empty list and creating a lock "
+"(using :meth:`createLock`) for serializing access to an I/O mechanism."
 msgstr ""
 
 #: ../../../library/logging.rst:332
@@ -458,9 +459,9 @@ msgstr ""
 #: ../../../library/logging.rst:390
 msgid ""
 "Tidy up any resources used by the handler. This version does no output but "
-"removes the handler from an internal list of handlers which is closed when :"
-"func:`shutdown` is called. Subclasses should ensure that this gets called "
-"from overridden :meth:`close` methods."
+"removes the handler from an internal list of handlers which is closed "
+"when :func:`shutdown` is called. Subclasses should ensure that this gets "
+"called from overridden :meth:`close` methods."
 msgstr ""
 
 #: ../../../library/logging.rst:398
@@ -492,8 +493,8 @@ msgstr ""
 #: ../../../library/logging.rst:424
 msgid ""
 "Do whatever it takes to actually log the specified logging record. This "
-"version is intended to be implemented by subclasses and so raises a :exc:"
-"`NotImplementedError`."
+"version is intended to be implemented by subclasses and so raises "
+"a :exc:`NotImplementedError`."
 msgstr ""
 
 #: ../../../library/logging.rst:428
@@ -509,9 +510,9 @@ msgstr ""
 msgid ""
 ":class:`Formatter` objects have the following attributes and methods. They "
 "are responsible for converting a :class:`LogRecord` to (usually) a string "
-"which can be interpreted by either a human or an external system. The base :"
-"class:`Formatter` allows a formatting string to be specified. If none is "
-"supplied, the default value of ``'%(message)s'`` is used."
+"which can be interpreted by either a human or an external system. The "
+"base :class:`Formatter` allows a formatting string to be specified. If none "
+"is supplied, the default value of ``'%(message)s'`` is used."
 msgstr ""
 
 #: ../../../library/logging.rst:443
@@ -520,14 +521,15 @@ msgid ""
 "knowledge of the :class:`LogRecord` attributes - such as the default value "
 "mentioned above making use of the fact that the user's message and arguments "
 "are pre-formatted into a :class:`LogRecord`'s *message* attribute.  This "
-"format string contains standard Python %-style mapping keys. See section :"
-"ref:`old-string-formatting` for more information on string formatting."
+"format string contains standard Python %-style mapping keys. See "
+"section :ref:`old-string-formatting` for more information on string "
+"formatting."
 msgstr ""
 
 #: ../../../library/logging.rst:450
 msgid ""
-"The useful mapping keys in a :class:`LogRecord` are given in the section on :"
-"ref:`logrecord-attributes`."
+"The useful mapping keys in a :class:`LogRecord` are given in the section "
+"on :ref:`logrecord-attributes`."
 msgstr ""
 
 #: ../../../library/logging.rst:456
@@ -542,8 +544,8 @@ msgstr ""
 #: ../../../library/logging.rst:462
 msgid ""
 "The *style* parameter can be one of '%', '{' or '$' and determines how the "
-"format string will be merged with its data: using one of %-formatting, :meth:"
-"`str.format` or :class:`string.Template`."
+"format string will be merged with its data: using one of %-"
+"formatting, :meth:`str.format` or :class:`string.Template`."
 msgstr ""
 
 #: ../../../library/logging.rst:466
@@ -557,11 +559,11 @@ msgid ""
 "dictionary, a couple of preparatory steps are carried out. The *message* "
 "attribute of the record is computed using *msg* % *args*. If the formatting "
 "string contains ``'(asctime)'``, :meth:`formatTime` is called to format the "
-"event time. If there is exception information, it is formatted using :meth:"
-"`formatException` and appended to the message. Note that the formatted "
-"exception information is cached in attribute *exc_text*. This is useful "
-"because the exception information can be pickled and sent across the wire, "
-"but you should be careful if you have more than one :class:`Formatter` "
+"event time. If there is exception information, it is formatted "
+"using :meth:`formatException` and appended to the message. Note that the "
+"formatted exception information is cached in attribute *exc_text*. This is "
+"useful because the exception information can be pickled and sent across the "
+"wire, but you should be careful if you have more than one :class:`Formatter` "
 "subclass which customizes the formatting of exception information. In this "
 "case, you will have to clear the cached value after a formatter has done its "
 "formatting, so that the next formatter to handle the event doesn't use the "
@@ -579,9 +581,9 @@ msgid ""
 "This method should be called from :meth:`format` by a formatter which wants "
 "to make use of a formatted time. This method can be overridden in formatters "
 "to provide for any specific requirement, but the basic behavior is as "
-"follows: if *datefmt* (a string) is specified, it is used with :func:`time."
-"strftime` to format the creation time of the record. Otherwise, the ISO8601 "
-"format is used.  The resulting string is returned."
+"follows: if *datefmt* (a string) is specified, it is used "
+"with :func:`time.strftime` to format the creation time of the record. "
+"Otherwise, the ISO8601 format is used.  The resulting string is returned."
 msgstr ""
 
 #: ../../../library/logging.rst:502
@@ -604,9 +606,9 @@ msgstr ""
 
 #: ../../../library/logging.rst:519
 msgid ""
-"Formats the specified stack information (a string as returned by :func:"
-"`traceback.print_stack`, but with the last newline removed) as a string. "
-"This default implementation just returns the input value."
+"Formats the specified stack information (a string as returned "
+"by :func:`traceback.print_stack`, but with the last newline removed) as a "
+"string. This default implementation just returns the input value."
 msgstr ""
 
 #: ../../../library/logging.rst:526
@@ -658,8 +660,8 @@ msgid ""
 "You don't need to create specialized ``Filter`` classes, or use other "
 "classes with a ``filter`` method: you can use a function (or other callable) "
 "as a filter. The filtering logic will check to see if the filter object has "
-"a ``filter`` attribute: if it does, it's assumed to be a ``Filter`` and its :"
-"meth:`~Filter.filter` method is called. Otherwise, it's assumed to be a "
+"a ``filter`` attribute: if it does, it's assumed to be a ``Filter`` and "
+"its :meth:`~Filter.filter` method is called. Otherwise, it's assumed to be a "
 "callable and called with the record as the single parameter. The returned "
 "value should conform to that returned by :meth:`~Filter.filter`."
 msgstr ""
@@ -682,10 +684,10 @@ msgstr ""
 
 #: ../../../library/logging.rst:583
 msgid ""
-":class:`LogRecord` instances are created automatically by the :class:"
-"`Logger` every time something is logged, and can be created manually via :"
-"func:`makeLogRecord` (for example, from a pickled event received over the "
-"wire)."
+":class:`LogRecord` instances are created automatically by "
+"the :class:`Logger` every time something is logged, and can be created "
+"manually via :func:`makeLogRecord` (for example, from a pickled event "
+"received over the wire)."
 msgstr ""
 
 #: ../../../library/logging.rst:591
@@ -766,9 +768,9 @@ msgstr ""
 #: ../../../library/logging.rst:629
 msgid ""
 "The creation of a ``LogRecord`` has been made more configurable by providing "
-"a factory which is used to create the record. The factory can be set using :"
-"func:`getLogRecordFactory` and :func:`setLogRecordFactory` (see this for the "
-"factory's signature)."
+"a factory which is used to create the record. The factory can be set "
+"using :func:`getLogRecordFactory` and :func:`setLogRecordFactory` (see this "
+"for the factory's signature)."
 msgstr ""
 
 #: ../../../library/logging.rst:635
@@ -802,8 +804,8 @@ msgstr ""
 #: ../../../library/logging.rst:666
 msgid ""
 "If you are using {}-formatting (:func:`str.format`), you can use ``{attrname}"
-"`` as the placeholder in the format string. If you are using $-formatting (:"
-"class:`string.Template`), use the form ``${attrname}``. In both cases, of "
+"`` as the placeholder in the format string. If you are using $-formatting "
+"(:class:`string.Template`), use the form ``${attrname}``. In both cases, of "
 "course, replace ``attrname`` with the actual attribute name you want to use."
 msgstr ""
 
@@ -866,8 +868,8 @@ msgstr ""
 
 #: ../../../library/logging.rst:690
 msgid ""
-"Time when the :class:`LogRecord` was created (as returned by :func:`time."
-"time`)."
+"Time when the :class:`LogRecord` was created (as returned "
+"by :func:`time.time`)."
 msgstr ""
 
 #: ../../../library/logging.rst:693 ../../../library/logging.rst:0
@@ -928,8 +930,8 @@ msgstr ""
 
 #: ../../../library/logging.rst:704
 msgid ""
-"Numeric logging level for the message (:const:`DEBUG`, :const:`INFO`, :const:"
-"`WARNING`, :const:`ERROR`, :const:`CRITICAL`)."
+"Numeric logging level for the message "
+"(:const:`DEBUG`, :const:`INFO`, :const:`WARNING`, :const:`ERROR`, :const:`CRITICAL`)."
 msgstr ""
 
 #: ../../../library/logging.rst:709
@@ -979,8 +981,8 @@ msgstr ""
 
 #: ../../../library/logging.rst:717
 msgid ""
-"The logged message, computed as ``msg % args``. This is set when :meth:"
-"`Formatter.format` is invoked."
+"The logged message, computed as ``msg % args``. This is set "
+"when :meth:`Formatter.format` is invoked."
 msgstr ""
 
 #: ../../../library/logging.rst:721 ../../../library/logging.rst:0
@@ -1104,8 +1106,9 @@ msgstr ""
 #: ../../../library/logging.rst:759
 msgid ""
 ":class:`LoggerAdapter` instances are used to conveniently pass contextual "
-"information into logging calls. For a usage example , see the section on :"
-"ref:`adding contextual information to your logging output <context-info>`."
+"information into logging calls. For a usage example , see the section "
+"on :ref:`adding contextual information to your logging output <context-"
+"info>`."
 msgstr ""
 
 #: ../../../library/logging.rst:765
@@ -1126,18 +1129,17 @@ msgstr ""
 #: ../../../library/logging.rst:776
 msgid ""
 "In addition to the above, :class:`LoggerAdapter` supports the following "
-"methods of :class:`Logger`, i.e. :meth:`debug`, :meth:`info`, :meth:"
-"`warning`, :meth:`error`, :meth:`exception`, :meth:`critical`, :meth:`log`, :"
-"meth:`isEnabledFor`, :meth:`getEffectiveLevel`, :meth:`setLevel`, :meth:"
-"`hasHandlers`. These methods have the same signatures as their counterparts "
+"methods of :class:`Logger`, "
+"i.e. :meth:`debug`, :meth:`info`, :meth:`warning`, :meth:`error`, :meth:`exception`, :meth:`critical`, :meth:`log`, :meth:`isEnabledFor`, :meth:`getEffectiveLevel`, :meth:`setLevel`, :meth:`hasHandlers`. "
+"These methods have the same signatures as their counterparts "
 "in :class:`Logger`, so you can use the two types of instances "
 "interchangeably."
 msgstr ""
 
 #: ../../../library/logging.rst:784
 msgid ""
-"The :meth:`isEnabledFor`, :meth:`getEffectiveLevel`, :meth:`setLevel` and :"
-"meth:`hasHandlers` methods were added to :class:`LoggerAdapter`.  These "
+"The :meth:`isEnabledFor`, :meth:`getEffectiveLevel`, :meth:`setLevel` "
+"and :meth:`hasHandlers` methods were added to :class:`LoggerAdapter`.  These "
 "methods delegate to the underlying logger."
 msgstr ""
 
@@ -1176,9 +1178,9 @@ msgstr ""
 msgid ""
 "Return a logger with the specified name or, if name is ``None``, return a "
 "logger which is the root logger of the hierarchy. If specified, the name is "
-"typically a dot-separated hierarchical name like *'a'*, *'a.b'* or *'a.b.c."
-"d'*. Choice of these names is entirely up to the developer who is using "
-"logging."
+"typically a dot-separated hierarchical name like *'a'*, *'a.b'* or "
+"*'a.b.c.d'*. Choice of these names is entirely up to the developer who is "
+"using logging."
 msgstr ""
 
 #: ../../../library/logging.rst:818
@@ -1294,8 +1296,8 @@ msgid ""
 "below, so that if you call it with a value of INFO, then all INFO and DEBUG "
 "events would be discarded, whereas those of severity WARNING and above would "
 "be processed according to the logger's effective level. To undo the effect "
-"of a call to ``logging.disable(lvl)``, call ``logging.disable(logging."
-"NOTSET)``."
+"of a call to ``logging.disable(lvl)``, call "
+"``logging.disable(logging.NOTSET)``."
 msgstr ""
 
 #: ../../../library/logging.rst:971
@@ -1310,37 +1312,39 @@ msgstr ""
 
 #: ../../../library/logging.rst:978
 msgid ""
-"If you are thinking of defining your own levels, please see the section on :"
-"ref:`custom-levels`."
+"If you are thinking of defining your own levels, please see the section "
+"on :ref:`custom-levels`."
 msgstr ""
 
 #: ../../../library/logging.rst:983
 msgid ""
 "Returns the textual representation of logging level *lvl*. If the level is "
-"one of the predefined levels :const:`CRITICAL`, :const:`ERROR`, :const:"
-"`WARNING`, :const:`INFO` or :const:`DEBUG` then you get the corresponding "
-"string. If you have associated levels with names using :func:`addLevelName` "
-"then the name you have associated with *lvl* is returned. If a numeric value "
-"corresponding to one of the defined levels is passed in, the corresponding "
-"string representation is returned. Otherwise, the string 'Level %s' % lvl is "
+"one of the predefined "
+"levels :const:`CRITICAL`, :const:`ERROR`, :const:`WARNING`, :const:`INFO` "
+"or :const:`DEBUG` then you get the corresponding string. If you have "
+"associated levels with names using :func:`addLevelName` then the name you "
+"have associated with *lvl* is returned. If a numeric value corresponding to "
+"one of the defined levels is passed in, the corresponding string "
+"representation is returned. Otherwise, the string 'Level %s' % lvl is "
 "returned."
 msgstr ""
 
 #: ../../../library/logging.rst:994
 msgid ""
 "Creates and returns a new :class:`LogRecord` instance whose attributes are "
-"defined by *attrdict*. This function is useful for taking a pickled :class:"
-"`LogRecord` attribute dictionary, sent over a socket, and reconstituting it "
-"as a :class:`LogRecord` instance at the receiving end."
+"defined by *attrdict*. This function is useful for taking a "
+"pickled :class:`LogRecord` attribute dictionary, sent over a socket, and "
+"reconstituting it as a :class:`LogRecord` instance at the receiving end."
 msgstr ""
 
 #: ../../../library/logging.rst:1002
 msgid ""
-"Does basic configuration for the logging system by creating a :class:"
-"`StreamHandler` with a default :class:`Formatter` and adding it to the root "
-"logger. The functions :func:`debug`, :func:`info`, :func:`warning`, :func:"
-"`error` and :func:`critical` will call :func:`basicConfig` automatically if "
-"no handlers are defined for the root logger."
+"Does basic configuration for the logging system by creating "
+"a :class:`StreamHandler` with a default :class:`Formatter` and adding it to "
+"the root logger. The "
+"functions :func:`debug`, :func:`info`, :func:`warning`, :func:`error` "
+"and :func:`critical` will call :func:`basicConfig` automatically if no "
+"handlers are defined for the root logger."
 msgstr ""
 
 #: ../../../library/logging.rst:1008
@@ -1405,8 +1409,9 @@ msgstr ""
 #: ../../../library/logging.rst:1036
 msgid ""
 "If ``format`` is specified, use this style for the format string. One of "
-"'%', '{' or '$' for %-formatting, :meth:`str.format` or :class:`string."
-"Template` respectively, and defaulting to '%' if not specified."
+"'%', '{' or '$' for %-formatting, :meth:`str.format` "
+"or :class:`string.Template` respectively, and defaulting to '%' if not "
+"specified."
 msgstr ""
 
 #: ../../../library/logging.rst:1042
@@ -1443,9 +1448,10 @@ msgstr ""
 msgid ""
 "Tells the logging system to use the class *klass* when instantiating a "
 "logger. The class should define :meth:`__init__` such that only a name "
-"argument is required, and the :meth:`__init__` should call :meth:`Logger."
-"__init__`. This function is typically called before any loggers are "
-"instantiated by applications which need to use custom logger behavior."
+"argument is required, and the :meth:`__init__` should "
+"call :meth:`Logger.__init__`. This function is typically called before any "
+"loggers are instantiated by applications which need to use custom logger "
+"behavior."
 msgstr ""
 
 #: ../../../library/logging.rst:1073
@@ -1545,13 +1551,13 @@ msgstr ""
 
 #: ../../../library/logging.rst:1105
 msgid ""
-"A \"handler of last resort\" is available through this attribute. This is a :"
-"class:`StreamHandler` writing to ``sys.stderr`` with a level of ``WARNING``, "
-"and is used to handle logging events in the absence of any logging "
-"configuration. The end result is to just print the message to ``sys."
-"stderr``. This replaces the earlier error message saying that \"no handlers "
-"could be found for logger XYZ\". If you need the earlier behaviour for some "
-"reason, ``lastResort`` can be set to ``None``."
+"A \"handler of last resort\" is available through this attribute. This is "
+"a :class:`StreamHandler` writing to ``sys.stderr`` with a level of "
+"``WARNING``, and is used to handle logging events in the absence of any "
+"logging configuration. The end result is to just print the message to "
+"``sys.stderr``. This replaces the earlier error message saying that \"no "
+"handlers could be found for logger XYZ\". If you need the earlier behaviour "
+"for some reason, ``lastResort`` can be set to ``None``."
 msgstr ""
 
 #: ../../../library/logging.rst:1116
@@ -1574,15 +1580,15 @@ msgid ""
 "If *capture* is ``True``, warnings issued by the :mod:`warnings` module will "
 "be redirected to the logging system. Specifically, a warning will be "
 "formatted using :func:`warnings.formatwarning` and the resulting string "
-"logged to a logger named ``'py.warnings'`` with a severity of :const:"
-"`WARNING`."
+"logged to a logger named ``'py.warnings'`` with a severity "
+"of :const:`WARNING`."
 msgstr ""
 
 #: ../../../library/logging.rst:1131
 msgid ""
 "If *capture* is ``False``, the redirection of warnings to the logging system "
-"will stop, and warnings will be redirected to their original destinations (i."
-"e. those in effect before ``captureWarnings(True)`` was called)."
+"will stop, and warnings will be redirected to their original destinations "
+"(i.e. those in effect before ``captureWarnings(True)`` was called)."
 msgstr ""
 
 #: ../../../library/logging.rst:1139
@@ -1613,8 +1619,8 @@ msgstr ""
 
 #: ../../../library/logging.rst:1151
 msgid ""
-"`Original Python logging package <http://www.red-dove.com/python_logging."
-"html>`_"
+"`Original Python logging package <http://www.red-dove.com/"
+"python_logging.html>`_"
 msgstr ""
 
 #: ../../../library/logging.rst:1149

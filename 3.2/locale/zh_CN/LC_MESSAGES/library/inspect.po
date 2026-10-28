@@ -50,9 +50,9 @@ msgstr ""
 msgid ""
 "The :func:`getmembers` function retrieves the members of an object such as a "
 "class or module. The sixteen functions whose names begin with \"is\" are "
-"mainly provided as convenient choices for the second argument to :func:"
-"`getmembers`. They also help you determine when you can expect to find the "
-"following special attributes:"
+"mainly provided as convenient choices for the second argument "
+"to :func:`getmembers`. They also help you determine when you can expect to "
+"find the following special attributes:"
 msgstr ""
 
 #: ../../../library/inspect.rst:37
@@ -400,12 +400,12 @@ msgid ""
 "identified by *path* if it is a module, or ``None`` if it would not be "
 "identified as a module.  In that tuple, *name* is the name of the module "
 "without the name of any enclosing package, *suffix* is the trailing part of "
-"the file name (which may not be a dot-delimited extension), *mode* is the :"
-"func:`open` mode that would be used (``'r'`` or ``'rb'``), and *module_type* "
-"is an integer giving the type of the module.  *module_type* will have a "
-"value which can be compared to the constants defined in the :mod:`imp` "
-"module; see the documentation for that module for more information on module "
-"types."
+"the file name (which may not be a dot-delimited extension), *mode* is "
+"the :func:`open` mode that would be used (``'r'`` or ``'rb'``), and "
+"*module_type* is an integer giving the type of the module.  *module_type* "
+"will have a value which can be compared to the constants defined in "
+"the :mod:`imp` module; see the documentation for that module for more "
+"information on module types."
 msgstr ""
 
 #: ../../../library/inspect.rst:196
@@ -472,9 +472,9 @@ msgstr ""
 
 #: ../../../library/inspect.rst:266
 msgid ""
-"Return true if the object is a method descriptor, but not if :func:"
-"`ismethod`, :func:`isclass`, :func:`isfunction` or :func:`isbuiltin` are "
-"true."
+"Return true if the object is a method descriptor, but not "
+"if :func:`ismethod`, :func:`isclass`, :func:`isfunction` "
+"or :func:`isbuiltin` are true."
 msgstr ""
 
 #: ../../../library/inspect.rst:270
@@ -489,8 +489,8 @@ msgstr ""
 msgid ""
 "Methods implemented via descriptors that also pass one of the other tests "
 "return false from the :func:`ismethoddescriptor` test, simply because the "
-"other tests promise more -- you can, e.g., count on having the :attr:"
-"`__func__` attribute (etc) when an object passes :func:`ismethod`."
+"other tests promise more -- you can, e.g., count on having "
+"the :attr:`__func__` attribute (etc) when an object passes :func:`ismethod`."
 msgstr ""
 
 #: ../../../library/inspect.rst:283
@@ -503,9 +503,9 @@ msgid ""
 "attribute. Examples are properties (defined in Python), getsets, and "
 "members.  The latter two are defined in C and there are more specific tests "
 "available for those types, which is robust across Python implementations.  "
-"Typically, data descriptors will also have :attr:`__name__` and :attr:"
-"`__doc__` attributes (properties, getsets, and members have both of these "
-"attributes), but this is not guaranteed."
+"Typically, data descriptors will also have :attr:`__name__` "
+"and :attr:`__doc__` attributes (properties, getsets, and members have both "
+"of these attributes), but this is not guaranteed."
 msgstr ""
 
 #: ../../../library/inspect.rst:296
@@ -514,9 +514,9 @@ msgstr ""
 
 #: ../../../library/inspect.rst:300
 msgid ""
-"getsets are attributes defined in extension modules via :c:type:"
-"`PyGetSetDef` structures.  For Python implementations without such types, "
-"this method will always return ``False``."
+"getsets are attributes defined in extension modules "
+"via :c:type:`PyGetSetDef` structures.  For Python implementations without "
+"such types, this method will always return ``False``."
 msgstr ""
 
 #: ../../../library/inspect.rst:307
@@ -525,9 +525,9 @@ msgstr ""
 
 #: ../../../library/inspect.rst:311
 msgid ""
-"Member descriptors are attributes defined in extension modules via :c:type:"
-"`PyMemberDef` structures.  For Python implementations without such types, "
-"this method will always return ``False``."
+"Member descriptors are attributes defined in extension modules "
+"via :c:type:`PyMemberDef` structures.  For Python implementations without "
+"such types, this method will always return ``False``."
 msgstr ""
 
 #: ../../../library/inspect.rst:319
@@ -606,13 +606,13 @@ msgstr ""
 
 #: ../../../library/inspect.rst:395
 msgid ""
-"Get the names and default values of a Python function's arguments. A :term:"
-"`named tuple` ``ArgSpec(args, varargs, keywords, defaults)`` is returned. "
-"*args* is a list of the argument names. *varargs* and *keywords* are the "
-"names of the ``*`` and ``**`` arguments or ``None``. *defaults* is a tuple "
-"of default argument values or None if there are no default arguments; if "
-"this tuple has *n* elements, they correspond to the last *n* elements listed "
-"in *args*."
+"Get the names and default values of a Python function's arguments. "
+"A :term:`named tuple` ``ArgSpec(args, varargs, keywords, defaults)`` is "
+"returned. *args* is a list of the argument names. *varargs* and *keywords* "
+"are the names of the ``*`` and ``**`` arguments or ``None``. *defaults* is a "
+"tuple of default argument values or None if there are no default arguments; "
+"if this tuple has *n* elements, they correspond to the last *n* elements "
+"listed in *args*."
 msgstr ""
 
 #: ../../../library/inspect.rst:403
@@ -623,8 +623,8 @@ msgstr ""
 
 #: ../../../library/inspect.rst:410
 msgid ""
-"Get the names and default values of a Python function's arguments.  A :term:"
-"`named tuple` is returned:"
+"Get the names and default values of a Python function's arguments.  "
+"A :term:`named tuple` is returned:"
 msgstr ""
 
 #: ../../../library/inspect.rst:413
@@ -649,25 +649,27 @@ msgstr ""
 
 #: ../../../library/inspect.rst:428
 msgid ""
-"Get information about arguments passed into a particular frame.  A :term:"
-"`named tuple` ``ArgInfo(args, varargs, keywords, locals)`` is returned. "
-"*args* is a list of the argument names.  *varargs* and *keywords* are the "
-"names of the ``*`` and ``**`` arguments or ``None``.  *locals* is the locals "
-"dictionary of the given frame."
+"Get information about arguments passed into a particular frame.  "
+"A :term:`named tuple` ``ArgInfo(args, varargs, keywords, locals)`` is "
+"returned. *args* is a list of the argument names.  *varargs* and *keywords* "
+"are the names of the ``*`` and ``**`` arguments or ``None``.  *locals* is "
+"the locals dictionary of the given frame."
 msgstr ""
 
 #: ../../../library/inspect.rst:437
 msgid ""
-"Format a pretty argument spec from the four values returned by :func:"
-"`getargspec`.  The format\\* arguments are the corresponding optional "
-"formatting functions that are called to turn names and values into strings."
+"Format a pretty argument spec from the four values returned "
+"by :func:`getargspec`.  The format\\* arguments are the corresponding "
+"optional formatting functions that are called to turn names and values into "
+"strings."
 msgstr ""
 
 #: ../../../library/inspect.rst:444
 msgid ""
-"Format a pretty argument spec from the four values returned by :func:"
-"`getargvalues`.  The format\\* arguments are the corresponding optional "
-"formatting functions that are called to turn names and values into strings."
+"Format a pretty argument spec from the four values returned "
+"by :func:`getargvalues`.  The format\\* arguments are the corresponding "
+"optional formatting functions that are called to turn names and values into "
+"strings."
 msgstr ""
 
 #: ../../../library/inspect.rst:451
@@ -718,9 +720,10 @@ msgstr ""
 #: ../../../library/inspect.rst:503
 msgid ""
 "Though the cycle detector will catch these, destruction of the frames (and "
-"local variables) can be made deterministic by removing the cycle in a :"
-"keyword:`finally` clause.  This is also important if the cycle detector was "
-"disabled when Python was compiled or using :func:`gc.disable`.  For example::"
+"local variables) can be made deterministic by removing the cycle in "
+"a :keyword:`finally` clause.  This is also important if the cycle detector "
+"was disabled when Python was compiled or using :func:`gc.disable`.  For "
+"example::"
 msgstr ""
 
 #: ../../../library/inspect.rst:515
@@ -787,15 +790,15 @@ msgstr ""
 msgid ""
 "Both :func:`getattr` and :func:`hasattr` can trigger code execution when "
 "fetching or checking for the existence of attributes. Descriptors, like "
-"properties, will be invoked and :meth:`__getattr__` and :meth:"
-"`__getattribute__` may be called."
+"properties, will be invoked and :meth:`__getattr__` "
+"and :meth:`__getattribute__` may be called."
 msgstr ""
 
 #: ../../../library/inspect.rst:577
 msgid ""
 "For cases where you want passive introspection, like documentation tools, "
-"this can be inconvenient. :func:`getattr_static` has the same signature as :"
-"func:`getattr` but avoids executing code when it fetches attributes."
+"this can be inconvenient. :func:`getattr_static` has the same signature "
+"as :func:`getattr` but avoids executing code when it fetches attributes."
 msgstr ""
 
 #: ../../../library/inspect.rst:583
