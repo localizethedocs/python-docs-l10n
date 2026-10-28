@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.14\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-17 12:19+0000\n"
+"POT-Creation-Date: 2026-10-28 14:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,10 +85,11 @@ msgstr ""
 #: ../../../c-api/synchronization.rst:66
 msgid ""
 "Critical sections are intended to be used for custom types implemented in C-"
-"API extensions. They should generally not be used with built-in types like :"
-"class:`list` and :class:`dict` because their public C-APIs already use "
-"critical sections internally, with the notable exception of :c:func:"
-"`PyDict_Next`, which requires critical section to be acquired externally."
+"API extensions. They should generally not be used with built-in types "
+"like :class:`list` and :class:`dict` because their public C-APIs already use "
+"critical sections internally, with the notable exception "
+"of :c:func:`PyDict_Next`, which requires critical section to be acquired "
+"externally."
 msgstr ""
 
 #: ../../../c-api/synchronization.rst:73
@@ -121,11 +122,11 @@ msgstr ""
 
 #: ../../../c-api/synchronization.rst:94
 msgid ""
-"Operations that need to lock two objects at once must use :c:macro:"
-"`Py_BEGIN_CRITICAL_SECTION2`.  You *cannot* use nested critical sections to "
-"lock more than one object at once, because the inner critical section may "
-"suspend the outer critical sections.  This API does not provide a way to "
-"lock more than two objects at once."
+"Operations that need to lock two objects at once must "
+"use :c:macro:`Py_BEGIN_CRITICAL_SECTION2`.  You *cannot* use nested critical "
+"sections to lock more than one object at once, because the inner critical "
+"section may suspend the outer critical sections.  This API does not provide "
+"a way to lock more than two objects at once."
 msgstr ""
 
 #: ../../../c-api/synchronization.rst:100
@@ -138,8 +139,8 @@ msgid ""
 "can call arbitrary code through an object's deallocation function.  The "
 "critical section API avoids potential deadlocks due to reentrancy and lock "
 "ordering by allowing the runtime to temporarily suspend the critical section "
-"if the code triggered by the finalizer blocks and calls :c:func:"
-"`PyEval_SaveThread`."
+"if the code triggered by the finalizer blocks and "
+"calls :c:func:`PyEval_SaveThread`."
 msgstr ""
 
 #: ../../../c-api/synchronization.rst:119
@@ -213,8 +214,8 @@ msgstr ""
 
 #: ../../../c-api/synchronization.rst:212
 msgid ""
-"These APIs are obsolete since Python 3.13 with the introduction of :c:type:"
-"`PyMutex`."
+"These APIs are obsolete since Python 3.13 with the introduction "
+"of :c:type:`PyMutex`."
 msgstr ""
 
 #: ../../../c-api/synchronization.rst:218
@@ -222,49 +223,66 @@ msgid "A pointer to a mutual exclusion lock."
 msgstr ""
 
 #: ../../../c-api/synchronization.rst:223
+msgid ""
+"A :term:`soft deprecated` alias to :c:expr:`long long`, the integer type "
+"used for the timeout argument of :c:func:`PyThread_acquire_lock_timed`."
+msgstr ""
+
+#: ../../../c-api/synchronization.rst:230
+msgid ""
+"The maximum timeout, in microseconds, supported "
+"by :c:func:`PyThread_acquire_lock_timed`."
+msgstr ""
+
+#: ../../../c-api/synchronization.rst:234
+msgid ""
+"This differs from :data:`_thread.TIMEOUT_MAX`, which is expressed in seconds."
+msgstr ""
+
+#: ../../../c-api/synchronization.rst:239
 msgid "The result of acquiring a lock with a timeout."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:229
+#: ../../../c-api/synchronization.rst:245
 msgid "Failed to acquire the lock."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:233
+#: ../../../c-api/synchronization.rst:249
 msgid "The lock was successfully acquired."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:237
+#: ../../../c-api/synchronization.rst:253
 msgid "The lock was interrupted by a signal."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:242
+#: ../../../c-api/synchronization.rst:258
 msgid "Allocate a new lock."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:244
+#: ../../../c-api/synchronization.rst:260
 msgid ""
 "On success, this function returns a lock; on failure, this function returns "
 "``0`` without an exception set."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:247
-#: ../../../c-api/synchronization.rst:255
-#: ../../../c-api/synchronization.rst:275
-#: ../../../c-api/synchronization.rst:293
-#: ../../../c-api/synchronization.rst:301
+#: ../../../c-api/synchronization.rst:263
+#: ../../../c-api/synchronization.rst:271
+#: ../../../c-api/synchronization.rst:291
+#: ../../../c-api/synchronization.rst:309
+#: ../../../c-api/synchronization.rst:317
 msgid "The caller does not need to hold an :term:`attached thread state`."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:252
+#: ../../../c-api/synchronization.rst:268
 msgid ""
 "Destroy *lock*. The lock should not be held by any thread when calling this."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:260
+#: ../../../c-api/synchronization.rst:276
 msgid "Acquire *lock* with a timeout."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:262
+#: ../../../c-api/synchronization.rst:278
 msgid ""
 "This will wait for *microseconds* microseconds to acquire the lock. If the "
 "timeout expires, this function returns :c:enumerator:`PY_LOCK_FAILURE`. If "
@@ -272,45 +290,45 @@ msgid ""
 "been released."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:267
+#: ../../../c-api/synchronization.rst:283
 msgid ""
 "If *intr_flag* is ``1``, acquiring the lock may be interrupted by a signal, "
 "in which case this function returns :c:enumerator:`PY_LOCK_INTR`. Upon "
-"interruption, it's generally expected that the caller makes a call to :c:"
-"func:`Py_MakePendingCalls` to propagate an exception to Python code."
+"interruption, it's generally expected that the caller makes a call "
+"to :c:func:`Py_MakePendingCalls` to propagate an exception to Python code."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:272
+#: ../../../c-api/synchronization.rst:288
 msgid ""
-"If the lock is successfully acquired, this function returns :c:enumerator:"
-"`PY_LOCK_ACQUIRED`."
+"If the lock is successfully acquired, this function "
+"returns :c:enumerator:`PY_LOCK_ACQUIRED`."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:280
+#: ../../../c-api/synchronization.rst:296
 msgid "Acquire *lock*."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:282
+#: ../../../c-api/synchronization.rst:298
 msgid ""
 "If *waitflag* is ``1`` and another thread currently holds the lock, this "
 "function will wait until the lock can be acquired and will always return "
 "``1``."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:286
+#: ../../../c-api/synchronization.rst:302
 msgid ""
 "If *waitflag* is ``0`` and another thread holds the lock, this function will "
 "not wait and instead return ``0``. If the lock is not held by any other "
 "thread, then this function will acquire it and return ``1``."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:290
+#: ../../../c-api/synchronization.rst:306
 msgid ""
 "Unlike :c:func:`PyThread_acquire_lock_timed`, acquiring the lock cannot be "
 "interrupted by a signal."
 msgstr ""
 
-#: ../../../c-api/synchronization.rst:298
+#: ../../../c-api/synchronization.rst:314
 msgid ""
 "Release *lock*. If *lock* is not held, then this function issues a fatal "
 "error."
