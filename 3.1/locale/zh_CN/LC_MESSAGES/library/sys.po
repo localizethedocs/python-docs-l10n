@@ -123,10 +123,10 @@ msgstr ""
 
 #: ../../../library/sys.rst:98
 msgid ""
-"``sys.displayhook`` is called on the result of evaluating an :term:"
-"`expression` entered in an interactive Python session.  The display of these "
-"values can be customized by assigning another one-argument function to ``sys."
-"displayhook``."
+"``sys.displayhook`` is called on the result of evaluating "
+"an :term:`expression` entered in an interactive Python session.  The display "
+"of these values can be customized by assigning another one-argument function "
+"to ``sys.displayhook``."
 msgstr ""
 
 #: ../../../library/sys.rst:105
@@ -136,13 +136,13 @@ msgstr ""
 
 #: ../../../library/sys.rst:107
 msgid ""
-"When an exception is raised and uncaught, the interpreter calls ``sys."
-"excepthook`` with three arguments, the exception class, exception instance, "
-"and a traceback object.  In an interactive session this happens just before "
-"control is returned to the prompt; in a Python program this happens just "
-"before the program exits.  The handling of such top-level exceptions can be "
-"customized by assigning another three-argument function to ``sys."
-"excepthook``."
+"When an exception is raised and uncaught, the interpreter calls "
+"``sys.excepthook`` with three arguments, the exception class, exception "
+"instance, and a traceback object.  In an interactive session this happens "
+"just before control is returned to the prompt; in a Python program this "
+"happens just before the program exits.  The handling of such top-level "
+"exceptions can be customized by assigning another three-argument function to "
+"``sys.excepthook``."
 msgstr ""
 
 #: ../../../library/sys.rst:118
@@ -516,9 +516,10 @@ msgstr ""
 #: ../../../library/sys.rst:273
 msgid ""
 "The attribute :attr:`sys.float_info.dig` needs further explanation.  If "
-"``s`` is any string representing a decimal number with at most :attr:`sys."
-"float_info.dig` significant digits, then converting ``s`` to a float and "
-"back again will recover a string representing the same decimal value::"
+"``s`` is any string representing a decimal number with at "
+"most :attr:`sys.float_info.dig` significant digits, then converting ``s`` to "
+"a float and back again will recover a string representing the same decimal "
+"value::"
 msgstr ""
 
 #: ../../../library/sys.rst:286
@@ -596,8 +597,8 @@ msgstr ""
 msgid ""
 "Return the current value of the recursion limit, the maximum depth of the "
 "Python interpreter stack.  This limit prevents infinite recursion from "
-"causing an overflow of the C stack and crashing Python.  It can be set by :"
-"func:`setrecursionlimit`."
+"causing an overflow of the C stack and crashing Python.  It can be set "
+"by :func:`setrecursionlimit`."
 msgstr ""
 
 #: ../../../library/sys.rst:362
@@ -850,8 +851,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:526
 msgid ""
-"The meaning of the variables is the same as that of the return values from :"
-"func:`exc_info` above."
+"The meaning of the variables is the same as that of the return values "
+"from :func:`exc_info` above."
 msgstr ""
 
 #: ../../../library/sys.rst:532
@@ -871,18 +872,18 @@ msgstr ""
 #: ../../../library/sys.rst:546
 msgid ""
 "A list of :term:`finder` objects that have their :meth:`find_module` methods "
-"called to see if one of the objects can find the module to be imported. The :"
-"meth:`find_module` method is called at least with the absolute name of the "
-"module being imported. If the module to be imported is contained in package "
-"then the parent package's :attr:`__path__` attribute is passed in as a "
-"second argument. The method returns :keyword:`None` if the module cannot be "
-"found, else returns a :term:`loader`."
+"called to see if one of the objects can find the module to be imported. "
+"The :meth:`find_module` method is called at least with the absolute name of "
+"the module being imported. If the module to be imported is contained in "
+"package then the parent package's :attr:`__path__` attribute is passed in as "
+"a second argument. The method returns :keyword:`None` if the module cannot "
+"be found, else returns a :term:`loader`."
 msgstr ""
 
 #: ../../../library/sys.rst:554
 msgid ""
-":data:`sys.meta_path` is searched before any implicit default finders or :"
-"data:`sys.path`."
+":data:`sys.meta_path` is searched before any implicit default finders "
+"or :data:`sys.path`."
 msgstr ""
 
 #: ../../../library/sys.rst:557
@@ -911,8 +912,8 @@ msgid ""
 "the interpreter is invoked interactively or if the script is read from "
 "standard input), ``path[0]`` is the empty string, which directs Python to "
 "search modules in the current directory first.  Notice that the script "
-"directory is inserted *before* the entries inserted as a result of :envvar:"
-"`PYTHONPATH`."
+"directory is inserted *before* the entries inserted as a result "
+"of :envvar:`PYTHONPATH`."
 msgstr ""
 
 #: ../../../library/sys.rst:582
@@ -921,15 +922,15 @@ msgstr ""
 
 #: ../../../library/sys.rst:586
 msgid ""
-"Module :mod:`site` This describes how to use .pth files to extend :data:`sys."
-"path`."
+"Module :mod:`site` This describes how to use .pth files to "
+"extend :data:`sys.path`."
 msgstr ""
 
 #: ../../../library/sys.rst:592
 msgid ""
-"A list of callables that take a path argument to try to create a :term:"
-"`finder` for the path. If a finder can be created, it is to be returned by "
-"the callable, else raise :exc:`ImportError`."
+"A list of callables that take a path argument to try to create "
+"a :term:`finder` for the path. If a finder can be created, it is to be "
+"returned by the callable, else raise :exc:`ImportError`."
 msgstr ""
 
 #: ../../../library/sys.rst:596 ../../../library/sys.rst:608
@@ -955,8 +956,8 @@ msgstr ""
 #: ../../../library/sys.rst:616
 msgid ""
 "For Unix systems, this is the lowercased OS name as returned by ``uname -s`` "
-"with the first part of the version as returned by ``uname -r`` appended, e."
-"g. ``'sunos5'`` or ``'linux2'``, *at the time when Python was built*. For "
+"with the first part of the version as returned by ``uname -r`` appended, "
+"e.g. ``'sunos5'`` or ``'linux2'``, *at the time when Python was built*. For "
 "other systems, the values are:"
 msgstr ""
 
@@ -1074,10 +1075,10 @@ msgid ""
 "enable a lazy resolving of symbols when importing a module, if called as "
 "``sys.setdlopenflags(0)``.  To share symbols across extension modules, call "
 "as ``sys.setdlopenflags(ctypes.RTLD_GLOBAL)``.  Symbolic names for the flag "
-"modules can be either found in the :mod:`ctypes` module, or in the :mod:"
-"`DLFCN` module. If :mod:`DLFCN` is not available, it can be generated from :"
-"file:`/usr/include/dlfcn.h` using the :program:`h2py` script. Availability: "
-"Unix."
+"modules can be either found in the :mod:`ctypes` module, or in "
+"the :mod:`DLFCN` module. If :mod:`DLFCN` is not available, it can be "
+"generated from :file:`/usr/include/dlfcn.h` using the :program:`h2py` "
+"script. Availability: Unix."
 msgstr ""
 
 #: ../../../library/sys.rst:705
@@ -1123,8 +1124,8 @@ msgstr ""
 msgid ""
 "Set the system's trace function, which allows you to implement a Python "
 "source code debugger in Python.  The function is thread-specific; for a "
-"debugger to support multiple threads, it must be registered using :func:"
-"`settrace` for each thread being debugged."
+"debugger to support multiple threads, it must be registered "
+"using :func:`settrace` for each thread being debugged."
 msgstr ""
 
 #: ../../../library/sys.rst:752
@@ -1269,17 +1270,18 @@ msgstr ""
 msgid ""
 "The standard streams are in text mode by default.  To write or read binary "
 "data to these, use the underlying binary buffer.  For example, to write "
-"bytes to :data:`stdout`, use ``sys.stdout.buffer.write(b'abc')``.  Using :"
-"meth:`io.TextIOBase.detach` streams can be made binary by default.  This "
-"function sets :data:`stdin` and :data:`stdout` to binary::"
+"bytes to :data:`stdout`, use ``sys.stdout.buffer.write(b'abc')``.  "
+"Using :meth:`io.TextIOBase.detach` streams can be made binary by default.  "
+"This function sets :data:`stdin` and :data:`stdout` to binary::"
 msgstr ""
 
 #: ../../../library/sys.rst:845
 msgid ""
-"Note that the streams can be replaced with objects (like :class:`io."
-"StringIO`) that do not support the :attr:`~io.BufferedIOBase.buffer` "
-"attribute or the :meth:`~io.BufferedIOBase.detach` method and can raise :exc:"
-"`AttributeError` or :exc:`io.UnsupportedOperation`."
+"Note that the streams can be replaced with objects "
+"(like :class:`io.StringIO`) that do not support "
+"the :attr:`~io.BufferedIOBase.buffer` attribute or "
+"the :meth:`~io.BufferedIOBase.detach` method and can "
+"raise :exc:`AttributeError` or :exc:`io.UnsupportedOperation`."
 msgstr ""
 
 #: ../../../library/sys.rst:856
@@ -1337,8 +1339,8 @@ msgid ""
 "*releaselevel* are integers; the release level is ``'alpha'``, ``'beta'``, "
 "``'candidate'``, or ``'final'``.  The ``version_info`` value corresponding "
 "to the Python version 2.0 is ``(2, 0, 0, 'final', 0)``.  The components can "
-"also be accessed by name, so ``sys.version_info[0]`` is equivalent to ``sys."
-"version_info.major`` and so on."
+"also be accessed by name, so ``sys.version_info[0]`` is equivalent to "
+"``sys.version_info.major`` and so on."
 msgstr ""
 
 #: ../../../library/sys.rst:906
@@ -1356,9 +1358,9 @@ msgstr ""
 msgid ""
 "The version number used to form registry keys on Windows platforms. This is "
 "stored as string resource 1000 in the Python DLL.  The value is normally the "
-"first three characters of :const:`version`.  It is provided in the :mod:"
-"`sys` module for informational purposes; modifying this value has no effect "
-"on the registry keys used by Python. Availability: Windows."
+"first three characters of :const:`version`.  It is provided in "
+"the :mod:`sys` module for informational purposes; modifying this value has "
+"no effect on the registry keys used by Python. Availability: Windows."
 msgstr ""
 
 #: ../../../library/sys.rst:925
