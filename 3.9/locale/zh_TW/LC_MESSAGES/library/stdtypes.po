@@ -55,14 +55,14 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:41
 msgid ""
-"Any object can be tested for truth value, for use in an :keyword:`if` or :"
-"keyword:`while` condition or as operand of the Boolean operations below."
+"Any object can be tested for truth value, for use in an :keyword:`if` "
+"or :keyword:`while` condition or as operand of the Boolean operations below."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:46
 msgid ""
-"By default, an object is considered true unless its class defines either a :"
-"meth:`__bool__` method that returns ``False`` or a :meth:`__len__` method "
+"By default, an object is considered true unless its class defines either "
+"a :meth:`__bool__` method that returns ``False`` or a :meth:`__len__` method "
 "that returns zero, when called with the object. [1]_  Here are most of the "
 "built-in objects considered false:"
 msgstr ""
@@ -298,10 +298,11 @@ msgstr ""
 msgid ""
 "Instances of a class cannot be ordered with respect to other instances of "
 "the same class, or other types of object, unless the class defines enough of "
-"the methods :meth:`~object.__lt__`, :meth:`~object.__le__`, :meth:`~object."
-"__gt__`, and :meth:`~object.__ge__` (in general, :meth:`~object.__lt__` and :"
-"meth:`~object.__eq__` are sufficient, if you want the conventional meanings "
-"of the comparison operators)."
+"the "
+"methods :meth:`~object.__lt__`, :meth:`~object.__le__`, :meth:`~object.__gt__`, "
+"and :meth:`~object.__ge__` (in general, :meth:`~object.__lt__` "
+"and :meth:`~object.__eq__` are sufficient, if you want the conventional "
+"meanings of the comparison operators)."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:190
@@ -313,8 +314,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:198
 msgid ""
-"Two more operations with the same syntactic priority, :keyword:`in` and :"
-"keyword:`not in`, are supported by types that are :term:`iterable` or "
+"Two more operations with the same syntactic priority, :keyword:`in` "
+"and :keyword:`not in`, are supported by types that are :term:`iterable` or "
 "implement the :meth:`__contains__` method."
 msgstr ""
 
@@ -329,12 +330,13 @@ msgid ""
 "subtype of integers.  Integers have unlimited precision.  Floating point "
 "numbers are usually implemented using :c:type:`double` in C; information "
 "about the precision and internal representation of floating point numbers "
-"for the machine on which your program is running is available in :data:`sys."
-"float_info`.  Complex numbers have a real and imaginary part, which are each "
-"a floating point number.  To extract these parts from a complex number *z*, "
-"use ``z.real`` and ``z.imag``. (The standard library includes the additional "
-"numeric types :mod:`fractions.Fraction`, for rationals, and :mod:`decimal."
-"Decimal`, for floating-point numbers with user-definable precision.)"
+"for the machine on which your program is running is available "
+"in :data:`sys.float_info`.  Complex numbers have a real and imaginary part, "
+"which are each a floating point number.  To extract these parts from a "
+"complex number *z*, use ``z.real`` and ``z.imag``. (The standard library "
+"includes the additional numeric types :mod:`fractions.Fraction`, for "
+"rationals, and :mod:`decimal.Decimal`, for floating-point numbers with user-"
+"definable precision.)"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:237
@@ -586,8 +588,9 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:356
 msgid ""
-"See https://www.unicode.org/Public/13.0.0/ucd/extracted/DerivedNumericType."
-"txt for a complete list of code points with the ``Nd`` property."
+"See https://www.unicode.org/Public/13.0.0/ucd/extracted/"
+"DerivedNumericType.txt for a complete list of code points with the ``Nd`` "
+"property."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:360
@@ -740,8 +743,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:444
 msgid ""
 "Performing these calculations with at least one extra sign extension bit in "
-"a finite two's complement representation (a working bit-width of ``1 + max(x."
-"bit_length(), y.bit_length())`` or more) is sufficient to get the same "
+"a finite two's complement representation (a working bit-width of ``1 + "
+"max(x.bit_length(), y.bit_length())`` or more) is sufficient to get the same "
 "result as if there were an infinite number of sign bits."
 msgstr ""
 
@@ -766,8 +769,8 @@ msgid ""
 "More precisely, if ``x`` is nonzero, then ``x.bit_length()`` is the unique "
 "positive integer ``k`` such that ``2**(k-1) <= abs(x) < 2**k``. "
 "Equivalently, when ``abs(x)`` is small enough to have a correctly rounded "
-"logarithm, then ``k = 1 + int(log(abs(x), 2))``. If ``x`` is zero, then ``x."
-"bit_length()`` returns ``0``."
+"logarithm, then ``k = 1 + int(log(abs(x), 2))``. If ``x`` is zero, then "
+"``x.bit_length()`` returns ``0``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:473
@@ -874,8 +877,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:600
 msgid ""
-"Note that :meth:`float.hex` is an instance method, while :meth:`float."
-"fromhex` is a class method."
+"Note that :meth:`float.hex` is an instance method, "
+"while :meth:`float.fromhex` is a class method."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:603
@@ -917,16 +920,17 @@ msgstr ""
 #: ../../../library/stdtypes.rst:642
 msgid ""
 "For numbers ``x`` and ``y``, possibly of different types, it's a requirement "
-"that ``hash(x) == hash(y)`` whenever ``x == y`` (see the :meth:`~object."
-"__hash__` method documentation for more details).  For ease of "
-"implementation and efficiency across a variety of numeric types (including :"
-"class:`int`, :class:`float`, :class:`decimal.Decimal` and :class:`fractions."
-"Fraction`) Python's hash for numeric types is based on a single mathematical "
-"function that's defined for any rational number, and hence applies to all "
-"instances of :class:`int` and :class:`fractions.Fraction`, and all finite "
-"instances of :class:`float` and :class:`decimal.Decimal`.  Essentially, this "
-"function is given by reduction modulo ``P`` for a fixed prime ``P``.  The "
-"value of ``P`` is made available to Python as the :attr:`modulus` attribute "
+"that ``hash(x) == hash(y)`` whenever ``x == y`` (see "
+"the :meth:`~object.__hash__` method documentation for more details).  For "
+"ease of implementation and efficiency across a variety of numeric types "
+"(including :class:`int`, :class:`float`, :class:`decimal.Decimal` "
+"and :class:`fractions.Fraction`) Python's hash for numeric types is based on "
+"a single mathematical function that's defined for any rational number, and "
+"hence applies to all instances of :class:`int` "
+"and :class:`fractions.Fraction`, and all finite instances of :class:`float` "
+"and :class:`decimal.Decimal`.  Essentially, this function is given by "
+"reduction modulo ``P`` for a fixed prime ``P``.  The value of ``P`` is made "
+"available to Python as the :attr:`modulus` attribute "
 "of :data:`sys.hash_info`."
 msgstr ""
 
@@ -972,17 +976,18 @@ msgstr ""
 #: ../../../library/stdtypes.rst:680
 msgid ""
 "For a :class:`complex` number ``z``, the hash values of the real and "
-"imaginary parts are combined by computing ``hash(z.real) + sys.hash_info."
-"imag * hash(z.imag)``, reduced modulo ``2**sys.hash_info.width`` so that it "
-"lies in ``range(-2**(sys.hash_info.width - 1), 2**(sys.hash_info.width - "
-"1))``.  Again, if the result is ``-1``, it's replaced with ``-2``."
+"imaginary parts are combined by computing ``hash(z.real) + "
+"sys.hash_info.imag * hash(z.imag)``, reduced modulo "
+"``2**sys.hash_info.width`` so that it lies in "
+"``range(-2**(sys.hash_info.width - 1), 2**(sys.hash_info.width - 1))``.  "
+"Again, if the result is ``-1``, it's replaced with ``-2``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:688
 msgid ""
 "To clarify the above rules, here's some example Python code, equivalent to "
-"the built-in hash, for computing the hash of a rational number, :class:"
-"`float`, or :class:`complex`::"
+"the built-in hash, for computing the hash of a rational "
+"number, :class:`float`, or :class:`complex`::"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:743
@@ -1010,9 +1015,9 @@ msgid ""
 "iteration, additional methods can be provided to specifically request "
 "iterators for those iteration types.  (An example of an object supporting "
 "multiple forms of iteration would be a tree structure which supports both "
-"breadth-first and depth-first traversal.)  This method corresponds to the :c:"
-"member:`~PyTypeObject.tp_iter` slot of the type structure for Python objects "
-"in the Python/C API."
+"breadth-first and depth-first traversal.)  This method corresponds to "
+"the :c:member:`~PyTypeObject.tp_iter` slot of the type structure for Python "
+"objects in the Python/C API."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:772
@@ -1024,17 +1029,18 @@ msgstr ""
 #: ../../../library/stdtypes.rst:778
 msgid ""
 "Return the iterator object itself.  This is required to allow both "
-"containers and iterators to be used with the :keyword:`for` and :keyword:"
-"`in` statements. This method corresponds to the :c:member:`~PyTypeObject."
-"tp_iter` slot of the type structure for Python objects in the Python/C API."
+"containers and iterators to be used with the :keyword:`for` "
+"and :keyword:`in` statements. This method corresponds to "
+"the :c:member:`~PyTypeObject.tp_iter` slot of the type structure for Python "
+"objects in the Python/C API."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:786
 msgid ""
 "Return the next item from the container.  If there are no further items, "
-"raise the :exc:`StopIteration` exception.  This method corresponds to the :c:"
-"member:`~PyTypeObject.tp_iternext` slot of the type structure for Python "
-"objects in the Python/C API."
+"raise the :exc:`StopIteration` exception.  This method corresponds to "
+"the :c:member:`~PyTypeObject.tp_iternext` slot of the type structure for "
+"Python objects in the Python/C API."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:791
@@ -1047,8 +1053,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:796
 msgid ""
-"Once an iterator's :meth:`~iterator.__next__` method raises :exc:"
-"`StopIteration`, it must continue to do so on subsequent calls. "
+"Once an iterator's :meth:`~iterator.__next__` method "
+"raises :exc:`StopIteration`, it must continue to do so on subsequent calls. "
 "Implementations that do not obey this property are deemed broken."
 msgstr ""
 
@@ -1061,9 +1067,10 @@ msgid ""
 "Python's :term:`generator`\\s provide a convenient way to implement the "
 "iterator protocol.  If a container object's :meth:`__iter__` method is "
 "implemented as a generator, it will automatically return an iterator object "
-"(technically, a generator object) supplying the :meth:`__iter__` and :meth:"
-"`~generator.__next__` methods. More information about generators can be "
-"found in :ref:`the documentation for the yield expression <yieldexpr>`."
+"(technically, a generator object) supplying the :meth:`__iter__` "
+"and :meth:`~generator.__next__` methods. More information about generators "
+"can be found in :ref:`the documentation for the yield expression "
+"<yieldexpr>`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:818
@@ -1302,17 +1309,17 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:971
 msgid ""
-"if concatenating :class:`str` objects, you can build a list and use :meth:"
-"`str.join` at the end or else write to an :class:`io.StringIO` instance and "
-"retrieve its value when complete"
+"if concatenating :class:`str` objects, you can build a list and "
+"use :meth:`str.join` at the end or else write to an :class:`io.StringIO` "
+"instance and retrieve its value when complete"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:975
 msgid ""
-"if concatenating :class:`bytes` objects, you can similarly use :meth:`bytes."
-"join` or :class:`io.BytesIO`, or you can do in-place concatenation with a :"
-"class:`bytearray` object.  :class:`bytearray` objects are mutable and have "
-"an efficient overallocation mechanism"
+"if concatenating :class:`bytes` objects, you can similarly "
+"use :meth:`bytes.join` or :class:`io.BytesIO`, or you can do in-place "
+"concatenation with a :class:`bytearray` object.  :class:`bytearray` objects "
+"are mutable and have an efficient overallocation mechanism"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:980
@@ -1347,15 +1354,15 @@ msgstr ""
 #: ../../../library/stdtypes.rst:1009
 msgid ""
 "The only operation that immutable sequence types generally implement that is "
-"not also implemented by mutable sequence types is support for the :func:"
-"`hash` built-in."
+"not also implemented by mutable sequence types is support for "
+"the :func:`hash` built-in."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1013
 msgid ""
 "This support allows immutable sequences, such as :class:`tuple` instances, "
-"to be used as :class:`dict` keys and stored in :class:`set` and :class:"
-"`frozenset` instances."
+"to be used as :class:`dict` keys and stored in :class:`set` "
+"and :class:`frozenset` instances."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1017
@@ -1525,9 +1532,9 @@ msgstr ""
 msgid ""
 ":meth:`clear` and :meth:`!copy` are included for consistency with the "
 "interfaces of mutable containers that don't support slicing operations (such "
-"as :class:`dict` and :class:`set`). :meth:`!copy` is not part of the :class:"
-"`collections.abc.MutableSequence` ABC, but most concrete mutable sequence "
-"classes provide it."
+"as :class:`dict` and :class:`set`). :meth:`!copy` is not part of "
+"the :class:`collections.abc.MutableSequence` ABC, but most concrete mutable "
+"sequence classes provide it."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1131
@@ -1536,10 +1543,11 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1135
 msgid ""
-"The value *n* is an integer, or an object implementing :meth:`~object."
-"__index__`.  Zero and negative values of *n* clear the sequence.  Items in "
-"the sequence are not copied; they are referenced multiple times, as "
-"explained for ``s * n`` under :ref:`typesseq-common`."
+"The value *n* is an integer, or an object "
+"implementing :meth:`~object.__index__`.  Zero and negative values of *n* "
+"clear the sequence.  Items in the sequence are not copied; they are "
+"referenced multiple times, as explained for ``s * n`` under :ref:`typesseq-"
+"common`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1144
@@ -1608,8 +1616,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1184
 msgid ""
-":meth:`sort` accepts two arguments that can only be passed by keyword (:ref:"
-"`keyword-only arguments <keyword-only_parameter>`):"
+":meth:`sort` accepts two arguments that can only be passed by keyword "
+"(:ref:`keyword-only arguments <keyword-only_parameter>`):"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1187
@@ -1671,8 +1679,8 @@ msgid ""
 "Tuples are immutable sequences, typically used to store collections of "
 "heterogeneous data (such as the 2-tuples produced by the :func:`enumerate` "
 "built-in). Tuples are also used for cases where an immutable sequence of "
-"homogeneous data is needed (such as allowing storage in a :class:`set` or :"
-"class:`dict` instance)."
+"homogeneous data is needed (such as allowing storage in a :class:`set` "
+"or :class:`dict` instance)."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1235
@@ -1740,8 +1748,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1278
 msgid ""
-"The arguments to the range constructor must be integers (either built-in :"
-"class:`int` or any object that implements the :meth:`~object.__index__` "
+"The arguments to the range constructor must be integers (either built-"
+"in :class:`int` or any object that implements the :meth:`~object.__index__` "
 "special method).  If the *step* argument is omitted, it defaults to ``1``. "
 "If the *start* argument is omitted, it defaults to ``0``. If *step* is "
 "zero, :exc:`ValueError` is raised."
@@ -1770,8 +1778,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:1297
 msgid ""
 "Ranges containing absolute values larger than :data:`sys.maxsize` are "
-"permitted but some features (such as :func:`len`) may raise :exc:"
-"`OverflowError`."
+"permitted but some features (such as :func:`len`) may "
+"raise :exc:`OverflowError`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1301
@@ -1804,8 +1812,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1337
 msgid ""
-"The advantage of the :class:`range` type over a regular :class:`list` or :"
-"class:`tuple` is that a :class:`range` object will always take the same "
+"The advantage of the :class:`range` type over a regular :class:`list` "
+"or :class:`tuple` is that a :class:`range` object will always take the same "
 "(small) amount of memory, no matter the size of the range it represents (as "
 "it only stores the ``start``, ``stop`` and ``step`` values, calculating "
 "individual items and subranges as needed)."
@@ -1830,9 +1838,9 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1370
 msgid ""
-"Implement the Sequence ABC. Support slicing and negative indices. Test :"
-"class:`int` objects for membership in constant time instead of iterating "
-"through all items."
+"Implement the Sequence ABC. Support slicing and negative indices. "
+"Test :class:`int` objects for membership in constant time instead of "
+"iterating through all items."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1376
@@ -1860,9 +1868,9 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1401
 msgid ""
-"Textual data in Python is handled with :class:`str` objects, or :dfn:"
-"`strings`. Strings are immutable :ref:`sequences <typesseq>` of Unicode code "
-"points.  String literals are written in a variety of ways:"
+"Textual data in Python is handled with :class:`str` objects, "
+"or :dfn:`strings`. Strings are immutable :ref:`sequences <typesseq>` of "
+"Unicode code points.  String literals are written in a variety of ways:"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1406
@@ -1913,9 +1921,9 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1430
 msgid ""
-"There is also no mutable string type, but :meth:`str.join` or :class:`io."
-"StringIO` can be used to efficiently construct strings from multiple "
-"fragments."
+"There is also no mutable string type, but :meth:`str.join` "
+"or :class:`io.StringIO` can be used to efficiently construct strings from "
+"multiple fragments."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1434
@@ -1934,24 +1942,24 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1450
 msgid ""
-"If neither *encoding* nor *errors* is given, ``str(object)`` returns :meth:"
-"`type(object).__str__(object) <object.__str__>`, which is the \"informal\" "
-"or nicely printable string representation of *object*.  For string objects, "
-"this is the string itself.  If *object* does not have a :meth:`~object."
-"__str__` method, then :func:`str` falls back to returning :meth:"
-"`repr(object) <repr>`."
+"If neither *encoding* nor *errors* is given, ``str(object)`` "
+"returns :meth:`type(object).__str__(object) <object.__str__>`, which is the "
+"\"informal\" or nicely printable string representation of *object*.  For "
+"string objects, this is the string itself.  If *object* does not have "
+"a :meth:`~object.__str__` method, then :func:`str` falls back to "
+"returning :meth:`repr(object) <repr>`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1462
 msgid ""
-"If at least one of *encoding* or *errors* is given, *object* should be a :"
-"term:`bytes-like object` (e.g. :class:`bytes` or :class:`bytearray`).  In "
+"If at least one of *encoding* or *errors* is given, *object* should be "
+"a :term:`bytes-like object` (e.g. :class:`bytes` or :class:`bytearray`).  In "
 "this case, if *object* is a :class:`bytes` (or :class:`bytearray`) object, "
-"then ``str(bytes, encoding, errors)`` is equivalent to :meth:`bytes."
-"decode(encoding, errors) <bytes.decode>`.  Otherwise, the bytes object "
-"underlying the buffer object is obtained before calling :meth:`bytes."
-"decode`.  See :ref:`binaryseq` and :ref:`bufferobjects` for information on "
-"buffer objects."
+"then ``str(bytes, encoding, errors)`` is equivalent "
+"to :meth:`bytes.decode(encoding, errors) <bytes.decode>`.  Otherwise, the "
+"bytes object underlying the buffer object is obtained before "
+"calling :meth:`bytes.decode`.  See :ref:`binaryseq` and :ref:`bufferobjects` "
+"for information on buffer objects."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1471
@@ -1964,10 +1972,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1479
 msgid ""
-"For more information on the ``str`` class and its methods, see :ref:"
-"`textseq` and the :ref:`string-methods` section below.  To output formatted "
-"strings, see the :ref:`f-strings` and :ref:`formatstrings` sections.  In "
-"addition, see the :ref:`stringservices` section."
+"For more information on the ``str`` class and its methods, "
+"see :ref:`textseq` and the :ref:`string-methods` section below.  To output "
+"formatted strings, see the :ref:`f-strings` and :ref:`formatstrings` "
+"sections.  In addition, see the :ref:`stringservices` section."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1491
@@ -1983,11 +1991,11 @@ msgstr ""
 #: ../../../library/stdtypes.rst:1499
 msgid ""
 "Strings also support two styles of string formatting, one providing a large "
-"degree of flexibility and customization (see :meth:`str.format`, :ref:"
-"`formatstrings` and :ref:`string-formatting`) and the other based on C "
-"``printf`` style formatting that handles a narrower range of types and is "
-"slightly harder to use correctly, but is often faster for the cases it can "
-"handle (:ref:`old-string-formatting`)."
+"degree of flexibility and customization "
+"(see :meth:`str.format`, :ref:`formatstrings` and :ref:`string-formatting`) "
+"and the other based on C ``printf`` style formatting that handles a narrower "
+"range of types and is slightly harder to use correctly, but is often faster "
+"for the cases it can handle (:ref:`old-string-formatting`)."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1506
@@ -2021,8 +2029,8 @@ msgid ""
 "Casefolding is similar to lowercasing but more aggressive because it is "
 "intended to remove all case distinctions in a string. For example, the "
 "German lowercase letter ``'ß'`` is equivalent to ``\"ss\"``. Since it is "
-"already lowercase, :meth:`lower` would do nothing to ``'ß'``; :meth:"
-"`casefold` converts it to ``\"ss\"``."
+"already lowercase, :meth:`lower` would do nothing to "
+"``'ß'``; :meth:`casefold` converts it to ``\"ss\"``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1531
@@ -2106,8 +2114,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:1611
 msgid ""
 "The :meth:`~str.find` method should be used only if you need to know the "
-"position of *sub*.  To check if *sub* is a substring or not, use the :"
-"keyword:`in` operator::"
+"position of *sub*.  To check if *sub* is a substring or not, use "
+"the :keyword:`in` operator::"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1621
@@ -2128,13 +2136,14 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1635
 msgid ""
-"When formatting a number (:class:`int`, :class:`float`, :class:`complex`, :"
-"class:`decimal.Decimal` and subclasses) with the ``n`` type (ex: ``'{:n}'."
-"format(1234)``), the function temporarily sets the ``LC_CTYPE`` locale to "
-"the ``LC_NUMERIC`` locale to decode ``decimal_point`` and ``thousands_sep`` "
-"fields of :c:func:`localeconv` if they are non-ASCII or longer than 1 byte, "
-"and the ``LC_NUMERIC`` locale is different than the ``LC_CTYPE`` locale.  "
-"This temporary change affects other threads."
+"When formatting a number "
+"(:class:`int`, :class:`float`, :class:`complex`, :class:`decimal.Decimal` "
+"and subclasses) with the ``n`` type (ex: ``'{:n}'.format(1234)``), the "
+"function temporarily sets the ``LC_CTYPE`` locale to the ``LC_NUMERIC`` "
+"locale to decode ``decimal_point`` and ``thousands_sep`` fields "
+"of :c:func:`localeconv` if they are non-ASCII or longer than 1 byte, and the "
+"``LC_NUMERIC`` locale is different than the ``LC_CTYPE`` locale.  This "
+"temporary change affects other threads."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1644
@@ -2160,16 +2169,16 @@ msgstr ""
 msgid ""
 "Return ``True`` if all characters in the string are alphanumeric and there "
 "is at least one character, ``False`` otherwise.  A character ``c`` is "
-"alphanumeric if one of the following returns ``True``: ``c.isalpha()``, ``c."
-"isdecimal()``, ``c.isdigit()``, or ``c.isnumeric()``."
+"alphanumeric if one of the following returns ``True``: ``c.isalpha()``, "
+"``c.isdecimal()``, ``c.isdigit()``, or ``c.isnumeric()``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1682
 msgid ""
 "Return ``True`` if all characters in the string are alphabetic and there is "
 "at least one character, ``False`` otherwise.  Alphabetic characters are "
-"those characters defined in the Unicode character database as \"Letter\", i."
-"e., those with general category property being one of \"Lm\", \"Lt\", "
+"those characters defined in the Unicode character database as \"Letter\", "
+"i.e., those with general category property being one of \"Lm\", \"Lt\", "
 "\"Lu\", \"Ll\", or \"Lo\".  Note that this is different from the "
 "\"Alphabetic\" property defined in the Unicode Standard."
 msgstr ""
@@ -2251,9 +2260,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1769
 msgid ""
-"A character is *whitespace* if in the Unicode character database (see :mod:"
-"`unicodedata`), either its general category is ``Zs`` (\"Separator, "
-"space\"), or its bidirectional class is one of ``WS``, ``B``, or ``S``."
+"A character is *whitespace* if in the Unicode character database "
+"(see :mod:`unicodedata`), either its general category is ``Zs`` "
+"(\"Separator, space\"), or its bidirectional class is one of ``WS``, ``B``, "
+"or ``S``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1777
@@ -2272,8 +2282,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1800
 msgid ""
-"Return a string which is the concatenation of the strings in *iterable*. A :"
-"exc:`TypeError` will be raised if there are any non-string values in "
+"Return a string which is the concatenation of the strings in *iterable*. "
+"A :exc:`TypeError` will be raised if there are any non-string values in "
 "*iterable*, including :class:`bytes` objects.  The separator between "
 "elements is the string providing this method."
 msgstr ""
@@ -2314,8 +2324,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:1845
 msgid ""
-"This static method returns a translation table usable for :meth:`str."
-"translate`."
+"This static method returns a translation table usable "
+"for :meth:`str.translate`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:1847
@@ -2607,8 +2617,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:2098
 msgid ""
 "Return a copy of the string with uppercase characters converted to lowercase "
-"and vice versa. Note that it is not necessarily true that ``s.swapcase()."
-"swapcase() == s``."
+"and vice versa. Note that it is not necessarily true that "
+"``s.swapcase().swapcase() == s``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:2105
@@ -2641,12 +2651,12 @@ msgstr ""
 msgid ""
 "Return a copy of the string in which each character has been mapped through "
 "the given translation table.  The table must be an object that implements "
-"indexing via :meth:`__getitem__`, typically a :term:`mapping` or :term:"
-"`sequence`.  When indexed by a Unicode ordinal (an integer), the table "
-"object can do any of the following: return a Unicode ordinal or a string, to "
-"map the character to one or more other characters; return ``None``, to "
-"delete the character from the return string; or raise a :exc:`LookupError` "
-"exception, to map the character to itself."
+"indexing via :meth:`__getitem__`, typically a :term:`mapping` "
+"or :term:`sequence`.  When indexed by a Unicode ordinal (an integer), the "
+"table object can do any of the following: return a Unicode ordinal or a "
+"string, to map the character to one or more other characters; return "
+"``None``, to delete the character from the return string; or raise "
+"a :exc:`LookupError` exception, to map the character to itself."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:2148
@@ -3038,16 +3048,16 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:2384
 msgid ""
-"Binary Sequence Types --- :class:`bytes`, :class:`bytearray`, :class:"
-"`memoryview`"
+"Binary Sequence Types "
+"--- :class:`bytes`, :class:`bytearray`, :class:`memoryview`"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:2392
 msgid ""
-"The core built-in types for manipulating binary data are :class:`bytes` and :"
-"class:`bytearray`. They are supported by :class:`memoryview` which uses the :"
-"ref:`buffer protocol <bufferobjects>` to access the memory of other binary "
-"objects without needing to make a copy."
+"The core built-in types for manipulating binary data are :class:`bytes` "
+"and :class:`bytearray`. They are supported by :class:`memoryview` which uses "
+"the :ref:`buffer protocol <bufferobjects>` to access the memory of other "
+"binary objects without needing to make a copy."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:2397
@@ -3399,9 +3409,9 @@ msgid ""
 "``'utf-8'``. *errors* may be given to set a different error handling "
 "scheme.  The default for *errors* is ``'strict'``, meaning that encoding "
 "errors raise a :exc:`UnicodeError`.  Other possible values are ``'ignore'``, "
-"``'replace'`` and any other name registered via :func:`codecs."
-"register_error`, see section :ref:`error-handlers`. For a list of possible "
-"encodings, see section :ref:`standard-encodings`."
+"``'replace'`` and any other name registered "
+"via :func:`codecs.register_error`, see section :ref:`error-handlers`. For a "
+"list of possible encodings, see section :ref:`standard-encodings`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:2686
@@ -3413,9 +3423,9 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:2692
 msgid ""
-"Passing the *encoding* argument to :class:`str` allows decoding any :term:"
-"`bytes-like object` directly, without needing to make a temporary bytes or "
-"bytearray object."
+"Passing the *encoding* argument to :class:`str` allows decoding "
+"any :term:`bytes-like object` directly, without needing to make a temporary "
+"bytes or bytearray object."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:2696
@@ -3445,8 +3455,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:2727
 msgid ""
 "The :meth:`~bytes.find` method should be used only if you need to know the "
-"position of *sub*.  To check if *sub* is a substring or not, use the :"
-"keyword:`in` operator::"
+"position of *sub*.  To check if *sub* is a substring or not, use "
+"the :keyword:`in` operator::"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:2741
@@ -3467,10 +3477,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:2765
 msgid ""
-"This static method returns a translation table usable for :meth:`bytes."
-"translate` that will map each character in *from* into the character at the "
-"same position in *to*; *from* and *to* must both be :term:`bytes-like "
-"objects <bytes-like object>` and have the same length."
+"This static method returns a translation table usable "
+"for :meth:`bytes.translate` that will map each character in *from* into the "
+"character at the same position in *to*; *from* and *to* must both "
+"be :term:`bytes-like objects <bytes-like object>` and have the same length."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:2776
@@ -3807,10 +3817,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:3295
 msgid ""
-"Unlike :func:`str.swapcase()`, it is always the case that ``bin.swapcase()."
-"swapcase() == bin`` for the binary versions. Case conversions are "
-"symmetrical in ASCII, even though that is not generally true for arbitrary "
-"Unicode code points."
+"Unlike :func:`str.swapcase()`, it is always the case that "
+"``bin.swapcase().swapcase() == bin`` for the binary versions. Case "
+"conversions are symmetrical in ASCII, even though that is not generally true "
+"for arbitrary Unicode code points."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:3309
@@ -3866,8 +3876,8 @@ msgid ""
 "the ``%`` operator (modulo). This is also known as the bytes *formatting* or "
 "*interpolation* operator. Given ``format % values`` (where *format* is a "
 "bytes object), ``%`` conversion specifications in *format* are replaced with "
-"zero or more elements of *values*. The effect is similar to using the :c:"
-"func:`sprintf` in the C language."
+"zero or more elements of *values*. The effect is similar to using "
+"the :c:func:`sprintf` in the C language."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:3424
@@ -4000,8 +4010,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:3681
 msgid ""
 "One-dimensional memoryviews of hashable (read-only) types with formats 'B', "
-"'b' or 'c' are also hashable. The hash is defined as ``hash(m) == hash(m."
-"tobytes())``::"
+"'b' or 'c' are also hashable. The hash is defined as ``hash(m) == "
+"hash(m.tobytes())``::"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:3693
@@ -4012,8 +4022,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:3697
 msgid ""
-"memoryview is now registered automatically with :class:`collections.abc."
-"Sequence`"
+"memoryview is now registered automatically "
+"with :class:`collections.abc.Sequence`"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:3701
@@ -4033,8 +4043,9 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:3712
 msgid ""
-"For the subset of :mod:`struct` format strings currently supported by :meth:"
-"`tolist`, ``v`` and ``w`` are equal if ``v.tolist() == w.tolist()``::"
+"For the subset of :mod:`struct` format strings currently supported "
+"by :meth:`tolist`, ``v`` and ``w`` are equal if ``v.tolist() == "
+"w.tolist()``::"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:3731
@@ -4098,8 +4109,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:3805
 msgid ""
-":meth:`tolist` now supports all single character native formats in :mod:"
-"`struct` module syntax as well as multi-dimensional representations."
+":meth:`tolist` now supports all single character native formats "
+"in :mod:`struct` module syntax as well as multi-dimensional representations."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:3812
@@ -4111,8 +4122,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:3831
 msgid ""
 "Release the underlying buffer exposed by the memoryview object.  Many "
-"objects take special actions when a view is held on them (for example, a :"
-"class:`bytearray` would temporarily forbid resizing); therefore, calling "
+"objects take special actions when a view is held on them (for example, "
+"a :class:`bytearray` would temporarily forbid resizing); therefore, calling "
 "release() is handy to remove these restrictions (and free any dangling "
 "resources) as soon as possible."
 msgstr ""
@@ -4141,9 +4152,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:3870
 msgid ""
-"The destination format is restricted to a single element native format in :"
-"mod:`struct` syntax. One of the formats must be a byte format ('B', 'b' or "
-"'c'). The byte length of the result must be the same as the original length."
+"The destination format is restricted to a single element native format "
+"in :mod:`struct` syntax. One of the formats must be a byte format ('B', 'b' "
+"or 'c'). The byte length of the result must be the same as the original "
+"length."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:3875
@@ -4255,8 +4267,8 @@ msgid ""
 "objects. Common uses include membership testing, removing duplicates from a "
 "sequence, and computing mathematical operations such as intersection, union, "
 "difference, and symmetric difference. (For other containers see the built-"
-"in :class:`dict`, :class:`list`, and :class:`tuple` classes, and the :mod:"
-"`collections` module.)"
+"in :class:`dict`, :class:`list`, and :class:`tuple` classes, and "
+"the :mod:`collections` module.)"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4089
@@ -4269,10 +4281,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:4094
 msgid ""
-"There are currently two built-in set types, :class:`set` and :class:"
-"`frozenset`. The :class:`set` type is mutable --- the contents can be "
-"changed using methods like :meth:`~set.add` and :meth:`~set.remove`.  Since "
-"it is mutable, it has no hash value and cannot be used as either a "
+"There are currently two built-in set types, :class:`set` "
+"and :class:`frozenset`. The :class:`set` type is mutable --- the contents "
+"can be changed using methods like :meth:`~set.add` and :meth:`~set.remove`.  "
+"Since it is mutable, it has no hash value and cannot be used as either a "
 "dictionary key or as an element of another set.  The :class:`frozenset` type "
 "is immutable and :term:`hashable` --- its contents cannot be altered after "
 "it is created; it can therefore be used as a dictionary key or as an element "
@@ -4385,12 +4397,13 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:4188
 msgid ""
-"Note, the non-operator versions of :meth:`union`, :meth:`intersection`, :"
-"meth:`difference`, and :meth:`symmetric_difference`, :meth:`issubset`, and :"
-"meth:`issuperset` methods will accept any iterable as an argument.  In "
-"contrast, their operator based counterparts require their arguments to be "
-"sets.  This precludes error-prone constructions like ``set('abc') & 'cbs'`` "
-"in favor of the more readable ``set('abc').intersection('cbs')``."
+"Note, the non-operator versions "
+"of :meth:`union`, :meth:`intersection`, :meth:`difference`, "
+"and :meth:`symmetric_difference`, :meth:`issubset`, and :meth:`issuperset` "
+"methods will accept any iterable as an argument.  In contrast, their "
+"operator based counterparts require their arguments to be sets.  This "
+"precludes error-prone constructions like ``set('abc') & 'cbs'`` in favor of "
+"the more readable ``set('abc').intersection('cbs')``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4195
@@ -4484,17 +4497,17 @@ msgstr "移除集合中的所有元素。"
 
 #: ../../../library/stdtypes.rst:4266
 msgid ""
-"Note, the non-operator versions of the :meth:`update`, :meth:"
-"`intersection_update`, :meth:`difference_update`, and :meth:"
-"`symmetric_difference_update` methods will accept any iterable as an "
-"argument."
+"Note, the non-operator versions of "
+"the :meth:`update`, :meth:`intersection_update`, :meth:`difference_update`, "
+"and :meth:`symmetric_difference_update` methods will accept any iterable as "
+"an argument."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4271
 msgid ""
-"Note, the *elem* argument to the :meth:`__contains__`, :meth:`remove`, and :"
-"meth:`discard` methods may be a set.  To support searching for an equivalent "
-"frozenset, a temporary one is created from *elem*."
+"Note, the *elem* argument to the :meth:`__contains__`, :meth:`remove`, "
+"and :meth:`discard` methods may be a set.  To support searching for an "
+"equivalent frozenset, a temporary one is created from *elem*."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4279
@@ -4505,21 +4518,22 @@ msgstr ""
 msgid ""
 "A :term:`mapping` object maps :term:`hashable` values to arbitrary objects. "
 "Mappings are mutable objects.  There is currently only one standard mapping "
-"type, the :dfn:`dictionary`.  (For other containers see the built-in :class:"
-"`list`, :class:`set`, and :class:`tuple` classes, and the :mod:`collections` "
-"module.)"
+"type, the :dfn:`dictionary`.  (For other containers see the built-"
+"in :class:`list`, :class:`set`, and :class:`tuple` classes, and "
+"the :mod:`collections` module.)"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4295
 msgid ""
-"A dictionary's keys are *almost* arbitrary values.  Values that are not :"
-"term:`hashable`, that is, values containing lists, dictionaries or other "
-"mutable types (that are compared by value rather than by object identity) "
-"may not be used as keys.  Numeric types used for keys obey the normal rules "
-"for numeric comparison: if two numbers compare equal (such as ``1`` and "
-"``1.0``) then they can be used interchangeably to index the same dictionary "
-"entry.  (Note however, that since computers store floating-point numbers as "
-"approximations it is usually unwise to use them as dictionary keys.)"
+"A dictionary's keys are *almost* arbitrary values.  Values that are "
+"not :term:`hashable`, that is, values containing lists, dictionaries or "
+"other mutable types (that are compared by value rather than by object "
+"identity) may not be used as keys.  Numeric types used for keys obey the "
+"normal rules for numeric comparison: if two numbers compare equal (such as "
+"``1`` and ``1.0``) then they can be used interchangeably to index the same "
+"dictionary entry.  (Note however, that since computers store floating-point "
+"numbers as approximations it is usually unwise to use them as dictionary "
+"keys.)"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4308
@@ -4606,16 +4620,16 @@ msgid ""
 "present, the ``d[key]`` operation calls that method with the key *key* as "
 "argument.  The ``d[key]`` operation then returns or raises whatever is "
 "returned or raised by the ``__missing__(key)`` call. No other operations or "
-"methods invoke :meth:`__missing__`. If :meth:`__missing__` is not defined, :"
-"exc:`KeyError` is raised. :meth:`__missing__` must be a method; it cannot be "
-"an instance variable::"
+"methods invoke :meth:`__missing__`. If :meth:`__missing__` is not "
+"defined, :exc:`KeyError` is raised. :meth:`__missing__` must be a method; it "
+"cannot be an instance variable::"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4386
 msgid ""
-"The example above shows part of the implementation of :class:`collections."
-"Counter`.  A different ``__missing__`` method is used by :class:`collections."
-"defaultdict`."
+"The example above shows part of the implementation "
+"of :class:`collections.Counter`.  A different ``__missing__`` method is used "
+"by :class:`collections.defaultdict`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4392
@@ -4686,8 +4700,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:4448
 msgid ""
 "If *key* is in the dictionary, remove it and return its value, else return "
-"*default*.  If *default* is not given and *key* is not in the dictionary, a :"
-"exc:`KeyError` is raised."
+"*default*.  If *default* is not given and *key* is not in the dictionary, "
+"a :exc:`KeyError` is raised."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4454
@@ -4699,8 +4713,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:4457
 msgid ""
 ":meth:`popitem` is useful to destructively iterate over a dictionary, as "
-"often used in set algorithms.  If the dictionary is empty, calling :meth:"
-"`popitem` raises a :exc:`KeyError`."
+"often used in set algorithms.  If the dictionary is empty, "
+"calling :meth:`popitem` raises a :exc:`KeyError`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4461
@@ -4791,8 +4805,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:4560
 msgid ""
-":class:`types.MappingProxyType` can be used to create a read-only view of a :"
-"class:`dict`."
+":class:`types.MappingProxyType` can be used to create a read-only view of "
+"a :class:`dict`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4567
@@ -4801,10 +4815,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:4569
 msgid ""
-"The objects returned by :meth:`dict.keys`, :meth:`dict.values` and :meth:"
-"`dict.items` are *view objects*.  They provide a dynamic view on the "
-"dictionary's entries, which means that when the dictionary changes, the view "
-"reflects these changes."
+"The objects returned by :meth:`dict.keys`, :meth:`dict.values` "
+"and :meth:`dict.items` are *view objects*.  They provide a dynamic view on "
+"the dictionary's entries, which means that when the dictionary changes, the "
+"view reflects these changes."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4574
@@ -4826,9 +4840,9 @@ msgstr ""
 #: ../../../library/stdtypes.rst:4586
 msgid ""
 "Keys and values are iterated over in insertion order. This allows the "
-"creation of ``(value, key)`` pairs using :func:`zip`: ``pairs = zip(d."
-"values(), d.keys())``.  Another way to create the same list is ``pairs = "
-"[(v, k) for (k, v) in d.items()]``."
+"creation of ``(value, key)`` pairs using :func:`zip`: ``pairs = "
+"zip(d.values(), d.keys())``.  Another way to create the same list is ``pairs "
+"= [(v, k) for (k, v) in d.items()]``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4591
@@ -4863,8 +4877,9 @@ msgid ""
 "values are hashable, so that ``(key, value)`` pairs are unique and hashable, "
 "then the items view is also set-like.  (Values views are not treated as set-"
 "like since the entries are generally not unique.)  For set-like views, all "
-"of the operations defined for the abstract base class :class:`collections."
-"abc.Set` are available (for example, ``==``, ``<``, or ``^``)."
+"of the operations defined for the abstract base "
+"class :class:`collections.abc.Set` are available (for example, ``==``, "
+"``<``, or ``^``)."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4618
@@ -4894,8 +4909,9 @@ msgstr ""
 #: ../../../library/stdtypes.rst:4673
 msgid ""
 "An example of a context manager that returns itself is a :term:`file "
-"object`. File objects return themselves from __enter__() to allow :func:"
-"`open` to be used as the context expression in a :keyword:`with` statement."
+"object`. File objects return themselves from __enter__() to "
+"allow :func:`open` to be used as the context expression in a :keyword:`with` "
+"statement."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4677
@@ -4951,9 +4967,10 @@ msgid ""
 "Python's :term:`generator`\\s and the :class:`contextlib.contextmanager` "
 "decorator provide a convenient way to implement these protocols.  If a "
 "generator function is decorated with the :class:`contextlib.contextmanager` "
-"decorator, it will return a context manager implementing the necessary :meth:"
-"`~contextmanager.__enter__` and :meth:`~contextmanager.__exit__` methods, "
-"rather than the iterator produced by an undecorated generator function."
+"decorator, it will return a context manager implementing the "
+"necessary :meth:`~contextmanager.__enter__` "
+"and :meth:`~contextmanager.__exit__` methods, rather than the iterator "
+"produced by an undecorated generator function."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4718
@@ -4996,8 +5013,8 @@ msgid ""
 "For a container class, the argument(s) supplied to a :ref:`subscription "
 "<subscriptions>` of the class may indicate the type(s) of the elements an "
 "object contains. For example, ``set[bytes]`` can be used in type annotations "
-"to signify a :class:`set` in which all the elements are of type :class:"
-"`bytes`."
+"to signify a :class:`set` in which all the elements are of "
+"type :class:`bytes`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4756
@@ -5020,17 +5037,17 @@ msgstr ""
 #: ../../../library/stdtypes.rst:4768
 msgid ""
 "If ``y = re.search(b'bar', b'bar')``, (note the ``b`` for :class:`bytes`), "
-"``y`` will also be an instance of ``re.Match``, but the return values of ``y."
-"group(0)`` and ``y[0]`` will both be of type :class:`bytes`. In type "
+"``y`` will also be an instance of ``re.Match``, but the return values of "
+"``y.group(0)`` and ``y[0]`` will both be of type :class:`bytes`. In type "
 "annotations, we would represent this variety of :ref:`re.Match <match-"
 "objects>` objects with ``re.Match[bytes]``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4774
 msgid ""
-"``GenericAlias`` objects are instances of the class :class:`types."
-"GenericAlias`, which can also be used to create ``GenericAlias`` objects "
-"directly."
+"``GenericAlias`` objects are instances of the "
+"class :class:`types.GenericAlias`, which can also be used to create "
+"``GenericAlias`` objects directly."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4780
@@ -5354,14 +5371,14 @@ msgstr ""
 #: ../../../library/stdtypes.rst:4955
 msgid ""
 "Introducing the ability to natively parameterize standard-library classes, "
-"provided they implement the special class method :meth:`~object."
-"__class_getitem__`."
+"provided they implement the special class "
+"method :meth:`~object.__class_getitem__`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4960
 msgid ""
-":ref:`Generics`, :ref:`user-defined generics <user-defined-generics>` and :"
-"class:`typing.Generic`"
+":ref:`Generics`, :ref:`user-defined generics <user-defined-generics>` "
+"and :class:`typing.Generic`"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4960
@@ -5388,10 +5405,10 @@ msgstr ""
 msgid ""
 "The only special operation on a module is attribute access: ``m.name``, "
 "where *m* is a module and *name* accesses a name defined in *m*'s symbol "
-"table. Module attributes can be assigned to.  (Note that the :keyword:"
-"`import` statement is not, strictly speaking, an operation on a module "
-"object; ``import foo`` does not require a module object named *foo* to "
-"exist, rather it requires an (external) *definition* for a module named "
+"table. Module attributes can be assigned to.  (Note that "
+"the :keyword:`import` statement is not, strictly speaking, an operation on a "
+"module object; ``import foo`` does not require a module object named *foo* "
+"to exist, rather it requires an (external) *definition* for a module named "
 "*foo* somewhere.)"
 msgstr ""
 
@@ -5400,17 +5417,17 @@ msgid ""
 "A special attribute of every module is :attr:`~object.__dict__`. This is the "
 "dictionary containing the module's symbol table. Modifying this dictionary "
 "will actually change the module's symbol table, but direct assignment to "
-"the :attr:`~object.__dict__` attribute is not possible (you can write ``m."
-"__dict__['a'] = 1``, which defines ``m.a`` to be ``1``, but you can't write "
-"``m.__dict__ = {}``).  Modifying :attr:`~object.__dict__` directly is not "
-"recommended."
+"the :attr:`~object.__dict__` attribute is not possible (you can write "
+"``m.__dict__['a'] = 1``, which defines ``m.a`` to be ``1``, but you can't "
+"write ``m.__dict__ = {}``).  Modifying :attr:`~object.__dict__` directly is "
+"not recommended."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:4995
 msgid ""
-"Modules built into the interpreter are written like this: ``<module "
-"'sys' (built-in)>``.  If loaded from a file, they are written as ``<module "
-"'os' from '/usr/local/lib/pythonX.Y/os.pyc'>``."
+"Modules built into the interpreter are written like this: ``<module 'sys' "
+"(built-in)>``.  If loaded from a file, they are written as ``<module 'os' "
+"from '/usr/local/lib/pythonX.Y/os.pyc'>``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5003
@@ -5458,13 +5475,13 @@ msgstr ""
 #: ../../../library/stdtypes.rst:5035
 msgid ""
 "If you access a method (a function defined in a class namespace) through an "
-"instance, you get a special object: a :dfn:`bound method` (also called :dfn:"
-"`instance method`) object. When called, it will add the ``self`` argument to "
-"the argument list.  Bound methods have two special read-only attributes: ``m."
-"__self__`` is the object on which the method operates, and ``m.__func__`` is "
-"the function implementing the method.  Calling ``m(arg-1, arg-2, ..., arg-"
-"n)`` is completely equivalent to calling ``m.__func__(m.__self__, arg-1, "
-"arg-2, ..., arg-n)``."
+"instance, you get a special object: a :dfn:`bound method` (also "
+"called :dfn:`instance method`) object. When called, it will add the ``self`` "
+"argument to the argument list.  Bound methods have two special read-only "
+"attributes: ``m.__self__`` is the object on which the method operates, and "
+"``m.__func__`` is the function implementing the method.  Calling ``m(arg-1, "
+"arg-2, ..., arg-n)`` is completely equivalent to calling "
+"``m.__func__(m.__self__, arg-1, arg-2, ..., arg-n)``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5044
@@ -5491,14 +5508,14 @@ msgid ""
 "executable Python code such as a function body. They differ from function "
 "objects because they don't contain a reference to their global execution "
 "environment.  Code objects are returned by the built-in :func:`compile` "
-"function and can be extracted from function objects through their :attr:"
-"`__code__` attribute. See also the :mod:`code` module."
+"function and can be extracted from function objects through "
+"their :attr:`__code__` attribute. See also the :mod:`code` module."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5085
 msgid ""
-"Accessing ``__code__`` raises an :ref:`auditing event <auditing>` ``object."
-"__getattr__`` with arguments ``obj`` and ``\"__code__\"``."
+"Accessing ``__code__`` raises an :ref:`auditing event <auditing>` "
+"``object.__getattr__`` with arguments ``obj`` and ``\"__code__\"``."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5092
@@ -5545,9 +5562,9 @@ msgstr ""
 #: ../../../library/stdtypes.rst:5133
 msgid ""
 "This object is commonly used by slicing (see :ref:`slicings`).  It supports "
-"no special operations.  There is exactly one ellipsis object, named :const:"
-"`Ellipsis` (a built-in name).  ``type(Ellipsis)()`` produces the :const:"
-"`Ellipsis` singleton."
+"no special operations.  There is exactly one ellipsis object, "
+"named :const:`Ellipsis` (a built-in name).  ``type(Ellipsis)()`` produces "
+"the :const:`Ellipsis` singleton."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5138
@@ -5606,8 +5623,8 @@ msgstr ""
 #: ../../../library/stdtypes.rst:5189
 msgid ""
 "The implementation adds a few special read-only attributes to several object "
-"types, where they are relevant.  Some of these are not reported by the :func:"
-"`dir` built-in function."
+"types, where they are relevant.  Some of these are not reported by "
+"the :func:`dir` built-in function."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5196
@@ -5661,10 +5678,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:5252
 msgid ""
-"CPython has a global limit for converting between :class:`int` and :class:"
-"`str` to mitigate denial of service attacks. This limit *only* applies to "
-"decimal or other non-power-of-two number bases. Hexadecimal, octal, and "
-"binary conversions are unlimited. The limit can be configured."
+"CPython has a global limit for converting between :class:`int` "
+"and :class:`str` to mitigate denial of service attacks. This limit *only* "
+"applies to decimal or other non-power-of-two number bases. Hexadecimal, "
+"octal, and binary conversions are unlimited. The limit can be configured."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5257
@@ -5697,10 +5714,10 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:5293
 msgid ""
-"The default limit is 4300 digits as provided in :data:`sys.int_info."
-"default_max_str_digits <sys.int_info>`. The lowest limit that can be "
-"configured is 640 digits as provided in :data:`sys.int_info."
-"str_digits_check_threshold <sys.int_info>`."
+"The default limit is 4300 digits as provided "
+"in :data:`sys.int_info.default_max_str_digits <sys.int_info>`. The lowest "
+"limit that can be configured is 640 digits as provided "
+"in :data:`sys.int_info.str_digits_check_threshold <sys.int_info>`."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5298
@@ -5713,8 +5730,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:5315
 msgid ""
-"The limitation only applies to potentially slow conversions between :class:"
-"`int` and :class:`str` or :class:`bytes`:"
+"The limitation only applies to potentially slow conversions "
+"between :class:`int` and :class:`str` or :class:`bytes`:"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5318
@@ -5792,17 +5809,18 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:5345
 msgid ""
-":data:`sys.flags.int_max_str_digits` contains the value of :envvar:"
-"`PYTHONINTMAXSTRDIGITS` or :option:`-X int_max_str_digits <-X>`. If both the "
-"env var and the ``-X`` option are set, the ``-X`` option takes precedence. A "
-"value of *-1* indicates that both were unset, thus a value of :data:`sys."
-"int_info.default_max_str_digits` was used during initialization."
+":data:`sys.flags.int_max_str_digits` contains the value "
+"of :envvar:`PYTHONINTMAXSTRDIGITS` or :option:`-X int_max_str_digits <-X>`. "
+"If both the env var and the ``-X`` option are set, the ``-X`` option takes "
+"precedence. A value of *-1* indicates that both were unset, thus a value "
+"of :data:`sys.int_info.default_max_str_digits` was used during "
+"initialization."
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5351
 msgid ""
-"From code, you can inspect the current limit and set a new one using these :"
-"mod:`sys` APIs:"
+"From code, you can inspect the current limit and set a new one using "
+"these :mod:`sys` APIs:"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5354
@@ -5814,8 +5832,8 @@ msgstr ""
 
 #: ../../../library/stdtypes.rst:5358
 msgid ""
-"Information about the default and minimum can be found in :attr:`sys."
-"int_info`:"
+"Information about the default and minimum can be found "
+"in :attr:`sys.int_info`:"
 msgstr ""
 
 #: ../../../library/stdtypes.rst:5360

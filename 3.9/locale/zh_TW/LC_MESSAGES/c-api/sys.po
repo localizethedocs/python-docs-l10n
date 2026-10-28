@@ -23,22 +23,22 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:10
 msgid ""
-"Return the file system representation for *path*. If the object is a :class:"
-"`str` or :class:`bytes` object, then its reference count is incremented. If "
-"the object implements the :class:`os.PathLike` interface, then :meth:`~os."
-"PathLike.__fspath__` is returned as long as it is a :class:`str` or :class:"
-"`bytes` object. Otherwise :exc:`TypeError` is raised and ``NULL`` is "
-"returned."
+"Return the file system representation for *path*. If the object is "
+"a :class:`str` or :class:`bytes` object, then its reference count is "
+"incremented. If the object implements the :class:`os.PathLike` interface, "
+"then :meth:`~os.PathLike.__fspath__` is returned as long as it is "
+"a :class:`str` or :class:`bytes` object. Otherwise :exc:`TypeError` is "
+"raised and ``NULL`` is returned."
 msgstr ""
 
 #: ../../../c-api/sys.rst:22
 msgid ""
 "Return true (nonzero) if the standard I/O file *fp* with name *filename* is "
 "deemed interactive.  This is the case for files for which "
-"``isatty(fileno(fp))`` is true.  If the global flag :c:data:"
-"`Py_InteractiveFlag` is true, this function also returns true if the "
-"*filename* pointer is ``NULL`` or if the name is equal to one of the strings "
-"``'<stdin>'`` or ``'???'``."
+"``isatty(fileno(fp))`` is true.  If the global "
+"flag :c:data:`Py_InteractiveFlag` is true, this function also returns true "
+"if the *filename* pointer is ``NULL`` or if the name is equal to one of the "
+"strings ``'<stdin>'`` or ``'???'``."
 msgstr ""
 
 #: ../../../c-api/sys.rst:31
@@ -91,8 +91,8 @@ msgstr ""
 #: ../../../c-api/sys.rst:79
 msgid ""
 ":func:`os.register_at_fork` allows registering custom Python functions to be "
-"called by :c:func:`PyOS_BeforeFork()`, :c:func:`PyOS_AfterFork_Parent` and  :"
-"c:func:`PyOS_AfterFork_Child`."
+"called by :c:func:`PyOS_BeforeFork()`, :c:func:`PyOS_AfterFork_Parent` "
+"and  :c:func:`PyOS_AfterFork_Child`."
 msgstr ""
 
 #: ../../../c-api/sys.rst:86
@@ -111,25 +111,26 @@ msgstr ""
 msgid ""
 "Return true when the interpreter runs out of stack space.  This is a "
 "reliable check, but is only available when :const:`USE_STACKCHECK` is "
-"defined (currently on Windows using the Microsoft Visual C++ compiler).  :"
-"const:`USE_STACKCHECK` will be defined automatically; you should never "
-"change the definition in your own code."
+"defined (currently on Windows using the Microsoft Visual C++ "
+"compiler).  :const:`USE_STACKCHECK` will be defined automatically; you "
+"should never change the definition in your own code."
 msgstr ""
 
 #: ../../../c-api/sys.rst:106
 msgid ""
 "Return the current signal handler for signal *i*.  This is a thin wrapper "
 "around either :c:func:`sigaction` or :c:func:`signal`.  Do not call those "
-"functions directly! :c:type:`PyOS_sighandler_t` is a typedef alias for :c:"
-"type:`void (\\*)(int)`."
+"functions directly! :c:type:`PyOS_sighandler_t` is a typedef alias "
+"for :c:type:`void (\\*)(int)`."
 msgstr ""
 
 #: ../../../c-api/sys.rst:114
 msgid ""
 "Set the signal handler for signal *i* to be *h*; return the old signal "
-"handler. This is a thin wrapper around either :c:func:`sigaction` or :c:func:"
-"`signal`.  Do not call those functions directly!  :c:type:"
-"`PyOS_sighandler_t` is a typedef alias for :c:type:`void (\\*)(int)`."
+"handler. This is a thin wrapper around either :c:func:`sigaction` "
+"or :c:func:`signal`.  Do not call those functions "
+"directly!  :c:type:`PyOS_sighandler_t` is a typedef alias for :c:type:`void "
+"(\\*)(int)`."
 msgstr ""
 
 #: ../../../c-api/sys.rst:121
@@ -161,8 +162,8 @@ msgstr ""
 #: ../../../c-api/sys.rst:132 ../../../c-api/sys.rst:178
 msgid ""
 "``ASCII`` if the ``LC_CTYPE`` locale is ``\"C\"``, ``nl_langinfo(CODESET)`` "
-"returns the ``ASCII`` encoding (or an alias), and :c:func:`mbstowcs` and :c:"
-"func:`wcstombs` functions uses the ``ISO-8859-1`` encoding."
+"returns the ``ASCII`` encoding (or an alias), and :c:func:`mbstowcs` "
+"and :c:func:`wcstombs` functions uses the ``ISO-8859-1`` encoding."
 msgstr ""
 
 #: ../../../c-api/sys.rst:136 ../../../c-api/sys.rst:182
@@ -171,9 +172,10 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:138
 msgid ""
-"Return a pointer to a newly allocated wide character string, use :c:func:"
-"`PyMem_RawFree` to free the memory. If size is not ``NULL``, write the "
-"number of wide characters excluding the null character into ``*size``"
+"Return a pointer to a newly allocated wide character string, "
+"use :c:func:`PyMem_RawFree` to free the memory. If size is not ``NULL``, "
+"write the number of wide characters excluding the null character into "
+"``*size``"
 msgstr ""
 
 #: ../../../c-api/sys.rst:142
@@ -196,8 +198,8 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:154
 msgid ""
-"The :c:func:`PyUnicode_DecodeFSDefaultAndSize` and :c:func:"
-"`PyUnicode_DecodeLocaleAndSize` functions."
+"The :c:func:`PyUnicode_DecodeFSDefaultAndSize` "
+"and :c:func:`PyUnicode_DecodeLocaleAndSize` functions."
 msgstr ""
 
 #: ../../../c-api/sys.rst:159 ../../../c-api/sys.rst:203
@@ -206,15 +208,15 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:162
 msgid ""
-"The function now uses the UTF-8 encoding on Windows if :c:data:"
-"`Py_LegacyWindowsFSEncodingFlag` is zero;"
+"The function now uses the UTF-8 encoding on Windows "
+"if :c:data:`Py_LegacyWindowsFSEncodingFlag` is zero;"
 msgstr ""
 
 #: ../../../c-api/sys.rst:169
 msgid ""
-"Encode a wide character string to the locale encoding with the :ref:"
-"`surrogateescape error handler <surrogateescape>`: surrogate characters in "
-"the range U+DC80..U+DCFF are converted to bytes 0x80..0xFF."
+"Encode a wide character string to the locale encoding with "
+"the :ref:`surrogateescape error handler <surrogateescape>`: surrogate "
+"characters in the range U+DC80..U+DCFF are converted to bytes 0x80..0xFF."
 msgstr ""
 
 #: ../../../c-api/sys.rst:184
@@ -248,8 +250,8 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:206
 msgid ""
-"The function now uses the UTF-8 encoding on Windows if :c:data:"
-"`Py_LegacyWindowsFSEncodingFlag` is zero."
+"The function now uses the UTF-8 encoding on Windows "
+"if :c:data:`Py_LegacyWindowsFSEncodingFlag` is zero."
 msgstr ""
 
 #: ../../../c-api/sys.rst:214
@@ -296,17 +298,17 @@ msgstr ""
 #: ../../../c-api/sys.rst:245
 msgid ""
 "Note: this function is not currently usable from outside the CPython "
-"implementation, as it must be called prior to the implicit import of :mod:"
-"`warnings` in :c:func:`Py_Initialize` to be effective, but can't be called "
-"until enough of the runtime has been initialized to permit the creation of "
-"Unicode objects."
+"implementation, as it must be called prior to the implicit import "
+"of :mod:`warnings` in :c:func:`Py_Initialize` to be effective, but can't be "
+"called until enough of the runtime has been initialized to permit the "
+"creation of Unicode objects."
 msgstr ""
 
 #: ../../../c-api/sys.rst:253
 msgid ""
 "Set :data:`sys.path` to a list object of paths found in *path* which should "
-"be a list of paths separated with the platform's search path delimiter (``:"
-"`` on Unix, ``;`` on Windows)."
+"be a list of paths separated with the platform's search path delimiter "
+"(``:`` on Unix, ``;`` on Windows)."
 msgstr ""
 
 #: ../../../c-api/sys.rst:259
@@ -340,9 +342,9 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:280
 msgid ""
-"Function similar to PySys_WriteStdout() but format the message using :c:func:"
-"`PyUnicode_FromFormatV` and don't truncate the message to an arbitrary "
-"length."
+"Function similar to PySys_WriteStdout() but format the message "
+"using :c:func:`PyUnicode_FromFormatV` and don't truncate the message to an "
+"arbitrary length."
 msgstr ""
 
 #: ../../../c-api/sys.rst:288
@@ -360,8 +362,9 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:303
 msgid ""
-"Return the current dictionary of :option:`-X` options, similarly to :data:"
-"`sys._xoptions`.  On error, ``NULL`` is returned and an exception is set."
+"Return the current dictionary of :option:`-X` options, similarly "
+"to :data:`sys._xoptions`.  On error, ``NULL`` is returned and an exception "
+"is set."
 msgstr ""
 
 #: ../../../c-api/sys.rst:312
@@ -383,8 +386,9 @@ msgstr ""
 
 #: ../../../c-api/sys.rst:323
 msgid ""
-"Note that ``#`` format characters should always be treated as :c:type:"
-"`Py_ssize_t`, regardless of whether ``PY_SSIZE_T_CLEAN`` was defined."
+"Note that ``#`` format characters should always be treated "
+"as :c:type:`Py_ssize_t`, regardless of whether ``PY_SSIZE_T_CLEAN`` was "
+"defined."
 msgstr ""
 
 #: ../../../c-api/sys.rst:326
@@ -416,16 +420,16 @@ msgstr ""
 msgid ""
 "This function is safe to call before :c:func:`Py_Initialize`. When called "
 "after runtime initialization, existing audit hooks are notified and may "
-"silently abort the operation by raising an error subclassed from :class:"
-"`Exception` (other errors will not be silenced)."
+"silently abort the operation by raising an error subclassed "
+"from :class:`Exception` (other errors will not be silenced)."
 msgstr ""
 
 #: ../../../c-api/sys.rst:353
 msgid ""
 "The hook function is of type :c:type:`int (*)(const char *event, PyObject "
-"*args, void *userData)`, where *args* is guaranteed to be a :c:type:"
-"`PyTupleObject`. The hook function is always called with the GIL held by the "
-"Python interpreter that raised the event."
+"*args, void *userData)`, where *args* is guaranteed to be "
+"a :c:type:`PyTupleObject`. The hook function is always called with the GIL "
+"held by the Python interpreter that raised the event."
 msgstr ""
 
 #: ../../../c-api/sys.rst:358
@@ -460,8 +464,8 @@ msgid ""
 "This function should only be invoked when a condition is detected that would "
 "make it dangerous to continue using the Python interpreter; e.g., when the "
 "object administration appears to be corrupted.  On Unix, the standard C "
-"library function :c:func:`abort` is called which will attempt to produce a :"
-"file:`core` file."
+"library function :c:func:`abort` is called which will attempt to produce "
+"a :file:`core` file."
 msgstr ""
 
 #: ../../../c-api/sys.rst:391
@@ -478,8 +482,8 @@ msgstr ""
 #: ../../../c-api/sys.rst:405
 msgid ""
 "Exit the current process.  This calls :c:func:`Py_FinalizeEx` and then calls "
-"the standard C library function ``exit(status)``.  If :c:func:"
-"`Py_FinalizeEx` indicates an error, the exit status is set to 120."
+"the standard C library function ``exit(status)``.  "
+"If :c:func:`Py_FinalizeEx` indicates an error, the exit status is set to 120."
 msgstr ""
 
 #: ../../../c-api/sys.rst:409
