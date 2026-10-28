@@ -23,12 +23,13 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:10
 msgid ""
-"In Python, all exceptions must be instances of a class that derives from :"
-"class:`BaseException`.  In a :keyword:`try` statement with an :keyword:"
-"`except` clause that mentions a particular class, that clause also handles "
-"any exception classes derived from that class (but not exception classes "
-"from which *it* is derived).  Two exception classes that are not related via "
-"subclassing are never equivalent, even if they have the same name."
+"In Python, all exceptions must be instances of a class that derives "
+"from :class:`BaseException`.  In a :keyword:`try` statement with "
+"an :keyword:`except` clause that mentions a particular class, that clause "
+"also handles any exception classes derived from that class (but not "
+"exception classes from which *it* is derived).  Two exception classes that "
+"are not related via subclassing are never equivalent, even if they have the "
+"same name."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:19
@@ -53,16 +54,16 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:31
 msgid ""
 "The built-in exception classes can be subclassed to define new exceptions; "
-"programmers are encouraged to derive new exceptions from the :exc:"
-"`Exception` class or one of its subclasses, and not from :exc:"
-"`BaseException`.  More information on defining exceptions is available in "
-"the Python Tutorial under :ref:`tut-userexceptions`."
+"programmers are encouraged to derive new exceptions from "
+"the :exc:`Exception` class or one of its subclasses, and not "
+"from :exc:`BaseException`.  More information on defining exceptions is "
+"available in the Python Tutorial under :ref:`tut-userexceptions`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:37
 msgid ""
-"When raising (or re-raising) an exception in an :keyword:`except` or :"
-"keyword:`finally` clause :attr:`__context__` is automatically set to the "
+"When raising (or re-raising) an exception in an :keyword:`except` "
+"or :keyword:`finally` clause :attr:`__context__` is automatically set to the "
 "last exception caught; if the new exception is not handled the traceback "
 "that is eventually displayed will include the originating exception(s) and "
 "the final exception."
@@ -72,19 +73,20 @@ msgstr ""
 msgid ""
 "When raising a new exception (rather than using a bare ``raise`` to re-raise "
 "the exception currently being handled), the implicit exception context can "
-"be supplemented with an explicit cause by using :keyword:`from` with :"
-"keyword:`raise`::"
+"be supplemented with an explicit cause by using :keyword:`from` "
+"with :keyword:`raise`::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:50
 msgid ""
 "The expression following :keyword:`from` must be an exception or ``None``. "
-"It will be set as :attr:`__cause__` on the raised exception. Setting :attr:"
-"`__cause__` also implicitly sets the :attr:`__suppress_context__` attribute "
-"to ``True``, so that using ``raise new_exc from None`` effectively replaces "
-"the old exception with the new one for display purposes (e.g. converting :"
-"exc:`KeyError` to :exc:`AttributeError`, while leaving the old exception "
-"available in :attr:`__context__` for introspection when debugging."
+"It will be set as :attr:`__cause__` on the raised exception. "
+"Setting :attr:`__cause__` also implicitly sets "
+"the :attr:`__suppress_context__` attribute to ``True``, so that using "
+"``raise new_exc from None`` effectively replaces the old exception with the "
+"new one for display purposes (e.g. converting :exc:`KeyError` "
+"to :exc:`AttributeError`, while leaving the old exception available "
+"in :attr:`__context__` for introspection when debugging."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:59
@@ -116,9 +118,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:77
 msgid ""
 "The base class for all built-in exceptions.  It is not meant to be directly "
-"inherited by user-defined classes (for that, use :exc:`Exception`).  If :"
-"func:`str` is called on an instance of this class, the representation of the "
-"argument(s) to the instance are returned, or the empty string when there "
+"inherited by user-defined classes (for that, use :exc:`Exception`).  "
+"If :func:`str` is called on an instance of this class, the representation of "
+"the argument(s) to the instance are returned, or the empty string when there "
 "were no arguments."
 msgstr ""
 
@@ -145,8 +147,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:111
 msgid ""
 "The base class for those built-in exceptions that are raised for various "
-"arithmetic errors: :exc:`OverflowError`, :exc:`ZeroDivisionError`, :exc:"
-"`FloatingPointError`."
+"arithmetic "
+"errors: :exc:`OverflowError`, :exc:`ZeroDivisionError`, :exc:`FloatingPointError`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:118
@@ -184,8 +186,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:150
 msgid ""
 "Raised when the :func:`input` function hits an end-of-file condition (EOF) "
-"without reading any data. (N.B.: the :meth:`io.IOBase.read` and :meth:`io."
-"IOBase.readline` methods return an empty string when they hit EOF.)"
+"without reading any data. (N.B.: the :meth:`io.IOBase.read` "
+"and :meth:`io.IOBase.readline` methods return an empty string when they hit "
+"EOF.)"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:157
@@ -198,10 +201,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:165
 msgid ""
-"Raised when a :term:`generator` or :term:`coroutine` is closed; see :meth:"
-"`generator.close` and :meth:`coroutine.close`.  It directly inherits from :"
-"exc:`BaseException` instead of :exc:`Exception` since it is technically not "
-"an error."
+"Raised when a :term:`generator` or :term:`coroutine` is closed; "
+"see :meth:`generator.close` and :meth:`coroutine.close`.  It directly "
+"inherits from :exc:`BaseException` instead of :exc:`Exception` since it is "
+"technically not an error."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:173
@@ -238,9 +241,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:203
 msgid ""
-"Raised when the user hits the interrupt key (normally :kbd:`Control-C` or :"
-"kbd:`Delete`).  During execution, a check for interrupts is made regularly. "
-"The exception inherits from :exc:`BaseException` so as to not be "
+"Raised when the user hits the interrupt key (normally :kbd:`Control-C` "
+"or :kbd:`Delete`).  During execution, a check for interrupts is made "
+"regularly. The exception inherits from :exc:`BaseException` so as to not be "
 "accidentally caught by code that catches :exc:`Exception` and thus prevent "
 "the interpreter from exiting."
 msgstr ""
@@ -250,10 +253,11 @@ msgid ""
 "Raised when an operation runs out of memory but the situation may still be "
 "rescued (by deleting some objects).  The associated value is a string "
 "indicating what kind of (internal) operation ran out of memory. Note that "
-"because of the underlying memory management architecture (C's :c:func:"
-"`malloc` function), the interpreter may not always be able to completely "
-"recover from this situation; it nevertheless raises an exception so that a "
-"stack traceback can be printed, in case a run-away program was the cause."
+"because of the underlying memory management architecture "
+"(C's :c:func:`malloc` function), the interpreter may not always be able to "
+"completely recover from this situation; it nevertheless raises an exception "
+"so that a stack traceback can be printed, in case a run-away program was the "
+"cause."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:223
@@ -273,26 +277,26 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:240
 msgid ""
 "This exception is raised when a system function returns a system-related "
-"error, including I/O failures such as \"file not found\" or \"disk "
-"full\" (not for illegal argument types or other incidental errors)."
+"error, including I/O failures such as \"file not found\" or \"disk full\" "
+"(not for illegal argument types or other incidental errors)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:244
 msgid ""
 "The second form of the constructor sets the corresponding attributes, "
 "described below.  The attributes default to :const:`None` if not specified.  "
-"For backwards compatibility, if three arguments are passed, the :attr:"
-"`~BaseException.args` attribute contains only a 2-tuple of the first two "
-"constructor arguments."
+"For backwards compatibility, if three arguments are passed, "
+"the :attr:`~BaseException.args` attribute contains only a 2-tuple of the "
+"first two constructor arguments."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:250
 msgid ""
 "The constructor often actually returns a subclass of :exc:`OSError`, as "
 "described in `OS exceptions`_ below.  The particular subclass depends on the "
-"final :attr:`.errno` value.  This behaviour only occurs when constructing :"
-"exc:`OSError` directly or via an alias, and is not inherited when "
-"subclassing."
+"final :attr:`.errno` value.  This behaviour only occurs when "
+"constructing :exc:`OSError` directly or via an alias, and is not inherited "
+"when subclassing."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:258
@@ -301,40 +305,40 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:262
 msgid ""
-"Under Windows, this gives you the native Windows error code.  The :attr:`."
-"errno` attribute is then an approximate translation, in POSIX terms, of that "
-"native error code."
+"Under Windows, this gives you the native Windows error code.  "
+"The :attr:`.errno` attribute is then an approximate translation, in POSIX "
+"terms, of that native error code."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:266
 msgid ""
-"Under Windows, if the *winerror* constructor argument is an integer, the :"
-"attr:`.errno` attribute is determined from the Windows error code, and the "
-"*errno* argument is ignored.  On other platforms, the *winerror* argument is "
-"ignored, and the :attr:`winerror` attribute does not exist."
+"Under Windows, if the *winerror* constructor argument is an integer, "
+"the :attr:`.errno` attribute is determined from the Windows error code, and "
+"the *errno* argument is ignored.  On other platforms, the *winerror* "
+"argument is ignored, and the :attr:`winerror` attribute does not exist."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:274
 msgid ""
 "The corresponding error message, as provided by the operating system.  It is "
-"formatted by the C functions :c:func:`perror` under POSIX, and :c:func:"
-"`FormatMessage` under Windows."
+"formatted by the C functions :c:func:`perror` under POSIX, "
+"and :c:func:`FormatMessage` under Windows."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:282
 msgid ""
-"For exceptions that involve a file system path (such as :func:`open` or :"
-"func:`os.unlink`), :attr:`filename` is the file name passed to the function. "
-"For functions that involve two file system paths (such as :func:`os."
-"rename`), :attr:`filename2` corresponds to the second file name passed to "
-"the function."
+"For exceptions that involve a file system path (such as :func:`open` "
+"or :func:`os.unlink`), :attr:`filename` is the file name passed to the "
+"function. For functions that involve two file system paths (such "
+"as :func:`os.rename`), :attr:`filename2` corresponds to the second file name "
+"passed to the function."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:289
 msgid ""
-":exc:`EnvironmentError`, :exc:`IOError`, :exc:`WindowsError`, :exc:`socket."
-"error`, :exc:`select.error` and :exc:`mmap.error` have been merged into :exc:"
-"`OSError`, and the constructor may return a subclass."
+":exc:`EnvironmentError`, :exc:`IOError`, :exc:`WindowsError`, :exc:`socket.error`, :exc:`select.error` "
+"and :exc:`mmap.error` have been merged into :exc:`OSError`, and the "
+"constructor may return a subclass."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:295
@@ -348,18 +352,18 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:304
 msgid ""
 "Raised when the result of an arithmetic operation is too large to be "
-"represented.  This cannot occur for integers (which would rather raise :exc:"
-"`MemoryError` than give up).  However, for historical reasons, OverflowError "
-"is sometimes raised for integers that are outside a required range.   "
-"Because of the lack of standardization of floating point exception handling "
-"in C, most floating point operations are not checked."
+"represented.  This cannot occur for integers (which would rather "
+"raise :exc:`MemoryError` than give up).  However, for historical reasons, "
+"OverflowError is sometimes raised for integers that are outside a required "
+"range.   Because of the lack of standardization of floating point exception "
+"handling in C, most floating point operations are not checked."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:314
 msgid ""
 "This exception is derived from :exc:`RuntimeError`.  It is raised when the "
-"interpreter detects that the maximum recursion depth (see :func:`sys."
-"getrecursionlimit`) is exceeded."
+"interpreter detects that the maximum recursion depth "
+"(see :func:`sys.getrecursionlimit`) is exceeded."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:318
@@ -368,9 +372,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:324
 msgid ""
-"This exception is raised when a weak reference proxy, created by the :func:"
-"`weakref.proxy` function, is used to access an attribute of the referent "
-"after it has been garbage collected. For more information on weak "
+"This exception is raised when a weak reference proxy, created by "
+"the :func:`weakref.proxy` function, is used to access an attribute of the "
+"referent after it has been garbage collected. For more information on weak "
 "references, see the :mod:`weakref` module."
 msgstr ""
 
@@ -383,9 +387,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:339
 msgid ""
-"Raised by built-in function :func:`next` and an :term:`iterator`\\'s :meth:"
-"`~iterator.__next__` method to signal that there are no further items "
-"produced by the iterator."
+"Raised by built-in function :func:`next` and "
+"an :term:`iterator`\\'s :meth:`~iterator.__next__` method to signal that "
+"there are no further items produced by the iterator."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:343
@@ -396,9 +400,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:347
 msgid ""
-"When a :term:`generator` or :term:`coroutine` function returns, a new :exc:"
-"`StopIteration` instance is raised, and the value returned by the function "
-"is used as the :attr:`value` parameter to the constructor of the exception."
+"When a :term:`generator` or :term:`coroutine` function returns, a "
+"new :exc:`StopIteration` instance is raised, and the value returned by the "
+"function is used as the :attr:`value` parameter to the constructor of the "
+"exception."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:352
@@ -427,17 +432,18 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:373
 msgid ""
-"Raised when the parser encounters a syntax error.  This may occur in an :"
-"keyword:`import` statement, in a call to the built-in functions :func:`exec` "
-"or :func:`eval`, or when reading the initial script or standard input (also "
-"interactively)."
+"Raised when the parser encounters a syntax error.  This may occur in "
+"an :keyword:`import` statement, in a call to the built-in "
+"functions :func:`exec` or :func:`eval`, or when reading the initial script "
+"or standard input (also interactively)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:378
 msgid ""
-"Instances of this class have attributes :attr:`filename`, :attr:`lineno`, :"
-"attr:`offset` and :attr:`text` for easier access to the details.  :func:"
-"`str` of the exception instance returns only the message."
+"Instances of this class have "
+"attributes :attr:`filename`, :attr:`lineno`, :attr:`offset` and :attr:`text` "
+"for easier access to the details.  :func:`str` of the exception instance "
+"returns only the message."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:385
@@ -462,8 +468,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:401
 msgid ""
 "You should report this to the author or maintainer of your Python "
-"interpreter. Be sure to report the version of the Python interpreter (``sys."
-"version``; it is also printed at the start of an interactive Python "
+"interpreter. Be sure to report the version of the Python interpreter "
+"(``sys.version``; it is also printed at the start of an interactive Python "
 "session), the exact error message (the exception's associated value) and if "
 "possible the source of the program that triggered the error."
 msgstr ""
@@ -475,11 +481,11 @@ msgid ""
 "accidentally caught by code that catches :exc:`Exception`.  This allows the "
 "exception to properly propagate up and cause the interpreter to exit.  When "
 "it is not handled, the Python interpreter exits; no stack traceback is "
-"printed.  The constructor accepts the same optional argument passed to :func:"
-"`sys.exit`. If the value is an integer, it specifies the system exit status "
-"(passed to C's :c:func:`exit` function); if it is ``None``, the exit status "
-"is zero; if it has another type (such as a string), the object's value is "
-"printed and the exit status is one."
+"printed.  The constructor accepts the same optional argument passed "
+"to :func:`sys.exit`. If the value is an integer, it specifies the system "
+"exit status (passed to C's :c:func:`exit` function); if it is ``None``, the "
+"exit status is zero; if it has another type (such as a string), the object's "
+"value is printed and the exit status is one."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:421
@@ -508,8 +514,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:442
 msgid ""
 "Raised when a reference is made to a local variable in a function or method, "
-"but no value has been bound to that variable.  This is a subclass of :exc:"
-"`NameError`."
+"but no value has been bound to that variable.  This is a subclass "
+"of :exc:`NameError`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:449
@@ -619,8 +625,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:545
 msgid ""
-"Raised when an operation on a child process failed. Corresponds to :c:data:"
-"`errno` ``ECHILD``."
+"Raised when an operation on a child process failed. Corresponds "
+"to :c:data:`errno` ``ECHILD``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:550
@@ -629,8 +635,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:552
 msgid ""
-"Subclasses are :exc:`BrokenPipeError`, :exc:`ConnectionAbortedError`, :exc:"
-"`ConnectionRefusedError` and :exc:`ConnectionResetError`."
+"Subclasses "
+"are :exc:`BrokenPipeError`, :exc:`ConnectionAbortedError`, :exc:`ConnectionRefusedError` "
+"and :exc:`ConnectionResetError`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:557
@@ -712,8 +719,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:625
 msgid ""
-"Raised when a system function timed out at the system level. Corresponds to :"
-"c:data:`errno` ``ETIMEDOUT``."
+"Raised when a system function timed out at the system level. Corresponds "
+"to :c:data:`errno` ``ETIMEDOUT``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:628
@@ -730,8 +737,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:640
 msgid ""
-"The following exceptions are used as warning categories; see the :mod:"
-"`warnings` module for more information."
+"The following exceptions are used as warning categories; see "
+"the :mod:`warnings` module for more information."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/exceptions.rst:645
