@@ -29,8 +29,8 @@ msgstr ""
 
 #: ../../../library/threading.rst:12
 msgid ""
-"The :mod:`dummy_threading` module is provided for situations where :mod:"
-"`threading` cannot be used because :mod:`_thread` is missing."
+"The :mod:`dummy_threading` module is provided for situations "
+"where :mod:`threading` cannot be used because :mod:`_thread` is missing."
 msgstr ""
 
 #: ../../../library/threading.rst:17
@@ -68,9 +68,9 @@ msgstr ""
 #: ../../../library/threading.rst:48
 msgid ""
 "Return a list of all :class:`Thread` objects currently alive.  The list "
-"includes daemonic threads, dummy thread objects created by :func:"
-"`current_thread`, and the main thread.  It excludes terminated threads and "
-"threads that have not yet been started."
+"includes daemonic threads, dummy thread objects created "
+"by :func:`current_thread`, and the main thread.  It excludes terminated "
+"threads and threads that have not yet been started."
 msgstr ""
 
 #: ../../../library/threading.rst:57
@@ -204,8 +204,8 @@ msgid ""
 "control. There are two ways to specify the activity: by passing a callable "
 "object to the constructor, or by overriding the :meth:`run` method in a "
 "subclass.  No other methods (except for the constructor) should be "
-"overridden in a subclass.  In other words,  *only*  override the :meth:"
-"`__init__` and :meth:`run` methods of this class."
+"overridden in a subclass.  In other words,  *only*  override "
+"the :meth:`__init__` and :meth:`run` methods of this class."
 msgstr ""
 
 #: ../../../library/threading.rst:183
@@ -268,8 +268,8 @@ msgstr ""
 
 #: ../../../library/threading.rst:218
 msgid ""
-"*group* should be ``None``; reserved for future extension when a :class:"
-"`ThreadGroup` class is implemented."
+"*group* should be ``None``; reserved for future extension when "
+"a :class:`ThreadGroup` class is implemented."
 msgstr ""
 
 #: ../../../library/threading.rst:221
@@ -341,9 +341,9 @@ msgstr ""
 msgid ""
 "When the *timeout* argument is present and not ``None``, it should be a "
 "floating point number specifying a timeout for the operation in seconds (or "
-"fractions thereof). As :meth:`join` always returns ``None``, you must call :"
-"meth:`is_alive` after :meth:`join` to decide whether a timeout happened -- "
-"if the thread is still alive, the :meth:`join` call timed out."
+"fractions thereof). As :meth:`join` always returns ``None``, you must "
+"call :meth:`is_alive` after :meth:`join` to decide whether a timeout "
+"happened -- if the thread is still alive, the :meth:`join` call timed out."
 msgstr ""
 
 #: ../../../library/threading.rst:270
@@ -359,9 +359,9 @@ msgstr ""
 #: ../../../library/threading.rst:275
 msgid ""
 ":meth:`join` raises a :exc:`RuntimeError` if an attempt is made to join the "
-"current thread as that would cause a deadlock. It is also an error to :meth:"
-"`join` a thread before it has been started and attempts to do so raises the "
-"same exception."
+"current thread as that would cause a deadlock. It is also an error "
+"to :meth:`join` a thread before it has been started and attempts to do so "
+"raises the same exception."
 msgstr ""
 
 #: ../../../library/threading.rst:283
@@ -380,10 +380,10 @@ msgstr ""
 #: ../../../library/threading.rst:297
 msgid ""
 "The 'thread identifier' of this thread or ``None`` if the thread has not "
-"been started.  This is a nonzero integer.  See the :func:`thread."
-"get_ident()` function.  Thread identifiers may be recycled when a thread "
-"exits and another thread is created.  The identifier is available even after "
-"the thread has exited."
+"been started.  This is a nonzero integer.  See "
+"the :func:`thread.get_ident()` function.  Thread identifiers may be recycled "
+"when a thread exits and another thread is created.  The identifier is "
+"available even after the thread has exited."
 msgstr ""
 
 #: ../../../library/threading.rst:306
@@ -393,17 +393,18 @@ msgstr ""
 #: ../../../library/threading.rst:308
 msgid ""
 "Roughly, a thread is alive from the moment the :meth:`start` method returns "
-"until its :meth:`run` method terminates. The module function :func:"
-"`enumerate` returns a list of all alive threads."
+"until its :meth:`run` method terminates. The module "
+"function :func:`enumerate` returns a list of all alive threads."
 msgstr ""
 
 #: ../../../library/threading.rst:315
 msgid ""
 "A boolean value indicating whether this thread is a daemon thread (True) or "
-"not (False).  This must be set before :meth:`start` is called, otherwise :"
-"exc:`RuntimeError` is raised.  Its initial value is inherited from the "
-"creating thread; the main thread is not a daemon thread and therefore all "
-"threads created in the main thread default to :attr:`daemon` = ``False``."
+"not (False).  This must be set before :meth:`start` is called, "
+"otherwise :exc:`RuntimeError` is raised.  Its initial value is inherited "
+"from the creating thread; the main thread is not a daemon thread and "
+"therefore all threads created in the main thread default to :attr:`daemon` = "
+"``False``."
 msgstr ""
 
 #: ../../../library/threading.rst:321
@@ -425,8 +426,8 @@ msgstr ""
 msgid ""
 "A primitive lock is a synchronization primitive that is not owned by a "
 "particular thread when locked.  In Python, it is currently the lowest level "
-"synchronization primitive available, implemented directly by the :mod:"
-"`_thread` extension module."
+"synchronization primitive available, implemented directly by "
+"the :mod:`_thread` extension module."
 msgstr ""
 
 #: ../../../library/threading.rst:341
@@ -434,13 +435,13 @@ msgid ""
 "A primitive lock is in one of two states, \"locked\" or \"unlocked\". It is "
 "created in the unlocked state.  It has two basic methods, :meth:`acquire` "
 "and :meth:`release`.  When the state is unlocked, :meth:`acquire` changes "
-"the state to locked and returns immediately.  When the state is locked, :"
-"meth:`acquire` blocks until a call to :meth:`release` in another thread "
-"changes it to unlocked, then the :meth:`acquire` call resets it to locked "
-"and returns.  The :meth:`release` method should only be called in the locked "
-"state; it changes the state to unlocked and returns immediately. If an "
-"attempt is made to release an unlocked lock, a :exc:`RuntimeError` will be "
-"raised."
+"the state to locked and returns immediately.  When the state is "
+"locked, :meth:`acquire` blocks until a call to :meth:`release` in another "
+"thread changes it to unlocked, then the :meth:`acquire` call resets it to "
+"locked and returns.  The :meth:`release` method should only be called in the "
+"locked state; it changes the state to unlocked and returns immediately. If "
+"an attempt is made to release an unlocked lock, a :exc:`RuntimeError` will "
+"be raised."
 msgstr ""
 
 #: ../../../library/threading.rst:351
@@ -513,11 +514,11 @@ msgstr ""
 #: ../../../library/threading.rst:398
 msgid ""
 "To lock the lock, a thread calls its :meth:`acquire` method; this returns "
-"once the thread owns the lock.  To unlock the lock, a thread calls its :meth:"
-"`release` method. :meth:`acquire`/:meth:`release` call pairs may be nested; "
-"only the final :meth:`release` (the :meth:`release` of the outermost pair) "
-"resets the lock to unlocked and allows another thread blocked in :meth:"
-"`acquire` to proceed."
+"once the thread owns the lock.  To unlock the lock, a thread calls "
+"its :meth:`release` method. :meth:`acquire`/:meth:`release` call pairs may "
+"be nested; only the final :meth:`release` (the :meth:`release` of the "
+"outermost pair) resets the lock to unlocked and allows another thread "
+"blocked in :meth:`acquire` to proceed."
 msgstr ""
 
 #: ../../../library/threading.rst:410
@@ -542,8 +543,9 @@ msgstr ""
 
 #: ../../../library/threading.rst:434
 msgid ""
-"Only call this method when the calling thread owns the lock. A :exc:"
-"`RuntimeError` is raised if this method is called when the lock is unlocked."
+"Only call this method when the calling thread owns the lock. "
+"A :exc:`RuntimeError` is raised if this method is called when the lock is "
+"unlocked."
 msgstr ""
 
 #: ../../../library/threading.rst:444
@@ -560,10 +562,10 @@ msgstr ""
 #: ../../../library/threading.rst:450
 msgid ""
 "A condition variable has :meth:`acquire` and :meth:`release` methods that "
-"call the corresponding methods of the associated lock. It also has a :meth:"
-"`wait` method, and :meth:`notify` and :meth:`notify_all` methods.  These "
-"three must only be called when the calling thread has acquired the lock, "
-"otherwise a :exc:`RuntimeError` is raised."
+"call the corresponding methods of the associated lock. It also has "
+"a :meth:`wait` method, and :meth:`notify` and :meth:`notify_all` methods.  "
+"These three must only be called when the calling thread has acquired the "
+"lock, otherwise a :exc:`RuntimeError` is raised."
 msgstr ""
 
 #: ../../../library/threading.rst:456
@@ -585,9 +587,9 @@ msgstr ""
 msgid ""
 "Note: the :meth:`notify` and :meth:`notify_all` methods don't release the "
 "lock; this means that the thread or threads awakened will not return from "
-"their :meth:`wait` call immediately, but only when the thread that called :"
-"meth:`notify` or :meth:`notify_all` finally relinquishes ownership of the "
-"lock."
+"their :meth:`wait` call immediately, but only when the thread that "
+"called :meth:`notify` or :meth:`notify_all` finally relinquishes ownership "
+"of the lock."
 msgstr ""
 
 #: ../../../library/threading.rst:470
@@ -595,8 +597,8 @@ msgid ""
 "Tip: the typical programming style using condition variables uses the lock "
 "to synchronize access to some shared state; threads that are interested in a "
 "particular change of state call :meth:`wait` repeatedly until they see the "
-"desired state, while threads that modify the state call :meth:`notify` or :"
-"meth:`notify_all` when they change the state in such a way that it could "
+"desired state, while threads that modify the state call :meth:`notify` "
+"or :meth:`notify_all` when they change the state in such a way that it could "
 "possibly be a desired state for one of the waiters.  For example, the "
 "following code is a generic producer-consumer situation with unlimited "
 "buffer capacity::"
@@ -653,12 +655,12 @@ msgstr ""
 
 #: ../../../library/threading.rst:530
 msgid ""
-"When the underlying lock is an :class:`RLock`, it is not released using its :"
-"meth:`release` method, since this may not actually unlock the lock when it "
-"was acquired multiple times recursively.  Instead, an internal interface of "
-"the :class:`RLock` class is used, which really unlocks it even when it has "
-"been recursively acquired several times. Another internal interface is then "
-"used to restore the recursion level when the lock is reacquired."
+"When the underlying lock is an :class:`RLock`, it is not released using "
+"its :meth:`release` method, since this may not actually unlock the lock when "
+"it was acquired multiple times recursively.  Instead, an internal interface "
+"of the :class:`RLock` class is used, which really unlocks it even when it "
+"has been recursively acquired several times. Another internal interface is "
+"then used to restore the recursion level when the lock is reacquired."
 msgstr ""
 
 #: ../../../library/threading.rst:540
@@ -690,10 +692,10 @@ msgstr ""
 
 #: ../../../library/threading.rst:558
 msgid ""
-"Wake up all threads waiting on this condition.  This method acts like :meth:"
-"`notify`, but wakes up all waiting threads instead of one. If the calling "
-"thread has not acquired the lock when this method is called, a :exc:"
-"`RuntimeError` is raised."
+"Wake up all threads waiting on this condition.  This method acts "
+"like :meth:`notify`, but wakes up all waiting threads instead of one. If the "
+"calling thread has not acquired the lock when this method is called, "
+"a :exc:`RuntimeError` is raised."
 msgstr ""
 
 #: ../../../library/threading.rst:567
@@ -704,16 +706,16 @@ msgstr ""
 msgid ""
 "This is one of the oldest synchronization primitives in the history of "
 "computer science, invented by the early Dutch computer scientist Edsger W. "
-"Dijkstra (he used :meth:`P` and :meth:`V` instead of :meth:`acquire` and :"
-"meth:`release`)."
+"Dijkstra (he used :meth:`P` and :meth:`V` instead of :meth:`acquire` "
+"and :meth:`release`)."
 msgstr ""
 
 #: ../../../library/threading.rst:573
 msgid ""
-"A semaphore manages an internal counter which is decremented by each :meth:"
-"`acquire` call and incremented by each :meth:`release` call.  The counter "
-"can never go below zero; when :meth:`acquire` finds that it is zero, it "
-"blocks, waiting until some other thread calls :meth:`release`."
+"A semaphore manages an internal counter which is decremented by "
+"each :meth:`acquire` call and incremented by each :meth:`release` call.  The "
+"counter can never go below zero; when :meth:`acquire` finds that it is zero, "
+"it blocks, waiting until some other thread calls :meth:`release`."
 msgstr ""
 
 #: ../../../library/threading.rst:581
@@ -796,9 +798,9 @@ msgstr ""
 
 #: ../../../library/threading.rst:649
 msgid ""
-"An event object manages an internal flag that can be set to true with the :"
-"meth:`set` method and reset to false with the :meth:`clear` method.  The :"
-"meth:`wait` method blocks until the flag is true."
+"An event object manages an internal flag that can be set to true with "
+"the :meth:`set` method and reset to false with the :meth:`clear` method.  "
+"The :meth:`wait` method blocks until the flag is true."
 msgstr ""
 
 #: ../../../library/threading.rst:656
@@ -826,8 +828,9 @@ msgstr ""
 #: ../../../library/threading.rst:679
 msgid ""
 "Block until the internal flag is true. If the internal flag is true on "
-"entry, return immediately.  Otherwise, block until another thread calls :"
-"meth:`set` to set the flag to true, or until the optional timeout occurs."
+"entry, return immediately.  Otherwise, block until another thread "
+"calls :meth:`set` to set the flag to true, or until the optional timeout "
+"occurs."
 msgstr ""
 
 #: ../../../library/threading.rst:683
@@ -844,17 +847,18 @@ msgstr ""
 #: ../../../library/threading.rst:693
 msgid ""
 "This class represents an action that should be run only after a certain "
-"amount of time has passed --- a timer.  :class:`Timer` is a subclass of :"
-"class:`Thread` and as such also functions as an example of creating custom "
-"threads."
+"amount of time has passed --- a timer.  :class:`Timer` is a subclass "
+"of :class:`Thread` and as such also functions as an example of creating "
+"custom threads."
 msgstr ""
 
 #: ../../../library/threading.rst:697
 msgid ""
 "Timers are started, as with threads, by calling their :meth:`start` method.  "
-"The timer can be stopped (before its action has begun) by calling the :meth:"
-"`cancel` method.  The interval the timer will wait before executing its "
-"action may not be exactly the same as the interval specified by the user."
+"The timer can be stopped (before its action has begun) by calling "
+"the :meth:`cancel` method.  The interval the timer will wait before "
+"executing its action may not be exactly the same as the interval specified "
+"by the user."
 msgstr ""
 
 #: ../../../library/threading.rst:702
@@ -880,17 +884,18 @@ msgstr ""
 
 #: ../../../library/threading.rst:728
 msgid ""
-"All of the objects provided by this module that have :meth:`acquire` and :"
-"meth:`release` methods can be used as context managers for a :keyword:`with` "
-"statement.  The :meth:`acquire` method will be called when the block is "
-"entered, and :meth:`release` will be called when the block is exited."
+"All of the objects provided by this module that have :meth:`acquire` "
+"and :meth:`release` methods can be used as context managers for "
+"a :keyword:`with` statement.  The :meth:`acquire` method will be called when "
+"the block is entered, and :meth:`release` will be called when the block is "
+"exited."
 msgstr ""
 
 #: ../../../library/threading.rst:733
 msgid ""
-"Currently, :class:`Lock`, :class:`RLock`, :class:`Condition`, :class:"
-"`Semaphore`, and :class:`BoundedSemaphore` objects may be used as :keyword:"
-"`with` statement context managers.  For example::"
+"Currently, :class:`Lock`, :class:`RLock`, :class:`Condition`, :class:`Semaphore`, "
+"and :class:`BoundedSemaphore` objects may be used as :keyword:`with` "
+"statement context managers.  For example::"
 msgstr ""
 
 #: ../../../library/threading.rst:748

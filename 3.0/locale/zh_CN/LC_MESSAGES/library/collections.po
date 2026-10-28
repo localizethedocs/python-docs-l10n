@@ -33,8 +33,8 @@ msgstr ""
 #: ../../../library/collections.rst:23
 msgid ""
 "The specialized containers provided in this module provide alternatives to "
-"Python's general purpose built-in containers, :class:`dict`, :class:`list`, :"
-"class:`set`, and :class:`tuple`."
+"Python's general purpose built-in "
+"containers, :class:`dict`, :class:`list`, :class:`set`, and :class:`tuple`."
 msgstr ""
 
 #: ../../../library/collections.rst:27
@@ -233,9 +233,9 @@ msgid ""
 "Several of the ABCs are also useful as mixins that make it easier to develop "
 "classes supporting container APIs.  For example, to write a class supporting "
 "the full :class:`Set` API, it only necessary to supply the three underlying "
-"abstract methods: :meth:`__contains__`, :meth:`__iter__`, and :meth:"
-"`__len__`. The ABC supplies the remaining methods such as :meth:`__and__` "
-"and :meth:`isdisjoint` ::"
+"abstract methods: :meth:`__contains__`, :meth:`__iter__`, "
+"and :meth:`__len__`. The ABC supplies the remaining methods such "
+"as :meth:`__and__` and :meth:`isdisjoint` ::"
 msgstr ""
 
 #: ../../../library/collections.rst:113
@@ -247,11 +247,11 @@ msgid ""
 "Since some set operations create new sets, the default mixin methods need a "
 "way to create new instances from an iterable. The class constructor is "
 "assumed to have a signature in the form ``ClassName(iterable)``. That "
-"assumption is factored-out to an internal classmethod called :meth:"
-"`_from_iterable` which calls ``cls(iterable)`` to produce a new set. If the :"
-"class:`Set` mixin is being used in a class with a different constructor "
-"signature, you will need to override :meth:`from_iterable` with a "
-"classmethod that can construct new instances from an iterable argument."
+"assumption is factored-out to an internal classmethod "
+"called :meth:`_from_iterable` which calls ``cls(iterable)`` to produce a new "
+"set. If the :class:`Set` mixin is being used in a class with a different "
+"constructor signature, you will need to override :meth:`from_iterable` with "
+"a classmethod that can construct new instances from an iterable argument."
 msgstr ""
 
 #: ../../../library/collections.rst:127
@@ -266,8 +266,8 @@ msgid ""
 "The :class:`Set` mixin provides a :meth:`_hash` method to compute a hash "
 "value for the set; however, :meth:`__hash__` is not defined because not all "
 "sets are hashable or immutable.  To add set hashabilty using mixins, inherit "
-"from both :meth:`Set` and :meth:`Hashable`, then define ``__hash__ = Set."
-"_hash``."
+"from both :meth:`Set` and :meth:`Hashable`, then define ``__hash__ = "
+"Set._hash``."
 msgstr ""
 
 #: ../../../library/collections.rst:138
@@ -355,15 +355,15 @@ msgstr ""
 
 #: ../../../library/collections.rst:216
 msgid ""
-"Removed the first occurrence of *value*.  If not found, raises a :exc:"
-"`ValueError`."
+"Removed the first occurrence of *value*.  If not found, raises "
+"a :exc:`ValueError`."
 msgstr ""
 
 #: ../../../library/collections.rst:222
 msgid ""
 "Rotate the deque *n* steps to the right.  If *n* is negative, rotate to the "
-"left.  Rotating one step to the right is equivalent to: ``d.appendleft(d."
-"pop())``."
+"left.  Rotating one step to the right is equivalent to: "
+"``d.appendleft(d.pop())``."
 msgstr ""
 
 #: ../../../library/collections.rst:227
@@ -396,20 +396,20 @@ msgstr ""
 
 #: ../../../library/collections.rst:305
 msgid ""
-"To implement :class:`deque` slicing, use a similar approach applying :meth:"
-"`rotate` to bring a target element to the left side of the deque. Remove old "
-"entries with :meth:`popleft`, add new entries with :meth:`extend`, and then "
-"reverse the rotation. With minor variations on that approach, it is easy to "
-"implement Forth style stack manipulations such as ``dup``, ``drop``, "
-"``swap``, ``over``, ``pick``, ``rot``, and ``roll``."
+"To implement :class:`deque` slicing, use a similar approach "
+"applying :meth:`rotate` to bring a target element to the left side of the "
+"deque. Remove old entries with :meth:`popleft`, add new entries "
+"with :meth:`extend`, and then reverse the rotation. With minor variations on "
+"that approach, it is easy to implement Forth style stack manipulations such "
+"as ``dup``, ``drop``, ``swap``, ``over``, ``pick``, ``rot``, and ``roll``."
 msgstr ""
 
 #: ../../../library/collections.rst:313
 msgid ""
 "Multi-pass data reduction algorithms can be succinctly expressed and "
-"efficiently coded by extracting elements with multiple calls to :meth:"
-"`popleft`, applying a reduction function, and calling :meth:`append` to add "
-"the result back to the deque."
+"efficiently coded by extracting elements with multiple calls "
+"to :meth:`popleft`, applying a reduction function, and "
+"calling :meth:`append` to add the result back to the deque."
 msgstr ""
 
 #: ../../../library/collections.rst:318
@@ -438,10 +438,10 @@ msgstr ""
 
 #: ../../../library/collections.rst:351
 msgid ""
-"The first argument provides the initial value for the :attr:"
-"`default_factory` attribute; it defaults to ``None``. All remaining "
-"arguments are treated the same as if they were passed to the :class:`dict` "
-"constructor, including keyword arguments."
+"The first argument provides the initial value for "
+"the :attr:`default_factory` attribute; it defaults to ``None``. All "
+"remaining arguments are treated the same as if they were passed to "
+"the :class:`dict` constructor, including keyword arguments."
 msgstr ""
 
 #: ../../../library/collections.rst:357
@@ -452,8 +452,8 @@ msgstr ""
 
 #: ../../../library/collections.rst:362
 msgid ""
-"If the :attr:`default_factory` attribute is ``None``, this raises a :exc:"
-"`KeyError` exception with the *key* as argument."
+"If the :attr:`default_factory` attribute is ``None``, this raises "
+"a :exc:`KeyError` exception with the *key* as argument."
 msgstr ""
 
 #: ../../../library/collections.rst:365
@@ -500,27 +500,28 @@ msgstr ""
 #: ../../../library/collections.rst:403
 msgid ""
 "When each key is encountered for the first time, it is not already in the "
-"mapping; so an entry is automatically created using the :attr:"
-"`default_factory` function which returns an empty :class:`list`.  The :meth:"
-"`list.append` operation then attaches the value to the new list.  When keys "
-"are encountered again, the look-up proceeds normally (returning the list for "
-"that key) and the :meth:`list.append` operation adds another value to the "
-"list. This technique is simpler and faster than an equivalent technique "
-"using :meth:`dict.setdefault`:"
+"mapping; so an entry is automatically created using "
+"the :attr:`default_factory` function which returns an empty :class:`list`.  "
+"The :meth:`list.append` operation then attaches the value to the new list.  "
+"When keys are encountered again, the look-up proceeds normally (returning "
+"the list for that key) and the :meth:`list.append` operation adds another "
+"value to the list. This technique is simpler and faster than an equivalent "
+"technique using :meth:`dict.setdefault`:"
 msgstr ""
 
 #: ../../../library/collections.rst:418
 msgid ""
-"Setting the :attr:`default_factory` to :class:`int` makes the :class:"
-"`defaultdict` useful for counting (like a bag or multiset in other "
-"languages):"
+"Setting the :attr:`default_factory` to :class:`int` makes "
+"the :class:`defaultdict` useful for counting (like a bag or multiset in "
+"other languages):"
 msgstr ""
 
 #: ../../../library/collections.rst:430
 msgid ""
-"When a letter is first encountered, it is missing from the mapping, so the :"
-"attr:`default_factory` function calls :func:`int` to supply a default count "
-"of zero.  The increment operation then builds up the count for each letter."
+"When a letter is first encountered, it is missing from the mapping, so "
+"the :attr:`default_factory` function calls :func:`int` to supply a default "
+"count of zero.  The increment operation then builds up the count for each "
+"letter."
 msgstr ""
 
 #: ../../../library/collections.rst:434
@@ -533,8 +534,8 @@ msgstr ""
 
 #: ../../../library/collections.rst:446
 msgid ""
-"Setting the :attr:`default_factory` to :class:`set` makes the :class:"
-"`defaultdict` useful for building a dictionary of sets:"
+"Setting the :attr:`default_factory` to :class:`set` makes "
+"the :class:`defaultdict` useful for building a dictionary of sets:"
 msgstr ""
 
 #: ../../../library/collections.rst:461
@@ -554,8 +555,9 @@ msgid ""
 "Returns a new tuple subclass named *typename*.  The new subclass is used to "
 "create tuple-like objects that have fields accessible by attribute lookup as "
 "well as being indexable and iterable.  Instances of the subclass also have a "
-"helpful docstring (with typename and field_names) and a helpful :meth:"
-"`__repr__` method which lists the tuple contents in a ``name=value`` format."
+"helpful docstring (with typename and field_names) and a "
+"helpful :meth:`__repr__` method which lists the tuple contents in a "
+"``name=value`` format."
 msgstr ""
 
 #: ../../../library/collections.rst:475
@@ -570,8 +572,9 @@ msgstr ""
 msgid ""
 "Any valid Python identifier may be used for a fieldname except for names "
 "starting with an underscore.  Valid identifiers consist of letters, digits, "
-"and underscores but do not start with a digit or underscore and cannot be a :"
-"mod:`keyword` such as *class*, *for*, *return*, *global*, *pass*, or *raise*."
+"and underscores but do not start with a digit or underscore and cannot be "
+"a :mod:`keyword` such as *class*, *for*, *return*, *global*, *pass*, or "
+"*raise*."
 msgstr ""
 
 #: ../../../library/collections.rst:485
@@ -623,8 +626,8 @@ msgstr ""
 
 #: ../../../library/collections.rst:611
 msgid ""
-"To retrieve a field whose name is stored in a string, use the :func:"
-"`getattr` function:"
+"To retrieve a field whose name is stored in a string, use "
+"the :func:`getattr` function:"
 msgstr ""
 
 #: ../../../library/collections.rst:617
@@ -686,16 +689,16 @@ msgstr ""
 #: ../../../library/collections.rst:684
 msgid ""
 "Class that simulates a dictionary.  The instance's contents are kept in a "
-"regular dictionary, which is accessible via the :attr:`data` attribute of :"
-"class:`UserDict` instances.  If *initialdata* is provided, :attr:`data` is "
-"initialized with its contents; note that a reference to *initialdata* will "
-"not be kept, allowing it be used for other purposes."
+"regular dictionary, which is accessible via the :attr:`data` attribute "
+"of :class:`UserDict` instances.  If *initialdata* is provided, :attr:`data` "
+"is initialized with its contents; note that a reference to *initialdata* "
+"will not be kept, allowing it be used for other purposes."
 msgstr ""
 
 #: ../../../library/collections.rst:690
 msgid ""
-"In addition to supporting the methods and operations of mappings, :class:"
-"`UserDict` instances provide the following attribute:"
+"In addition to supporting the methods and operations of "
+"mappings, :class:`UserDict` instances provide the following attribute:"
 msgstr ""
 
 #: ../../../library/collections.rst:695
@@ -725,22 +728,22 @@ msgstr ""
 #: ../../../library/collections.rst:713
 msgid ""
 "Class that simulates a list.  The instance's contents are kept in a regular "
-"list, which is accessible via the :attr:`data` attribute of :class:"
-"`UserList` instances.  The instance's contents are initially set to a copy "
-"of *list*, defaulting to the empty list ``[]``.  *list* can be any iterable, "
-"for example a real Python list or a :class:`UserList` object."
+"list, which is accessible via the :attr:`data` attribute "
+"of :class:`UserList` instances.  The instance's contents are initially set "
+"to a copy of *list*, defaulting to the empty list ``[]``.  *list* can be any "
+"iterable, for example a real Python list or a :class:`UserList` object."
 msgstr ""
 
 #: ../../../library/collections.rst:719
 msgid ""
-"In addition to supporting the methods and operations of mutable sequences, :"
-"class:`UserList` instances provide the following attribute:"
+"In addition to supporting the methods and operations of mutable "
+"sequences, :class:`UserList` instances provide the following attribute:"
 msgstr ""
 
 #: ../../../library/collections.rst:724
 msgid ""
-"A real :class:`list` object used to store the contents of the :class:"
-"`UserList` class."
+"A real :class:`list` object used to store the contents of "
+"the :class:`UserList` class."
 msgstr ""
 
 #: ../../../library/collections.rst:727
@@ -776,8 +779,8 @@ msgstr ""
 #: ../../../library/collections.rst:750
 msgid ""
 "Class that simulates a string or a Unicode string object.  The instance's "
-"content is kept in a regular string object, which is accessible via the :"
-"attr:`data` attribute of :class:`UserString` instances.  The instance's "
+"content is kept in a regular string object, which is accessible via "
+"the :attr:`data` attribute of :class:`UserString` instances.  The instance's "
 "contents are initially set to a copy of *sequence*.  The *sequence* can be "
 "an instance of :class:`bytes`, :class:`str`, :class:`UserString` (or a "
 "subclass) or an arbitrary sequence which can be converted into a string "

@@ -44,8 +44,8 @@ msgid ""
 "insensitively.  There may also be a single envelope header, also known as "
 "the *Unix-From* header or the ``From_`` header.  The payload is either a "
 "string in the case of simple message objects or a list of :class:`Message` "
-"objects for MIME container documents (e.g. :mimetype:`multipart/\\*` and :"
-"mimetype:`message/rfc822`)."
+"objects for MIME container documents (e.g. :mimetype:`multipart/\\*` "
+"and :mimetype:`message/rfc822`)."
 msgstr ""
 
 #: ../../../library/email.message.rst:25
@@ -86,9 +86,10 @@ msgstr ""
 
 #: ../../../library/email.message.rst:66
 msgid ""
-"Return ``True`` if the message's payload is a list of sub-\\ :class:"
-"`Message` objects, otherwise return ``False``.  When :meth:`is_multipart` "
-"returns False, the payload should be a string object."
+"Return ``True`` if the message's payload is a list of sub-"
+"\\ :class:`Message` objects, otherwise return ``False``.  "
+"When :meth:`is_multipart` returns False, the payload should be a string "
+"object."
 msgstr ""
 
 #: ../../../library/email.message.rst:73
@@ -125,8 +126,8 @@ msgid ""
 "element of the payload, counting from zero, if :meth:`is_multipart` is "
 "``True``.  An :exc:`IndexError` will be raised if *i* is less than 0 or "
 "greater than or equal to the number of items in the payload.  If the payload "
-"is a string (i.e.  :meth:`is_multipart` is ``False``) and *i* is given, a :"
-"exc:`TypeError` is raised."
+"is a string (i.e.  :meth:`is_multipart` is ``False``) and *i* is given, "
+"a :exc:`TypeError` is raised."
 msgstr ""
 
 #: ../../../library/email.message.rst:105
@@ -151,10 +152,10 @@ msgstr ""
 
 #: ../../../library/email.message.rst:124
 msgid ""
-"Set the character set of the payload to *charset*, which can either be a :"
-"class:`Charset` instance (see :mod:`email.charset`), a string naming a "
-"character set, or ``None``.  If it is a string, it will be converted to a :"
-"class:`Charset` instance.  If *charset* is ``None``, the ``charset`` "
+"Set the character set of the payload to *charset*, which can either be "
+"a :class:`Charset` instance (see :mod:`email.charset`), a string naming a "
+"character set, or ``None``.  If it is a string, it will be converted to "
+"a :class:`Charset` instance.  If *charset* is ``None``, the ``charset`` "
 "parameter will be removed from the :mailheader:`Content-Type` header. "
 "Anything else will generate a :exc:`TypeError`."
 msgstr ""
@@ -164,9 +165,9 @@ msgid ""
 "The message will be assumed to be of type :mimetype:`text/\\*` encoded with "
 "*charset.input_charset*.  It will be converted to *charset.output_charset* "
 "and encoded properly, if needed, when generating the plain text "
-"representation of the message.  MIME headers (:mailheader:`MIME-Version`, :"
-"mailheader:`Content-Type`, :mailheader:`Content-Transfer-Encoding`) will be "
-"added as needed."
+"representation of the message.  MIME headers (:mailheader:`MIME-"
+"Version`, :mailheader:`Content-Type`, :mailheader:`Content-Transfer-"
+"Encoding`) will be added as needed."
 msgstr ""
 
 #: ../../../library/email.message.rst:140
@@ -181,10 +182,11 @@ msgid ""
 "differences between these methods and a normal mapping (i.e. dictionary) "
 "interface.  For example, in a dictionary there are no duplicate keys, but "
 "here there may be duplicate message headers.  Also, in dictionaries there is "
-"no guaranteed order to the keys returned by :meth:`keys`, but in a :class:"
-"`Message` object, headers are always returned in the order they appeared in "
-"the original message, or were added to the message later.  Any header "
-"deleted and then re-added are always appended to the end of the header list."
+"no guaranteed order to the keys returned by :meth:`keys`, but in "
+"a :class:`Message` object, headers are always returned in the order they "
+"appeared in the original message, or were added to the message later.  Any "
+"header deleted and then re-added are always appended to the end of the "
+"header list."
 msgstr ""
 
 #: ../../../library/email.message.rst:153
@@ -213,8 +215,8 @@ msgstr ""
 #: ../../../library/email.message.rst:177
 msgid ""
 "Return the value of the named header field.  *name* should not include the "
-"colon field separator.  If the header is missing, ``None`` is returned; a :"
-"exc:`KeyError` is never raised."
+"colon field separator.  If the header is missing, ``None`` is returned; "
+"a :exc:`KeyError` is never raised."
 msgstr ""
 
 #: ../../../library/email.message.rst:181
@@ -267,9 +269,9 @@ msgstr ""
 
 #: ../../../library/email.message.rst:230
 msgid ""
-"Return the value of the named header field.  This is identical to :meth:"
-"`__getitem__` except that optional *failobj* is returned if the named header "
-"is missing (defaults to ``None``)."
+"Return the value of the named header field.  This is identical "
+"to :meth:`__getitem__` except that optional *failobj* is returned if the "
+"named header is missing (defaults to ``None``)."
 msgstr ""
 
 #: ../../../library/email.message.rst:234
@@ -318,11 +320,11 @@ msgstr ""
 #: ../../../library/email.message.rst:275
 msgid ""
 "Return the message's content type.  The returned string is coerced to lower "
-"case of the form :mimetype:`maintype/subtype`.  If there was no :mailheader:"
-"`Content-Type` header in the message the default type as given by :meth:"
-"`get_default_type` will be returned.  Since according to :rfc:`2045`, "
-"messages always have a default type, :meth:`get_content_type` will always "
-"return a value."
+"case of the form :mimetype:`maintype/subtype`.  If there was "
+"no :mailheader:`Content-Type` header in the message the default type as "
+"given by :meth:`get_default_type` will be returned.  Since according "
+"to :rfc:`2045`, messages always have a default "
+"type, :meth:`get_content_type` will always return a value."
 msgstr ""
 
 #: ../../../library/email.message.rst:282
@@ -349,8 +351,8 @@ msgstr ""
 #: ../../../library/email.message.rst:303
 msgid ""
 "Return the default content type.  Most messages have a default content type "
-"of :mimetype:`text/plain`, except for messages that are subparts of :"
-"mimetype:`multipart/digest` containers.  Such subparts have a default "
+"of :mimetype:`text/plain`, except for messages that are subparts "
+"of :mimetype:`multipart/digest` containers.  Such subparts have a default "
 "content type of :mimetype:`message/rfc822`."
 msgstr ""
 
@@ -367,15 +369,16 @@ msgid ""
 "elements of the returned list are 2-tuples of key/value pairs, as split on "
 "the ``'='`` sign.  The left hand side of the ``'='`` is the key, while the "
 "right hand side is the value.  If there is no ``'='`` sign in the parameter "
-"the value is the empty string, otherwise the value is as described in :meth:"
-"`get_param` and is unquoted if optional *unquote* is ``True`` (the default)."
+"the value is the empty string, otherwise the value is as described "
+"in :meth:`get_param` and is unquoted if optional *unquote* is ``True`` (the "
+"default)."
 msgstr ""
 
 #: ../../../library/email.message.rst:327
 msgid ""
-"Optional *failobj* is the object to return if there is no :mailheader:"
-"`Content-Type` header.  Optional *header* is the header to search instead "
-"of :mailheader:`Content-Type`."
+"Optional *failobj* is the object to return if there is "
+"no :mailheader:`Content-Type` header.  Optional *header* is the header to "
+"search instead of :mailheader:`Content-Type`."
 msgstr ""
 
 #: ../../../library/email.message.rst:334
@@ -388,8 +391,8 @@ msgstr ""
 
 #: ../../../library/email.message.rst:339
 msgid ""
-"Optional *header* if given, specifies the message header to use instead of :"
-"mailheader:`Content-Type`."
+"Optional *header* if given, specifies the message header to use instead "
+"of :mailheader:`Content-Type`."
 msgstr ""
 
 #: ../../../library/email.message.rst:342
@@ -404,11 +407,12 @@ msgstr ""
 
 #: ../../../library/email.message.rst:350
 msgid ""
-"If your application doesn't care whether the parameter was encoded as in :"
-"rfc:`2231`, you can collapse the parameter value by calling :func:`email."
-"Utils.collapse_rfc2231_value`, passing in the return value from :meth:"
-"`get_param`.  This will return a suitably decoded Unicode string whn the "
-"value is a tuple, or the original string unquoted if it isn't.  For example::"
+"If your application doesn't care whether the parameter was encoded as "
+"in :rfc:`2231`, you can collapse the parameter value by "
+"calling :func:`email.Utils.collapse_rfc2231_value`, passing in the return "
+"value from :meth:`get_param`.  This will return a suitably decoded Unicode "
+"string whn the value is a tuple, or the original string unquoted if it "
+"isn't.  For example::"
 msgstr ""
 
 #: ../../../library/email.message.rst:360
@@ -447,8 +451,8 @@ msgid ""
 "Remove the given parameter completely from the :mailheader:`Content-Type` "
 "header.  The header will be re-written in place without the parameter or its "
 "value.  All values will be quoted as necessary unless *requote* is ``False`` "
-"(the default is ``True``).  Optional *header* specifies an alternative to :"
-"mailheader:`Content-Type`."
+"(the default is ``True``).  Optional *header* specifies an alternative "
+"to :mailheader:`Content-Type`."
 msgstr ""
 
 #: ../../../library/email.message.rst:394
@@ -468,9 +472,9 @@ msgstr ""
 
 #: ../../../library/email.message.rst:403
 msgid ""
-"An alternative header can be specified in the *header* argument. When the :"
-"mailheader:`Content-Type` header is set a :mailheader:`MIME-Version` header "
-"is also added."
+"An alternative header can be specified in the *header* argument. When "
+"the :mailheader:`Content-Type` header is set a :mailheader:`MIME-Version` "
+"header is also added."
 msgstr ""
 
 #: ../../../library/email.message.rst:410
@@ -479,8 +483,8 @@ msgid ""
 "Disposition` header of the message.  If the header does not have a "
 "``filename`` parameter, this method falls back to looking for the ``name`` "
 "parameter.  If neither is found, or the header is missing, then *failobj* is "
-"returned.  The returned string will always be unquoted as per :meth:`Utils."
-"unquote`."
+"returned.  The returned string will always be unquoted as "
+"per :meth:`Utils.unquote`."
 msgstr ""
 
 #: ../../../library/email.message.rst:420
@@ -501,12 +505,12 @@ msgstr ""
 
 #: ../../../library/email.message.rst:433
 msgid ""
-"Note that using this method is subtly different than deleting the old :"
-"mailheader:`Content-Type` header and adding a new one with the new boundary "
-"via :meth:`add_header`, because :meth:`set_boundary` preserves the order of "
-"the :mailheader:`Content-Type` header in the list of headers. However, it "
-"does *not* preserve any continuation lines which may have been present in "
-"the original :mailheader:`Content-Type` header."
+"Note that using this method is subtly different than deleting the "
+"old :mailheader:`Content-Type` header and adding a new one with the new "
+"boundary via :meth:`add_header`, because :meth:`set_boundary` preserves the "
+"order of the :mailheader:`Content-Type` header in the list of headers. "
+"However, it does *not* preserve any continuation lines which may have been "
+"present in the original :mailheader:`Content-Type` header."
 msgstr ""
 
 #: ../../../library/email.message.rst:443
@@ -518,8 +522,8 @@ msgstr ""
 
 #: ../../../library/email.message.rst:447
 msgid ""
-"Note that this method differs from :meth:`get_charset` which returns the :"
-"class:`Charset` instance for the default encoding of the message body."
+"Note that this method differs from :meth:`get_charset` which returns "
+"the :class:`Charset` instance for the default encoding of the message body."
 msgstr ""
 
 #: ../../../library/email.message.rst:453
@@ -577,8 +581,8 @@ msgid ""
 "*preamble* attribute.  When the :class:`Generator` is writing out the plain "
 "text representation of a MIME message, and it finds the message has a "
 "*preamble* attribute, it will write this text in the area between the "
-"headers and the first boundary.  See :mod:`email.parser` and :mod:`email."
-"generator` for details."
+"headers and the first boundary.  See :mod:`email.parser` "
+"and :mod:`email.generator` for details."
 msgstr ""
 
 #: ../../../library/email.message.rst:506
@@ -596,8 +600,8 @@ msgstr ""
 
 #: ../../../library/email.message.rst:516
 msgid ""
-"You do not need to set the epilogue to the empty string in order for the :"
-"class:`Generator` to print a newline at the end of the file."
+"You do not need to set the epilogue to the empty string in order for "
+"the :class:`Generator` to print a newline at the end of the file."
 msgstr ""
 
 #: ../../../library/email.message.rst:522

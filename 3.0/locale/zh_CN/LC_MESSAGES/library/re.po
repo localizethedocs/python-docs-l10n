@@ -171,10 +171,10 @@ msgid ""
 "string, and in :const:`MULTILINE` mode also matches before a newline.  "
 "``foo`` matches both 'foo' and 'foobar', while the regular expression "
 "``foo$`` matches only 'foo'.  More interestingly, searching for ``foo.$`` in "
-"``'foo1\\nfoo2\\n'`` matches 'foo2' normally, but 'foo1' in :const:"
-"`MULTILINE` mode; searching for a single ``$`` in ``'foo\\n'`` will find two "
-"(empty) matches: one just before the newline, and one at the end of the "
-"string."
+"``'foo1\\nfoo2\\n'`` matches 'foo2' normally, but 'foo1' "
+"in :const:`MULTILINE` mode; searching for a single ``$`` in ``'foo\\n'`` "
+"will find two (empty) matches: one just before the newline, and one at the "
+"end of the string."
 msgstr ""
 
 #: ../../../library/re.rst:114
@@ -375,13 +375,13 @@ msgstr ""
 msgid ""
 "(One or more letters from the set ``'a'``, ``'i'``, ``'L'``, ``'m'``, "
 "``'s'``, ``'u'``, ``'x'``.)  The group matches the empty string; the letters "
-"set the corresponding flags: :const:`re.a` (ASCII-only matching), :const:`re."
-"I` (ignore case), :const:`re.L` (locale dependent), :const:`re.M` (multi-"
-"line), :const:`re.S` (dot matches all), and :const:`re.X` (verbose), for the "
-"entire regular expression. (The flags are described in :ref:`contents-of-"
-"module-re`.) This is useful if you wish to include the flags as part of the "
-"regular expression, instead of passing a *flag* argument to the :func:"
-"`compile` function."
+"set the corresponding flags: :const:`re.a` (ASCII-only "
+"matching), :const:`re.I` (ignore case), :const:`re.L` (locale "
+"dependent), :const:`re.M` (multi-line), :const:`re.S` (dot matches all), "
+"and :const:`re.X` (verbose), for the entire regular expression. (The flags "
+"are described in :ref:`contents-of-module-re`.) This is useful if you wish "
+"to include the flags as part of the regular expression, instead of passing a "
+"*flag* argument to the :func:`compile` function."
 msgstr ""
 
 #: ../../../library/re.rst:231
@@ -421,8 +421,8 @@ msgstr ""
 #: ../../../library/re.rst:250
 msgid ""
 "For example, if the pattern is ``(?P<id>[a-zA-Z_]\\w*)``, the group can be "
-"referenced by its name in arguments to methods of match objects, such as ``m."
-"group('id')`` or ``m.end('id')``, and also by name in pattern text (for "
+"referenced by its name in arguments to methods of match objects, such as "
+"``m.group('id')`` or ``m.end('id')``, and also by name in pattern text (for "
 "example, ``(?P=id)``) and replacement text (such as ``\\g<id>``)."
 msgstr ""
 
@@ -620,9 +620,9 @@ msgstr ""
 msgid ""
 "Matches Unicode whitespace characters (which includes "
 "``[ \\t\\n\\r\\f\\v]``, and also many other characters, for example the non-"
-"breaking spaces mandated by typography rules in many languages). If the :"
-"const:`ASCII` flag is used, only ``[ \\t\\n\\r\\f\\v]`` is matched (but the "
-"flag affects the entire regular expression, so in such cases using an "
+"breaking spaces mandated by typography rules in many languages). If "
+"the :const:`ASCII` flag is used, only ``[ \\t\\n\\r\\f\\v]`` is matched (but "
+"the flag affects the entire regular expression, so in such cases using an "
 "explicit ``[ \\t\\n\\r\\f\\v]`` may be a better choice)."
 msgstr ""
 
@@ -1013,8 +1013,8 @@ msgstr ""
 
 #: ../../../library/re.rst:738
 msgid ""
-"The optional *pos* and *endpos* parameters have the same meaning as for the :"
-"meth:`match` method."
+"The optional *pos* and *endpos* parameters have the same meaning as for "
+"the :meth:`match` method."
 msgstr ""
 
 #: ../../../library/re.rst:744
@@ -1097,8 +1097,8 @@ msgstr ""
 msgid ""
 "If the regular expression uses the ``(?P<name>...)`` syntax, the *groupN* "
 "arguments may also be strings identifying groups by their group name.  If a "
-"string argument is not used as a group name in the pattern, an :exc:"
-"`IndexError` exception is raised."
+"string argument is not used as a group name in the pattern, "
+"an :exc:`IndexError` exception is raised."
 msgstr ""
 
 #: ../../../library/re.rst:838
@@ -1150,9 +1150,9 @@ msgstr ""
 #: ../../../library/re.rst:905
 msgid ""
 "Note that ``m.start(group)`` will equal ``m.end(group)`` if *group* matched "
-"a null string.  For example, after ``m = re.search('b(c?)', 'cba')``, ``m."
-"start(0)`` is 1, ``m.end(0)`` is 2, ``m.start(1)`` and ``m.end(1)`` are both "
-"2, and ``m.start(2)`` raises an :exc:`IndexError` exception."
+"a null string.  For example, after ``m = re.search('b(c?)', 'cba')``, "
+"``m.start(0)`` is 1, ``m.end(0)`` is 2, ``m.start(1)`` and ``m.end(1)`` are "
+"both 2, and ``m.start(2)`` raises an :exc:`IndexError` exception."
 msgstr ""
 
 #: ../../../library/re.rst:910
@@ -1161,9 +1161,9 @@ msgstr ""
 
 #: ../../../library/re.rst:920
 msgid ""
-"For :class:`MatchObject` *m*, return the 2-tuple ``(m.start(group), m."
-"end(group))``. Note that if *group* did not contribute to the match, this is "
-"``(-1, -1)``.  *group* defaults to zero, the entire match."
+"For :class:`MatchObject` *m*, return the 2-tuple ``(m.start(group), "
+"m.end(group))``. Note that if *group* did not contribute to the match, this "
+"is ``(-1, -1)``.  *group* defaults to zero, the entire match."
 msgstr ""
 
 #: ../../../library/re.rst:927
@@ -1175,9 +1175,9 @@ msgstr ""
 
 #: ../../../library/re.rst:934
 msgid ""
-"The value of *endpos* which was passed to the :func:`search` or :func:"
-"`match` method of the :class:`RegexObject`.  This is the index into the "
-"string beyond which the RE engine will not go."
+"The value of *endpos* which was passed to the :func:`search` "
+"or :func:`match` method of the :class:`RegexObject`.  This is the index into "
+"the string beyond which the RE engine will not go."
 msgstr ""
 
 #: ../../../library/re.rst:941
@@ -1251,9 +1251,9 @@ msgstr ""
 #: ../../../library/re.rst:1031
 msgid ""
 "Python does not currently have an equivalent to :cfunc:`scanf`.  Regular "
-"expressions are generally more powerful, though also more verbose, than :"
-"cfunc:`scanf` format strings.  The table below offers some more-or-less "
-"equivalent mappings between :cfunc:`scanf` format tokens and regular "
+"expressions are generally more powerful, though also more verbose, "
+"than :cfunc:`scanf` format strings.  The table below offers some more-or-"
+"less equivalent mappings between :cfunc:`scanf` format tokens and regular "
 "expressions."
 msgstr ""
 
@@ -1405,8 +1405,9 @@ msgstr ""
 #: ../../../library/re.rst:1121
 msgid ""
 "# Match as \"o\" is the 2nd character of \"dog\" (index 0 is the first): >>> "
-"pattern.match(\"dog\", 1) <_sre.SRE_Match object at ...> >>> pattern."
-"match(\"dog\", 2)   # No match as \"o\" is not the 3rd character of \"dog.\""
+"pattern.match(\"dog\", 1) <_sre.SRE_Match object at ...> >>> "
+"pattern.match(\"dog\", 2)   # No match as \"o\" is not the 3rd character of "
+"\"dog.\""
 msgstr ""
 
 #: ../../../library/re.rst:1128
@@ -1478,10 +1479,11 @@ msgstr ""
 #: ../../../library/re.rst:1221
 msgid ""
 "If one wants more information about all matches of a pattern than the "
-"matched text, :func:`finditer` is useful as it provides instances of :class:"
-"`MatchObject` instead of strings.  Continuing with the previous example, if "
-"one was a writer who wanted to find all of the adverbs *and their positions* "
-"in some text, he or she would use :func:`finditer` in the following manner:"
+"matched text, :func:`finditer` is useful as it provides instances "
+"of :class:`MatchObject` instead of strings.  Continuing with the previous "
+"example, if one was a writer who wanted to find all of the adverbs *and "
+"their positions* in some text, he or she would use :func:`finditer` in the "
+"following manner:"
 msgstr ""
 
 #: ../../../library/re.rst:1235
