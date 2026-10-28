@@ -59,8 +59,8 @@ msgstr ""
 
 #: ../../../library/dis.rst:37
 msgid ""
-"the following command can be used to display the disassembly of :func:"
-"`myfunc`::"
+"the following command can be used to display the disassembly "
+"of :func:`myfunc`::"
 msgstr ""
 
 #: ../../../library/dis.rst:46
@@ -73,9 +73,9 @@ msgstr ""
 
 #: ../../../library/dis.rst:53
 msgid ""
-"The bytecode analysis API allows pieces of Python code to be wrapped in a :"
-"class:`Bytecode` object that provides easy access to details of the compiled "
-"code."
+"The bytecode analysis API allows pieces of Python code to be wrapped in "
+"a :class:`Bytecode` object that provides easy access to details of the "
+"compiled code."
 msgstr ""
 
 #: ../../../library/dis.rst:60
@@ -123,8 +123,8 @@ msgstr ""
 
 #: ../../../library/dis.rst:92
 msgid ""
-"Return a formatted view of the bytecode operations (the same as printed by :"
-"func:`dis.dis`, but returned as a multi-line string)."
+"Return a formatted view of the bytecode operations (the same as printed "
+"by :func:`dis.dis`, but returned as a multi-line string)."
 msgstr ""
 
 #: ../../../library/dis.rst:97
@@ -196,9 +196,9 @@ msgid ""
 "of raw bytecode, it prints one line per bytecode instruction. It also "
 "recursively disassembles nested code objects (the code of comprehensions, "
 "generator expressions and nested functions, and the code used for building "
-"nested classes). Strings are first compiled to code objects with the :func:"
-"`compile` built-in function before being disassembled.  If no object is "
-"provided, this function disassembles the last traceback."
+"nested classes). Strings are first compiled to code objects with "
+"the :func:`compile` built-in function before being disassembled.  If no "
+"object is provided, this function disassembles the last traceback."
 msgstr ""
 
 #: ../../../library/dis.rst:168 ../../../library/dis.rst:190
@@ -659,10 +659,10 @@ msgstr ""
 
 #: ../../../library/dis.rst:661
 msgid ""
-"For all of the :opcode:`SET_ADD`, :opcode:`LIST_APPEND` and :opcode:"
-"`MAP_ADD` instructions, while the added value or key/value pair is popped "
-"off, the container object remains on the stack so that it is available for "
-"further iterations of the loop."
+"For all of the :opcode:`SET_ADD`, :opcode:`LIST_APPEND` "
+"and :opcode:`MAP_ADD` instructions, while the added value or key/value pair "
+"is popped off, the container object remains on the stack so that it is "
+"available for further iterations of the loop."
 msgstr ""
 
 #: ../../../library/dis.rst:669
@@ -716,9 +716,9 @@ msgstr ""
 #: ../../../library/dis.rst:725
 msgid ""
 "Calls the function in position 7 on the stack with the top three items on "
-"the stack as arguments. Used to implement the call ``context_manager."
-"__exit__(*exc_info())`` when an exception has occurred in a :keyword:`with` "
-"statement."
+"the stack as arguments. Used to implement the call "
+"``context_manager.__exit__(*exc_info())`` when an exception has occurred in "
+"a :keyword:`with` statement."
 msgstr ""
 
 #: ../../../library/dis.rst:735
@@ -737,12 +737,12 @@ msgstr ""
 msgid ""
 "This opcode performs several operations before a with block starts.  First, "
 "it loads :meth:`~object.__exit__` from the context manager and pushes it "
-"onto the stack for later use by :opcode:`WITH_EXCEPT_START`.  Then, :meth:"
-"`~object.__enter__` is called, and a finally block pointing to *delta* is "
-"pushed.  Finally, the result of calling the ``__enter__()`` method is pushed "
-"onto the stack.  The next opcode will either ignore it (:opcode:`POP_TOP`), "
-"or store it in (a) variable(s) (:opcode:`STORE_FAST`, :opcode:`STORE_NAME`, "
-"or :opcode:`UNPACK_SEQUENCE`)."
+"onto the stack for later use by :opcode:`WITH_EXCEPT_START`.  "
+"Then, :meth:`~object.__enter__` is called, and a finally block pointing to "
+"*delta* is pushed.  Finally, the result of calling the ``__enter__()`` "
+"method is pushed onto the stack.  The next opcode will either ignore it "
+"(:opcode:`POP_TOP`), or store it in (a) variable(s) "
+"(:opcode:`STORE_FAST`, :opcode:`STORE_NAME`, or :opcode:`UNPACK_SEQUENCE`)."
 msgstr ""
 
 #: ../../../library/dis.rst:763
@@ -759,18 +759,18 @@ msgstr ""
 #: ../../../library/dis.rst:779
 msgid ""
 "If TOS is an instance of :class:`collections.abc.Mapping` (or, more "
-"technically: if it has the :const:`Py_TPFLAGS_MAPPING` flag set in its :c:"
-"member:`~PyTypeObject.tp_flags`), push ``True`` onto the stack.  Otherwise, "
-"push ``False``."
+"technically: if it has the :const:`Py_TPFLAGS_MAPPING` flag set in "
+"its :c:member:`~PyTypeObject.tp_flags`), push ``True`` onto the stack.  "
+"Otherwise, push ``False``."
 msgstr ""
 
 #: ../../../library/dis.rst:789
 msgid ""
 "If TOS is an instance of :class:`collections.abc.Sequence` and is *not* an "
 "instance of :class:`str`/:class:`bytes`/:class:`bytearray` (or, more "
-"technically: if it has the :const:`Py_TPFLAGS_SEQUENCE` flag set in its :c:"
-"member:`~PyTypeObject.tp_flags`), push ``True`` onto the stack.  Otherwise, "
-"push ``False``."
+"technically: if it has the :const:`Py_TPFLAGS_SEQUENCE` flag set in "
+"its :c:member:`~PyTypeObject.tp_flags`), push ``True`` onto the stack.  "
+"Otherwise, push ``False``."
 msgstr ""
 
 #: ../../../library/dis.rst:799
@@ -787,9 +787,9 @@ msgstr ""
 
 #: ../../../library/dis.rst:811
 msgid ""
-"Implements ``name = TOS``. *namei* is the index of *name* in the attribute :"
-"attr:`co_names` of the code object. The compiler tries to use :opcode:"
-"`STORE_FAST` or :opcode:`STORE_GLOBAL` if possible."
+"Implements ``name = TOS``. *namei* is the index of *name* in the "
+"attribute :attr:`co_names` of the code object. The compiler tries to "
+"use :opcode:`STORE_FAST` or :opcode:`STORE_GLOBAL` if possible."
 msgstr ""
 
 #: ../../../library/dis.rst:818
@@ -821,8 +821,8 @@ msgstr ""
 
 #: ../../../library/dis.rst:842
 msgid ""
-"Implements ``TOS.name = TOS1``, where *namei* is the index of name in :attr:"
-"`co_names`."
+"Implements ``TOS.name = TOS1``, where *namei* is the index of name "
+"in :attr:`co_names`."
 msgstr ""
 
 #: ../../../library/dis.rst:848
@@ -936,8 +936,8 @@ msgstr ""
 #: ../../../library/dis.rst:986
 msgid ""
 "Loads the attribute ``co_names[namei]`` from the module found in TOS. The "
-"resulting object is pushed onto the stack, to be subsequently stored by a :"
-"opcode:`STORE_FAST` instruction."
+"resulting object is pushed onto the stack, to be subsequently stored by "
+"a :opcode:`STORE_FAST` instruction."
 msgstr ""
 
 #: ../../../library/dis.rst:993
@@ -1117,11 +1117,11 @@ msgstr ""
 #: ../../../library/dis.rst:1182
 msgid ""
 "Calls a method.  *argc* is the number of positional arguments. Keyword "
-"arguments are not supported.  This opcode is designed to be used with :"
-"opcode:`LOAD_METHOD`.  Positional arguments are on top of the stack. Below "
-"them, the two items described in :opcode:`LOAD_METHOD` are on the stack "
-"(either ``self`` and an unbound method object or ``NULL`` and an arbitrary "
-"callable). All of them are popped and the return value is pushed."
+"arguments are not supported.  This opcode is designed to be used "
+"with :opcode:`LOAD_METHOD`.  Positional arguments are on top of the stack. "
+"Below them, the two items described in :opcode:`LOAD_METHOD` are on the "
+"stack (either ``self`` and an unbound method object or ``NULL`` and an "
+"arbitrary callable). All of them are popped and the return value is pushed."
 msgstr ""
 
 #: ../../../library/dis.rst:1194

@@ -64,8 +64,8 @@ msgid ""
 "particular, malicious code can trivially disable or bypass hooks added using "
 "this function. At a minimum, any security-sensitive hooks must be added "
 "using the C API :c:func:`PySys_AddAuditHook` before initialising the "
-"runtime, and any modules allowing arbitrary memory modification (such as :"
-"mod:`ctypes`) should be completely removed or closely monitored."
+"runtime, and any modules allowing arbitrary memory modification (such "
+"as :mod:`ctypes`) should be completely removed or closely monitored."
 msgstr ""
 
 #: ../../../library/sys.rst:47
@@ -157,8 +157,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:117
 msgid ""
-"Hooks are added using the :func:`sys.addaudithook` or :c:func:"
-"`PySys_AddAuditHook` functions."
+"Hooks are added using the :func:`sys.addaudithook` "
+"or :c:func:`PySys_AddAuditHook` functions."
 msgstr ""
 
 #: ../../../library/sys.rst:120
@@ -175,24 +175,26 @@ msgstr ""
 
 #: ../../../library/sys.rst:131
 msgid ""
-"Set during Python startup, before ``site.py`` is run, to the same value as :"
-"data:`exec_prefix`. If not running in a :ref:`virtual environment <venv-"
+"Set during Python startup, before ``site.py`` is run, to the same value "
+"as :data:`exec_prefix`. If not running in a :ref:`virtual environment <venv-"
 "def>`, the values will stay the same; if ``site.py`` finds that a virtual "
 "environment is in use, the values of :data:`prefix` and :data:`exec_prefix` "
-"will be changed to point to the virtual environment, whereas :data:"
-"`base_prefix` and :data:`base_exec_prefix` will remain pointing to the base "
-"Python installation (the one which the virtual environment was created from)."
+"will be changed to point to the virtual environment, "
+"whereas :data:`base_prefix` and :data:`base_exec_prefix` will remain "
+"pointing to the base Python installation (the one which the virtual "
+"environment was created from)."
 msgstr ""
 
 #: ../../../library/sys.rst:145
 msgid ""
-"Set during Python startup, before ``site.py`` is run, to the same value as :"
-"data:`prefix`. If not running in a :ref:`virtual environment <venv-def>`, "
-"the values will stay the same; if ``site.py`` finds that a virtual "
+"Set during Python startup, before ``site.py`` is run, to the same value "
+"as :data:`prefix`. If not running in a :ref:`virtual environment <venv-"
+"def>`, the values will stay the same; if ``site.py`` finds that a virtual "
 "environment is in use, the values of :data:`prefix` and :data:`exec_prefix` "
-"will be changed to point to the virtual environment, whereas :data:"
-"`base_prefix` and :data:`base_exec_prefix` will remain pointing to the base "
-"Python installation (the one which the virtual environment was created from)."
+"will be changed to point to the virtual environment, "
+"whereas :data:`base_prefix` and :data:`base_exec_prefix` will remain "
+"pointing to the base Python installation (the one which the virtual "
+"environment was created from)."
 msgstr ""
 
 #: ../../../library/sys.rst:158
@@ -297,29 +299,30 @@ msgstr ""
 
 #: ../../../library/sys.rst:236
 msgid ""
-"The default implementation first consults the environment variable :envvar:"
-"`PYTHONBREAKPOINT`.  If that is set to ``\"0\"`` then this function returns "
-"immediately; i.e. it is a no-op.  If the environment variable is not set, or "
-"is set to the empty string, ``pdb.set_trace()`` is called. Otherwise this "
-"variable should name a function to run, using Python's dotted-import "
-"nomenclature, e.g. ``package.subpackage.module.function``. In this case, "
+"The default implementation first consults the environment "
+"variable :envvar:`PYTHONBREAKPOINT`.  If that is set to ``\"0\"`` then this "
+"function returns immediately; i.e. it is a no-op.  If the environment "
+"variable is not set, or is set to the empty string, ``pdb.set_trace()`` is "
+"called. Otherwise this variable should name a function to run, using "
+"Python's dotted-import nomenclature, e.g. "
+"``package.subpackage.module.function``. In this case, "
 "``package.subpackage.module`` would be imported and the resulting module "
 "must have a callable named ``function()``.  This is run, passing in "
-"``*args`` and ``**kws``, and whatever ``function()`` returns, ``sys."
-"breakpointhook()`` returns to the built-in :func:`breakpoint` function."
+"``*args`` and ``**kws``, and whatever ``function()`` returns, "
+"``sys.breakpointhook()`` returns to the built-in :func:`breakpoint` function."
 msgstr ""
 
 #: ../../../library/sys.rst:248
 msgid ""
-"Note that if anything goes wrong while importing the callable named by :"
-"envvar:`PYTHONBREAKPOINT`, a :exc:`RuntimeWarning` is reported and the "
+"Note that if anything goes wrong while importing the callable named "
+"by :envvar:`PYTHONBREAKPOINT`, a :exc:`RuntimeWarning` is reported and the "
 "breakpoint is ignored."
 msgstr ""
 
 #: ../../../library/sys.rst:252
 msgid ""
-"Also note that if ``sys.breakpointhook()`` is overridden programmatically, :"
-"envvar:`PYTHONBREAKPOINT` is *not* consulted."
+"Also note that if ``sys.breakpointhook()`` is overridden "
+"programmatically, :envvar:`PYTHONBREAKPOINT` is *not* consulted."
 msgstr ""
 
 #: ../../../library/sys.rst:259
@@ -352,19 +355,19 @@ msgstr ""
 
 #: ../../../library/sys.rst:283
 msgid ""
-"If *value* is not ``None``, this function prints ``repr(value)`` to ``sys."
-"stdout``, and saves *value* in ``builtins._``. If ``repr(value)`` is not "
-"encodable to ``sys.stdout.encoding`` with ``sys.stdout.errors`` error "
-"handler (which is probably ``'strict'``), encode it to ``sys.stdout."
-"encoding`` with ``'backslashreplace'`` error handler."
+"If *value* is not ``None``, this function prints ``repr(value)`` to "
+"``sys.stdout``, and saves *value* in ``builtins._``. If ``repr(value)`` is "
+"not encodable to ``sys.stdout.encoding`` with ``sys.stdout.errors`` error "
+"handler (which is probably ``'strict'``), encode it to "
+"``sys.stdout.encoding`` with ``'backslashreplace'`` error handler."
 msgstr ""
 
 #: ../../../library/sys.rst:289
 msgid ""
-"``sys.displayhook`` is called on the result of evaluating an :term:"
-"`expression` entered in an interactive Python session.  The display of these "
-"values can be customized by assigning another one-argument function to ``sys."
-"displayhook``."
+"``sys.displayhook`` is called on the result of evaluating "
+"an :term:`expression` entered in an interactive Python session.  The display "
+"of these values can be customized by assigning another one-argument function "
+"to ``sys.displayhook``."
 msgstr ""
 
 #: ../../../library/sys.rst:293
@@ -379,9 +382,9 @@ msgstr ""
 msgid ""
 "If this is true, Python won't try to write ``.pyc`` files on the import of "
 "source modules.  This value is initially set to ``True`` or ``False`` "
-"depending on the :option:`-B` command line option and the :envvar:"
-"`PYTHONDONTWRITEBYTECODE` environment variable, but you can set it yourself "
-"to control bytecode file generation."
+"depending on the :option:`-B` command line option and "
+"the :envvar:`PYTHONDONTWRITEBYTECODE` environment variable, but you can set "
+"it yourself to control bytecode file generation."
 msgstr ""
 
 #: ../../../library/sys.rst:328
@@ -403,9 +406,9 @@ msgstr ""
 #: ../../../library/sys.rst:338
 msgid ""
 "This value is initially set based on the value of the :option:`-X` "
-"``pycache_prefix=PATH`` command-line option or the :envvar:"
-"`PYTHONPYCACHEPREFIX` environment variable (command-line takes precedence). "
-"If neither are set, it is ``None``."
+"``pycache_prefix=PATH`` command-line option or "
+"the :envvar:`PYTHONPYCACHEPREFIX` environment variable (command-line takes "
+"precedence). If neither are set, it is ``None``."
 msgstr ""
 
 #: ../../../library/sys.rst:348
@@ -415,13 +418,13 @@ msgstr ""
 
 #: ../../../library/sys.rst:350
 msgid ""
-"When an exception is raised and uncaught, the interpreter calls ``sys."
-"excepthook`` with three arguments, the exception class, exception instance, "
-"and a traceback object.  In an interactive session this happens just before "
-"control is returned to the prompt; in a Python program this happens just "
-"before the program exits.  The handling of such top-level exceptions can be "
-"customized by assigning another three-argument function to ``sys."
-"excepthook``."
+"When an exception is raised and uncaught, the interpreter calls "
+"``sys.excepthook`` with three arguments, the exception class, exception "
+"instance, and a traceback object.  In an interactive session this happens "
+"just before control is returned to the prompt; in a Python program this "
+"happens just before the program exits.  The handling of such top-level "
+"exceptions can be customized by assigning another three-argument function to "
+"``sys.excepthook``."
 msgstr ""
 
 #: ../../../library/sys.rst:357
@@ -436,15 +439,15 @@ msgid ""
 "``type``, ``value``, ``traceback`` when an uncaught exception occurs. If no "
 "hook has been set, ``hook`` may be ``None``. If any hook raises an exception "
 "derived from :class:`RuntimeError` the call to the hook will be suppressed. "
-"Otherwise, the audit hook exception will be reported as unraisable and ``sys."
-"excepthook`` will be called."
+"Otherwise, the audit hook exception will be reported as unraisable and "
+"``sys.excepthook`` will be called."
 msgstr ""
 
 #: ../../../library/sys.rst:368
 msgid ""
 "The :func:`sys.unraisablehook` function handles unraisable exceptions and "
-"the :func:`threading.excepthook` function handles exception raised by :func:"
-"`threading.Thread.run`."
+"the :func:`threading.excepthook` function handles exception raised "
+"by :func:`threading.Thread.run`."
 msgstr ""
 
 #: ../../../library/sys.rst:378
@@ -493,18 +496,18 @@ msgid ""
 "dependent Python files are installed; by default, this is also ``'/usr/"
 "local'``.  This can be set at build time with the ``--exec-prefix`` argument "
 "to the :program:`configure` script.  Specifically, all configuration files "
-"(e.g. the :file:`pyconfig.h` header file) are installed in the directory :"
-"file:`{exec_prefix}/lib/python{X.Y}/config`, and shared library modules are "
-"installed in :file:`{exec_prefix}/lib/python{X.Y}/lib-dynload`, where *X.Y* "
-"is the version number of Python, for example ``3.2``."
+"(e.g. the :file:`pyconfig.h` header file) are installed in the "
+"directory :file:`{exec_prefix}/lib/python{X.Y}/config`, and shared library "
+"modules are installed in :file:`{exec_prefix}/lib/python{X.Y}/lib-dynload`, "
+"where *X.Y* is the version number of Python, for example ``3.2``."
 msgstr ""
 
 #: ../../../library/sys.rst:425
 msgid ""
 "If a :ref:`virtual environment <venv-def>` is in effect, this value will be "
 "changed in ``site.py`` to point to the virtual environment. The value for "
-"the Python installation will still be available, via :data:"
-"`base_exec_prefix`."
+"the Python installation will still be available, "
+"via :data:`base_exec_prefix`."
 msgstr ""
 
 #: ../../../library/sys.rst:433
@@ -548,9 +551,9 @@ msgstr ""
 
 #: ../../../library/sys.rst:461
 msgid ""
-"If an error occurs in the cleanup after the Python interpreter has caught :"
-"exc:`SystemExit` (such as an error flushing buffered data in the standard "
-"streams), the exit status is changed to 120."
+"If an error occurs in the cleanup after the Python interpreter has "
+"caught :exc:`SystemExit` (such as an error flushing buffered data in the "
+"standard streams), the exit status is changed to 120."
 msgstr ""
 
 #: ../../../library/sys.rst:469
@@ -904,9 +907,10 @@ msgstr ""
 #: ../../../library/sys.rst:575
 msgid ""
 "The attribute :attr:`sys.float_info.dig` needs further explanation.  If "
-"``s`` is any string representing a decimal number with at most :attr:`sys."
-"float_info.dig` significant digits, then converting ``s`` to a float and "
-"back again will recover a string representing the same decimal value::"
+"``s`` is any string representing a decimal number with at "
+"most :attr:`sys.float_info.dig` significant digits, then converting ``s`` to "
+"a float and back again will recover a string representing the same decimal "
+"value::"
 msgstr ""
 
 #: ../../../library/sys.rst:588
@@ -930,9 +934,9 @@ msgid ""
 "Return the number of memory blocks currently allocated by the interpreter, "
 "regardless of their size.  This function is mainly useful for tracking and "
 "debugging memory leaks.  Because of the interpreter's internal caches, the "
-"result can vary from call to call; you may have to call :func:"
-"`_clear_type_cache()` and :func:`gc.collect()` to get more predictable "
-"results."
+"result can vary from call to call; you may have to "
+"call :func:`_clear_type_cache()` and :func:`gc.collect()` to get more "
+"predictable results."
 msgstr ""
 
 #: ../../../library/sys.rst:617
@@ -971,8 +975,8 @@ msgid ""
 "Get the :term:`filesystem encoding <filesystem encoding and error handler>`: "
 "the encoding used with the :term:`filesystem error handler <filesystem "
 "encoding and error handler>` to convert between Unicode filenames and bytes "
-"filenames. The filesystem error handler is returned from :func:"
-"`getfilesystemencodeerrors`."
+"filenames. The filesystem error handler is returned "
+"from :func:`getfilesystemencodeerrors`."
 msgstr ""
 
 #: ../../../library/sys.rst:656
@@ -992,9 +996,9 @@ msgstr ""
 #: ../../../library/sys.rst:664 ../../../library/sys.rst:692
 msgid ""
 "The :term:`filesystem encoding and error handler` are configured at Python "
-"startup by the :c:func:`PyConfig_Read` function: see :c:member:`~PyConfig."
-"filesystem_encoding` and :c:member:`~PyConfig.filesystem_errors` members of :"
-"c:type:`PyConfig`."
+"startup by the :c:func:`PyConfig_Read` function: "
+"see :c:member:`~PyConfig.filesystem_encoding` "
+"and :c:member:`~PyConfig.filesystem_errors` members of :c:type:`PyConfig`."
 msgstr ""
 
 #: ../../../library/sys.rst:669
@@ -1003,8 +1007,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:672
 msgid ""
-"Windows is no longer guaranteed to return ``'mbcs'``. See :pep:`529` and :"
-"func:`_enablelegacywindowsfsencoding` for more information."
+"Windows is no longer guaranteed to return ``'mbcs'``. See :pep:`529` "
+"and :func:`_enablelegacywindowsfsencoding` for more information."
 msgstr ""
 
 #: ../../../library/sys.rst:676
@@ -1017,8 +1021,8 @@ msgid ""
 "Get the :term:`filesystem error handler <filesystem encoding and error "
 "handler>`: the error handler used with the :term:`filesystem encoding "
 "<filesystem encoding and error handler>` to convert between Unicode "
-"filenames and bytes filenames. The filesystem encoding is returned from :"
-"func:`getfilesystemencoding`."
+"filenames and bytes filenames. The filesystem encoding is returned "
+"from :func:`getfilesystemencoding`."
 msgstr ""
 
 #: ../../../library/sys.rst:701
@@ -1045,8 +1049,8 @@ msgstr ""
 msgid ""
 "Return the current value of the recursion limit, the maximum depth of the "
 "Python interpreter stack.  This limit prevents infinite recursion from "
-"causing an overflow of the C stack and crashing Python.  It can be set by :"
-"func:`setrecursionlimit`."
+"causing an overflow of the C stack and crashing Python.  It can be set "
+"by :func:`setrecursionlimit`."
 msgstr ""
 
 #: ../../../library/sys.rst:726
@@ -1084,8 +1088,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:747
 msgid ""
-"Return the interpreter's \"thread switch interval\"; see :func:"
-"`setswitchinterval`."
+"Return the interpreter's \"thread switch interval\"; "
+"see :func:`setswitchinterval`."
 msgstr ""
 
 #: ../../../library/sys.rst:755
@@ -1132,9 +1136,9 @@ msgid ""
 "*service_pack_minor*, *service_pack_major*, *suite_mask*, *product_type* and "
 "*platform_version*. *service_pack* contains a string, *platform_version* a 3-"
 "tuple and all other values are integers. The components can also be accessed "
-"by name, so ``sys.getwindowsversion()[0]`` is equivalent to ``sys."
-"getwindowsversion().major``. For compatibility with prior versions, only the "
-"first 5 elements are retrievable by indexing."
+"by name, so ``sys.getwindowsversion()[0]`` is equivalent to "
+"``sys.getwindowsversion().major``. For compatibility with prior versions, "
+"only the first 5 elements are retrievable by indexing."
 msgstr ""
 
 #: ../../../library/sys.rst:806
@@ -1211,12 +1215,12 @@ msgstr ""
 
 #: ../../../library/sys.rst:848
 msgid ""
-"Returns an *asyncgen_hooks* object, which is similar to a :class:"
-"`~collections.namedtuple` of the form ``(firstiter, finalizer)``, where "
-"*firstiter* and *finalizer* are expected to be either ``None`` or functions "
-"which take an :term:`asynchronous generator iterator` as an argument, and "
-"are used to schedule finalization of an asynchronous generator by an event "
-"loop."
+"Returns an *asyncgen_hooks* object, which is similar to "
+"a :class:`~collections.namedtuple` of the form ``(firstiter, finalizer)``, "
+"where *firstiter* and *finalizer* are expected to be either ``None`` or "
+"functions which take an :term:`asynchronous generator iterator` as an "
+"argument, and are used to schedule finalization of an asynchronous generator "
+"by an event loop."
 msgstr ""
 
 #: ../../../library/sys.rst:855
@@ -1231,8 +1235,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:865
 msgid ""
-"Get the current coroutine origin tracking depth, as set by :func:"
-"`set_coroutine_origin_tracking_depth`."
+"Get the current coroutine origin tracking depth, as set "
+"by :func:`set_coroutine_origin_tracking_depth`."
 msgstr ""
 
 #: ../../../library/sys.rst:871 ../../../library/sys.rst:1520
@@ -1363,8 +1367,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:951
 msgid ""
-"*hexversion* is the implementation version in hexadecimal format, like :data:"
-"`sys.hexversion`."
+"*hexversion* is the implementation version in hexadecimal format, "
+"like :data:`sys.hexversion`."
 msgstr ""
 
 #: ../../../library/sys.rst:954
@@ -1380,10 +1384,10 @@ msgstr ""
 msgid ""
 ":data:`sys.implementation` may contain additional attributes specific to the "
 "Python implementation.  These non-standard attributes must start with an "
-"underscore, and are not described here.  Regardless of its contents, :data:"
-"`sys.implementation` will not change during a run of the interpreter, nor "
-"between implementation versions.  (It may change between Python language "
-"versions, however.)  See :pep:`421` for more information."
+"underscore, and are not described here.  Regardless of its "
+"contents, :data:`sys.implementation` will not change during a run of the "
+"interpreter, nor between implementation versions.  (It may change between "
+"Python language versions, however.)  See :pep:`421` for more information."
 msgstr ""
 
 #: ../../../library/sys.rst:972
@@ -1440,8 +1444,9 @@ msgstr ""
 
 #: ../../../library/sys.rst:996
 msgid ""
-"minimum non-zero value for :func:`sys.set_int_max_str_digits`, :envvar:"
-"`PYTHONINTMAXSTRDIGITS`, or :option:`-X int_max_str_digits <-X>`."
+"minimum non-zero value "
+"for :func:`sys.set_int_max_str_digits`, :envvar:`PYTHONINTMAXSTRDIGITS`, "
+"or :option:`-X int_max_str_digits <-X>`."
 msgstr ""
 
 #: ../../../library/sys.rst:1004
@@ -1506,8 +1511,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:1059
 msgid ""
-"The meaning of the variables is the same as that of the return values from :"
-"func:`exc_info` above."
+"The meaning of the variables is the same as that of the return values "
+"from :func:`exc_info` above."
 msgstr ""
 
 #: ../../../library/sys.rst:1065
@@ -1532,15 +1537,16 @@ msgstr ""
 
 #: ../../../library/sys.rst:1083
 msgid ""
-"A list of :term:`meta path finder` objects that have their :meth:`~importlib."
-"abc.MetaPathFinder.find_spec` methods called to see if one of the objects "
-"can find the module to be imported. By default, it holds entries that "
-"implement Python's default import semantics. The :meth:`~importlib.abc."
-"MetaPathFinder.find_spec` method is called with at least the absolute name "
-"of the module being imported. If the module to be imported is contained in a "
-"package, then the parent package's :attr:`__path__` attribute is passed in "
-"as a second argument. The method returns a :term:`module spec`, or ``None`` "
-"if the module cannot be found."
+"A list of :term:`meta path finder` objects that have "
+"their :meth:`~importlib.abc.MetaPathFinder.find_spec` methods called to see "
+"if one of the objects can find the module to be imported. By default, it "
+"holds entries that implement Python's default import semantics. "
+"The :meth:`~importlib.abc.MetaPathFinder.find_spec` method is called with at "
+"least the absolute name of the module being imported. If the module to be "
+"imported is contained in a package, then the parent "
+"package's :attr:`__path__` attribute is passed in as a second argument. The "
+"method returns a :term:`module spec`, or ``None`` if the module cannot be "
+"found."
 msgstr ""
 
 #: ../../../library/sys.rst:1096
@@ -1549,8 +1555,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:1096
 msgid ""
-"The abstract base class defining the interface of finder objects on :data:"
-"`meta_path`."
+"The abstract base class defining the interface of finder objects "
+"on :data:`meta_path`."
 msgstr ""
 
 #: ../../../library/sys.rst:1100
@@ -1565,11 +1571,11 @@ msgstr ""
 
 #: ../../../library/sys.rst:1105
 msgid ""
-":term:`Module specs <module spec>` were introduced in Python 3.4, by :pep:"
-"`451`. Earlier versions of Python looked for a method called :meth:"
-"`~importlib.abc.MetaPathFinder.find_module`. This is still called as a "
-"fallback if a :data:`meta_path` entry doesn't have a :meth:`~importlib.abc."
-"MetaPathFinder.find_spec` method."
+":term:`Module specs <module spec>` were introduced in Python 3.4, "
+"by :pep:`451`. Earlier versions of Python looked for a method "
+"called :meth:`~importlib.abc.MetaPathFinder.find_module`. This is still "
+"called as a fallback if a :data:`meta_path` entry doesn't have "
+"a :meth:`~importlib.abc.MetaPathFinder.find_spec` method."
 msgstr ""
 
 #: ../../../library/sys.rst:1113
@@ -1609,8 +1615,8 @@ msgid ""
 "the interpreter is invoked interactively or if the script is read from "
 "standard input), ``path[0]`` is the empty string, which directs Python to "
 "search modules in the current directory first.  Notice that the script "
-"directory is inserted *before* the entries inserted as a result of :envvar:"
-"`PYTHONPATH`."
+"directory is inserted *before* the entries inserted as a result "
+"of :envvar:`PYTHONPATH`."
 msgstr ""
 
 #: ../../../library/sys.rst:1149
@@ -1622,15 +1628,15 @@ msgstr ""
 
 #: ../../../library/sys.rst:1155
 msgid ""
-"Module :mod:`site` This describes how to use .pth files to extend :data:`sys."
-"path`."
+"Module :mod:`site` This describes how to use .pth files to "
+"extend :data:`sys.path`."
 msgstr ""
 
 #: ../../../library/sys.rst:1161
 msgid ""
-"A list of callables that take a path argument to try to create a :term:"
-"`finder` for the path. If a finder can be created, it is to be returned by "
-"the callable, else raise :exc:`ImportError`."
+"A list of callables that take a path argument to try to create "
+"a :term:`finder` for the path. If a finder can be created, it is to be "
+"returned by the callable, else raise :exc:`ImportError`."
 msgstr ""
 
 #: ../../../library/sys.rst:1165 ../../../library/sys.rst:1176
@@ -1755,8 +1761,8 @@ msgstr ""
 #: ../../../library/sys.rst:1239
 msgid ""
 "It is equal to ``\"lib\"`` on most platforms. On Fedora and SuSE, it is "
-"equal to ``\"lib64\"`` on 64-bit platforms which gives the following ``sys."
-"path`` paths (where ``X.Y`` is the Python ``major.minor`` version):"
+"equal to ``\"lib64\"`` on 64-bit platforms which gives the following "
+"``sys.path`` paths (where ``X.Y`` is the Python ``major.minor`` version):"
 msgstr ""
 
 #: ../../../library/sys.rst:1243
@@ -1774,8 +1780,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:1248
 msgid ""
-"``/usr/lib/pythonX.Y/site-packages/`` (always use ``lib``, not :data:`sys."
-"platlibdir`): Third-party modules"
+"``/usr/lib/pythonX.Y/site-packages/`` (always use ``lib``, "
+"not :data:`sys.platlibdir`): Third-party modules"
 msgstr ""
 
 #: ../../../library/sys.rst:1250
@@ -1817,15 +1823,15 @@ msgid ""
 "enable a lazy resolving of symbols when importing a module, if called as "
 "``sys.setdlopenflags(0)``.  To share symbols across extension modules, call "
 "as ``sys.setdlopenflags(os.RTLD_GLOBAL)``.  Symbolic names for the flag "
-"values can be found in the :mod:`os` module (``RTLD_xxx`` constants, e.g. :"
-"data:`os.RTLD_LAZY`)."
+"values can be found in the :mod:`os` module (``RTLD_xxx`` constants, "
+"e.g. :data:`os.RTLD_LAZY`)."
 msgstr ""
 
 #: ../../../library/sys.rst:1301
 msgid ""
 "Set the :ref:`integer string conversion length limitation "
-"<int_max_str_digits>` used by this interpreter. See also :func:"
-"`get_int_max_str_digits`."
+"<int_max_str_digits>` used by this interpreter. See "
+"also :func:`get_int_max_str_digits`."
 msgstr ""
 
 #: ../../../library/sys.rst:1313
@@ -1925,8 +1931,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:1363
 msgid ""
-"If the new limit is too low at the current recursion depth, a :exc:"
-"`RecursionError` exception is raised."
+"If the new limit is too low at the current recursion depth, "
+"a :exc:`RecursionError` exception is raised."
 msgstr ""
 
 #: ../../../library/sys.rst:1366
@@ -1951,8 +1957,8 @@ msgid ""
 "Set the system's trace function, which allows you to implement a Python "
 "source code debugger in Python.  The function is thread-specific; for a "
 "debugger to support multiple threads, it must register a trace function "
-"using :func:`settrace` for each thread being debugged or use :func:"
-"`threading.settrace`."
+"using :func:`settrace` for each thread being debugged or "
+"use :func:`threading.settrace`."
 msgstr ""
 
 #: ../../../library/sys.rst:1395
@@ -2001,8 +2007,8 @@ msgid ""
 "condition of a loop.  The local trace function is called; *arg* is ``None``; "
 "the return value specifies the new local trace function.  See :file:`Objects/"
 "lnotab_notes.txt` for a detailed explanation of how this works. Per-line "
-"events may be disabled for a frame by setting :attr:`f_trace_lines` to :"
-"const:`False` on that frame."
+"events may be disabled for a frame by setting :attr:`f_trace_lines` "
+"to :const:`False` on that frame."
 msgstr ""
 
 #: ../../../library/sys.rst:1429
@@ -2033,8 +2039,8 @@ msgid ""
 "The interpreter is about to execute a new opcode (see :mod:`dis` for opcode "
 "details).  The local trace function is called; *arg* is ``None``; the return "
 "value specifies the new local trace function. Per-opcode events are not "
-"emitted by default: they must be explicitly requested by setting :attr:"
-"`f_trace_opcodes` to :const:`True` on the frame."
+"emitted by default: they must be explicitly requested by "
+"setting :attr:`f_trace_opcodes` to :const:`True` on the frame."
 msgstr ""
 
 #: ../../../library/sys.rst:1447
@@ -2050,11 +2056,11 @@ msgid ""
 "it being set indirectly via the return value from an already installed trace "
 "function. This is also required for activating the trace function on the "
 "current frame, which :func:`settrace` doesn't do. Note that in order for "
-"this to work, a global tracing function must have been installed with :func:"
-"`settrace` in order to enable the runtime tracing machinery, but it doesn't "
-"need to be the same tracing function (e.g. it could be a low overhead "
-"tracing function that simply returns ``None`` to disable itself immediately "
-"on each frame)."
+"this to work, a global tracing function must have been installed "
+"with :func:`settrace` in order to enable the runtime tracing machinery, but "
+"it doesn't need to be the same tracing function (e.g. it could be a low "
+"overhead tracing function that simply returns ``None`` to disable itself "
+"immediately on each frame)."
 msgstr ""
 
 #: ../../../library/sys.rst:1461
@@ -2077,14 +2083,14 @@ msgstr ""
 
 #: ../../../library/sys.rst:1474
 msgid ""
-"``'opcode'`` event type added; :attr:`f_trace_lines` and :attr:"
-"`f_trace_opcodes` attributes added to frames"
+"``'opcode'`` event type added; :attr:`f_trace_lines` "
+"and :attr:`f_trace_opcodes` attributes added to frames"
 msgstr ""
 
 #: ../../../library/sys.rst:1479
 msgid ""
-"Accepts two optional keyword arguments which are callables that accept an :"
-"term:`asynchronous generator iterator` as an argument. The *firstiter* "
+"Accepts two optional keyword arguments which are callables that accept "
+"an :term:`asynchronous generator iterator` as an argument. The *firstiter* "
 "callable will be called when an asynchronous generator is iterated for the "
 "first time. The *finalizer* will be called when an asynchronous generator is "
 "about to be garbage collected."
@@ -2092,14 +2098,14 @@ msgstr ""
 
 #: ../../../library/sys.rst:1485
 msgid ""
-"Raises an :ref:`auditing event <auditing>` ``sys."
-"set_asyncgen_hooks_firstiter`` with no arguments."
+"Raises an :ref:`auditing event <auditing>` "
+"``sys.set_asyncgen_hooks_firstiter`` with no arguments."
 msgstr ""
 
 #: ../../../library/sys.rst:1487
 msgid ""
-"Raises an :ref:`auditing event <auditing>` ``sys."
-"set_asyncgen_hooks_finalizer`` with no arguments."
+"Raises an :ref:`auditing event <auditing>` "
+"``sys.set_asyncgen_hooks_finalizer`` with no arguments."
 msgstr ""
 
 #: ../../../library/sys.rst:1489
@@ -2111,8 +2117,8 @@ msgstr ""
 #: ../../../library/sys.rst:1492
 msgid ""
 "See :pep:`525` for more details, and for a reference example of a "
-"*finalizer* method see the implementation of ``asyncio.Loop."
-"shutdown_asyncgens`` in :source:`Lib/asyncio/base_events.py`"
+"*finalizer* method see the implementation of "
+"``asyncio.Loop.shutdown_asyncgens`` in :source:`Lib/asyncio/base_events.py`"
 msgstr ""
 
 #: ../../../library/sys.rst:1504
@@ -2149,8 +2155,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:1532
 msgid ""
-"See also :func:`sys.getfilesystemencoding` and :func:`sys."
-"getfilesystemencodeerrors`."
+"See also :func:`sys.getfilesystemencoding` "
+"and :func:`sys.getfilesystemencodeerrors`."
 msgstr ""
 
 #: ../../../library/sys.rst:1537
@@ -2165,8 +2171,8 @@ msgstr ""
 
 #: ../../../library/sys.rst:1547
 msgid ""
-"``stdin`` is used for all interactive input (including calls to :func:"
-"`input`);"
+"``stdin`` is used for all interactive input (including calls "
+"to :func:`input`);"
 msgstr ""
 
 #: ../../../library/sys.rst:1549
@@ -2187,8 +2193,9 @@ msgstr ""
 
 #: ../../../library/sys.rst:1557
 msgid ""
-"The encoding and error handling are is initialized from :c:member:`PyConfig."
-"stdio_encoding` and :c:member:`PyConfig.stdio_errors`."
+"The encoding and error handling are is initialized "
+"from :c:member:`PyConfig.stdio_encoding` "
+"and :c:member:`PyConfig.stdio_errors`."
 msgstr ""
 
 #: ../../../library/sys.rst:1560
@@ -2211,11 +2218,12 @@ msgstr ""
 
 #: ../../../library/sys.rst:1574
 msgid ""
-"Under all platforms, you can override the character encoding by setting the :"
-"envvar:`PYTHONIOENCODING` environment variable before starting Python or by "
-"using the new :option:`-X` ``utf8`` command line option and :envvar:"
-"`PYTHONUTF8` environment variable.  However, for the Windows console, this "
-"only applies when :envvar:`PYTHONLEGACYWINDOWSSTDIO` is also set."
+"Under all platforms, you can override the character encoding by setting "
+"the :envvar:`PYTHONIOENCODING` environment variable before starting Python "
+"or by using the new :option:`-X` ``utf8`` command line option "
+"and :envvar:`PYTHONUTF8` environment variable.  However, for the Windows "
+"console, this only applies when :envvar:`PYTHONLEGACYWINDOWSSTDIO` is also "
+"set."
 msgstr ""
 
 #: ../../../library/sys.rst:1581
@@ -2223,8 +2231,8 @@ msgid ""
 "When interactive, the ``stdout`` stream is line-buffered. Otherwise, it is "
 "block-buffered like regular text files.  The ``stderr`` stream is line-"
 "buffered in both cases.  You can make both streams unbuffered by passing "
-"the :option:`-u` command-line option or setting the :envvar:"
-"`PYTHONUNBUFFERED` environment variable."
+"the :option:`-u` command-line option or setting "
+"the :envvar:`PYTHONUNBUFFERED` environment variable."
 msgstr ""
 
 #: ../../../library/sys.rst:1587
@@ -2461,8 +2469,8 @@ msgid ""
 "*releaselevel* are integers; the release level is ``'alpha'``, ``'beta'``, "
 "``'candidate'``, or ``'final'``.  The ``version_info`` value corresponding "
 "to the Python version 2.0 is ``(2, 0, 0, 'final', 0)``.  The components can "
-"also be accessed by name, so ``sys.version_info[0]`` is equivalent to ``sys."
-"version_info.major`` and so on."
+"also be accessed by name, so ``sys.version_info[0]`` is equivalent to "
+"``sys.version_info.major`` and so on."
 msgstr ""
 
 #: ../../../library/sys.rst:1748
