@@ -59,9 +59,9 @@ msgstr ""
 #: ../../../c-api/unicode.rst:32
 msgid ""
 "\"legacy\" unicode objects have been created through one of the deprecated "
-"APIs (typically :c:func:`PyUnicode_FromUnicode`) and only bear the :c:type:"
-"`Py_UNICODE*` representation; you will have to call :c:func:"
-"`PyUnicode_READY` on them before calling any other API."
+"APIs (typically :c:func:`PyUnicode_FromUnicode`) and only bear "
+"the :c:type:`Py_UNICODE*` representation; you will have to "
+"call :c:func:`PyUnicode_READY` on them before calling any other API."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:39
@@ -147,9 +147,9 @@ msgstr ""
 msgid ""
 "Return a pointer to the canonical representation cast to UCS1, UCS2 or UCS4 "
 "integer types for direct character access.  No checks are performed if the "
-"canonical representation has the correct character size; use :c:func:"
-"`PyUnicode_KIND` to select the right macro.  Make sure :c:func:"
-"`PyUnicode_READY` has been called before accessing this."
+"canonical representation has the correct character size; "
+"use :c:func:`PyUnicode_KIND` to select the right macro.  Make "
+"sure :c:func:`PyUnicode_READY` has been called before accessing this."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:137
@@ -171,25 +171,25 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:164
 msgid ""
-"Write into a canonical representation *data* (as obtained with :c:func:"
-"`PyUnicode_DATA`).  This macro does not do any sanity checks and is intended "
-"for usage in loops.  The caller should cache the *kind* value and *data* "
-"pointer as obtained from other macro calls.  *index* is the index in the "
-"string (starts at 0) and *value* is the new code point value which should be "
-"written to that location."
+"Write into a canonical representation *data* (as obtained "
+"with :c:func:`PyUnicode_DATA`).  This macro does not do any sanity checks "
+"and is intended for usage in loops.  The caller should cache the *kind* "
+"value and *data* pointer as obtained from other macro calls.  *index* is the "
+"index in the string (starts at 0) and *value* is the new code point value "
+"which should be written to that location."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:176
 msgid ""
-"Read a code point from a canonical representation *data* (as obtained with :"
-"c:func:`PyUnicode_DATA`).  No checks or ready calls are performed."
+"Read a code point from a canonical representation *data* (as obtained "
+"with :c:func:`PyUnicode_DATA`).  No checks or ready calls are performed."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:184
 msgid ""
 "Read a character from a Unicode object *o*, which must be in the "
-"\"canonical\" representation.  This is less efficient than :c:func:"
-"`PyUnicode_READ` if you do multiple consecutive reads."
+"\"canonical\" representation.  This is less efficient "
+"than :c:func:`PyUnicode_READ` if you do multiple consecutive reads."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:193
@@ -218,8 +218,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:213 ../../../c-api/unicode.rst:223
 msgid ""
-"Part of the old-style Unicode API, please migrate to using :c:func:"
-"`PyUnicode_GET_LENGTH`."
+"Part of the old-style Unicode API, please migrate to "
+"using :c:func:`PyUnicode_GET_LENGTH`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:218
@@ -240,11 +240,11 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:236
 msgid ""
-"This macro is now inefficient -- because in many cases the :c:type:"
-"`Py_UNICODE` representation does not exist and needs to be created -- and "
-"can fail (return *NULL* with an exception set).  Try to port the code to use "
-"the new :c:func:`PyUnicode_nBYTE_DATA` macros or use :c:func:"
-"`PyUnicode_WRITE` or :c:func:`PyUnicode_READ`."
+"This macro is now inefficient -- because in many cases "
+"the :c:type:`Py_UNICODE` representation does not exist and needs to be "
+"created -- and can fail (return *NULL* with an exception set).  Try to port "
+"the code to use the new :c:func:`PyUnicode_nBYTE_DATA` macros or "
+"use :c:func:`PyUnicode_WRITE` or :c:func:`PyUnicode_READ`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:245
@@ -256,8 +256,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:245
 msgid ""
-"Part of the old-style Unicode API, please migrate to using the :c:func:"
-"`PyUnicode_nBYTE_DATA` family of macros."
+"Part of the old-style Unicode API, please migrate to using "
+"the :c:func:`PyUnicode_nBYTE_DATA` family of macros."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:249
@@ -409,10 +409,10 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:404
 msgid ""
-"Create a new Unicode object with the given *kind* (possible values are :c:"
-"macro:`PyUnicode_1BYTE_KIND` etc., as returned by :c:func:"
-"`PyUnicode_KIND`).  The *buffer* must point to an array of *size* units of "
-"1, 2 or 4 bytes per character, as given by the kind."
+"Create a new Unicode object with the given *kind* (possible values "
+"are :c:macro:`PyUnicode_1BYTE_KIND` etc., as returned "
+"by :c:func:`PyUnicode_KIND`).  The *buffer* must point to an array of *size* "
+"units of 1, 2 or 4 bytes per character, as given by the kind."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:414
@@ -426,8 +426,8 @@ msgstr ""
 #: ../../../c-api/unicode.rst:419
 msgid ""
 "If *u* is *NULL*, this function behaves like :c:func:`PyUnicode_FromUnicode` "
-"with the buffer set to *NULL*.  This usage is deprecated in favor of :c:func:"
-"`PyUnicode_New`."
+"with the buffer set to *NULL*.  This usage is deprecated in favor "
+"of :c:func:`PyUnicode_New`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:426
@@ -701,8 +701,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:529
 msgid ""
-"The `\"%lld\"` and `\"%llu\"` format specifiers are only available when :"
-"const:`HAVE_LONG_LONG` is defined."
+"The `\"%lld\"` and `\"%llu\"` format specifiers are only available "
+"when :const:`HAVE_LONG_LONG` is defined."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:533
@@ -767,15 +767,15 @@ msgstr ""
 #: ../../../c-api/unicode.rst:585
 msgid ""
 "Copy characters from one Unicode object into another.  This function "
-"performs character conversion when necessary and falls back to :c:func:"
-"`memcpy` if possible.  Returns ``-1`` and sets an exception on error, "
-"otherwise returns ``0``."
+"performs character conversion when necessary and falls back "
+"to :c:func:`memcpy` if possible.  Returns ``-1`` and sets an exception on "
+"error, otherwise returns ``0``."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:596
 msgid ""
-"Fill a string with a character: write *fill_char* into ``unicode[start:"
-"start+length]``."
+"Fill a string with a character: write *fill_char* into "
+"``unicode[start:start+length]``."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:599
@@ -792,17 +792,17 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:611
 msgid ""
-"Write a character to a string.  The string must have been created through :c:"
-"func:`PyUnicode_New`.  Since Unicode strings are supposed to be immutable, "
-"the string must not be shared, or have been hashed yet."
+"Write a character to a string.  The string must have been created "
+"through :c:func:`PyUnicode_New`.  Since Unicode strings are supposed to be "
+"immutable, the string must not be shared, or have been hashed yet."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:615
 msgid ""
 "This function checks that *unicode* is a Unicode object, that the index is "
 "not out of bounds, and that the object can be modified safely (i.e. that it "
-"its reference count is one), in contrast to the macro version :c:func:"
-"`PyUnicode_WRITE_CHAR`."
+"its reference count is one), in contrast to the macro "
+"version :c:func:`PyUnicode_WRITE_CHAR`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:625
@@ -828,9 +828,10 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:654
 msgid ""
-"Copy the string *u* into a new UCS4 buffer that is allocated using :c:func:"
-"`PyMem_Malloc`.  If this fails, *NULL* is returned with a :exc:`MemoryError` "
-"set.  The returned buffer always has an extra null code point appended."
+"Copy the string *u* into a new UCS4 buffer that is allocated "
+"using :c:func:`PyMem_Malloc`.  If this fails, *NULL* is returned with "
+"a :exc:`MemoryError` set.  The returned buffer always has an extra null code "
+"point appended."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:663
@@ -873,32 +874,33 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:687
 msgid ""
-"Please migrate to using :c:func:`PyUnicode_FromKindAndData` or :c:func:"
-"`PyUnicode_New`."
+"Please migrate to using :c:func:`PyUnicode_FromKindAndData` "
+"or :c:func:`PyUnicode_New`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:693
 msgid ""
-"Return a read-only pointer to the Unicode object's internal :c:type:"
-"`Py_UNICODE` buffer, or *NULL* on error. This will create the :c:type:"
-"`Py_UNICODE*` representation of the object if it is not yet available. The "
-"buffer is always terminated with an extra null code point. Note that the "
-"resulting :c:type:`Py_UNICODE` string may also contain embedded null code "
-"points, which would cause the string to be truncated when used in most C "
-"functions."
+"Return a read-only pointer to the Unicode object's "
+"internal :c:type:`Py_UNICODE` buffer, or *NULL* on error. This will create "
+"the :c:type:`Py_UNICODE*` representation of the object if it is not yet "
+"available. The buffer is always terminated with an extra null code point. "
+"Note that the resulting :c:type:`Py_UNICODE` string may also contain "
+"embedded null code points, which would cause the string to be truncated when "
+"used in most C functions."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:701
 msgid ""
-"Please migrate to using :c:func:`PyUnicode_AsUCS4`, :c:func:"
-"`PyUnicode_Substring`, :c:func:`PyUnicode_ReadChar` or similar new APIs."
+"Please migrate to "
+"using :c:func:`PyUnicode_AsUCS4`, :c:func:`PyUnicode_Substring`, :c:func:`PyUnicode_ReadChar` "
+"or similar new APIs."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:708
 msgid ""
-"Create a Unicode object by replacing all decimal digits in :c:type:"
-"`Py_UNICODE` buffer of the given *size* by ASCII digits 0--9 according to "
-"their decimal value.  Return *NULL* if an exception occurs."
+"Create a Unicode object by replacing all decimal digits "
+"in :c:type:`Py_UNICODE` buffer of the given *size* by ASCII digits 0--9 "
+"according to their decimal value.  Return *NULL* if an exception occurs."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:715
@@ -961,9 +963,9 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:770
 msgid ""
-"Use :c:func:`PyUnicode_DecodeFSDefaultAndSize` to decode a string from :c:"
-"data:`Py_FileSystemDefaultEncoding` (the locale encoding read at Python "
-"startup)."
+"Use :c:func:`PyUnicode_DecodeFSDefaultAndSize` to decode a string "
+"from :c:data:`Py_FileSystemDefaultEncoding` (the locale encoding read at "
+"Python startup)."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:779
@@ -976,14 +978,15 @@ msgstr ""
 msgid ""
 "Encode a Unicode object to the current locale encoding. The supported error "
 "handlers are ``\"strict\"`` and ``\"surrogateescape\"`` (:pep:`383`). The "
-"encoder uses ``\"strict\"`` error handler if *errors* is ``NULL``. Return a :"
-"class:`bytes` object. *str* cannot contain embedded null characters."
+"encoder uses ``\"strict\"`` error handler if *errors* is ``NULL``. Return "
+"a :class:`bytes` object. *str* cannot contain embedded null characters."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:795
 msgid ""
-"Use :c:func:`PyUnicode_EncodeFSDefault` to encode a string to :c:data:"
-"`Py_FileSystemDefaultEncoding` (the locale encoding read at Python startup)."
+"Use :c:func:`PyUnicode_EncodeFSDefault` to encode a string "
+"to :c:data:`Py_FileSystemDefaultEncoding` (the locale encoding read at "
+"Python startup)."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:803
@@ -992,8 +995,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:805
 msgid ""
-"To encode and decode file names and other environment strings, :c:data:"
-"`Py_FileSystemEncoding` should be used as the encoding, and "
+"To encode and decode file names and other environment "
+"strings, :c:data:`Py_FileSystemEncoding` should be used as the encoding, and "
 "``\"surrogateescape\"`` should be used as the error handler (:pep:`383`). To "
 "encode file names during argument parsing, the ``\"O&\"`` converter should "
 "be used, passing :c:func:`PyUnicode_FSConverter` as the conversion function:"
@@ -1001,10 +1004,10 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:813
 msgid ""
-"ParseTuple converter: encode :class:`str` objects to :class:`bytes` using :c:"
-"func:`PyUnicode_EncodeFSDefault`; :class:`bytes` objects are output as-is. "
-"*result* must be a :c:type:`PyBytesObject*` which must be released when it "
-"is no longer used."
+"ParseTuple converter: encode :class:`str` objects to :class:`bytes` "
+"using :c:func:`PyUnicode_EncodeFSDefault`; :class:`bytes` objects are output "
+"as-is. *result* must be a :c:type:`PyBytesObject*` which must be released "
+"when it is no longer used."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:821
@@ -1016,10 +1019,10 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:826
 msgid ""
-"ParseTuple converter: decode :class:`bytes` objects to :class:`str` using :c:"
-"func:`PyUnicode_DecodeFSDefaultAndSize`; :class:`str` objects are output as-"
-"is. *result* must be a :c:type:`PyUnicodeObject*` which must be released "
-"when it is no longer used."
+"ParseTuple converter: decode :class:`bytes` objects to :class:`str` "
+"using :c:func:`PyUnicode_DecodeFSDefaultAndSize`; :class:`str` objects are "
+"output as-is. *result* must be a :c:type:`PyUnicodeObject*` which must be "
+"released when it is no longer used."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:836
@@ -1039,8 +1042,8 @@ msgstr ""
 msgid ""
 ":c:data:`Py_FileSystemDefaultEncoding` is initialized at startup from the "
 "locale encoding and cannot be modified later. If you need to decode a string "
-"from the current locale encoding, use :c:func:"
-"`PyUnicode_DecodeLocaleAndSize`."
+"from the current locale encoding, "
+"use :c:func:`PyUnicode_DecodeLocaleAndSize`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:849 ../../../c-api/unicode.rst:863
@@ -1092,13 +1095,14 @@ msgstr ""
 msgid ""
 "Copy the Unicode object contents into the :c:type:`wchar_t` buffer *w*.  At "
 "most *size* :c:type:`wchar_t` characters are copied (excluding a possibly "
-"trailing null termination character).  Return the number of :c:type:"
-"`wchar_t` characters copied or -1 in case of an error.  Note that the "
-"resulting :c:type:`wchar_t*` string may or may not be null-terminated.  It "
-"is the responsibility of the caller to make sure that the :c:type:`wchar_t*` "
-"string is null-terminated in case this is required by the application. Also, "
-"note that the :c:type:`wchar_t*` string might contain null characters, which "
-"would cause the string to be truncated when used with most C functions."
+"trailing null termination character).  Return the number "
+"of :c:type:`wchar_t` characters copied or -1 in case of an error.  Note that "
+"the resulting :c:type:`wchar_t*` string may or may not be null-terminated.  "
+"It is the responsibility of the caller to make sure that "
+"the :c:type:`wchar_t*` string is null-terminated in case this is required by "
+"the application. Also, note that the :c:type:`wchar_t*` string might contain "
+"null characters, which would cause the string to be truncated when used with "
+"most C functions."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:915
@@ -1111,11 +1115,11 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:920
 msgid ""
-"Returns a buffer allocated by :c:func:`PyMem_Alloc` (use :c:func:"
-"`PyMem_Free` to free it) on success. On error, returns *NULL*, *\\*size* is "
-"undefined and raises a :exc:`MemoryError`. Note that the resulting :c:type:"
-"`wchar_t` string might contain null characters, which would cause the string "
-"to be truncated when used with most C functions."
+"Returns a buffer allocated by :c:func:`PyMem_Alloc` "
+"(use :c:func:`PyMem_Free` to free it) on success. On error, returns *NULL*, "
+"*\\*size* is undefined and raises a :exc:`MemoryError`. Note that the "
+"resulting :c:type:`wchar_t` string might contain null characters, which "
+"would cause the string to be truncated when used with most C functions."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:930
@@ -1149,11 +1153,11 @@ msgstr ""
 msgid ""
 "Setting encoding to *NULL* causes the default encoding to be used which is "
 "ASCII.  The file system calls should use :c:func:`PyUnicode_FSConverter` for "
-"encoding file names. This uses the variable :c:data:"
-"`Py_FileSystemDefaultEncoding` internally. This variable should be treated "
-"as read-only: on some systems, it will be a pointer to a static string, on "
-"others, it will change at run-time (such as when the application invokes "
-"setlocale)."
+"encoding file names. This uses the "
+"variable :c:data:`Py_FileSystemDefaultEncoding` internally. This variable "
+"should be treated as read-only: on some systems, it will be a pointer to a "
+"static string, on others, it will change at run-time (such as when the "
+"application invokes setlocale)."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:969
@@ -1213,8 +1217,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1014
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsEncodedString`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsEncodedString`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1018
@@ -1288,8 +1292,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1078
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsUTF8String` or :c:func:`PyUnicode_AsUTF8AndSize`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsUTF8String` or :c:func:`PyUnicode_AsUTF8AndSize`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1082
@@ -1378,8 +1382,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1151
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsUTF32String`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsUTF32String`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1155
@@ -1432,8 +1436,8 @@ msgstr ""
 #: ../../../c-api/unicode.rst:1218
 msgid ""
 "If *Py_UNICODE_WIDE* is defined, a single :c:type:`Py_UNICODE` value may get "
-"represented as a surrogate pair. If it is not defined, each :c:type:"
-"`Py_UNICODE` values is interpreted as an UCS-2 character."
+"represented as a surrogate pair. If it is not defined, "
+"each :c:type:`Py_UNICODE` values is interpreted as an UCS-2 character."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1226
@@ -1444,8 +1448,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1226
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsUTF16String`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsUTF16String`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1230
@@ -1532,8 +1536,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1296
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsUnicodeEscapeString`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsUnicodeEscapeString`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1300
@@ -1573,8 +1577,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1328
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsRawUnicodeEscapeString`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsRawUnicodeEscapeString`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1332
@@ -1615,8 +1619,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1359
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsLatin1String`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsLatin1String`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1363
@@ -1657,8 +1661,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1390
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsASCIIString`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsASCIIString`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1394
@@ -1762,8 +1766,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1468
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsCharmapString`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsCharmapString`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1472
@@ -1802,8 +1806,8 @@ msgstr ""
 #: ../../../c-api/unicode.rst:1503
 msgid ""
 "Encode the Unicode object using the specified code page and return a Python "
-"bytes object.  Return *NULL* if an exception was raised by the codec. Use :c:"
-"data:`CP_ACP` code page to get the MBCS encoder."
+"bytes object.  Return *NULL* if an exception was raised by the codec. "
+"Use :c:data:`CP_ACP` code page to get the MBCS encoder."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1512
@@ -1822,8 +1826,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1518
 msgid ""
-"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to using :c:"
-"func:`PyUnicode_AsMBCSString` or :c:func:`PyUnicode_EncodeCodePage`."
+"Part of the old-style :c:type:`Py_UNICODE` API; please migrate to "
+"using :c:func:`PyUnicode_AsMBCSString` or :c:func:`PyUnicode_EncodeCodePage`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1522
@@ -1916,8 +1920,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1613
 msgid ""
-"Return the number of non-overlapping occurrences of *substr* in ``str[start:"
-"end]``.  Return ``-1`` if an error occurred."
+"Return the number of non-overlapping occurrences of *substr* in "
+"``str[start:end]``.  Return ``-1`` if an error occurred."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1620
@@ -1959,15 +1963,16 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1647
 msgid ""
-"Note that :const:`Py_EQ` and :const:`Py_NE` comparisons can cause a :exc:"
-"`UnicodeWarning` in case the conversion of the arguments to Unicode fails "
-"with a :exc:`UnicodeDecodeError`."
+"Note that :const:`Py_EQ` and :const:`Py_NE` comparisons can cause "
+"a :exc:`UnicodeWarning` in case the conversion of the arguments to Unicode "
+"fails with a :exc:`UnicodeDecodeError`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1651
 msgid ""
-"Possible values for *op* are :const:`Py_GT`, :const:`Py_GE`, :const:"
-"`Py_EQ`, :const:`Py_NE`, :const:`Py_LT`, and :const:`Py_LE`."
+"Possible values for *op* "
+"are :const:`Py_GT`, :const:`Py_GE`, :const:`Py_EQ`, :const:`Py_NE`, :const:`Py_LT`, "
+"and :const:`Py_LE`."
 msgstr ""
 
 #: ../../../c-api/unicode.rst:1657
@@ -2003,8 +2008,8 @@ msgstr ""
 
 #: ../../../c-api/unicode.rst:1685
 msgid ""
-"A combination of :c:func:`PyUnicode_FromString` and :c:func:"
-"`PyUnicode_InternInPlace`, returning either a new unicode string object that "
-"has been interned, or a new (\"owned\") reference to an earlier interned "
-"string object with the same value."
+"A combination of :c:func:`PyUnicode_FromString` "
+"and :c:func:`PyUnicode_InternInPlace`, returning either a new unicode string "
+"object that has been interned, or a new (\"owned\") reference to an earlier "
+"interned string object with the same value."
 msgstr ""

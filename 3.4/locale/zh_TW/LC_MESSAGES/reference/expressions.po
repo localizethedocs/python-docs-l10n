@@ -89,16 +89,16 @@ msgstr ""
 
 #: ../../../reference/expressions.rst:70
 msgid ""
-"An identifier occurring as an atom is a name.  See section :ref:"
-"`identifiers` for lexical definition and section :ref:`naming` for "
-"documentation of naming and binding."
+"An identifier occurring as an atom is a name.  See "
+"section :ref:`identifiers` for lexical definition and section :ref:`naming` "
+"for documentation of naming and binding."
 msgstr ""
 
 #: ../../../reference/expressions.rst:76
 msgid ""
 "When the name is bound to an object, evaluation of the atom yields that "
-"object. When a name is not bound, an attempt to evaluate it raises a :exc:"
-"`NameError` exception."
+"object. When a name is not bound, an attempt to evaluate it raises "
+"a :exc:`NameError` exception."
 msgstr ""
 
 #: ../../../reference/expressions.rst:84
@@ -189,8 +189,8 @@ msgstr ""
 
 #: ../../../reference/expressions.rst:168
 msgid ""
-"they are computed via a set of looping and filtering instructions, called a :"
-"dfn:`comprehension`."
+"they are computed via a set of looping and filtering instructions, called "
+"a :dfn:`comprehension`."
 msgstr ""
 
 #: ../../../reference/expressions.rst:171
@@ -199,8 +199,8 @@ msgstr ""
 
 #: ../../../reference/expressions.rst:179
 msgid ""
-"The comprehension consists of a single expression followed by at least one :"
-"keyword:`for` clause and zero or more :keyword:`for` or :keyword:`if` "
+"The comprehension consists of a single expression followed by at least "
+"one :keyword:`for` clause and zero or more :keyword:`for` or :keyword:`if` "
 "clauses. In this case, the elements of the new container are those that "
 "would be produced by considering each of the :keyword:`for` or :keyword:`if` "
 "clauses a block, nesting from left to right, and evaluating the expression "
@@ -293,11 +293,11 @@ msgstr ""
 
 #: ../../../reference/expressions.rst:272
 msgid ""
-"Restrictions on the types of the key values are listed earlier in section :"
-"ref:`types`.  (To summarize, the key type should be :term:`hashable`, which "
-"excludes all mutable objects.)  Clashes between duplicate keys are not "
-"detected; the last datum (textually rightmost in the display) stored for a "
-"given key value prevails."
+"Restrictions on the types of the key values are listed earlier in "
+"section :ref:`types`.  (To summarize, the key type should "
+"be :term:`hashable`, which excludes all mutable objects.)  Clashes between "
+"duplicate keys are not detected; the last datum (textually rightmost in the "
+"display) stored for a given key value prevails."
 msgstr ""
 
 #: ../../../reference/expressions.rst:282
@@ -317,14 +317,15 @@ msgstr ""
 
 #: ../../../reference/expressions.rst:296
 msgid ""
-"Variables used in the generator expression are evaluated lazily when the :"
-"meth:`~generator.__next__` method is called for the generator object (in the "
-"same fashion as normal generators).  However, the leftmost :keyword:`for` "
-"clause is immediately evaluated, so that an error produced by it can be seen "
-"before any other possible error in the code that handles the generator "
-"expression. Subsequent :keyword:`for` clauses cannot be evaluated "
-"immediately since they may depend on the previous :keyword:`for` loop. For "
-"example: ``(x*y for x in range(10) for y in bar(x))``."
+"Variables used in the generator expression are evaluated lazily when "
+"the :meth:`~generator.__next__` method is called for the generator object "
+"(in the same fashion as normal generators).  However, the "
+"leftmost :keyword:`for` clause is immediately evaluated, so that an error "
+"produced by it can be seen before any other possible error in the code that "
+"handles the generator expression. Subsequent :keyword:`for` clauses cannot "
+"be evaluated immediately since they may depend on the "
+"previous :keyword:`for` loop. For example: ``(x*y for x in range(10) for y "
+"in bar(x))``."
 msgstr ""
 
 #: ../../../reference/expressions.rst:305
@@ -357,11 +358,11 @@ msgid ""
 "handling.  When the execution is resumed by calling one of the generator's "
 "methods, the function can proceed exactly as if the yield expression were "
 "just another external call.  The value of the yield expression after "
-"resuming depends on the method which resumed the execution.  If :meth:"
-"`~generator.__next__` is used (typically via either a :keyword:`for` or the :"
-"func:`next` builtin) then the result is :const:`None`.  Otherwise, if :meth:"
-"`~generator.send` is used, then the result will be the value passed in to "
-"that method."
+"resuming depends on the method which resumed the execution.  "
+"If :meth:`~generator.__next__` is used (typically via either "
+"a :keyword:`for` or the :func:`next` builtin) then the result "
+"is :const:`None`.  Otherwise, if :meth:`~generator.send` is used, then the "
+"result will be the value passed in to that method."
 msgstr ""
 
 #: ../../../reference/expressions.rst:346
@@ -377,30 +378,31 @@ msgstr ""
 msgid ""
 "Yield expressions are allowed anywhere in a :keyword:`try` construct.  If "
 "the generator is not resumed before it is finalized (by reaching a zero "
-"reference count or by being garbage collected), the generator-iterator's :"
-"meth:`~generator.close` method will be called, allowing any pending :keyword:"
-"`finally` clauses to execute."
+"reference count or by being garbage collected), the generator-"
+"iterator's :meth:`~generator.close` method will be called, allowing any "
+"pending :keyword:`finally` clauses to execute."
 msgstr ""
 
 #: ../../../reference/expressions.rst:358
 msgid ""
 "When ``yield from <expr>`` is used, it treats the supplied expression as a "
 "subiterator. All values produced by that subiterator are passed directly to "
-"the caller of the current generator's methods. Any values passed in with :"
-"meth:`~generator.send` and any exceptions passed in with :meth:`~generator."
-"throw` are passed to the underlying iterator if it has the appropriate "
-"methods.  If this is not the case, then :meth:`~generator.send` will raise :"
-"exc:`AttributeError` or :exc:`TypeError`, while :meth:`~generator.throw` "
-"will just raise the passed in exception immediately."
+"the caller of the current generator's methods. Any values passed in "
+"with :meth:`~generator.send` and any exceptions passed in "
+"with :meth:`~generator.throw` are passed to the underlying iterator if it "
+"has the appropriate methods.  If this is not the case, "
+"then :meth:`~generator.send` will raise :exc:`AttributeError` "
+"or :exc:`TypeError`, while :meth:`~generator.throw` will just raise the "
+"passed in exception immediately."
 msgstr ""
 
 #: ../../../reference/expressions.rst:367
 msgid ""
 "When the underlying iterator is complete, the :attr:`~StopIteration.value` "
 "attribute of the raised :exc:`StopIteration` instance becomes the value of "
-"the yield expression. It can be either set explicitly when raising :exc:"
-"`StopIteration`, or automatically when the sub-iterator is a generator (by "
-"returning a value from the sub-generator)."
+"the yield expression. It can be either set explicitly when "
+"raising :exc:`StopIteration`, or automatically when the sub-iterator is a "
+"generator (by returning a value from the sub-generator)."
 msgstr ""
 
 #: ../../../reference/expressions.rst:373
@@ -462,12 +464,12 @@ msgstr ""
 #: ../../../reference/expressions.rst:408
 msgid ""
 "Starts the execution of a generator function or resumes it at the last "
-"executed yield expression.  When a generator function is resumed with a :"
-"meth:`~generator.__next__` method, the current yield expression always "
+"executed yield expression.  When a generator function is resumed with "
+"a :meth:`~generator.__next__` method, the current yield expression always "
 "evaluates to :const:`None`.  The execution then continues to the next yield "
-"expression, where the generator is suspended again, and the value of the :"
-"token:`expression_list` is returned to :meth:`__next__`'s caller.  If the "
-"generator exits without yielding another value, a :exc:`StopIteration` "
+"expression, where the generator is suspended again, and the value of "
+"the :token:`expression_list` is returned to :meth:`__next__`'s caller.  If "
+"the generator exits without yielding another value, a :exc:`StopIteration` "
 "exception is raised."
 msgstr ""
 
@@ -640,11 +642,11 @@ msgid ""
 "at least one comma, the key is a tuple containing the conversion of the "
 "slice items; otherwise, the conversion of the lone slice item is the key.  "
 "The conversion of a slice item that is an expression is that expression.  "
-"The conversion of a proper slice is a slice object (see section :ref:"
-"`types`) whose :attr:`~slice.start`, :attr:`~slice.stop` and :attr:`~slice."
-"step` attributes are the values of the expressions given as lower bound, "
-"upper bound and stride, respectively, substituting ``None`` for missing "
-"expressions."
+"The conversion of a proper slice is a slice object (see "
+"section :ref:`types`) whose :attr:`~slice.start`, :attr:`~slice.stop` "
+"and :attr:`~slice.step` attributes are the values of the expressions given "
+"as lower bound, upper bound and stride, respectively, substituting ``None`` "
+"for missing expressions."
 msgstr ""
 
 #: ../../../reference/expressions.rst:644
@@ -700,8 +702,8 @@ msgid ""
 "An implementation may provide built-in functions whose positional parameters "
 "do not have names, even if they are 'named' for the purpose of "
 "documentation, and which therefore cannot be supplied by keyword.  In "
-"CPython, this is the case for functions implemented in C that use :c:func:"
-"`PyArg_ParseTuple` to parse their arguments."
+"CPython, this is the case for functions implemented in C that "
+"use :c:func:`PyArg_ParseTuple` to parse their arguments."
 msgstr ""
 
 #: ../../../reference/expressions.rst:702
@@ -715,8 +717,8 @@ msgstr ""
 
 #: ../../../reference/expressions.rst:708
 msgid ""
-"If any keyword argument does not correspond to a formal parameter name, a :"
-"exc:`TypeError` exception is raised, unless a formal parameter using the "
+"If any keyword argument does not correspond to a formal parameter name, "
+"a :exc:`TypeError` exception is raised, unless a formal parameter using the "
 "syntax ``**identifier`` is present; in this case, that formal parameter "
 "receives a dictionary containing the excess keyword arguments (using the "
 "keywords as keys and the argument values as corresponding values), or a "
@@ -860,8 +862,9 @@ msgstr ""
 #: ../../../reference/expressions.rst:839
 msgid ""
 "Raising ``0.0`` to a negative power results in a :exc:`ZeroDivisionError`. "
-"Raising a negative number to a fractional power results in a :class:"
-"`complex` number. (In earlier versions it raised a :exc:`ValueError`.)"
+"Raising a negative number to a fractional power results in "
+"a :class:`complex` number. (In earlier versions it raised "
+"a :exc:`ValueError`.)"
 msgstr ""
 
 #: ../../../reference/expressions.rst:847
@@ -890,8 +893,8 @@ msgstr ""
 
 #: ../../../reference/expressions.rst:877
 msgid ""
-"In all three cases, if the argument does not have the proper type, a :exc:"
-"`TypeError` exception is raised."
+"In all three cases, if the argument does not have the proper type, "
+"a :exc:`TypeError` exception is raised."
 msgstr ""
 
 #: ../../../reference/expressions.rst:884
@@ -1000,8 +1003,8 @@ msgstr ""
 #: ../../../reference/expressions.rst:977
 msgid ""
 "In the current implementation, the right-hand operand is required to be at "
-"most :attr:`sys.maxsize`.  If the right-hand operand is larger than :attr:"
-"`sys.maxsize` an :exc:`OverflowError` exception is raised."
+"most :attr:`sys.maxsize`.  If the right-hand operand is larger "
+"than :attr:`sys.maxsize` an :exc:`OverflowError` exception is raised."
 msgstr ""
 
 #: ../../../reference/expressions.rst:984
@@ -1160,8 +1163,8 @@ msgstr ""
 #: ../../../reference/expressions.rst:1110
 msgid ""
 "Strings (instances of :class:`str`) compare lexicographically using the "
-"numerical Unicode code points (the result of the built-in function :func:"
-"`ord`) of their characters. [#]_"
+"numerical Unicode code points (the result of the built-in "
+"function :func:`ord`) of their characters. [#]_"
 msgstr ""
 
 #: ../../../reference/expressions.rst:1114
@@ -1241,9 +1244,9 @@ msgid ""
 "Those relations do not define total orderings (for example, the two sets "
 "``{1,2}`` and ``{2,3}`` are not equal, nor subsets of one another, nor "
 "supersets of one another).  Accordingly, sets are not appropriate arguments "
-"for functions which depend on total ordering (for example, :func:`min`, :"
-"func:`max`, and :func:`sorted` produce undefined results given a list of "
-"sets as inputs)."
+"for functions which depend on total ordering (for "
+"example, :func:`min`, :func:`max`, and :func:`sorted` produce undefined "
+"results given a list of sets as inputs)."
 msgstr ""
 
 #: ../../../reference/expressions.rst:1173
@@ -1329,8 +1332,8 @@ msgstr ""
 #: ../../../reference/expressions.rst:1213
 msgid ""
 "The last two expressions apply to totally ordered collections (e.g. to "
-"sequences, but not to sets or mappings). See also the :func:`~functools."
-"total_ordering` decorator."
+"sequences, but not to sets or mappings). See also "
+"the :func:`~functools.total_ordering` decorator."
 msgstr ""
 
 #: ../../../reference/expressions.rst:1217
@@ -1378,17 +1381,17 @@ msgstr ""
 
 #: ../../../reference/expressions.rst:1249
 msgid ""
-"Lastly, the old-style iteration protocol is tried: if a class defines :meth:"
-"`__getitem__`, ``x in y`` is true if and only if there is a non-negative "
-"integer index *i* such that ``x == y[i]``, and all lower integer indices do "
-"not raise :exc:`IndexError` exception.  (If any other exception is raised, "
-"it is as if :keyword:`in` raised that exception)."
+"Lastly, the old-style iteration protocol is tried: if a class "
+"defines :meth:`__getitem__`, ``x in y`` is true if and only if there is a "
+"non-negative integer index *i* such that ``x == y[i]``, and all lower "
+"integer indices do not raise :exc:`IndexError` exception.  (If any other "
+"exception is raised, it is as if :keyword:`in` raised that exception)."
 msgstr ""
 
 #: ../../../reference/expressions.rst:1261
 msgid ""
-"The operator :keyword:`not in` is defined to have the inverse true value of :"
-"keyword:`in`."
+"The operator :keyword:`not in` is defined to have the inverse true value "
+"of :keyword:`in`."
 msgstr ""
 
 #: ../../../reference/expressions.rst:1274

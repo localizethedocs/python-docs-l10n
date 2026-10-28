@@ -48,8 +48,8 @@ msgstr ""
 
 #: ../../../howto/cporting.rst:25
 msgid ""
-"The easiest way to compile only some code for Python 3 is to check if :c:"
-"macro:`PY_MAJOR_VERSION` is greater than or equal to 3. ::"
+"The easiest way to compile only some code for Python 3 is to check "
+"if :c:macro:`PY_MAJOR_VERSION` is greater than or equal to 3. ::"
 msgstr ""
 
 #: ../../../howto/cporting.rst:32
@@ -81,10 +81,10 @@ msgid ""
 "``PyBytes`` names to ``PyString`` ones.  For best compatibility with Python "
 "3, :c:type:`PyUnicode` should be used for textual data and :c:type:`PyBytes` "
 "for binary data.  It's also important to remember that :c:type:`PyBytes` "
-"and :c:type:`PyUnicode` in Python 3 are not interchangeable like :c:type:"
-"`PyString` and :c:type:`PyUnicode` are in Python 2.  The following example "
-"shows best practices with regards to :c:type:`PyUnicode`, :c:type:"
-"`PyString`, and :c:type:`PyBytes`. ::"
+"and :c:type:`PyUnicode` in Python 3 are not interchangeable "
+"like :c:type:`PyString` and :c:type:`PyUnicode` are in Python 2.  The "
+"following example shows best practices with regards "
+"to :c:type:`PyUnicode`, :c:type:`PyString`, and :c:type:`PyBytes`. ::"
 msgstr ""
 
 #: ../../../howto/cporting.rst:95
@@ -105,11 +105,11 @@ msgstr ""
 
 #: ../../../howto/cporting.rst:106
 msgid ""
-"Python 3 has a revamped extension module initialization system.  (See :pep:"
-"`3121`.)  Instead of storing module state in globals, they should be stored "
-"in an interpreter specific structure.  Creating modules that act correctly "
-"in both Python 2 and Python 3 is tricky.  The following simple example "
-"demonstrates how. ::"
+"Python 3 has a revamped extension module initialization system.  "
+"(See :pep:`3121`.)  Instead of storing module state in globals, they should "
+"be stored in an interpreter specific structure.  Creating modules that act "
+"correctly in both Python 2 and Python 3 is tricky.  The following simple "
+"example demonstrates how. ::"
 msgstr ""
 
 #: ../../../howto/cporting.rst:197
@@ -148,10 +148,11 @@ msgstr ""
 
 #: ../../../howto/cporting.rst:223
 msgid ""
-":file:`capsulethunk.h` simulates Capsules using CObjects.  However, :c:type:"
-"`CObject` provides no place to store the capsule's \"name\".  As a result "
-"the simulated :c:type:`Capsule` objects created by :file:`capsulethunk.h` "
-"behave slightly differently from real Capsules.  Specifically:"
+":file:`capsulethunk.h` simulates Capsules using CObjects.  "
+"However, :c:type:`CObject` provides no place to store the capsule's "
+"\"name\".  As a result the simulated :c:type:`Capsule` objects created "
+"by :file:`capsulethunk.h` behave slightly differently from real Capsules.  "
+"Specifically:"
 msgstr ""
 
 #: ../../../howto/cporting.rst:228
@@ -160,9 +161,9 @@ msgstr ""
 
 #: ../../../howto/cporting.rst:230
 msgid ""
-"The name parameter passed in to :c:func:`PyCapsule_IsValid` and :c:func:"
-"`PyCapsule_GetPointer` is ignored, and no error checking of the name is "
-"performed."
+"The name parameter passed in to :c:func:`PyCapsule_IsValid` "
+"and :c:func:`PyCapsule_GetPointer` is ignored, and no error checking of the "
+"name is performed."
 msgstr ""
 
 #: ../../../howto/cporting.rst:234
@@ -172,15 +173,16 @@ msgstr ""
 #: ../../../howto/cporting.rst:236
 msgid ""
 ":c:func:`PyCapsule_SetName` always raises an exception and returns failure.  "
-"(Since there's no way to store a name in a CObject, noisy failure of :c:func:"
-"`PyCapsule_SetName` was deemed preferable to silent failure here.  If this "
-"is inconvenient, feel free to modify your local copy as you see fit.)"
+"(Since there's no way to store a name in a CObject, noisy failure "
+"of :c:func:`PyCapsule_SetName` was deemed preferable to silent failure "
+"here.  If this is inconvenient, feel free to modify your local copy as you "
+"see fit.)"
 msgstr ""
 
 #: ../../../howto/cporting.rst:243
 msgid ""
-"You can find :file:`capsulethunk.h` in the Python source distribution as :"
-"source:`Doc/includes/capsulethunk.h`.  We also include it here for your "
+"You can find :file:`capsulethunk.h` in the Python source distribution "
+"as :source:`Doc/includes/capsulethunk.h`.  We also include it here for your "
 "convenience:"
 msgstr ""
 

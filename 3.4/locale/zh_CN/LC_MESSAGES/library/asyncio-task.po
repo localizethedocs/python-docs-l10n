@@ -28,8 +28,8 @@ msgstr ""
 #: ../../../library/asyncio-task.rst:11
 msgid ""
 "A coroutine is a generator that follows certain conventions.  For "
-"documentation purposes, all coroutines should be decorated with ``@asyncio."
-"coroutine``, but this cannot be strictly enforced."
+"documentation purposes, all coroutines should be decorated with "
+"``@asyncio.coroutine``, but this cannot be strictly enforced."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:15
@@ -98,8 +98,8 @@ msgid ""
 "generator object, which doesn't do anything until you iterate over it. In "
 "the case of a coroutine object, there are two basic ways to start it "
 "running: call ``yield from coroutine`` from another coroutine (assuming the "
-"other coroutine is already running!), or schedule its execution using the :"
-"func:`async` function or the :meth:`BaseEventLoop.create_task` method."
+"other coroutine is already running!), or schedule its execution using "
+"the :func:`async` function or the :meth:`BaseEventLoop.create_task` method."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:59
@@ -237,9 +237,9 @@ msgstr ""
 
 #: ../../../library/asyncio-task.rst:208
 msgid ""
-"This class is not compatible with the :func:`~concurrent.futures.wait` and :"
-"func:`~concurrent.futures.as_completed` functions in the :mod:`concurrent."
-"futures` package."
+"This class is not compatible with the :func:`~concurrent.futures.wait` "
+"and :func:`~concurrent.futures.as_completed` functions in "
+"the :mod:`concurrent.futures` package."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:212 ../../../library/asyncio-task.rst:381
@@ -289,9 +289,9 @@ msgstr ""
 #: ../../../library/asyncio-task.rst:245
 msgid ""
 "The exception (or ``None`` if no exception was set) is returned only if the "
-"future is done. If the future has been cancelled, raises :exc:"
-"`CancelledError`. If the future isn't done yet, raises :exc:"
-"`InvalidStateError`."
+"future is done. If the future has been cancelled, "
+"raises :exc:`CancelledError`. If the future isn't done yet, "
+"raises :exc:`InvalidStateError`."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:252
@@ -301,8 +301,8 @@ msgstr ""
 #: ../../../library/asyncio-task.rst:254
 msgid ""
 "The callback is called with a single argument - the future object. If the "
-"future is already done when this is called, the callback is scheduled with :"
-"meth:`~BaseEventLoop.call_soon`."
+"future is already done when this is called, the callback is scheduled "
+"with :meth:`~BaseEventLoop.call_soon`."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:258
@@ -327,8 +327,8 @@ msgstr ""
 
 #: ../../../library/asyncio-task.rst:273 ../../../library/asyncio-task.rst:280
 msgid ""
-"If the future is already done when this method is called, raises :exc:"
-"`InvalidStateError`."
+"If the future is already done when this method is called, "
+"raises :exc:`InvalidStateError`."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:278
@@ -348,15 +348,16 @@ msgstr ""
 #: ../../../library/asyncio-task.rst:304
 msgid ""
 "The coroutine function is responsible for the computation (which takes 1 "
-"second) and it stores the result into the future. The :meth:`~BaseEventLoop."
-"run_until_complete` method waits for the completion of the future."
+"second) and it stores the result into the future. "
+"The :meth:`~BaseEventLoop.run_until_complete` method waits for the "
+"completion of the future."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:310
 msgid ""
-"The :meth:`~BaseEventLoop.run_until_complete` method uses internally the :"
-"meth:`~Future.add_done_callback` method to be notified when the future is "
-"done."
+"The :meth:`~BaseEventLoop.run_until_complete` method uses internally "
+"the :meth:`~Future.add_done_callback` method to be notified when the future "
+"is done."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:316
@@ -365,8 +366,9 @@ msgstr ""
 
 #: ../../../library/asyncio-task.rst:318
 msgid ""
-"The previous example can be written differently using the :meth:`Future."
-"add_done_callback` method to describe explicitly the control flow::"
+"The previous example can be written differently using "
+"the :meth:`Future.add_done_callback` method to describe explicitly the "
+"control flow::"
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:342
@@ -406,11 +408,11 @@ msgstr ""
 #: ../../../library/asyncio-task.rst:366
 msgid ""
 "The cancellation of a task is different from the cancelation of a future. "
-"Calling :meth:`cancel` will throw a :exc:`~concurrent.futures."
-"CancelledError` to the wrapped coroutine. :meth:`~Future.cancelled` only "
-"returns ``True`` if the wrapped coroutine did not catch the :exc:"
-"`~concurrent.futures.CancelledError` exception, or raised a :exc:"
-"`~concurrent.futures.CancelledError` exception."
+"Calling :meth:`cancel` will throw "
+"a :exc:`~concurrent.futures.CancelledError` to the wrapped "
+"coroutine. :meth:`~Future.cancelled` only returns ``True`` if the wrapped "
+"coroutine did not catch the :exc:`~concurrent.futures.CancelledError` "
+"exception, or raised a :exc:`~concurrent.futures.CancelledError` exception."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:374
@@ -470,9 +472,9 @@ msgstr ""
 msgid ""
 "Immediately after this method is called, :meth:`~Future.cancelled` will not "
 "return ``True`` (unless the task was already cancelled). A task will be "
-"marked as cancelled when the wrapped coroutine terminates with a :exc:"
-"`~concurrent.futures.CancelledError` exception (even if :meth:`cancel` was "
-"not called)."
+"marked as cancelled when the wrapped coroutine terminates with "
+"a :exc:`~concurrent.futures.CancelledError` exception (even "
+"if :meth:`cancel` was not called)."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:419
@@ -691,9 +693,9 @@ msgid ""
 "*except* that if the coroutine containing it is cancelled, the task running "
 "in ``something()`` is not cancelled.  From the point of view of "
 "``something()``, the cancellation did not happen.  But its caller is still "
-"cancelled, so the yield-from expression still raises :exc:`~concurrent."
-"futures.CancelledError`.  Note: If ``something()`` is cancelled by other "
-"means this will still cancel ``shield()``."
+"cancelled, so the yield-from expression still "
+"raises :exc:`~concurrent.futures.CancelledError`.  Note: If ``something()`` "
+"is cancelled by other means this will still cancel ``shield()``."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:631
@@ -713,15 +715,15 @@ msgstr ""
 
 #: ../../../library/asyncio-task.rst:648
 msgid ""
-"Otherwise ``inner()`` is cancelled internally but :exc:`asyncio."
-"TimeoutError` is raised outside of context manager scope."
+"Otherwise ``inner()`` is cancelled internally "
+"but :exc:`asyncio.TimeoutError` is raised outside of context manager scope."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:655
 msgid ""
 "Wait for the Futures and coroutine objects given by the sequence *futures* "
-"to complete.  Coroutines will be wrapped in Tasks. Returns two sets of :"
-"class:`Future`: (done, pending)."
+"to complete.  Coroutines will be wrapped in Tasks. Returns two sets "
+"of :class:`Future`: (done, pending)."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:659
@@ -764,8 +766,8 @@ msgstr ""
 #: ../../../library/asyncio-task.rst:676
 msgid ""
 "The function will return when any future finishes by raising an exception.  "
-"If no future raises an exception then it is equivalent to :const:"
-"`ALL_COMPLETED`."
+"If no future raises an exception then it is equivalent "
+"to :const:`ALL_COMPLETED`."
 msgstr ""
 
 #: ../../../library/asyncio-task.rst:682

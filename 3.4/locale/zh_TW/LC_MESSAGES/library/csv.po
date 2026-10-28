@@ -72,16 +72,16 @@ msgstr ""
 msgid ""
 "Return a reader object which will iterate over lines in the given *csvfile*. "
 "*csvfile* can be any object which supports the :term:`iterator` protocol and "
-"returns a string each time its :meth:`!__next__` method is called --- :term:"
-"`file objects <file object>` and list objects are both suitable.   If "
-"*csvfile* is a file object, it should be opened with ``newline=''``. [1]_  "
-"An optional *dialect* parameter can be given which is used to define a set "
-"of parameters specific to a particular CSV dialect.  It may be an instance "
-"of a subclass of the :class:`Dialect` class or one of the strings returned "
-"by the :func:`list_dialects` function.  The other optional *fmtparams* "
-"keyword arguments can be given to override individual formatting parameters "
-"in the current dialect.  For full details about the dialect and formatting "
-"parameters, see section :ref:`csv-fmt-params`."
+"returns a string each time its :meth:`!__next__` method is called "
+"--- :term:`file objects <file object>` and list objects are both suitable.   "
+"If *csvfile* is a file object, it should be opened with ``newline=''``. "
+"[1]_  An optional *dialect* parameter can be given which is used to define a "
+"set of parameters specific to a particular CSV dialect.  It may be an "
+"instance of a subclass of the :class:`Dialect` class or one of the strings "
+"returned by the :func:`list_dialects` function.  The other optional "
+"*fmtparams* keyword arguments can be given to override individual formatting "
+"parameters in the current dialect.  For full details about the dialect and "
+"formatting parameters, see section :ref:`csv-fmt-params`."
 msgstr ""
 
 #: ../../../library/csv.rst:67
@@ -104,17 +104,18 @@ msgid ""
 "object with a :func:`write` method.  If *csvfile* is a file object, it "
 "should be opened with ``newline=''`` [1]_.  An optional *dialect* parameter "
 "can be given which is used to define a set of parameters specific to a "
-"particular CSV dialect.  It may be an instance of a subclass of the :class:"
-"`Dialect` class or one of the strings returned by the :func:`list_dialects` "
-"function.  The other optional *fmtparams* keyword arguments can be given to "
-"override individual formatting parameters in the current dialect.  For full "
-"details about the dialect and formatting parameters, see section :ref:`csv-"
-"fmt-params`. To make it as easy as possible to interface with modules which "
-"implement the DB API, the value :const:`None` is written as the empty "
-"string.  While this isn't a reversible transformation, it makes it easier to "
-"dump SQL NULL data values to CSV files without preprocessing the data "
-"returned from a ``cursor.fetch*`` call. All other non-string data are "
-"stringified with :func:`str` before being written."
+"particular CSV dialect.  It may be an instance of a subclass of "
+"the :class:`Dialect` class or one of the strings returned by "
+"the :func:`list_dialects` function.  The other optional *fmtparams* keyword "
+"arguments can be given to override individual formatting parameters in the "
+"current dialect.  For full details about the dialect and formatting "
+"parameters, see section :ref:`csv-fmt-params`. To make it as easy as "
+"possible to interface with modules which implement the DB API, the "
+"value :const:`None` is written as the empty string.  While this isn't a "
+"reversible transformation, it makes it easier to dump SQL NULL data values "
+"to CSV files without preprocessing the data returned from a "
+"``cursor.fetch*`` call. All other non-string data are stringified "
+"with :func:`str` before being written."
 msgstr ""
 
 #: ../../../library/csv.rst:113
@@ -128,8 +129,8 @@ msgstr ""
 
 #: ../../../library/csv.rst:122
 msgid ""
-"Delete the dialect associated with *name* from the dialect registry.  An :"
-"exc:`Error` is raised if *name* is not a registered dialect name."
+"Delete the dialect associated with *name* from the dialect registry.  "
+"An :exc:`Error` is raised if *name* is not a registered dialect name."
 msgstr ""
 
 #: ../../../library/csv.rst:128
@@ -196,8 +197,8 @@ msgstr ""
 #: ../../../library/csv.rst:211
 msgid ""
 "The :class:`Dialect` class is a container class relied on primarily for its "
-"attributes, which are used to define the parameters for a specific :class:"
-"`reader` or :class:`writer` instance."
+"attributes, which are used to define the parameters for a "
+"specific :class:`reader` or :class:`writer` instance."
 msgstr ""
 
 #: ../../../library/csv.rst:218
@@ -237,8 +238,9 @@ msgstr ""
 
 #: ../../../library/csv.rst:253
 msgid ""
-"Analyze the sample text (presumed to be in CSV format) and return :const:"
-"`True` if the first row appears to be a series of column headers."
+"Analyze the sample text (presumed to be in CSV format) and "
+"return :const:`True` if the first row appears to be a series of column "
+"headers."
 msgstr ""
 
 #: ../../../library/csv.rst:256
@@ -319,15 +321,15 @@ msgstr ""
 #: ../../../library/csv.rst:327
 msgid ""
 "Controls how instances of *quotechar* appearing inside a field should "
-"themselves be quoted.  When :const:`True`, the character is doubled. When :"
-"const:`False`, the *escapechar* is used as a prefix to the *quotechar*.  It "
-"defaults to :const:`True`."
+"themselves be quoted.  When :const:`True`, the character is doubled. "
+"When :const:`False`, the *escapechar* is used as a prefix to the "
+"*quotechar*.  It defaults to :const:`True`."
 msgstr ""
 
 #: ../../../library/csv.rst:332
 msgid ""
-"On output, if *doublequote* is :const:`False` and no *escapechar* is set, :"
-"exc:`Error` is raised if a *quotechar* is found in a field."
+"On output, if *doublequote* is :const:`False` and no *escapechar* is "
+"set, :exc:`Error` is raised if a *quotechar* is found in a field."
 msgstr ""
 
 #: ../../../library/csv.rst:338
@@ -384,8 +386,8 @@ msgstr ""
 
 #: ../../../library/csv.rst:384
 msgid ""
-"Reader objects (:class:`DictReader` instances and objects returned by the :"
-"func:`reader` function) have the following public methods:"
+"Reader objects (:class:`DictReader` instances and objects returned by "
+"the :func:`reader` function) have the following public methods:"
 msgstr ""
 
 #: ../../../library/csv.rst:389
@@ -482,9 +484,9 @@ msgstr ""
 #: ../../../library/csv.rst:485
 msgid ""
 "Since :func:`open` is used to open a CSV file for reading, the file will by "
-"default be decoded into unicode using the system default encoding (see :func:"
-"`locale.getpreferredencoding`).  To decode a file using a different "
-"encoding, use the ``encoding`` argument of open::"
+"default be decoded into unicode using the system default encoding "
+"(see :func:`locale.getpreferredencoding`).  To decode a file using a "
+"different encoding, use the ``encoding`` argument of open::"
 msgstr ""
 
 #: ../../../library/csv.rst:496
@@ -518,8 +520,8 @@ msgid ""
 "If ``newline=''`` is not specified, newlines embedded inside quoted fields "
 "will not be interpreted correctly, and on platforms that use ``\\r\\n`` "
 "linendings on write an extra ``\\r`` will be added.  It should always be "
-"safe to specify ``newline=''``, since the csv module does its own (:term:"
-"`universal <universal newlines>`) newline handling."
+"safe to specify ``newline=''``, since the csv module does its own "
+"(:term:`universal <universal newlines>`) newline handling."
 msgstr ""
 
 #: ../../../library/csv.rst:9

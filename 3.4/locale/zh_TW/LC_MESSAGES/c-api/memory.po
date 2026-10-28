@@ -61,13 +61,14 @@ msgstr ""
 #: ../../../c-api/memory.rst:49
 msgid ""
 "To avoid memory corruption, extension writers should never try to operate on "
-"Python objects with the functions exported by the C library: :c:func:"
-"`malloc`, :c:func:`calloc`, :c:func:`realloc` and :c:func:`free`.  This will "
-"result in  mixed calls between the C allocator and the Python memory manager "
-"with fatal consequences, because they implement different algorithms and "
-"operate on different heaps.  However, one may safely allocate and release "
-"memory blocks with the C library allocator for individual purposes, as shown "
-"in the following example::"
+"Python objects with the functions exported by the C "
+"library: :c:func:`malloc`, :c:func:`calloc`, :c:func:`realloc` "
+"and :c:func:`free`.  This will result in  mixed calls between the C "
+"allocator and the Python memory manager with fatal consequences, because "
+"they implement different algorithms and operate on different heaps.  "
+"However, one may safely allocate and release memory blocks with the C "
+"library allocator for individual purposes, as shown in the following "
+"example::"
 msgstr ""
 
 #: ../../../c-api/memory.rst:68
@@ -108,9 +109,9 @@ msgstr ""
 
 #: ../../../c-api/memory.rst:94
 msgid ""
-"The default raw memory block allocator uses the following functions: :c:func:"
-"`malloc`, :c:func:`realloc` and :c:func:`free`; call ``malloc(1)`` when "
-"requesting zero bytes."
+"The default raw memory block allocator uses the following "
+"functions: :c:func:`malloc`, :c:func:`realloc` and :c:func:`free`; call "
+"``malloc(1)`` when requesting zero bytes."
 msgstr ""
 
 #: ../../../c-api/memory.rst:102
@@ -155,9 +156,9 @@ msgstr ""
 
 #: ../../../c-api/memory.rst:138
 msgid ""
-"The default memory block allocator uses the following functions: :c:func:"
-"`malloc`, :c:func:`realloc` and :c:func:`free`; call ``malloc(1)`` when "
-"requesting zero bytes."
+"The default memory block allocator uses the following "
+"functions: :c:func:`malloc`, :c:func:`realloc` and :c:func:`free`; call "
+"``malloc(1)`` when requesting zero bytes."
 msgstr ""
 
 #: ../../../c-api/memory.rst:144
@@ -293,20 +294,23 @@ msgstr ""
 
 #: ../../../c-api/memory.rst:234
 msgid ""
-":c:data:`PYMEM_DOMAIN_RAW`: functions :c:func:`PyMem_RawMalloc`, :c:func:"
-"`PyMem_RawRealloc` and :c:func:`PyMem_RawFree`"
+":c:data:`PYMEM_DOMAIN_RAW`: "
+"functions :c:func:`PyMem_RawMalloc`, :c:func:`PyMem_RawRealloc` "
+"and :c:func:`PyMem_RawFree`"
 msgstr ""
 
 #: ../../../c-api/memory.rst:236
 msgid ""
-":c:data:`PYMEM_DOMAIN_MEM`: functions :c:func:`PyMem_Malloc`, :c:func:"
-"`PyMem_Realloc` and :c:func:`PyMem_Free`"
+":c:data:`PYMEM_DOMAIN_MEM`: "
+"functions :c:func:`PyMem_Malloc`, :c:func:`PyMem_Realloc` "
+"and :c:func:`PyMem_Free`"
 msgstr ""
 
 #: ../../../c-api/memory.rst:238
 msgid ""
-":c:data:`PYMEM_DOMAIN_OBJ`: functions :c:func:`PyObject_Malloc`, :c:func:"
-"`PyObject_Realloc` and :c:func:`PyObject_Free`"
+":c:data:`PYMEM_DOMAIN_OBJ`: "
+"functions :c:func:`PyObject_Malloc`, :c:func:`PyObject_Realloc` "
+"and :c:func:`PyObject_Free`"
 msgstr ""
 
 #: ../../../c-api/memory.rst:244
@@ -344,9 +348,7 @@ msgid ""
 msgstr ""
 
 #: ../../../c-api/memory.rst:268
-msgid ""
-":c:func:`PyMem_RawMalloc`, :c:func:`PyMem_RawRealloc`, :c:func:"
-"`PyMem_RawFree`"
+msgid ":c:func:`PyMem_RawMalloc`, :c:func:`PyMem_RawRealloc`, :c:func:`PyMem_RawFree`"
 msgstr ""
 
 #: ../../../c-api/memory.rst:270
@@ -354,9 +356,7 @@ msgid ":c:func:`PyMem_Malloc`, :c:func:`PyMem_Realloc`, :c:func:`PyMem_Free`"
 msgstr ""
 
 #: ../../../c-api/memory.rst:271
-msgid ""
-":c:func:`PyObject_Malloc`, :c:func:`PyObject_Realloc`, :c:func:"
-"`PyObject_Free`"
+msgid ":c:func:`PyObject_Malloc`, :c:func:`PyObject_Realloc`, :c:func:`PyObject_Free`"
 msgstr ""
 
 #: ../../../c-api/memory.rst:274
@@ -393,8 +393,8 @@ msgid ""
 "This allocator is optimized for small objects with a short lifetime. It uses "
 "memory mappings called \"arenas\" with a fixed size of 256 KB. It falls back "
 "to :c:func:`PyMem_RawMalloc` and :c:func:`PyMem_RawRealloc` for allocations "
-"larger than 512 bytes.  *pymalloc* is the default allocator used by :c:func:"
-"`PyObject_Malloc`."
+"larger than 512 bytes.  *pymalloc* is the default allocator used "
+"by :c:func:`PyObject_Malloc`."
 msgstr ""
 
 #: ../../../c-api/memory.rst:295
@@ -471,8 +471,9 @@ msgstr ""
 #: ../../../c-api/memory.rst:372
 msgid ""
 "In addition to the functions aimed at handling raw memory blocks from the "
-"Python heap, objects in Python are allocated and released with :c:func:"
-"`PyObject_New`, :c:func:`PyObject_NewVar` and :c:func:`PyObject_Del`."
+"Python heap, objects in Python are allocated and released "
+"with :c:func:`PyObject_New`, :c:func:`PyObject_NewVar` "
+"and :c:func:`PyObject_Del`."
 msgstr ""
 
 #: ../../../c-api/memory.rst:376
