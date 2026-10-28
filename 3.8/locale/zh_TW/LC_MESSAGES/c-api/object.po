@@ -51,17 +51,17 @@ msgstr ""
 
 #: ../../../c-api/object.rst:36
 msgid ""
-"Note that exceptions which occur while calling :meth:`__getattr__` and :meth:"
-"`__getattribute__` methods will get suppressed. To get error reporting use :"
-"c:func:`PyObject_GetAttr()` instead."
+"Note that exceptions which occur while calling :meth:`__getattr__` "
+"and :meth:`__getattribute__` methods will get suppressed. To get error "
+"reporting use :c:func:`PyObject_GetAttr()` instead."
 msgstr ""
 
 #: ../../../c-api/object.rst:47
 msgid ""
-"Note that exceptions which occur while calling :meth:`__getattr__` and :meth:"
-"`__getattribute__` methods and creating a temporary string object will get "
-"suppressed. To get error reporting use :c:func:`PyObject_GetAttrString()` "
-"instead."
+"Note that exceptions which occur while calling :meth:`__getattr__` "
+"and :meth:`__getattribute__` methods and creating a temporary string object "
+"will get suppressed. To get error reporting "
+"use :c:func:`PyObject_GetAttrString()` instead."
 msgstr ""
 
 #: ../../../c-api/object.rst:55
@@ -82,10 +82,11 @@ msgstr ""
 msgid ""
 "Generic attribute getter function that is meant to be put into a type "
 "object's ``tp_getattro`` slot.  It looks for a descriptor in the dictionary "
-"of classes in the object's MRO as well as an attribute in the object's :attr:"
-"`~object.__dict__` (if present).  As outlined in :ref:`descriptors`, data "
-"descriptors take preference over instance attributes, while non-data "
-"descriptors don't.  Otherwise, an :exc:`AttributeError` is raised."
+"of classes in the object's MRO as well as an attribute in the "
+"object's :attr:`~object.__dict__` (if present).  As outlined "
+"in :ref:`descriptors`, data descriptors take preference over instance "
+"attributes, while non-data descriptors don't.  Otherwise, "
+"an :exc:`AttributeError` is raised."
 msgstr ""
 
 #: ../../../c-api/object.rst:79 ../../../c-api/object.rst:90
@@ -140,23 +141,23 @@ msgstr ""
 #: ../../../c-api/object.rst:141
 msgid ""
 "Compare the values of *o1* and *o2* using the operation specified by *opid*, "
-"which must be one of :const:`Py_LT`, :const:`Py_LE`, :const:`Py_EQ`, :const:"
-"`Py_NE`, :const:`Py_GT`, or :const:`Py_GE`, corresponding to ``<``, ``<=``, "
-"``==``, ``!=``, ``>``, or ``>=`` respectively. This is the equivalent of the "
-"Python expression ``o1 op o2``, where ``op`` is the operator corresponding "
-"to *opid*. Returns the value of the comparison on success, or ``NULL`` on "
-"failure."
+"which must be one "
+"of :const:`Py_LT`, :const:`Py_LE`, :const:`Py_EQ`, :const:`Py_NE`, :const:`Py_GT`, "
+"or :const:`Py_GE`, corresponding to ``<``, ``<=``, ``==``, ``!=``, ``>``, or "
+"``>=`` respectively. This is the equivalent of the Python expression ``o1 op "
+"o2``, where ``op`` is the operator corresponding to *opid*. Returns the "
+"value of the comparison on success, or ``NULL`` on failure."
 msgstr ""
 
 #: ../../../c-api/object.rst:151
 msgid ""
 "Compare the values of *o1* and *o2* using the operation specified by *opid*, "
-"which must be one of :const:`Py_LT`, :const:`Py_LE`, :const:`Py_EQ`, :const:"
-"`Py_NE`, :const:`Py_GT`, or :const:`Py_GE`, corresponding to ``<``, ``<=``, "
-"``==``, ``!=``, ``>``, or ``>=`` respectively. Returns ``-1`` on error, "
-"``0`` if the result is false, ``1`` otherwise. This is the equivalent of the "
-"Python expression ``o1 op o2``, where ``op`` is the operator corresponding "
-"to *opid*."
+"which must be one "
+"of :const:`Py_LT`, :const:`Py_LE`, :const:`Py_EQ`, :const:`Py_NE`, :const:`Py_GT`, "
+"or :const:`Py_GE`, corresponding to ``<``, ``<=``, ``==``, ``!=``, ``>``, or "
+"``>=`` respectively. Returns ``-1`` on error, ``0`` if the result is false, "
+"``1`` otherwise. This is the equivalent of the Python expression ``o1 op "
+"o2``, where ``op`` is the operator corresponding to *opid*."
 msgstr ""
 
 #: ../../../c-api/object.rst:160
@@ -182,10 +183,10 @@ msgstr ""
 #: ../../../c-api/object.rst:179
 msgid ""
 "As :c:func:`PyObject_Repr`, compute a string representation of object *o*, "
-"but escape the non-ASCII characters in the string returned by :c:func:"
-"`PyObject_Repr` with ``\\x``, ``\\u`` or ``\\U`` escapes.  This generates a "
-"string similar to that returned by :c:func:`PyObject_Repr` in Python 2. "
-"Called by the :func:`ascii` built-in function."
+"but escape the non-ASCII characters in the string returned "
+"by :c:func:`PyObject_Repr` with ``\\x``, ``\\u`` or ``\\U`` escapes.  This "
+"generates a string similar to that returned by :c:func:`PyObject_Repr` in "
+"Python 2. Called by the :func:`ascii` built-in function."
 msgstr ""
 
 #: ../../../c-api/object.rst:190
@@ -222,8 +223,8 @@ msgstr ""
 msgid ""
 "If *cls* has a :meth:`~class.__subclasscheck__` method, it will be called to "
 "determine the subclass status as described in :pep:`3119`.  Otherwise, "
-"*derived* is a subclass of *cls* if it is a direct or indirect subclass, i."
-"e. contained in ``cls.__mro__``."
+"*derived* is a subclass of *cls* if it is a direct or indirect subclass, "
+"i.e. contained in ``cls.__mro__``."
 msgstr ""
 
 #: ../../../c-api/object.rst:224
@@ -248,8 +249,8 @@ msgstr ""
 
 #: ../../../c-api/object.rst:242
 msgid ""
-"An instance *inst* can override what is considered its class by having a :"
-"attr:`__class__` attribute."
+"An instance *inst* can override what is considered its class by having "
+"a :attr:`__class__` attribute."
 msgstr ""
 
 #: ../../../c-api/object.rst:245
@@ -312,8 +313,8 @@ msgstr ""
 
 #: ../../../c-api/object.rst:293
 msgid ""
-"Note that if you only pass :c:type:`PyObject *` args, :c:func:"
-"`PyObject_CallFunctionObjArgs` is a faster alternative."
+"Note that if you only pass :c:type:`PyObject *` "
+"args, :c:func:`PyObject_CallFunctionObjArgs` is a faster alternative."
 msgstr ""
 
 #: ../../../c-api/object.rst:296
@@ -339,8 +340,8 @@ msgstr ""
 
 #: ../../../c-api/object.rst:314
 msgid ""
-"Note that if you only pass :c:type:`PyObject *` args, :c:func:"
-"`PyObject_CallMethodObjArgs` is a faster alternative."
+"Note that if you only pass :c:type:`PyObject *` "
+"args, :c:func:`PyObject_CallMethodObjArgs` is a faster alternative."
 msgstr ""
 
 #: ../../../c-api/object.rst:317
@@ -349,9 +350,9 @@ msgstr ""
 
 #: ../../../c-api/object.rst:323
 msgid ""
-"Call a callable Python object *callable*, with a variable number of :c:type:"
-"`PyObject*` arguments.  The arguments are provided as a variable number of "
-"parameters followed by ``NULL``."
+"Call a callable Python object *callable*, with a variable number "
+"of :c:type:`PyObject*` arguments.  The arguments are provided as a variable "
+"number of parameters followed by ``NULL``."
 msgstr ""
 
 #: ../../../c-api/object.rst:330
@@ -380,9 +381,10 @@ msgstr ""
 
 #: ../../../c-api/object.rst:352
 msgid ""
-"*nargsf* is the number of positional arguments plus optionally the flag :"
-"const:`PY_VECTORCALL_ARGUMENTS_OFFSET` (see below). To get actual number of "
-"arguments, use :c:func:`PyVectorcall_NARGS(nargsf) <PyVectorcall_NARGS>`."
+"*nargsf* is the number of positional arguments plus optionally the "
+"flag :const:`PY_VECTORCALL_ARGUMENTS_OFFSET` (see below). To get actual "
+"number of arguments, use :c:func:`PyVectorcall_NARGS(nargsf) "
+"<PyVectorcall_NARGS>`."
 msgstr ""
 
 #: ../../../c-api/object.rst:357
@@ -443,11 +445,11 @@ msgstr ""
 
 #: ../../../c-api/object.rst:408
 msgid ""
-"For callables supporting :c:data:`vectorcall <PyTypeObject."
-"tp_vectorcall_offset>`, the arguments are internally converted to the "
-"vectorcall convention. Therefore, this function adds some overhead compared "
-"to :c:func:`_PyObject_Vectorcall`. It should only be used if the caller "
-"already has a dictionary ready to use."
+"For callables supporting :c:data:`vectorcall "
+"<PyTypeObject.tp_vectorcall_offset>`, the arguments are internally converted "
+"to the vectorcall convention. Therefore, this function adds some overhead "
+"compared to :c:func:`_PyObject_Vectorcall`. It should only be used if the "
+"caller already has a dictionary ready to use."
 msgstr ""
 
 #: ../../../c-api/object.rst:427
@@ -542,8 +544,8 @@ msgid ""
 "(possibly empty) list of strings appropriate for the object argument, or "
 "``NULL`` if there was an error.  If the argument is ``NULL``, this is like "
 "the Python ``dir()``, returning the names of the current locals; in this "
-"case, if no execution frame is active then ``NULL`` is returned but :c:func:"
-"`PyErr_Occurred` will return false."
+"case, if no execution frame is active then ``NULL`` is returned "
+"but :c:func:`PyErr_Occurred` will return false."
 msgstr ""
 
 #: ../../../c-api/object.rst:527

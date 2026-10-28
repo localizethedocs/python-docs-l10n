@@ -151,9 +151,9 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:47
 msgid ""
-"The preconfiguration (``PyPreConfig`` type) is stored in ``_PyRuntime."
-"preconfig`` and the configuration (``PyConfig`` type) is stored in "
-"``PyInterpreterState.config``."
+"The preconfiguration (``PyPreConfig`` type) is stored in "
+"``_PyRuntime.preconfig`` and the configuration (``PyConfig`` type) is stored "
+"in ``PyInterpreterState.config``."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:51
@@ -387,8 +387,8 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:235
 msgid ""
-"Set the LC_CTYPE locale to the user preferred locale? If equals to 0, set :c:"
-"member:`coerce_c_locale` and :c:member:`coerce_c_locale_warn` to 0."
+"Set the LC_CTYPE locale to the user preferred locale? If equals to 0, "
+"set :c:member:`coerce_c_locale` and :c:member:`coerce_c_locale_warn` to 0."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:240
@@ -423,10 +423,10 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:265
 msgid ""
-"If non-zero, :c:func:`Py_PreInitializeFromArgs` and :c:func:"
-"`Py_PreInitializeFromBytesArgs` parse their ``argv`` argument the same way "
-"the regular Python parses command line arguments: see :ref:`Command Line "
-"Arguments <using-on-cmdline>`."
+"If non-zero, :c:func:`Py_PreInitializeFromArgs` "
+"and :c:func:`Py_PreInitializeFromBytesArgs` parse their ``argv`` argument "
+"the same way the regular Python parses command line arguments: "
+"see :ref:`Command Line Arguments <using-on-cmdline>`."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:272
@@ -463,26 +463,26 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:297 ../../../c-api/init_config.rst:715
 msgid ""
-"The caller is responsible to handle exceptions (error or exit) using :c:func:"
-"`PyStatus_Exception` and :c:func:`Py_ExitStatusException`."
+"The caller is responsible to handle exceptions (error or exit) "
+"using :c:func:`PyStatus_Exception` and :c:func:`Py_ExitStatusException`."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:300
 msgid ""
-"For :ref:`Python Configuration <init-python-config>` (:c:func:"
-"`PyPreConfig_InitPythonConfig`), if Python is initialized with command line "
-"arguments, the command line arguments must also be passed to preinitialize "
-"Python, since they have an effect on the pre-configuration like encodings. "
-"For example, the :option:`-X utf8 <-X>` command line option enables the "
-"UTF-8 Mode."
+"For :ref:`Python Configuration <init-python-config>` "
+"(:c:func:`PyPreConfig_InitPythonConfig`), if Python is initialized with "
+"command line arguments, the command line arguments must also be passed to "
+"preinitialize Python, since they have an effect on the pre-configuration "
+"like encodings. For example, the :option:`-X utf8 <-X>` command line option "
+"enables the UTF-8 Mode."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:307
 msgid ""
 "``PyMem_SetAllocator()`` can be called after :c:func:`Py_PreInitialize` and "
 "before :c:func:`Py_InitializeFromConfig` to install a custom memory "
-"allocator. It can be called before :c:func:`Py_PreInitialize` if :c:member:"
-"`PyPreConfig.allocator` is set to ``PYMEM_ALLOCATOR_NOT_SET``."
+"allocator. It can be called before :c:func:`Py_PreInitialize` "
+"if :c:member:`PyPreConfig.allocator` is set to ``PYMEM_ALLOCATOR_NOT_SET``."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:312
@@ -590,8 +590,8 @@ msgstr ""
 msgid ""
 "Moreover, if :c:func:`PyConfig_SetArgv` or :c:func:`PyConfig_SetBytesArgv` "
 "is used, this method must be called first, before other methods, since the "
-"preinitialization configuration depends on command line arguments (if :c:"
-"member:`parse_argv` is non-zero)."
+"preinitialization configuration depends on command line arguments "
+"(if :c:member:`parse_argv` is non-zero)."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:413
@@ -602,11 +602,11 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:420
 msgid ""
-"Command line arguments, :data:`sys.argv`. See :c:member:`~PyConfig."
-"parse_argv` to parse :c:member:`~PyConfig.argv` the same way the regular "
-"Python parses Python command line arguments. If :c:member:`~PyConfig.argv` "
-"is empty, an empty string is added to ensure that :data:`sys.argv` always "
-"exists and is never empty."
+"Command line arguments, :data:`sys.argv`. "
+"See :c:member:`~PyConfig.parse_argv` to parse :c:member:`~PyConfig.argv` the "
+"same way the regular Python parses Python command line arguments. "
+"If :c:member:`~PyConfig.argv` is empty, an empty string is added to ensure "
+"that :data:`sys.argv` always exists and is never empty."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:428
@@ -635,15 +635,17 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:448
 msgid ""
-"If equals to 1, issue a warning when comparing :class:`bytes` or :class:"
-"`bytearray` with :class:`str`, or comparing :class:`bytes` with :class:"
-"`int`. If equal or greater to 2, raise a :exc:`BytesWarning` exception."
+"If equals to 1, issue a warning when comparing :class:`bytes` "
+"or :class:`bytearray` with :class:`str`, or comparing :class:`bytes` "
+"with :class:`int`. If equal or greater to 2, raise a :exc:`BytesWarning` "
+"exception."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:455
 msgid ""
-"Control the validation behavior of hash-based ``.pyc`` files (see :pep:"
-"`552`): :option:`--check-hash-based-pycs` command line option value."
+"Control the validation behavior of hash-based ``.pyc`` files "
+"(see :pep:`552`): :option:`--check-hash-based-pycs` command line option "
+"value."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:458
@@ -746,8 +748,8 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:537
 msgid ""
-"Set :c:member:`~PyConfig.use_environment` and :c:member:`~PyConfig."
-"user_site_directory` to 0."
+"Set :c:member:`~PyConfig.use_environment` "
+"and :c:member:`~PyConfig.user_site_directory` to 0."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:542
@@ -768,8 +770,8 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:558
 msgid ""
-"Module search paths as a string separated by ``DELIM`` (:data:`os.path."
-"pathsep`)."
+"Module search paths as a string separated by ``DELIM`` "
+"(:data:`os.path.pathsep`)."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:561
@@ -803,8 +805,9 @@ msgstr ""
 #: ../../../c-api/init_config.rst:582
 msgid ""
 "If non-zero, parse :c:member:`~PyConfig.argv` the same way the regular "
-"Python command line arguments, and strip Python arguments from :c:member:"
-"`~PyConfig.argv`: see :ref:`Command Line Arguments <using-on-cmdline>`."
+"Python command line arguments, and strip Python arguments "
+"from :c:member:`~PyConfig.argv`: see :ref:`Command Line Arguments <using-on-"
+"cmdline>`."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:589
@@ -890,8 +893,8 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:657
 msgid ""
-"Encoding and encoding errors of :data:`sys.stdin`, :data:`sys.stdout` and :"
-"data:`sys.stderr`."
+"Encoding and encoding errors of :data:`sys.stdin`, :data:`sys.stdout` "
+"and :data:`sys.stderr`."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:662
@@ -929,8 +932,8 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:690
 msgid ""
-":data:`sys.dont_write_bytecode` is initialized to the inverted value of :c:"
-"member:`~PyConfig.write_bytecode`."
+":data:`sys.dont_write_bytecode` is initialized to the inverted value "
+"of :c:member:`~PyConfig.write_bytecode`."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:695
@@ -985,9 +988,10 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:803
 msgid ""
-":c:func:`PyPreConfig_InitIsolatedConfig` and :c:func:"
-"`PyConfig_InitIsolatedConfig` functions create a configuration to isolate "
-"Python from the system. For example, to embed Python into an application."
+":c:func:`PyPreConfig_InitIsolatedConfig` "
+"and :c:func:`PyConfig_InitIsolatedConfig` functions create a configuration "
+"to isolate Python from the system. For example, to embed Python into an "
+"application."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:808
@@ -1000,10 +1004,10 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:813
 msgid ""
-"Configuration files are still used with this configuration. Set the :ref:"
-"`Path Configuration <init-path-config>` (\"output fields\") to ignore these "
-"configuration files and avoid the function computing the default path "
-"configuration."
+"Configuration files are still used with this configuration. Set "
+"the :ref:`Path Configuration <init-path-config>` (\"output fields\") to "
+"ignore these configuration files and avoid the function computing the "
+"default path configuration."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:822
@@ -1012,9 +1016,9 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:824
 msgid ""
-":c:func:`PyPreConfig_InitPythonConfig` and :c:func:"
-"`PyConfig_InitPythonConfig` functions create a configuration to build a "
-"customized Python which behaves as the regular Python."
+":c:func:`PyPreConfig_InitPythonConfig` "
+"and :c:func:`PyConfig_InitPythonConfig` functions create a configuration to "
+"build a customized Python which behaves as the regular Python."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:828
@@ -1025,9 +1029,9 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:831
 msgid ""
-"This function enables C locale coercion (:pep:`538`) and UTF-8 Mode (:pep:"
-"`540`) depending on the LC_CTYPE locale, :envvar:`PYTHONUTF8` and :envvar:"
-"`PYTHONCOERCECLOCALE` environment variables."
+"This function enables C locale coercion (:pep:`538`) and UTF-8 Mode "
+"(:pep:`540`) depending on the LC_CTYPE locale, :envvar:`PYTHONUTF8` "
+"and :envvar:`PYTHONCOERCECLOCALE` environment variables."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:835
@@ -1068,8 +1072,8 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:885
 msgid ""
-"``PATH`` environment variable to get the program full path (from :c:member:"
-"`PyConfig.program_name`)"
+"``PATH`` environment variable to get the program full path "
+"(from :c:member:`PyConfig.program_name`)"
 msgstr ""
 
 #: ../../../c-api/init_config.rst:887
@@ -1108,9 +1112,7 @@ msgid ":c:member:`PyConfig.executable`"
 msgstr ""
 
 #: ../../../c-api/init_config.rst:899
-msgid ""
-":c:member:`PyConfig.module_search_paths_set`, :c:member:`PyConfig."
-"module_search_paths`"
+msgid ":c:member:`PyConfig.module_search_paths_set`, :c:member:`PyConfig.module_search_paths`"
 msgstr ""
 
 #: ../../../c-api/init_config.rst:901
@@ -1120,10 +1122,10 @@ msgstr ""
 #: ../../../c-api/init_config.rst:903
 msgid ""
 "If at least one \"output field\" is not set, Python calculates the path "
-"configuration to fill unset fields. If :c:member:`~PyConfig."
-"module_search_paths_set` is equal to 0, :c:member:`~PyConfig."
-"module_search_paths` is overridden and :c:member:`~PyConfig."
-"module_search_paths_set` is set to 1."
+"configuration to fill unset fields. "
+"If :c:member:`~PyConfig.module_search_paths_set` is equal to "
+"0, :c:member:`~PyConfig.module_search_paths` is overridden "
+"and :c:member:`~PyConfig.module_search_paths_set` is set to 1."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:909
@@ -1145,9 +1147,10 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:919
 msgid ""
-"If :c:member:`~PyConfig.base_prefix` or :c:member:`~PyConfig."
-"base_exec_prefix` fields are not set, they inherit their value from :c:"
-"member:`~PyConfig.prefix` and :c:member:`~PyConfig.exec_prefix` respectively."
+"If :c:member:`~PyConfig.base_prefix` "
+"or :c:member:`~PyConfig.base_exec_prefix` fields are not set, they inherit "
+"their value from :c:member:`~PyConfig.prefix` "
+"and :c:member:`~PyConfig.exec_prefix` respectively."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:923
@@ -1157,8 +1160,8 @@ msgstr ""
 #: ../../../c-api/init_config.rst:925
 msgid ""
 "If :c:member:`~PyConfig.run_filename` is set and is a directory which "
-"contains a ``__main__.py`` script, prepend :c:member:`~PyConfig."
-"run_filename` to :data:`sys.path`."
+"contains a ``__main__.py`` script, "
+"prepend :c:member:`~PyConfig.run_filename` to :data:`sys.path`."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:928
@@ -1184,10 +1187,10 @@ msgstr ""
 #: ../../../c-api/init_config.rst:936
 msgid ""
 "If :c:member:`~PyConfig.site_import` is non-zero, :data:`sys.path` can be "
-"modified by the :mod:`site` module. If :c:member:`~PyConfig."
-"user_site_directory` is non-zero and the user's site-package directory "
-"exists, the :mod:`site` module appends the user's site-package directory to :"
-"data:`sys.path`."
+"modified by the :mod:`site` module. "
+"If :c:member:`~PyConfig.user_site_directory` is non-zero and the user's site-"
+"package directory exists, the :mod:`site` module appends the user's site-"
+"package directory to :data:`sys.path`."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:942
@@ -1208,8 +1211,8 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:948
 msgid ""
-"The ``__PYVENV_LAUNCHER__`` environment variable is used to set :c:member:"
-"`PyConfig.base_executable`"
+"The ``__PYVENV_LAUNCHER__`` environment variable is used to "
+"set :c:member:`PyConfig.base_executable`"
 msgstr ""
 
 #: ../../../c-api/init_config.rst:953
@@ -1218,9 +1221,10 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:957
 msgid ""
-"Execute the command (:c:member:`PyConfig.run_command`), the script (:c:"
-"member:`PyConfig.run_filename`) or the module (:c:member:`PyConfig."
-"run_module`) specified on the command line or in the configuration."
+"Execute the command (:c:member:`PyConfig.run_command`), the script "
+"(:c:member:`PyConfig.run_filename`) or the module "
+"(:c:member:`PyConfig.run_module`) specified on the command line or in the "
+"configuration."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:962
@@ -1289,8 +1293,8 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:991
 msgid ""
-"Finish :mod:`sys` module initialization (ex: create :data:`sys.stdout` and :"
-"data:`sys.path`);"
+"Finish :mod:`sys` module initialization (ex: create :data:`sys.stdout` "
+"and :data:`sys.path`);"
 msgstr ""
 
 #: ../../../c-api/init_config.rst:993
@@ -1312,8 +1316,9 @@ msgstr ""
 
 #: ../../../c-api/init_config.rst:999
 msgid ""
-":c:member:`PyConfig._init_main`: if set to 0, :c:func:"
-"`Py_InitializeFromConfig` stops at the \"Core\" initialization phase."
+":c:member:`PyConfig._init_main`: if set to "
+"0, :c:func:`Py_InitializeFromConfig` stops at the \"Core\" initialization "
+"phase."
 msgstr ""
 
 #: ../../../c-api/init_config.rst:1004

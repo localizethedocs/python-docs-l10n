@@ -85,8 +85,8 @@ msgid ""
 "module will not need to create these, but only use those created by this "
 "module. *filename* should be the full name of the archive member, and "
 "*date_time* should be a tuple containing six fields which describe the time "
-"of the last modification to the file; the fields are described in section :"
-"ref:`zipinfo-objects`."
+"of the last modification to the file; the fields are described in "
+"section :ref:`zipinfo-objects`."
 msgstr ""
 
 #: ../../../library/zipfile.rst:84
@@ -112,14 +112,14 @@ msgstr ""
 
 #: ../../../library/zipfile.rst:104
 msgid ""
-"The numeric constant for the BZIP2 compression method.  This requires the :"
-"mod:`bz2` module."
+"The numeric constant for the BZIP2 compression method.  This requires "
+"the :mod:`bz2` module."
 msgstr ""
 
 #: ../../../library/zipfile.rst:111
 msgid ""
-"The numeric constant for the LZMA compression method.  This requires the :"
-"mod:`lzma` module."
+"The numeric constant for the LZMA compression method.  This requires "
+"the :mod:`lzma` module."
 msgstr ""
 
 #: ../../../library/zipfile.rst:118
@@ -179,11 +179,12 @@ msgstr ""
 msgid ""
 "*compression* is the ZIP compression method to use when writing the archive, "
 "and should be :const:`ZIP_STORED`, :const:`ZIP_DEFLATED`, :const:`ZIP_BZIP2` "
-"or :const:`ZIP_LZMA`; unrecognized values will cause :exc:"
-"`NotImplementedError` to be raised.  If :const:`ZIP_DEFLATED`, :const:"
-"`ZIP_BZIP2` or :const:`ZIP_LZMA` is specified but the corresponding module (:"
-"mod:`zlib`, :mod:`bz2` or :mod:`lzma`) is not available, :exc:`RuntimeError` "
-"is raised. The default is :const:`ZIP_STORED`."
+"or :const:`ZIP_LZMA`; unrecognized values will "
+"cause :exc:`NotImplementedError` to be raised.  "
+"If :const:`ZIP_DEFLATED`, :const:`ZIP_BZIP2` or :const:`ZIP_LZMA` is "
+"specified but the corresponding module (:mod:`zlib`, :mod:`bz2` "
+"or :mod:`lzma`) is not available, :exc:`RuntimeError` is raised. The default "
+"is :const:`ZIP_STORED`."
 msgstr ""
 
 #: ../../../library/zipfile.rst:168
@@ -197,11 +198,12 @@ msgstr ""
 #: ../../../library/zipfile.rst:173
 msgid ""
 "The *compresslevel* parameter controls the compression level to use when "
-"writing files to the archive. When using :const:`ZIP_STORED` or :const:"
-"`ZIP_LZMA` it has no effect. When using :const:`ZIP_DEFLATED` integers ``0`` "
-"through ``9`` are accepted (see :class:`zlib <zlib.compressobj>` for more "
-"information). When using :const:`ZIP_BZIP2` integers ``1`` through ``9`` are "
-"accepted (see :class:`bz2 <bz2.BZ2File>` for more information)."
+"writing files to the archive. When using :const:`ZIP_STORED` "
+"or :const:`ZIP_LZMA` it has no effect. When using :const:`ZIP_DEFLATED` "
+"integers ``0`` through ``9`` are accepted (see :class:`zlib "
+"<zlib.compressobj>` for more information). When using :const:`ZIP_BZIP2` "
+"integers ``1`` through ``9`` are accepted (see :class:`bz2 <bz2.BZ2File>` "
+"for more information)."
 msgstr ""
 
 #: ../../../library/zipfile.rst:181 ../../../library/zipfile.rst:632
@@ -214,9 +216,9 @@ msgstr ""
 
 #: ../../../library/zipfile.rst:187
 msgid ""
-"If the file is created with mode ``'w'``, ``'x'`` or ``'a'`` and then :meth:"
-"`closed <close>` without adding any files to the archive, the appropriate "
-"ZIP structures for an empty archive will be written to the file."
+"If the file is created with mode ``'w'``, ``'x'`` or ``'a'`` and "
+"then :meth:`closed <close>` without adding any files to the archive, the "
+"appropriate ZIP structures for an empty archive will be written to the file."
 msgstr ""
 
 #: ../../../library/zipfile.rst:191
@@ -296,25 +298,24 @@ msgstr ""
 
 #: ../../../library/zipfile.rst:257
 msgid ""
-":meth:`~ZipFile.open` is also a context manager and therefore supports the :"
-"keyword:`with` statement::"
+":meth:`~ZipFile.open` is also a context manager and therefore supports "
+"the :keyword:`with` statement::"
 msgstr ""
 
 #: ../../../library/zipfile.rst:264
 msgid ""
 "With *mode* ``'r'`` the file-like object (``ZipExtFile``) is read-only and "
-"provides the following methods: :meth:`~io.BufferedIOBase.read`, :meth:`~io."
-"IOBase.readline`, :meth:`~io.IOBase.readlines`, :meth:`~io.IOBase.seek`, :"
-"meth:`~io.IOBase.tell`, :meth:`__iter__`, :meth:`~iterator.__next__`. These "
-"objects can operate independently of the ZipFile."
+"provides the following "
+"methods: :meth:`~io.BufferedIOBase.read`, :meth:`~io.IOBase.readline`, :meth:`~io.IOBase.readlines`, :meth:`~io.IOBase.seek`, :meth:`~io.IOBase.tell`, :meth:`__iter__`, :meth:`~iterator.__next__`. "
+"These objects can operate independently of the ZipFile."
 msgstr ""
 
 #: ../../../library/zipfile.rst:271
 msgid ""
-"With ``mode='w'``, a writable file handle is returned, which supports the :"
-"meth:`~io.BufferedIOBase.write` method.  While a writable file handle is "
-"open, attempting to read or write other files in the ZIP file will raise a :"
-"exc:`ValueError`."
+"With ``mode='w'``, a writable file handle is returned, which supports "
+"the :meth:`~io.BufferedIOBase.write` method.  While a writable file handle "
+"is open, attempting to read or write other files in the ZIP file will raise "
+"a :exc:`ValueError`."
 msgstr ""
 
 #: ../../../library/zipfile.rst:276
@@ -403,8 +404,8 @@ msgstr ""
 
 #: ../../../library/zipfile.rst:344
 msgid ""
-"Calling :meth:`extractall` on a closed ZipFile will raise a :exc:"
-"`ValueError`.  Previously, a :exc:`RuntimeError` was raised."
+"Calling :meth:`extractall` on a closed ZipFile will raise "
+"a :exc:`ValueError`.  Previously, a :exc:`RuntimeError` was raised."
 msgstr ""
 
 #: ../../../library/zipfile.rst:354
@@ -420,12 +421,12 @@ msgid ""
 "Return the bytes of the file *name* in the archive.  *name* is the name of "
 "the file in the archive, or a :class:`ZipInfo` object.  The archive must be "
 "open for read or append. *pwd* is the password used for encrypted  files "
-"and, if specified, it will override the default password set with :meth:"
-"`setpassword`.  Calling :meth:`read` on a ZipFile that uses a compression "
-"method other than :const:`ZIP_STORED`, :const:`ZIP_DEFLATED`, :const:"
-"`ZIP_BZIP2` or :const:`ZIP_LZMA` will raise a :exc:`NotImplementedError`. An "
-"error will also be raised if the corresponding compression module is not "
-"available."
+"and, if specified, it will override the default password set "
+"with :meth:`setpassword`.  Calling :meth:`read` on a ZipFile that uses a "
+"compression method other "
+"than :const:`ZIP_STORED`, :const:`ZIP_DEFLATED`, :const:`ZIP_BZIP2` "
+"or :const:`ZIP_LZMA` will raise a :exc:`NotImplementedError`. An error will "
+"also be raised if the corresponding compression module is not available."
 msgstr ""
 
 #: ../../../library/zipfile.rst:373
@@ -544,9 +545,9 @@ msgstr ""
 
 #: ../../../library/zipfile.rst:475
 msgid ""
-"Construct a Path object from a ``root`` zipfile (which may be a :class:"
-"`ZipFile` instance or ``file`` suitable for passing to the :class:`ZipFile` "
-"constructor)."
+"Construct a Path object from a ``root`` zipfile (which may be "
+"a :class:`ZipFile` instance or ``file`` suitable for passing to "
+"the :class:`ZipFile` constructor)."
 msgstr ""
 
 #: ../../../library/zipfile.rst:479
@@ -616,8 +617,8 @@ msgstr ""
 
 #: ../../../library/zipfile.rst:537
 msgid ""
-"The :class:`PyZipFile` constructor takes the same parameters as the :class:"
-"`ZipFile` constructor, and one additional parameter, *optimize*."
+"The :class:`PyZipFile` constructor takes the same parameters as "
+"the :class:`ZipFile` constructor, and one additional parameter, *optimize*."
 msgstr ""
 
 #: ../../../library/zipfile.rst:543
@@ -655,10 +656,10 @@ msgid ""
 "information).  If *pathname* is a file that does not end with :file:`.py`, "
 "a :exc:`RuntimeError` will be raised.  If it is a directory, and the "
 "directory is not a package directory, then all the files :file:`\\*.pyc` are "
-"added at the top level.  If the directory is a package directory, then all :"
-"file:`\\*.pyc` are added under the package name as a file path, and if any "
-"subdirectories are package directories, all of these are added recursively "
-"in sorted order."
+"added at the top level.  If the directory is a package directory, then "
+"all :file:`\\*.pyc` are added under the package name as a file path, and if "
+"any subdirectories are package directories, all of these are added "
+"recursively in sorted order."
 msgstr ""
 
 #: ../../../library/zipfile.rst:573
@@ -887,8 +888,9 @@ msgstr ""
 
 #: ../../../library/zipfile.rst:775
 msgid ""
-"If you want to create a new ZIP archive, specify its name after the :option:"
-"`-c` option and then list the filename(s) that should be included:"
+"If you want to create a new ZIP archive, specify its name after "
+"the :option:`-c` option and then list the filename(s) that should be "
+"included:"
 msgstr ""
 
 #: ../../../library/zipfile.rst:782
@@ -897,8 +899,8 @@ msgstr ""
 
 #: ../../../library/zipfile.rst:788
 msgid ""
-"If you want to extract a ZIP archive into the specified directory, use the :"
-"option:`-e` option:"
+"If you want to extract a ZIP archive into the specified directory, use "
+"the :option:`-e` option:"
 msgstr ""
 
 #: ../../../library/zipfile.rst:795
