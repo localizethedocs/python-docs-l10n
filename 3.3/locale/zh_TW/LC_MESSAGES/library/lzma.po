@@ -31,11 +31,11 @@ msgstr ""
 
 #: ../../../library/lzma.rst:17
 msgid ""
-"The interface provided by this module is very similar to that of the :mod:"
-"`bz2` module. However, note that :class:`LZMAFile` is *not* thread-safe, "
-"unlike :class:`bz2.BZ2File`, so if you need to use a single :class:"
-"`LZMAFile` instance from multiple threads, it is necessary to protect it "
-"with a lock."
+"The interface provided by this module is very similar to that of "
+"the :mod:`bz2` module. However, note that :class:`LZMAFile` is *not* thread-"
+"safe, unlike :class:`bz2.BZ2File`, so if you need to use a "
+"single :class:`LZMAFile` instance from multiple threads, it is necessary to "
+"protect it with a lock."
 msgstr ""
 
 #: ../../../library/lzma.rst:25
@@ -56,9 +56,9 @@ msgstr ""
 
 #: ../../../library/lzma.rst:37
 msgid ""
-"The *filename* argument can be either an actual file name (given as a :class:"
-"`str` or :class:`bytes` object), in which case the named file is opened, or "
-"it can be an existing file object to read from or write to."
+"The *filename* argument can be either an actual file name (given as "
+"a :class:`str` or :class:`bytes` object), in which case the named file is "
+"opened, or it can be an existing file object to read from or write to."
 msgstr ""
 
 #: ../../../library/lzma.rst:41
@@ -90,8 +90,8 @@ msgstr ""
 
 #: ../../../library/lzma.rst:56
 msgid ""
-"For text mode, a :class:`LZMAFile` object is created, and wrapped in an :"
-"class:`io.TextIOWrapper` instance with the specified encoding, error "
+"For text mode, a :class:`LZMAFile` object is created, and wrapped in "
+"an :class:`io.TextIOWrapper` instance with the specified encoding, error "
 "handling behavior, and line ending(s)."
 msgstr ""
 
@@ -130,9 +130,10 @@ msgstr ""
 
 #: ../../../library/lzma.rst:89
 msgid ""
-":class:`LZMAFile` supports all the members specified by :class:`io."
-"BufferedIOBase`, except for :meth:`detach` and :meth:`truncate`. Iteration "
-"and the :keyword:`with` statement are supported."
+":class:`LZMAFile` supports all the members specified "
+"by :class:`io.BufferedIOBase`, except for :meth:`detach` "
+"and :meth:`truncate`. Iteration and the :keyword:`with` statement are "
+"supported."
 msgstr ""
 
 #: ../../../library/lzma.rst:93
@@ -148,10 +149,10 @@ msgstr ""
 
 #: ../../../library/lzma.rst:101
 msgid ""
-"While calling :meth:`peek` does not change the file position of the :class:"
-"`LZMAFile`, it may change the position of the underlying file object (e.g. "
-"if the :class:`LZMAFile` was constructed by passing a file object for "
-"*filename*)."
+"While calling :meth:`peek` does not change the file position of "
+"the :class:`LZMAFile`, it may change the position of the underlying file "
+"object (e.g. if the :class:`LZMAFile` was constructed by passing a file "
+"object for *filename*)."
 msgstr ""
 
 #: ../../../library/lzma.rst:108
@@ -165,8 +166,8 @@ msgstr ""
 
 #: ../../../library/lzma.rst:114
 msgid ""
-"For a more convenient way of compressing a single chunk of data, see :func:"
-"`compress`."
+"For a more convenient way of compressing a single chunk of data, "
+"see :func:`compress`."
 msgstr ""
 
 #: ../../../library/lzma.rst:117
@@ -247,19 +248,20 @@ msgstr ""
 #: ../../../library/lzma.rst:154
 msgid ""
 "The *preset* argument (if provided) should be an integer between ``0`` and "
-"``9`` (inclusive), optionally OR-ed with the constant :const:"
-"`PRESET_EXTREME`. If neither *preset* nor *filters* are given, the default "
-"behavior is to use :const:`PRESET_DEFAULT` (preset level ``6``). Higher "
-"presets produce smaller output, but make the compression process slower."
+"``9`` (inclusive), optionally OR-ed with the "
+"constant :const:`PRESET_EXTREME`. If neither *preset* nor *filters* are "
+"given, the default behavior is to use :const:`PRESET_DEFAULT` (preset level "
+"``6``). Higher presets produce smaller output, but make the compression "
+"process slower."
 msgstr ""
 
 #: ../../../library/lzma.rst:163
 msgid ""
 "In addition to being more CPU-intensive, compression with higher presets "
 "also requires much more memory (and produces output that needs more memory "
-"to decompress). With preset ``9`` for example, the overhead for an :class:"
-"`LZMACompressor` object can be as high as 800 MiB. For this reason, it is "
-"generally best to stick with the default preset."
+"to decompress). With preset ``9`` for example, the overhead for "
+"an :class:`LZMACompressor` object can be as high as 800 MiB. For this "
+"reason, it is generally best to stick with the default preset."
 msgstr ""
 
 #: ../../../library/lzma.rst:169
@@ -272,9 +274,9 @@ msgstr ""
 msgid ""
 "Compress *data* (a :class:`bytes` object), returning a :class:`bytes` object "
 "containing compressed data for at least part of the input. Some of *data* "
-"may be buffered internally, for use in later calls to :meth:`compress` and :"
-"meth:`flush`. The returned data should be concatenated with the output of "
-"any previous calls to :meth:`compress`."
+"may be buffered internally, for use in later calls to :meth:`compress` "
+"and :meth:`flush`. The returned data should be concatenated with the output "
+"of any previous calls to :meth:`compress`."
 msgstr ""
 
 #: ../../../library/lzma.rst:182
@@ -303,8 +305,8 @@ msgstr ""
 msgid ""
 "The *format* argument specifies the container format that should be used. "
 "The default is :const:`FORMAT_AUTO`, which can decompress both ``.xz`` and "
-"``.lzma`` files. Other possible values are :const:`FORMAT_XZ`, :const:"
-"`FORMAT_ALONE`, and :const:`FORMAT_RAW`."
+"``.lzma`` files. Other possible values "
+"are :const:`FORMAT_XZ`, :const:`FORMAT_ALONE`, and :const:`FORMAT_RAW`."
 msgstr ""
 
 #: ../../../library/lzma.rst:201
@@ -318,9 +320,9 @@ msgstr ""
 #: ../../../library/lzma.rst:206
 msgid ""
 "The *filters* argument specifies the filter chain that was used to create "
-"the stream being decompressed. This argument is required if *format* is :"
-"const:`FORMAT_RAW`, but should not be used for other formats. See :ref:"
-"`filter-chain-specs` for more information about filter chains."
+"the stream being decompressed. This argument is required if *format* "
+"is :const:`FORMAT_RAW`, but should not be used for other formats. "
+"See :ref:`filter-chain-specs` for more information about filter chains."
 msgstr ""
 
 #: ../../../library/lzma.rst:212
@@ -335,16 +337,16 @@ msgstr ""
 msgid ""
 "Decompress *data* (a :class:`bytes` object), returning a :class:`bytes` "
 "object containing the decompressed data for at least part of the input. Some "
-"of *data* may be buffered internally, for use in later calls to :meth:"
-"`decompress`. The returned data should be concatenated with the output of "
-"any previous calls to :meth:`decompress`."
+"of *data* may be buffered internally, for use in later calls "
+"to :meth:`decompress`. The returned data should be concatenated with the "
+"output of any previous calls to :meth:`decompress`."
 msgstr ""
 
 #: ../../../library/lzma.rst:227
 msgid ""
-"The ID of the integrity check used by the input stream. This may be :const:"
-"`CHECK_UNKNOWN` until enough of the input has been decoded to determine what "
-"integrity check it uses."
+"The ID of the integrity check used by the input stream. This may "
+"be :const:`CHECK_UNKNOWN` until enough of the input has been decoded to "
+"determine what integrity check it uses."
 msgstr ""
 
 #: ../../../library/lzma.rst:233
@@ -399,9 +401,10 @@ msgstr ""
 
 #: ../../../library/lzma.rst:270
 msgid ""
-":const:`CHECK_NONE` and :const:`CHECK_CRC32` are always supported. :const:"
-"`CHECK_CRC64` and :const:`CHECK_SHA256` may be unavailable if you are using "
-"a version of :program:`liblzma` that was compiled with a limited feature set."
+":const:`CHECK_NONE` and :const:`CHECK_CRC32` are always "
+"supported. :const:`CHECK_CRC64` and :const:`CHECK_SHA256` may be unavailable "
+"if you are using a version of :program:`liblzma` that was compiled with a "
+"limited feature set."
 msgstr ""
 
 #: ../../../library/lzma.rst:279
@@ -426,8 +429,8 @@ msgstr ""
 
 #: ../../../library/lzma.rst:288
 msgid ""
-":const:`FILTER_LZMA2` (for use with :const:`FORMAT_XZ` and :const:"
-"`FORMAT_RAW`)"
+":const:`FILTER_LZMA2` (for use with :const:`FORMAT_XZ` "
+"and :const:`FORMAT_RAW`)"
 msgstr ""
 
 #: ../../../library/lzma.rst:291
@@ -517,8 +520,9 @@ msgstr ""
 
 #: ../../../library/lzma.rst:319
 msgid ""
-"``mf``: What match finder to use -- :const:`MF_HC3`, :const:`MF_HC4`, :const:"
-"`MF_BT2`, :const:`MF_BT3`, or :const:`MF_BT4`."
+"``mf``: What match finder to use "
+"-- :const:`MF_HC3`, :const:`MF_HC4`, :const:`MF_BT2`, :const:`MF_BT3`, "
+"or :const:`MF_BT4`."
 msgstr ""
 
 #: ../../../library/lzma.rst:321
@@ -532,8 +536,8 @@ msgid ""
 "The delta filter stores the differences between bytes, producing more "
 "repetitive input for the compressor in certain circumstances. It only "
 "supports a single The delta filter supports only one option, ``dist``. This "
-"indicates the distance between bytes to be subtracted. The default is 1, i."
-"e. take the differences between adjacent bytes."
+"indicates the distance between bytes to be subtracted. The default is 1, "
+"i.e. take the differences between adjacent bytes."
 msgstr ""
 
 #: ../../../library/lzma.rst:330

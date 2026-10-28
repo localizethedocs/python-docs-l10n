@@ -28,9 +28,9 @@ msgstr ""
 
 #: ../../../library/contextlib.rst:11
 msgid ""
-"This module provides utilities for common tasks involving the :keyword:"
-"`with` statement. For more information see also :ref:`typecontextmanager` "
-"and :ref:`context-managers`."
+"This module provides utilities for common tasks involving "
+"the :keyword:`with` statement. For more information see "
+"also :ref:`typecontextmanager` and :ref:`context-managers`."
 msgstr ""
 
 #: ../../../library/contextlib.rst:17
@@ -63,18 +63,18 @@ msgstr ""
 
 #: ../../../library/contextlib.rst:48
 msgid ""
-"At the point where the generator yields, the block nested in the :keyword:"
-"`with` statement is executed.  The generator is then resumed after the block "
-"is exited. If an unhandled exception occurs in the block, it is reraised "
-"inside the generator at the point where the yield occurred.  Thus, you can "
-"use a :keyword:`try`...\\ :keyword:`except`...\\ :keyword:`finally` "
-"statement to trap the error (if any), or ensure that some cleanup takes "
-"place. If an exception is trapped merely in order to log it or to perform "
-"some action (rather than to suppress it entirely), the generator must "
-"reraise that exception. Otherwise the generator context manager will "
-"indicate to the :keyword:`with` statement that the exception has been "
-"handled, and execution will resume with the statement immediately following "
-"the :keyword:`with` statement."
+"At the point where the generator yields, the block nested in "
+"the :keyword:`with` statement is executed.  The generator is then resumed "
+"after the block is exited. If an unhandled exception occurs in the block, it "
+"is reraised inside the generator at the point where the yield occurred.  "
+"Thus, you can use a :keyword:`try`...\\ :keyword:`except`..."
+"\\ :keyword:`finally` statement to trap the error (if any), or ensure that "
+"some cleanup takes place. If an exception is trapped merely in order to log "
+"it or to perform some action (rather than to suppress it entirely), the "
+"generator must reraise that exception. Otherwise the generator context "
+"manager will indicate to the :keyword:`with` statement that the exception "
+"has been handled, and execution will resume with the statement immediately "
+"following the :keyword:`with` statement."
 msgstr ""
 
 #: ../../../library/contextlib.rst:60
@@ -208,8 +208,8 @@ msgstr ""
 #: ../../../library/contextlib.rst:214
 msgid ""
 "Enters a new context manager and adds its :meth:`__exit__` method to the "
-"callback stack. The return value is the result of the context manager's own :"
-"meth:`__enter__` method."
+"callback stack. The return value is the result of the context manager's "
+"own :meth:`__enter__` method."
 msgstr ""
 
 #: ../../../library/contextlib.rst:218
@@ -225,8 +225,8 @@ msgstr ""
 #: ../../../library/contextlib.rst:225
 msgid ""
 "As ``__enter__`` is *not* invoked, this method can be used to cover part of "
-"an :meth:`__enter__` implementation with a context manager's own :meth:"
-"`__exit__` method."
+"an :meth:`__enter__` implementation with a context manager's "
+"own :meth:`__exit__` method."
 msgstr ""
 
 #: ../../../library/contextlib.rst:229
@@ -324,10 +324,10 @@ msgstr ""
 
 #: ../../../library/contextlib.rst:310
 msgid ""
-"In the specific case of a single optional context manager, :class:"
-"`ExitStack` instances can be used as a \"do nothing\" context manager, "
-"allowing a context manager to easily be omitted without affecting the "
-"overall structure of the source code::"
+"In the specific case of a single optional context "
+"manager, :class:`ExitStack` instances can be used as a \"do nothing\" "
+"context manager, allowing a context manager to easily be omitted without "
+"affecting the overall structure of the source code::"
 msgstr ""
 
 #: ../../../library/contextlib.rst:326
@@ -337,21 +337,21 @@ msgstr ""
 #: ../../../library/contextlib.rst:328
 msgid ""
 "It is occasionally desirable to catch exceptions from an ``__enter__`` "
-"method implementation, *without* inadvertently catching exceptions from the :"
-"keyword:`with` statement body or the context manager's ``__exit__`` method. "
-"By using :class:`ExitStack` the steps in the context management protocol can "
-"be separated slightly in order to allow this::"
+"method implementation, *without* inadvertently catching exceptions from "
+"the :keyword:`with` statement body or the context manager's ``__exit__`` "
+"method. By using :class:`ExitStack` the steps in the context management "
+"protocol can be separated slightly in order to allow this::"
 msgstr ""
 
 #: ../../../library/contextlib.rst:343
 msgid ""
 "Actually needing to do this is likely to indicate that the underlying API "
-"should be providing a direct resource management interface for use with :"
-"keyword:`try`/:keyword:`except`/:keyword:`finally` statements, but not all "
-"APIs are well designed in that regard. When a context manager is the only "
-"resource management API provided, then :class:`ExitStack` can make it easier "
-"to handle various situations that can't be handled directly in a :keyword:"
-"`with` statement."
+"should be providing a direct resource management interface for use "
+"with :keyword:`try`/:keyword:`except`/:keyword:`finally` statements, but not "
+"all APIs are well designed in that regard. When a context manager is the "
+"only resource management API provided, then :class:`ExitStack` can make it "
+"easier to handle various situations that can't be handled directly in "
+"a :keyword:`with` statement."
 msgstr ""
 
 #: ../../../library/contextlib.rst:353
@@ -361,8 +361,8 @@ msgstr ""
 #: ../../../library/contextlib.rst:355
 msgid ""
 "As noted in the documentation of :meth:`ExitStack.push`, this method can be "
-"useful in cleaning up an already allocated resource if later steps in the :"
-"meth:`__enter__` implementation fail."
+"useful in cleaning up an already allocated resource if later steps in "
+"the :meth:`__enter__` implementation fail."
 msgstr ""
 
 #: ../../../library/contextlib.rst:359
@@ -413,8 +413,8 @@ msgstr ""
 #: ../../../library/contextlib.rst:452
 msgid ""
 "If the resource cleanup isn't already neatly bundled into a standalone "
-"function, then it is still possible to use the decorator form of :meth:"
-"`ExitStack.callback` to declare the resource cleanup in advance::"
+"function, then it is still possible to use the decorator form "
+"of :meth:`ExitStack.callback` to declare the resource cleanup in advance::"
 msgstr ""
 
 #: ../../../library/contextlib.rst:467
@@ -454,9 +454,9 @@ msgstr ""
 #: ../../../library/contextlib.rst:512
 msgid ""
 "Note that there is one additional limitation when using context managers as "
-"function decorators: there's no way to access the return value of :meth:"
-"`__enter__`. If that value is needed, then it is still necessary to use an "
-"explicit ``with`` statement."
+"function decorators: there's no way to access the return value "
+"of :meth:`__enter__`. If that value is needed, then it is still necessary to "
+"use an explicit ``with`` statement."
 msgstr ""
 
 #: ../../../library/contextlib.rst:520

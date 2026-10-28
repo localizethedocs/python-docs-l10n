@@ -40,10 +40,10 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:22
 msgid ""
 "Additionally, mock provides a :func:`patch` decorator that handles patching "
-"module and class level attributes within the scope of a test, along with :"
-"const:`sentinel` for creating unique objects. See the `quick guide`_ for "
-"some examples of how to use :class:`Mock`, :class:`MagicMock` and :func:"
-"`patch`."
+"module and class level attributes within the scope of a test, along "
+"with :const:`sentinel` for creating unique objects. See the `quick guide`_ "
+"for some examples of how to use :class:`Mock`, :class:`MagicMock` "
+"and :func:`patch`."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:28
@@ -108,8 +108,8 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:102
 msgid ""
 "With `patch` it matters that you patch objects in the namespace where they "
-"are looked up. This is normally straightforward, but for a quick guide read :"
-"ref:`where to patch <where-to-patch>`."
+"are looked up. This is normally straightforward, but for a quick guide "
+"read :ref:`where to patch <where-to-patch>`."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:106
@@ -216,9 +216,9 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:212
 msgid ""
-"If `spec` is an object (rather than a list of strings) then :attr:`~instance."
-"__class__` returns the class of the spec object. This allows mocks to pass "
-"`isinstance` tests."
+"If `spec` is an object (rather than a list of strings) "
+"then :attr:`~instance.__class__` returns the class of the spec object. This "
+"allows mocks to pass `isinstance` tests."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:216
@@ -230,8 +230,8 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:220
 msgid ""
-"`side_effect`: A function to be called whenever the Mock is called. See the :"
-"attr:`~Mock.side_effect` attribute. Useful for raising exceptions or "
+"`side_effect`: A function to be called whenever the Mock is called. See "
+"the :attr:`~Mock.side_effect` attribute. Useful for raising exceptions or "
 "dynamically changing return values. The function is called with the same "
 "arguments as the mock, and unless it returns :data:`DEFAULT`, the return "
 "value of this function is used as the return value."
@@ -284,8 +284,8 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:252
 msgid ""
 "Mocks can also be called with arbitrary keyword arguments. These will be "
-"used to set attributes on the mock after it is created. See the :meth:"
-"`configure_mock` method for details."
+"used to set attributes on the mock after it is created. See "
+"the :meth:`configure_mock` method for details."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:259
@@ -306,9 +306,9 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:287
 msgid ""
-"The assert passes if the mock has *ever* been called, unlike :meth:"
-"`assert_called_with` and :meth:`assert_called_once_with` that only pass if "
-"the call is the most recent one."
+"The assert passes if the mock has *ever* been called, "
+"unlike :meth:`assert_called_with` and :meth:`assert_called_once_with` that "
+"only pass if the call is the most recent one."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:299
@@ -336,8 +336,8 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:332
 msgid ""
 "This can be useful where you want to make a series of assertions that reuse "
-"the same object. Note that `reset_mock` *doesn't* clear the return value, :"
-"attr:`side_effect` or any child attributes you have set using normal "
+"the same object. Note that `reset_mock` *doesn't* clear the return "
+"value, :attr:`side_effect` or any child attributes you have set using normal "
 "assignment. Child mocks and the return value mock (if any) are reset as well."
 msgstr ""
 
@@ -354,8 +354,8 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:350
 msgid ""
 "Attach a mock as an attribute of this one, replacing its name and parent. "
-"Calls to the attached mock will be recorded in the :attr:`method_calls` and :"
-"attr:`mock_calls` attributes of this one."
+"Calls to the attached mock will be recorded in the :attr:`method_calls` "
+"and :attr:`mock_calls` attributes of this one."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:357
@@ -455,8 +455,8 @@ msgid ""
 "The `side_effect` function is called with the same arguments as the mock (so "
 "it is wise for it to take arbitrary args and keyword arguments) and whatever "
 "it returns is used as the return value for the call. The exception is if "
-"`side_effect` returns :data:`DEFAULT`, in which case the normal :attr:"
-"`return_value` is used."
+"`side_effect` returns :data:`DEFAULT`, in which case the "
+"normal :attr:`return_value` is used."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:504
@@ -480,10 +480,11 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:551
 msgid ""
-"`call_args`, along with members of the lists :attr:`call_args_list`, :attr:"
-"`method_calls` and :attr:`mock_calls` are :data:`call` objects. These are "
-"tuples, so they can be unpacked to get at the individual arguments and make "
-"more complex assertions. See :ref:`calls as tuples <calls-as-tuples>`."
+"`call_args`, along with members of the "
+"lists :attr:`call_args_list`, :attr:`method_calls` and :attr:`mock_calls` "
+"are :data:`call` objects. These are tuples, so they can be unpacked to get "
+"at the individual arguments and make more complex assertions. "
+"See :ref:`calls as tuples <calls-as-tuples>`."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:560
@@ -602,17 +603,17 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:731
 msgid ""
-"Mock objects are callable. The call will return the value set as the :attr:"
-"`~Mock.return_value` attribute. The default return value is a new Mock "
-"object; it is created the first time the return value is accessed (either "
-"explicitly or by calling the Mock) - but it is stored and the same one "
-"returned each time."
+"Mock objects are callable. The call will return the value set as "
+"the :attr:`~Mock.return_value` attribute. The default return value is a new "
+"Mock object; it is created the first time the return value is accessed "
+"(either explicitly or by calling the Mock) - but it is stored and the same "
+"one returned each time."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:737
 msgid ""
-"Calls made to the object will be recorded in the attributes like :attr:"
-"`~Mock.call_args` and :attr:`~Mock.call_args_list`."
+"Calls made to the object will be recorded in the attributes "
+"like :attr:`~Mock.call_args` and :attr:`~Mock.call_args_list`."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:740
@@ -624,8 +625,8 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:744
 msgid ""
-"The simplest way to make a mock raise an exception when called is to make :"
-"attr:`~Mock.side_effect` an exception class or instance:"
+"The simplest way to make a mock raise an exception when called is to "
+"make :attr:`~Mock.side_effect` an exception class or instance:"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:762
@@ -640,8 +641,8 @@ msgstr ""
 msgid ""
 "If you want the mock to still return the default return value (a new mock), "
 "or any set return value, then there are two ways of doing this. Either "
-"return `mock.return_value` from inside `side_effect`, or return :data:"
-"`DEFAULT`:"
+"return `mock.return_value` from inside `side_effect`, or "
+"return :data:`DEFAULT`:"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:797
@@ -694,8 +695,8 @@ msgstr ""
 msgid ""
 "Since \"name\" is an argument to the :class:`Mock` constructor, if you want "
 "your mock object to have a \"name\" attribute you can't just pass it in at "
-"creation time. There are two alternatives. One option is to use :meth:`~Mock."
-"configure_mock`::"
+"creation time. There are two alternatives. One option is to "
+"use :meth:`~Mock.configure_mock`::"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:883
@@ -728,8 +729,8 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:921
 msgid ""
 "Mocks created for you by :func:`patch` are automatically given names. To "
-"attach mocks that have names to a parent you use the :meth:`~Mock."
-"attach_mock` method:"
+"attach mocks that have names to a parent you use "
+"the :meth:`~Mock.attach_mock` method:"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:939
@@ -816,8 +817,8 @@ msgid ""
 "attribute of the object being replaced. Methods and functions being mocked "
 "will have their arguments checked and will raise a `TypeError` if they are "
 "called with the wrong signature. For mocks replacing a class, their return "
-"value (the 'instance') will have the same spec as the class. See the :func:"
-"`create_autospec` function and :ref:`auto-speccing`."
+"value (the 'instance') will have the same spec as the class. See "
+"the :func:`create_autospec` function and :ref:`auto-speccing`."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1003
@@ -876,15 +877,15 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:1042
 msgid ""
 "Patching a class replaces the class with a `MagicMock` *instance*. If the "
-"class is instantiated in the code under test then it will be the :attr:"
-"`~Mock.return_value` of the mock that will be used."
+"class is instantiated in the code under test then it will be "
+"the :attr:`~Mock.return_value` of the mock that will be used."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1046
 msgid ""
-"If the class is instantiated multiple times you could use :attr:`~Mock."
-"side_effect` to return a new mock each time. Alternatively you can set the "
-"`return_value` to be anything you want."
+"If the class is instantiated multiple times you could "
+"use :attr:`~Mock.side_effect` to return a new mock each time. Alternatively "
+"you can set the `return_value` to be anything you want."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1050
@@ -921,11 +922,11 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:1112
 msgid ""
-"As well as attributes on the created mock attributes, like the :attr:`~Mock."
-"return_value` and :attr:`~Mock.side_effect`, of child mocks can also be "
-"configured. These aren't syntactically valid to pass in directly as keyword "
-"arguments, but a dictionary with these as keys can still be expanded into a "
-"`patch` call using `**`:"
+"As well as attributes on the created mock attributes, like "
+"the :attr:`~Mock.return_value` and :attr:`~Mock.side_effect`, of child mocks "
+"can also be configured. These aren't syntactically valid to pass in directly "
+"as keyword arguments, but a dictionary with these as keys can still be "
+"expanded into a `patch` call using `**`:"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1130
@@ -942,9 +943,9 @@ msgstr ""
 msgid ""
 "`patch.object` can be used as a decorator, class decorator or a context "
 "manager. Arguments `new`, `spec`, `create`, `spec_set`, `autospec` and "
-"`new_callable` have the same meaning as for `patch`. Like `patch`, `patch."
-"object` takes arbitrary keyword arguments for configuring the mock object it "
-"creates."
+"`new_callable` have the same meaning as for `patch`. Like `patch`, "
+"`patch.object` takes arbitrary keyword arguments for configuring the mock "
+"object it creates."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1143
@@ -1078,9 +1079,9 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:1273
 msgid ""
-"If you want `patch.multiple` to create mocks for you, then you can use :data:"
-"`DEFAULT` as the value. If you use `patch.multiple` as a decorator then the "
-"created mocks are passed into the decorated function by keyword."
+"If you want `patch.multiple` to create mocks for you, then you can "
+"use :data:`DEFAULT` as the value. If you use `patch.multiple` as a decorator "
+"then the created mocks are passed into the decorated function by keyword."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1287
@@ -1130,8 +1131,8 @@ msgstr ""
 msgid ""
 "If you use this technique you must ensure that the patching is \"undone\" by "
 "calling `stop`. This can be fiddlier than you might think, because if an "
-"exception is raised in the ``setUp`` then ``tearDown`` is not called. :meth:"
-"`unittest.TestCase.addCleanup` makes this easier:"
+"exception is raised in the ``setUp`` then ``tearDown`` is not "
+"called. :meth:`unittest.TestCase.addCleanup` makes this easier:"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1374
@@ -1158,15 +1159,15 @@ msgstr ""
 msgid ""
 "All of the patchers can be used as class decorators. When used in this way "
 "they wrap every test method on the class. The patchers recognise methods "
-"that start with `test` as being test methods. This is the same way that the :"
-"class:`unittest.TestLoader` finds test methods by default."
+"that start with `test` as being test methods. This is the same way that "
+"the :class:`unittest.TestLoader` finds test methods by default."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1393
 msgid ""
 "It is possible that you want to use a different prefix for your tests. You "
-"can inform the patchers of the different prefix by setting `patch."
-"TEST_PREFIX`:"
+"can inform the patchers of the different prefix by setting "
+"`patch.TEST_PREFIX`:"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1416
@@ -1236,8 +1237,8 @@ msgid ""
 "However, consider the alternative scenario where instead of `from a import "
 "SomeClass` module b does `import a` and `some_function` uses `a.SomeClass`. "
 "Both of these import forms are common. In this case the class we want to "
-"patch is being looked up on the a module and so we have to patch `a."
-"SomeClass` instead::"
+"patch is being looked up on the a module and so we have to patch "
+"`a.SomeClass` instead::"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1487
@@ -1249,8 +1250,8 @@ msgid ""
 "Both patch_ and patch.object_ correctly patch and restore descriptors: class "
 "methods, static methods and properties. You should patch these on the "
 "*class* rather than an instance. They also work with *some* objects that "
-"proxy attribute access, like the `django settings object <http://www."
-"voidspace.org.uk/python/weblog/arch_d7_2010_12_04.shtml#e1198>`_."
+"proxy attribute access, like the `django settings object <http://"
+"www.voidspace.org.uk/python/weblog/arch_d7_2010_12_04.shtml#e1198>`_."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1497
@@ -1616,9 +1617,9 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:1753
 msgid ""
-"The `DEFAULT` object is a pre-created sentinel (actually `sentinel."
-"DEFAULT`). It can be used by :attr:`~Mock.side_effect` functions to indicate "
-"that the normal return value should be used."
+"The `DEFAULT` object is a pre-created sentinel (actually "
+"`sentinel.DEFAULT`). It can be used by :attr:`~Mock.side_effect` functions "
+"to indicate that the normal return value should be used."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1759
@@ -1627,10 +1628,10 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:1763
 msgid ""
-"`call` is a helper object for making simpler assertions, for comparing with :"
-"attr:`~Mock.call_args`, :attr:`~Mock.call_args_list`, :attr:`~Mock."
-"mock_calls` and :attr:`~Mock.method_calls`. `call` can also be used with :"
-"meth:`~Mock.assert_has_calls`."
+"`call` is a helper object for making simpler assertions, for comparing "
+"with :attr:`~Mock.call_args`, :attr:`~Mock.call_args_list`, :attr:`~Mock.mock_calls` "
+"and :attr:`~Mock.method_calls`. `call` can also be used "
+"with :meth:`~Mock.assert_has_calls`."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1776
@@ -1658,9 +1659,10 @@ msgid ""
 "A `call` object is either a tuple of (positional args, keyword args) or "
 "(name, positional args, keyword args) depending on how it was constructed. "
 "When you construct them yourself this isn't particularly interesting, but "
-"the `call` objects that are in the :attr:`Mock.call_args`, :attr:`Mock."
-"call_args_list` and :attr:`Mock.mock_calls` attributes can be introspected "
-"to get at the individual arguments they contain."
+"the `call` objects that are in "
+"the :attr:`Mock.call_args`, :attr:`Mock.call_args_list` "
+"and :attr:`Mock.mock_calls` attributes can be introspected to get at the "
+"individual arguments they contain."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1809
@@ -1736,14 +1738,15 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:1884
 msgid ""
 "To ignore certain arguments you can pass in objects that compare equal to "
-"*everything*. Calls to :meth:`~Mock.assert_called_with` and :meth:`~Mock."
-"assert_called_once_with` will then succeed no matter what was passed in."
+"*everything*. Calls to :meth:`~Mock.assert_called_with` "
+"and :meth:`~Mock.assert_called_once_with` will then succeed no matter what "
+"was passed in."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1893
 msgid ""
-"`ANY` can also be used in comparisons with call lists like :attr:`~Mock."
-"mock_calls`:"
+"`ANY` can also be used in comparisons with call lists "
+"like :attr:`~Mock.mock_calls`:"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:1906
@@ -1859,8 +1862,8 @@ msgstr ""
 #: ../../../library/unittest.mock.rst:2031
 msgid ""
 "First the problem specific to `Mock`. `Mock` has two assert methods that are "
-"extremely handy: :meth:`~Mock.assert_called_with` and :meth:`~Mock."
-"assert_called_once_with`."
+"extremely handy: :meth:`~Mock.assert_called_with` "
+"and :meth:`~Mock.assert_called_once_with`."
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:2044
@@ -1948,8 +1951,8 @@ msgstr ""
 
 #: ../../../library/unittest.mock.rst:2137
 msgid ""
-"As well as using `autospec` through `patch` there is a :func:"
-"`create_autospec` for creating autospecced mocks directly:"
+"As well as using `autospec` through `patch` there is "
+"a :func:`create_autospec` for creating autospecced mocks directly:"
 msgstr ""
 
 #: ../../../library/unittest.mock.rst:2145

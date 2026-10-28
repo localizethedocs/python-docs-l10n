@@ -63,9 +63,9 @@ msgstr ""
 #: ../../../library/unittest.mock-examples.rst:40
 msgid ""
 "Once the mock has been called its :attr:`~Mock.called` attribute is set to "
-"`True`. More importantly we can use the :meth:`~Mock.assert_called_with` or :"
-"meth:`~Mock.assert_called_once_with` method to check that it was called with "
-"the correct arguments."
+"`True`. More importantly we can use the :meth:`~Mock.assert_called_with` "
+"or :meth:`~Mock.assert_called_once_with` method to check that it was called "
+"with the correct arguments."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:45
@@ -102,8 +102,8 @@ msgstr ""
 msgid ""
 "We don't have to do any work to provide the 'close' method on our mock. "
 "Accessing close creates it. So, if 'close' hasn't already been called then "
-"accessing it in the test will create it, but :meth:`~Mock."
-"assert_called_with` will raise a failure exception."
+"accessing it in the test will create it, "
+"but :meth:`~Mock.assert_called_with` will raise a failure exception."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:92
@@ -143,9 +143,9 @@ msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:132
 msgid ""
-"Often you want to track more than a single call to a method. The :attr:"
-"`~Mock.mock_calls` attribute records all calls to child attributes of the "
-"mock - and also to their children."
+"Often you want to track more than a single call to a method. "
+"The :attr:`~Mock.mock_calls` attribute records all calls to child attributes "
+"of the mock - and also to their children."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:144
@@ -271,8 +271,8 @@ msgstr ""
 #: ../../../library/unittest.mock-examples.rst:291
 msgid ""
 "With `patch` it matters that you patch objects in the namespace where they "
-"are looked up. This is normally straightforward, but for a quick guide read :"
-"ref:`where to patch <where-to-patch>`."
+"are looked up. This is normally straightforward, but for a quick guide "
+"read :ref:`where to patch <where-to-patch>`."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:296
@@ -287,11 +287,12 @@ msgstr ""
 #: ../../../library/unittest.mock-examples.rst:302
 msgid ""
 "mock provides three convenient decorators for this: `patch`, `patch.object` "
-"and `patch.dict`. `patch` takes a single string, of the form `package.module."
-"Class.attribute` to specify the attribute you are patching. It also "
-"optionally takes a value that you want the attribute (or class or whatever) "
-"to be replaced with. 'patch.object' takes an object and the name of the "
-"attribute you would like patched, plus optionally the value to patch it with."
+"and `patch.dict`. `patch` takes a single string, of the form "
+"`package.module.Class.attribute` to specify the attribute you are patching. "
+"It also optionally takes a value that you want the attribute (or class or "
+"whatever) to be replaced with. 'patch.object' takes an object and the name "
+"of the attribute you would like patched, plus optionally the value to patch "
+"it with."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:310
@@ -420,14 +421,15 @@ msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:471
 msgid ""
-"`mock_backend.get_endpoint.return_value.create_call.return_value.start_call."
-"return_value = mock_response`."
+"`mock_backend.get_endpoint.return_value.create_call.return_value.start_call.return_value "
+"= mock_response`."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:473
 msgid ""
-"We can do that in a slightly nicer way using the :meth:`~Mock."
-"configure_mock` method to directly set the return value for us:"
+"We can do that in a slightly nicer way using "
+"the :meth:`~Mock.configure_mock` method to directly set the return value for "
+"us:"
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:482
@@ -515,8 +517,8 @@ msgstr ""
 msgid ""
 "A generator method / function is called to return the generator object. It "
 "is the generator object that is then iterated over. The protocol method for "
-"iteration is `__iter__ <http://docs.python.org/library/stdtypes."
-"html#container.__iter__>`_, so we can mock this using a `MagicMock`."
+"iteration is `__iter__ <http://docs.python.org/library/"
+"stdtypes.html#container.__iter__>`_, so we can mock this using a `MagicMock`."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:555
@@ -531,17 +533,17 @@ msgstr ""
 #: ../../../library/unittest.mock-examples.rst:569
 msgid ""
 "To configure the values returned from the iteration (implicit in the call to "
-"`list`), we need to configure the object returned by the call to `foo."
-"iter()`."
+"`list`), we need to configure the object returned by the call to "
+"`foo.iter()`."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:577
 msgid ""
-"There are also generator expressions and more `advanced uses <http://www."
-"dabeaz.com/coroutines/index.html>`_ of generators, but we aren't concerned "
-"about them here. A very good introduction to generators and how powerful "
-"they are is: `Generator Tricks for Systems Programmers <http://www.dabeaz."
-"com/generators/>`_."
+"There are also generator expressions and more `advanced uses <http://"
+"www.dabeaz.com/coroutines/index.html>`_ of generators, but we aren't "
+"concerned about them here. A very good introduction to generators and how "
+"powerful they are is: `Generator Tricks for Systems Programmers <http://"
+"www.dabeaz.com/generators/>`_."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:585
@@ -569,8 +571,8 @@ msgstr ""
 msgid ""
 "If you use this technique you must ensure that the patching is \"undone\" by "
 "calling `stop`. This can be fiddlier than you might think, because if an "
-"exception is raised in the setUp then tearDown is not called. :meth:"
-"`unittest.TestCase.addCleanup` makes this easier:"
+"exception is raised in the setUp then tearDown is not "
+"called. :meth:`unittest.TestCase.addCleanup` makes this easier:"
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:645
@@ -621,17 +623,17 @@ msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:693
 msgid ""
-"If your mock is only being called once you can use the :meth:"
-"`assert_called_once_with` method that also asserts that the :attr:"
-"`call_count` is one."
+"If your mock is only being called once you can use "
+"the :meth:`assert_called_once_with` method that also asserts that "
+"the :attr:`call_count` is one."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:704
 msgid ""
 "Both `assert_called_with` and `assert_called_once_with` make assertions "
 "about the *most recent* call. If your mock is going to be called several "
-"times, and you want to make assertions about *all* those calls you can use :"
-"attr:`~Mock.call_args_list`:"
+"times, and you want to make assertions about *all* those calls you can "
+"use :attr:`~Mock.call_args_list`:"
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:716
@@ -758,8 +760,9 @@ msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:903
 msgid ""
-"After the `MagicMock` has been used we can use attributes like :data:`~Mock."
-"call_args_list` to assert about how the dictionary was used:"
+"After the `MagicMock` has been used we can use attributes "
+"like :data:`~Mock.call_args_list` to assert about how the dictionary was "
+"used:"
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:919
@@ -810,11 +813,11 @@ msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:999
 msgid ""
-"Sometimes this is inconvenient. For example, `one user <https://code.google."
-"com/p/mock/issues/detail?id=105>`_ is subclassing mock to created a `Twisted "
-"adaptor <http://twistedmatrix.com/documents/11.0.0/api/twisted.python."
-"components.html>`_. Having this applied to attributes too actually causes "
-"errors."
+"Sometimes this is inconvenient. For example, `one user <https://"
+"code.google.com/p/mock/issues/detail?id=105>`_ is subclassing mock to "
+"created a `Twisted adaptor <http://twistedmatrix.com/documents/11.0.0/api/"
+"twisted.python.components.html>`_. Having this applied to attributes too "
+"actually causes errors."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:1005
@@ -927,10 +930,10 @@ msgstr ""
 #: ../../../library/unittest.mock-examples.rst:1142
 msgid ""
 "If many calls have been made, but you're only interested in a particular "
-"sequence of them then an alternative is to use the :meth:`~Mock."
-"assert_has_calls` method. This takes a list of calls (constructed with the :"
-"data:`call` object). If that sequence of calls are in :attr:`~Mock."
-"mock_calls` then the assert succeeds."
+"sequence of them then an alternative is to use "
+"the :meth:`~Mock.assert_has_calls` method. This takes a list of calls "
+"(constructed with the :data:`call` object). If that sequence of calls are "
+"in :attr:`~Mock.mock_calls` then the assert succeeds."
 msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:1156
@@ -1005,9 +1008,9 @@ msgstr ""
 
 #: ../../../library/unittest.mock-examples.rst:1242
 msgid ""
-"As of version 1.5, the Python testing library `PyHamcrest <http://pypi."
-"python.org/pypi/PyHamcrest>`_ provides similar functionality, that may be "
-"useful here, in the form of its equality matcher (`hamcrest.library."
-"integration.match_equality <http://packages.python.org/PyHamcrest/"
-"integration.html#hamcrest.library.integration.match_equality>`_)."
+"As of version 1.5, the Python testing library `PyHamcrest <http://"
+"pypi.python.org/pypi/PyHamcrest>`_ provides similar functionality, that may "
+"be useful here, in the form of its equality matcher "
+"(`hamcrest.library.integration.match_equality <http://packages.python.org/"
+"PyHamcrest/integration.html#hamcrest.library.integration.match_equality>`_)."
 msgstr ""
