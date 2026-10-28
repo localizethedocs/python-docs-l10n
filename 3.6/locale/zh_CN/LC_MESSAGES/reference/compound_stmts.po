@@ -33,10 +33,10 @@ msgstr ""
 msgid ""
 "The :keyword:`if`, :keyword:`while` and :keyword:`for` statements implement "
 "traditional control flow constructs.  :keyword:`try` specifies exception "
-"handlers and/or cleanup code for a group of statements, while the :keyword:"
-"`with` statement allows the execution of initialization and finalization "
-"code around a block of code.  Function and class definitions are also "
-"syntactically compound statements."
+"handlers and/or cleanup code for a group of statements, while "
+"the :keyword:`with` statement allows the execution of initialization and "
+"finalization code around a block of code.  Function and class definitions "
+"are also syntactically compound statements."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:26
@@ -70,8 +70,8 @@ msgid ""
 "Note that statements always end in a ``NEWLINE`` possibly followed by a "
 "``DEDENT``.  Also note that optional continuation clauses always begin with "
 "a keyword that cannot start a statement, thus there are no ambiguities (the "
-"'dangling :keyword:`else`' problem is solved in Python by requiring nested :"
-"keyword:`if` statements to be indented)."
+"'dangling :keyword:`else`' problem is solved in Python by requiring "
+"nested :keyword:`if` statements to be indented)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:73
@@ -261,34 +261,36 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:303
 msgid ""
 "Before an except clause's suite is executed, details about the exception are "
-"stored in the :mod:`sys` module and can be accessed via :func:`sys."
-"exc_info`. :func:`sys.exc_info` returns a 3-tuple consisting of the "
-"exception class, the exception instance and a traceback object (see section :"
-"ref:`types`) identifying the point in the program where the exception "
-"occurred.  :func:`sys.exc_info` values are restored to their previous values "
-"(before the call) when returning from a function that handled an exception."
+"stored in the :mod:`sys` module and can be accessed "
+"via :func:`sys.exc_info`. :func:`sys.exc_info` returns a 3-tuple consisting "
+"of the exception class, the exception instance and a traceback object (see "
+"section :ref:`types`) identifying the point in the program where the "
+"exception occurred.  :func:`sys.exc_info` values are restored to their "
+"previous values (before the call) when returning from a function that "
+"handled an exception."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:317
 msgid ""
 "The optional :keyword:`else` clause is executed if the control flow leaves "
-"the :keyword:`try` suite, no exception was raised, and no :keyword:"
-"`return`, :keyword:`continue`, or :keyword:`break` statement was executed.  "
-"Exceptions in the :keyword:`else` clause are not handled by the preceding :"
-"keyword:`except` clauses."
+"the :keyword:`try` suite, no exception was raised, and "
+"no :keyword:`return`, :keyword:`continue`, or :keyword:`break` statement was "
+"executed.  Exceptions in the :keyword:`else` clause are not handled by the "
+"preceding :keyword:`except` clauses."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:325
 msgid ""
-"If :keyword:`finally` is present, it specifies a 'cleanup' handler.  The :"
-"keyword:`try` clause is executed, including any :keyword:`except` and :"
-"keyword:`else` clauses.  If an exception occurs in any of the clauses and is "
-"not handled, the exception is temporarily saved. The :keyword:`finally` "
-"clause is executed.  If there is a saved exception it is re-raised at the "
-"end of the :keyword:`finally` clause.  If the :keyword:`finally` clause "
-"raises another exception, the saved exception is set as the context of the "
-"new exception. If the :keyword:`finally` clause executes a :keyword:`return` "
-"or :keyword:`break` statement, the saved exception is discarded::"
+"If :keyword:`finally` is present, it specifies a 'cleanup' handler.  "
+"The :keyword:`try` clause is executed, including any :keyword:`except` "
+"and :keyword:`else` clauses.  If an exception occurs in any of the clauses "
+"and is not handled, the exception is temporarily saved. "
+"The :keyword:`finally` clause is executed.  If there is a saved exception it "
+"is re-raised at the end of the :keyword:`finally` clause.  If "
+"the :keyword:`finally` clause raises another exception, the saved exception "
+"is set as the context of the new exception. If the :keyword:`finally` clause "
+"executes a :keyword:`return` or :keyword:`break` statement, the saved "
+"exception is discarded::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:344
@@ -300,26 +302,26 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:352
 msgid ""
 "When a :keyword:`return`, :keyword:`break` or :keyword:`continue` statement "
-"is executed in the :keyword:`try` suite of a :keyword:`try`...\\ :keyword:"
-"`finally` statement, the :keyword:`finally` clause is also executed 'on the "
-"way out.' A :keyword:`continue` statement is illegal in the :keyword:"
-"`finally` clause. (The reason is a problem with the current implementation "
-"--- this restriction may be lifted in the future)."
+"is executed in the :keyword:`try` suite of a :keyword:`try`..."
+"\\ :keyword:`finally` statement, the :keyword:`finally` clause is also "
+"executed 'on the way out.' A :keyword:`continue` statement is illegal in "
+"the :keyword:`finally` clause. (The reason is a problem with the current "
+"implementation --- this restriction may be lifted in the future)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:359
 msgid ""
 "The return value of a function is determined by the last :keyword:`return` "
-"statement executed.  Since the :keyword:`finally` clause always executes, a :"
-"keyword:`return` statement executed in the :keyword:`finally` clause will "
+"statement executed.  Since the :keyword:`finally` clause always executes, "
+"a :keyword:`return` statement executed in the :keyword:`finally` clause will "
 "always be the last one executed::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:373
 msgid ""
-"Additional information on exceptions can be found in section :ref:"
-"`exceptions`, and information on using the :keyword:`raise` statement to "
-"generate exceptions may be found in section :ref:`raise`."
+"Additional information on exceptions can be found in "
+"section :ref:`exceptions`, and information on using the :keyword:`raise` "
+"statement to generate exceptions may be found in section :ref:`raise`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:382
@@ -330,8 +332,8 @@ msgstr ""
 msgid ""
 "The :keyword:`with` statement is used to wrap the execution of a block with "
 "methods defined by a context manager (see section :ref:`context-managers`). "
-"This allows common :keyword:`try`...\\ :keyword:`except`...\\ :keyword:"
-"`finally` usage patterns to be encapsulated for convenient reuse."
+"This allows common :keyword:`try`...\\ :keyword:`except`..."
+"\\ :keyword:`finally` usage patterns to be encapsulated for convenient reuse."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:400
@@ -383,10 +385,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:427
 msgid ""
-"If the suite was exited due to an exception, and the return value from the :"
-"meth:`__exit__` method was false, the exception is reraised.  If the return "
-"value was true, the exception is suppressed, and execution continues with "
-"the statement following the :keyword:`with` statement."
+"If the suite was exited due to an exception, and the return value from "
+"the :meth:`__exit__` method was false, the exception is reraised.  If the "
+"return value was true, the exception is suppressed, and execution continues "
+"with the statement following the :keyword:`with` statement."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:432
@@ -398,8 +400,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:436
 msgid ""
-"With more than one item, the context managers are processed as if multiple :"
-"keyword:`with` statements were nested::"
+"With more than one item, the context managers are processed as if "
+"multiple :keyword:`with` statements were nested::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:442
@@ -427,8 +429,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:480
 msgid ""
-"A function definition defines a user-defined function object (see section :"
-"ref:`types`):"
+"A function definition defines a user-defined function object (see "
+"section :ref:`types`):"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:498
@@ -494,16 +496,16 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:561
 msgid ""
-"Function call semantics are described in more detail in section :ref:"
-"`calls`. A function call always assigns values to all parameters mentioned "
-"in the parameter list, either from position arguments, from keyword "
-"arguments, or from default values.  If the form \"``*identifier``\" is "
-"present, it is initialized to a tuple receiving any excess positional "
-"parameters, defaulting to the empty tuple. If the form \"``**identifier``\" "
-"is present, it is initialized to a new ordered mapping receiving any excess "
-"keyword arguments, defaulting to a new empty mapping of the same type.  "
-"Parameters after \"``*``\" or \"``*identifier``\" are keyword-only "
-"parameters and may only be passed used keyword arguments."
+"Function call semantics are described in more detail in "
+"section :ref:`calls`. A function call always assigns values to all "
+"parameters mentioned in the parameter list, either from position arguments, "
+"from keyword arguments, or from default values.  If the form "
+"\"``*identifier``\" is present, it is initialized to a tuple receiving any "
+"excess positional parameters, defaulting to the empty tuple. If the form "
+"\"``**identifier``\" is present, it is initialized to a new ordered mapping "
+"receiving any excess keyword arguments, defaulting to a new empty mapping of "
+"the same type.  Parameters after \"``*``\" or \"``*identifier``\" are "
+"keyword-only parameters and may only be passed used keyword arguments."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:577
@@ -527,9 +529,9 @@ msgid ""
 "described in section :ref:`lambda`.  Note that the lambda expression is "
 "merely a shorthand for a simplified function definition; a function defined "
 "in a \":keyword:`def`\" statement can be passed around or assigned to "
-"another name just like a function defined by a lambda expression.  The \":"
-"keyword:`def`\" form is actually more powerful since it allows the execution "
-"of multiple statements and annotations."
+"another name just like a function defined by a lambda expression.  The "
+"\":keyword:`def`\" form is actually more powerful since it allows the "
+"execution of multiple statements and annotations."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:598
@@ -568,14 +570,14 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:649
 msgid ""
-"The class's suite is then executed in a new execution frame (see :ref:"
-"`naming`), using a newly created local namespace and the original global "
-"namespace. (Usually, the suite contains mostly function definitions.)  When "
-"the class's suite finishes execution, its execution frame is discarded but "
-"its local namespace is saved. [#]_ A class object is then created using the "
-"inheritance list for the base classes and the saved local namespace for the "
-"attribute dictionary.  The class name is bound to this class object in the "
-"original local namespace."
+"The class's suite is then executed in a new execution frame "
+"(see :ref:`naming`), using a newly created local namespace and the original "
+"global namespace. (Usually, the suite contains mostly function "
+"definitions.)  When the class's suite finishes execution, its execution "
+"frame is discarded but its local namespace is saved. [#]_ A class object is "
+"then created using the inheritance list for the base classes and the saved "
+"local namespace for the attribute dictionary.  The class name is bound to "
+"this class object in the original local namespace."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:658
@@ -701,8 +703,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:782
 msgid ""
-"It is a :exc:`SyntaxError` to use ``async for`` statement outside of an :"
-"keyword:`async def` function."
+"It is a :exc:`SyntaxError` to use ``async for`` statement outside of "
+"an :keyword:`async def` function."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:790
@@ -721,8 +723,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:820
 msgid ""
-"It is a :exc:`SyntaxError` to use ``async with`` statement outside of an :"
-"keyword:`async def` function."
+"It is a :exc:`SyntaxError` to use ``async with`` statement outside of "
+"an :keyword:`async def` function."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:826
@@ -741,9 +743,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:832
 msgid ""
-"The exception is propagated to the invocation stack unless there is a :"
-"keyword:`finally` clause which happens to raise another exception. That new "
-"exception causes the old one to be lost."
+"The exception is propagated to the invocation stack unless there is "
+"a :keyword:`finally` clause which happens to raise another exception. That "
+"new exception causes the old one to be lost."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:836
@@ -756,8 +758,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:840
 msgid ""
 "A string literal appearing as the first statement in the class body is "
-"transformed into the namespace's ``__doc__`` item and therefore the class's :"
-"term:`docstring`."
+"transformed into the namespace's ``__doc__`` item and therefore the "
+"class's :term:`docstring`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/reference/compound_stmts.rst:7

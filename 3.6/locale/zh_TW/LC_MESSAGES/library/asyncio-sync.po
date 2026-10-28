@@ -56,10 +56,10 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:20
 msgid ""
 "asyncio lock API was designed to be close to classes of the :mod:`threading` "
-"module (:class:`~threading.Lock`, :class:`~threading.Event`, :class:"
-"`~threading.Condition`, :class:`~threading.Semaphore`, :class:`~threading."
-"BoundedSemaphore`), but it has no *timeout* parameter. The :func:`asyncio."
-"wait_for` function can be used to cancel a task after a timeout."
+"module "
+"(:class:`~threading.Lock`, :class:`~threading.Event`, :class:`~threading.Condition`, :class:`~threading.Semaphore`, :class:`~threading.BoundedSemaphore`), "
+"but it has no *timeout* parameter. The :func:`asyncio.wait_for` function can "
+"be used to cancel a task after a timeout."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:27
@@ -83,14 +83,15 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:40
 msgid ""
-"It is created in the unlocked state.  It has two basic methods, :meth:"
-"`acquire` and :meth:`release`.  When the state is unlocked, acquire() "
-"changes the state to locked and returns immediately.  When the state is "
-"locked, acquire() blocks until a call to release() in another coroutine "
-"changes it to unlocked, then the acquire() call resets it to locked and "
-"returns.  The release() method should only be called in the locked state; it "
-"changes the state to unlocked and returns immediately.  If an attempt is "
-"made to release an unlocked lock, a :exc:`RuntimeError` will be raised."
+"It is created in the unlocked state.  It has two basic "
+"methods, :meth:`acquire` and :meth:`release`.  When the state is unlocked, "
+"acquire() changes the state to locked and returns immediately.  When the "
+"state is locked, acquire() blocks until a call to release() in another "
+"coroutine changes it to unlocked, then the acquire() call resets it to "
+"locked and returns.  The release() method should only be called in the "
+"locked state; it changes the state to unlocked and returns immediately.  If "
+"an attempt is made to release an unlocked lock, a :exc:`RuntimeError` will "
+"be raised."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:49
@@ -195,9 +196,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:128
 msgid ""
-"Reset the internal flag to false. Subsequently, coroutines calling :meth:"
-"`wait` will block until :meth:`set` is called to set the internal flag to "
-"true again."
+"Reset the internal flag to false. Subsequently, coroutines "
+"calling :meth:`wait` will block until :meth:`set` is called to set the "
+"internal flag to true again."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:134
@@ -228,8 +229,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:158
 msgid ""
-"A Condition implementation, asynchronous equivalent to :class:`threading."
-"Condition`."
+"A Condition implementation, asynchronous equivalent "
+"to :class:`threading.Condition`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:161
@@ -242,8 +243,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:165
 msgid ""
 "If the *lock* argument is given and not ``None``, it must be a :class:`Lock` "
-"object, and it is used as the underlying lock.  Otherwise, a new :class:"
-"`Lock` object is created and used as the underlying lock."
+"object, and it is used as the underlying lock.  Otherwise, a "
+"new :class:`Lock` object is created and used as the underlying lock."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:173
@@ -253,8 +254,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:182
 msgid ""
 "By default, wake up one coroutine waiting on this condition, if any. If the "
-"calling coroutine has not acquired the lock when this method is called, a :"
-"exc:`RuntimeError` is raised."
+"calling coroutine has not acquired the lock when this method is called, "
+"a :exc:`RuntimeError` is raised."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:186
@@ -276,10 +277,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:201
 msgid ""
-"Wake up all coroutines waiting on this condition. This method acts like :"
-"meth:`notify`, but wakes up all waiting coroutines instead of one. If the "
-"calling coroutine has not acquired the lock when this method is called, a :"
-"exc:`RuntimeError` is raised."
+"Wake up all coroutines waiting on this condition. This method acts "
+"like :meth:`notify`, but wakes up all waiting coroutines instead of one. If "
+"the calling coroutine has not acquired the lock when this method is called, "
+"a :exc:`RuntimeError` is raised."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:208
@@ -335,10 +336,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:252
 msgid ""
-"A semaphore manages an internal counter which is decremented by each :meth:"
-"`acquire` call and incremented by each :meth:`release` call. The counter can "
-"never go below zero; when :meth:`acquire` finds that it is zero, it blocks, "
-"waiting until some other coroutine calls :meth:`release`."
+"A semaphore manages an internal counter which is decremented by "
+"each :meth:`acquire` call and incremented by each :meth:`release` call. The "
+"counter can never go below zero; when :meth:`acquire` finds that it is zero, "
+"it blocks, waiting until some other coroutine calls :meth:`release`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-sync.rst:257

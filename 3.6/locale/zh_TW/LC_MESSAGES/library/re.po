@@ -33,11 +33,11 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:17
 msgid ""
-"Both patterns and strings to be searched can be Unicode strings (:class:"
-"`str`) as well as 8-bit strings (:class:`bytes`). However, Unicode strings "
-"and 8-bit strings cannot be mixed: that is, you cannot match a Unicode "
-"string with a byte pattern or vice-versa; similarly, when asking for a "
-"substitution, the replacement string must be of the same type as both the "
+"Both patterns and strings to be searched can be Unicode strings "
+"(:class:`str`) as well as 8-bit strings (:class:`bytes`). However, Unicode "
+"strings and 8-bit strings cannot be mixed: that is, you cannot match a "
+"Unicode string with a byte pattern or vice-versa; similarly, when asking for "
+"a substitution, the replacement string must be of the same type as both the "
 "pattern and the search string."
 msgstr ""
 
@@ -172,10 +172,10 @@ msgid ""
 "string, and in :const:`MULTILINE` mode also matches before a newline.  "
 "``foo`` matches both 'foo' and 'foobar', while the regular expression "
 "``foo$`` matches only 'foo'.  More interestingly, searching for ``foo.$`` in "
-"``'foo1\\nfoo2\\n'`` matches 'foo2' normally, but 'foo1' in :const:"
-"`MULTILINE` mode; searching for a single ``$`` in ``'foo\\n'`` will find two "
-"(empty) matches: one just before the newline, and one at the end of the "
-"string."
+"``'foo1\\nfoo2\\n'`` matches 'foo2' normally, but 'foo1' "
+"in :const:`MULTILINE` mode; searching for a single ``$`` in ``'foo\\n'`` "
+"will find two (empty) matches: one just before the newline, and one at the "
+"end of the string."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:125
@@ -327,12 +327,12 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:223
 msgid ""
-"Characters that are not within a range can be matched by :dfn:"
-"`complementing` the set.  If the first character of the set is ``'^'``, all "
-"the characters that are *not* in the set will be matched.  For example, "
-"``[^5]`` will match any character except ``'5'``, and ``[^^]`` will match "
-"any character except ``'^'``.  ``^`` has no special meaning if it's not the "
-"first character in the set."
+"Characters that are not within a range can be matched "
+"by :dfn:`complementing` the set.  If the first character of the set is "
+"``'^'``, all the characters that are *not* in the set will be matched.  For "
+"example, ``[^5]`` will match any character except ``'5'``, and ``[^^]`` will "
+"match any character except ``'^'``.  ``^`` has no special meaning if it's "
+"not the first character in the set."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:230
@@ -394,14 +394,15 @@ msgstr ""
 msgid ""
 "(One or more letters from the set ``'a'``, ``'i'``, ``'L'``, ``'m'``, "
 "``'s'``, ``'u'``, ``'x'``.)  The group matches the empty string; the letters "
-"set the corresponding flags: :const:`re.A` (ASCII-only matching), :const:`re."
-"I` (ignore case), :const:`re.L` (locale dependent), :const:`re.M` (multi-"
-"line), :const:`re.S` (dot matches all), :const:`re.U` (Unicode matching), "
-"and :const:`re.X` (verbose), for the entire regular expression. (The flags "
-"are described in :ref:`contents-of-module-re`.) This is useful if you wish "
-"to include the flags as part of the regular expression, instead of passing a "
-"*flag* argument to the :func:`re.compile` function.  Flags should be used "
-"first in the expression string."
+"set the corresponding flags: :const:`re.A` (ASCII-only "
+"matching), :const:`re.I` (ignore case), :const:`re.L` (locale "
+"dependent), :const:`re.M` (multi-line), :const:`re.S` (dot matches "
+"all), :const:`re.U` (Unicode matching), and :const:`re.X` (verbose), for the "
+"entire regular expression. (The flags are described in :ref:`contents-of-"
+"module-re`.) This is useful if you wish to include the flags as part of the "
+"regular expression, instead of passing a *flag* argument to "
+"the :func:`re.compile` function.  Flags should be used first in the "
+"expression string."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:286
@@ -549,8 +550,8 @@ msgid ""
 "length, meaning that ``abc`` or ``a|b`` are allowed, but ``a*`` and ``a{3,4}"
 "`` are not.  Note that patterns which start with positive lookbehind "
 "assertions will not match at the beginning of the string being searched; you "
-"will most likely want to use the :func:`search` function rather than the :"
-"func:`match` function:"
+"will most likely want to use the :func:`search` function rather than "
+"the :func:`match` function:"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:366
@@ -653,9 +654,9 @@ msgid ""
 "of a word.  This means that ``r'py\\B'`` matches ``'python'``, ``'py3'``, "
 "``'py2'``, but not ``'py'``, ``'py.'``, or ``'py!'``. ``\\B`` is just the "
 "opposite of ``\\b``, so word characters in Unicode patterns are Unicode "
-"alphanumerics or the underscore, although this can be changed by using the :"
-"const:`ASCII` flag.  Word boundaries are determined by the current locale if "
-"the :const:`LOCALE` flag is used."
+"alphanumerics or the underscore, although this can be changed by using "
+"the :const:`ASCII` flag.  Word boundaries are determined by the current "
+"locale if the :const:`LOCALE` flag is used."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:454
@@ -707,9 +708,9 @@ msgstr ""
 msgid ""
 "Matches Unicode whitespace characters (which includes "
 "``[ \\t\\n\\r\\f\\v]``, and also many other characters, for example the non-"
-"breaking spaces mandated by typography rules in many languages). If the :"
-"const:`ASCII` flag is used, only ``[ \\t\\n\\r\\f\\v]`` is matched (but the "
-"flag affects the entire regular expression, so in such cases using an "
+"breaking spaces mandated by typography rules in many languages). If "
+"the :const:`ASCII` flag is used, only ``[ \\t\\n\\r\\f\\v]`` is matched (but "
+"the flag affects the entire regular expression, so in such cases using an "
 "explicit ``[ \\t\\n\\r\\f\\v]`` may be a better choice)."
 msgstr ""
 
@@ -831,8 +832,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:579
 msgid ""
 "Compile a regular expression pattern into a :ref:`regular expression object "
-"<re-objects>`, which can be used for matching using its :func:`~regex."
-"match`, :func:`~regex.search` and other methods, described below."
+"<re-objects>`, which can be used for matching using "
+"its :func:`~regex.match`, :func:`~regex.search` and other methods, described "
+"below."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:584
@@ -859,10 +861,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:603
 msgid ""
-"The compiled versions of the most recent patterns passed to :func:`re."
-"compile` and the module-level matching functions are cached, so programs "
-"that use only a few regular expressions at a time needn't worry about "
-"compiling regular expressions."
+"The compiled versions of the most recent patterns passed "
+"to :func:`re.compile` and the module-level matching functions are cached, so "
+"programs that use only a few regular expressions at a time needn't worry "
+"about compiling regular expressions."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:612
@@ -902,8 +904,8 @@ msgid ""
 "Note that when the Unicode patterns ``[a-z]`` or ``[A-Z]`` are used in "
 "combination with the :const:`IGNORECASE` flag, they will match the 52 ASCII "
 "letters and 4 additional non-ASCII letters: 'İ' (U+0130, Latin capital "
-"letter I with dot above), 'ı' (U+0131, Latin small letter dotless i), "
-"'ſ' (U+017F, Latin small letter long s) and 'K' (U+212A, Kelvin sign). If "
+"letter I with dot above), 'ı' (U+0131, Latin small letter dotless i), 'ſ' "
+"(U+017F, Latin small letter long s) and 'K' (U+212A, Kelvin sign). If "
 "the :const:`ASCII` flag is used, only letters 'a' to 'z' and 'A' to 'Z' are "
 "matched (but the flag affects the entire regular expression, so in such "
 "cases using an explicit ``(?-i:[a-zA-Z])`` may be a better choice)."
@@ -969,10 +971,10 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:714
 msgid ""
 "Scan through *string* looking for the first location where the regular "
-"expression *pattern* produces a match, and return a corresponding :ref:"
-"`match object <match-objects>`.  Return ``None`` if no position in the "
-"string matches the pattern; note that this is different from finding a zero-"
-"length match at some point in the string."
+"expression *pattern* produces a match, and return a "
+"corresponding :ref:`match object <match-objects>`.  Return ``None`` if no "
+"position in the string matches the pattern; note that this is different from "
+"finding a zero-length match at some point in the string."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:723
@@ -1082,8 +1084,8 @@ msgid ""
 "Return an :term:`iterator` yielding :ref:`match objects <match-objects>` "
 "over all non-overlapping matches for the RE *pattern* in *string*.  The "
 "*string* is scanned left-to-right, and matches are returned in the order "
-"found.  Empty matches are included in the result.  See also the note about :"
-"func:`findall`."
+"found.  Empty matches are included in the result.  See also the note "
+"about :func:`findall`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:831
@@ -1258,14 +1260,14 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1011
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1029
 msgid ""
-"The optional *pos* and *endpos* parameters have the same meaning as for the :"
-"meth:`~regex.search` method. ::"
+"The optional *pos* and *endpos* parameters have the same meaning as for "
+"the :meth:`~regex.search` method. ::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1019
 msgid ""
-"If you want to locate a match anywhere in *string*, use :meth:`~regex."
-"search` instead (see also :ref:`search-vs-match`)."
+"If you want to locate a match anywhere in *string*, "
+"use :meth:`~regex.search` instead (see also :ref:`search-vs-match`)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1025
@@ -1304,9 +1306,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1072
 msgid ""
-"The regex matching flags.  This is a combination of the flags given to :func:"
-"`.compile`, any ``(?...)`` inline flags in the pattern, and implicit flags "
-"such as :data:`UNICODE` if the pattern is a Unicode string."
+"The regex matching flags.  This is a combination of the flags given "
+"to :func:`.compile`, any ``(?...)`` inline flags in the pattern, and "
+"implicit flags such as :data:`UNICODE` if the pattern is a Unicode string."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1079
@@ -1330,9 +1332,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1099
 msgid ""
-"Match objects always have a boolean value of ``True``. Since :meth:`~regex."
-"match` and :meth:`~regex.search` return ``None`` when there is no match, you "
-"can test whether there was a match with a simple ``if`` statement::"
+"Match objects always have a boolean value of ``True``. "
+"Since :meth:`~regex.match` and :meth:`~regex.search` return ``None`` when "
+"there is no match, you can test whether there was a match with a simple "
+"``if`` statement::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1108
@@ -1367,8 +1370,8 @@ msgstr ""
 msgid ""
 "If the regular expression uses the ``(?P<name>...)`` syntax, the *groupN* "
 "arguments may also be strings identifying groups by their group name.  If a "
-"string argument is not used as a group name in the pattern, an :exc:"
-"`IndexError` exception is raised."
+"string argument is not used as a group name in the pattern, "
+"an :exc:`IndexError` exception is raised."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1152
@@ -1427,9 +1430,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1235
 msgid ""
 "Note that ``m.start(group)`` will equal ``m.end(group)`` if *group* matched "
-"a null string.  For example, after ``m = re.search('b(c?)', 'cba')``, ``m."
-"start(0)`` is 1, ``m.end(0)`` is 2, ``m.start(1)`` and ``m.end(1)`` are both "
-"2, and ``m.start(2)`` raises an :exc:`IndexError` exception."
+"a null string.  For example, after ``m = re.search('b(c?)', 'cba')``, "
+"``m.start(0)`` is 1, ``m.end(0)`` is 2, ``m.start(1)`` and ``m.end(1)`` are "
+"both 2, and ``m.start(2)`` raises an :exc:`IndexError` exception."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1240
@@ -1445,16 +1448,17 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1257
 msgid ""
-"The value of *pos* which was passed to the :meth:`~regex.search` or :meth:"
-"`~regex.match` method of a :ref:`regex object <re-objects>`.  This is the "
-"index into the string at which the RE engine started looking for a match."
+"The value of *pos* which was passed to the :meth:`~regex.search` "
+"or :meth:`~regex.match` method of a :ref:`regex object <re-objects>`.  This "
+"is the index into the string at which the RE engine started looking for a "
+"match."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1264
 msgid ""
-"The value of *endpos* which was passed to the :meth:`~regex.search` or :meth:"
-"`~regex.match` method of a :ref:`regex object <re-objects>`.  This is the "
-"index into the string beyond which the RE engine will not go."
+"The value of *endpos* which was passed to the :meth:`~regex.search` "
+"or :meth:`~regex.match` method of a :ref:`regex object <re-objects>`.  This "
+"is the index into the string beyond which the RE engine will not go."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1271
@@ -1517,8 +1521,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1339
 msgid ""
-"To find out what card the pair consists of, one could use the :meth:`~match."
-"group` method of the match object in the following manner:"
+"To find out what card the pair consists of, one could use "
+"the :meth:`~match.group` method of the match object in the following manner:"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1359
@@ -1528,9 +1532,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/re.rst:1363
 msgid ""
 "Python does not currently have an equivalent to :c:func:`scanf`.  Regular "
-"expressions are generally more powerful, though also more verbose, than :c:"
-"func:`scanf` format strings.  The table below offers some more-or-less "
-"equivalent mappings between :c:func:`scanf` format tokens and regular "
+"expressions are generally more powerful, though also more verbose, "
+"than :c:func:`scanf` format strings.  The table below offers some more-or-"
+"less equivalent mappings between :c:func:`scanf` format tokens and regular "
 "expressions."
 msgstr ""
 

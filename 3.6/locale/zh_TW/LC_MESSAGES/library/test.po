@@ -33,9 +33,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:18
 msgid ""
 "The :mod:`test` package contains all regression tests for Python as well as "
-"the modules :mod:`test.support` and :mod:`test.regrtest`. :mod:`test."
-"support` is used to enhance your tests while :mod:`test.regrtest` drives the "
-"testing suite."
+"the modules :mod:`test.support` "
+"and :mod:`test.regrtest`. :mod:`test.support` is used to enhance your tests "
+"while :mod:`test.regrtest` drives the testing suite."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:23
@@ -87,9 +87,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:88
 msgid ""
-"This code pattern allows the testing suite to be run by :mod:`test."
-"regrtest`, on its own as a script that supports the :mod:`unittest` CLI, or "
-"via the ``python -m unittest`` CLI."
+"This code pattern allows the testing suite to be run "
+"by :mod:`test.regrtest`, on its own as a script that supports "
+"the :mod:`unittest` CLI, or via the ``python -m unittest`` CLI."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:92
@@ -161,10 +161,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:145
 msgid ""
-"When using this pattern, remember that all classes that inherit from :class:"
-"`unittest.TestCase` are run as tests.  The :class:`Mixin` class in the "
-"example above does not have any data and so can't be run by itself, thus it "
-"does not inherit from :class:`unittest.TestCase`."
+"When using this pattern, remember that all classes that inherit "
+"from :class:`unittest.TestCase` are run as tests.  The :class:`Mixin` class "
+"in the example above does not have any data and so can't be run by itself, "
+"thus it does not inherit from :class:`unittest.TestCase`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:153
@@ -185,14 +185,14 @@ msgid ""
 "test suite, thanks to the :option:`-m` option: :program:`python -m test`. "
 "Under the hood, it uses :mod:`test.regrtest`; the call :program:`python -m "
 "test.regrtest` used in previous Python versions still works.  Running the "
-"script by itself automatically starts running all regression tests in the :"
-"mod:`test` package. It does this by finding all modules in the package whose "
-"name starts with ``test_``, importing them, and executing the function :func:"
-"`test_main` if present or loading the tests via unittest.TestLoader."
-"loadTestsFromModule if ``test_main`` does not exist.  The names of tests to "
-"execute may also be passed to the script. Specifying a single regression "
-"test (:program:`python -m test test_spam`) will minimize output and only "
-"print whether the test passed or failed."
+"script by itself automatically starts running all regression tests in "
+"the :mod:`test` package. It does this by finding all modules in the package "
+"whose name starts with ``test_``, importing them, and executing the "
+"function :func:`test_main` if present or loading the tests via "
+"unittest.TestLoader.loadTestsFromModule if ``test_main`` does not exist.  "
+"The names of tests to execute may also be passed to the script. Specifying a "
+"single regression test (:program:`python -m test test_spam`) will minimize "
+"output and only print whether the test passed or failed."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:175
@@ -212,9 +212,9 @@ msgstr ""
 msgid ""
 "Some other ways to execute the regression tests depend on what platform the "
 "tests are being executed on. On Unix, you can run :program:`make test` at "
-"the top-level directory where Python was built. On Windows, executing :"
-"program:`rt.bat` from your :file:`PCBuild` directory will run all regression "
-"tests."
+"the top-level directory where Python was built. On Windows, "
+"executing :program:`rt.bat` from your :file:`PCBuild` directory will run all "
+"regression tests."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:194
@@ -240,8 +240,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:214
 msgid ""
-"Exception to be raised when a test fails. This is deprecated in favor of :"
-"mod:`unittest`\\ -based tests and :class:`unittest.TestCase`'s assertion "
+"Exception to be raised when a test fails. This is deprecated in favor "
+"of :mod:`unittest`\\ -based tests and :class:`unittest.TestCase`'s assertion "
 "methods."
 msgstr ""
 
@@ -259,8 +259,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:230
 msgid ""
 "``True`` when verbose output is enabled. Should be checked when more "
-"detailed information is desired about a running test. *verbose* is set by :"
-"mod:`test.regrtest`."
+"detailed information is desired about a running test. *verbose* is set "
+"by :mod:`test.regrtest`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:237
@@ -321,9 +321,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:285
 msgid ""
 "It is also legal to pass strings as parameters; these should be keys in "
-"``sys.modules``. Each associated module will be scanned by ``unittest."
-"TestLoader.loadTestsFromModule()``. This is usually seen in the following :"
-"func:`test_main` function::"
+"``sys.modules``. Each associated module will be scanned by "
+"``unittest.TestLoader.loadTestsFromModule()``. This is usually seen in the "
+"following :func:`test_main` function::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:293
@@ -346,8 +346,8 @@ msgstr ""
 msgid ""
 "A convenience wrapper for :func:`warnings.catch_warnings()` that makes it "
 "easier to test that a warning was correctly raised.  It is approximately "
-"equivalent to calling ``warnings.catch_warnings(record=True)`` with :meth:"
-"`warnings.simplefilter` set to ``always`` and with the option to "
+"equivalent to calling ``warnings.catch_warnings(record=True)`` "
+"with :meth:`warnings.simplefilter` set to ``always`` and with the option to "
 "automatically validate the results that are recorded."
 msgstr ""
 
@@ -417,8 +417,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:375
 msgid ""
-"A context managers that temporarily replaces the named stream with :class:"
-"`io.StringIO` object."
+"A context managers that temporarily replaces the named stream "
+"with :class:`io.StringIO` object."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:378
@@ -437,10 +437,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:401
 msgid ""
-"If *path* is ``None``, the temporary directory is created using :func:"
-"`tempfile.mkdtemp`.  If *quiet* is ``False``, the context manager raises an "
-"exception on error.  Otherwise, if *path* is specified and cannot be "
-"created, only a warning is issued."
+"If *path* is ``None``, the temporary directory is created "
+"using :func:`tempfile.mkdtemp`.  If *quiet* is ``False``, the context "
+"manager raises an exception on error.  Otherwise, if *path* is specified and "
+"cannot be created, only a warning is issued."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:409
@@ -466,8 +466,8 @@ msgstr ""
 msgid ""
 "The context manager creates a temporary directory in the current directory "
 "with name *name* before temporarily changing the current working directory.  "
-"If *name* is ``None``, the temporary directory is created using :func:"
-"`tempfile.mkdtemp`."
+"If *name* is ``None``, the temporary directory is created "
+"using :func:`tempfile.mkdtemp`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:427
@@ -491,9 +491,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:450
 msgid ""
-"A decorator to conditionally mark tests with :func:`unittest."
-"expectedFailure`. Any use of this decorator should have an associated "
-"comment identifying the relevant tracker issue."
+"A decorator to conditionally mark tests "
+"with :func:`unittest.expectedFailure`. Any use of this decorator should have "
+"an associated comment identifying the relevant tracker issue."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:457
@@ -568,12 +568,13 @@ msgid ""
 "Bind the socket to a free port and return the port number.  Relies on "
 "ephemeral ports in order to ensure we are using an unbound port.  This is "
 "important as many tests may be running simultaneously, especially in a "
-"buildbot environment.  This method raises an exception if the ``sock."
-"family`` is :const:`~socket.AF_INET` and ``sock.type`` is :const:`~socket."
-"SOCK_STREAM`, and the socket has :const:`~socket.SO_REUSEADDR` or :const:"
-"`~socket.SO_REUSEPORT` set on it. Tests should never set these socket "
-"options for TCP/IP sockets. The only case for setting these options is "
-"testing multicasting via multiple UDP sockets."
+"buildbot environment.  This method raises an exception if the "
+"``sock.family`` is :const:`~socket.AF_INET` and ``sock.type`` "
+"is :const:`~socket.SOCK_STREAM`, and the socket "
+"has :const:`~socket.SO_REUSEADDR` or :const:`~socket.SO_REUSEPORT` set on "
+"it. Tests should never set these socket options for TCP/IP sockets. The only "
+"case for setting these options is testing multicasting via multiple UDP "
+"sockets."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:530
@@ -588,11 +589,11 @@ msgstr ""
 msgid ""
 "Returns an unused port that should be suitable for binding.  This is "
 "achieved by creating a temporary socket with the same family and type as the "
-"``sock`` parameter (default is :const:`~socket.AF_INET`, :const:`~socket."
-"SOCK_STREAM`), and binding it to the specified host address (defaults to "
-"``0.0.0.0``) with the port set to 0, eliciting an unused ephemeral port from "
-"the OS. The temporary socket is then closed and deleted, and the ephemeral "
-"port is returned."
+"``sock`` parameter (default "
+"is :const:`~socket.AF_INET`, :const:`~socket.SOCK_STREAM`), and binding it "
+"to the specified host address (defaults to ``0.0.0.0``) with the port set to "
+"0, eliciting an unused ephemeral port from the OS. The temporary socket is "
+"then closed and deleted, and the ephemeral port is returned."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:547
@@ -602,10 +603,10 @@ msgid ""
 "test. Which one to use depends on whether the calling code is creating a "
 "python socket, or if an unused port needs to be provided in a constructor or "
 "passed to an external program (i.e. the ``-accept`` argument to openssl's "
-"s_server mode).  Always prefer :func:`bind_port` over :func:"
-"`find_unused_port` where possible.  Using a hard coded port is discouraged "
-"since it can make multiple instances of the test impossible to run "
-"simultaneously, which is a problem for buildbots."
+"s_server mode).  Always prefer :func:`bind_port` "
+"over :func:`find_unused_port` where possible.  Using a hard coded port is "
+"discouraged since it can make multiple instances of the test impossible to "
+"run simultaneously, which is a problem for buildbots."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:561
@@ -713,8 +714,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:669
 msgid ""
-"On UNIX, :func:`resource.setrlimit` is used to set :attr:`resource."
-"RLIMIT_CORE`'s soft limit to 0 to prevent coredump file creation."
+"On UNIX, :func:`resource.setrlimit` is used to "
+"set :attr:`resource.RLIMIT_CORE`'s soft limit to 0 to prevent coredump file "
+"creation."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:673
@@ -723,8 +725,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:678
 msgid ""
-"Class used to record warnings for unit tests. See documentation of :func:"
-"`check_warnings` above for more details."
+"Class used to record warnings for unit tests. See documentation "
+"of :func:`check_warnings` above for more details."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/test.rst:684

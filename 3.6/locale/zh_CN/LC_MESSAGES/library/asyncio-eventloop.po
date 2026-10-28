@@ -53,8 +53,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:25
 msgid ""
-"This class is an implementation detail.  It is a subclass of :class:"
-"`AbstractEventLoop` and may be a base class of concrete event loop "
+"This class is an implementation detail.  It is a subclass "
+"of :class:`AbstractEventLoop` and may be a base class of concrete event loop "
 "implementations found in :mod:`asyncio`.  It should not be used directly; "
 "use :class:`AbstractEventLoop` instead. ``BaseEventLoop`` should not be "
 "subclassed by third-party code; the internal interface is not stable."
@@ -74,14 +74,14 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:43
 msgid ""
-"Run until :meth:`stop` is called.  If :meth:`stop` is called before :meth:"
-"`run_forever()` is called, this polls the I/O selector once with a timeout "
-"of zero, runs all callbacks scheduled in response to I/O events (and those "
-"that were already scheduled), and then exits. If :meth:`stop` is called "
-"while :meth:`run_forever` is running, this will run the current batch of "
-"callbacks and then exit.  Note that callbacks scheduled by callbacks will "
-"not run in that case; they will run the next time :meth:`run_forever` is "
-"called."
+"Run until :meth:`stop` is called.  If :meth:`stop` is called "
+"before :meth:`run_forever()` is called, this polls the I/O selector once "
+"with a timeout of zero, runs all callbacks scheduled in response to I/O "
+"events (and those that were already scheduled), and then exits. "
+"If :meth:`stop` is called while :meth:`run_forever` is running, this will "
+"run the current batch of callbacks and then exit.  Note that callbacks "
+"scheduled by callbacks will not run in that case; they will run the next "
+"time :meth:`run_forever` is called."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:56
@@ -90,8 +90,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:58
 msgid ""
-"If the argument is a :ref:`coroutine object <coroutine>`, it is wrapped by :"
-"func:`ensure_future`."
+"If the argument is a :ref:`coroutine object <coroutine>`, it is wrapped "
+"by :func:`ensure_future`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:61
@@ -157,9 +157,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:122
 msgid ""
-":func:`functools.partial` is better than ``lambda`` functions, because :mod:"
-"`asyncio` can inspect :func:`functools.partial` object to display parameters "
-"in debug mode, whereas ``lambda`` functions have a poor representation."
+":func:`functools.partial` is better than ``lambda`` functions, "
+"because :mod:`asyncio` can inspect :func:`functools.partial` object to "
+"display parameters in debug mode, whereas ``lambda`` functions have a poor "
+"representation."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:129
@@ -251,8 +252,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:190
 msgid ""
 "Arrange for the *callback* to be called at the given absolute timestamp "
-"*when* (an int or float), using the same time reference as :meth:"
-"`AbstractEventLoop.time`."
+"*when* (an int or float), using the same time reference "
+"as :meth:`AbstractEventLoop.time`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:194
@@ -297,8 +298,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:234
 msgid ""
 "Third-party event loops can use their own subclass of :class:`Task` for "
-"interoperability. In this case, the result type is a subclass of :class:"
-"`Task`."
+"interoperability. In this case, the result type is a subclass "
+"of :class:`Task`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:238
@@ -309,8 +310,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:245
 msgid ""
-"Set a task factory that will be used by :meth:`AbstractEventLoop."
-"create_task`."
+"Set a task factory that will be used "
+"by :meth:`AbstractEventLoop.create_task`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:248
@@ -321,8 +322,8 @@ msgstr ""
 msgid ""
 "If *factory* is a *callable*, it should have a signature matching ``(loop, "
 "coro)``, where *loop* will be a reference to the active event loop, *coro* "
-"will be a coroutine object.  The callable must return an :class:`asyncio."
-"Future` compatible object."
+"will be a coroutine object.  The callable must return "
+"an :class:`asyncio.Future` compatible object."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:259
@@ -336,10 +337,10 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:269
 msgid ""
 "Create a streaming transport connection to a given Internet *host* and "
-"*port*: socket family :py:data:`~socket.AF_INET` or :py:data:`~socket."
-"AF_INET6` depending on *host* (or *family* if specified), socket type :py:"
-"data:`~socket.SOCK_STREAM`.  *protocol_factory* must be a callable returning "
-"a :ref:`protocol <asyncio-protocol>` instance."
+"*port*: socket family :py:data:`~socket.AF_INET` "
+"or :py:data:`~socket.AF_INET6` depending on *host* (or *family* if "
+"specified), socket type :py:data:`~socket.SOCK_STREAM`.  *protocol_factory* "
+"must be a callable returning a :ref:`protocol <asyncio-protocol>` instance."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:275
@@ -363,14 +364,14 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:284
 msgid ""
-"*protocol_factory* is called without arguments and must return a :ref:"
-"`protocol <asyncio-protocol>` instance."
+"*protocol_factory* is called without arguments and must return "
+"a :ref:`protocol <asyncio-protocol>` instance."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:287
 msgid ""
-"The protocol instance is tied to the transport, and its :meth:"
-"`connection_made` method is called."
+"The protocol instance is tied to the transport, and "
+"its :meth:`connection_made` method is called."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:290
@@ -398,8 +399,8 @@ msgstr ""
 msgid ""
 "*ssl*: if given and not false, a SSL/TLS transport is created (by default a "
 "plain TCP transport is created).  If *ssl* is a :class:`ssl.SSLContext` "
-"object, this context is used to create the transport; if *ssl* is :const:"
-"`True`, a context with some unspecified default settings is used."
+"object, this context is used to create the transport; if *ssl* "
+"is :const:`True`, a context with some unspecified default settings is used."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:308
@@ -426,10 +427,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:323
 msgid ""
-"*sock*, if given, should be an existing, already connected :class:`socket."
-"socket` object to be used by the transport. If *sock* is given, none of "
-"*host*, *port*, *family*, *proto*, *flags* and *local_addr* should be "
-"specified."
+"*sock*, if given, should be an existing, already "
+"connected :class:`socket.socket` object to be used by the transport. If "
+"*sock* is given, none of *host*, *port*, *family*, *proto*, *flags* and "
+"*local_addr* should be specified."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:328
@@ -446,15 +447,15 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:338
 msgid ""
-"The :func:`open_connection` function can be used to get a pair of (:class:"
-"`StreamReader`, :class:`StreamWriter`) instead of a protocol."
+"The :func:`open_connection` function can be used to get a pair of "
+"(:class:`StreamReader`, :class:`StreamWriter`) instead of a protocol."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:345
 msgid ""
-"The parameter *reuse_address* is no longer supported, as using :py:data:"
-"`~sockets.SO_REUSEADDR` poses a significant security concern for UDP. "
-"Explicitly passing ``reuse_address=True`` will raise an exception."
+"The parameter *reuse_address* is no longer supported, as "
+"using :py:data:`~sockets.SO_REUSEADDR` poses a significant security concern "
+"for UDP. Explicitly passing ``reuse_address=True`` will raise an exception."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:349
@@ -478,10 +479,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:361
 msgid ""
-"Create datagram connection: socket family :py:data:`~socket.AF_INET` or :py:"
-"data:`~socket.AF_INET6` depending on *host* (or *family* if specified), "
-"socket type :py:data:`~socket.SOCK_DGRAM`. *protocol_factory* must be a "
-"callable returning a :ref:`protocol <asyncio-protocol>` instance."
+"Create datagram connection: socket family :py:data:`~socket.AF_INET` "
+"or :py:data:`~socket.AF_INET6` depending on *host* (or *family* if "
+"specified), socket type :py:data:`~socket.SOCK_DGRAM`. *protocol_factory* "
+"must be a callable returning a :ref:`protocol <asyncio-protocol>` instance."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:370
@@ -529,8 +530,8 @@ msgstr ""
 msgid ""
 "*sock* can optionally be specified in order to use a preexisting, already "
 "connected, :class:`socket.socket` object to be used by the transport. If "
-"specified, *local_addr* and *remote_addr* should be omitted (must be :const:"
-"`None`)."
+"specified, *local_addr* and *remote_addr* should be omitted (must "
+"be :const:`None`)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:399
@@ -540,8 +541,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:401
 msgid ""
-"See :ref:`UDP echo client protocol <asyncio-udp-echo-client-protocol>` and :"
-"ref:`UDP echo server protocol <asyncio-udp-echo-server-protocol>` examples."
+"See :ref:`UDP echo client protocol <asyncio-udp-echo-client-protocol>` "
+"and :ref:`UDP echo server protocol <asyncio-udp-echo-server-protocol>` "
+"examples."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:404
@@ -566,8 +568,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:424
 msgid ""
 "*path* is the name of a UNIX domain socket, and is required unless a *sock* "
-"parameter is specified.  Abstract UNIX sockets, :class:`str`, and :class:"
-"`bytes` paths are supported."
+"parameter is specified.  Abstract UNIX sockets, :class:`str`, "
+"and :class:`bytes` paths are supported."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:428
@@ -614,9 +616,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:454
 msgid ""
-"*family* can be set to either :data:`socket.AF_INET` or :data:`~socket."
-"AF_INET6` to force the socket to use IPv4 or IPv6. If not set it will be "
-"determined from host (defaults to :data:`socket.AF_UNSPEC`)."
+"*family* can be set to either :data:`socket.AF_INET` "
+"or :data:`~socket.AF_INET6` to force the socket to use IPv4 or IPv6. If not "
+"set it will be determined from host (defaults to :data:`socket.AF_UNSPEC`)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:458
@@ -626,14 +628,14 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:460
 msgid ""
 "*sock* can optionally be specified in order to use a preexisting socket "
-"object. If specified, *host* and *port* should be omitted (must be :const:"
-"`None`)."
+"object. If specified, *host* and *port* should be omitted (must "
+"be :const:`None`)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:464
 msgid ""
-"*backlog* is the maximum number of queued connections passed to :meth:"
-"`~socket.socket.listen` (defaults to 100)."
+"*backlog* is the maximum number of queued connections passed "
+"to :meth:`~socket.socket.listen` (defaults to 100)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:467
@@ -672,8 +674,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:488
 msgid ""
-"The function :func:`start_server` creates a (:class:`StreamReader`, :class:"
-"`StreamWriter`) pair and calls back a function with this pair."
+"The function :func:`start_server` creates a "
+"(:class:`StreamReader`, :class:`StreamWriter`) pair and calls back a "
+"function with this pair."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:493
@@ -754,8 +757,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:568
 msgid ""
-"Receive data from the socket.  Modeled after blocking :meth:`socket.socket."
-"recv` method."
+"Receive data from the socket.  Modeled after "
+"blocking :meth:`socket.socket.recv` method."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:571
@@ -774,8 +777,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:582
 msgid ""
-"Send data to the socket.  Modeled after blocking :meth:`socket.socket."
-"sendall` method."
+"Send data to the socket.  Modeled after "
+"blocking :meth:`socket.socket.sendall` method."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:585
@@ -789,22 +792,23 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:598
 msgid ""
-"Connect to a remote socket at *address*.  Modeled after blocking :meth:"
-"`socket.socket.connect` method."
+"Connect to a remote socket at *address*.  Modeled after "
+"blocking :meth:`socket.socket.connect` method."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:606
 msgid ""
 "``address`` no longer needs to be resolved.  ``sock_connect`` will try to "
-"check if the *address* is already resolved by calling :func:`socket."
-"inet_pton`.  If not, :meth:`AbstractEventLoop.getaddrinfo` will be used to "
-"resolve the *address*."
+"check if the *address* is already resolved by "
+"calling :func:`socket.inet_pton`.  If "
+"not, :meth:`AbstractEventLoop.getaddrinfo` will be used to resolve the "
+"*address*."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:615
 msgid ""
-":meth:`AbstractEventLoop.create_connection` and  :func:`asyncio."
-"open_connection() <open_connection>`."
+":meth:`AbstractEventLoop.create_connection` "
+"and  :func:`asyncio.open_connection() <open_connection>`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:621
@@ -834,14 +838,14 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:644
 msgid ""
-"This method is a :ref:`coroutine <coroutine>`, similar to :meth:`socket."
-"getaddrinfo` function but non-blocking."
+"This method is a :ref:`coroutine <coroutine>`, similar "
+"to :meth:`socket.getaddrinfo` function but non-blocking."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:649
 msgid ""
-"This method is a :ref:`coroutine <coroutine>`, similar to :meth:`socket."
-"getnameinfo` function but non-blocking."
+"This method is a :ref:`coroutine <coroutine>`, similar "
+"to :meth:`socket.getnameinfo` function but non-blocking."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:654
@@ -862,8 +866,8 @@ msgstr ""
 msgid ""
 "*protocol_factory* should instantiate object with :class:`Protocol` "
 "interface.  *pipe* is a :term:`file-like object <file object>`. Return pair "
-"``(transport, protocol)``, where *transport* supports the :class:"
-"`ReadTransport` interface."
+"``(transport, protocol)``, where *transport* supports "
+"the :class:`ReadTransport` interface."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:668
@@ -881,14 +885,14 @@ msgstr ""
 msgid ""
 "*protocol_factory* should instantiate object with :class:`BaseProtocol` "
 "interface. *pipe* is :term:`file-like object <file object>`. Return pair "
-"``(transport, protocol)``, where *transport* supports :class:"
-"`WriteTransport` interface."
+"``(transport, protocol)``, where *transport* "
+"supports :class:`WriteTransport` interface."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:689
 msgid ""
-"The :meth:`AbstractEventLoop.subprocess_exec` and :meth:`AbstractEventLoop."
-"subprocess_shell` methods."
+"The :meth:`AbstractEventLoop.subprocess_exec` "
+"and :meth:`AbstractEventLoop.subprocess_shell` methods."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:694
@@ -952,8 +956,8 @@ msgstr ""
 msgid ""
 ":meth:`BaseEventLoop.run_in_executor` no longer configures the "
 "``max_workers`` of the thread pool executor it creates, instead leaving it "
-"up to the thread pool executor (:class:`~concurrent.futures."
-"ThreadPoolExecutor`) to set the default."
+"up to the thread pool executor "
+"(:class:`~concurrent.futures.ThreadPoolExecutor`) to set the default."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:747
@@ -980,8 +984,8 @@ msgstr ""
 msgid ""
 "If *handler* is a callable object, it should have a matching signature to "
 "``(loop, context)``, where ``loop`` will be a reference to the active event "
-"loop, ``context`` will be a ``dict`` object (see :meth:"
-"`call_exception_handler` documentation for details about context)."
+"loop, ``context`` will be a ``dict`` object "
+"(see :meth:`call_exception_handler` documentation for details about context)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:770
@@ -1001,8 +1005,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:783
 msgid ""
-"*context* parameter has the same meaning as in :meth:"
-"`call_exception_handler`."
+"*context* parameter has the same meaning as "
+"in :meth:`call_exception_handler`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:788
@@ -1059,8 +1063,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:814
 msgid ""
-"The default value is ``True`` if the environment variable :envvar:"
-"`PYTHONASYNCIODEBUG` is set to a non-empty string, ``False`` otherwise."
+"The default value is ``True`` if the environment "
+"variable :envvar:`PYTHONASYNCIODEBUG` is set to a non-empty string, "
+"``False`` otherwise."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:822
@@ -1119,9 +1124,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:868
 msgid ""
-"A callback wrapper object returned by :func:`AbstractEventLoop.call_soon`, :"
-"func:`AbstractEventLoop.call_soon_threadsafe`, :func:`AbstractEventLoop."
-"call_later`, and :func:`AbstractEventLoop.call_at`."
+"A callback wrapper object returned "
+"by :func:`AbstractEventLoop.call_soon`, :func:`AbstractEventLoop.call_soon_threadsafe`, :func:`AbstractEventLoop.call_later`, "
+"and :func:`AbstractEventLoop.call_at`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:874
@@ -1174,22 +1179,23 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:952
 msgid ""
-"Wait until a file descriptor received some data using the :meth:"
-"`AbstractEventLoop.add_reader` method and then close the event loop::"
+"Wait until a file descriptor received some data using "
+"the :meth:`AbstractEventLoop.add_reader` method and then close the event "
+"loop::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:989
 msgid ""
 "The :ref:`register an open socket to wait for data using a protocol <asyncio-"
-"register-socket>` example uses a low-level protocol created by the :meth:"
-"`AbstractEventLoop.create_connection` method."
+"register-socket>` example uses a low-level protocol created by "
+"the :meth:`AbstractEventLoop.create_connection` method."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:993
 msgid ""
 "The :ref:`register an open socket to wait for data using streams <asyncio-"
-"register-socket-streams>` example uses high-level streams created by the :"
-"func:`open_connection` function in a coroutine."
+"register-socket-streams>` example uses high-level streams created by "
+"the :func:`open_connection` function in a coroutine."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/library/asyncio-eventloop.rst:999
