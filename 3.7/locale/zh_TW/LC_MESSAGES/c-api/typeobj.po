@@ -25,9 +25,9 @@ msgstr ""
 msgid ""
 "Perhaps one of the most important structures of the Python object system is "
 "the structure that defines a new type: the :c:type:`PyTypeObject` "
-"structure.  Type objects can be handled using any of the :c:func:"
-"`PyObject_\\*` or :c:func:`PyType_\\*` functions, but do not offer much "
-"that's interesting to most Python applications. These objects are "
+"structure.  Type objects can be handled using any of "
+"the :c:func:`PyObject_\\*` or :c:func:`PyType_\\*` functions, but do not "
+"offer much that's interesting to most Python applications. These objects are "
 "fundamental to how objects behave, so they are very important to the "
 "interpreter itself and to any extension module that implements new types."
 msgstr ""
@@ -52,19 +52,19 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:28
 msgid ""
-"The structure definition for :c:type:`PyTypeObject` can be found in :file:"
-"`Include/object.h`.  For convenience of reference, this repeats the "
+"The structure definition for :c:type:`PyTypeObject` can be found "
+"in :file:`Include/object.h`.  For convenience of reference, this repeats the "
 "definition found there:"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:35
 msgid ""
-"The type object structure extends the :c:type:`PyVarObject` structure. The :"
-"attr:`ob_size` field is used for dynamic types (created by  :func:"
-"`type_new`, usually called from a class statement). Note that :c:data:"
-"`PyType_Type` (the metatype) initializes :c:member:`~PyTypeObject."
-"tp_itemsize`, which means that its instances (i.e. type objects) *must* have "
-"the :attr:`ob_size` field."
+"The type object structure extends the :c:type:`PyVarObject` structure. "
+"The :attr:`ob_size` field is used for dynamic types (created "
+"by  :func:`type_new`, usually called from a class statement). Note "
+"that :c:data:`PyType_Type` (the metatype) "
+"initializes :c:member:`~PyTypeObject.tp_itemsize`, which means that its "
+"instances (i.e. type objects) *must* have the :attr:`ob_size` field."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:45
@@ -112,10 +112,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:81
 msgid ""
-"This should be done before any instances of the type are created. :c:func:"
-"`PyType_Ready` checks if :attr:`ob_type` is ``NULL``, and if so, initializes "
-"it to the :attr:`ob_type` field of the base class. :c:func:`PyType_Ready` "
-"will not change this field if it is non-zero."
+"This should be done before any instances of the type are "
+"created. :c:func:`PyType_Ready` checks if :attr:`ob_type` is ``NULL``, and "
+"if so, initializes it to the :attr:`ob_type` field of the base "
+"class. :c:func:`PyType_Ready` will not change this field if it is non-zero."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:86
@@ -146,9 +146,9 @@ msgid ""
 "module name, followed by a dot, followed by the type name; for built-in "
 "types, it should be just the type name.  If the module is a submodule of a "
 "package, the full package name is part of the full module name.  For "
-"example, a type named :class:`T` defined in module :mod:`M` in subpackage :"
-"mod:`Q` in package :mod:`P` should have the :c:member:`~PyTypeObject."
-"tp_name` initializer ``\"P.Q.M.T\"``."
+"example, a type named :class:`T` defined in module :mod:`M` in "
+"subpackage :mod:`Q` in package :mod:`P` should have "
+"the :c:member:`~PyTypeObject.tp_name` initializer ``\"P.Q.M.T\"``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:107
@@ -161,16 +161,16 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:111
 msgid ""
 "For statically allocated type objects, the tp_name field should contain a "
-"dot. Everything before the last dot is made accessible as the :attr:"
-"`__module__` attribute, and everything after the last dot is made accessible "
-"as the :attr:`~definition.__name__` attribute."
+"dot. Everything before the last dot is made accessible as "
+"the :attr:`__module__` attribute, and everything after the last dot is made "
+"accessible as the :attr:`~definition.__name__` attribute."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:116
 msgid ""
 "If no dot is present, the entire :c:member:`~PyTypeObject.tp_name` field is "
-"made accessible as the :attr:`~definition.__name__` attribute, and the :attr:"
-"`__module__` attribute is undefined (unless explicitly set in the "
+"made accessible as the :attr:`~definition.__name__` attribute, and "
+"the :attr:`__module__` attribute is undefined (unless explicitly set in the "
 "dictionary, as explained above).  This means your type will be impossible to "
 "pickle.  Additionally, it will not be listed in module documentations "
 "created with pydoc."
@@ -183,8 +183,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:130
 msgid ""
-"There are two kinds of types: types with fixed-length instances have a zero :"
-"c:member:`~PyTypeObject.tp_itemsize` field, types with variable-length "
+"There are two kinds of types: types with fixed-length instances have a "
+"zero :c:member:`~PyTypeObject.tp_itemsize` field, types with variable-length "
 "instances have a non-zero :c:member:`~PyTypeObject.tp_itemsize` field.  For "
 "a type with fixed-length instances, all instances have the same size, given "
 "in :c:member:`~PyTypeObject.tp_basicsize`."
@@ -192,10 +192,11 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:135
 msgid ""
-"For a type with variable-length instances, the instances must have an :attr:"
-"`ob_size` field, and the instance size is :c:member:`~PyTypeObject."
-"tp_basicsize` plus N times :c:member:`~PyTypeObject.tp_itemsize`, where N is "
-"the \"length\" of the object.  The value of N is typically stored in the "
+"For a type with variable-length instances, the instances must have "
+"an :attr:`ob_size` field, and the instance size "
+"is :c:member:`~PyTypeObject.tp_basicsize` plus N "
+"times :c:member:`~PyTypeObject.tp_itemsize`, where N is the \"length\" of "
+"the object.  The value of N is typically stored in the "
 "instance's :attr:`ob_size` field.  There are exceptions:  for example, ints "
 "use a negative :attr:`ob_size` to indicate a negative number, and N is "
 "``abs(ob_size)`` there.  Also, the presence of an :attr:`ob_size` field in "
@@ -206,14 +207,14 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:146
 msgid ""
-"The basic size includes the fields in the instance declared by the macro :c:"
-"macro:`PyObject_HEAD` or :c:macro:`PyObject_VAR_HEAD` (whichever is used to "
-"declare the instance struct) and this in turn includes the :attr:`_ob_prev` "
-"and :attr:`_ob_next` fields if they are present.  This means that the only "
-"correct way to get an initializer for the :c:member:`~PyTypeObject."
-"tp_basicsize` is to use the ``sizeof`` operator on the struct used to "
-"declare the instance layout. The basic size does not include the GC header "
-"size."
+"The basic size includes the fields in the instance declared by the "
+"macro :c:macro:`PyObject_HEAD` or :c:macro:`PyObject_VAR_HEAD` (whichever is "
+"used to declare the instance struct) and this in turn includes "
+"the :attr:`_ob_prev` and :attr:`_ob_next` fields if they are present.  This "
+"means that the only correct way to get an initializer for "
+"the :c:member:`~PyTypeObject.tp_basicsize` is to use the ``sizeof`` operator "
+"on the struct used to declare the instance layout. The basic size does not "
+"include the GC header size."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:154
@@ -227,12 +228,13 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:159
 msgid ""
 "A note about alignment: if the variable items require a particular "
-"alignment, this should be taken care of by the value of :c:member:"
-"`~PyTypeObject.tp_basicsize`.  Example: suppose a type implements an array "
-"of ``double``. :c:member:`~PyTypeObject.tp_itemsize` is ``sizeof(double)``. "
-"It is the programmer's responsibility that :c:member:`~PyTypeObject."
-"tp_basicsize` is a multiple of ``sizeof(double)`` (assuming this is the "
-"alignment requirement for ``double``)."
+"alignment, this should be taken care of by the value "
+"of :c:member:`~PyTypeObject.tp_basicsize`.  Example: suppose a type "
+"implements an array of ``double``. :c:member:`~PyTypeObject.tp_itemsize` is "
+"``sizeof(double)``. It is the programmer's responsibility "
+"that :c:member:`~PyTypeObject.tp_basicsize` is a multiple of "
+"``sizeof(double)`` (assuming this is the alignment requirement for "
+"``double``)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:169
@@ -244,21 +246,22 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:173
 msgid ""
-"The destructor function is called by the :c:func:`Py_DECREF` and :c:func:"
-"`Py_XDECREF` macros when the new reference count is zero.  At this point, "
-"the instance is still in existence, but there are no references to it.  The "
-"destructor function should free all references which the instance owns, free "
-"all memory buffers owned by the instance (using the freeing function "
-"corresponding to the allocation function used to allocate the buffer), and "
-"finally (as its last action) call the type's :c:member:`~PyTypeObject."
-"tp_free` function.  If the type is not subtypable (doesn't have the :const:"
-"`Py_TPFLAGS_BASETYPE` flag bit set), it is permissible to call the object "
-"deallocator directly instead of via :c:member:`~PyTypeObject.tp_free`.  The "
-"object deallocator should be the one used to allocate the instance; this is "
-"normally :c:func:`PyObject_Del` if the instance was allocated using :c:func:"
-"`PyObject_New` or :c:func:`PyObject_VarNew`, or :c:func:`PyObject_GC_Del` if "
-"the instance was allocated using :c:func:`PyObject_GC_New` or :c:func:"
-"`PyObject_GC_NewVar`."
+"The destructor function is called by the :c:func:`Py_DECREF` "
+"and :c:func:`Py_XDECREF` macros when the new reference count is zero.  At "
+"this point, the instance is still in existence, but there are no references "
+"to it.  The destructor function should free all references which the "
+"instance owns, free all memory buffers owned by the instance (using the "
+"freeing function corresponding to the allocation function used to allocate "
+"the buffer), and finally (as its last action) call the "
+"type's :c:member:`~PyTypeObject.tp_free` function.  If the type is not "
+"subtypable (doesn't have the :const:`Py_TPFLAGS_BASETYPE` flag bit set), it "
+"is permissible to call the object deallocator directly instead of "
+"via :c:member:`~PyTypeObject.tp_free`.  The object deallocator should be the "
+"one used to allocate the instance; this is normally :c:func:`PyObject_Del` "
+"if the instance was allocated using :c:func:`PyObject_New` "
+"or :c:func:`PyObject_VarNew`, or :c:func:`PyObject_GC_Del` if the instance "
+"was allocated using :c:func:`PyObject_GC_New` "
+"or :c:func:`PyObject_GC_NewVar`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:193
@@ -279,11 +282,12 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:206
 msgid ""
-"This field is inherited by subtypes together with :c:member:`~PyTypeObject."
-"tp_getattro`: a subtype inherits both :c:member:`~PyTypeObject.tp_getattr` "
+"This field is inherited by subtypes together "
+"with :c:member:`~PyTypeObject.tp_getattro`: a subtype inherits "
+"both :c:member:`~PyTypeObject.tp_getattr` "
 "and :c:member:`~PyTypeObject.tp_getattro` from its base type when the "
-"subtype's :c:member:`~PyTypeObject.tp_getattr` and :c:member:`~PyTypeObject."
-"tp_getattro` are both ``NULL``."
+"subtype's :c:member:`~PyTypeObject.tp_getattr` "
+"and :c:member:`~PyTypeObject.tp_getattro` are both ``NULL``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:213
@@ -304,10 +308,10 @@ msgstr ""
 msgid ""
 "The *v* argument is set to ``NULL`` to delete the attribute. This field is "
 "inherited by subtypes together with :c:member:`~PyTypeObject.tp_setattro`: a "
-"subtype inherits both :c:member:`~PyTypeObject.tp_setattr` and :c:member:"
-"`~PyTypeObject.tp_setattro` from its base type when the subtype's :c:member:"
-"`~PyTypeObject.tp_setattr` and :c:member:`~PyTypeObject.tp_setattro` are "
-"both ``NULL``."
+"subtype inherits both :c:member:`~PyTypeObject.tp_setattr` "
+"and :c:member:`~PyTypeObject.tp_setattro` from its base type when the "
+"subtype's :c:member:`~PyTypeObject.tp_setattr` "
+"and :c:member:`~PyTypeObject.tp_setattro` are both ``NULL``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:229
@@ -323,8 +327,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:241
 msgid ""
-"An optional pointer to a function that implements the built-in function :"
-"func:`repr`."
+"An optional pointer to a function that implements the built-in "
+"function :func:`repr`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:244
@@ -385,8 +389,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:291
 msgid ""
-"An optional pointer to a function that implements the built-in function :"
-"func:`hash`."
+"An optional pointer to a function that implements the built-in "
+"function :func:`hash`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:294
@@ -404,8 +408,8 @@ msgid ""
 "as the equivalent of ``__hash__ = None`` at the Python level, causing "
 "``isinstance(o, collections.Hashable)`` to correctly return ``False``. Note "
 "that the converse is also true - setting ``__hash__ = None`` on a class at "
-"the Python level will result in the ``tp_hash`` slot being set to :c:func:"
-"`PyObject_HashNotImplemented`."
+"the Python level will result in the ``tp_hash`` slot being set "
+"to :c:func:`PyObject_HashNotImplemented`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:307
@@ -416,11 +420,12 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:310
 msgid ""
-"This field is inherited by subtypes together with :c:member:`~PyTypeObject."
-"tp_richcompare`: a subtype inherits both of :c:member:`~PyTypeObject."
-"tp_richcompare` and :c:member:`~PyTypeObject.tp_hash`, when the subtype's :c:"
-"member:`~PyTypeObject.tp_richcompare` and :c:member:`~PyTypeObject.tp_hash` "
-"are both ``NULL``."
+"This field is inherited by subtypes together "
+"with :c:member:`~PyTypeObject.tp_richcompare`: a subtype inherits both "
+"of :c:member:`~PyTypeObject.tp_richcompare` "
+"and :c:member:`~PyTypeObject.tp_hash`, when the "
+"subtype's :c:member:`~PyTypeObject.tp_richcompare` "
+"and :c:member:`~PyTypeObject.tp_hash` are both ``NULL``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:318
@@ -432,11 +437,11 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:327
 msgid ""
-"An optional pointer to a function that implements the built-in operation :"
-"func:`str`.  (Note that :class:`str` is a type now, and :func:`str` calls "
-"the constructor for that type.  This constructor calls :c:func:"
-"`PyObject_Str` to do the actual work, and :c:func:`PyObject_Str` will call "
-"this handler.)"
+"An optional pointer to a function that implements the built-in "
+"operation :func:`str`.  (Note that :class:`str` is a type now, "
+"and :func:`str` calls the constructor for that type.  This constructor "
+"calls :c:func:`PyObject_Str` to do the actual work, "
+"and :c:func:`PyObject_Str` will call this handler.)"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:332
@@ -466,11 +471,12 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:351
 msgid ""
-"This field is inherited by subtypes together with :c:member:`~PyTypeObject."
-"tp_getattr`: a subtype inherits both :c:member:`~PyTypeObject.tp_getattr` "
+"This field is inherited by subtypes together "
+"with :c:member:`~PyTypeObject.tp_getattr`: a subtype inherits "
+"both :c:member:`~PyTypeObject.tp_getattr` "
 "and :c:member:`~PyTypeObject.tp_getattro` from its base type when the "
-"subtype's :c:member:`~PyTypeObject.tp_getattr` and :c:member:`~PyTypeObject."
-"tp_getattro` are both ``NULL``."
+"subtype's :c:member:`~PyTypeObject.tp_getattr` "
+"and :c:member:`~PyTypeObject.tp_getattro` are both ``NULL``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:360
@@ -483,11 +489,12 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:365
 msgid ""
-"This field is inherited by subtypes together with :c:member:`~PyTypeObject."
-"tp_setattr`: a subtype inherits both :c:member:`~PyTypeObject.tp_setattr` "
+"This field is inherited by subtypes together "
+"with :c:member:`~PyTypeObject.tp_setattr`: a subtype inherits "
+"both :c:member:`~PyTypeObject.tp_setattr` "
 "and :c:member:`~PyTypeObject.tp_setattro` from its base type when the "
-"subtype's :c:member:`~PyTypeObject.tp_setattr` and :c:member:`~PyTypeObject."
-"tp_setattro` are both ``NULL``."
+"subtype's :c:member:`~PyTypeObject.tp_setattr` "
+"and :c:member:`~PyTypeObject.tp_setattro` are both ``NULL``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:372
@@ -507,12 +514,12 @@ msgstr ""
 msgid ""
 "This field is a bit mask of various flags.  Some flags indicate variant "
 "semantics for certain situations; others are used to indicate that certain "
-"fields in the type object (or in the extension structures referenced via :c:"
-"member:`~PyTypeObject.tp_as_number`, :c:member:`~PyTypeObject."
-"tp_as_sequence`, :c:member:`~PyTypeObject.tp_as_mapping`, and :c:member:"
-"`~PyTypeObject.tp_as_buffer`) that were historically not always present are "
-"valid; if such a flag bit is clear, the type fields it guards must not be "
-"accessed and must be considered to have a zero or ``NULL`` value instead."
+"fields in the type object (or in the extension structures referenced "
+"via :c:member:`~PyTypeObject.tp_as_number`, :c:member:`~PyTypeObject.tp_as_sequence`, :c:member:`~PyTypeObject.tp_as_mapping`, "
+"and :c:member:`~PyTypeObject.tp_as_buffer`) that were historically not "
+"always present are valid; if such a flag bit is clear, the type fields it "
+"guards must not be accessed and must be considered to have a zero or "
+"``NULL`` value instead."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:390
@@ -524,19 +531,20 @@ msgid ""
 "type's value of the flag bit is copied into the subtype together with a "
 "pointer to the extension structure.  The :const:`Py_TPFLAGS_HAVE_GC` flag "
 "bit is inherited together with the :c:member:`~PyTypeObject.tp_traverse` "
-"and :c:member:`~PyTypeObject.tp_clear` fields, i.e. if the :const:"
-"`Py_TPFLAGS_HAVE_GC` flag bit is clear in the subtype and the :c:member:"
-"`~PyTypeObject.tp_traverse` and :c:member:`~PyTypeObject.tp_clear` fields in "
-"the subtype exist and have ``NULL`` values."
+"and :c:member:`~PyTypeObject.tp_clear` fields, i.e. if "
+"the :const:`Py_TPFLAGS_HAVE_GC` flag bit is clear in the subtype and "
+"the :c:member:`~PyTypeObject.tp_traverse` "
+"and :c:member:`~PyTypeObject.tp_clear` fields in the subtype exist and have "
+"``NULL`` values."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:401
 msgid ""
 "The following bit masks are currently defined; these can be ORed together "
-"using the ``|`` operator to form the value of the :c:member:`~PyTypeObject."
-"tp_flags` field.  The macro :c:func:`PyType_HasFeature` takes a type and a "
-"flags value, *tp* and *f*, and checks whether ``tp->tp_flags & f`` is non-"
-"zero."
+"using the ``|`` operator to form the value of "
+"the :c:member:`~PyTypeObject.tp_flags` field.  The "
+"macro :c:func:`PyType_HasFeature` takes a type and a flags value, *tp* and "
+"*f*, and checks whether ``tp->tp_flags & f`` is non-zero."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:409
@@ -558,8 +566,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:426
 msgid ""
-"This bit is set when the type object has been fully initialized by :c:func:"
-"`PyType_Ready`."
+"This bit is set when the type object has been fully initialized "
+"by :c:func:`PyType_Ready`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:432
@@ -572,18 +580,18 @@ msgstr ""
 msgid ""
 "This bit is set when the object supports garbage collection.  If this bit is "
 "set, instances must be created using :c:func:`PyObject_GC_New` and destroyed "
-"using :c:func:`PyObject_GC_Del`.  More information in section :ref:"
-"`supporting-cycle-detection`.  This bit also implies that the GC-related "
-"fields :c:member:`~PyTypeObject.tp_traverse` and :c:member:`~PyTypeObject."
-"tp_clear` are present in the type object."
+"using :c:func:`PyObject_GC_Del`.  More information in "
+"section :ref:`supporting-cycle-detection`.  This bit also implies that the "
+"GC-related fields :c:member:`~PyTypeObject.tp_traverse` "
+"and :c:member:`~PyTypeObject.tp_clear` are present in the type object."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:448
 msgid ""
 "This is a bitmask of all the bits that pertain to the existence of certain "
 "fields in the type object and its extension structures. Currently, it "
-"includes the following bits: :const:`Py_TPFLAGS_HAVE_STACKLESS_EXTENSION`, :"
-"const:`Py_TPFLAGS_HAVE_VERSION_TAG`."
+"includes the following "
+"bits: :const:`Py_TPFLAGS_HAVE_STACKLESS_EXTENSION`, :const:`Py_TPFLAGS_HAVE_VERSION_TAG`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:463
@@ -591,9 +599,10 @@ msgid ""
 "These flags are used by functions such as :c:func:`PyLong_Check` to quickly "
 "determine if a type is a subclass of a built-in type; such specific checks "
 "are faster than a generic check, like :c:func:`PyObject_IsInstance`. Custom "
-"types that inherit from built-ins should have their :c:member:`~PyTypeObject."
-"tp_flags` set appropriately, or the code that interacts with such types will "
-"behave differently depending on what kind of check is used."
+"types that inherit from built-ins should have "
+"their :c:member:`~PyTypeObject.tp_flags` set appropriately, or the code that "
+"interacts with such types will behave differently depending on what kind of "
+"check is used."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:474
@@ -624,11 +633,11 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:496
 msgid ""
 "The :c:member:`~PyTypeObject.tp_traverse` pointer is used by the garbage "
-"collector to detect reference cycles. A typical implementation of a :c:"
-"member:`~PyTypeObject.tp_traverse` function simply calls :c:func:`Py_VISIT` "
-"on each of the instance's members that are Python objects that the instance "
-"owns. For example, this is function :c:func:`local_traverse` from the :mod:"
-"`_thread` extension module::"
+"collector to detect reference cycles. A typical implementation of "
+"a :c:member:`~PyTypeObject.tp_traverse` function simply "
+"calls :c:func:`Py_VISIT` on each of the instance's members that are Python "
+"objects that the instance owns. For example, this is "
+"function :c:func:`local_traverse` from the :mod:`_thread` extension module::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:511
@@ -650,28 +659,29 @@ msgstr ""
 msgid ""
 "When implementing :c:member:`~PyTypeObject.tp_traverse`, only the members "
 "that the instance *owns* (by having strong references to them) must be "
-"visited. For instance, if an object supports weak references via the :c:"
-"member:`~PyTypeObject.tp_weaklist` slot, the pointer supporting the linked "
-"list (what *tp_weaklist* points to) must **not** be visited as the instance "
-"does not directly own the weak references to itself (the weakreference list "
-"is there to support the weak reference machinery, but the instance has no "
-"strong reference to the elements inside it, as they are allowed to be "
-"removed even if the instance is still alive)."
+"visited. For instance, if an object supports weak references via "
+"the :c:member:`~PyTypeObject.tp_weaklist` slot, the pointer supporting the "
+"linked list (what *tp_weaklist* points to) must **not** be visited as the "
+"instance does not directly own the weak references to itself (the "
+"weakreference list is there to support the weak reference machinery, but the "
+"instance has no strong reference to the elements inside it, as they are "
+"allowed to be removed even if the instance is still alive)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:531
 msgid ""
-"Note that :c:func:`Py_VISIT` requires the *visit* and *arg* parameters to :c:"
-"func:`local_traverse` to have these specific names; don't name them just "
-"anything."
+"Note that :c:func:`Py_VISIT` requires the *visit* and *arg* parameters "
+"to :c:func:`local_traverse` to have these specific names; don't name them "
+"just anything."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:535
 msgid ""
-"This field is inherited by subtypes together with :c:member:`~PyTypeObject."
-"tp_clear` and the :const:`Py_TPFLAGS_HAVE_GC` flag bit: the flag bit, :c:"
-"member:`~PyTypeObject.tp_traverse`, and :c:member:`~PyTypeObject.tp_clear` "
-"are all inherited from the base type if they are all zero in the subtype."
+"This field is inherited by subtypes together "
+"with :c:member:`~PyTypeObject.tp_clear` and the :const:`Py_TPFLAGS_HAVE_GC` "
+"flag bit: the flag bit, :c:member:`~PyTypeObject.tp_traverse`, "
+"and :c:member:`~PyTypeObject.tp_clear` are all inherited from the base type "
+"if they are all zero in the subtype."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:543
@@ -689,10 +699,11 @@ msgid ""
 "doubt supply a :c:member:`~PyTypeObject.tp_clear` function.  For example, "
 "the tuple type does not implement a :c:member:`~PyTypeObject.tp_clear` "
 "function, because it's possible to prove that no reference cycle can be "
-"composed entirely of tuples. Therefore the :c:member:`~PyTypeObject."
-"tp_clear` functions of other types must be sufficient to break any cycle "
-"containing a tuple.  This isn't immediately obvious, and there's rarely a "
-"good reason to avoid implementing :c:member:`~PyTypeObject.tp_clear`."
+"composed entirely of tuples. Therefore "
+"the :c:member:`~PyTypeObject.tp_clear` functions of other types must be "
+"sufficient to break any cycle containing a tuple.  This isn't immediately "
+"obvious, and there's rarely a good reason to avoid "
+"implementing :c:member:`~PyTypeObject.tp_clear`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:556
@@ -736,18 +747,20 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:590
 msgid ""
-"This field is inherited by subtypes together with :c:member:`~PyTypeObject."
-"tp_traverse` and the :const:`Py_TPFLAGS_HAVE_GC` flag bit: the flag bit, :c:"
-"member:`~PyTypeObject.tp_traverse`, and :c:member:`~PyTypeObject.tp_clear` "
-"are all inherited from the base type if they are all zero in the subtype."
+"This field is inherited by subtypes together "
+"with :c:member:`~PyTypeObject.tp_traverse` and "
+"the :const:`Py_TPFLAGS_HAVE_GC` flag bit: the flag "
+"bit, :c:member:`~PyTypeObject.tp_traverse`, "
+"and :c:member:`~PyTypeObject.tp_clear` are all inherited from the base type "
+"if they are all zero in the subtype."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:598
 msgid ""
 "An optional pointer to the rich comparison function, whose signature is "
 "``PyObject *tp_richcompare(PyObject *a, PyObject *b, int op)``. The first "
-"parameter is guaranteed to be an instance of the type that is defined by :c:"
-"type:`PyTypeObject`."
+"parameter is guaranteed to be an instance of the type that is defined "
+"by :c:type:`PyTypeObject`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:603
@@ -767,16 +780,19 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:614
 msgid ""
-"This field is inherited by subtypes together with :c:member:`~PyTypeObject."
-"tp_hash`: a subtype inherits :c:member:`~PyTypeObject.tp_richcompare` and :c:"
-"member:`~PyTypeObject.tp_hash` when the subtype's :c:member:`~PyTypeObject."
-"tp_richcompare` and :c:member:`~PyTypeObject.tp_hash` are both ``NULL``."
+"This field is inherited by subtypes together "
+"with :c:member:`~PyTypeObject.tp_hash`: a subtype "
+"inherits :c:member:`~PyTypeObject.tp_richcompare` "
+"and :c:member:`~PyTypeObject.tp_hash` when the "
+"subtype's :c:member:`~PyTypeObject.tp_richcompare` "
+"and :c:member:`~PyTypeObject.tp_hash` are both ``NULL``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:619
 msgid ""
-"The following constants are defined to be used as the third argument for :c:"
-"member:`~PyTypeObject.tp_richcompare` and for :c:func:`PyObject_RichCompare`:"
+"The following constants are defined to be used as the third argument "
+"for :c:member:`~PyTypeObject.tp_richcompare` and "
+"for :c:func:`PyObject_RichCompare`:"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:623
@@ -862,8 +878,8 @@ msgid ""
 "greater than zero and contains the offset in the instance structure of the "
 "weak reference list head (ignoring the GC header, if present); this offset "
 "is used by :c:func:`PyObject_ClearWeakRefs` and the :c:func:`PyWeakref_\\*` "
-"functions.  The instance structure needs to include a field of type :c:type:"
-"`PyObject\\*` which is initialized to ``NULL``."
+"functions.  The instance structure needs to include a field of "
+"type :c:type:`PyObject\\*` which is initialized to ``NULL``."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:664
@@ -886,23 +902,23 @@ msgid ""
 "When a type defined by a class statement has no :attr:`~object.__slots__` "
 "declaration, and none of its base types are weakly referenceable, the type "
 "is made weakly referenceable by adding a weak reference list head slot to "
-"the instance layout and setting the :c:member:`~PyTypeObject."
-"tp_weaklistoffset` of that slot's offset."
+"the instance layout and setting "
+"the :c:member:`~PyTypeObject.tp_weaklistoffset` of that slot's offset."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:677
 msgid ""
-"When a type's :attr:`__slots__` declaration contains a slot named :attr:"
-"`__weakref__`, that slot becomes the weak reference list head for instances "
-"of the type, and the slot's offset is stored in the type's :c:member:"
-"`~PyTypeObject.tp_weaklistoffset`."
+"When a type's :attr:`__slots__` declaration contains a slot "
+"named :attr:`__weakref__`, that slot becomes the weak reference list head "
+"for instances of the type, and the slot's offset is stored in the "
+"type's :c:member:`~PyTypeObject.tp_weaklistoffset`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:682
 msgid ""
-"When a type's :attr:`__slots__` declaration does not contain a slot named :"
-"attr:`__weakref__`, the type inherits its :c:member:`~PyTypeObject."
-"tp_weaklistoffset` from its base type."
+"When a type's :attr:`__slots__` declaration does not contain a slot "
+"named :attr:`__weakref__`, the type inherits "
+"its :c:member:`~PyTypeObject.tp_weaklistoffset` from its base type."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:688
@@ -919,10 +935,10 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:699
 msgid ""
 "An optional pointer to a function that returns the next item in an iterator. "
-"When the iterator is exhausted, it must return ``NULL``; a :exc:"
-"`StopIteration` exception may or may not be set.  When another error occurs, "
-"it must return ``NULL`` too.  Its presence signals that the instances of "
-"this type are iterators."
+"When the iterator is exhausted, it must return ``NULL``; "
+"a :exc:`StopIteration` exception may or may not be set.  When another error "
+"occurs, it must return ``NULL`` too.  Its presence signals that the "
+"instances of this type are iterators."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:705
@@ -938,8 +954,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:716
 msgid ""
-"An optional pointer to a static ``NULL``-terminated array of :c:type:"
-"`PyMethodDef` structures, declaring regular methods of this type."
+"An optional pointer to a static ``NULL``-terminated array "
+"of :c:type:`PyMethodDef` structures, declaring regular methods of this type."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:719
@@ -956,9 +972,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:728
 msgid ""
-"An optional pointer to a static ``NULL``-terminated array of :c:type:"
-"`PyMemberDef` structures, declaring regular data members (fields or slots) "
-"of instances of this type."
+"An optional pointer to a static ``NULL``-terminated array "
+"of :c:type:`PyMemberDef` structures, declaring regular data members (fields "
+"or slots) of instances of this type."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:732
@@ -975,9 +991,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:741
 msgid ""
-"An optional pointer to a static ``NULL``-terminated array of :c:type:"
-"`PyGetSetDef` structures, declaring computed attributes of instances of this "
-"type."
+"An optional pointer to a static ``NULL``-terminated array "
+"of :c:type:`PyGetSetDef` structures, declaring computed attributes of "
+"instances of this type."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:744
@@ -1003,8 +1019,8 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:757
 msgid ""
 "This field is not inherited by subtypes (obviously), but it defaults to "
-"``&PyBaseObject_Type`` (which to Python programmers is known as the type :"
-"class:`object`)."
+"``&PyBaseObject_Type`` (which to Python programmers is known as the "
+"type :class:`object`)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:764
@@ -1028,8 +1044,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:777
 msgid ""
-"It is not safe to use :c:func:`PyDict_SetItem` on or otherwise modify :c:"
-"member:`~PyTypeObject.tp_dict` with the dictionary C-API."
+"It is not safe to use :c:func:`PyDict_SetItem` on or otherwise "
+"modify :c:member:`~PyTypeObject.tp_dict` with the dictionary C-API."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:783
@@ -1060,8 +1076,8 @@ msgstr ""
 msgid ""
 "If the instances of this type have a dictionary containing instance "
 "variables, this field is non-zero and contains the offset in the instances "
-"of the type of the instance variable dictionary; this offset is used by :c:"
-"func:`PyObject_GenericGetAttr`."
+"of the type of the instance variable dictionary; this offset is used "
+"by :c:func:`PyObject_GenericGetAttr`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:816
@@ -1081,25 +1097,25 @@ msgid ""
 "or :class:`tuple`. Note that the :c:member:`~PyTypeObject.tp_basicsize` "
 "field should account for the dictionary added to the end in that case, even "
 "though the dictionary is not included in the basic object layout.  On a "
-"system with a pointer size of 4 bytes, :c:member:`~PyTypeObject."
-"tp_dictoffset` should be set to ``-4`` to indicate that the dictionary is at "
-"the very end of the structure."
+"system with a pointer size of 4 "
+"bytes, :c:member:`~PyTypeObject.tp_dictoffset` should be set to ``-4`` to "
+"indicate that the dictionary is at the very end of the structure."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:831
 msgid ""
-"The real dictionary offset in an instance can be computed from a negative :c:"
-"member:`~PyTypeObject.tp_dictoffset` as follows::"
+"The real dictionary offset in an instance can be computed from a "
+"negative :c:member:`~PyTypeObject.tp_dictoffset` as follows::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:838
 msgid ""
-"where :c:member:`~PyTypeObject.tp_basicsize`, :c:member:`~PyTypeObject."
-"tp_itemsize` and :c:member:`~PyTypeObject.tp_dictoffset` are taken from the "
-"type object, and :attr:`ob_size` is taken from the instance.  The absolute "
-"value is taken because ints use the sign of :attr:`ob_size` to store the "
-"sign of the number.  (There's never a need to do this calculation yourself; "
-"it is done for you by :c:func:`_PyObject_GetDictPtr`.)"
+"where :c:member:`~PyTypeObject.tp_basicsize`, :c:member:`~PyTypeObject.tp_itemsize` "
+"and :c:member:`~PyTypeObject.tp_dictoffset` are taken from the type object, "
+"and :attr:`ob_size` is taken from the instance.  The absolute value is taken "
+"because ints use the sign of :attr:`ob_size` to store the sign of the "
+"number.  (There's never a need to do this calculation yourself; it is done "
+"for you by :c:func:`_PyObject_GetDictPtr`.)"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:844
@@ -1115,8 +1131,8 @@ msgstr ""
 msgid ""
 "When a type defined by a class statement has no :attr:`~object.__slots__` "
 "declaration, and none of its base types has an instance variable dictionary, "
-"a dictionary slot is added to the instance layout and the :c:member:"
-"`~PyTypeObject.tp_dictoffset` is set to that slot's offset."
+"a dictionary slot is added to the instance layout and "
+"the :c:member:`~PyTypeObject.tp_dictoffset` is set to that slot's offset."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:854
@@ -1140,29 +1156,29 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:866
 msgid ""
-"This function corresponds to the :meth:`__init__` method of classes.  Like :"
-"meth:`__init__`, it is possible to create an instance without calling :meth:"
-"`__init__`, and it is possible to reinitialize an instance by calling its :"
-"meth:`__init__` method again."
+"This function corresponds to the :meth:`__init__` method of classes.  "
+"Like :meth:`__init__`, it is possible to create an instance without "
+"calling :meth:`__init__`, and it is possible to reinitialize an instance by "
+"calling its :meth:`__init__` method again."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:875
 msgid ""
 "The self argument is the instance to be initialized; the *args* and *kwds* "
-"arguments represent positional and keyword arguments of the call to :meth:"
-"`__init__`."
+"arguments represent positional and keyword arguments of the call "
+"to :meth:`__init__`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:879
 msgid ""
 "The :c:member:`~PyTypeObject.tp_init` function, if not ``NULL``, is called "
-"when an instance is created normally by calling its type, after the type's :"
-"c:member:`~PyTypeObject.tp_new` function has returned an instance of the "
-"type.  If the :c:member:`~PyTypeObject.tp_new` function returns an instance "
-"of some other type that is not a subtype of the original type, no :c:member:"
-"`~PyTypeObject.tp_init` function is called; if :c:member:`~PyTypeObject."
-"tp_new` returns an instance of a subtype of the original type, the "
-"subtype's :c:member:`~PyTypeObject.tp_init` is called."
+"when an instance is created normally by calling its type, after the "
+"type's :c:member:`~PyTypeObject.tp_new` function has returned an instance of "
+"the type.  If the :c:member:`~PyTypeObject.tp_new` function returns an "
+"instance of some other type that is not a subtype of the original type, "
+"no :c:member:`~PyTypeObject.tp_init` function is called; "
+"if :c:member:`~PyTypeObject.tp_new` returns an instance of a subtype of the "
+"original type, the subtype's :c:member:`~PyTypeObject.tp_init` is called."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:891
@@ -1179,15 +1195,15 @@ msgid ""
 "the object's :attr:`ob_size` field should be initialized to *nitems* and the "
 "length of the allocated memory block should be ``tp_basicsize + "
 "nitems*tp_itemsize``, rounded up to a multiple of ``sizeof(void*)``; "
-"otherwise, *nitems* is not used and the length of the block should be :c:"
-"member:`~PyTypeObject.tp_basicsize`."
+"otherwise, *nitems* is not used and the length of the block should "
+"be :c:member:`~PyTypeObject.tp_basicsize`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:907
 msgid ""
 "Do not use this function to do any other instance initialization, not even "
-"to allocate additional memory; that should be done by :c:member:"
-"`~PyTypeObject.tp_new`."
+"to allocate additional memory; that should be done "
+"by :c:member:`~PyTypeObject.tp_new`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:910
@@ -1213,9 +1229,9 @@ msgstr ""
 msgid ""
 "The subtype argument is the type of the object being created; the *args* and "
 "*kwds* arguments represent positional and keyword arguments of the call to "
-"the type.  Note that subtype doesn't have to equal the type whose :c:member:"
-"`~PyTypeObject.tp_new` function is called; it may be a subtype of that type "
-"(but not an unrelated type)."
+"the type.  Note that subtype doesn't have to equal the type "
+"whose :c:member:`~PyTypeObject.tp_new` function is called; it may be a "
+"subtype of that type (but not an unrelated type)."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:934
@@ -1225,9 +1241,9 @@ msgid ""
 "only as much further initialization as is absolutely necessary.  "
 "Initialization that can safely be ignored or repeated should be placed in "
 "the :c:member:`~PyTypeObject.tp_init` handler.  A good rule of thumb is that "
-"for immutable types, all initialization should take place in :c:member:"
-"`~PyTypeObject.tp_new`, while for mutable types, most initialization should "
-"be deferred to :c:member:`~PyTypeObject.tp_init`."
+"for immutable types, all initialization should take place "
+"in :c:member:`~PyTypeObject.tp_new`, while for mutable types, most "
+"initialization should be deferred to :c:member:`~PyTypeObject.tp_init`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:942
@@ -1239,14 +1255,14 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:948
 msgid ""
-"An optional pointer to an instance deallocation function.  Its signature is :"
-"c:type:`freefunc`::"
+"An optional pointer to an instance deallocation function.  Its signature "
+"is :c:type:`freefunc`::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:953
 msgid ""
-"An initializer that is compatible with this signature is :c:func:"
-"`PyObject_Free`."
+"An initializer that is compatible with this signature "
+"is :c:func:`PyObject_Free`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:955
@@ -1265,19 +1281,19 @@ msgstr ""
 msgid ""
 "The garbage collector needs to know whether a particular object is "
 "collectible or not.  Normally, it is sufficient to look at the object's "
-"type's :c:member:`~PyTypeObject.tp_flags` field, and check the :const:"
-"`Py_TPFLAGS_HAVE_GC` flag bit.  But some types have a mixture of statically "
-"and dynamically allocated instances, and the statically allocated instances "
-"are not collectible.  Such types should define this function; it should "
-"return ``1`` for a collectible instance, and ``0`` for a non-collectible "
-"instance. The signature is ::"
+"type's :c:member:`~PyTypeObject.tp_flags` field, and check "
+"the :const:`Py_TPFLAGS_HAVE_GC` flag bit.  But some types have a mixture of "
+"statically and dynamically allocated instances, and the statically allocated "
+"instances are not collectible.  Such types should define this function; it "
+"should return ``1`` for a collectible instance, and ``0`` for a non-"
+"collectible instance. The signature is ::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:975
 msgid ""
-"(The only example of this are types themselves.  The metatype, :c:data:"
-"`PyType_Type`, defines this function to distinguish between statically and "
-"dynamically allocated types.)"
+"(The only example of this are types themselves.  The "
+"metatype, :c:data:`PyType_Type`, defines this function to distinguish "
+"between statically and dynamically allocated types.)"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:984
@@ -1302,14 +1318,14 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:997
 msgid ""
-"This field is not inherited; it is calculated fresh by :c:func:"
-"`PyType_Ready`."
+"This field is not inherited; it is calculated fresh "
+"by :c:func:`PyType_Ready`."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1002
 msgid ""
-"An optional pointer to an instance finalization function.  Its signature is :"
-"c:type:`destructor`::"
+"An optional pointer to an instance finalization function.  Its signature "
+"is :c:type:`destructor`::"
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1007
@@ -1356,9 +1372,9 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1056
 msgid ""
-"The remaining fields are only defined if the feature test macro :const:"
-"`COUNT_ALLOCS` is defined, and are for internal use only. They are "
-"documented here for completeness.  None of these fields are inherited by "
+"The remaining fields are only defined if the feature test "
+"macro :const:`COUNT_ALLOCS` is defined, and are for internal use only. They "
+"are documented here for completeness.  None of these fields are inherited by "
 "subtypes."
 msgstr ""
 
@@ -1376,8 +1392,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1079
 msgid ""
-"Pointer to the next type object with a non-zero :c:member:`~PyTypeObject."
-"tp_allocs` field."
+"Pointer to the next type object with a non-"
+"zero :c:member:`~PyTypeObject.tp_allocs` field."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1081
@@ -1437,24 +1453,25 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1182
 msgid ""
-"This function is used by :c:func:`PyMapping_Size` and :c:func:"
-"`PyObject_Size`, and has the same signature.  This slot may be set to "
-"``NULL`` if the object has no defined length."
+"This function is used by :c:func:`PyMapping_Size` "
+"and :c:func:`PyObject_Size`, and has the same signature.  This slot may be "
+"set to ``NULL`` if the object has no defined length."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1188
 msgid ""
-"This function is used by :c:func:`PyObject_GetItem` and :c:func:"
-"`PySequence_GetSlice`, and has the same signature as :c:func:`!"
-"PyObject_GetItem`.  This slot must be filled for the :c:func:"
-"`PyMapping_Check` function to return ``1``, it can be ``NULL`` otherwise."
+"This function is used by :c:func:`PyObject_GetItem` "
+"and :c:func:`PySequence_GetSlice`, and has the same signature as :c:func:`!"
+"PyObject_GetItem`.  This slot must be filled for "
+"the :c:func:`PyMapping_Check` function to return ``1``, it can be ``NULL`` "
+"otherwise."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1196
 msgid ""
-"This function is used by :c:func:`PyObject_SetItem`, :c:func:"
-"`PyObject_DelItem`, :c:func:`PyObject_SetSlice` and :c:func:"
-"`PyObject_DelSlice`.  It has the same signature as :c:func:`!"
+"This function is used "
+"by :c:func:`PyObject_SetItem`, :c:func:`PyObject_DelItem`, :c:func:`PyObject_SetSlice` "
+"and :c:func:`PyObject_DelSlice`.  It has the same signature as :c:func:`!"
 "PyObject_SetItem`, but *v* can also be set to ``NULL`` to delete an item.  "
 "If this slot is ``NULL``, the object does not support item assignment and "
 "deletion."
@@ -1472,10 +1489,10 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1219
 msgid ""
-"This function is used by :c:func:`PySequence_Size` and :c:func:"
-"`PyObject_Size`, and has the same signature.  It is also used for handling "
-"negative indices via the :c:member:`~PySequenceMethods.sq_item` and the :c:"
-"member:`~PySequenceMethods.sq_ass_item` slots."
+"This function is used by :c:func:`PySequence_Size` "
+"and :c:func:`PyObject_Size`, and has the same signature.  It is also used "
+"for handling negative indices via the :c:member:`~PySequenceMethods.sq_item` "
+"and the :c:member:`~PySequenceMethods.sq_ass_item` slots."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1226
@@ -1512,10 +1529,11 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1251
 msgid ""
 "This function is used by :c:func:`PySequence_SetItem` and has the same "
-"signature.  It is also used by :c:func:`PyObject_SetItem` and :c:func:"
-"`PyObject_DelItem`, after trying the item assignment and deletion via the :c:"
-"member:`~PyMappingMethods.mp_ass_subscript` slot. This slot may be left to "
-"``NULL`` if the object does not support item assignment and deletion."
+"signature.  It is also used by :c:func:`PyObject_SetItem` "
+"and :c:func:`PyObject_DelItem`, after trying the item assignment and "
+"deletion via the :c:member:`~PyMappingMethods.mp_ass_subscript` slot. This "
+"slot may be left to ``NULL`` if the object does not support item assignment "
+"and deletion."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1260
@@ -1531,8 +1549,8 @@ msgid ""
 "signature.  It should modify its first operand, and return it.  This slot "
 "may be left to ``NULL``, in this case :c:func:`!PySequence_InPlaceConcat` "
 "will fall back to :c:func:`PySequence_Concat`.  It is also used by the "
-"augmented assignment ``+=``, after trying numeric in-place addition via the :"
-"c:member:`~PyNumberMethods.nb_inplace_add` slot."
+"augmented assignment ``+=``, after trying numeric in-place addition via "
+"the :c:member:`~PyNumberMethods.nb_inplace_add` slot."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1276
@@ -1602,8 +1620,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1323
 msgid ""
-"Re-export: Each member of the tree acts as the exporting object and sets :c:"
-"data:`view->obj` to a new reference to itself."
+"Re-export: Each member of the tree acts as the exporting object and "
+"sets :c:data:`view->obj` to a new reference to itself."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1326
@@ -1623,10 +1641,9 @@ msgstr ""
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1335
 msgid ""
 "All memory pointed to in the :c:type:`Py_buffer` structure belongs to the "
-"exporter and must remain valid until there are no consumers left. :c:member:"
-"`~Py_buffer.format`, :c:member:`~Py_buffer.shape`, :c:member:`~Py_buffer."
-"strides`, :c:member:`~Py_buffer.suboffsets` and :c:member:`~Py_buffer."
-"internal` are read-only for the consumer."
+"exporter and must remain valid until there are no consumers "
+"left. :c:member:`~Py_buffer.format`, :c:member:`~Py_buffer.shape`, :c:member:`~Py_buffer.strides`, :c:member:`~Py_buffer.suboffsets` "
+"and :c:member:`~Py_buffer.internal` are read-only for the consumer."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1342
@@ -1684,8 +1701,8 @@ msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1390
 msgid ""
-"This structure holds pointers to the functions required to implement :term:"
-"`awaitable` and :term:`asynchronous iterator` objects."
+"This structure holds pointers to the functions required to "
+"implement :term:`awaitable` and :term:`asynchronous iterator` objects."
 msgstr ""
 
 #: /home/runner/work/python-docs-l10n/python-docs-l10n/out/repo/Doc/c-api/typeobj.rst:1407
