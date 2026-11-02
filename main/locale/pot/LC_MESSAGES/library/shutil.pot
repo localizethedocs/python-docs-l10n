@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-26 15:56+0000\n"
+"POT-Creation-Date: 2026-11-02 18:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -889,7 +889,7 @@ msgid ""
 "returned sequence is a tuple ``(name, description)``."
 msgstr ""
 
-#: ../../../library/shutil.rst:703 ../../../library/shutil.rst:820
+#: ../../../library/shutil.rst:703 ../../../library/shutil.rst:823
 msgid "By default :mod:`!shutil` provides these formats:"
 msgstr ""
 
@@ -902,19 +902,19 @@ msgid ""
 "*tar*: Uncompressed tar file. Uses POSIX.1-2001 pax format for new archives."
 msgstr ""
 
-#: ../../../library/shutil.rst:707 ../../../library/shutil.rst:825
+#: ../../../library/shutil.rst:707 ../../../library/shutil.rst:828
 msgid "*gztar*: gzip'ed tar-file (if the :mod:`zlib` module is available)."
 msgstr ""
 
-#: ../../../library/shutil.rst:708 ../../../library/shutil.rst:826
+#: ../../../library/shutil.rst:708 ../../../library/shutil.rst:829
 msgid "*bztar*: bzip2'ed tar-file (if the :mod:`bz2` module is available)."
 msgstr ""
 
-#: ../../../library/shutil.rst:709 ../../../library/shutil.rst:827
+#: ../../../library/shutil.rst:709 ../../../library/shutil.rst:830
 msgid "*xztar*: xz'ed tar-file (if the :mod:`lzma` module is available)."
 msgstr ""
 
-#: ../../../library/shutil.rst:710 ../../../library/shutil.rst:828
+#: ../../../library/shutil.rst:710 ../../../library/shutil.rst:831
 msgid ""
 "*zstdtar*: Zstandard compressed tar-file (if the :mod:`compression.zstd` "
 "module is available)."
@@ -981,8 +981,8 @@ msgstr ""
 #: ../../../library/shutil.rst:755
 msgid ""
 "*format* is the archive format: one of \"zip\", \"tar\", \"gztar\", "
-"\"bztar\", \"xztar\", or \"zstdtar\".  Or any other format registered "
-"with :func:`register_unpack_format`.  If not "
+"\"bztar\", \"xztar\", \"zstdtar\", or \"whl\".  Or any other format "
+"registered with :func:`register_unpack_format`.  If not "
 "provided, :func:`unpack_archive` will use the archive file name extension "
 "and see if an unpacker was registered for that extension.  In case none is "
 "found, a :exc:`ValueError` is raised."
@@ -1027,130 +1027,145 @@ msgstr ""
 msgid "Added the *filter* argument."
 msgstr ""
 
-#: ../../../library/shutil.rst:791
+#: ../../../library/shutil.rst:789
+msgid "Added the \"whl\" format."
+msgstr ""
+
+#: ../../../library/shutil.rst:794
 msgid ""
 "Registers an unpack format. *name* is the name of the format and "
 "*extensions* is a list of extensions corresponding to the format, like "
 "``.zip`` for Zip files."
 msgstr ""
 
-#: ../../../library/shutil.rst:795
+#: ../../../library/shutil.rst:798
 msgid ""
 "*function* is the callable that will be used to unpack archives. The "
 "callable will receive:"
 msgstr ""
 
-#: ../../../library/shutil.rst:798
+#: ../../../library/shutil.rst:801
 msgid "the path of the archive, as a positional argument;"
 msgstr ""
 
-#: ../../../library/shutil.rst:799
+#: ../../../library/shutil.rst:802
 msgid ""
 "the directory the archive must be extracted to, as a positional argument;"
 msgstr ""
 
-#: ../../../library/shutil.rst:800
+#: ../../../library/shutil.rst:803
 msgid ""
 "possibly a *filter* keyword argument, if it was given "
 "to :func:`unpack_archive`;"
 msgstr ""
 
-#: ../../../library/shutil.rst:802
+#: ../../../library/shutil.rst:805
 msgid ""
 "additional keyword arguments, specified by *extra_args* as a sequence of "
 "``(name, value)`` tuples."
 msgstr ""
 
-#: ../../../library/shutil.rst:805
+#: ../../../library/shutil.rst:808
 msgid ""
 "*description* can be provided to describe the format, and will be returned "
 "by the :func:`get_unpack_formats` function."
 msgstr ""
 
-#: ../../../library/shutil.rst:811
+#: ../../../library/shutil.rst:814
 msgid "Unregister an unpack format. *name* is the name of the format."
 msgstr ""
 
-#: ../../../library/shutil.rst:816
+#: ../../../library/shutil.rst:819
 msgid ""
 "Return a list of all registered formats for unpacking. Each element of the "
 "returned sequence is a tuple ``(name, extensions, description)``."
 msgstr ""
 
-#: ../../../library/shutil.rst:822
+#: ../../../library/shutil.rst:825
 msgid ""
 "*zip*: ZIP file (unpacking compressed files works only if the corresponding "
 "module is available)."
 msgstr ""
 
-#: ../../../library/shutil.rst:824
+#: ../../../library/shutil.rst:827
 msgid "*tar*: uncompressed tar file."
 msgstr ""
 
-#: ../../../library/shutil.rst:831
+#: ../../../library/shutil.rst:833
+msgid ""
+"*whl*: `wheel file <https://packaging.python.org/en/latest/discussions/"
+"package-formats/#what-is-a-wheel>`__ (unpacking compressed files works only "
+"if the corresponding module is available)."
+msgstr ""
+
+#: ../../../library/shutil.rst:837
 msgid ""
 "You can register new formats or provide your own unpacker for any existing "
 "formats, by using :func:`register_unpack_format`."
 msgstr ""
 
-#: ../../../library/shutil.rst:838
+#: ../../../library/shutil.rst:840
+msgid "Added the *whl* format."
+msgstr ""
+
+#: ../../../library/shutil.rst:847
 msgid "Archiving example"
 msgstr ""
 
-#: ../../../library/shutil.rst:840
+#: ../../../library/shutil.rst:849
 msgid ""
 "In this example, we create a gzip'ed tar-file archive containing all files "
 "found in the :file:`.ssh` directory of the user::"
 msgstr ""
 
-#: ../../../library/shutil.rst:850
+#: ../../../library/shutil.rst:859
 msgid "The resulting archive contains:"
 msgstr ""
 
-#: ../../../library/shutil.rst:868
+#: ../../../library/shutil.rst:877
 msgid "Archiving example with *base_dir*"
 msgstr ""
 
-#: ../../../library/shutil.rst:870
+#: ../../../library/shutil.rst:879
 msgid ""
 "In this example, similar to the `one above <shutil-archiving-example_>`_, we "
 "show how to use :func:`make_archive`, but this time with the usage of "
 "*base_dir*.  We now have the following directory structure:"
 msgstr ""
 
-#: ../../../library/shutil.rst:884
+#: ../../../library/shutil.rst:893
 msgid ""
 "In the final archive, :file:`please_add.txt` should be included, "
 "but :file:`do_not_add.txt` should not.  Therefore we use the following::"
 msgstr ""
 
-#: ../../../library/shutil.rst:898
+#: ../../../library/shutil.rst:907
 msgid "Listing the files in the resulting archive gives us:"
 msgstr ""
 
-#: ../../../library/shutil.rst:908
+#: ../../../library/shutil.rst:917
 msgid "Querying the size of the output terminal"
 msgstr ""
 
-#: ../../../library/shutil.rst:912
+#: ../../../library/shutil.rst:921
 msgid "Get the size of the terminal window."
 msgstr ""
 
-#: ../../../library/shutil.rst:914
+#: ../../../library/shutil.rst:923
 msgid ""
 "For each of the two dimensions, the environment variable, ``COLUMNS`` and "
 "``LINES`` respectively, is checked. If the variable is defined and the value "
 "is a positive integer, it is used."
 msgstr ""
 
-#: ../../../library/shutil.rst:918
+#: ../../../library/shutil.rst:927
 msgid ""
 "When ``COLUMNS`` or ``LINES`` is not defined, which is the common case, the "
 "terminal connected to :data:`sys.__stdout__` is queried by "
 "invoking :func:`os.get_terminal_size`."
 msgstr ""
 
-#: ../../../library/shutil.rst:922
+#: ../../../library/shutil.rst:931
 msgid ""
 "If the terminal size cannot be successfully queried, either because the "
 "system doesn't support querying, or because we are not connected to a "
@@ -1159,17 +1174,17 @@ msgid ""
 "emulators."
 msgstr ""
 
-#: ../../../library/shutil.rst:928
+#: ../../../library/shutil.rst:937
 msgid "The value returned is a named tuple of type :class:`os.terminal_size`."
 msgstr ""
 
-#: ../../../library/shutil.rst:930
+#: ../../../library/shutil.rst:939
 msgid ""
 "See also: The Single UNIX Specification, Version 2, `Other Environment "
 "Variables`_."
 msgstr ""
 
-#: ../../../library/shutil.rst:935
+#: ../../../library/shutil.rst:944
 msgid ""
 "The ``fallback`` values are also used if :func:`os.get_terminal_size` "
 "returns zeroes."
