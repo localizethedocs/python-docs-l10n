@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 09:54+0000\n"
+"POT-Creation-Date: 2026-11-09 18:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,16 +86,16 @@ msgstr ""
 #: ../../../c-api/tuple.rst:74
 msgid ""
 "Return the object at position *pos* in the tuple pointed to by *p*.  If "
-"*pos* is negative or out of bounds, return ``NULL`` and set an :exc:"
-"`IndexError` exception."
+"*pos* is negative or out of bounds, return ``NULL`` and set "
+"an :exc:`IndexError` exception."
 msgstr ""
 
 #: ../../../c-api/tuple.rst:77
 msgid ""
 "The returned reference is borrowed from the tuple *p* (that is: it is only "
 "valid as long as you hold a reference to *p*). To get a :term:`strong "
-"reference`, use :c:func:`Py_NewRef(PyTuple_GetItem(...)) <Py_NewRef>` or :c:"
-"func:`PySequence_GetItem`."
+"reference`, use :c:func:`Py_NewRef(PyTuple_GetItem(...)) <Py_NewRef>` "
+"or :c:func:`PySequence_GetItem`."
 msgstr ""
 
 #: ../../../c-api/tuple.rst:86
@@ -136,18 +136,20 @@ msgid ""
 "thread-unsafe."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:117 ../../../c-api/tuple.rst:244
-#: ../../../c-api/tuple.rst:262
+#: ../../../c-api/tuple.rst:117 ../../../c-api/tuple.rst:264
+#: ../../../c-api/tuple.rst:282
 msgid ""
-"Bounds checking is performed as an assertion if Python is built in :ref:"
-"`debug mode <debug-build>` or :option:`with assertions <--with-assertions>`."
+"Bounds checking is performed as an assertion if Python is built "
+"in :ref:`debug mode <debug-build>` or :option:`with assertions <--with-"
+"assertions>`."
 msgstr ""
 
 #: ../../../c-api/tuple.rst:122
 msgid ""
-"This function \":term:`steals <steal>`\" a reference to *o*, and, unlike :c:"
-"func:`PyTuple_SetItem`, does *not* discard a reference to any item that is "
-"being replaced; any reference in the tuple at position *pos* will be leaked."
+"This function \":term:`steals <steal>`\" a reference to *o*, and, "
+"unlike :c:func:`PyTuple_SetItem`, does *not* discard a reference to any item "
+"that is being replaced; any reference in the tuple at position *pos* will be "
+"leaked."
 msgstr ""
 
 #: ../../../c-api/tuple.rst:129
@@ -158,144 +160,173 @@ msgid ""
 msgstr ""
 
 #: ../../../c-api/tuple.rst:136
-msgid ""
-"Can be used to resize a tuple.  *newsize* will be the new length of the "
-"tuple. Because tuples are *supposed* to be immutable, this should only be "
-"used if there is only one reference to the object.  Do *not* use this if the "
-"tuple may already be known to some other part of the code.  The tuple will "
-"always grow or shrink at the end.  Think of this as destroying the old tuple "
-"and creating a new one, only more efficiently.  Returns ``0`` on success. "
-"Client code should never assume that the resulting value of ``*p`` will be "
-"the same as before calling this function. If the object referenced by ``*p`` "
-"is replaced, the original ``*p`` is destroyed.  On failure, returns ``-1`` "
-"and sets ``*p`` to ``NULL``, and raises :exc:`MemoryError` or :exc:"
-"`SystemError`."
+msgid "Resize a tuple. *newsize* will be the new length of the tuple."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:151
-msgid "Struct Sequence Objects"
+#: ../../../c-api/tuple.rst:139
+msgid ""
+"Because tuples are *supposed* to be immutable, this should only be used if "
+"there is only one reference to the object. Do *not* use this if the tuple "
+"may already be known to some other part of the code. The tuple hash value "
+"must not be computed yet."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:153
+#: ../../../c-api/tuple.rst:145
 msgid ""
-"A struct sequence object is a :term:`named tuple`, that is, a sequence whose "
-"items can also be accessed through attributes. It is similar to :func:"
-"`collections.namedtuple`, but provides a slightly different interface."
+"The tuple will always grow or shrink at the end. Think of this as destroying "
+"the old tuple and creating a new one, only more efficiently."
+msgstr ""
+
+#: ../../../c-api/tuple.rst:149
+msgid ""
+"Returns ``0`` on success. Client code should never assume that the resulting "
+"value of ``*p`` will be the same as before calling this function. If the "
+"object referenced by ``*p`` is replaced, the original ``*p`` is destroyed."
+msgstr ""
+
+#: ../../../c-api/tuple.rst:155
+msgid ""
+"On failure, returns ``-1`` and sets ``*p`` to ``NULL``, and "
+"raises :exc:`MemoryError` or :exc:`SystemError`."
 msgstr ""
 
 #: ../../../c-api/tuple.rst:158
+msgid ""
+"While tuple objects are usually immutable in Python, this special C API "
+"allows mutating a tuple object in-place. The returned tuple object can still "
+"be mutated using :c:func:`PyTuple_SetItem`; except if *newsize* is zero in "
+"which case it returns the immutable empty tuple."
+msgstr ""
+
+#: ../../../c-api/tuple.rst:164
+msgid "The function now fails if the tuple hash value was already computed."
+msgstr ""
+
+#: ../../../c-api/tuple.rst:171
+msgid "Struct Sequence Objects"
+msgstr ""
+
+#: ../../../c-api/tuple.rst:173
+msgid ""
+"A struct sequence object is a :term:`named tuple`, that is, a sequence whose "
+"items can also be accessed through attributes. It is similar "
+"to :func:`collections.namedtuple`, but provides a slightly different "
+"interface."
+msgstr ""
+
+#: ../../../c-api/tuple.rst:178
 msgid ""
 "To create a struct sequence, you first have to create a specific struct "
 "sequence type."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:163
+#: ../../../c-api/tuple.rst:183
 msgid ""
 "Create a new struct sequence type from the data in *desc*, described below. "
-"Instances of the resulting type can be created with :c:func:"
-"`PyStructSequence_New`."
+"Instances of the resulting type can be created "
+"with :c:func:`PyStructSequence_New`."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:166 ../../../c-api/tuple.rst:235
+#: ../../../c-api/tuple.rst:186 ../../../c-api/tuple.rst:255
 msgid "Return ``NULL`` with an exception set on failure."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:171
+#: ../../../c-api/tuple.rst:191
 msgid "Initializes a struct sequence type *type* from *desc* in place."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:176
+#: ../../../c-api/tuple.rst:196
 msgid ""
 "Like :c:func:`PyStructSequence_InitType`, but returns ``0`` on success and "
 "``-1`` with an exception set on failure."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:184
+#: ../../../c-api/tuple.rst:204
 msgid "Contains the meta information of a struct sequence type to create."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:188
+#: ../../../c-api/tuple.rst:208
 msgid ""
 "Fully qualified name of the type; null-terminated UTF-8 encoded. The name "
 "must contain the module name."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:193
+#: ../../../c-api/tuple.rst:213
 msgid "Pointer to docstring for the type or ``NULL`` to omit."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:197
+#: ../../../c-api/tuple.rst:217
 msgid "Pointer to ``NULL``-terminated array with field names of the new type."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:201
+#: ../../../c-api/tuple.rst:221
 msgid "Number of fields visible to the Python side (if used as tuple)."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:206
+#: ../../../c-api/tuple.rst:226
 msgid ""
 "Describes a field of a struct sequence. As a struct sequence is modeled as a "
-"tuple, all fields are typed as :c:expr:`PyObject*`.  The index in the :c:"
-"member:`~PyStructSequence_Desc.fields` array of the :c:type:"
-"`PyStructSequence_Desc` determines which field of the struct sequence is "
-"described."
+"tuple, all fields are typed as :c:expr:`PyObject*`.  The index in "
+"the :c:member:`~PyStructSequence_Desc.fields` array of "
+"the :c:type:`PyStructSequence_Desc` determines which field of the struct "
+"sequence is described."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:214
+#: ../../../c-api/tuple.rst:234
 msgid ""
-"Name for the field or ``NULL`` to end the list of named fields, set to :c:"
-"data:`PyStructSequence_UnnamedField` to leave unnamed."
+"Name for the field or ``NULL`` to end the list of named fields, set "
+"to :c:data:`PyStructSequence_UnnamedField` to leave unnamed."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:219
+#: ../../../c-api/tuple.rst:239
 msgid "Field docstring or ``NULL`` to omit."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:224
+#: ../../../c-api/tuple.rst:244
 msgid "Special value for a field name to leave it unnamed."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:226
+#: ../../../c-api/tuple.rst:246
 msgid "The type was changed from ``char *``."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:232
+#: ../../../c-api/tuple.rst:252
 msgid ""
-"Creates an instance of *type*, which must have been created with :c:func:"
-"`PyStructSequence_NewType`."
+"Creates an instance of *type*, which must have been created "
+"with :c:func:`PyStructSequence_NewType`."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:240
+#: ../../../c-api/tuple.rst:260
 msgid ""
 "Return the object at position *pos* in the struct sequence pointed to by "
 "*p*. The returned reference is borrowed from the struct sequence *p* (that "
 "is: it is only valid as long as you hold a reference to *p*)."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:250
+#: ../../../c-api/tuple.rst:270
 msgid "Alias to :c:func:`PyStructSequence_GetItem`."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:252
+#: ../../../c-api/tuple.rst:272
 msgid "Now implemented as an alias to :c:func:`PyStructSequence_GetItem`."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:258
+#: ../../../c-api/tuple.rst:278
 msgid ""
 "Sets the field at index *pos* of the struct sequence *p* to value *o*.  "
 "Like :c:func:`PyTuple_SET_ITEM`, this should only be used to fill in brand "
 "new instances."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:267
+#: ../../../c-api/tuple.rst:287
 msgid "This function \":term:`steals <steal>`\" a reference to *o*."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:272
+#: ../../../c-api/tuple.rst:292
 msgid "Alias to :c:func:`PyStructSequence_SetItem`."
 msgstr ""
 
-#: ../../../c-api/tuple.rst:274
+#: ../../../c-api/tuple.rst:294
 msgid "Now implemented as an alias to :c:func:`PyStructSequence_SetItem`."
 msgstr ""
 
