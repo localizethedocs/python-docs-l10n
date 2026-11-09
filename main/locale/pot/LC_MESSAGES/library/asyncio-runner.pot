@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 09:54+0000\n"
+"POT-Creation-Date: 2026-11-09 18:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgid "Execute *coro* in an asyncio event loop and return the result."
 msgstr ""
 
 #: ../../../library/asyncio-runner.rst:29
-#: ../../../library/asyncio-runner.rst:113
+#: ../../../library/asyncio-runner.rst:137
 msgid "The argument can be any awaitable object."
 msgstr ""
 
@@ -56,18 +56,18 @@ msgid ""
 msgstr ""
 
 #: ../../../library/asyncio-runner.rst:35
-#: ../../../library/asyncio-runner.rst:123
+#: ../../../library/asyncio-runner.rst:147
 msgid ""
 "This function cannot be called when another asyncio event loop is running in "
 "the same thread."
 msgstr ""
 
 #: ../../../library/asyncio-runner.rst:38
-#: ../../../library/asyncio-runner.rst:89
+#: ../../../library/asyncio-runner.rst:101
 msgid ""
 "If *debug* is ``True``, the event loop will be run in debug mode. ``False`` "
-"disables debug mode explicitly. ``None`` is used to respect the global :ref:"
-"`asyncio-debug-mode` settings."
+"disables debug mode explicitly. ``None`` is used to respect the "
+"global :ref:`asyncio-debug-mode` settings."
 msgstr ""
 
 #: ../../../library/asyncio-runner.rst:42
@@ -80,51 +80,70 @@ msgid ""
 msgstr ""
 
 #: ../../../library/asyncio-runner.rst:48
+#: ../../../library/asyncio-runner.rst:110
+msgid ""
+"If *eager_tasks* is ``True``, the created loop is configured to "
+"use :ref:`eager-task-factory` by default."
+msgstr ""
+
+#: ../../../library/asyncio-runner.rst:51
 msgid ""
 "The executor is given a timeout duration of 5 minutes to shutdown. If the "
 "executor hasn't finished within that duration, a warning is emitted and the "
 "executor is closed."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:52
+#: ../../../library/asyncio-runner.rst:57
+#: ../../../library/asyncio-runner.rst:124
+msgid ""
+"Users concerned about performance are encouraged to experiment with "
+"``eager_tasks=True`` in their code."
+msgstr ""
+
+#: ../../../library/asyncio-runner.rst:60
 msgid "Example::"
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:62
+#: ../../../library/asyncio-runner.rst:70
 msgid "Updated to use :meth:`loop.shutdown_default_executor`."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:67
+#: ../../../library/asyncio-runner.rst:75
 msgid ""
 "*debug* is ``None`` by default to respect the global debug mode settings."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:71
+#: ../../../library/asyncio-runner.rst:79
 msgid "Added *loop_factory* parameter."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:75
-#: ../../../library/asyncio-runner.rst:128
+#: ../../../library/asyncio-runner.rst:83
+#: ../../../library/asyncio-runner.rst:152
 msgid "*coro* can be any awaitable object."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:79
+#: ../../../library/asyncio-runner.rst:87
+#: ../../../library/asyncio-runner.rst:131
+msgid "Added *eager_tasks* parameter."
+msgstr ""
+
+#: ../../../library/asyncio-runner.rst:91
 msgid "Runner context manager"
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:83
+#: ../../../library/asyncio-runner.rst:95
 msgid ""
 "A context manager that simplifies *multiple* async function calls in the "
 "same context."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:86
+#: ../../../library/asyncio-runner.rst:98
 msgid ""
-"Sometimes several top-level async functions should be called in the same :"
-"ref:`event loop <asyncio-event-loop>` and :class:`contextvars.Context`."
+"Sometimes several top-level async functions should be called in the "
+"same :ref:`event loop <asyncio-event-loop>` and :class:`contextvars.Context`."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:93
+#: ../../../library/asyncio-runner.rst:105
 msgid ""
 "*loop_factory* could be used for overriding the loop creation. It is the "
 "responsibility of the *loop_factory* to set the created loop as the current "
@@ -132,102 +151,102 @@ msgid ""
 "event loop with :func:`asyncio.set_event_loop` if *loop_factory* is ``None``."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:98
+#: ../../../library/asyncio-runner.rst:113
 msgid ""
 "Basically, :func:`asyncio.run` example can be rewritten with the runner "
 "usage::"
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:111
+#: ../../../library/asyncio-runner.rst:135
 msgid "Execute *coro* in the embedded event loop."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:115
+#: ../../../library/asyncio-runner.rst:139
 msgid "If the argument is a coroutine, it is wrapped in a Task."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:117
+#: ../../../library/asyncio-runner.rst:141
 msgid ""
-"An optional keyword-only *context* argument allows specifying a custom :"
-"class:`contextvars.Context` for the code to run in. The runner's default "
-"context is used if context is ``None``."
+"An optional keyword-only *context* argument allows specifying a "
+"custom :class:`contextvars.Context` for the code to run in. The runner's "
+"default context is used if context is ``None``."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:121
+#: ../../../library/asyncio-runner.rst:145
 msgid "Returns the awaitable's result or raises an exception."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:132
+#: ../../../library/asyncio-runner.rst:156
 msgid "Close the runner."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:134
+#: ../../../library/asyncio-runner.rst:158
 msgid ""
 "Finalize asynchronous generators, shutdown default executor, close the event "
 "loop and release embedded :class:`contextvars.Context`."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:139
+#: ../../../library/asyncio-runner.rst:163
 msgid "Return the event loop associated with the runner instance."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:143
+#: ../../../library/asyncio-runner.rst:167
 msgid ""
 ":class:`Runner` uses the lazy initialization strategy, its constructor "
 "doesn't initialize underlying low-level structures."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:146
+#: ../../../library/asyncio-runner.rst:170
 msgid ""
 "Embedded *loop* and *context* are created at the :keyword:`with` body "
 "entering or the first call of :meth:`run` or :meth:`get_loop`."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:151
+#: ../../../library/asyncio-runner.rst:175
 msgid "Handling Keyboard Interruption"
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:155
+#: ../../../library/asyncio-runner.rst:179
 msgid ""
-"When :const:`signal.SIGINT` is raised by :kbd:`Ctrl-C`, :exc:"
-"`KeyboardInterrupt` exception is raised in the main thread by default. "
-"However this doesn't work with :mod:`asyncio` because it can interrupt "
-"asyncio internals and can hang the program from exiting."
+"When :const:`signal.SIGINT` is raised by :kbd:`Ctrl-"
+"C`, :exc:`KeyboardInterrupt` exception is raised in the main thread by "
+"default. However this doesn't work with :mod:`asyncio` because it can "
+"interrupt asyncio internals and can hang the program from exiting."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:160
+#: ../../../library/asyncio-runner.rst:184
 msgid ""
 "To mitigate this issue, :mod:`asyncio` handles :const:`signal.SIGINT` as "
 "follows:"
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:162
+#: ../../../library/asyncio-runner.rst:186
 msgid ""
 ":meth:`asyncio.Runner.run` installs a custom :const:`signal.SIGINT` handler "
 "before any user code is executed and removes it when exiting from the "
 "function."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:164
+#: ../../../library/asyncio-runner.rst:188
 msgid ""
 "The :class:`~asyncio.Runner` creates the main task for the passed coroutine "
 "for its execution."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:166
+#: ../../../library/asyncio-runner.rst:190
 msgid ""
 "When :const:`signal.SIGINT` is raised by :kbd:`Ctrl-C`, the custom signal "
 "handler cancels the main task by calling :meth:`asyncio.Task.cancel` which "
 "raises :exc:`asyncio.CancelledError` inside the main task.  This causes the "
 "Python stack to unwind, ``try/except`` and ``try/finally`` blocks can be "
-"used for resource cleanup.  After the main task is cancelled, :meth:`asyncio."
-"Runner.run` raises :exc:`KeyboardInterrupt`."
+"used for resource cleanup.  After the main task is "
+"cancelled, :meth:`asyncio.Runner.run` raises :exc:`KeyboardInterrupt`."
 msgstr ""
 
-#: ../../../library/asyncio-runner.rst:172
+#: ../../../library/asyncio-runner.rst:196
 msgid ""
-"A user could write a tight loop which cannot be interrupted by :meth:"
-"`asyncio.Task.cancel`, in which case the second following :kbd:`Ctrl-C` "
-"immediately raises the :exc:`KeyboardInterrupt` without cancelling the main "
-"task."
+"A user could write a tight loop which cannot be interrupted "
+"by :meth:`asyncio.Task.cancel`, in which case the second "
+"following :kbd:`Ctrl-C` immediately raises the :exc:`KeyboardInterrupt` "
+"without cancelling the main task."
 msgstr ""

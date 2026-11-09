@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-26 15:56+0000\n"
+"POT-Creation-Date: 2026-11-09 18:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,7 +56,7 @@ msgid ""
 "are not necessarily appropriate for your application."
 msgstr ""
 
-#: ../../../library/ssl.rst:493 ../../../library/ssl.rst:508
+#: ../../../library/ssl.rst:499 ../../../library/ssl.rst:514
 #: ../../../includes/wasm-notavail.rst:3
 msgid "Availability"
 msgstr ""
@@ -470,122 +470,128 @@ msgid ""
 "same format as used for the *cafile* parameter "
 "in :meth:`SSLContext.load_verify_locations`.  The call will attempt to "
 "validate the server certificate against that set of root certificates, and "
-"will fail if the validation attempt fails.  A timeout can be specified with "
-"the ``timeout`` parameter."
+"will fail if the validation attempt fails or the certificate hostname does "
+"not match the server hostname.  A timeout can be specified with the "
+"``timeout`` parameter."
 msgstr ""
 
-#: ../../../library/ssl.rst:438
+#: ../../../library/ssl.rst:439
 msgid "This function is now IPv6-compatible."
 msgstr ""
 
-#: ../../../library/ssl.rst:441
+#: ../../../library/ssl.rst:442
 msgid ""
 "The default *ssl_version* is changed from :data:`PROTOCOL_SSLv3` "
 "to :data:`PROTOCOL_TLS` for maximum compatibility with modern servers."
 msgstr ""
 
-#: ../../../library/ssl.rst:445
+#: ../../../library/ssl.rst:446
 msgid "The *timeout* parameter was added."
 msgstr ""
 
-#: ../../../library/ssl.rst:450
+#: ../../../library/ssl.rst:449
+msgid ""
+"The function now raises :exc:`SSLCertVerificationError` if *ca_certs* is "
+"specified but the certificate hostname does not match the server hostname."
+msgstr ""
+
+#: ../../../library/ssl.rst:456
 msgid ""
 "Given a certificate as a DER-encoded blob of bytes, returns a PEM-encoded "
 "string version of the same certificate."
 msgstr ""
 
-#: ../../../library/ssl.rst:455
+#: ../../../library/ssl.rst:461
 msgid ""
 "Given a certificate as an ASCII PEM string, returns a DER-encoded sequence "
 "of bytes for that same certificate."
 msgstr ""
 
-#: ../../../library/ssl.rst:460
+#: ../../../library/ssl.rst:466
 msgid ""
 "Returns a named tuple with paths to OpenSSL's default cafile and capath. The "
 "paths are the same as used by :meth:`SSLContext.set_default_verify_paths`. "
 "The return value is a :term:`named tuple` ``DefaultVerifyPaths``:"
 msgstr ""
 
-#: ../../../library/ssl.rst:465
+#: ../../../library/ssl.rst:471
 msgid ""
 ":attr:`cafile` - resolved path to cafile or ``None`` if the file doesn't "
 "exist,"
 msgstr ""
 
-#: ../../../library/ssl.rst:466
+#: ../../../library/ssl.rst:472
 msgid ""
 ":attr:`capath` - resolved path to capath or ``None`` if the directory "
 "doesn't exist,"
 msgstr ""
 
-#: ../../../library/ssl.rst:467
+#: ../../../library/ssl.rst:473
 msgid ""
 ":attr:`openssl_cafile_env` - OpenSSL's environment key that points to a "
 "cafile,"
 msgstr ""
 
-#: ../../../library/ssl.rst:468
+#: ../../../library/ssl.rst:474
 msgid ":attr:`openssl_cafile` - hard coded path to a cafile,"
 msgstr ""
 
-#: ../../../library/ssl.rst:469
+#: ../../../library/ssl.rst:475
 msgid ""
 ":attr:`openssl_capath_env` - OpenSSL's environment key that points to a "
 "capath,"
 msgstr ""
 
-#: ../../../library/ssl.rst:470
+#: ../../../library/ssl.rst:476
 msgid ":attr:`openssl_capath` - hard coded path to a capath directory"
 msgstr ""
 
-#: ../../../library/ssl.rst:476
+#: ../../../library/ssl.rst:482
 msgid ""
 "Retrieve certificates from Windows' system cert store. *store_name* may be "
 "one of ``CA``, ``ROOT`` or ``MY``. Windows may provide additional cert "
 "stores, too."
 msgstr ""
 
-#: ../../../library/ssl.rst:480
+#: ../../../library/ssl.rst:486
 msgid ""
 "The function returns a list of (cert_bytes, encoding_type, trust) tuples. "
-"The encoding_type specifies the encoding of cert_bytes. It is "
-"either :const:`x509_asn` for X.509 ASN.1 data or :const:`pkcs_7_asn` for "
-"PKCS#7 ASN.1 data. Trust specifies the purpose of the certificate as a set "
-"of OIDS or exactly ``True`` if the certificate is trustworthy for all "
-"purposes."
+"The encoding_type specifies the encoding of cert_bytes. It is either "
+"``'x509_asn'`` for X.509 ASN.1 data or ``'pkcs_7_asn'`` for PKCS#7 ASN.1 "
+"data. Trust specifies the purpose of the certificate as a set of OIDS or "
+"exactly ``True`` if the certificate is trustworthy for all purposes."
 msgstr ""
 
-#: ../../../library/ssl.rst:487 ../../../library/ssl.rst:1896
-#: ../../../library/ssl.rst:2358
+#: ../../../library/ssl.rst:493 ../../../library/ssl.rst:1902
+#: ../../../library/ssl.rst:2364
 msgid "Example::"
 msgstr ""
 
-#: ../../../library/ssl.rst:499
+#: ../../../library/ssl.rst:505
 msgid ""
 "Retrieve CRLs from Windows' system cert store. *store_name* may be one of "
 "``CA``, ``ROOT`` or ``MY``. Windows may provide additional cert stores, too."
 msgstr ""
 
-#: ../../../library/ssl.rst:503
+#: ../../../library/ssl.rst:509
 msgid ""
-"The function returns a list of (cert_bytes, encoding_type, trust) tuples. "
-"The encoding_type specifies the encoding of cert_bytes. It is "
-"either :const:`x509_asn` for X.509 ASN.1 data or :const:`pkcs_7_asn` for "
-"PKCS#7 ASN.1 data."
+"The function returns a list of (cert_bytes, encoding_type) tuples. The "
+"encoding_type specifies the encoding of cert_bytes. It is either "
+"``'x509_asn'`` for X.509 ASN.1 data or ``'pkcs_7_asn'`` for PKCS#7 ASN.1 "
+"data."
 msgstr ""
 
-#: ../../../library/ssl.rst:514
+#: ../../../library/ssl.rst:520
 msgid "Constants"
 msgstr ""
 
-#: ../../../library/ssl.rst:516
+#: ../../../library/ssl.rst:522
 msgid ""
 "All constants are now :class:`enum.IntEnum` or :class:`enum.IntFlag` "
 "collections."
 msgstr ""
 
-#: ../../../library/ssl.rst:522
+#: ../../../library/ssl.rst:528
 msgid ""
 "Possible value for :attr:`SSLContext.verify_mode`. Except "
 "for :const:`PROTOCOL_TLS_CLIENT`, it is the default mode.  With client-side "
@@ -594,17 +600,17 @@ msgid ""
 "handshake."
 msgstr ""
 
-#: ../../../library/ssl.rst:528
+#: ../../../library/ssl.rst:534
 msgid ""
 "In server mode, no certificate is requested from the client, so the client "
 "does not send any for client cert authentication."
 msgstr ""
 
-#: ../../../library/ssl.rst:531 ../../../library/ssl.rst:2883
+#: ../../../library/ssl.rst:537 ../../../library/ssl.rst:2889
 msgid "See the discussion of :ref:`ssl-security` below."
 msgstr ""
 
-#: ../../../library/ssl.rst:535
+#: ../../../library/ssl.rst:541
 msgid ""
 "Possible value for :attr:`SSLContext.verify_mode`. In client "
 "mode, :const:`CERT_OPTIONAL` has the same meaning as :const:`CERT_REQUIRED`. "
@@ -612,7 +618,7 @@ msgid ""
 "instead."
 msgstr ""
 
-#: ../../../library/ssl.rst:540
+#: ../../../library/ssl.rst:546
 msgid ""
 "In server mode, a client certificate request is sent to the client.  The "
 "client may either ignore the request or send a certificate in order perform "
@@ -621,13 +627,13 @@ msgid ""
 "TLS handshake."
 msgstr ""
 
-#: ../../../library/ssl.rst:546 ../../../library/ssl.rst:565
+#: ../../../library/ssl.rst:552 ../../../library/ssl.rst:571
 msgid ""
 "Use of this setting requires a valid set of CA certificates to be passed "
 "to :meth:`SSLContext.load_verify_locations`."
 msgstr ""
 
-#: ../../../library/ssl.rst:551
+#: ../../../library/ssl.rst:557
 msgid ""
 "Possible value for :attr:`SSLContext.verify_mode`. In this mode, "
 "certificates are required from the other side of the socket connection; "
@@ -640,25 +646,25 @@ msgid ""
 "by default."
 msgstr ""
 
-#: ../../../library/ssl.rst:561
+#: ../../../library/ssl.rst:567
 msgid ""
 "With server socket, this mode provides mandatory TLS client cert "
 "authentication.  A client certificate request is sent to the client and the "
 "client must provide a valid and trusted certificate."
 msgstr ""
 
-#: ../../../library/ssl.rst:570
+#: ../../../library/ssl.rst:576
 msgid ":class:`enum.IntEnum` collection of CERT_* constants."
 msgstr ""
 
-#: ../../../library/ssl.rst:576
+#: ../../../library/ssl.rst:582
 msgid ""
 "Possible value for :attr:`SSLContext.verify_flags`. In this mode, "
 "certificate revocation lists (CRLs) are not checked. By default OpenSSL does "
 "neither require nor verify CRLs."
 msgstr ""
 
-#: ../../../library/ssl.rst:584
+#: ../../../library/ssl.rst:590
 msgid ""
 "Possible value for :attr:`SSLContext.verify_flags`. In this mode, only the "
 "peer cert is checked but none of the intermediate CA certificates. The mode "
@@ -667,32 +673,32 @@ msgid ""
 "with :attr:`SSLContext.load_verify_locations`, validation will fail."
 msgstr ""
 
-#: ../../../library/ssl.rst:594
+#: ../../../library/ssl.rst:600
 msgid ""
 "Possible value for :attr:`SSLContext.verify_flags`. In this mode, CRLs of "
 "all certificates in the peer cert chain are checked."
 msgstr ""
 
-#: ../../../library/ssl.rst:601
+#: ../../../library/ssl.rst:607
 msgid ""
 "Possible value for :attr:`SSLContext.verify_flags` to disable workarounds "
 "for broken X.509 certificates."
 msgstr ""
 
-#: ../../../library/ssl.rst:608
+#: ../../../library/ssl.rst:614
 msgid ""
 "Possible value for :attr:`SSLContext.verify_flags` to enables proxy "
 "certificate verification."
 msgstr ""
 
-#: ../../../library/ssl.rst:615
+#: ../../../library/ssl.rst:621
 msgid ""
 "Possible value for :attr:`SSLContext.verify_flags`. It instructs OpenSSL to "
 "prefer trusted certificates when building the trust chain to validate a "
 "certificate. This flag is enabled by default."
 msgstr ""
 
-#: ../../../library/ssl.rst:623
+#: ../../../library/ssl.rst:629
 msgid ""
 "Possible value for :attr:`SSLContext.verify_flags`. It instructs OpenSSL to "
 "accept intermediate CAs in the trust store to be treated as trust-anchors, "
@@ -701,25 +707,25 @@ msgid ""
 "to trust its ancestor root CA."
 msgstr ""
 
-#: ../../../library/ssl.rst:634
+#: ../../../library/ssl.rst:640
 msgid ":class:`enum.IntFlag` collection of VERIFY_* constants."
 msgstr ""
 
-#: ../../../library/ssl.rst:640
+#: ../../../library/ssl.rst:646
 msgid ""
 "Selects the highest protocol version that both the client and server "
 "support. Despite the name, this option can select both \"SSL\" and \"TLS\" "
 "protocols."
 msgstr ""
 
-#: ../../../library/ssl.rst:647
+#: ../../../library/ssl.rst:653
 msgid ""
 "TLS clients and servers require different default settings for secure "
 "communication. The generic TLS protocol constant is deprecated in favor "
 "of :data:`PROTOCOL_TLS_CLIENT` and :data:`PROTOCOL_TLS_SERVER`."
 msgstr ""
 
-#: ../../../library/ssl.rst:653
+#: ../../../library/ssl.rst:659
 msgid ""
 "Auto-negotiate the highest protocol version that both the client and server "
 "support, and configure the context client-side connections. The protocol "
@@ -727,35 +733,35 @@ msgid ""
 "default."
 msgstr ""
 
-#: ../../../library/ssl.rst:662
+#: ../../../library/ssl.rst:668
 msgid ""
 "Auto-negotiate the highest protocol version that both the client and server "
 "support, and configure the context server-side connections."
 msgstr ""
 
-#: ../../../library/ssl.rst:669
+#: ../../../library/ssl.rst:675
 msgid "Alias for :data:`PROTOCOL_TLS`."
 msgstr ""
 
-#: ../../../library/ssl.rst:673
+#: ../../../library/ssl.rst:679
 msgid "Use :data:`PROTOCOL_TLS` instead."
 msgstr ""
 
-#: ../../../library/ssl.rst:677
+#: ../../../library/ssl.rst:683
 msgid "Selects SSL version 3 as the channel encryption protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:679
+#: ../../../library/ssl.rst:685
 msgid ""
 "This protocol is not available if OpenSSL is compiled with the ``no-ssl3`` "
 "option."
 msgstr ""
 
-#: ../../../library/ssl.rst:684
+#: ../../../library/ssl.rst:690
 msgid "SSL version 3 is insecure.  Its use is highly discouraged."
 msgstr ""
 
-#: ../../../library/ssl.rst:688
+#: ../../../library/ssl.rst:694
 msgid ""
 "OpenSSL has deprecated all version specific protocols. Use the default "
 "protocol :data:`PROTOCOL_TLS_SERVER` or :data:`PROTOCOL_TLS_CLIENT` "
@@ -763,89 +769,89 @@ msgid ""
 "and :attr:`SSLContext.maximum_version` instead."
 msgstr ""
 
-#: ../../../library/ssl.rst:696
+#: ../../../library/ssl.rst:702
 msgid "Selects TLS version 1.0 as the channel encryption protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:700 ../../../library/ssl.rst:711
-#: ../../../library/ssl.rst:722
+#: ../../../library/ssl.rst:706 ../../../library/ssl.rst:717
+#: ../../../library/ssl.rst:728
 msgid "OpenSSL has deprecated all version specific protocols."
 msgstr ""
 
-#: ../../../library/ssl.rst:704
+#: ../../../library/ssl.rst:710
 msgid ""
 "Selects TLS version 1.1 as the channel encryption protocol. Available only "
 "with openssl version 1.0.1+."
 msgstr ""
 
-#: ../../../library/ssl.rst:715
+#: ../../../library/ssl.rst:721
 msgid ""
 "Selects TLS version 1.2 as the channel encryption protocol. Available only "
 "with openssl version 1.0.1+."
 msgstr ""
 
-#: ../../../library/ssl.rst:726
+#: ../../../library/ssl.rst:732
 msgid ""
 "Enables workarounds for various bugs present in other SSL implementations. "
 "This option is set by default.  It does not necessarily set the same flags "
 "as OpenSSL's ``SSL_OP_ALL`` constant."
 msgstr ""
 
-#: ../../../library/ssl.rst:734
+#: ../../../library/ssl.rst:740
 msgid ""
 "Prevents an SSLv2 connection.  This option is only applicable in conjunction "
 "with :const:`PROTOCOL_TLS`.  It prevents the peers from choosing SSLv2 as "
 "the protocol version."
 msgstr ""
 
-#: ../../../library/ssl.rst:742
+#: ../../../library/ssl.rst:748
 msgid "SSLv2 is deprecated"
 msgstr ""
 
-#: ../../../library/ssl.rst:746
+#: ../../../library/ssl.rst:752
 msgid ""
 "Prevents an SSLv3 connection.  This option is only applicable in conjunction "
 "with :const:`PROTOCOL_TLS`.  It prevents the peers from choosing SSLv3 as "
 "the protocol version."
 msgstr ""
 
-#: ../../../library/ssl.rst:754
+#: ../../../library/ssl.rst:760
 msgid "SSLv3 is deprecated"
 msgstr ""
 
-#: ../../../library/ssl.rst:758
+#: ../../../library/ssl.rst:764
 msgid ""
 "Prevents a TLSv1 connection.  This option is only applicable in conjunction "
 "with :const:`PROTOCOL_TLS`.  It prevents the peers from choosing TLSv1 as "
 "the protocol version."
 msgstr ""
 
-#: ../../../library/ssl.rst:764
+#: ../../../library/ssl.rst:770
 msgid ""
 "The option is deprecated since OpenSSL 1.1.0, use the "
 "new :attr:`SSLContext.minimum_version` "
 "and :attr:`SSLContext.maximum_version` instead."
 msgstr ""
 
-#: ../../../library/ssl.rst:771
+#: ../../../library/ssl.rst:777
 msgid ""
 "Prevents a TLSv1.1 connection. This option is only applicable in conjunction "
 "with :const:`PROTOCOL_TLS`. It prevents the peers from choosing TLSv1.1 as "
 "the protocol version. Available only with openssl version 1.0.1+."
 msgstr ""
 
-#: ../../../library/ssl.rst:777 ../../../library/ssl.rst:788
+#: ../../../library/ssl.rst:783 ../../../library/ssl.rst:794
 msgid "The option is deprecated since OpenSSL 1.1.0."
 msgstr ""
 
-#: ../../../library/ssl.rst:782
+#: ../../../library/ssl.rst:788
 msgid ""
 "Prevents a TLSv1.2 connection. This option is only applicable in conjunction "
 "with :const:`PROTOCOL_TLS`. It prevents the peers from choosing TLSv1.2 as "
 "the protocol version. Available only with openssl version 1.0.1+."
 msgstr ""
 
-#: ../../../library/ssl.rst:793
+#: ../../../library/ssl.rst:799
 msgid ""
 "Prevents a TLSv1.3 connection. This option is only applicable in conjunction "
 "with :const:`PROTOCOL_TLS`. It prevents the peers from choosing TLSv1.3 as "
@@ -854,75 +860,75 @@ msgid ""
 "defaults to *0*."
 msgstr ""
 
-#: ../../../library/ssl.rst:801
+#: ../../../library/ssl.rst:807
 msgid ""
 "The option is deprecated since OpenSSL 1.1.0. It was added to 2.7.15 and "
 "3.6.3 for backwards compatibility with OpenSSL 1.0.2."
 msgstr ""
 
-#: ../../../library/ssl.rst:807
+#: ../../../library/ssl.rst:813
 msgid ""
 "Disable all renegotiation in TLSv1.2 and earlier. Do not send HelloRequest "
 "messages, and ignore renegotiation requests via ClientHello."
 msgstr ""
 
-#: ../../../library/ssl.rst:810
+#: ../../../library/ssl.rst:816
 msgid "This option is only available with OpenSSL 1.1.0h and later."
 msgstr ""
 
-#: ../../../library/ssl.rst:816
+#: ../../../library/ssl.rst:822
 msgid ""
 "Use the server's cipher ordering preference, rather than the client's. This "
 "option has no effect on client sockets and SSLv2 server sockets."
 msgstr ""
 
-#: ../../../library/ssl.rst:823
+#: ../../../library/ssl.rst:829
 msgid ""
 "Prevents reuse of the same DH key for distinct SSL sessions.  This improves "
 "forward secrecy but requires more computational resources. This option only "
 "applies to server sockets."
 msgstr ""
 
-#: ../../../library/ssl.rst:831
+#: ../../../library/ssl.rst:837
 msgid ""
 "Prevents reuse of the same ECDH key for distinct SSL sessions.  This "
 "improves forward secrecy but requires more computational resources. This "
 "option only applies to server sockets."
 msgstr ""
 
-#: ../../../library/ssl.rst:839
+#: ../../../library/ssl.rst:845
 msgid ""
 "Send dummy Change Cipher Spec (CCS) messages in TLS 1.3 handshake to make a "
 "TLS 1.3 connection look more like a TLS 1.2 connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:842
+#: ../../../library/ssl.rst:848
 msgid "This option is only available with OpenSSL 1.1.1 and later."
 msgstr ""
 
-#: ../../../library/ssl.rst:848
+#: ../../../library/ssl.rst:854
 msgid ""
 "Disable compression on the SSL channel.  This is useful if the application "
 "protocol supports its own compression scheme."
 msgstr ""
 
-#: ../../../library/ssl.rst:855
+#: ../../../library/ssl.rst:861
 msgid ":class:`enum.IntFlag` collection of OP_* constants."
 msgstr ""
 
-#: ../../../library/ssl.rst:859
+#: ../../../library/ssl.rst:865
 msgid "Prevent client side from requesting a session ticket."
 msgstr ""
 
-#: ../../../library/ssl.rst:865
+#: ../../../library/ssl.rst:871
 msgid "Ignore unexpected shutdown of TLS connections."
 msgstr ""
 
-#: ../../../library/ssl.rst:867 ../../../library/ssl.rst:883
+#: ../../../library/ssl.rst:873 ../../../library/ssl.rst:889
 msgid "This option is only available with OpenSSL 3.0.0 and later."
 msgstr ""
 
-#: ../../../library/ssl.rst:873
+#: ../../../library/ssl.rst:879
 msgid ""
 "Enable the use of the kernel TLS. To benefit from the feature, OpenSSL must "
 "have been compiled with support for it, and the negotiated cipher suites and "
@@ -930,7 +936,7 @@ msgid ""
 "platform and kernel version)."
 msgstr ""
 
-#: ../../../library/ssl.rst:878
+#: ../../../library/ssl.rst:884
 msgid ""
 "Note that with enabled kernel TLS some cryptographic operations are "
 "performed by the kernel directly and not via any available OpenSSL "
@@ -938,13 +944,13 @@ msgid ""
 "requires all cryptographic operations to be performed by the FIPS provider."
 msgstr ""
 
-#: ../../../library/ssl.rst:889
+#: ../../../library/ssl.rst:895
 msgid ""
 "Allow legacy insecure renegotiation between OpenSSL and unpatched servers "
 "only."
 msgstr ""
 
-#: ../../../library/ssl.rst:896
+#: ../../../library/ssl.rst:902
 msgid ""
 "Include a GREASE ECH extension in ClientHello messages when ECH is not being "
 "attempted, so these connections resemble connections that use ECH. Clients "
@@ -952,56 +958,56 @@ msgid ""
 "(see :rfc:`9849`, section 6.2.1)."
 msgstr ""
 
-#: ../../../library/ssl.rst:901 ../../../library/ssl.rst:910
-#: ../../../library/ssl.rst:918 ../../../library/ssl.rst:926
-#: ../../../library/ssl.rst:1105 ../../../library/ssl.rst:1533
-#: ../../../library/ssl.rst:1545 ../../../library/ssl.rst:1560
-#: ../../../library/ssl.rst:1642 ../../../library/ssl.rst:1844
-#: ../../../library/ssl.rst:2073 ../../../library/ssl.rst:2111
+#: ../../../library/ssl.rst:907 ../../../library/ssl.rst:916
+#: ../../../library/ssl.rst:924 ../../../library/ssl.rst:932
+#: ../../../library/ssl.rst:1111 ../../../library/ssl.rst:1539
+#: ../../../library/ssl.rst:1551 ../../../library/ssl.rst:1566
+#: ../../../library/ssl.rst:1648 ../../../library/ssl.rst:1850
+#: ../../../library/ssl.rst:2079 ../../../library/ssl.rst:2117
 msgid "Only available when :data:`HAS_ECH` is ``True``."
 msgstr ""
 
-#: ../../../library/ssl.rst:907
+#: ../../../library/ssl.rst:913
 msgid ""
 "Attempt server-side ECH decryption with all available ECH keys, rather than "
 "only those with a matching configuration identifier."
 msgstr ""
 
-#: ../../../library/ssl.rst:916
+#: ../../../library/ssl.rst:922
 msgid "Use a random ECH configuration identifier in client connections."
 msgstr ""
 
-#: ../../../library/ssl.rst:924
+#: ../../../library/ssl.rst:930
 msgid ""
 "Include GREASE entries in the ECH retry configurations sent by a server."
 msgstr ""
 
-#: ../../../library/ssl.rst:932
+#: ../../../library/ssl.rst:938
 msgid ""
 "Whether the OpenSSL library has built-in support for the *Application-Layer "
 "Protocol Negotiation* TLS extension as described in :rfc:`7301`."
 msgstr ""
 
-#: ../../../library/ssl.rst:939
+#: ../../../library/ssl.rst:945
 msgid ""
 "Whether the OpenSSL library has built-in support not checking subject common "
 "name and :attr:`SSLContext.hostname_checks_common_name` is writeable."
 msgstr ""
 
-#: ../../../library/ssl.rst:947
+#: ../../../library/ssl.rst:953
 msgid ""
 "Whether the OpenSSL library has built-in support for the Elliptic Curve-"
 "based Diffie-Hellman key exchange.  This should be true unless the feature "
 "was explicitly disabled by the distributor."
 msgstr ""
 
-#: ../../../library/ssl.rst:955
+#: ../../../library/ssl.rst:961
 msgid ""
 "Whether the OpenSSL library has built-in support for the *Server Name "
 "Indication* extension (as defined in :rfc:`6066`)."
 msgstr ""
 
-#: ../../../library/ssl.rst:962
+#: ../../../library/ssl.rst:968
 msgid ""
 "Whether the OpenSSL library has built-in support for the *Next Protocol "
 "Negotiation* as described in the `Application Layer Protocol Negotiation "
@@ -1010,78 +1016,78 @@ msgid ""
 "advertise which protocols you want to support."
 msgstr ""
 
-#: ../../../library/ssl.rst:972
+#: ../../../library/ssl.rst:978
 msgid ""
 "Whether the OpenSSL library has built-in support for the SSL 2.0 protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:978
+#: ../../../library/ssl.rst:984
 msgid ""
 "Whether the OpenSSL library has built-in support for the SSL 3.0 protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:984
+#: ../../../library/ssl.rst:990
 msgid ""
 "Whether the OpenSSL library has built-in support for the TLS 1.0 protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:990
+#: ../../../library/ssl.rst:996
 msgid ""
 "Whether the OpenSSL library has built-in support for the TLS 1.1 protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:996
+#: ../../../library/ssl.rst:1002
 msgid ""
 "Whether the OpenSSL library has built-in support for the TLS 1.2 protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:1002
+#: ../../../library/ssl.rst:1008
 msgid ""
 "Whether the OpenSSL library has built-in support for the TLS 1.3 protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:1008
+#: ../../../library/ssl.rst:1014
 msgid "Whether the OpenSSL library has built-in support for TLS-PSK."
 msgstr ""
 
-#: ../../../library/ssl.rst:1014
+#: ../../../library/ssl.rst:1020
 msgid ""
 "Whether the OpenSSL library has built-in support for External PSKs in TLS "
 "1.3 as described in :rfc:`9258`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1021
+#: ../../../library/ssl.rst:1027
 msgid "Whether the OpenSSL library has built-in support for TLS-PHA."
 msgstr ""
 
-#: ../../../library/ssl.rst:1027
+#: ../../../library/ssl.rst:1033
 msgid ""
 "Whether the OpenSSL library has built-in support for Encrypted Client Hello "
 "(ECH). This requires OpenSSL 4.0 or later with ECH enabled."
 msgstr ""
 
-#: ../../../library/ssl.rst:1034
+#: ../../../library/ssl.rst:1040
 msgid ""
 "List of supported TLS channel binding types.  Strings in this list can be "
 "used as arguments to :meth:`SSLSocket.get_channel_binding`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1041
+#: ../../../library/ssl.rst:1047
 msgid "The version string of the OpenSSL library loaded by the interpreter::"
 msgstr ""
 
-#: ../../../library/ssl.rst:1050
+#: ../../../library/ssl.rst:1056
 msgid ""
 "A named tuple of five integers representing version information about the "
 "OpenSSL library loaded by the interpreter: *major*, *minor*, *fix*, *patch* "
 "and *status*::"
 msgstr ""
 
-#: ../../../library/ssl.rst:1059
+#: ../../../library/ssl.rst:1065
 msgid "It is now a named tuple."
 msgstr ""
 
-#: ../../../library/ssl.rst:1064
+#: ../../../library/ssl.rst:1070
 msgid ""
 "A named tuple containing the version of the OpenSSL library that was used "
 "for building the module, with the same fields "
@@ -1089,11 +1095,11 @@ msgid ""
 "library actually used at runtime."
 msgstr ""
 
-#: ../../../library/ssl.rst:1072
+#: ../../../library/ssl.rst:1078
 msgid "The raw version number of the OpenSSL library, as a single integer::"
 msgstr ""
 
-#: ../../../library/ssl.rst:1085
+#: ../../../library/ssl.rst:1091
 msgid ""
 "Alert Descriptions from :rfc:`5246` and others. The `IANA TLS Alert Registry "
 "<https://www.iana.org/assignments/tls-parameters/tls-parameters.xml#tls-"
@@ -1101,80 +1107,80 @@ msgid ""
 "meaning is defined."
 msgstr ""
 
-#: ../../../library/ssl.rst:1089
+#: ../../../library/ssl.rst:1095
 msgid ""
 "Used as the return value of the callback function "
 "in :meth:`SSLContext.set_servername_callback`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1096
+#: ../../../library/ssl.rst:1102
 msgid ":class:`enum.IntEnum` collection of ALERT_DESCRIPTION_* constants."
 msgstr ""
 
-#: ../../../library/ssl.rst:1102
+#: ../../../library/ssl.rst:1108
 msgid ""
 ":class:`enum.IntEnum` collection of Encrypted Client Hello (ECH) statuses "
 "returned by :meth:`SSLSocket.get_ech_status`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1111
+#: ../../../library/ssl.rst:1117
 msgid "ECH was accepted without a certificate verification error."
 msgstr ""
 
-#: ../../../library/ssl.rst:1117
+#: ../../../library/ssl.rst:1123
 msgid ""
 "An internal or protocol error occurred, or ECH was rejected without a retry "
 "configuration."
 msgstr ""
 
-#: ../../../library/ssl.rst:1124
+#: ../../../library/ssl.rst:1130
 msgid ""
 "ECH was rejected and the server supplied an authenticated retry "
 "configuration."
 msgstr ""
 
-#: ../../../library/ssl.rst:1131
+#: ../../../library/ssl.rst:1137
 msgid "ECH was accepted, but verification of the peer's certificate failed."
 msgstr ""
 
-#: ../../../library/ssl.rst:1137
+#: ../../../library/ssl.rst:1143
 msgid ""
 "ECH was rejected and a retry configuration was received, but certificate "
 "verification for the outer server name failed. The retry configuration must "
 "not be used."
 msgstr ""
 
-#: ../../../library/ssl.rst:1145
+#: ../../../library/ssl.rst:1151
 msgid ""
 "ECH is configured but has not been attempted (such as before the handshake "
 "starts)."
 msgstr ""
 
-#: ../../../library/ssl.rst:1152
-msgid "No ECH configuration is set for this connection."
-msgstr ""
-
 #: ../../../library/ssl.rst:1158
-msgid ""
-"ECH GREASE is enabled or was used, but no retry configuration was received."
+msgid "No ECH configuration is set for this connection."
 msgstr ""
 
 #: ../../../library/ssl.rst:1164
 msgid ""
-"The client sent a GREASE ECH extension and received a retry configuration."
+"ECH GREASE is enabled or was used, but no retry configuration was received."
 msgstr ""
 
 #: ../../../library/ssl.rst:1170
+msgid ""
+"The client sent a GREASE ECH extension and received a retry configuration."
+msgstr ""
+
+#: ../../../library/ssl.rst:1176
 msgid ""
 "The server received a ClientHello marked as an inner ClientHello, as used by "
 "a backend server in an ECH split deployment."
 msgstr ""
 
-#: ../../../library/ssl.rst:1177
+#: ../../../library/ssl.rst:1183
 msgid "Invalid arguments were supplied to OpenSSL's ECH status API."
 msgstr ""
 
-#: ../../../library/ssl.rst:1183
+#: ../../../library/ssl.rst:1189
 msgid ""
 "Option for :func:`create_default_context` "
 "and :meth:`SSLContext.load_default_certs`.  This value indicates that the "
@@ -1182,7 +1188,7 @@ msgid ""
 "to create client-side sockets)."
 msgstr ""
 
-#: ../../../library/ssl.rst:1192
+#: ../../../library/ssl.rst:1198
 msgid ""
 "Option for :func:`create_default_context` "
 "and :meth:`SSLContext.load_default_certs`.  This value indicates that the "
@@ -1190,110 +1196,110 @@ msgid ""
 "to create server-side sockets)."
 msgstr ""
 
-#: ../../../library/ssl.rst:1201
+#: ../../../library/ssl.rst:1207
 msgid ":class:`enum.IntEnum` collection of SSL_ERROR_* constants."
 msgstr ""
 
-#: ../../../library/ssl.rst:1207
+#: ../../../library/ssl.rst:1213
 msgid ""
 ":class:`enum.IntEnum` collection of SSL and TLS versions "
 "for :attr:`SSLContext.maximum_version` "
 "and :attr:`SSLContext.minimum_version`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1215
+#: ../../../library/ssl.rst:1221
 msgid ""
 "The minimum or maximum supported SSL or TLS version. These are magic "
 "constants. Their values don't reflect the lowest and highest available TLS/"
 "SSL versions."
 msgstr ""
 
-#: ../../../library/ssl.rst:1225
+#: ../../../library/ssl.rst:1231
 msgid "SSL 3.0 to TLS 1.3."
 msgstr ""
 
-#: ../../../library/ssl.rst:1229
+#: ../../../library/ssl.rst:1235
 msgid ""
 "All :class:`TLSVersion` members except :attr:`TLSVersion.TLSv1_2` "
 "and :attr:`TLSVersion.TLSv1_3` are deprecated."
 msgstr ""
 
-#: ../../../library/ssl.rst:1234
+#: ../../../library/ssl.rst:1240
 msgid "SSL sockets"
 msgstr ""
 
-#: ../../../library/ssl.rst:1238
+#: ../../../library/ssl.rst:1244
 msgid "SSL sockets provide the following methods of :ref:`socket-objects`:"
 msgstr ""
 
-#: ../../../library/ssl.rst:1240
+#: ../../../library/ssl.rst:1246
 msgid ":meth:`~socket.socket.accept`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1241
+#: ../../../library/ssl.rst:1247
 msgid ":meth:`~socket.socket.bind`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1242
+#: ../../../library/ssl.rst:1248
 msgid ":meth:`~socket.socket.close`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1243
+#: ../../../library/ssl.rst:1249
 msgid ":meth:`~socket.socket.connect`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1244
+#: ../../../library/ssl.rst:1250
 msgid ":meth:`~socket.socket.detach`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1245
+#: ../../../library/ssl.rst:1251
 msgid ":meth:`~socket.socket.fileno`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1246
+#: ../../../library/ssl.rst:1252
 msgid ":meth:`~socket.socket.getpeername`, :meth:`~socket.socket.getsockname`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1247
+#: ../../../library/ssl.rst:1253
 msgid ":meth:`~socket.socket.getsockopt`, :meth:`~socket.socket.setsockopt`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1248
+#: ../../../library/ssl.rst:1254
 msgid ":meth:`~socket.socket.gettimeout`, :meth:`~socket.socket.settimeout`, :meth:`~socket.socket.setblocking`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1250
+#: ../../../library/ssl.rst:1256
 msgid ":meth:`~socket.socket.listen`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1251
+#: ../../../library/ssl.rst:1257
 msgid ":meth:`~socket.socket.makefile`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1252
+#: ../../../library/ssl.rst:1258
 msgid ""
 ":meth:`~socket.socket.recv`, :meth:`~socket.socket.recv_into` (but passing a "
 "non-zero ``flags`` argument is not allowed)"
 msgstr ""
 
-#: ../../../library/ssl.rst:1254
+#: ../../../library/ssl.rst:1260
 msgid ""
 ":meth:`~socket.socket.send`, :meth:`~socket.socket.sendall` (with the same "
 "limitation)"
 msgstr ""
 
-#: ../../../library/ssl.rst:1256
+#: ../../../library/ssl.rst:1262
 msgid ""
 ":meth:`~socket.socket.sendfile` (it may be high-performant only when the "
 "kernel TLS is enabled by setting :data:`~ssl.OP_ENABLE_KTLS` or when a "
 "socket is plain-text, else :meth:`~socket.socket.send` will be used)"
 msgstr ""
 
-#: ../../../library/ssl.rst:1259
+#: ../../../library/ssl.rst:1265
 msgid ":meth:`~socket.socket.shutdown`"
 msgstr ""
 
-#: ../../../library/ssl.rst:1261
+#: ../../../library/ssl.rst:1267
 msgid ""
 "However, since the SSL (and TLS) protocol has its own framing atop of TCP, "
 "the SSL sockets abstraction can, in certain respects, diverge from the "
@@ -1301,30 +1307,30 @@ msgid ""
 "on non-blocking sockets <ssl-nonblocking>`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1266
+#: ../../../library/ssl.rst:1272
 msgid ""
 "Instances of :class:`SSLSocket` must be created using "
 "the :meth:`SSLContext.wrap_socket` method."
 msgstr ""
 
-#: ../../../library/ssl.rst:1269
+#: ../../../library/ssl.rst:1275
 msgid "The :meth:`sendfile` method was added."
 msgstr ""
 
-#: ../../../library/ssl.rst:1272
+#: ../../../library/ssl.rst:1278
 msgid ""
 "The :meth:`shutdown` does not reset the socket timeout each time bytes are "
 "received or sent. The socket timeout is now the maximum total duration of "
 "the shutdown."
 msgstr ""
 
-#: ../../../library/ssl.rst:1277
+#: ../../../library/ssl.rst:1283
 msgid ""
 "It is deprecated to create a :class:`SSLSocket` instance directly, "
 "use :meth:`SSLContext.wrap_socket` to wrap a socket."
 msgstr ""
 
-#: ../../../library/ssl.rst:1281
+#: ../../../library/ssl.rst:1287
 msgid ""
 ":class:`SSLSocket` instances must be created "
 "with :meth:`~SSLContext.wrap_socket`. In earlier versions, it was possible "
@@ -1332,83 +1338,83 @@ msgid ""
 "supported."
 msgstr ""
 
-#: ../../../library/ssl.rst:1287
+#: ../../../library/ssl.rst:1293
 msgid ""
 "Python now uses ``SSL_read_ex`` and ``SSL_write_ex`` internally. The "
 "functions support reading and writing of data larger than 2 GB. Writing zero-"
 "length data no longer fails with a protocol violation error."
 msgstr ""
 
-#: ../../../library/ssl.rst:1292
+#: ../../../library/ssl.rst:1298
 msgid ""
 "Python now uses ``SSL_sendfile`` internally when possible. The function "
 "sends a file more efficiently because it performs TLS encryption in the "
 "kernel to avoid additional context switches."
 msgstr ""
 
-#: ../../../library/ssl.rst:1297
+#: ../../../library/ssl.rst:1303
 msgid "SSL sockets also have the following additional methods and attributes:"
 msgstr ""
 
-#: ../../../library/ssl.rst:1301
+#: ../../../library/ssl.rst:1307
 msgid ""
 "Read up to *len* bytes of data from the SSL socket and return the result as "
 "a ``bytes`` instance. If *buffer* is specified, then read into the buffer "
 "instead, and return the number of bytes read."
 msgstr ""
 
-#: ../../../library/ssl.rst:1305
+#: ../../../library/ssl.rst:1311
 msgid ""
 "Raise :exc:`SSLWantReadError` or :exc:`SSLWantWriteError` if the socket "
 "is :ref:`non-blocking <ssl-nonblocking>` and the read would block."
 msgstr ""
 
-#: ../../../library/ssl.rst:1308
+#: ../../../library/ssl.rst:1314
 msgid ""
 "As at any time a re-negotiation is possible, a call to :meth:`read` can also "
 "cause write operations."
 msgstr ""
 
-#: ../../../library/ssl.rst:1311
+#: ../../../library/ssl.rst:1317
 msgid ""
 "The socket timeout is no longer reset each time bytes are received or sent. "
 "The socket timeout is now the maximum total duration to read up to *len* "
 "bytes."
 msgstr ""
 
-#: ../../../library/ssl.rst:1316
+#: ../../../library/ssl.rst:1322
 msgid "Use :meth:`~SSLSocket.recv` instead of :meth:`~SSLSocket.read`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1321
+#: ../../../library/ssl.rst:1327
 msgid ""
 "Write *data* to the SSL socket and return the number of bytes written. The "
 "*data* argument must be an object supporting the buffer interface."
 msgstr ""
 
-#: ../../../library/ssl.rst:1324
+#: ../../../library/ssl.rst:1330
 msgid ""
 "Raise :exc:`SSLWantReadError` or :exc:`SSLWantWriteError` if the socket "
 "is :ref:`non-blocking <ssl-nonblocking>` and the write would block."
 msgstr ""
 
-#: ../../../library/ssl.rst:1327
+#: ../../../library/ssl.rst:1333
 msgid ""
 "As at any time a re-negotiation is possible, a call to :meth:`write` can "
 "also cause read operations."
 msgstr ""
 
-#: ../../../library/ssl.rst:1330
+#: ../../../library/ssl.rst:1336
 msgid ""
 "The socket timeout is no longer reset each time bytes are received or sent. "
 "The socket timeout is now the maximum total duration to write *data*."
 msgstr ""
 
-#: ../../../library/ssl.rst:1334
+#: ../../../library/ssl.rst:1340
 msgid "Use :meth:`~SSLSocket.send` instead of :meth:`~SSLSocket.write`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1339
+#: ../../../library/ssl.rst:1345
 msgid ""
 "The :meth:`~SSLSocket.read` and :meth:`~SSLSocket.write` methods are the low-"
 "level methods that read and write unencrypted, application-level data and "
@@ -1417,38 +1423,38 @@ msgid ""
 "and :meth:`SSLSocket.unwrap` was not called."
 msgstr ""
 
-#: ../../../library/ssl.rst:1345
+#: ../../../library/ssl.rst:1351
 msgid ""
 "Normally you should use the socket API methods "
 "like :meth:`~socket.socket.recv` and :meth:`~socket.socket.send` instead of "
 "these methods."
 msgstr ""
 
-#: ../../../library/ssl.rst:1351
+#: ../../../library/ssl.rst:1357
 msgid "Perform the SSL setup handshake."
 msgstr ""
 
-#: ../../../library/ssl.rst:1353
+#: ../../../library/ssl.rst:1359
 msgid ""
 "If *block* is true and the timeout obtained "
 "by :meth:`~socket.socket.gettimeout` is zero, the socket is set in blocking "
 "mode until the handshake is performed."
 msgstr ""
 
-#: ../../../library/ssl.rst:1356
+#: ../../../library/ssl.rst:1362
 msgid ""
 "The handshake method also performs :func:`!match_hostname` when "
 "the :attr:`~SSLContext.check_hostname` attribute of the "
 "socket's :attr:`~SSLSocket.context` is true."
 msgstr ""
 
-#: ../../../library/ssl.rst:1361
+#: ../../../library/ssl.rst:1367
 msgid ""
 "The socket timeout is no longer reset each time bytes are received or sent. "
 "The socket timeout is now the maximum total duration of the handshake."
 msgstr ""
 
-#: ../../../library/ssl.rst:1365
+#: ../../../library/ssl.rst:1371
 msgid ""
 "Hostname or IP address is matched by OpenSSL during handshake. The "
 "function :func:`!match_hostname` is no longer used. In case OpenSSL refuses "
@@ -1456,14 +1462,14 @@ msgid ""
 "message is sent to the peer."
 msgstr ""
 
-#: ../../../library/ssl.rst:1373
+#: ../../../library/ssl.rst:1379
 msgid ""
 "If there is no certificate for the peer on the other end of the connection, "
 "return ``None``.  If the SSL handshake hasn't been done yet, "
 "raise :exc:`ValueError`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1377
+#: ../../../library/ssl.rst:1383
 msgid ""
 "If the ``binary_form`` parameter is :const:`False`, and a certificate was "
 "received from the peer, this method returns a :class:`dict` instance.  If "
@@ -1475,7 +1481,7 @@ msgid ""
 "also be a ``subjectAltName`` key in the dictionary."
 msgstr ""
 
-#: ../../../library/ssl.rst:1386
+#: ../../../library/ssl.rst:1392
 msgid ""
 "The ``subject`` and ``issuer`` fields are tuples containing the sequence of "
 "relative distinguished names (RDNs) given in the certificate's data "
@@ -1483,7 +1489,7 @@ msgid ""
 "value pairs.  Here is a real-world example::"
 msgstr ""
 
-#: ../../../library/ssl.rst:1410
+#: ../../../library/ssl.rst:1416
 msgid ""
 "If the ``binary_form`` parameter is :const:`True`, and a certificate was "
 "provided, this method returns the DER-encoded form of the entire certificate "
@@ -1492,13 +1498,13 @@ msgid ""
 "socket's role:"
 msgstr ""
 
-#: ../../../library/ssl.rst:1416
+#: ../../../library/ssl.rst:1422
 msgid ""
 "for a client SSL socket, the server will always provide a certificate, "
 "regardless of whether validation was required;"
 msgstr ""
 
-#: ../../../library/ssl.rst:1419
+#: ../../../library/ssl.rst:1425
 msgid ""
 "for a server SSL socket, the client will only provide a certificate when "
 "requested by the server; therefore :meth:`getpeercert` will "
@@ -1506,47 +1512,47 @@ msgid ""
 "than :const:`CERT_OPTIONAL` or :const:`CERT_REQUIRED`)."
 msgstr ""
 
-#: ../../../library/ssl.rst:1424
+#: ../../../library/ssl.rst:1430
 msgid "See also :attr:`SSLContext.check_hostname`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1426
+#: ../../../library/ssl.rst:1432
 msgid ""
 "The returned dictionary includes additional items such as ``issuer`` and "
 "``notBefore``."
 msgstr ""
 
-#: ../../../library/ssl.rst:1430
+#: ../../../library/ssl.rst:1436
 msgid ""
 ":exc:`ValueError` is raised when the handshake isn't done. The returned "
 "dictionary includes additional X509v3 extension items   such as "
 "``crlDistributionPoints``, ``caIssuers`` and ``OCSP`` URIs."
 msgstr ""
 
-#: ../../../library/ssl.rst:1435
+#: ../../../library/ssl.rst:1441
 msgid "IPv6 address strings no longer have a trailing new line."
 msgstr ""
 
-#: ../../../library/ssl.rst:1440
+#: ../../../library/ssl.rst:1446
 msgid ""
 "Returns verified certificate chain provided by the other end of the SSL "
 "channel as a list of DER-encoded bytes. If certificate verification was "
 "disabled method acts the same as :meth:`~SSLSocket.get_unverified_chain`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1445
+#: ../../../library/ssl.rst:1451
 msgid ""
 "The verified chain is not stored with a session, so the list is empty when "
 "the session is resumed (see :attr:`~SSLSocket.session_reused`)."
 msgstr ""
 
-#: ../../../library/ssl.rst:1452
+#: ../../../library/ssl.rst:1458
 msgid ""
 "Returns raw certificate chain provided by the other end of the SSL channel "
 "as a list of DER-encoded bytes."
 msgstr ""
 
-#: ../../../library/ssl.rst:1455
+#: ../../../library/ssl.rst:1461
 msgid ""
 "No certificates are exchanged when a session is resumed "
 "(see :attr:`~SSLSocket.session_reused`); the list then holds what was stored "
@@ -1554,7 +1560,7 @@ msgid ""
 "side is the peer's own certificate only."
 msgstr ""
 
-#: ../../../library/ssl.rst:1464
+#: ../../../library/ssl.rst:1470
 msgid ""
 "Returns a three-value tuple containing the name of the cipher being used, "
 "the version of the SSL protocol that defines its use, and the number of "
@@ -1562,7 +1568,7 @@ msgid ""
 "``None``."
 msgstr ""
 
-#: ../../../library/ssl.rst:1470
+#: ../../../library/ssl.rst:1476
 msgid ""
 "Return the list of ciphers available in both the client and server.  Each "
 "entry of the returned list is a three-value tuple containing the name of the "
@@ -1572,45 +1578,45 @@ msgid ""
 "socket."
 msgstr ""
 
-#: ../../../library/ssl.rst:1481
+#: ../../../library/ssl.rst:1487
 msgid ""
 "Return the group used for doing key agreement on this connection. If no "
 "connection has been established, returns ``None``."
 msgstr ""
 
-#: ../../../library/ssl.rst:1488
+#: ../../../library/ssl.rst:1494
 msgid ""
 "Return the signature algorithm used for performing certificate-based client "
 "authentication on this connection, or ``None`` if no connection has been "
 "established or client authentication didn't occur."
 msgstr ""
 
-#: ../../../library/ssl.rst:1496
+#: ../../../library/ssl.rst:1502
 msgid ""
 "Return the signature algorithm used by the server to complete the TLS "
 "handshake on this connection, or ``None`` if no connection has been "
 "established or the cipher suite has no signature."
 msgstr ""
 
-#: ../../../library/ssl.rst:1504
+#: ../../../library/ssl.rst:1510
 msgid ""
 "Return the compression algorithm being used as a string, or ``None`` if the "
 "connection isn't compressed."
 msgstr ""
 
-#: ../../../library/ssl.rst:1507
+#: ../../../library/ssl.rst:1513
 msgid ""
 "If the higher-level protocol supports its own compression mechanism, you can "
 "use :data:`OP_NO_COMPRESSION` to disable SSL-level compression."
 msgstr ""
 
-#: ../../../library/ssl.rst:1514
+#: ../../../library/ssl.rst:1520
 msgid ""
 "Get channel binding data for current connection, as a bytes object.  Returns "
 "``None`` if not connected or the handshake has not been completed."
 msgstr ""
 
-#: ../../../library/ssl.rst:1517
+#: ../../../library/ssl.rst:1523
 msgid ""
 "The *cb_type* parameter allow selection of the desired channel binding type. "
 "Valid channel binding types are listed in the :data:`CHANNEL_BINDING_TYPES` "
@@ -1619,25 +1625,25 @@ msgid ""
 "unsupported channel binding type is requested."
 msgstr ""
 
-#: ../../../library/ssl.rst:1527
+#: ../../../library/ssl.rst:1533
 msgid ""
 "Return the server's ECH retry configuration as :class:`bytes`, or ``b\"\"`` "
 "if no usable retry configuration is available."
 msgstr ""
 
-#: ../../../library/ssl.rst:1530 ../../../library/ssl.rst:1542
+#: ../../../library/ssl.rst:1536 ../../../library/ssl.rst:1548
 msgid ""
 "Return ``None`` if the socket has no underlying SSL object, such as before "
 "it connects or after it is closed."
 msgstr ""
 
-#: ../../../library/ssl.rst:1539
+#: ../../../library/ssl.rst:1545
 msgid ""
 "Return the status of Encrypted Client Hello (ECH) processing as "
 "an :class:`ECHStatus` instance."
 msgstr ""
 
-#: ../../../library/ssl.rst:1551
+#: ../../../library/ssl.rst:1557
 msgid ""
 "Set the Encrypted Client Hello (ECH) configuration for this connection only, "
 "replacing any configuration set on the context "
@@ -1645,14 +1651,14 @@ msgid ""
 "the same values."
 msgstr ""
 
-#: ../../../library/ssl.rst:1556
+#: ../../../library/ssl.rst:1562
 msgid ""
 "The configuration must be set before the handshake starts, so this is mostly "
 "useful with ``do_handshake_on_connect=False`` or on a socket that is not "
 "connected yet."
 msgstr ""
 
-#: ../../../library/ssl.rst:1566
+#: ../../../library/ssl.rst:1572
 msgid ""
 "Return the protocol that was selected during the TLS handshake.  "
 "If :meth:`SSLContext.set_alpn_protocols` was not called, if the other party "
@@ -1661,7 +1667,7 @@ msgid ""
 "returned."
 msgstr ""
 
-#: ../../../library/ssl.rst:1576
+#: ../../../library/ssl.rst:1582
 msgid ""
 "Return the higher-level protocol that was selected during the TLS/SSL "
 "handshake. If :meth:`SSLContext.set_npn_protocols` was not called, or if the "
@@ -1669,11 +1675,11 @@ msgid ""
 "this will return ``None``."
 msgstr ""
 
-#: ../../../library/ssl.rst:1585 ../../../library/ssl.rst:2094
+#: ../../../library/ssl.rst:1591 ../../../library/ssl.rst:2100
 msgid "NPN has been superseded by ALPN"
 msgstr ""
 
-#: ../../../library/ssl.rst:1589
+#: ../../../library/ssl.rst:1595
 msgid ""
 "Performs the SSL shutdown handshake, which removes the TLS layer from the "
 "underlying socket, and returns the underlying socket object.  This can be "
@@ -1682,7 +1688,7 @@ msgid ""
 "other side of the connection, rather than the original socket."
 msgstr ""
 
-#: ../../../library/ssl.rst:1597
+#: ../../../library/ssl.rst:1603
 msgid ""
 "Requests post-handshake authentication (PHA) from a TLS 1.3 client. PHA can "
 "only be initiated for a TLS 1.3 connection from a server-side socket, after "
@@ -1690,26 +1696,26 @@ msgid ""
 "see :attr:`SSLContext.post_handshake_auth`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1602
+#: ../../../library/ssl.rst:1608
 msgid ""
 "The method does not perform a cert exchange immediately. The server-side "
 "sends a CertificateRequest during the next write event and expects the "
 "client to respond with a certificate on the next read event."
 msgstr ""
 
-#: ../../../library/ssl.rst:1606
+#: ../../../library/ssl.rst:1612
 msgid ""
 "If any precondition isn't met (e.g. not TLS 1.3, PHA not enabled), "
 "an :exc:`SSLError` is raised."
 msgstr ""
 
-#: ../../../library/ssl.rst:1610
+#: ../../../library/ssl.rst:1616
 msgid ""
 "Only available with OpenSSL 1.1.1 and TLS 1.3 enabled. Without TLS 1.3 "
 "support, the method raises :exc:`NotImplementedError`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1617
+#: ../../../library/ssl.rst:1623
 msgid ""
 "Return the actual SSL protocol version negotiated by the connection as a "
 "string, or ``None`` if no secure connection is established. As of this "
@@ -1718,36 +1724,36 @@ msgid ""
 "may define more return values."
 msgstr ""
 
-#: ../../../library/ssl.rst:1627
+#: ../../../library/ssl.rst:1633
 msgid ""
 "Returns the number of already decrypted bytes available for read, pending on "
 "the connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:1632
+#: ../../../library/ssl.rst:1638
 msgid "The :class:`SSLContext` object this SSL socket is tied to."
 msgstr ""
 
-#: ../../../library/ssl.rst:1638
+#: ../../../library/ssl.rst:1644
 msgid ""
 "The server name used in the outer ClientHello when Encrypted Client Hello "
 "(ECH) is used, as a :class:`str`. Available on both client-side and server-"
 "side sockets. Returns ``None`` if no outer server name is available."
 msgstr ""
 
-#: ../../../library/ssl.rst:1648
+#: ../../../library/ssl.rst:1654
 msgid ""
 "A boolean which is ``True`` for server-side sockets and ``False`` for client-"
 "side sockets."
 msgstr ""
 
-#: ../../../library/ssl.rst:1655
+#: ../../../library/ssl.rst:1661
 msgid ""
 "Hostname of the server: :class:`str` type, or ``None`` for server-side "
 "socket or if the hostname was not specified in the constructor."
 msgstr ""
 
-#: ../../../library/ssl.rst:1660
+#: ../../../library/ssl.rst:1666
 msgid ""
 "The attribute is now always ASCII text. When ``server_hostname`` is an "
 "internationalized domain name (IDN), this attribute now stores the A-label "
@@ -1755,7 +1761,7 @@ msgid ""
 "(``\"pythön.org\"``)."
 msgstr ""
 
-#: ../../../library/ssl.rst:1668
+#: ../../../library/ssl.rst:1674
 msgid ""
 "The :class:`SSLSession` for this SSL connection. The session is available "
 "for client and server side sockets after the TLS handshake has been "
@@ -1763,11 +1769,11 @@ msgid ""
 "before :meth:`~SSLSocket.do_handshake` has been called to reuse a session."
 msgstr ""
 
-#: ../../../library/ssl.rst:1681
+#: ../../../library/ssl.rst:1687
 msgid "SSL contexts"
 msgstr ""
 
-#: ../../../library/ssl.rst:1685
+#: ../../../library/ssl.rst:1691
 msgid ""
 "An SSL context holds various data longer-lived than single SSL connections, "
 "such as SSL configuration options, certificate(s) and private key(s). It "
@@ -1775,7 +1781,7 @@ msgid ""
 "speed up repeated connections from the same clients."
 msgstr ""
 
-#: ../../../library/ssl.rst:1692
+#: ../../../library/ssl.rst:1698
 msgid ""
 "Create a new SSL context.  You may pass *protocol* which must be one of the "
 "``PROTOCOL_*`` constants defined in this module.  The parameter specifies "
@@ -1786,109 +1792,109 @@ msgid ""
 "provides the most compatibility with other versions."
 msgstr ""
 
-#: ../../../library/ssl.rst:1701
+#: ../../../library/ssl.rst:1707
 msgid ""
 "Here's a table showing which versions in a client (down the side) can "
 "connect to which versions in a server (along the top):"
 msgstr ""
 
-#: ../../../library/ssl.rst:1707
+#: ../../../library/ssl.rst:1713
 msgid "*client* / **server**"
 msgstr ""
 
-#: ../../../library/ssl.rst:1707
+#: ../../../library/ssl.rst:1713
 msgid "**SSLv2**"
 msgstr ""
 
-#: ../../../library/ssl.rst:1707
+#: ../../../library/ssl.rst:1713
 msgid "**SSLv3**"
 msgstr ""
 
-#: ../../../library/ssl.rst:1707
+#: ../../../library/ssl.rst:1713
 msgid "**TLS** [3]_"
 msgstr ""
 
-#: ../../../library/ssl.rst:1707
+#: ../../../library/ssl.rst:1713
 msgid "**TLSv1**"
 msgstr ""
 
-#: ../../../library/ssl.rst:1707
+#: ../../../library/ssl.rst:1713
 msgid "**TLSv1.1**"
 msgstr ""
 
-#: ../../../library/ssl.rst:1707
+#: ../../../library/ssl.rst:1713
 msgid "**TLSv1.2**"
 msgstr ""
 
-#: ../../../library/ssl.rst:1709
+#: ../../../library/ssl.rst:1715
 msgid "*SSLv2*"
 msgstr ""
 
-#: ../../../library/ssl.rst:1709 ../../../library/ssl.rst:1710
-#: ../../../library/ssl.rst:1711 ../../../library/ssl.rst:1712
-#: ../../../library/ssl.rst:1713 ../../../library/ssl.rst:1714
+#: ../../../library/ssl.rst:1715 ../../../library/ssl.rst:1716
+#: ../../../library/ssl.rst:1717 ../../../library/ssl.rst:1718
+#: ../../../library/ssl.rst:1719 ../../../library/ssl.rst:1720
 msgid "yes"
 msgstr ""
 
-#: ../../../library/ssl.rst:1709 ../../../library/ssl.rst:1710
-#: ../../../library/ssl.rst:1712 ../../../library/ssl.rst:1713
-#: ../../../library/ssl.rst:1714
+#: ../../../library/ssl.rst:1715 ../../../library/ssl.rst:1716
+#: ../../../library/ssl.rst:1718 ../../../library/ssl.rst:1719
+#: ../../../library/ssl.rst:1720
 msgid "no"
 msgstr ""
 
-#: ../../../library/ssl.rst:1709 ../../../library/ssl.rst:1711
+#: ../../../library/ssl.rst:1715 ../../../library/ssl.rst:1717
 msgid "no [1]_"
 msgstr ""
 
-#: ../../../library/ssl.rst:1710
+#: ../../../library/ssl.rst:1716
 msgid "*SSLv3*"
 msgstr ""
 
-#: ../../../library/ssl.rst:1710 ../../../library/ssl.rst:1711
+#: ../../../library/ssl.rst:1716 ../../../library/ssl.rst:1717
 msgid "no [2]_"
 msgstr ""
 
-#: ../../../library/ssl.rst:1711
+#: ../../../library/ssl.rst:1717
 msgid "*TLS* (*SSLv23*) [3]_"
 msgstr ""
 
-#: ../../../library/ssl.rst:1712
+#: ../../../library/ssl.rst:1718
 msgid "*TLSv1*"
 msgstr ""
 
-#: ../../../library/ssl.rst:1713
+#: ../../../library/ssl.rst:1719
 msgid "*TLSv1.1*"
 msgstr ""
 
-#: ../../../library/ssl.rst:1714
+#: ../../../library/ssl.rst:1720
 msgid "*TLSv1.2*"
 msgstr ""
 
-#: ../../../library/ssl.rst:1717
+#: ../../../library/ssl.rst:1723
 msgid "Footnotes"
 msgstr ""
 
-#: ../../../library/ssl.rst:1718
+#: ../../../library/ssl.rst:1724
 msgid ":class:`SSLContext` disables SSLv2 with :data:`OP_NO_SSLv2` by default."
 msgstr ""
 
-#: ../../../library/ssl.rst:1719
+#: ../../../library/ssl.rst:1725
 msgid ":class:`SSLContext` disables SSLv3 with :data:`OP_NO_SSLv3` by default."
 msgstr ""
 
-#: ../../../library/ssl.rst:1720
+#: ../../../library/ssl.rst:1726
 msgid ""
 "TLS 1.3 protocol will be available with :data:`PROTOCOL_TLS` in OpenSSL >= "
 "1.1.1. There is no dedicated PROTOCOL constant for just TLS 1.3."
 msgstr ""
 
-#: ../../../library/ssl.rst:1725
+#: ../../../library/ssl.rst:1731
 msgid ""
 ":func:`create_default_context` lets the :mod:`!ssl` module choose security "
 "settings for a given purpose."
 msgstr ""
 
-#: ../../../library/ssl.rst:1730
+#: ../../../library/ssl.rst:1736
 msgid ""
 "The context is created with secure default values. The "
 "options :data:`OP_NO_COMPRESSION`, :data:`OP_CIPHER_SERVER_PREFERENCE`, :data:`OP_SINGLE_DH_USE`, :data:`OP_SINGLE_ECDH_USE`, :data:`OP_NO_SSLv2`, "
@@ -1897,14 +1903,14 @@ msgid ""
 "``NULL`` ciphers and no ``MD5`` ciphers."
 msgstr ""
 
-#: ../../../library/ssl.rst:1740
+#: ../../../library/ssl.rst:1746
 msgid ""
 ":class:`SSLContext` without protocol argument is deprecated. The context "
 "class will either require :data:`PROTOCOL_TLS_CLIENT` "
 "or :data:`PROTOCOL_TLS_SERVER` protocol in the future."
 msgstr ""
 
-#: ../../../library/ssl.rst:1746
+#: ../../../library/ssl.rst:1752
 msgid ""
 "The default cipher suites now include only secure AES and ChaCha20 ciphers "
 "with forward secrecy and security level 2. RSA and DH keys with less than "
@@ -1913,7 +1919,7 @@ msgid ""
 "and :data:`PROTOCOL_TLS_SERVER` use TLS 1.2 as minimum TLS version."
 msgstr ""
 
-#: ../../../library/ssl.rst:1754
+#: ../../../library/ssl.rst:1760
 msgid ""
 ":class:`SSLContext` only supports limited mutation once it has been used by "
 "a connection. Adding new certificates to the internal trust store is "
@@ -1921,29 +1927,29 @@ msgid ""
 "may result in surprising behavior."
 msgstr ""
 
-#: ../../../library/ssl.rst:1761
+#: ../../../library/ssl.rst:1767
 msgid ""
 ":class:`SSLContext` is designed to be shared and used by multiple "
 "connections. Thus, it is thread-safe as long as it is not reconfigured after "
 "being used by a connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:1766
+#: ../../../library/ssl.rst:1772
 msgid ":class:`SSLContext` objects have the following methods and attributes:"
 msgstr ""
 
-#: ../../../library/ssl.rst:1770
+#: ../../../library/ssl.rst:1776
 msgid ""
 "Get statistics about quantities of loaded X.509 certificates, count of X.509 "
 "certificates flagged as CA certificates and certificate revocation lists as "
 "dictionary."
 msgstr ""
 
-#: ../../../library/ssl.rst:1774
+#: ../../../library/ssl.rst:1780
 msgid "Example for a context with one CA cert and one other cert::"
 msgstr ""
 
-#: ../../../library/ssl.rst:1784
+#: ../../../library/ssl.rst:1790
 msgid ""
 "Load a private key and the corresponding certificate.  The *certfile* string "
 "must be the path to a single file in PEM format containing the certificate "
@@ -1954,7 +1960,7 @@ msgid ""
 "more information on how the certificate is stored in the *certfile*."
 msgstr ""
 
-#: ../../../library/ssl.rst:1793
+#: ../../../library/ssl.rst:1799
 msgid ""
 "The *password* argument may be a function to call to get the password for "
 "decrypting the private key.  It will only be called if the private key is "
@@ -1966,24 +1972,24 @@ msgid ""
 "encrypted and no password is needed."
 msgstr ""
 
-#: ../../../library/ssl.rst:1802
+#: ../../../library/ssl.rst:1808
 msgid ""
 "If the *password* argument is not specified and a password is required, "
 "OpenSSL's built-in password prompting mechanism will be used to "
 "interactively prompt the user for a password."
 msgstr ""
 
-#: ../../../library/ssl.rst:1806
+#: ../../../library/ssl.rst:1812
 msgid ""
 "An :class:`SSLError` is raised if the private key doesn't match with the "
 "certificate."
 msgstr ""
 
-#: ../../../library/ssl.rst:1809
+#: ../../../library/ssl.rst:1815
 msgid "New optional argument *password*."
 msgstr ""
 
-#: ../../../library/ssl.rst:1814
+#: ../../../library/ssl.rst:1820
 msgid ""
 "Load a set of default \"certification authority\" (CA) certificates from "
 "default locations. On Windows it loads CA certs from the ``CA`` and ``ROOT`` "
@@ -1992,7 +1998,7 @@ msgid ""
 "may load CA certificates from other locations, too."
 msgstr ""
 
-#: ../../../library/ssl.rst:1820
+#: ../../../library/ssl.rst:1826
 msgid ""
 "The *purpose* flag specifies what kind of CA certificates are loaded. The "
 "default settings :const:`Purpose.SERVER_AUTH` loads certificates, that are "
@@ -2001,32 +2007,32 @@ msgid ""
 "certificate verification on the server side."
 msgstr ""
 
-#: ../../../library/ssl.rst:1830
+#: ../../../library/ssl.rst:1836
 msgid ""
 "Load a server's Encrypted Client Hello (ECH) private key and configuration. "
 "The *keyfile* must be the path to a PEM file containing a private key "
 "followed by its matching ECHConfigList."
 msgstr ""
 
-#: ../../../library/ssl.rst:1834
+#: ../../../library/ssl.rst:1840
 msgid ""
 "The *password* argument is used to decrypt encrypted private keys. It "
 "accepts a string, bytes, bytearray, or a callable returning one of those "
 "types, as in :meth:`load_cert_chain`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1838
+#: ../../../library/ssl.rst:1844
 msgid ""
 "Each call adds keys and configurations to those already loaded into the "
 "context. If *for_retry* is true, the new configurations are included in ECH "
 "retry configurations sent to clients."
 msgstr ""
 
-#: ../../../library/ssl.rst:1842
+#: ../../../library/ssl.rst:1848
 msgid "Raises :exc:`SSLError` if the context uses :data:`PROTOCOL_TLS_CLIENT`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1850
+#: ../../../library/ssl.rst:1856
 msgid ""
 "Load a set of \"certification authority\" (CA) certificates used to validate "
 "other peers' certificates when :data:`verify_mode` is other "
@@ -2034,28 +2040,28 @@ msgid ""
 "specified."
 msgstr ""
 
-#: ../../../library/ssl.rst:1854
+#: ../../../library/ssl.rst:1860
 msgid ""
 "This method can also load certification revocation lists (CRLs) in PEM or "
 "DER format. In order to make use of CRLs, :attr:`SSLContext.verify_flags` "
 "must be configured properly."
 msgstr ""
 
-#: ../../../library/ssl.rst:1858
+#: ../../../library/ssl.rst:1864
 msgid ""
 "The *cafile* string, if present, is the path to a file of concatenated CA "
 "certificates in PEM format. See the discussion of :ref:`ssl-certificates` "
 "for more information about how to arrange the certificates in this file."
 msgstr ""
 
-#: ../../../library/ssl.rst:1863
+#: ../../../library/ssl.rst:1869
 msgid ""
 "The *capath* string, if present, is the path to a directory containing "
 "several CA certificates in PEM format, following an `OpenSSL specific layout "
 "<https://docs.openssl.org/master/man3/SSL_CTX_load_verify_locations/>`_."
 msgstr ""
 
-#: ../../../library/ssl.rst:1868
+#: ../../../library/ssl.rst:1874
 msgid ""
 "The *cadata* object, if present, is either an ASCII string of one or more "
 "PEM-encoded certificates or a :term:`bytes-like object` of DER-encoded "
@@ -2063,11 +2069,11 @@ msgid ""
 "are ignored but at least one certificate must be present."
 msgstr ""
 
-#: ../../../library/ssl.rst:1873
+#: ../../../library/ssl.rst:1879
 msgid "New optional argument *cadata*"
 msgstr ""
 
-#: ../../../library/ssl.rst:1878
+#: ../../../library/ssl.rst:1884
 msgid ""
 "Get a list of loaded \"certification authority\" (CA) certificates. If the "
 "``binary_form`` parameter is :const:`False` each list entry is a dict like "
@@ -2077,26 +2083,26 @@ msgid ""
 "a SSL connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:1886
+#: ../../../library/ssl.rst:1892
 msgid ""
 "Certificates in a capath directory aren't loaded unless they have been used "
 "at least once."
 msgstr ""
 
-#: ../../../library/ssl.rst:1893
+#: ../../../library/ssl.rst:1899
 msgid ""
 "Get a list of enabled ciphers. The list is in order of cipher priority. "
 "See :meth:`SSLContext.set_ciphers`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1930
+#: ../../../library/ssl.rst:1936
 msgid ""
 "Get a list of groups implemented for key agreement, taking into account the "
 "current TLS :attr:`~SSLContext.minimum_version` "
 "and :attr:`~SSLContext.maximum_version` values.  For example::"
 msgstr ""
 
-#: ../../../library/ssl.rst:1940
+#: ../../../library/ssl.rst:1946
 msgid ""
 "By default, this method returns only the preferred IANA names for the "
 "available groups. However, if the ``include_aliases`` parameter is set "
@@ -2104,7 +2110,7 @@ msgid ""
 "the ECDH curve names supported in older versions of OpenSSL."
 msgstr ""
 
-#: ../../../library/ssl.rst:1949
+#: ../../../library/ssl.rst:1955
 msgid ""
 "Load a set of default \"certification authority\" (CA) certificates from a "
 "filesystem path defined when building the OpenSSL library.  Unfortunately, "
@@ -2114,7 +2120,7 @@ msgid ""
 "configured properly."
 msgstr ""
 
-#: ../../../library/ssl.rst:1958
+#: ../../../library/ssl.rst:1964
 msgid ""
 "Set the allowed ciphers for sockets created with this context when "
 "connecting using TLS 1.2 and earlier.  The *ciphers* argument should be a "
@@ -2123,20 +2129,20 @@ msgid ""
 "use :meth:`SSLContext.set_ciphersuites`."
 msgstr ""
 
-#: ../../../library/ssl.rst:1964
+#: ../../../library/ssl.rst:1970
 msgid ""
 "If no cipher can be selected (because compile-time options or other "
 "configuration forbids use of all the specified ciphers), "
 "an :class:`SSLError` will be raised."
 msgstr ""
 
-#: ../../../library/ssl.rst:1969 ../../../library/ssl.rst:1981
+#: ../../../library/ssl.rst:1975 ../../../library/ssl.rst:1987
 msgid ""
 "When connected, the :meth:`SSLSocket.cipher` method of SSL sockets will "
 "return details about the negotiated cipher."
 msgstr ""
 
-#: ../../../library/ssl.rst:1974
+#: ../../../library/ssl.rst:1980
 msgid ""
 "Set the allowed ciphers for sockets created with this context when "
 "connecting using TLS 1.3.  The *ciphersuites* argument should be a colon-"
@@ -2145,20 +2151,20 @@ msgid ""
 "specified ciphers), an :class:`SSLError` will be raised."
 msgstr ""
 
-#: ../../../library/ssl.rst:1988
+#: ../../../library/ssl.rst:1994
 msgid ""
 "Set the groups allowed for key agreement for sockets created with this "
 "context.  It should be a string in the `OpenSSL group list format <https://"
 "docs.openssl.org/master/man3/SSL_CTX_set1_groups_list/>`_."
 msgstr ""
 
-#: ../../../library/ssl.rst:1994
+#: ../../../library/ssl.rst:2000
 msgid ""
 "When connected, the :meth:`SSLSocket.group` method of SSL sockets will "
 "return the group used for key agreement on that connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2001
+#: ../../../library/ssl.rst:2007
 msgid ""
 "Set the signature algorithms allowed for certificate-based client "
 "authentication. It should be a string in the `OpenSSL client sigalgs list "
@@ -2166,28 +2172,28 @@ msgid ""
 "SSL_CTX_set1_client_sigalgs_list/>`_."
 msgstr ""
 
-#: ../../../library/ssl.rst:2008
+#: ../../../library/ssl.rst:2014
 msgid ""
 "When connected, the :meth:`SSLSocket.client_sigalg` method of SSL sockets "
 "will return the signature algorithm used for performing certificate-based "
 "client authentication on that connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2016
+#: ../../../library/ssl.rst:2022
 msgid ""
 "Set the signature algorithms allowed for the server to complete the TLS "
 "handshake. It should be a string in the `OpenSSL sigalgs list format "
 "<https://docs.openssl.org/master/man3/SSL_CTX_set1_sigalgs_list/>`_."
 msgstr ""
 
-#: ../../../library/ssl.rst:2022
+#: ../../../library/ssl.rst:2028
 msgid ""
 "When connected, the :meth:`SSLSocket.server_sigalg` method of SSL sockets "
 "will return the signature algorithm used by the server to complete the TLS "
 "handshake on that connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2030
+#: ../../../library/ssl.rst:2036
 msgid ""
 "Specify which protocols the socket should advertise during the SSL/TLS "
 "handshake. It should be a list of ASCII strings, like ``['http/1.1', 'spdy/"
@@ -2197,20 +2203,20 @@ msgid ""
 "will return the agreed-upon protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:2037
+#: ../../../library/ssl.rst:2043
 msgid ""
 "This method will raise :exc:`NotImplementedError` if :data:`HAS_ALPN` is "
 "``False``."
 msgstr ""
 
-#: ../../../library/ssl.rst:2044
+#: ../../../library/ssl.rst:2050
 msgid ""
 "Sets an Encrypted Client Hello (ECH) configuration, which may be discovered "
 "from an HTTPS resource record in DNS or "
 "from :attr:`SSLECHRejectedError.retry_config` after ECH rejection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2048
+#: ../../../library/ssl.rst:2054
 msgid ""
 "The configuration applies to every connection made from the context, and a "
 "server that cannot decrypt it rejects the connection "
@@ -2221,19 +2227,19 @@ msgid ""
 "or :meth:`wrap_bio` instead."
 msgstr ""
 
-#: ../../../library/ssl.rst:2056
+#: ../../../library/ssl.rst:2062
 msgid ""
 "Raises :exc:`SSLError` if the input is invalid or contains no usable "
 "configuration."
 msgstr ""
 
-#: ../../../library/ssl.rst:2059
+#: ../../../library/ssl.rst:2065
 msgid ""
 "The *ech_config* parameter should be a :term:`bytes-like object` containing "
 "an ECHConfigList in binary or Base64 encoding."
 msgstr ""
 
-#: ../../../library/ssl.rst:2064
+#: ../../../library/ssl.rst:2070
 msgid ""
 "OpenSSL 4.0 can reject the entire list with :exc:`SSLError` if one entry is "
 "unusable. It also rejects binary lists whose first entry uses an unsupported "
@@ -2242,11 +2248,11 @@ msgid ""
 "in :rfc:`9849`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2071
+#: ../../../library/ssl.rst:2077
 msgid "Raises :exc:`SSLError` if the context uses :data:`PROTOCOL_TLS_SERVER`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2079
+#: ../../../library/ssl.rst:2085
 msgid ""
 "Specify which protocols the socket should advertise during the SSL/TLS "
 "handshake. It should be a list of strings, like ``['http/1.1', 'spdy/2']``, "
@@ -2258,20 +2264,20 @@ msgid ""
 "upon protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:2087
+#: ../../../library/ssl.rst:2093
 msgid ""
 "This method will raise :exc:`NotImplementedError` if :data:`HAS_NPN` is "
 "``False``."
 msgstr ""
 
-#: ../../../library/ssl.rst:2098
+#: ../../../library/ssl.rst:2104
 msgid ""
 "Specify which protocols the socket should advertise during the TLS handshake "
 "in the outer ClientHello when ECH is used. The *protocols* argument accepts "
 "the same values as for :meth:`~SSLContext.set_alpn_protocols`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2105
+#: ../../../library/ssl.rst:2111
 msgid ""
 "OpenSSL 4.0 validates the server's ALPN selection against the inner protocol "
 "list even when ECH is rejected. If the server selects an outer protocol "
@@ -2280,7 +2286,7 @@ msgid ""
 "that also appear in the inner list."
 msgstr ""
 
-#: ../../../library/ssl.rst:2117
+#: ../../../library/ssl.rst:2123
 msgid ""
 "Register a callback function that will be called after the TLS Client Hello "
 "handshake message has been received by the SSL/TLS server when the TLS "
@@ -2288,14 +2294,14 @@ msgid ""
 "mechanism is specified in :rfc:`6066` section 3 - Server Name Indication."
 msgstr ""
 
-#: ../../../library/ssl.rst:2122
+#: ../../../library/ssl.rst:2128
 msgid ""
 "Only one callback can be set per ``SSLContext``.  If *sni_callback* is set "
 "to ``None`` then the callback is disabled. Calling this function a "
 "subsequent time will disable the previously registered callback."
 msgstr ""
 
-#: ../../../library/ssl.rst:2126
+#: ../../../library/ssl.rst:2132
 msgid ""
 "The callback function will be called with three arguments; the first being "
 "the :class:`ssl.SSLSocket`, the second is a string that represents the "
@@ -2306,7 +2312,7 @@ msgid ""
 "pythn-mua.org\"``)."
 msgstr ""
 
-#: ../../../library/ssl.rst:2134
+#: ../../../library/ssl.rst:2140
 msgid ""
 "A typical use of this callback is to change "
 "the :class:`ssl.SSLSocket`'s :attr:`SSLSocket.context` attribute to a new "
@@ -2314,7 +2320,7 @@ msgid ""
 "matches the server name."
 msgstr ""
 
-#: ../../../library/ssl.rst:2139
+#: ../../../library/ssl.rst:2145
 msgid ""
 "If the callback assigns a new context to :attr:`SSLSocket.context`, any "
 "further ClientHello message on the same connection (for example after a TLS "
@@ -2322,7 +2328,7 @@ msgid ""
 "it has one; the original callback is not called again for that connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2145
+#: ../../../library/ssl.rst:2151
 msgid ""
 "Due to the early negotiation phase of the TLS connection, only limited "
 "methods and attributes are usable "
@@ -2333,7 +2339,7 @@ msgid ""
 "meaningful values nor can they be called safely."
 msgstr ""
 
-#: ../../../library/ssl.rst:2154
+#: ../../../library/ssl.rst:2160
 msgid ""
 "The *sni_callback* function must return ``None`` to allow the TLS "
 "negotiation to continue.  If a TLS failure is required, a "
@@ -2342,27 +2348,27 @@ msgid ""
 "with :const:`ALERT_DESCRIPTION_INTERNAL_ERROR`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2160
+#: ../../../library/ssl.rst:2166
 msgid ""
 "If an exception is raised from the *sni_callback* function the TLS "
 "connection will terminate with a fatal TLS alert "
 "message :const:`ALERT_DESCRIPTION_HANDSHAKE_FAILURE`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2164
+#: ../../../library/ssl.rst:2170
 msgid ""
 "This method will raise :exc:`NotImplementedError` if the OpenSSL library had "
 "OPENSSL_NO_TLSEXT defined when it was built."
 msgstr ""
 
-#: ../../../library/ssl.rst:2169
+#: ../../../library/ssl.rst:2175
 msgid ""
 "After the callback assigns a new :attr:`SSLSocket.context`, later "
 "ClientHello messages on the connection are dispatched to the new context's "
 "*sni_callback*."
 msgstr ""
 
-#: ../../../library/ssl.rst:2176
+#: ../../../library/ssl.rst:2182
 msgid ""
 "This is a legacy API retained for backwards compatibility. When possible, "
 "you should use :attr:`sni_callback` instead. The given "
@@ -2371,14 +2377,14 @@ msgid ""
 "*server_name_callback* receives a decoded U-label (``\"pythön.org\"``)."
 msgstr ""
 
-#: ../../../library/ssl.rst:2182
+#: ../../../library/ssl.rst:2188
 msgid ""
 "If there is a decoding error on the server name, the TLS connection will "
 "terminate with an :const:`ALERT_DESCRIPTION_INTERNAL_ERROR` fatal TLS alert "
 "message to the client."
 msgstr ""
 
-#: ../../../library/ssl.rst:2190
+#: ../../../library/ssl.rst:2196
 msgid ""
 "Load the key generation parameters for Diffie-Hellman (DH) key exchange. "
 "Using DH key exchange improves forward secrecy at the expense of "
@@ -2387,13 +2393,13 @@ msgid ""
 "format."
 msgstr ""
 
-#: ../../../library/ssl.rst:2196
+#: ../../../library/ssl.rst:2202
 msgid ""
 "This setting doesn't apply to client sockets.  You can also use "
 "the :data:`OP_SINGLE_DH_USE` option to further improve security."
 msgstr ""
 
-#: ../../../library/ssl.rst:2203
+#: ../../../library/ssl.rst:2209
 msgid ""
 "Set the curve name for Elliptic Curve-based Diffie-Hellman (ECDH) key "
 "exchange.  ECDH is significantly faster than regular DH while arguably as "
@@ -2402,27 +2408,27 @@ msgid ""
 "curve."
 msgstr ""
 
-#: ../../../library/ssl.rst:2209
+#: ../../../library/ssl.rst:2215
 msgid ""
 "This setting doesn't apply to client sockets.  You can also use "
 "the :data:`OP_SINGLE_ECDH_USE` option to further improve security."
 msgstr ""
 
-#: ../../../library/ssl.rst:2212
+#: ../../../library/ssl.rst:2218
 msgid "This method is not available if :data:`HAS_ECDH` is ``False``."
 msgstr ""
 
-#: ../../../library/ssl.rst:2217
+#: ../../../library/ssl.rst:2223
 msgid ""
 "`SSL/TLS & Perfect Forward Secrecy <https://vincent.bernat.ch/en/blog/2011-"
 "ssl-perfect-forward-secrecy>`_"
 msgstr ""
 
-#: ../../../library/ssl.rst:2218
+#: ../../../library/ssl.rst:2224
 msgid "Vincent Bernat."
 msgstr ""
 
-#: ../../../library/ssl.rst:2224
+#: ../../../library/ssl.rst:2230
 msgid ""
 "Wrap an existing Python socket *sock* and return an instance "
 "of :attr:`SSLContext.sslsocket_class` (default :class:`SSLSocket`). The "
@@ -2431,13 +2437,13 @@ msgid ""
 "unsupported."
 msgstr ""
 
-#: ../../../library/ssl.rst:2230
+#: ../../../library/ssl.rst:2236
 msgid ""
 "The parameter ``server_side`` is a boolean which identifies whether server-"
 "side or client-side behavior is desired from this socket."
 msgstr ""
 
-#: ../../../library/ssl.rst:2233
+#: ../../../library/ssl.rst:2239
 msgid ""
 "For client-side sockets, the context construction is lazy; if the underlying "
 "socket isn't connected yet, the context construction will be performed "
@@ -2448,7 +2454,7 @@ msgid ""
 "raise :exc:`SSLError`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2241
+#: ../../../library/ssl.rst:2247
 msgid ""
 "On client connections, the optional parameter *server_hostname* specifies "
 "the hostname of the service which we are connecting to.  This allows a "
@@ -2457,7 +2463,7 @@ msgid ""
 "*server_hostname* will raise a :exc:`ValueError` if *server_side* is true."
 msgstr ""
 
-#: ../../../library/ssl.rst:2247
+#: ../../../library/ssl.rst:2253
 msgid ""
 "The parameter ``do_handshake_on_connect`` specifies whether to do the SSL "
 "handshake automatically after doing a :meth:`socket.connect`, or whether the "
@@ -2467,7 +2473,7 @@ msgid ""
 "over the blocking behavior of the socket I/O involved in the handshake."
 msgstr ""
 
-#: ../../../library/ssl.rst:2254
+#: ../../../library/ssl.rst:2260
 msgid ""
 "The parameter ``suppress_ragged_eofs`` specifies how "
 "the :meth:`SSLSocket.recv` method should signal unexpected EOF from the "
@@ -2477,44 +2483,44 @@ msgid ""
 "raise the exceptions back to the caller."
 msgstr ""
 
-#: ../../../library/ssl.rst:2261
+#: ../../../library/ssl.rst:2267
 msgid "*session*, see :attr:`~SSLSocket.session`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2263
+#: ../../../library/ssl.rst:2269
 msgid ""
 "*ech_config*, see :meth:`SSLSocket.set_ech_config`. Specifying *ech_config* "
 "will raise a :exc:`ValueError` if *server_side* is true, and "
 "a :exc:`NotImplementedError` if :data:`HAS_ECH` is ``False``."
 msgstr ""
 
-#: ../../../library/ssl.rst:2267
+#: ../../../library/ssl.rst:2273
 msgid ""
 "To wrap an :class:`SSLSocket` in another :class:`SSLSocket`, "
 "use :meth:`SSLContext.wrap_bio`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2270
+#: ../../../library/ssl.rst:2276
 msgid ""
 "Always allow a server_hostname to be passed, even if OpenSSL does not have "
 "SNI."
 msgstr ""
 
-#: ../../../library/ssl.rst:2274 ../../../library/ssl.rst:2309
+#: ../../../library/ssl.rst:2280 ../../../library/ssl.rst:2315
 msgid "*session* argument was added."
 msgstr ""
 
-#: ../../../library/ssl.rst:2277
+#: ../../../library/ssl.rst:2283
 msgid ""
 "The method returns an instance of :attr:`SSLContext.sslsocket_class` instead "
 "of hard-coded :class:`SSLSocket`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2281 ../../../library/ssl.rst:2323
+#: ../../../library/ssl.rst:2287 ../../../library/ssl.rst:2329
 msgid "*ech_config* argument was added."
 msgstr ""
 
-#: ../../../library/ssl.rst:2286
+#: ../../../library/ssl.rst:2292
 msgid ""
 "The return type of :meth:`SSLContext.wrap_socket`, defaults "
 "to :class:`SSLSocket`. The attribute can be assigned to on instances "
@@ -2522,7 +2528,7 @@ msgid ""
 "of :class:`SSLSocket`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2297
+#: ../../../library/ssl.rst:2303
 msgid ""
 "Wrap the BIO objects *incoming* and *outgoing* and return an instance "
 "of :attr:`SSLContext.sslobject_class` (default :class:`SSLObject`). The SSL "
@@ -2530,7 +2536,7 @@ msgid ""
 "outgoing BIO."
 msgstr ""
 
-#: ../../../library/ssl.rst:2302
+#: ../../../library/ssl.rst:2308
 msgid ""
 "The *server_side*, *server_hostname*, *session* and *ech_config* parameters "
 "have the same meaning as in :meth:`SSLContext.wrap_socket`, and are "
@@ -2540,13 +2546,13 @@ msgid ""
 "against."
 msgstr ""
 
-#: ../../../library/ssl.rst:2312
+#: ../../../library/ssl.rst:2318
 msgid ""
 "The method returns an instance of :attr:`SSLContext.sslobject_class` instead "
 "of hard-coded :class:`SSLObject`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2316
+#: ../../../library/ssl.rst:2322
 msgid ""
 "The *server_side*, *server_hostname* and *session* parameters are now "
 "validated as :meth:`SSLContext.wrap_socket` validates them. Previously a "
@@ -2555,14 +2561,14 @@ msgid ""
 "the peer's identity."
 msgstr ""
 
-#: ../../../library/ssl.rst:2328
+#: ../../../library/ssl.rst:2334
 msgid ""
 "The return type of :meth:`SSLContext.wrap_bio`, defaults "
 "to :class:`SSLObject`. The attribute can be overridden on instance of class "
 "in order to return a custom subclass of :class:`SSLObject`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2336
+#: ../../../library/ssl.rst:2342
 msgid ""
 "Get statistics about the SSL sessions created or managed by this context. A "
 "dictionary is returned which maps the names of each `piece of information "
@@ -2571,7 +2577,7 @@ msgid ""
 "the session cache since the context was created::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2347
+#: ../../../library/ssl.rst:2353
 msgid ""
 "Whether to match the peer cert's hostname in :meth:`SSLSocket.do_handshake`. "
 "The context's :attr:`~SSLContext.verify_mode` must be set "
@@ -2585,7 +2591,7 @@ msgid ""
 "hostname checking must be enabled explicitly."
 msgstr ""
 
-#: ../../../library/ssl.rst:2375
+#: ../../../library/ssl.rst:2381
 msgid ""
 ":attr:`~SSLContext.verify_mode` is now automatically changed "
 "to :data:`CERT_REQUIRED`  when hostname checking is enabled "
@@ -2593,7 +2599,7 @@ msgid ""
 "same operation would have failed with a :exc:`ValueError`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2382
+#: ../../../library/ssl.rst:2388
 msgid ""
 "Write TLS keys to a keylog file, whenever key material is generated or "
 "received. The keylog file is designed for debugging purposes only. The file "
@@ -2602,7 +2608,7 @@ msgid ""
 "synchronized between threads, but not between processes."
 msgstr ""
 
-#: ../../../library/ssl.rst:2392
+#: ../../../library/ssl.rst:2398
 msgid ""
 "A :class:`TLSVersion` enum member representing the highest supported TLS "
 "version. The value defaults to :attr:`TLSVersion.MAXIMUM_SUPPORTED`. The "
@@ -2611,7 +2617,7 @@ msgid ""
 "and :const:`PROTOCOL_TLS_SERVER`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2397
+#: ../../../library/ssl.rst:2403
 msgid ""
 "The "
 "attributes :attr:`~SSLContext.maximum_version`, :attr:`~SSLContext.minimum_version` "
@@ -2623,38 +2629,38 @@ msgid ""
 "connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2410
+#: ../../../library/ssl.rst:2416
 msgid ""
 "Like :attr:`SSLContext.maximum_version` except it is the lowest supported "
 "version or :attr:`TLSVersion.MINIMUM_SUPPORTED`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2417
+#: ../../../library/ssl.rst:2423
 msgid ""
 "Control the number of TLS 1.3 session tickets of "
 "a :const:`PROTOCOL_TLS_SERVER` context. The setting has no impact on TLS 1.0 "
 "to 1.2 connections."
 msgstr ""
 
-#: ../../../library/ssl.rst:2425
+#: ../../../library/ssl.rst:2431
 msgid ""
 "An integer representing the set of SSL options enabled on this context. The "
 "default value is :data:`OP_ALL`, but you can specify other options such "
 "as :data:`OP_NO_SSLv2` by ORing them together."
 msgstr ""
 
-#: ../../../library/ssl.rst:2429
+#: ../../../library/ssl.rst:2435
 msgid ":attr:`SSLContext.options` returns :class:`Options` flags:"
 msgstr ""
 
-#: ../../../library/ssl.rst:2437
+#: ../../../library/ssl.rst:2443
 msgid ""
 "All ``OP_NO_SSL*`` and ``OP_NO_TLS*`` options have been deprecated since "
 "Python 3.7. Use :attr:`SSLContext.minimum_version` "
 "and :attr:`SSLContext.maximum_version` instead."
 msgstr ""
 
-#: ../../../library/ssl.rst:2443
+#: ../../../library/ssl.rst:2449
 msgid ""
 "Enable TLS 1.3 post-handshake client authentication. Post-handshake auth is "
 "disabled by default and a server can only request a TLS client certificate "
@@ -2662,13 +2668,13 @@ msgid ""
 "client certificate at any time after the handshake."
 msgstr ""
 
-#: ../../../library/ssl.rst:2448
+#: ../../../library/ssl.rst:2454
 msgid ""
 "When enabled on client-side sockets, the client signals the server that it "
 "supports post-handshake authentication."
 msgstr ""
 
-#: ../../../library/ssl.rst:2451
+#: ../../../library/ssl.rst:2457
 msgid ""
 "When enabled on server-side sockets, :attr:`SSLContext.verify_mode` must be "
 "set to :data:`CERT_OPTIONAL` or :data:`CERT_REQUIRED`, too. The actual "
@@ -2677,66 +2683,66 @@ msgid ""
 "is performed."
 msgstr ""
 
-#: ../../../library/ssl.rst:2461
+#: ../../../library/ssl.rst:2467
 msgid ""
 "The protocol version chosen when constructing the context.  This attribute "
 "is read-only."
 msgstr ""
 
-#: ../../../library/ssl.rst:2466
+#: ../../../library/ssl.rst:2472
 msgid ""
 "Whether :attr:`~SSLContext.check_hostname` falls back to verify the cert's "
 "subject common name in the absence of a subject alternative name extension "
 "(default: true)."
 msgstr ""
 
-#: ../../../library/ssl.rst:2474
+#: ../../../library/ssl.rst:2480
 msgid ""
 "The flag had no effect with OpenSSL before version 1.1.1l. Python 3.8.9, "
 "3.9.3, and 3.10 include workarounds for previous versions."
 msgstr ""
 
-#: ../../../library/ssl.rst:2479
+#: ../../../library/ssl.rst:2485
 msgid ""
 "An integer representing the `security level <https://docs.openssl.org/master/"
 "man3/SSL_CTX_get_security_level/>`_ for the context. This attribute is read-"
 "only."
 msgstr ""
 
-#: ../../../library/ssl.rst:2487
+#: ../../../library/ssl.rst:2493
 msgid ""
 "The flags for certificate verification operations. You can set flags "
 "like :data:`VERIFY_CRL_CHECK_LEAF` by ORing them together. By default "
 "OpenSSL does neither require nor verify certificate revocation lists (CRLs)."
 msgstr ""
 
-#: ../../../library/ssl.rst:2493
+#: ../../../library/ssl.rst:2499
 msgid ":attr:`SSLContext.verify_flags` returns :class:`VerifyFlags` flags:"
 msgstr ""
 
-#: ../../../library/ssl.rst:2501
+#: ../../../library/ssl.rst:2507
 msgid ""
 "Whether to try to verify other peers' certificates and how to behave if "
 "verification fails.  This attribute must be one "
 "of :data:`CERT_NONE`, :data:`CERT_OPTIONAL` or :data:`CERT_REQUIRED`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2505
+#: ../../../library/ssl.rst:2511
 msgid ":attr:`SSLContext.verify_mode` returns :class:`VerifyMode` enum:"
 msgstr ""
 
-#: ../../../library/ssl.rst:2513
+#: ../../../library/ssl.rst:2519
 msgid ""
 "Enables TLS-PSK (pre-shared key) authentication on a client-side connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2515 ../../../library/ssl.rst:2575
+#: ../../../library/ssl.rst:2521 ../../../library/ssl.rst:2581
 msgid ""
 "In general, certificate based authentication should be preferred over this "
 "method."
 msgstr ""
 
-#: ../../../library/ssl.rst:2517
+#: ../../../library/ssl.rst:2523
 msgid ""
 "The parameter ``callback`` is a callable object with the signature: ``def "
 "callback(hint: str | None) -> tuple[str | None, bytes]``. The ``hint`` "
@@ -2749,23 +2755,23 @@ msgid ""
 "connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2527 ../../../library/ssl.rst:2584
+#: ../../../library/ssl.rst:2533 ../../../library/ssl.rst:2590
 msgid "Setting ``callback`` to :const:`None` removes any existing callback."
 msgstr ""
 
-#: ../../../library/ssl.rst:2530 ../../../library/ssl.rst:2591
+#: ../../../library/ssl.rst:2536 ../../../library/ssl.rst:2597
 msgid "When using TLS 1.3:"
 msgstr ""
 
-#: ../../../library/ssl.rst:2532
+#: ../../../library/ssl.rst:2538
 msgid "the ``hint`` parameter is always :const:`None`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2533
+#: ../../../library/ssl.rst:2539
 msgid "client-identity must be a non-empty string."
 msgstr ""
 
-#: ../../../library/ssl.rst:2534
+#: ../../../library/ssl.rst:2540
 msgid ""
 "the PSK is only offered to the server, which may decline it and authenticate "
 "with a certificate instead.  That certificate is checked according "
@@ -2776,34 +2782,34 @@ msgid ""
 "using :const:`CERT_REQUIRED`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2541
+#: ../../../library/ssl.rst:2547
 msgid ""
 "a zero length PSK does not reject the connection, it only means that no PSK "
 "is offered.  An exception raised by the callback has the same effect."
 msgstr ""
 
-#: ../../../library/ssl.rst:2544
+#: ../../../library/ssl.rst:2550
 msgid ""
 "the PSK is used with the SHA-256 handshake digest, so a server can only "
 "accept it with a cipher suite that uses SHA-256."
 msgstr ""
 
-#: ../../../library/ssl.rst:2547 ../../../library/ssl.rst:2605
+#: ../../../library/ssl.rst:2553 ../../../library/ssl.rst:2611
 msgid "Example usage::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2566 ../../../library/ssl.rst:2623
+#: ../../../library/ssl.rst:2572 ../../../library/ssl.rst:2629
 msgid ""
 "This method will raise :exc:`NotImplementedError` if :data:`HAS_PSK` is "
 "``False``."
 msgstr ""
 
-#: ../../../library/ssl.rst:2573
+#: ../../../library/ssl.rst:2579
 msgid ""
 "Enables TLS-PSK (pre-shared key) authentication on a server-side connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2577
+#: ../../../library/ssl.rst:2583
 msgid ""
 "The parameter ``callback`` is a callable object with the signature: ``def "
 "callback(identity: str | None) -> bytes``. The ``identity`` parameter is an "
@@ -2813,18 +2819,18 @@ msgid ""
 "length PSK to reject the connection."
 msgstr ""
 
-#: ../../../library/ssl.rst:2586
+#: ../../../library/ssl.rst:2592
 msgid ""
 "The parameter ``identity_hint`` is an optional identity hint string sent to "
 "the client. The string must be less than or equal to ``256`` octets when "
 "UTF-8 encoded."
 msgstr ""
 
-#: ../../../library/ssl.rst:2593
+#: ../../../library/ssl.rst:2599
 msgid "the ``identity_hint`` parameter is not sent to the client."
 msgstr ""
 
-#: ../../../library/ssl.rst:2594
+#: ../../../library/ssl.rst:2600
 msgid ""
 "a zero length PSK, or an exception raised by the callback, only declines the "
 "client's PSK.  If a certificate was loaded "
@@ -2834,18 +2840,18 @@ msgid ""
 "check :attr:`SSLSocket.session_reused`, which is true if the PSK was used."
 msgstr ""
 
-#: ../../../library/ssl.rst:2600
+#: ../../../library/ssl.rst:2606
 msgid ""
 "the PSK can only be accepted with a cipher suite that uses SHA-256. When a "
 "certificate is loaded, OpenSSL's default TLS 1.3 cipher suite order selects "
 "a SHA-384 suite instead, so the PSK is declined even if it matches."
 msgstr ""
 
-#: ../../../library/ssl.rst:2635
+#: ../../../library/ssl.rst:2641
 msgid "Certificates"
 msgstr ""
 
-#: ../../../library/ssl.rst:2637
+#: ../../../library/ssl.rst:2643
 msgid ""
 "Certificates in general are part of a public-key / private-key system.  In "
 "this system, each *principal*, (which may be a machine, or a person, or an "
@@ -2856,7 +2862,7 @@ msgid ""
 "other part, and **only** with the other part."
 msgstr ""
 
-#: ../../../library/ssl.rst:2645
+#: ../../../library/ssl.rst:2651
 msgid ""
 "A certificate contains information about two principals.  It contains the "
 "name of a *subject*, and the subject's public key.  It also contains a "
@@ -2870,7 +2876,7 @@ msgid ""
 "as two fields, called \"notBefore\" and \"notAfter\"."
 msgstr ""
 
-#: ../../../library/ssl.rst:2655
+#: ../../../library/ssl.rst:2661
 msgid ""
 "In the Python use of certificates, a client or server can use a certificate "
 "to prove who they are.  The other side of a network connection can also be "
@@ -2883,18 +2889,18 @@ msgid ""
 "take place."
 msgstr ""
 
-#: ../../../library/ssl.rst:2665
+#: ../../../library/ssl.rst:2671
 msgid ""
 "Python uses files to contain certificates.  They should be formatted as "
 "\"PEM\" (see :rfc:`1422`), which is a base-64 encoded form wrapped with a "
 "header line and a footer line::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2674
+#: ../../../library/ssl.rst:2680
 msgid "Certificate chains"
 msgstr ""
 
-#: ../../../library/ssl.rst:2676
+#: ../../../library/ssl.rst:2682
 msgid ""
 "The Python files which contain certificates can contain a sequence of "
 "certificates, sometimes called a *certificate chain*.  This chain should "
@@ -2910,11 +2916,11 @@ msgid ""
 "agency which issued the certification authority's certificate::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2700
+#: ../../../library/ssl.rst:2706
 msgid "CA certificates"
 msgstr ""
 
-#: ../../../library/ssl.rst:2702
+#: ../../../library/ssl.rst:2708
 msgid ""
 "If you are going to require validation of the other side of the connection's "
 "certificate, you need to provide a \"CA certs\" file, filled with the "
@@ -2926,11 +2932,11 @@ msgid ""
 "with :func:`.create_default_context`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2711
+#: ../../../library/ssl.rst:2717
 msgid "Combined key and certificate"
 msgstr ""
 
-#: ../../../library/ssl.rst:2713
+#: ../../../library/ssl.rst:2719
 msgid ""
 "Often the private key is stored in the same file as the certificate; in this "
 "case, only the ``certfile`` parameter to :meth:`SSLContext.load_cert_chain` "
@@ -2938,11 +2944,11 @@ msgid ""
 "should come before the first certificate in the certificate chain::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2727
+#: ../../../library/ssl.rst:2733
 msgid "Self-signed certificates"
 msgstr ""
 
-#: ../../../library/ssl.rst:2729
+#: ../../../library/ssl.rst:2735
 msgid ""
 "If you are going to create a server that provides SSL-encrypted connection "
 "services, you will need to acquire a certificate for that service.  There "
@@ -2952,51 +2958,51 @@ msgid ""
 "package, using something like the following::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2758
+#: ../../../library/ssl.rst:2764
 msgid ""
 "The disadvantage of a self-signed certificate is that it is its own root "
 "certificate, and no one else will have it in their cache of known (and "
 "trusted) root certificates."
 msgstr ""
 
-#: ../../../library/ssl.rst:2764
+#: ../../../library/ssl.rst:2770
 msgid "Examples"
 msgstr ""
 
-#: ../../../library/ssl.rst:2767
+#: ../../../library/ssl.rst:2773
 msgid "Testing for SSL support"
 msgstr ""
 
-#: ../../../library/ssl.rst:2769
+#: ../../../library/ssl.rst:2775
 msgid ""
 "To test for the presence of SSL support in a Python installation, user code "
 "should use the following idiom::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2780
+#: ../../../library/ssl.rst:2786
 msgid "Client-side operation"
 msgstr ""
 
-#: ../../../library/ssl.rst:2782
+#: ../../../library/ssl.rst:2788
 msgid ""
 "This example creates a SSL context with the recommended security settings "
 "for client sockets, including automatic certificate verification::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2787
+#: ../../../library/ssl.rst:2793
 msgid ""
 "If you prefer to tune security settings yourself, you might create a context "
 "from scratch (but beware that you might not get the settings right)::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2794
+#: ../../../library/ssl.rst:2800
 msgid ""
 "(this snippet assumes your operating system places a bundle of all CA "
 "certificates in ``/etc/ssl/certs/ca-bundle.crt``; if not, you'll get an "
 "error and have to adjust the location)"
 msgstr ""
 
-#: ../../../library/ssl.rst:2798
+#: ../../../library/ssl.rst:2804
 msgid ""
 "The :data:`PROTOCOL_TLS_CLIENT` protocol configures the context for cert "
 "validation and hostname verification. :attr:`~SSLContext.verify_mode` is set "
@@ -3004,7 +3010,7 @@ msgid ""
 "``True``. All other protocols create SSL contexts with insecure defaults."
 msgstr ""
 
-#: ../../../library/ssl.rst:2803
+#: ../../../library/ssl.rst:2809
 msgid ""
 "When you use the context to connect to a server, :const:`CERT_REQUIRED` "
 "and :attr:`~SSLContext.check_hostname` validate the server certificate: it "
@@ -3013,27 +3019,27 @@ msgid ""
 "properties like validity and identity of the hostname::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2813
+#: ../../../library/ssl.rst:2819
 msgid "You may then fetch the certificate::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2817
+#: ../../../library/ssl.rst:2823
 msgid ""
 "Visual inspection shows that the certificate does identify the desired "
 "service (that is, the HTTPS host ``www.python.org``)::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2860
+#: ../../../library/ssl.rst:2866
 msgid ""
 "Now the SSL channel is established and the certificate verified, you can "
 "proceed to talk with the server::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2887
+#: ../../../library/ssl.rst:2893
 msgid "Server-side operation"
 msgstr ""
 
-#: ../../../library/ssl.rst:2889
+#: ../../../library/ssl.rst:2895
 msgid ""
 "For server operation, typically you'll need to have a server certificate, "
 "and private key, each in a file.  You'll first create a context holding the "
@@ -3042,7 +3048,7 @@ msgid ""
 "start waiting for clients to connect::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2904
+#: ../../../library/ssl.rst:2910
 msgid ""
 "When a client connects, you'll call :meth:`accept` on the socket to get the "
 "new socket from the other end, and use the "
@@ -3050,13 +3056,13 @@ msgid ""
 "socket for the connection::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2917
+#: ../../../library/ssl.rst:2923
 msgid ""
 "Then you'll read data from the ``connstream`` and do something with it till "
 "you are finished with the client (or the client is finished with you)::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2931
+#: ../../../library/ssl.rst:2937
 msgid ""
 "And go back to listening for new client connections (of course, a real "
 "server would probably handle each client connection in a separate thread, or "
@@ -3064,18 +3070,18 @@ msgid ""
 "event loop)."
 msgstr ""
 
-#: ../../../library/ssl.rst:2939
+#: ../../../library/ssl.rst:2945
 msgid "Notes on non-blocking sockets"
 msgstr ""
 
-#: ../../../library/ssl.rst:2941
+#: ../../../library/ssl.rst:2947
 msgid ""
 "SSL sockets behave slightly different than regular sockets in non-blocking "
 "mode. When working with non-blocking sockets, there are thus several things "
 "you need to be aware of:"
 msgstr ""
 
-#: ../../../library/ssl.rst:2945
+#: ../../../library/ssl.rst:2951
 msgid ""
 "Most :class:`SSLSocket` methods will raise either :exc:`SSLWantWriteError` "
 "or :exc:`SSLWantReadError` instead of :exc:`BlockingIOError` if an I/O "
@@ -3087,13 +3093,13 @@ msgid ""
 "require a prior *write* to the underlying socket."
 msgstr ""
 
-#: ../../../library/ssl.rst:2957
+#: ../../../library/ssl.rst:2963
 msgid ""
 "In earlier Python versions, the :meth:`!SSLSocket.send` method returned zero "
 "instead of raising :exc:`SSLWantWriteError` or :exc:`SSLWantReadError`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2961
+#: ../../../library/ssl.rst:2967
 msgid ""
 "Calling :func:`~select.select` tells you that the OS-level socket can be "
 "read from (or written to), but it does not imply that there is sufficient "
@@ -3103,7 +3109,7 @@ msgid ""
 "to :func:`~select.select`."
 msgstr ""
 
-#: ../../../library/ssl.rst:2968
+#: ../../../library/ssl.rst:2974
 msgid ""
 "Conversely, since the SSL layer has its own framing, a SSL socket may still "
 "have data available for reading without :func:`~select.select` being aware "
@@ -3112,13 +3118,13 @@ msgid ""
 "call if still necessary."
 msgstr ""
 
-#: ../../../library/ssl.rst:2974
+#: ../../../library/ssl.rst:2980
 msgid ""
 "(of course, similar provisions apply when using other primitives such "
 "as :func:`~select.poll`, or those in the :mod:`selectors` module)"
 msgstr ""
 
-#: ../../../library/ssl.rst:2977
+#: ../../../library/ssl.rst:2983
 msgid ""
 "The SSL handshake itself will be non-blocking: "
 "the :meth:`SSLSocket.do_handshake` method has to be retried until it returns "
@@ -3126,7 +3132,7 @@ msgid ""
 "the socket's readiness::"
 msgstr ""
 
-#: ../../../library/ssl.rst:2993
+#: ../../../library/ssl.rst:2999
 msgid ""
 "The :mod:`asyncio` module supports :ref:`non-blocking SSL sockets <ssl-"
 "nonblocking>` and provides a higher level :ref:`Streams API <asyncio-"
@@ -3136,26 +3142,26 @@ msgid ""
 "asynchronously as well."
 msgstr ""
 
-#: ../../../library/ssl.rst:3002
+#: ../../../library/ssl.rst:3008
 msgid "Memory BIO support"
 msgstr ""
 
-#: ../../../library/ssl.rst:3006
+#: ../../../library/ssl.rst:3012
 msgid ""
 "Ever since the SSL module was introduced in Python 2.6, "
 "the :class:`SSLSocket` class has provided two related but distinct areas of "
 "functionality:"
 msgstr ""
 
-#: ../../../library/ssl.rst:3009
+#: ../../../library/ssl.rst:3015
 msgid "SSL protocol handling"
 msgstr ""
 
-#: ../../../library/ssl.rst:3010
+#: ../../../library/ssl.rst:3016
 msgid "Network IO"
 msgstr ""
 
-#: ../../../library/ssl.rst:3012
+#: ../../../library/ssl.rst:3018
 msgid ""
 "The network IO API is identical to that provided by :class:`socket.socket`, "
 "from which :class:`SSLSocket` also inherits. This allows an SSL socket to be "
@@ -3163,7 +3169,7 @@ msgid ""
 "add SSL support to an existing application."
 msgstr ""
 
-#: ../../../library/ssl.rst:3017
+#: ../../../library/ssl.rst:3023
 msgid ""
 "Combining SSL protocol handling and network IO usually works well, but there "
 "are some cases where it doesn't. An example is async IO frameworks that want "
@@ -3175,7 +3181,7 @@ msgid ""
 "called :class:`SSLObject` is provided."
 msgstr ""
 
-#: ../../../library/ssl.rst:3028
+#: ../../../library/ssl.rst:3034
 msgid ""
 "A reduced-scope variant of :class:`SSLSocket` representing an SSL protocol "
 "instance that does not contain any network IO methods. This class is "
@@ -3183,7 +3189,7 @@ msgid ""
 "for SSL through memory buffers."
 msgstr ""
 
-#: ../../../library/ssl.rst:3033
+#: ../../../library/ssl.rst:3039
 msgid ""
 "This class implements an interface on top of a low-level SSL object as "
 "implemented by OpenSSL. This object captures the state of an SSL connection "
@@ -3191,7 +3197,7 @@ msgid ""
 "separate \"BIO\" objects which are OpenSSL's IO abstraction layer."
 msgstr ""
 
-#: ../../../library/ssl.rst:3038
+#: ../../../library/ssl.rst:3044
 msgid ""
 "This class has no public constructor.  An :class:`SSLObject` instance must "
 "be created using the :meth:`~SSLContext.wrap_bio` method. This method will "
@@ -3200,149 +3206,149 @@ msgid ""
 "instance, while the *outgoing* BIO is used to pass data the other way around."
 msgstr ""
 
-#: ../../../library/ssl.rst:3045
+#: ../../../library/ssl.rst:3051
 msgid "The following methods are available:"
 msgstr ""
 
-#: ../../../library/ssl.rst:3047
+#: ../../../library/ssl.rst:3053
 msgid ":attr:`~SSLSocket.context`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3048
+#: ../../../library/ssl.rst:3054
 msgid ":attr:`~SSLSocket.server_side`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3049
+#: ../../../library/ssl.rst:3055
 msgid ":attr:`~SSLSocket.server_hostname`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3050
+#: ../../../library/ssl.rst:3056
 msgid ":attr:`~SSLSocket.session`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3051
+#: ../../../library/ssl.rst:3057
 msgid ":attr:`~SSLSocket.session_reused`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3052
+#: ../../../library/ssl.rst:3058
 msgid ":meth:`~SSLSocket.read`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3053
+#: ../../../library/ssl.rst:3059
 msgid ":meth:`~SSLSocket.write`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3054
+#: ../../../library/ssl.rst:3060
 msgid ":meth:`~SSLSocket.getpeercert`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3055
+#: ../../../library/ssl.rst:3061
 msgid ":meth:`~SSLSocket.get_verified_chain`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3056
+#: ../../../library/ssl.rst:3062
 msgid ":meth:`~SSLSocket.get_unverified_chain`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3057
+#: ../../../library/ssl.rst:3063
 msgid ":meth:`~SSLSocket.selected_alpn_protocol`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3058
+#: ../../../library/ssl.rst:3064
 msgid ":meth:`~SSLSocket.selected_npn_protocol`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3059
+#: ../../../library/ssl.rst:3065
 msgid ":meth:`~SSLSocket.cipher`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3060
+#: ../../../library/ssl.rst:3066
 msgid ":meth:`~SSLSocket.shared_ciphers`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3061
+#: ../../../library/ssl.rst:3067
 msgid ":meth:`~SSLSocket.compression`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3062
+#: ../../../library/ssl.rst:3068
 msgid ":meth:`~SSLSocket.pending`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3063
+#: ../../../library/ssl.rst:3069
 msgid ":meth:`~SSLSocket.do_handshake`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3064
+#: ../../../library/ssl.rst:3070
 msgid ":meth:`~SSLSocket.verify_client_post_handshake`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3065
+#: ../../../library/ssl.rst:3071
 msgid ":meth:`~SSLSocket.unwrap`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3066
+#: ../../../library/ssl.rst:3072
 msgid ":meth:`~SSLSocket.get_channel_binding`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3067
+#: ../../../library/ssl.rst:3073
 msgid ":meth:`~SSLSocket.set_ech_config`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3068
+#: ../../../library/ssl.rst:3074
 msgid ":meth:`~SSLSocket.get_ech_retry_config`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3069
+#: ../../../library/ssl.rst:3075
 msgid ":meth:`~SSLSocket.get_ech_status`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3070
+#: ../../../library/ssl.rst:3076
 msgid ":meth:`~SSLSocket.version`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3072
+#: ../../../library/ssl.rst:3078
 msgid ""
 "When compared to :class:`SSLSocket`, this object lacks the following "
 "features:"
 msgstr ""
 
-#: ../../../library/ssl.rst:3075
+#: ../../../library/ssl.rst:3081
 msgid ""
-"Any form of network IO; ``recv()`` and ``send()`` read and write only to the "
-"underlying :class:`MemoryBIO` buffers."
+"Any form of network IO; ``read()`` and ``write()`` read and write only to "
+"the underlying :class:`MemoryBIO` buffers."
 msgstr ""
 
-#: ../../../library/ssl.rst:3078
+#: ../../../library/ssl.rst:3084
 msgid ""
 "There is no *do_handshake_on_connect* machinery. You must always manually "
 "call :meth:`~SSLSocket.do_handshake` to start the handshake."
 msgstr ""
 
-#: ../../../library/ssl.rst:3081
+#: ../../../library/ssl.rst:3087
 msgid ""
 "There is no handling of *suppress_ragged_eofs*. All end-of-file conditions "
 "that are in violation of the protocol are reported via "
 "the :exc:`SSLEOFError` exception."
 msgstr ""
 
-#: ../../../library/ssl.rst:3085
+#: ../../../library/ssl.rst:3091
 msgid ""
 "The method :meth:`~SSLSocket.unwrap` call does not return anything, unlike "
 "for an SSL socket where it returns the underlying socket."
 msgstr ""
 
-#: ../../../library/ssl.rst:3088
+#: ../../../library/ssl.rst:3094
 msgid ""
 "The *server_name_callback* callback passed "
 "to :meth:`SSLContext.set_servername_callback` will get an :class:`SSLObject` "
 "instance instead of a :class:`SSLSocket` instance as its first parameter."
 msgstr ""
 
-#: ../../../library/ssl.rst:3092
+#: ../../../library/ssl.rst:3098
 msgid "Some notes related to the use of :class:`SSLObject`:"
 msgstr ""
 
-#: ../../../library/ssl.rst:3094
+#: ../../../library/ssl.rst:3100
 msgid ""
 "All IO on an :class:`SSLObject` is :ref:`non-blocking <ssl-nonblocking>`. "
 "This means that for example :meth:`~SSLSocket.read` will raise "
@@ -3350,78 +3356,78 @@ msgid ""
 "available."
 msgstr ""
 
-#: ../../../library/ssl.rst:3099
+#: ../../../library/ssl.rst:3105
 msgid ""
 ":class:`SSLObject` instances must be created "
 "with :meth:`~SSLContext.wrap_bio`. In earlier versions, it was possible to "
 "create instances directly. This was never documented or officially supported."
 msgstr ""
 
-#: ../../../library/ssl.rst:3105
+#: ../../../library/ssl.rst:3111
 msgid ""
 "An SSLObject communicates with the outside world using memory buffers. The "
 "class :class:`MemoryBIO` provides a memory buffer that can be used for this "
 "purpose.  It wraps an OpenSSL memory BIO (Basic IO) object:"
 msgstr ""
 
-#: ../../../library/ssl.rst:3111
+#: ../../../library/ssl.rst:3117
 msgid ""
 "A memory buffer that can be used to pass data between Python and an SSL "
 "protocol instance."
 msgstr ""
 
-#: ../../../library/ssl.rst:3116
+#: ../../../library/ssl.rst:3122
 msgid "Return the number of bytes currently in the memory buffer."
 msgstr ""
 
-#: ../../../library/ssl.rst:3120
+#: ../../../library/ssl.rst:3126
 msgid ""
 "A boolean indicating whether the memory BIO is current at the end-of-file "
 "position."
 msgstr ""
 
-#: ../../../library/ssl.rst:3125
+#: ../../../library/ssl.rst:3131
 msgid ""
 "Read up to *n* bytes from the memory buffer. If *n* is not specified or "
 "negative, all bytes are returned."
 msgstr ""
 
-#: ../../../library/ssl.rst:3130
+#: ../../../library/ssl.rst:3136
 msgid ""
 "Write the bytes from *buf* to the memory BIO. The *buf* argument must be an "
 "object supporting the buffer protocol."
 msgstr ""
 
-#: ../../../library/ssl.rst:3133
+#: ../../../library/ssl.rst:3139
 msgid ""
 "The return value is the number of bytes written, which is always equal to "
 "the length of *buf*."
 msgstr ""
 
-#: ../../../library/ssl.rst:3138
+#: ../../../library/ssl.rst:3144
 msgid ""
 "Write an EOF marker to the memory BIO. After this method has been called, it "
 "is illegal to call :meth:`~MemoryBIO.write`. The attribute :attr:`eof` will "
 "become true after all data currently in the buffer has been read."
 msgstr ""
 
-#: ../../../library/ssl.rst:3144
+#: ../../../library/ssl.rst:3150
 msgid "SSL session"
 msgstr ""
 
-#: ../../../library/ssl.rst:3150
+#: ../../../library/ssl.rst:3156
 msgid "Session object used by :attr:`~SSLSocket.session`."
 msgstr ""
 
-#: ../../../library/ssl.rst:3162
+#: ../../../library/ssl.rst:3168
 msgid "Security considerations"
 msgstr ""
 
-#: ../../../library/ssl.rst:3165
+#: ../../../library/ssl.rst:3171
 msgid "Best defaults"
 msgstr ""
 
-#: ../../../library/ssl.rst:3167
+#: ../../../library/ssl.rst:3173
 msgid ""
 "For **client use**, if you don't have any special requirements for your "
 "security policy, it is highly recommended that you use "
@@ -3431,19 +3437,19 @@ msgid ""
 "protocol and cipher settings."
 msgstr ""
 
-#: ../../../library/ssl.rst:3174
+#: ../../../library/ssl.rst:3180
 msgid ""
 "For example, here is how you would use the :class:`smtplib.SMTP` class to "
 "create a trusted, secure connection to a SMTP server::"
 msgstr ""
 
-#: ../../../library/ssl.rst:3183
+#: ../../../library/ssl.rst:3189
 msgid ""
 "If a client certificate is needed for the connection, it can be added "
 "with :meth:`SSLContext.load_cert_chain`."
 msgstr ""
 
-#: ../../../library/ssl.rst:3186
+#: ../../../library/ssl.rst:3192
 msgid ""
 "By contrast, if you create the SSL context by calling "
 "the :class:`SSLContext` constructor yourself, it will not have certificate "
@@ -3451,15 +3457,15 @@ msgid ""
 "read the paragraphs below to achieve a good security level."
 msgstr ""
 
-#: ../../../library/ssl.rst:3192
+#: ../../../library/ssl.rst:3198
 msgid "Manual settings"
 msgstr ""
 
-#: ../../../library/ssl.rst:3195
+#: ../../../library/ssl.rst:3201
 msgid "Verifying certificates"
 msgstr ""
 
-#: ../../../library/ssl.rst:3197
+#: ../../../library/ssl.rst:3203
 msgid ""
 "When calling the :class:`SSLContext` constructor "
 "directly, :const:`CERT_NONE` is the default.  Since it does not authenticate "
@@ -3474,13 +3480,13 @@ msgid ""
 "when :attr:`SSLContext.check_hostname` is enabled."
 msgstr ""
 
-#: ../../../library/ssl.rst:3209
+#: ../../../library/ssl.rst:3215
 msgid ""
 "Hostname matchings is now performed by OpenSSL. Python no longer "
 "uses :func:`!match_hostname`."
 msgstr ""
 
-#: ../../../library/ssl.rst:3213
+#: ../../../library/ssl.rst:3219
 msgid ""
 "In server mode, if you want to authenticate your clients using the SSL layer "
 "(rather than using a higher-level authentication mechanism), you'll also "
@@ -3488,11 +3494,11 @@ msgid ""
 "certificate."
 msgstr ""
 
-#: ../../../library/ssl.rst:3219
+#: ../../../library/ssl.rst:3225
 msgid "Protocol versions"
 msgstr ""
 
-#: ../../../library/ssl.rst:3221
+#: ../../../library/ssl.rst:3227
 msgid ""
 "SSL versions 2 and 3 are considered insecure and are therefore dangerous to "
 "use.  If you want maximum compatibility between clients and servers, it is "
@@ -3501,7 +3507,7 @@ msgid ""
 "disabled by default."
 msgstr ""
 
-#: ../../../library/ssl.rst:3234
+#: ../../../library/ssl.rst:3240
 msgid ""
 "The SSL client context created above will only allow TLSv1.2 and TLSv1.3 (if "
 "supported by your system) connections to a "
@@ -3509,11 +3515,11 @@ msgid ""
 "hostname checks by default. You have to load certificates into the context."
 msgstr ""
 
-#: ../../../library/ssl.rst:3241
+#: ../../../library/ssl.rst:3247
 msgid "Cipher selection"
 msgstr ""
 
-#: ../../../library/ssl.rst:3243
+#: ../../../library/ssl.rst:3249
 msgid ""
 "If you have advanced security requirements, fine-tuning of the ciphers "
 "enabled when negotiating a SSL session is possible through "
@@ -3526,11 +3532,11 @@ msgid ""
 "ciphers`` command on your system."
 msgstr ""
 
-#: ../../../library/ssl.rst:3254
+#: ../../../library/ssl.rst:3260
 msgid "Multi-processing"
 msgstr ""
 
-#: ../../../library/ssl.rst:3256
+#: ../../../library/ssl.rst:3262
 msgid ""
 "If using this module as part of a multi-processed application (using, for "
 "example the :mod:`multiprocessing` or :mod:`concurrent.futures` modules), be "
@@ -3541,17 +3547,17 @@ msgid ""
 "sufficient."
 msgstr ""
 
-#: ../../../library/ssl.rst:3268
+#: ../../../library/ssl.rst:3274
 msgid "TLS 1.3"
 msgstr ""
 
-#: ../../../library/ssl.rst:3272
+#: ../../../library/ssl.rst:3278
 msgid ""
 "The TLS 1.3 protocol behaves slightly differently than previous version of "
 "TLS/SSL. Some new TLS 1.3 features are not yet available."
 msgstr ""
 
-#: ../../../library/ssl.rst:3275
+#: ../../../library/ssl.rst:3281
 msgid ""
 "TLS 1.3 uses a disjunct set of cipher suites.  All AES-GCM and ChaCha20 "
 "cipher suites are enabled by default.  To restrict which TLS 1.3 ciphers are "
@@ -3564,14 +3570,14 @@ msgid ""
 "established."
 msgstr ""
 
-#: ../../../library/ssl.rst:3284
+#: ../../../library/ssl.rst:3290
 msgid ""
 "Session tickets are no longer sent as part of the initial handshake and are "
 "handled differently.  :attr:`SSLSocket.session` and :class:`SSLSession` are "
 "not compatible with TLS 1.3."
 msgstr ""
 
-#: ../../../library/ssl.rst:3287
+#: ../../../library/ssl.rst:3293
 msgid ""
 "Client-side certificates are also no longer verified during the initial "
 "handshake.  A server can request a certificate at any time.  Clients process "
@@ -3579,17 +3585,17 @@ msgid ""
 "server."
 msgstr ""
 
-#: ../../../library/ssl.rst:3291
+#: ../../../library/ssl.rst:3297
 msgid ""
 "TLS 1.3 features like early data, deferred TLS client cert request, and "
 "rekeying are not supported yet."
 msgstr ""
 
-#: ../../../library/ssl.rst:3297
+#: ../../../library/ssl.rst:3303
 msgid "Encrypted Client Hello"
 msgstr ""
 
-#: ../../../library/ssl.rst:3301
+#: ../../../library/ssl.rst:3307
 msgid ""
 "Encrypted Client Hello (ECH) encrypts values in the ClientHello record sent "
 "when establishing a TLS connection. It requires an ECHConfigList containing "
@@ -3598,7 +3604,7 @@ msgid ""
 "enabled; check :data:`HAS_ECH` before using it."
 msgstr ""
 
-#: ../../../library/ssl.rst:3307
+#: ../../../library/ssl.rst:3313
 msgid ""
 "Servers can load a PEM file containing their ECH private key and "
 "configuration with :meth:`SSLContext.load_ech_keys`. Clients use the "
@@ -3608,7 +3614,7 @@ msgid ""
 "with :meth:`SSLContext.set_ech_config`."
 msgstr ""
 
-#: ../../../library/ssl.rst:3313
+#: ../../../library/ssl.rst:3319
 msgid ""
 "A server that has rotated its ECH keys rejects the connection and provides a "
 "retry configuration, which the handshake raises "
@@ -3618,140 +3624,140 @@ msgid ""
 "without ECH if the authenticated server has securely disabled it."
 msgstr ""
 
-#: ../../../library/ssl.rst:3320
+#: ../../../library/ssl.rst:3326
 msgid ""
 "The following example shows how to connect to a website with HTTP with an "
 "ECH configuration::"
 msgstr ""
 
-#: ../../../library/ssl.rst:3373
+#: ../../../library/ssl.rst:3379
 msgid ""
 "The following classes, methods, and attributes will be useful for using ECH:"
 msgstr ""
 
-#: ../../../library/ssl.rst:3375
+#: ../../../library/ssl.rst:3381
 msgid ":class:`ECHStatus`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3376
+#: ../../../library/ssl.rst:3382
 msgid ":exc:`SSLECHRejectedError`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3377
+#: ../../../library/ssl.rst:3383
 msgid ":meth:`SSLContext.load_ech_keys`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3378
+#: ../../../library/ssl.rst:3384
 msgid ":meth:`SSLContext.set_ech_config`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3379
+#: ../../../library/ssl.rst:3385
 msgid ":meth:`SSLContext.set_outer_alpn_protocols`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3380
+#: ../../../library/ssl.rst:3386
 msgid ":meth:`SSLSocket.set_ech_config`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3381
+#: ../../../library/ssl.rst:3387
 msgid ":meth:`SSLSocket.get_ech_status`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3382
+#: ../../../library/ssl.rst:3388
 msgid ":meth:`SSLSocket.get_ech_retry_config`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3386
+#: ../../../library/ssl.rst:3392
 msgid "Class :class:`socket.socket`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3387
+#: ../../../library/ssl.rst:3393
 msgid "Documentation of underlying :mod:`socket` class"
 msgstr ""
 
-#: ../../../library/ssl.rst:3389
+#: ../../../library/ssl.rst:3395
 msgid ""
 "`SSL/TLS Strong Encryption: An Introduction <https://httpd.apache.org/docs/"
 "trunk/en/ssl/ssl_intro.html>`_"
 msgstr ""
 
-#: ../../../library/ssl.rst:3390
+#: ../../../library/ssl.rst:3396
 msgid "Intro from the Apache HTTP Server documentation"
 msgstr ""
 
-#: ../../../library/ssl.rst:3392
+#: ../../../library/ssl.rst:3398
 msgid ""
 ":rfc:`RFC 1422: Privacy Enhancement for Internet Electronic Mail: Part II: "
 "Certificate-Based Key Management <1422>`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3393
+#: ../../../library/ssl.rst:3399
 msgid "Steve Kent"
 msgstr ""
 
-#: ../../../library/ssl.rst:3395
+#: ../../../library/ssl.rst:3401
 msgid ":rfc:`RFC 4086: Randomness Requirements for Security <4086>`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3396
+#: ../../../library/ssl.rst:3402
 msgid "Donald E. Eastlake, Jeffrey I. Schiller, Steve Crocker"
 msgstr ""
 
-#: ../../../library/ssl.rst:3398
+#: ../../../library/ssl.rst:3404
 msgid ""
 ":rfc:`RFC 5280: Internet X.509 Public Key Infrastructure Certificate and "
 "Certificate Revocation List (CRL) Profile <5280>`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3399
+#: ../../../library/ssl.rst:3405
 msgid "David Cooper et al."
 msgstr ""
 
-#: ../../../library/ssl.rst:3401
+#: ../../../library/ssl.rst:3407
 msgid ""
 ":rfc:`RFC 5246: The Transport Layer Security (TLS) Protocol Version 1.2 "
 "<5246>`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3402
+#: ../../../library/ssl.rst:3408
 msgid "Tim Dierks and Eric Rescorla."
 msgstr ""
 
-#: ../../../library/ssl.rst:3404
+#: ../../../library/ssl.rst:3410
 msgid ":rfc:`RFC 6066: Transport Layer Security (TLS) Extensions <6066>`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3405
+#: ../../../library/ssl.rst:3411
 msgid "Donald E. Eastlake"
 msgstr ""
 
-#: ../../../library/ssl.rst:3407
+#: ../../../library/ssl.rst:3413
 msgid ""
 "`IANA TLS: Transport Layer Security (TLS) Parameters <https://www.iana.org/"
 "assignments/tls-parameters/tls-parameters.xml>`_"
 msgstr ""
 
-#: ../../../library/ssl.rst:3408
+#: ../../../library/ssl.rst:3414
 msgid "IANA"
 msgstr ""
 
-#: ../../../library/ssl.rst:3410
+#: ../../../library/ssl.rst:3416
 msgid ""
 ":rfc:`RFC 7525: Recommendations for Secure Use of Transport Layer Security "
 "(TLS) and Datagram Transport Layer Security (DTLS) <7525>`"
 msgstr ""
 
-#: ../../../library/ssl.rst:3411
+#: ../../../library/ssl.rst:3417
 msgid "IETF"
 msgstr ""
 
-#: ../../../library/ssl.rst:3413
+#: ../../../library/ssl.rst:3419
 msgid ""
 "`Mozilla's Server Side TLS recommendations <https://wiki.mozilla.org/"
 "Security/Server_Side_TLS>`_"
 msgstr ""
 
-#: ../../../library/ssl.rst:3414
+#: ../../../library/ssl.rst:3420
 msgid "Mozilla"
 msgstr ""
 
@@ -3779,10 +3785,10 @@ msgstr ""
 msgid "Secure Sockets Layer"
 msgstr ""
 
-#: ../../../library/ssl.rst:2628
+#: ../../../library/ssl.rst:2634
 msgid "certificates"
 msgstr ""
 
-#: ../../../library/ssl.rst:2630
+#: ../../../library/ssl.rst:2636
 msgid "X509 certificate"
 msgstr ""
