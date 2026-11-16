@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 17:48+0000\n"
+"POT-Creation-Date: 2026-11-16 18:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,8 +52,8 @@ msgstr ""
 msgid ""
 "All streams are careful about the type of data you give to them.  For "
 "example giving a :class:`str` object to the :meth:`!write` method of a "
-"binary stream will raise a :exc:`TypeError`.  So will giving a :class:"
-"`bytes` object to the :meth:`!write` method of a text stream."
+"binary stream will raise a :exc:`TypeError`.  So will giving "
+"a :class:`bytes` object to the :meth:`!write` method of a text stream."
 msgstr ""
 
 #: ../../../library/io.rst:37
@@ -62,8 +62,8 @@ msgid ""
 "since :exc:`IOError` is now an alias of :exc:`OSError`."
 msgstr ""
 
-#: ../../../library/io.rst:44 ../../../library/io.rst:895
-#: ../../../library/io.rst:1245
+#: ../../../library/io.rst:44 ../../../library/io.rst:896
+#: ../../../library/io.rst:1246
 msgid "Text I/O"
 msgstr ""
 
@@ -95,11 +95,11 @@ msgstr ""
 
 #: ../../../library/io.rst:66
 msgid ""
-"The text stream API is described in detail in the documentation of :class:"
-"`TextIOBase`."
+"The text stream API is described in detail in the documentation "
+"of :class:`TextIOBase`."
 msgstr ""
 
-#: ../../../library/io.rst:72 ../../../library/io.rst:1233
+#: ../../../library/io.rst:72 ../../../library/io.rst:1234
 msgid "Binary I/O"
 msgstr ""
 
@@ -125,8 +125,8 @@ msgstr ""
 
 #: ../../../library/io.rst:89
 msgid ""
-"The binary stream API is described in detail in the docs of :class:"
-"`BufferedIOBase`."
+"The binary stream API is described in detail in the docs "
+"of :class:`BufferedIOBase`."
 msgstr ""
 
 #: ../../../library/io.rst:92
@@ -201,18 +201,19 @@ msgstr ""
 #: ../../../library/io.rst:142
 msgid ""
 "To find where the default encoding is used, you can enable the :option:`-X "
-"warn_default_encoding <-X>` command line option or set the :envvar:"
-"`PYTHONWARNDEFAULTENCODING` environment variable, which will emit an :exc:"
-"`EncodingWarning` when the default encoding is used."
+"warn_default_encoding <-X>` command line option or set "
+"the :envvar:`PYTHONWARNDEFAULTENCODING` environment variable, which will "
+"emit an :exc:`EncodingWarning` when the default encoding is used."
 msgstr ""
 
 #: ../../../library/io.rst:147
 msgid ""
 "If you are providing an API that uses :func:`open` or :class:`TextIOWrapper` "
-"and passes ``encoding=None`` as a parameter, you can use :func:"
-"`text_encoding` so that callers of the API will emit an :exc:"
-"`EncodingWarning` if they don't pass an ``encoding``. However, please "
-"consider using UTF-8 by default (i.e. ``encoding=\"utf-8\"``) for new APIs."
+"and passes ``encoding=None`` as a parameter, you can "
+"use :func:`text_encoding` so that callers of the API will emit "
+"an :exc:`EncodingWarning` if they don't pass an ``encoding``. However, "
+"please consider using UTF-8 by default (i.e. ``encoding=\"utf-8\"``) for new "
+"APIs."
 msgstr ""
 
 #: ../../../library/io.rst:156
@@ -222,8 +223,8 @@ msgstr ""
 #: ../../../library/io.rst:160
 msgid ""
 "An int containing the default buffer size used by the module's buffered I/O "
-"classes.  :func:`open` uses the file's blksize (as obtained by :func:`os."
-"stat`) if possible."
+"classes.  :func:`open` uses the file's blksize (as obtained "
+"by :func:`os.stat`) if possible."
 msgstr ""
 
 #: ../../../library/io.rst:167
@@ -249,17 +250,17 @@ msgstr ""
 
 #: ../../../library/io.rst:183
 msgid ""
-"The behavior of this function may be overridden by an earlier call to the :c:"
-"func:`PyFile_SetOpenCodeHook`. However, assuming that *path* is a :class:"
-"`str` and an absolute path, ``open_code(path)`` should always behave the "
-"same as ``open(path, 'rb')``. Overriding the behavior is intended for "
-"additional validation or preprocessing of the file."
+"The behavior of this function may be overridden by an earlier call to "
+"the :c:func:`PyFile_SetOpenCodeHook`. However, assuming that *path* is "
+"a :class:`str` and an absolute path, ``open_code(path)`` should always "
+"behave the same as ``open(path, 'rb')``. Overriding the behavior is intended "
+"for additional validation or preprocessing of the file."
 msgstr ""
 
 #: ../../../library/io.rst:194
 msgid ""
-"This is a helper function for callables that use :func:`open` or :class:"
-"`TextIOWrapper` and have an ``encoding=None`` parameter."
+"This is a helper function for callables that use :func:`open` "
+"or :class:`TextIOWrapper` and have an ``encoding=None`` parameter."
 msgstr ""
 
 #: ../../../library/io.rst:197
@@ -271,9 +272,10 @@ msgstr ""
 
 #: ../../../library/io.rst:201
 msgid ""
-"This function emits an :class:`EncodingWarning` if :data:`sys.flags."
-"warn_default_encoding <sys.flags>` is true and *encoding* is ``None``. "
-"*stacklevel* specifies where the warning is emitted. For example::"
+"This function emits an :class:`EncodingWarning` "
+"if :data:`sys.flags.warn_default_encoding <sys.flags>` is true and "
+"*encoding* is ``None``. *stacklevel* specifies where the warning is emitted. "
+"For example::"
 msgstr ""
 
 #: ../../../library/io.rst:211
@@ -330,8 +332,8 @@ msgstr ""
 msgid ""
 "The abstract base classes also provide default implementations of some "
 "methods in order to help implementation of concrete stream classes.  For "
-"example, :class:`BufferedIOBase` provides unoptimized implementations of :"
-"meth:`!readinto` and :meth:`!readline`."
+"example, :class:`BufferedIOBase` provides unoptimized implementations "
+"of :meth:`!readinto` and :meth:`!readline`."
 msgstr ""
 
 #: ../../../library/io.rst:257
@@ -346,19 +348,21 @@ msgstr ""
 #: ../../../library/io.rst:262
 msgid ""
 "The :class:`RawIOBase` ABC extends :class:`IOBase`.  It deals with the "
-"reading and writing of bytes to a stream.  :class:`FileIO` subclasses :class:"
-"`RawIOBase` to provide an interface to files in the machine's file system."
+"reading and writing of bytes to a stream.  :class:`FileIO` "
+"subclasses :class:`RawIOBase` to provide an interface to files in the "
+"machine's file system."
 msgstr ""
 
 #: ../../../library/io.rst:266
 msgid ""
 "The :class:`BufferedIOBase` ABC extends :class:`IOBase`.  It deals with "
-"buffering on a raw binary stream (:class:`RawIOBase`).  Its subclasses, :"
-"class:`BufferedWriter`, :class:`BufferedReader`, and :class:`BufferedRWPair` "
-"buffer raw binary streams that are writable, readable, and both readable and "
-"writable, respectively. :class:`BufferedRandom` provides a buffered "
-"interface to seekable streams. Another :class:`BufferedIOBase` subclass, :"
-"class:`BytesIO`, is a stream of in-memory bytes."
+"buffering on a raw binary stream (:class:`RawIOBase`).  Its "
+"subclasses, :class:`BufferedWriter`, :class:`BufferedReader`, "
+"and :class:`BufferedRWPair` buffer raw binary streams that are writable, "
+"readable, and both readable and writable, "
+"respectively. :class:`BufferedRandom` provides a buffered interface to "
+"seekable streams. Another :class:`BufferedIOBase` "
+"subclass, :class:`BytesIO`, is a stream of in-memory bytes."
 msgstr ""
 
 #: ../../../library/io.rst:274
@@ -372,8 +376,8 @@ msgstr ""
 
 #: ../../../library/io.rst:280
 msgid ""
-"Argument names are not part of the specification, and only the arguments of :"
-"func:`open` are intended to be used as keyword arguments."
+"Argument names are not part of the specification, and only the arguments "
+"of :func:`open` are intended to be used as keyword arguments."
 msgstr ""
 
 #: ../../../library/io.rst:283
@@ -476,9 +480,10 @@ msgstr ""
 
 #: ../../../library/io.rst:323
 msgid ""
-"The basic type used for binary data read from or written to a file is :class:"
-"`bytes`.  Other :term:`bytes-like objects <bytes-like object>` are accepted "
-"as method arguments too.  Text I/O classes work with :class:`str` data."
+"The basic type used for binary data read from or written to a file "
+"is :class:`bytes`.  Other :term:`bytes-like objects <bytes-like object>` are "
+"accepted as method arguments too.  Text I/O classes work with :class:`str` "
+"data."
 msgstr ""
 
 #: ../../../library/io.rst:327
@@ -498,9 +503,10 @@ msgstr ""
 
 #: ../../../library/io.rst:336
 msgid ""
-":class:`IOBase` is also a context manager and therefore supports the :"
-"keyword:`with` statement.  In this example, *file* is closed after the :"
-"keyword:`!with` statement's suite is finished---even if an exception occurs::"
+":class:`IOBase` is also a context manager and therefore supports "
+"the :keyword:`with` statement.  In this example, *file* is closed after "
+"the :keyword:`!with` statement's suite is finished---even if an exception "
+"occurs::"
 msgstr ""
 
 #: ../../../library/io.rst:343
@@ -605,21 +611,22 @@ msgid ""
 "negative"
 msgstr ""
 
-#: ../../../library/io.rst:414 ../../../library/io.rst:971
+#: ../../../library/io.rst:414 ../../../library/io.rst:972
 msgid "The :data:`!SEEK_*` constants."
 msgstr ""
 
 #: ../../../library/io.rst:417
 msgid ""
-"Some operating systems could support additional values, like :const:`os."
-"SEEK_HOLE` or :const:`os.SEEK_DATA`. The valid values for a file could "
-"depend on it being open in text or binary mode."
+"Some operating systems could support additional values, "
+"like :const:`os.SEEK_HOLE` or :const:`os.SEEK_DATA`. The valid values for a "
+"file could depend on it being open in text or binary mode."
 msgstr ""
 
 #: ../../../library/io.rst:424
 msgid ""
-"Return ``True`` if the stream supports random access.  If ``False``, :meth:"
-"`seek`, :meth:`tell` and :meth:`truncate` will raise :exc:`OSError`."
+"Return ``True`` if the stream supports random access.  If "
+"``False``, :meth:`seek`, :meth:`tell` and :meth:`truncate` will "
+"raise :exc:`OSError`."
 msgstr ""
 
 #: ../../../library/io.rst:429
@@ -654,8 +661,8 @@ msgstr ""
 #: ../../../library/io.rst:456
 msgid ""
 "Prepare for object destruction. :class:`IOBase` provides a default "
-"implementation of this method that calls the instance's :meth:`~IOBase."
-"close` method."
+"implementation of this method that calls the "
+"instance's :meth:`~IOBase.close` method."
 msgstr ""
 
 #: ../../../library/io.rst:463
@@ -672,8 +679,8 @@ msgstr ""
 
 #: ../../../library/io.rst:470
 msgid ""
-":class:`RawIOBase` provides these methods in addition to those from :class:"
-"`IOBase`:"
+":class:`RawIOBase` provides these methods in addition to those "
+"from :class:`IOBase`:"
 msgstr ""
 
 #: ../../../library/io.rst:475
@@ -718,8 +725,8 @@ msgstr ""
 #: ../../../library/io.rst:501
 msgid ""
 "Read bytes into a pre-allocated, writable :term:`bytes-like object` *b*, and "
-"return the number of bytes read.  For example, *b* might be a :class:"
-"`bytearray`."
+"return the number of bytes read.  For example, *b* might be "
+"a :class:`bytearray`."
 msgstr ""
 
 #: ../../../library/io.rst:505
@@ -745,165 +752,15 @@ msgid ""
 "This function does not ensure all bytes are written or an exception is "
 "thrown. Callers may implement that behavior by checking the return value "
 "and, if it is less than the length of *b*, looping with additional write "
-"calls until all unwritten bytes are written. High-level I/O objects like :"
-"ref:`binary-io` and :ref:`text-io` implement retry behavior."
+"calls until all unwritten bytes are written. High-level I/O objects "
+"like :ref:`binary-io` and :ref:`text-io` implement retry behavior."
 msgstr ""
 
 #: ../../../library/io.rst:531
-msgid ""
-"Base class for binary streams that support some kind of buffering. It "
-"inherits from :class:`IOBase`."
-msgstr ""
-
-#: ../../../library/io.rst:534
-msgid ""
-"The main difference with :class:`RawIOBase` is that methods :meth:`read`, :"
-"meth:`readinto` and :meth:`write` will try (respectively) to read as much "
-"input as requested or to emit all provided data."
-msgstr ""
-
-#: ../../../library/io.rst:538
-msgid ""
-"In addition, if the underlying raw stream is in non-blocking mode, when the "
-"system returns would block :meth:`write` will raise :exc:`BlockingIOError` "
-"with :attr:`BlockingIOError.characters_written` and :meth:`read` will return "
-"data read so far or ``None`` if no data is available."
-msgstr ""
-
-#: ../../../library/io.rst:543
-msgid ""
-"Besides, the :meth:`read` method does not have a default implementation that "
-"defers to :meth:`readinto`."
-msgstr ""
-
-#: ../../../library/io.rst:546
-msgid ""
-"A typical :class:`BufferedIOBase` implementation should not inherit from a :"
-"class:`RawIOBase` implementation, but wrap one, like :class:`BufferedWriter` "
-"and :class:`BufferedReader` do."
-msgstr ""
-
-#: ../../../library/io.rst:550
-msgid ""
-":class:`BufferedIOBase` provides or overrides these data attributes and "
-"methods in addition to those from :class:`IOBase`:"
-msgstr ""
-
-#: ../../../library/io.rst:555
-msgid ""
-"The underlying raw stream (a :class:`RawIOBase` instance) that :class:"
-"`BufferedIOBase` deals with.  This is not part of the :class:"
-"`BufferedIOBase` API and may not exist on some implementations."
-msgstr ""
-
-#: ../../../library/io.rst:561
-msgid "Separate the underlying raw stream from the buffer and return it."
-msgstr ""
-
-#: ../../../library/io.rst:563
-msgid ""
-"After the raw stream has been detached, the buffer is in an unusable state."
-msgstr ""
-
-#: ../../../library/io.rst:566
-msgid ""
-"Some buffers, like :class:`BytesIO`, do not have the concept of a single raw "
-"stream to return from this method.  They raise :exc:`UnsupportedOperation`."
-msgstr ""
-
-#: ../../../library/io.rst:574
-msgid ""
-"Read and return up to *size* bytes. If the argument is omitted, ``None``, or "
-"negative read as much as possible."
-msgstr ""
-
-#: ../../../library/io.rst:577
-msgid ""
-"Fewer bytes may be returned than requested. An empty :class:`bytes` object "
-"is returned if the stream is already at EOF. More than one read may be made "
-"and calls may be retried if specific errors are encountered, see :meth:`os."
-"read` and :pep:`475` for more details. Less than size bytes being returned "
-"does not imply that EOF is imminent."
-msgstr ""
-
-#: ../../../library/io.rst:583
-msgid ""
-"When reading as much as possible the default implementation will use ``raw."
-"readall`` if available (which should implement :meth:`RawIOBase.readall`), "
-"otherwise will read in a loop until read returns ``None``, an empty :class:"
-"`bytes`, or a non-retryable error. For most streams this is to EOF, but for "
-"non-blocking streams more data may become available."
-msgstr ""
-
-#: ../../../library/io.rst:592 ../../../library/io.rst:605
-msgid ""
-"When the underlying raw stream is non-blocking, implementations may either "
-"raise :exc:`BlockingIOError` or return ``None`` if no data is available. :"
-"mod:`!io` implementations return ``None``."
-msgstr ""
-
-#: ../../../library/io.rst:598
-msgid ""
-"Read and return up to *size* bytes, calling :meth:`~RawIOBase.readinto` "
-"which may retry if :py:const:`~errno.EINTR` is encountered per :pep:`475`. "
-"If *size* is ``-1`` or not provided, the implementation will choose an "
-"arbitrary value for *size*."
-msgstr ""
-
-#: ../../../library/io.rst:611
-msgid ""
-"Read bytes into a pre-allocated, writable :term:`bytes-like object` *b* and "
-"return the number of bytes read. For example, *b* might be a :class:"
-"`bytearray`."
-msgstr ""
-
-#: ../../../library/io.rst:615
-msgid ""
-"Like :meth:`read`, multiple reads may be issued to the underlying raw "
-"stream, unless the latter is interactive."
-msgstr ""
-
-#: ../../../library/io.rst:618 ../../../library/io.rst:628
-msgid ""
-"A :exc:`BlockingIOError` is raised if the underlying raw stream is in non "
-"blocking-mode, and has no data available at the moment."
-msgstr ""
-
-#: ../../../library/io.rst:623
-msgid ""
-"Read bytes into a pre-allocated, writable :term:`bytes-like object` *b*, "
-"using at most one call to the underlying raw stream's :meth:`~RawIOBase."
-"read` (or :meth:`~RawIOBase.readinto`) method. Return the number of bytes "
-"read."
-msgstr ""
-
-#: ../../../library/io.rst:635
-msgid ""
-"Write the given :term:`bytes-like object`, *b*, and return the number of "
-"bytes written (always equal to the length of *b* in bytes, since if the "
-"write fails an :exc:`OSError` will be raised).  Depending on the actual "
-"implementation, these bytes may be readily written to the underlying stream, "
-"or held in a buffer for performance and latency reasons."
-msgstr ""
-
-#: ../../../library/io.rst:642
-msgid ""
-"When in non-blocking mode, a :exc:`BlockingIOError` is raised if the data "
-"needed to be written to the raw stream but it couldn't accept all the data "
-"without blocking."
-msgstr ""
-
-#: ../../../library/io.rst:646
-msgid ""
-"The caller may release or mutate *b* after this method returns, so the "
-"implementation should only access *b* during the method call."
-msgstr ""
-
-#: ../../../library/io.rst:651
 msgid "Raw file I/O"
 msgstr ""
 
-#: ../../../library/io.rst:655
+#: ../../../library/io.rst:535
 msgid ""
 "A raw binary stream representing an OS-level file containing bytes data.  It "
 "inherits from :class:`RawIOBase` and implements its low-level access design. "
@@ -913,18 +770,18 @@ msgid ""
 "\"read at least\" behavior, use :ref:`binary-io`."
 msgstr ""
 
-#: ../../../library/io.rst:662
+#: ../../../library/io.rst:542
 msgid "The *name* can be one of two things:"
 msgstr ""
 
-#: ../../../library/io.rst:664
+#: ../../../library/io.rst:544
 msgid ""
 "a character string or :class:`bytes` object representing the path to the "
 "file which will be opened. In this case closefd must be ``True`` (the "
 "default) otherwise an error will be raised."
 msgstr ""
 
-#: ../../../library/io.rst:667
+#: ../../../library/io.rst:547
 msgid ""
 "an integer representing the number of an existing OS-level file descriptor "
 "to which the resulting :class:`FileIO` object will give access. When the "
@@ -932,7 +789,7 @@ msgid ""
 "set to ``False``."
 msgstr ""
 
-#: ../../../library/io.rst:672
+#: ../../../library/io.rst:552
 msgid ""
 "The *mode* can be ``'r'``, ``'w'``, ``'x'`` or ``'a'`` for reading "
 "(default), writing, exclusive creation or appending. The file will be "
@@ -943,7 +800,7 @@ msgid ""
 "``'+'`` to the mode to allow simultaneous reading and writing."
 msgstr ""
 
-#: ../../../library/io.rst:680
+#: ../../../library/io.rst:560
 msgid ""
 "A custom opener can be used by passing a callable as *opener*. The "
 "underlying file descriptor for the file object is then obtained by calling "
@@ -952,413 +809,566 @@ msgid ""
 "similar to passing ``None``)."
 msgstr ""
 
-#: ../../../library/io.rst:686
+#: ../../../library/io.rst:566
 msgid "The newly created file is :ref:`non-inheritable <fd_inheritance>`."
 msgstr ""
 
-#: ../../../library/io.rst:688
+#: ../../../library/io.rst:568
 msgid ""
 "See the :func:`open` built-in function for examples on using the *opener* "
 "parameter."
 msgstr ""
 
-#: ../../../library/io.rst:692
+#: ../../../library/io.rst:572
 msgid ""
-":class:`FileIO` is a low-level I/O object and members, such as :meth:"
-"`~RawIOBase.read` and :meth:`~RawIOBase.write`, need to have their return "
-"values checked explicitly in a retry loop to implement \"write all\" and "
-"\"read at least\" behavior. High-level I/O objects :ref:`binary-io` and :ref:"
-"`text-io` implement retry behavior."
+":class:`FileIO` is a low-level I/O object and members, such "
+"as :meth:`~RawIOBase.read` and :meth:`~RawIOBase.write`, need to have their "
+"return values checked explicitly in a retry loop to implement \"write all\" "
+"and \"read at least\" behavior. High-level I/O objects :ref:`binary-io` "
+"and :ref:`text-io` implement retry behavior."
 msgstr ""
 
-#: ../../../library/io.rst:698
+#: ../../../library/io.rst:578
 msgid "The *opener* parameter was added. The ``'x'`` mode was added."
 msgstr ""
 
-#: ../../../library/io.rst:702
+#: ../../../library/io.rst:582
 msgid "The file is now non-inheritable."
 msgstr ""
 
-#: ../../../library/io.rst:705
+#: ../../../library/io.rst:585
 msgid ""
-":class:`FileIO` provides these data attributes in addition to those from :"
-"class:`RawIOBase` and :class:`IOBase`:"
+":class:`FileIO` provides these data attributes in addition to those "
+"from :class:`RawIOBase` and :class:`IOBase`:"
 msgstr ""
 
-#: ../../../library/io.rst:710
+#: ../../../library/io.rst:590
 msgid "The mode as given in the constructor."
 msgstr ""
 
-#: ../../../library/io.rst:714
+#: ../../../library/io.rst:594
 msgid ""
 "The file name.  This is the file descriptor of the file when no name is "
 "given in the constructor."
 msgstr ""
 
-#: ../../../library/io.rst:719
+#: ../../../library/io.rst:599
 msgid "Buffered streams"
 msgstr ""
 
-#: ../../../library/io.rst:721
+#: ../../../library/io.rst:601
 msgid ""
 "Buffered I/O streams provide a higher-level interface to an I/O device than "
 "raw I/O does."
 msgstr ""
 
-#: ../../../library/io.rst:726
+#: ../../../library/io.rst:606
 msgid ""
-"A binary stream using an in-memory bytes buffer.  It inherits from :class:"
-"`BufferedIOBase`.  The buffer is discarded when the :meth:`~IOBase.close` "
-"method is called."
+"Base class for binary streams that support some kind of buffering. It "
+"inherits from :class:`IOBase`."
 msgstr ""
 
-#: ../../../library/io.rst:730
+#: ../../../library/io.rst:609
+msgid ""
+"The main difference with :class:`RawIOBase` is that "
+"methods :meth:`read`, :meth:`readinto` and :meth:`write` will try "
+"(respectively) to read as much input as requested or to emit all provided "
+"data."
+msgstr ""
+
+#: ../../../library/io.rst:613
+msgid ""
+"In addition, if the underlying raw stream is in non-blocking mode, when the "
+"system returns would block :meth:`write` will raise :exc:`BlockingIOError` "
+"with :attr:`BlockingIOError.characters_written` and :meth:`read` will return "
+"data read so far or ``None`` if no data is available."
+msgstr ""
+
+#: ../../../library/io.rst:618
+msgid ""
+"Besides, the :meth:`read` method does not have a default implementation that "
+"defers to :meth:`readinto`."
+msgstr ""
+
+#: ../../../library/io.rst:621
+msgid ""
+"A typical :class:`BufferedIOBase` implementation should not inherit from "
+"a :class:`RawIOBase` implementation, but wrap one, "
+"like :class:`BufferedWriter` and :class:`BufferedReader` do."
+msgstr ""
+
+#: ../../../library/io.rst:625
+msgid ""
+":class:`BufferedIOBase` provides or overrides these data attributes and "
+"methods in addition to those from :class:`IOBase`:"
+msgstr ""
+
+#: ../../../library/io.rst:630
+msgid ""
+"The underlying raw stream (a :class:`RawIOBase` instance) "
+"that :class:`BufferedIOBase` deals with.  This is not part of "
+"the :class:`BufferedIOBase` API and may not exist on some implementations."
+msgstr ""
+
+#: ../../../library/io.rst:636
+msgid "Separate the underlying raw stream from the buffer and return it."
+msgstr ""
+
+#: ../../../library/io.rst:638
+msgid ""
+"After the raw stream has been detached, the buffer is in an unusable state."
+msgstr ""
+
+#: ../../../library/io.rst:641
+msgid ""
+"Some buffers, like :class:`BytesIO`, do not have the concept of a single raw "
+"stream to return from this method.  They raise :exc:`UnsupportedOperation`."
+msgstr ""
+
+#: ../../../library/io.rst:649
+msgid ""
+"Read and return up to *size* bytes. If the argument is omitted, ``None``, or "
+"negative read as much as possible."
+msgstr ""
+
+#: ../../../library/io.rst:652
+msgid ""
+"Fewer bytes may be returned than requested. An empty :class:`bytes` object "
+"is returned if the stream is already at EOF. More than one read may be made "
+"and calls may be retried if specific errors are encountered, "
+"see :meth:`os.read` and :pep:`475` for more details. Less than size bytes "
+"being returned does not imply that EOF is imminent."
+msgstr ""
+
+#: ../../../library/io.rst:658
+msgid ""
+"When reading as much as possible the default implementation will use "
+"``raw.readall`` if available (which should "
+"implement :meth:`RawIOBase.readall`), otherwise will read in a loop until "
+"read returns ``None``, an empty :class:`bytes`, or a non-retryable error. "
+"For most streams this is to EOF, but for non-blocking streams more data may "
+"become available."
+msgstr ""
+
+#: ../../../library/io.rst:667 ../../../library/io.rst:680
+msgid ""
+"When the underlying raw stream is non-blocking, implementations may either "
+"raise :exc:`BlockingIOError` or return ``None`` if no data is "
+"available. :mod:`!io` implementations return ``None``."
+msgstr ""
+
+#: ../../../library/io.rst:673
+msgid ""
+"Read and return up to *size* bytes, calling :meth:`~RawIOBase.readinto` "
+"which may retry if :py:const:`~errno.EINTR` is encountered per :pep:`475`. "
+"If *size* is ``-1`` or not provided, the implementation will choose an "
+"arbitrary value for *size*."
+msgstr ""
+
+#: ../../../library/io.rst:686
+msgid ""
+"Read bytes into a pre-allocated, writable :term:`bytes-like object` *b* and "
+"return the number of bytes read. For example, *b* might be "
+"a :class:`bytearray`."
+msgstr ""
+
+#: ../../../library/io.rst:690
+msgid ""
+"Like :meth:`read`, multiple reads may be issued to the underlying raw "
+"stream, unless the latter is interactive."
+msgstr ""
+
+#: ../../../library/io.rst:693 ../../../library/io.rst:703
+msgid ""
+"A :exc:`BlockingIOError` is raised if the underlying raw stream is in non "
+"blocking-mode, and has no data available at the moment."
+msgstr ""
+
+#: ../../../library/io.rst:698
+msgid ""
+"Read bytes into a pre-allocated, writable :term:`bytes-like object` *b*, "
+"using at most one call to the underlying raw "
+"stream's :meth:`~RawIOBase.read` (or :meth:`~RawIOBase.readinto`) method. "
+"Return the number of bytes read."
+msgstr ""
+
+#: ../../../library/io.rst:710
+msgid ""
+"Write the given :term:`bytes-like object`, *b*, and return the number of "
+"bytes written (always equal to the length of *b* in bytes, since if the "
+"write fails an :exc:`OSError` will be raised).  Depending on the actual "
+"implementation, these bytes may be readily written to the underlying stream, "
+"or held in a buffer for performance and latency reasons."
+msgstr ""
+
+#: ../../../library/io.rst:717
+msgid ""
+"When in non-blocking mode, a :exc:`BlockingIOError` is raised if the data "
+"needed to be written to the raw stream but it couldn't accept all the data "
+"without blocking."
+msgstr ""
+
+#: ../../../library/io.rst:721
+msgid ""
+"The caller may release or mutate *b* after this method returns, so the "
+"implementation should only access *b* during the method call."
+msgstr ""
+
+#: ../../../library/io.rst:727
+msgid ""
+"A binary stream using an in-memory bytes buffer.  It inherits "
+"from :class:`BufferedIOBase`.  The buffer is discarded when "
+"the :meth:`~IOBase.close` method is called."
+msgstr ""
+
+#: ../../../library/io.rst:731
 msgid ""
 "The optional argument *initial_bytes* is a :term:`bytes-like object` that "
 "contains initial data."
 msgstr ""
 
-#: ../../../library/io.rst:733
+#: ../../../library/io.rst:734
 msgid ""
-"Methods may be used from multiple threads without external locking in :term:"
-"`free-threaded builds <free-threaded build>`."
+"Methods may be used from multiple threads without external locking "
+"in :term:`free-threaded builds <free-threaded build>`."
 msgstr ""
 
-#: ../../../library/io.rst:736
+#: ../../../library/io.rst:737
 msgid ""
 ":class:`BytesIO` provides or overrides these methods in addition to those "
 "from :class:`BufferedIOBase` and :class:`IOBase`:"
 msgstr ""
 
-#: ../../../library/io.rst:741
+#: ../../../library/io.rst:742
 msgid ""
 "Return a readable and writable view over the contents of the buffer without "
 "copying them.  Also, mutating the view will transparently update the "
 "contents of the buffer::"
 msgstr ""
 
-#: ../../../library/io.rst:752
+#: ../../../library/io.rst:753
 msgid ""
 "As long as the view exists, the :class:`BytesIO` object cannot be resized.  "
 "Closing it does not invalidate the view."
 msgstr ""
 
-#: ../../../library/io.rst:757
+#: ../../../library/io.rst:758
 msgid "The :class:`BytesIO` object can now be closed while the view exists."
 msgstr ""
 
-#: ../../../library/io.rst:762
+#: ../../../library/io.rst:763
 msgid "Return :class:`bytes` containing the entire contents of the buffer."
 msgstr ""
 
-#: ../../../library/io.rst:766
+#: ../../../library/io.rst:767
 msgid ""
 "Return a copy of the buffer from the current position onwards without "
 "advancing the position."
 msgstr ""
 
-#: ../../../library/io.rst:769
+#: ../../../library/io.rst:770
 msgid ""
 "If *size* is less than one or omitted, at most :data:`DEFAULT_BUFFER_SIZE` "
 "bytes are returned. Otherwise, at most *size* bytes are returned. Return an "
 "empty :class:`bytes` object at EOF."
 msgstr ""
 
-#: ../../../library/io.rst:778
+#: ../../../library/io.rst:779
 msgid "In :class:`BytesIO`, this is the same as :meth:`~BufferedIOBase.read`."
 msgstr ""
 
-#: ../../../library/io.rst:780 ../../../library/io.rst:820
+#: ../../../library/io.rst:781 ../../../library/io.rst:821
 msgid "The *size* argument is now optional."
 msgstr ""
 
-#: ../../../library/io.rst:785
+#: ../../../library/io.rst:786
 msgid ""
 "In :class:`BytesIO`, this is the same as :meth:`~BufferedIOBase.readinto`."
 msgstr ""
 
-#: ../../../library/io.rst:791
+#: ../../../library/io.rst:792
 msgid ""
 "A buffered binary stream providing higher-level access to a readable, non "
-"seekable :class:`RawIOBase` raw binary stream.  It inherits from :class:"
-"`BufferedIOBase`."
+"seekable :class:`RawIOBase` raw binary stream.  It inherits "
+"from :class:`BufferedIOBase`."
 msgstr ""
 
-#: ../../../library/io.rst:795
+#: ../../../library/io.rst:796
 msgid ""
 "When reading data from this object, a larger amount of data may be requested "
 "from the underlying raw stream, and kept in an internal buffer. The buffered "
 "data can then be returned directly on subsequent reads."
 msgstr ""
 
-#: ../../../library/io.rst:799
+#: ../../../library/io.rst:800
 msgid ""
 "The constructor creates a :class:`BufferedReader` for the given readable "
-"*raw* stream and *buffer_size*.  If *buffer_size* is omitted, :data:"
-"`DEFAULT_BUFFER_SIZE` is used."
+"*raw* stream and *buffer_size*.  If *buffer_size* is "
+"omitted, :data:`DEFAULT_BUFFER_SIZE` is used."
 msgstr ""
 
-#: ../../../library/io.rst:803
+#: ../../../library/io.rst:804
 msgid ""
 ":class:`BufferedReader` provides or overrides these methods in addition to "
 "those from :class:`BufferedIOBase` and :class:`IOBase`:"
 msgstr ""
 
-#: ../../../library/io.rst:808
+#: ../../../library/io.rst:809
 msgid ""
 "Return bytes from the stream without advancing the position. The number of "
 "bytes returned may be less or more than requested. If the underlying raw "
 "stream is non-blocking and the operation would block, returns empty bytes."
 msgstr ""
 
-#: ../../../library/io.rst:814
+#: ../../../library/io.rst:815
 msgid ""
 "In :class:`BufferedReader` this is the same as :meth:`io.BufferedIOBase.read`"
 msgstr ""
 
-#: ../../../library/io.rst:818
+#: ../../../library/io.rst:819
 msgid ""
-"In :class:`BufferedReader` this is the same as :meth:`io.BufferedIOBase."
-"read1`"
+"In :class:`BufferedReader` this is the same "
+"as :meth:`io.BufferedIOBase.read1`"
 msgstr ""
 
-#: ../../../library/io.rst:825
+#: ../../../library/io.rst:826
 msgid ""
 "A buffered binary stream providing higher-level access to a writeable, non "
-"seekable :class:`RawIOBase` raw binary stream.  It inherits from :class:"
-"`BufferedIOBase`."
+"seekable :class:`RawIOBase` raw binary stream.  It inherits "
+"from :class:`BufferedIOBase`."
 msgstr ""
 
-#: ../../../library/io.rst:829
+#: ../../../library/io.rst:830
 msgid ""
 "When writing to this object, data is normally placed into an internal "
 "buffer.  The buffer will be written out to the underlying :class:`RawIOBase` "
 "object under various conditions, including:"
 msgstr ""
 
-#: ../../../library/io.rst:833
+#: ../../../library/io.rst:834
 msgid "when the buffer gets too small for all pending data;"
 msgstr ""
 
-#: ../../../library/io.rst:834
+#: ../../../library/io.rst:835
 msgid "when :meth:`flush` is called;"
 msgstr ""
 
-#: ../../../library/io.rst:835
+#: ../../../library/io.rst:836
 msgid ""
 "when a :meth:`~IOBase.seek` is requested (for :class:`BufferedRandom` "
 "objects);"
 msgstr ""
 
-#: ../../../library/io.rst:836
+#: ../../../library/io.rst:837
 msgid "when the :class:`BufferedWriter` object is closed or destroyed."
 msgstr ""
 
-#: ../../../library/io.rst:838
+#: ../../../library/io.rst:839
 msgid ""
 "The constructor creates a :class:`BufferedWriter` for the given writeable "
-"*raw* stream.  If the *buffer_size* is not given, it defaults to :data:"
-"`DEFAULT_BUFFER_SIZE`."
+"*raw* stream.  If the *buffer_size* is not given, it defaults "
+"to :data:`DEFAULT_BUFFER_SIZE`."
 msgstr ""
 
-#: ../../../library/io.rst:842
+#: ../../../library/io.rst:843
 msgid ""
 ":class:`BufferedWriter` provides or overrides these methods in addition to "
 "those from :class:`BufferedIOBase` and :class:`IOBase`:"
 msgstr ""
 
-#: ../../../library/io.rst:847
+#: ../../../library/io.rst:848
 msgid ""
-"Force bytes held in the buffer into the raw stream.  A :exc:"
-"`BlockingIOError` should be raised if the raw stream blocks."
+"Force bytes held in the buffer into the raw stream.  "
+"A :exc:`BlockingIOError` should be raised if the raw stream blocks."
 msgstr ""
 
-#: ../../../library/io.rst:852
+#: ../../../library/io.rst:853
 msgid ""
 "Write the :term:`bytes-like object`, *b*, and return the number of bytes "
-"written.  When in non-blocking mode, a :exc:`BlockingIOError` with :attr:"
-"`BlockingIOError.characters_written` set is raised if the buffer needs to be "
-"written out but the raw stream blocks."
+"written.  When in non-blocking mode, a :exc:`BlockingIOError` "
+"with :attr:`BlockingIOError.characters_written` set is raised if the buffer "
+"needs to be written out but the raw stream blocks."
 msgstr ""
 
-#: ../../../library/io.rst:860
+#: ../../../library/io.rst:861
 msgid ""
 "A buffered binary stream implementing :class:`BufferedIOBase` interfaces "
 "providing higher-level access to a seekable :class:`RawIOBase` raw binary "
 "stream."
 msgstr ""
 
-#: ../../../library/io.rst:864
+#: ../../../library/io.rst:865
 msgid ""
 "The constructor creates a reader and writer for a seekable raw stream, given "
-"in the first argument.  If the *buffer_size* is omitted it defaults to :data:"
-"`DEFAULT_BUFFER_SIZE`."
+"in the first argument.  If the *buffer_size* is omitted it defaults "
+"to :data:`DEFAULT_BUFFER_SIZE`."
 msgstr ""
 
-#: ../../../library/io.rst:868
+#: ../../../library/io.rst:869
 msgid ""
-":class:`BufferedRandom` is capable of anything :class:`BufferedReader` or :"
-"class:`BufferedWriter` can do.  In addition, :meth:`~IOBase.seek` and :meth:"
-"`~IOBase.tell` are guaranteed to be implemented."
+":class:`BufferedRandom` is capable of anything :class:`BufferedReader` "
+"or :class:`BufferedWriter` can do.  In addition, :meth:`~IOBase.seek` "
+"and :meth:`~IOBase.tell` are guaranteed to be implemented."
 msgstr ""
 
-#: ../../../library/io.rst:875
+#: ../../../library/io.rst:876
 msgid ""
-"A buffered binary stream providing higher-level access to two non seekable :"
-"class:`RawIOBase` raw binary streams---one readable, the other writeable. It "
-"inherits from :class:`BufferedIOBase`."
+"A buffered binary stream providing higher-level access to two non "
+"seekable :class:`RawIOBase` raw binary streams---one readable, the other "
+"writeable. It inherits from :class:`BufferedIOBase`."
 msgstr ""
 
-#: ../../../library/io.rst:879
+#: ../../../library/io.rst:880
 msgid ""
 "*reader* and *writer* are :class:`RawIOBase` objects that are readable and "
-"writeable respectively.  If the *buffer_size* is omitted it defaults to :"
-"data:`DEFAULT_BUFFER_SIZE`."
+"writeable respectively.  If the *buffer_size* is omitted it defaults "
+"to :data:`DEFAULT_BUFFER_SIZE`."
 msgstr ""
 
-#: ../../../library/io.rst:883
+#: ../../../library/io.rst:884
 msgid ""
 ":class:`BufferedRWPair` implements all of :class:`BufferedIOBase`\\'s "
-"methods except for :meth:`~BufferedIOBase.detach`, which raises :exc:"
-"`UnsupportedOperation`."
+"methods except for :meth:`~BufferedIOBase.detach`, which "
+"raises :exc:`UnsupportedOperation`."
 msgstr ""
 
-#: ../../../library/io.rst:889
+#: ../../../library/io.rst:890
 msgid ""
 ":class:`BufferedRWPair` does not attempt to synchronize accesses to its "
 "underlying raw streams.  You should not pass it the same object as reader "
 "and writer; use :class:`BufferedRandom` instead."
 msgstr ""
 
-#: ../../../library/io.rst:899
+#: ../../../library/io.rst:900
 msgid ""
 "Base class for text streams.  This class provides a character and line based "
 "interface to stream I/O.  It inherits from :class:`IOBase`."
 msgstr ""
 
-#: ../../../library/io.rst:902
+#: ../../../library/io.rst:903
 msgid ""
 ":class:`TextIOBase` provides or overrides these data attributes and methods "
 "in addition to those from :class:`IOBase`:"
 msgstr ""
 
-#: ../../../library/io.rst:907
+#: ../../../library/io.rst:908
 msgid ""
 "The name of the encoding used to decode the stream's bytes into strings, and "
 "to encode strings into bytes."
 msgstr ""
 
-#: ../../../library/io.rst:912
+#: ../../../library/io.rst:913
 msgid "The error setting of the decoder or encoder."
 msgstr ""
 
-#: ../../../library/io.rst:916
+#: ../../../library/io.rst:917
 msgid ""
 "A string, a tuple of strings, or ``None``, indicating the newlines "
 "translated so far.  Depending on the implementation and the initial "
 "constructor flags, this may not be available."
 msgstr ""
 
-#: ../../../library/io.rst:922
+#: ../../../library/io.rst:923
 msgid ""
-"The underlying binary buffer (a :class:`BufferedIOBase` or :class:"
-"`RawIOBase` instance) that :class:`TextIOBase` deals with. This is not part "
-"of the :class:`TextIOBase` API and may not exist in some implementations."
+"The underlying binary buffer (a :class:`BufferedIOBase` "
+"or :class:`RawIOBase` instance) that :class:`TextIOBase` deals with. This is "
+"not part of the :class:`TextIOBase` API and may not exist in some "
+"implementations."
 msgstr ""
 
-#: ../../../library/io.rst:929
+#: ../../../library/io.rst:930
 msgid ""
 "Separate the underlying binary buffer from the :class:`TextIOBase` and "
 "return it."
 msgstr ""
 
-#: ../../../library/io.rst:932
+#: ../../../library/io.rst:933
 msgid ""
 "After the underlying buffer has been detached, the :class:`TextIOBase` is in "
 "an unusable state."
 msgstr ""
 
-#: ../../../library/io.rst:935
+#: ../../../library/io.rst:936
 msgid ""
 "Some :class:`TextIOBase` implementations, like :class:`StringIO`, may not "
-"have the concept of an underlying buffer and calling this method will raise :"
-"exc:`UnsupportedOperation`."
+"have the concept of an underlying buffer and calling this method will "
+"raise :exc:`UnsupportedOperation`."
 msgstr ""
 
-#: ../../../library/io.rst:943
+#: ../../../library/io.rst:944
 msgid ""
-"Read and return at most *size* characters from the stream as a single :class:"
-"`str`.  If *size* is negative or ``None``, reads until EOF."
+"Read and return at most *size* characters from the stream as a "
+"single :class:`str`.  If *size* is negative or ``None``, reads until EOF."
 msgstr ""
 
-#: ../../../library/io.rst:948
+#: ../../../library/io.rst:949
 msgid ""
 "Read until newline or EOF and return a single :class:`str`.  If the stream "
 "is already at EOF, an empty string is returned."
 msgstr ""
 
-#: ../../../library/io.rst:951
+#: ../../../library/io.rst:952
 msgid "If *size* is specified, at most *size* characters will be read."
 msgstr ""
 
-#: ../../../library/io.rst:955
+#: ../../../library/io.rst:956
 msgid ""
 "Change the stream position to the given *offset*.  Behaviour depends on the "
 "*whence* parameter.  The default value for *whence* is :data:`!SEEK_SET`."
 msgstr ""
 
-#: ../../../library/io.rst:959
+#: ../../../library/io.rst:960
 msgid ""
 ":data:`!SEEK_SET` or ``0``: seek from the start of the stream (the default); "
 "*offset* must either be a number returned by :meth:`TextIOBase.tell`, or "
 "zero.  Any other *offset* value produces undefined behaviour."
 msgstr ""
 
-#: ../../../library/io.rst:963
+#: ../../../library/io.rst:964
 msgid ""
 ":data:`!SEEK_CUR` or ``1``: \"seek\" to the current position; *offset* must "
 "be zero, which is a no-operation (all other values are unsupported)."
 msgstr ""
 
-#: ../../../library/io.rst:966
+#: ../../../library/io.rst:967
 msgid ""
 ":data:`!SEEK_END` or ``2``: seek to the end of the stream; *offset* must be "
 "zero (all other values are unsupported)."
 msgstr ""
 
-#: ../../../library/io.rst:969
+#: ../../../library/io.rst:970
 msgid "Return the new absolute position as an opaque number."
 msgstr ""
 
-#: ../../../library/io.rst:976
+#: ../../../library/io.rst:977
 msgid ""
 "Return the current stream position as an opaque number.  The number does not "
 "usually represent a number of bytes in the underlying binary storage."
 msgstr ""
 
-#: ../../../library/io.rst:982
+#: ../../../library/io.rst:983
 msgid ""
 "Write the string *s* to the stream and return the number of characters "
 "written."
 msgstr ""
 
-#: ../../../library/io.rst:989
+#: ../../../library/io.rst:990
 msgid ""
-"A buffered text stream providing higher-level access to a :class:"
-"`BufferedIOBase` buffered binary stream.  It inherits from :class:"
-"`TextIOBase`."
+"A buffered text stream providing higher-level access to "
+"a :class:`BufferedIOBase` buffered binary stream.  It inherits "
+"from :class:`TextIOBase`."
 msgstr ""
 
-#: ../../../library/io.rst:993
+#: ../../../library/io.rst:994
 msgid ""
 "*encoding* gives the name of the encoding that the stream will be decoded or "
 "encoded with.  This defaults to UTF-8; if :ref:`UTF-8 Mode <utf8-mode>` is "
 "disabled, it defaults to :func:`locale.getencoding`. ``encoding=\"locale\"`` "
-"can be used to specify the current locale's encoding explicitly. See :ref:"
-"`io-text-encoding` for more information."
+"can be used to specify the current locale's encoding explicitly. "
+"See :ref:`io-text-encoding` for more information."
 msgstr ""
 
-#: ../../../library/io.rst:999
+#: ../../../library/io.rst:1000
 msgid ""
 "*errors* is an optional string that specifies how encoding and decoding "
 "errors are to be handled.  Pass ``'strict'`` to raise a :exc:`ValueError` "
@@ -1373,52 +1383,52 @@ msgid ""
 "that has been registered with :func:`codecs.register_error` is also valid."
 msgstr ""
 
-#: ../../../library/io.rst:1015
+#: ../../../library/io.rst:1016
 msgid ""
 "*newline* controls how line endings are handled.  It can be ``None``, "
 "``''``, ``'\\n'``, ``'\\r'``, and ``'\\r\\n'``.  It works as follows:"
 msgstr ""
 
-#: ../../../library/io.rst:1018
+#: ../../../library/io.rst:1019
 msgid ""
-"When reading input from the stream, if *newline* is ``None``, :term:"
-"`universal newlines` mode is enabled.  Lines in the input can end in "
-"``'\\n'``, ``'\\r'``, or ``'\\r\\n'``, and these are translated into "
-"``'\\n'`` before being returned to the caller.  If *newline* is ``''``, "
+"When reading input from the stream, if *newline* is "
+"``None``, :term:`universal newlines` mode is enabled.  Lines in the input "
+"can end in ``'\\n'``, ``'\\r'``, or ``'\\r\\n'``, and these are translated "
+"into ``'\\n'`` before being returned to the caller.  If *newline* is ``''``, "
 "universal newlines mode is enabled, but line endings are returned to the "
 "caller untranslated.  If *newline* has any of the other legal values, input "
 "lines are only terminated by the given string, and the line ending is "
 "returned to the caller untranslated."
 msgstr ""
 
-#: ../../../library/io.rst:1027
+#: ../../../library/io.rst:1028
 msgid ""
 "When writing output to the stream, if *newline* is ``None``, any ``'\\n'`` "
-"characters written are translated to the system default line separator, :"
-"data:`os.linesep`.  If *newline* is ``''`` or ``'\\n'``, no translation "
-"takes place.  If *newline* is any of the other legal values, any ``'\\n'`` "
-"characters written are translated to the given string."
+"characters written are translated to the system default line "
+"separator, :data:`os.linesep`.  If *newline* is ``''`` or ``'\\n'``, no "
+"translation takes place.  If *newline* is any of the other legal values, any "
+"``'\\n'`` characters written are translated to the given string."
 msgstr ""
 
-#: ../../../library/io.rst:1033
+#: ../../../library/io.rst:1034
 msgid ""
 "If *line_buffering* is ``True``, :meth:`~IOBase.flush` is implied when a "
 "call to write contains a newline character or a carriage return."
 msgstr ""
 
-#: ../../../library/io.rst:1036
+#: ../../../library/io.rst:1037
 msgid ""
 "If *write_through* is ``True``, calls to :meth:`~BufferedIOBase.write` are "
-"guaranteed not to be buffered: any data written on the :class:"
-"`TextIOWrapper` object is immediately handled to its underlying binary "
-"*buffer*."
+"guaranteed not to be buffered: any data written on "
+"the :class:`TextIOWrapper` object is immediately handled to its underlying "
+"binary *buffer*."
 msgstr ""
 
-#: ../../../library/io.rst:1040
+#: ../../../library/io.rst:1041
 msgid "The *write_through* argument has been added."
 msgstr ""
 
-#: ../../../library/io.rst:1043
+#: ../../../library/io.rst:1044
 msgid ""
 "The default *encoding* is now ``locale.getpreferredencoding(False)`` instead "
 "of ``locale.getpreferredencoding()``. Don't change temporary the locale "
@@ -1426,214 +1436,214 @@ msgid ""
 "instead of the user preferred encoding."
 msgstr ""
 
-#: ../../../library/io.rst:1049
+#: ../../../library/io.rst:1050
 msgid ""
 "The *encoding* argument now supports the ``\"locale\"`` dummy encoding name."
 msgstr ""
 
-#: ../../../library/io.rst:1054
+#: ../../../library/io.rst:1055
 msgid ""
 "When the underlying raw stream is non-blocking, a :exc:`BlockingIOError` may "
 "be raised if a read operation cannot be completed immediately."
 msgstr ""
 
-#: ../../../library/io.rst:1057
+#: ../../../library/io.rst:1058
 msgid ""
 ":class:`TextIOWrapper` provides these data attributes and methods in "
 "addition to those from :class:`TextIOBase` and :class:`IOBase`:"
 msgstr ""
 
-#: ../../../library/io.rst:1062
+#: ../../../library/io.rst:1063
 msgid "Whether line buffering is enabled."
 msgstr ""
 
-#: ../../../library/io.rst:1066
+#: ../../../library/io.rst:1067
 msgid "Whether writes are passed immediately to the underlying binary buffer."
 msgstr ""
 
-#: ../../../library/io.rst:1074
+#: ../../../library/io.rst:1075
 msgid ""
 "Reconfigure this text stream using new settings for *encoding*, *errors*, "
 "*newline*, *line_buffering* and *write_through*."
 msgstr ""
 
-#: ../../../library/io.rst:1077
+#: ../../../library/io.rst:1078
 msgid ""
 "Parameters not specified keep current settings, except ``errors='strict'`` "
 "is used when *encoding* is specified but *errors* is not specified."
 msgstr ""
 
-#: ../../../library/io.rst:1081
+#: ../../../library/io.rst:1082
 msgid ""
 "It is not possible to change the encoding or newline if some data has "
 "already been read from the stream. On the other hand, changing encoding "
 "after write is possible."
 msgstr ""
 
-#: ../../../library/io.rst:1085
+#: ../../../library/io.rst:1086
 msgid ""
 "This method does an implicit stream flush before setting the new parameters."
 msgstr ""
 
-#: ../../../library/io.rst:1090
+#: ../../../library/io.rst:1091
 msgid "The method supports ``encoding=\"locale\"`` option."
 msgstr ""
 
-#: ../../../library/io.rst:1095
+#: ../../../library/io.rst:1096
 msgid ""
 "Set the stream position. Return the new stream position as an :class:`int`."
 msgstr ""
 
-#: ../../../library/io.rst:1098
+#: ../../../library/io.rst:1099
 msgid ""
 "Four operations are supported, given by the following argument combinations:"
 msgstr ""
 
-#: ../../../library/io.rst:1101
+#: ../../../library/io.rst:1102
 msgid "``seek(0, SEEK_SET)``: Rewind to the start of the stream."
 msgstr ""
 
-#: ../../../library/io.rst:1102
+#: ../../../library/io.rst:1103
 msgid ""
 "``seek(cookie, SEEK_SET)``: Restore a previous position; *cookie* **must "
 "be** a number returned by :meth:`tell`."
 msgstr ""
 
-#: ../../../library/io.rst:1104
+#: ../../../library/io.rst:1105
 msgid "``seek(0, SEEK_END)``: Fast-forward to the end of the stream."
 msgstr ""
 
-#: ../../../library/io.rst:1105
+#: ../../../library/io.rst:1106
 msgid "``seek(0, SEEK_CUR)``: Leave the current stream position unchanged."
 msgstr ""
 
-#: ../../../library/io.rst:1107
+#: ../../../library/io.rst:1108
 msgid "Any other argument combinations are invalid, and may raise exceptions."
 msgstr ""
 
-#: ../../../library/io.rst:1112
+#: ../../../library/io.rst:1113
 msgid ":data:`os.SEEK_SET`, :data:`os.SEEK_CUR`, and :data:`os.SEEK_END`."
 msgstr ""
 
-#: ../../../library/io.rst:1116
+#: ../../../library/io.rst:1117
 msgid ""
 "Return the stream position as an opaque number. The return value of :meth:`!"
 "tell` can be given as input to :meth:`seek`, to restore a previous stream "
 "position."
 msgstr ""
 
-#: ../../../library/io.rst:1123
+#: ../../../library/io.rst:1124
 msgid ""
-"A text stream using an in-memory text buffer.  It inherits from :class:"
-"`TextIOBase`."
+"A text stream using an in-memory text buffer.  It inherits "
+"from :class:`TextIOBase`."
 msgstr ""
 
-#: ../../../library/io.rst:1126
+#: ../../../library/io.rst:1127
 msgid ""
 "The text buffer is discarded when the :meth:`~IOBase.close` method is called."
 msgstr ""
 
-#: ../../../library/io.rst:1129
+#: ../../../library/io.rst:1130
 msgid ""
 "The initial value of the buffer can be set by providing *initial_value*. If "
-"newline translation is enabled, newlines will be encoded as if by :meth:"
-"`~TextIOBase.write`.  The stream is positioned at the start of the buffer "
-"which emulates opening an existing file in a ``w+`` mode, making it ready "
-"for an immediate write from the beginning or for a write that would "
+"newline translation is enabled, newlines will be encoded as if "
+"by :meth:`~TextIOBase.write`.  The stream is positioned at the start of the "
+"buffer which emulates opening an existing file in a ``w+`` mode, making it "
+"ready for an immediate write from the beginning or for a write that would "
 "overwrite the initial value.  To emulate opening a file in an ``a+`` mode "
 "ready for appending, use ``f.seek(0, io.SEEK_END)`` to reposition the stream "
 "at the end of the buffer."
 msgstr ""
 
-#: ../../../library/io.rst:1138
+#: ../../../library/io.rst:1139
 msgid ""
 "The *newline* argument works like that of :class:`TextIOWrapper`, except "
 "that when writing output to the stream, if *newline* is ``None``, newlines "
 "are written as ``\\n`` on all platforms."
 msgstr ""
 
-#: ../../../library/io.rst:1142
+#: ../../../library/io.rst:1143
 msgid ""
-":class:`StringIO` provides this method in addition to those from :class:"
-"`TextIOBase` and :class:`IOBase`:"
+":class:`StringIO` provides this method in addition to those "
+"from :class:`TextIOBase` and :class:`IOBase`:"
 msgstr ""
 
-#: ../../../library/io.rst:1147
+#: ../../../library/io.rst:1148
 msgid ""
 "Return a :class:`str` containing the entire contents of the buffer. Newlines "
 "are decoded as if by :meth:`~TextIOBase.read`, although the stream position "
 "is not changed."
 msgstr ""
 
-#: ../../../library/io.rst:1151
+#: ../../../library/io.rst:1152
 msgid "Example usage::"
 msgstr ""
 
-#: ../../../library/io.rst:1173
+#: ../../../library/io.rst:1174
 msgid ""
 "A helper codec that decodes newlines for :term:`universal newlines` mode. It "
 "inherits from :class:`codecs.IncrementalDecoder`."
 msgstr ""
 
-#: ../../../library/io.rst:1178
+#: ../../../library/io.rst:1179
 msgid "Static typing"
 msgstr ""
 
-#: ../../../library/io.rst:1180
+#: ../../../library/io.rst:1181
 msgid ""
 "The following protocols can be used for annotating function and method "
 "arguments for simple stream reading or writing operations. They are "
 "decorated with :deco:`typing.runtime_checkable`."
 msgstr ""
 
-#: ../../../library/io.rst:1186
+#: ../../../library/io.rst:1187
 msgid ""
 "Generic protocol for reading from a file or other input stream. ``T`` will "
 "usually be :class:`str` or :class:`bytes`, but can be any type that is read "
 "from the stream."
 msgstr ""
 
-#: ../../../library/io.rst:1195
+#: ../../../library/io.rst:1196
 msgid ""
 "Read data from the input stream and return it. If *size* is specified, it "
 "should be an integer, and at most *size* items (bytes/characters) will be "
 "read."
 msgstr ""
 
-#: ../../../library/io.rst:1199 ../../../library/io.rst:1218
+#: ../../../library/io.rst:1200 ../../../library/io.rst:1219
 msgid "For example::"
 msgstr ""
 
-#: ../../../library/io.rst:1207
+#: ../../../library/io.rst:1208
 msgid ""
 "Generic protocol for writing to a file or other output stream. ``T`` will "
 "usually be :class:`str` or :class:`bytes`, but can be any type that can be "
 "written to the stream."
 msgstr ""
 
-#: ../../../library/io.rst:1215
+#: ../../../library/io.rst:1216
 msgid ""
 "Write *data* to the output stream and return the number of items (bytes/"
 "characters) written."
 msgstr ""
 
-#: ../../../library/io.rst:1223
+#: ../../../library/io.rst:1224
 msgid ""
 "See :ref:`typing-io` for other I/O related protocols and classes that can be "
 "used for static type checking."
 msgstr ""
 
-#: ../../../library/io.rst:1227
+#: ../../../library/io.rst:1228
 msgid "Performance"
 msgstr ""
 
-#: ../../../library/io.rst:1229
+#: ../../../library/io.rst:1230
 msgid ""
 "This section discusses the performance of the provided concrete I/O "
 "implementations."
 msgstr ""
 
-#: ../../../library/io.rst:1235
+#: ../../../library/io.rst:1236
 msgid ""
 "By reading and writing only large chunks of data even when the user asks for "
 "a single byte, buffered I/O hides any inefficiency in calling and executing "
@@ -1646,61 +1656,61 @@ msgid ""
 "data."
 msgstr ""
 
-#: ../../../library/io.rst:1247
+#: ../../../library/io.rst:1248
 msgid ""
 "Text I/O over a binary storage (such as a file) is significantly slower than "
 "binary I/O over the same storage, because it requires conversions between "
 "unicode and binary data using a character codec.  This can become noticeable "
-"handling huge amounts of text data like large log files.  Also, :meth:"
-"`~TextIOBase.tell` and :meth:`~TextIOBase.seek` are both quite slow due to "
-"the reconstruction algorithm used."
+"handling huge amounts of text data like large log files.  "
+"Also, :meth:`~TextIOBase.tell` and :meth:`~TextIOBase.seek` are both quite "
+"slow due to the reconstruction algorithm used."
 msgstr ""
 
-#: ../../../library/io.rst:1254
+#: ../../../library/io.rst:1255
 msgid ""
 ":class:`StringIO`, however, is a native in-memory unicode container and will "
 "exhibit similar speed to :class:`BytesIO`."
 msgstr ""
 
-#: ../../../library/io.rst:1258
+#: ../../../library/io.rst:1259
 msgid "Multi-threading"
 msgstr ""
 
-#: ../../../library/io.rst:1260
+#: ../../../library/io.rst:1261
 msgid ""
 ":class:`FileIO` objects are thread-safe to the extent that the operating "
 "system calls (such as :manpage:`read(2)` under Unix) they wrap are thread-"
 "safe too."
 msgstr ""
 
-#: ../../../library/io.rst:1263
+#: ../../../library/io.rst:1264
 msgid ""
-"Binary buffered objects (instances of :class:`BufferedReader`, :class:"
-"`BufferedWriter`, :class:`BufferedRandom` and :class:`BufferedRWPair`) "
-"protect their internal structures using a lock; it is therefore safe to call "
-"them from multiple threads at once."
+"Binary buffered objects (instances "
+"of :class:`BufferedReader`, :class:`BufferedWriter`, :class:`BufferedRandom` "
+"and :class:`BufferedRWPair`) protect their internal structures using a lock; "
+"it is therefore safe to call them from multiple threads at once."
 msgstr ""
 
-#: ../../../library/io.rst:1268
+#: ../../../library/io.rst:1269
 msgid ":class:`TextIOWrapper` objects are not thread-safe."
 msgstr ""
 
-#: ../../../library/io.rst:1271
+#: ../../../library/io.rst:1272
 msgid "Reentrancy"
 msgstr ""
 
-#: ../../../library/io.rst:1273
+#: ../../../library/io.rst:1274
 msgid ""
-"Binary buffered objects (instances of :class:`BufferedReader`, :class:"
-"`BufferedWriter`, :class:`BufferedRandom` and :class:`BufferedRWPair`) are "
-"not reentrant.  While reentrant calls will not happen in normal situations, "
-"they can arise from doing I/O in a :mod:`signal` handler.  If a thread tries "
-"to re-enter a buffered object which it is already accessing, a :exc:"
-"`RuntimeError` is raised.  Note this doesn't prohibit a different thread "
-"from entering the buffered object."
+"Binary buffered objects (instances "
+"of :class:`BufferedReader`, :class:`BufferedWriter`, :class:`BufferedRandom` "
+"and :class:`BufferedRWPair`) are not reentrant.  While reentrant calls will "
+"not happen in normal situations, they can arise from doing I/O in "
+"a :mod:`signal` handler.  If a thread tries to re-enter a buffered object "
+"which it is already accessing, a :exc:`RuntimeError` is raised.  Note this "
+"doesn't prohibit a different thread from entering the buffered object."
 msgstr ""
 
-#: ../../../library/io.rst:1281
+#: ../../../library/io.rst:1282
 msgid ""
 "The above implicitly extends to text files, since the :func:`open` function "
 "will wrap a buffered object inside a :class:`TextIOWrapper`.  This includes "
@@ -1716,14 +1726,14 @@ msgstr ""
 msgid "io module"
 msgstr ""
 
-#: ../../../library/io.rst:1012 ../../../library/io.rst:1168
+#: ../../../library/io.rst:1013 ../../../library/io.rst:1169
 msgid "universal newlines"
 msgstr ""
 
-#: ../../../library/io.rst:1012
+#: ../../../library/io.rst:1013
 msgid "io.TextIOWrapper class"
 msgstr ""
 
-#: ../../../library/io.rst:1168
+#: ../../../library/io.rst:1169
 msgid "io.IncrementalNewlineDecoder class"
 msgstr ""
