@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Python 3.16\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-26 15:56+0000\n"
+"POT-Creation-Date: 2026-11-23 20:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -234,10 +234,11 @@ msgid ""
 "``\\``), and may be shortened to any prefix of its full value. Specifying "
 "the company is optional when it is ``PythonCore``, and specifying the tag is "
 "optional (but not the slash) when you want the latest release from a "
-"specific company."
+"specific company. For more details about how tags are matched, "
+"see :ref:`pymanager-tag-matching`."
 msgstr ""
 
-#: ../../../using/windows.rst:179
+#: ../../../using/windows.rst:180
 msgid ""
 "If no version is specified, but a script file is passed, the script will be "
 "inspected for a *shebang line*. This is a special format for the first line "
@@ -246,7 +247,7 @@ msgid ""
 "resolved, the script will be launched with the default runtime."
 msgstr ""
 
-#: ../../../using/windows.rst:185
+#: ../../../using/windows.rst:186
 msgid ""
 "If you are running in an active virtual environment, have not requested a "
 "particular version, and there is no shebang line, the default runtime will "
@@ -255,7 +256,7 @@ msgid ""
 "behaviour ensures that the ``py`` command can be used interchangeably."
 msgstr ""
 
-#: ../../../using/windows.rst:191
+#: ../../../using/windows.rst:192
 msgid ""
 "When no runtimes are installed, any launch command will try to install the "
 "requested version and launch it. However, after any version is installed, "
@@ -264,18 +265,18 @@ msgid ""
 "error and direct you to use ``py install`` first."
 msgstr ""
 
-#: ../../../using/windows.rst:199
+#: ../../../using/windows.rst:200
 msgid "Command help"
 msgstr ""
 
-#: ../../../using/windows.rst:201
+#: ../../../using/windows.rst:202
 msgid ""
 "The ``py help`` command will display the full list of supported commands, "
 "along with their options. Any command may be passed the ``-?`` option to "
 "display its help, or its name passed to ``py help``."
 msgstr ""
 
-#: ../../../using/windows.rst:212
+#: ../../../using/windows.rst:213
 msgid ""
 "All commands support some common options, which will be shown by ``py "
 "help``. These options must be specified after any subcommand. Specifying ``-"
@@ -284,18 +285,18 @@ msgid ""
 "quiet`` will reduce output, and ``-qq`` will reduce it further."
 msgstr ""
 
-#: ../../../using/windows.rst:218
+#: ../../../using/windows.rst:219
 msgid ""
 "The ``--config=<PATH>`` option allows specifying a configuration file to "
 "override multiple settings at once. See :ref:`pymanager-config` below for "
 "more information about these files."
 msgstr ""
 
-#: ../../../using/windows.rst:224
+#: ../../../using/windows.rst:225
 msgid "Listing runtimes"
 msgstr ""
 
-#: ../../../using/windows.rst:230
+#: ../../../using/windows.rst:231
 msgid ""
 "The list of installed runtimes can be seen using ``py list``. A filter may "
 "be added in the form of one or more tags (with or without company "
@@ -303,7 +304,7 @@ msgid ""
 "restrict to a range."
 msgstr ""
 
-#: ../../../using/windows.rst:234
+#: ../../../using/windows.rst:235
 msgid ""
 "A range of formats are supported, and can be passed as the ``--"
 "format=<FMT>`` or ``-f <FMT>`` option. Formats include ``table`` (a user-"
@@ -312,7 +313,7 @@ msgid ""
 "executable path), ``prefix`` (just the prefix path)."
 msgstr ""
 
-#: ../../../using/windows.rst:240
+#: ../../../using/windows.rst:241
 msgid ""
 "The ``--one`` or ``-1`` option only displays a single result. If the default "
 "runtime is included, it will be the one. Otherwise, the \"best\" result is "
@@ -321,14 +322,14 @@ msgid ""
 "the runtime that would be launched by ``py -V:<TAG>``."
 msgstr ""
 
-#: ../../../using/windows.rst:246
+#: ../../../using/windows.rst:247
 msgid ""
 "The ``--only-managed`` option excludes results that were not installed by "
 "the Python install manager. This is useful when determining which runtimes "
 "may be updated or uninstalled through the ``py`` command."
 msgstr ""
 
-#: ../../../using/windows.rst:250
+#: ../../../using/windows.rst:251
 msgid ""
 "The ``--online`` option is short for passing ``--source=<URL>`` with the "
 "default source. Passing either of these options will search the online index "
@@ -337,69 +338,69 @@ msgid ""
 "<TAG>``."
 msgstr ""
 
-#: ../../../using/windows.rst:259
+#: ../../../using/windows.rst:260
 msgid ""
 "For compatibility with the old launcher, the ``--list``, ``--list-paths``, "
 "``-0`` and ``-0p`` commands (for example, ``py -0p``) are retained. They do "
 "not allow additional options, and will produce legacy-formatted output."
 msgstr ""
 
-#: ../../../using/windows.rst:265
+#: ../../../using/windows.rst:266
 msgid "Installing runtimes"
 msgstr ""
 
-#: ../../../using/windows.rst:271
+#: ../../../using/windows.rst:272
 msgid ""
 "New runtime versions may be added using ``py install``. One or more tags may "
 "be specified, and the special tag ``default`` may be used to select the "
 "default. Ranges are not supported for installation."
 msgstr ""
 
-#: ../../../using/windows.rst:275
+#: ../../../using/windows.rst:276
 msgid ""
 "CPython publishes multiple runtime variants. For most users, ``PythonCore`` "
 "is recommended and provides the standard CPython runtime. Tags without any "
 "prefix are treated as ``PythonCore\\<TAG>``."
 msgstr ""
 
-#: ../../../using/windows.rst:279
+#: ../../../using/windows.rst:280
 msgid ""
 "``PythonTest`` includes the standard runtime together with the test suite "
 "and debugging symbols. It is intended for contributors or users who need "
 "these additional files for testing or debugging Python."
 msgstr ""
 
-#: ../../../using/windows.rst:283
+#: ../../../using/windows.rst:284
 msgid ""
 "``PythonEmbed`` provides a minimal embeddable distribution for applications "
 "that bundle Python rather than for interactive use. It would normally be "
 "used with the ``--target`` option described below."
 msgstr ""
 
-#: ../../../using/windows.rst:287
+#: ../../../using/windows.rst:288
 msgid "To see the available runtime variants, run::"
 msgstr ""
 
-#: ../../../using/windows.rst:291
+#: ../../../using/windows.rst:292
 msgid ""
 "To install a specific variant, include it in the tag passed to ``py "
 "install``:"
 msgstr ""
 
-#: ../../../using/windows.rst:298
+#: ../../../using/windows.rst:299
 msgid ""
 "The ``--source=<URL>`` option allows overriding the online index that is "
 "used to obtain runtimes. This may be used with an offline index, as shown "
 "in :ref:`pymanager-offline`."
 msgstr ""
 
-#: ../../../using/windows.rst:302
+#: ../../../using/windows.rst:303
 msgid ""
 "Passing ``--force`` will ignore any cached files and remove any existing "
 "install to replace it with the specified one."
 msgstr ""
 
-#: ../../../using/windows.rst:305
+#: ../../../using/windows.rst:306
 msgid ""
 "Passing ``--update`` will replace existing installs if the new version is "
 "newer. Otherwise, they will be left. If no tags are provided with ``--"
@@ -410,13 +411,13 @@ msgid ""
 "unaffected."
 msgstr ""
 
-#: ../../../using/windows.rst:312
+#: ../../../using/windows.rst:313
 msgid ""
 "Passing ``--dry-run`` will generate output and logs, but will not modify any "
 "installs."
 msgstr ""
 
-#: ../../../using/windows.rst:315
+#: ../../../using/windows.rst:316
 msgid ""
 "Passing ``--refresh`` will update all registrations for installed runtimes. "
 "This will recreate Start menu shortcuts, registry keys, and global aliases "
@@ -425,7 +426,7 @@ msgid ""
 "be manually refreshed after installing packages."
 msgstr ""
 
-#: ../../../using/windows.rst:321
+#: ../../../using/windows.rst:322
 msgid ""
 "In addition to the above options, the ``--target`` option will extract the "
 "runtime to the specified directory instead of doing a normal install. This "
@@ -436,7 +437,7 @@ msgid ""
 "directory."
 msgstr ""
 
-#: ../../../using/windows.rst:333
+#: ../../../using/windows.rst:334
 msgid ""
 "The ``py exec`` command will install the requested runtime if it is not "
 "already present. This is controlled by the ``automatic_install`` "
@@ -447,17 +448,17 @@ msgid ""
 "rather than using the ``py exec`` command or explicit install commands."
 msgstr ""
 
-#: ../../../using/windows.rst:347
+#: ../../../using/windows.rst:348
 msgid "Offline installs"
 msgstr ""
 
-#: ../../../using/windows.rst:349
+#: ../../../using/windows.rst:350
 msgid ""
 "To perform offline installs of Python, you will need to first create an "
 "offline index on a machine that has network access."
 msgstr ""
 
-#: ../../../using/windows.rst:356
+#: ../../../using/windows.rst:357
 msgid ""
 "The ``--download=<PATH>`` option will download the packages for the listed "
 "tags and create a directory containing them and an ``index.json`` file "
@@ -465,13 +466,13 @@ msgid ""
 "offline machine and used to install one or more of the bundled runtimes:"
 msgstr ""
 
-#: ../../../using/windows.rst:365
+#: ../../../using/windows.rst:366
 msgid ""
 "The Python install manager can be installed by downloading its installer and "
 "moving it to another machine before installing."
 msgstr ""
 
-#: ../../../using/windows.rst:368
+#: ../../../using/windows.rst:369
 msgid ""
 "Alternatively, the ZIP files in an offline index directory can simply be "
 "transferred to another machine and extracted. This will not register the "
@@ -481,28 +482,28 @@ msgid ""
 "possible or convenient."
 msgstr ""
 
-#: ../../../using/windows.rst:374
+#: ../../../using/windows.rst:375
 msgid ""
 "In this way, Python runtimes can be installed and managed on a machine "
 "without access to the internet."
 msgstr ""
 
-#: ../../../using/windows.rst:379
+#: ../../../using/windows.rst:380
 msgid "Uninstalling runtimes"
 msgstr ""
 
-#: ../../../using/windows.rst:385
+#: ../../../using/windows.rst:386
 msgid ""
 "Runtimes may be removed using the ``py uninstall`` command. One or more tags "
 "must be specified. Ranges are not supported here."
 msgstr ""
 
-#: ../../../using/windows.rst:388
+#: ../../../using/windows.rst:389
 msgid ""
 "The ``--yes`` option bypasses the confirmation prompt before uninstalling."
 msgstr ""
 
-#: ../../../using/windows.rst:390
+#: ../../../using/windows.rst:391
 msgid ""
 "Instead of passing tags individually, the ``--purge`` option may be "
 "specified. This will remove all runtimes managed by the Python install "
@@ -511,7 +512,7 @@ msgid ""
 "not be impacted, and neither will manually created configuration files."
 msgstr ""
 
-#: ../../../using/windows.rst:400
+#: ../../../using/windows.rst:401
 msgid ""
 "The Python install manager can be uninstalled through the Windows "
 "\"Installed apps\" settings page. This does not remove any runtimes, and "
@@ -521,11 +522,11 @@ msgid ""
 "with ``--purge`` before uninstalling the Python install manager."
 msgstr ""
 
-#: ../../../using/windows.rst:413
+#: ../../../using/windows.rst:414
 msgid "Configuration"
 msgstr ""
 
-#: ../../../using/windows.rst:415
+#: ../../../using/windows.rst:416
 msgid ""
 "Python install manager is configured with a hierarchy of configuration "
 "files, environment variables, command-line options, and registry settings. "
@@ -535,13 +536,13 @@ msgid ""
 "options override all other settings, but not every option is available."
 msgstr ""
 
-#: ../../../using/windows.rst:422
+#: ../../../using/windows.rst:423
 msgid ""
 "This section will describe the defaults, but be aware that modified or "
 "overridden installs may resolve settings differently."
 msgstr ""
 
-#: ../../../using/windows.rst:425
+#: ../../../using/windows.rst:426
 msgid ""
 "A global configuration file may be configured by an :ref:`administrator "
 "<pymanager-admin-config>` and would be read first. The user configuration "
@@ -553,48 +554,48 @@ msgid ""
 "be modified by administrative customization options listed later."
 msgstr ""
 
-#: ../../../using/windows.rst:436
+#: ../../../using/windows.rst:437
 msgid ""
 "The following settings are those that are considered likely to be modified "
 "in normal use. Later sections list those that are intended for "
 "administrative customization."
 msgstr ""
 
-#: ../../../using/windows.rst:444
+#: ../../../using/windows.rst:445
 msgid "Standard configuration options"
 msgstr ""
 
-#: ../../../using/windows.rst:448 ../../../using/windows.rst:786
+#: ../../../using/windows.rst:449 ../../../using/windows.rst:787
 msgid "Config Key"
 msgstr ""
 
-#: ../../../using/windows.rst:449
+#: ../../../using/windows.rst:450
 msgid "Environment Variable"
 msgstr ""
 
-#: ../../../using/windows.rst:450 ../../../using/windows.rst:787
+#: ../../../using/windows.rst:451 ../../../using/windows.rst:788
 msgid "Description"
 msgstr ""
 
-#: ../../../using/windows.rst:452
+#: ../../../using/windows.rst:453
 msgid "``default_tag``"
 msgstr ""
 
-#: ../../../using/windows.rst:454
+#: ../../../using/windows.rst:455
 msgid ""
 "The preferred default version to launch or install. By default, this is "
 "interpreted as the most recent non-prerelease version from the CPython team."
 msgstr ""
 
-#: ../../../using/windows.rst:458
+#: ../../../using/windows.rst:459
 msgid "``default_platform``"
 msgstr ""
 
-#: ../../../using/windows.rst:459
+#: ../../../using/windows.rst:460
 msgid "``PYTHON_MANAGER_DEFAULT_PLATFORM``"
 msgstr ""
 
-#: ../../../using/windows.rst:460
+#: ../../../using/windows.rst:461
 msgid ""
 "The preferred default platform to launch or install. This is treated as a "
 "suffix to the specified tag, such that |py_v_x_dot_y_literal| would prefer "
@@ -602,83 +603,83 @@ msgid ""
 "is ``-64``), but will use |x_dot_y_literal| if no tagged install exists."
 msgstr ""
 
-#: ../../../using/windows.rst:466
+#: ../../../using/windows.rst:467
 msgid "``logs_dir``"
 msgstr ""
 
-#: ../../../using/windows.rst:467
+#: ../../../using/windows.rst:468
 msgid "``PYTHON_MANAGER_LOGS``"
 msgstr ""
 
-#: ../../../using/windows.rst:468
+#: ../../../using/windows.rst:469
 msgid "The location where log files are written. By default, :file:`%TEMP%`."
 msgstr ""
 
-#: ../../../using/windows.rst:471
+#: ../../../using/windows.rst:472
 msgid "``automatic_install``"
 msgstr ""
 
-#: ../../../using/windows.rst:473
+#: ../../../using/windows.rst:474
 msgid ""
 "True to allow automatic installs when using ``py exec`` to launch (or ``py`` "
 "when no runtimes are installed yet). Other commands will not automatically "
 "install, regardless of this setting. By default, true."
 msgstr ""
 
-#: ../../../using/windows.rst:479
+#: ../../../using/windows.rst:480
 msgid "``include_unmanaged``"
 msgstr ""
 
-#: ../../../using/windows.rst:480
+#: ../../../using/windows.rst:481
 msgid "``PYTHON_MANAGER_INCLUDE_UNMANAGED``"
 msgstr ""
 
-#: ../../../using/windows.rst:481
+#: ../../../using/windows.rst:482
 msgid ""
 "True to allow listing and launching runtimes that were not installed by the "
 "Python install manager, or false to exclude them. By default, true."
 msgstr ""
 
-#: ../../../using/windows.rst:485
+#: ../../../using/windows.rst:486
 msgid "``shebang_can_run_anything``"
 msgstr ""
 
-#: ../../../using/windows.rst:486
+#: ../../../using/windows.rst:487
 msgid "``PYTHON_MANAGER_SHEBANG_CAN_RUN_ANYTHING``"
 msgstr ""
 
-#: ../../../using/windows.rst:487
+#: ../../../using/windows.rst:488
 msgid ""
 "True to allow shebangs in ``.py`` files to launch applications other than "
 "Python runtimes, or false to prevent it. By default, true."
 msgstr ""
 
-#: ../../../using/windows.rst:491
+#: ../../../using/windows.rst:492
 msgid "``shebang_templates``"
 msgstr ""
 
-#: ../../../using/windows.rst:492 ../../../using/windows.rst:516
-#: ../../../using/windows.rst:529 ../../../using/windows.rst:535
-#: ../../../using/windows.rst:542
+#: ../../../using/windows.rst:493 ../../../using/windows.rst:517
+#: ../../../using/windows.rst:530 ../../../using/windows.rst:536
+#: ../../../using/windows.rst:543
 msgid "(none)"
 msgstr ""
 
-#: ../../../using/windows.rst:493
+#: ../../../using/windows.rst:494
 msgid ""
 "Mapping from shebang line template to alternative command, such as ``py -V:"
 "<tag>`` or a substitute string. See :ref:`pymanager-shebang` for more "
 "details."
 msgstr ""
 
-#: ../../../using/windows.rst:497
+#: ../../../using/windows.rst:498
 msgid "``log_level``"
 msgstr ""
 
-#: ../../../using/windows.rst:498
+#: ../../../using/windows.rst:499
 msgid "``PYMANAGER_VERBOSE``, ``PYMANAGER_DEBUG``"
 msgstr ""
 
-#: ../../../using/windows.rst:499
+#: ../../../using/windows.rst:500
 msgid ""
 "Set the default level of output (0-50). By default, 20. Lower values produce "
 "more output. The environment variables are boolean, and may produce "
@@ -686,37 +687,37 @@ msgid ""
 "configuration."
 msgstr ""
 
-#: ../../../using/windows.rst:505
+#: ../../../using/windows.rst:506
 msgid "``confirm``"
 msgstr ""
 
-#: ../../../using/windows.rst:506
+#: ../../../using/windows.rst:507
 msgid "``PYTHON_MANAGER_CONFIRM``"
 msgstr ""
 
-#: ../../../using/windows.rst:507
+#: ../../../using/windows.rst:508
 msgid ""
 "True to confirm certain actions before taking them (such as uninstall), or "
 "false to skip the confirmation. By default, true."
 msgstr ""
 
-#: ../../../using/windows.rst:511
+#: ../../../using/windows.rst:512
 msgid "``install.source``"
 msgstr ""
 
-#: ../../../using/windows.rst:512
+#: ../../../using/windows.rst:513
 msgid "``PYTHON_MANAGER_SOURCE_URL``"
 msgstr ""
 
-#: ../../../using/windows.rst:513
+#: ../../../using/windows.rst:514
 msgid "Override the index feed to obtain new installs from."
 msgstr ""
 
-#: ../../../using/windows.rst:515
+#: ../../../using/windows.rst:516
 msgid "``install.enable_entrypoints``"
 msgstr ""
 
-#: ../../../using/windows.rst:517
+#: ../../../using/windows.rst:518
 msgid ""
 "True to generate global commands for installed packages (such as "
 "``pip.exe``). These are defined by the packages themselves. If set to false, "
@@ -724,36 +725,36 @@ msgid ""
 "You should run ``py install --refresh`` after changing this setting."
 msgstr ""
 
-#: ../../../using/windows.rst:523
+#: ../../../using/windows.rst:524
 msgid "``list.format``"
 msgstr ""
 
-#: ../../../using/windows.rst:524
+#: ../../../using/windows.rst:525
 msgid "``PYTHON_MANAGER_LIST_FORMAT``"
 msgstr ""
 
-#: ../../../using/windows.rst:525
+#: ../../../using/windows.rst:526
 msgid ""
 "Specify the default format used by the ``py list`` command. By default, "
 "``table``."
 msgstr ""
 
-#: ../../../using/windows.rst:528
+#: ../../../using/windows.rst:529
 msgid "``install_dir``"
 msgstr ""
 
-#: ../../../using/windows.rst:530
+#: ../../../using/windows.rst:531
 msgid ""
 "Specify the root directory that runtimes will be installed into. If you "
 "change this setting, previously installed runtimes will not be usable unless "
 "you move them to the new location."
 msgstr ""
 
-#: ../../../using/windows.rst:534
+#: ../../../using/windows.rst:535
 msgid "``global_dir``"
 msgstr ""
 
-#: ../../../using/windows.rst:536
+#: ../../../using/windows.rst:537
 msgid ""
 "Specify the directory where global commands (such as |"
 "python_x_dot_y_exe_literal| and ``pip.exe``) are stored. This directory "
@@ -761,28 +762,28 @@ msgid ""
 "your terminal."
 msgstr ""
 
-#: ../../../using/windows.rst:541
+#: ../../../using/windows.rst:542
 msgid "``download_dir``"
 msgstr ""
 
-#: ../../../using/windows.rst:543
+#: ../../../using/windows.rst:544
 msgid ""
 "Specify the directory where downloaded files are stored. This directory is a "
 "temporary cache, and can be cleaned up from time to time."
 msgstr ""
 
-#: ../../../using/windows.rst:548
+#: ../../../using/windows.rst:549
 msgid ""
 "Dotted names should be nested inside JSON objects, for example, "
 "``list.format`` would be specified as ``{\"list\": {\"format\": \"table\"}}"
 "``."
 msgstr ""
 
-#: ../../../using/windows.rst:555
+#: ../../../using/windows.rst:556
 msgid "Shebang lines"
 msgstr ""
 
-#: ../../../using/windows.rst:557
+#: ../../../using/windows.rst:558
 msgid ""
 "If the first line of a script file starts with ``#!``, it is known as a "
 "\"shebang\" line.  Linux and other Unix-like operating systems have native "
@@ -791,38 +792,38 @@ msgid ""
 "allow the same facilities to be used with Python scripts on Windows."
 msgstr ""
 
-#: ../../../using/windows.rst:563
+#: ../../../using/windows.rst:564
 msgid ""
 "To allow shebang lines in Python scripts to be portable between Unix and "
 "Windows, a number of 'virtual' commands are supported to specify which "
 "interpreter to use.  The supported virtual commands are:"
 msgstr ""
 
-#: ../../../using/windows.rst:567
+#: ../../../using/windows.rst:568
 msgid "``/usr/bin/env <ALIAS>``"
 msgstr ""
 
-#: ../../../using/windows.rst:568
+#: ../../../using/windows.rst:569
 msgid "``/usr/bin/env -S <ALIAS>``"
 msgstr ""
 
-#: ../../../using/windows.rst:569
+#: ../../../using/windows.rst:570
 msgid "``/usr/bin/<ALIAS>``"
 msgstr ""
 
-#: ../../../using/windows.rst:570
+#: ../../../using/windows.rst:571
 msgid "``/usr/local/bin/<ALIAS>``"
 msgstr ""
 
-#: ../../../using/windows.rst:571
+#: ../../../using/windows.rst:572
 msgid "``<ALIAS>``"
 msgstr ""
 
-#: ../../../using/windows.rst:573
+#: ../../../using/windows.rst:574
 msgid "For example, if the first line of your script starts with"
 msgstr ""
 
-#: ../../../using/windows.rst:579
+#: ../../../using/windows.rst:580
 msgid ""
 "The default Python or an active virtual environment will be located and "
 "used. As many Python scripts written to work on Unix will already have this "
@@ -832,7 +833,7 @@ msgid ""
 "usr``."
 msgstr ""
 
-#: ../../../using/windows.rst:585
+#: ../../../using/windows.rst:586
 msgid ""
 "Any of the above virtual commands can have ``<ALIAS>`` replaced by an alias "
 "from an installed runtime. That is, any command generated in the global "
@@ -842,14 +843,14 @@ msgid ""
 "python3.12`` to select a particular runtime."
 msgstr ""
 
-#: ../../../using/windows.rst:591
+#: ../../../using/windows.rst:592
 msgid ""
 "If no runtimes are installed, or if automatic installation is enabled, the "
 "requested runtime will be installed if necessary. See :ref:`pymanager-"
 "config` for information about configuration settings."
 msgstr ""
 
-#: ../../../using/windows.rst:595
+#: ../../../using/windows.rst:596
 msgid ""
 "The ``/usr/bin/env`` form of shebang line will also search "
 "the :envvar:`PATH` environment variable for unrecognized commands. This "
@@ -859,7 +860,7 @@ msgid ""
 "disabled by the ``shebang_can_run_anything`` configuration option."
 msgstr ""
 
-#: ../../../using/windows.rst:602
+#: ../../../using/windows.rst:603
 msgid ""
 "Shebang lines that do not match any of the patterns are treated as *Windows* "
 "executable paths that are absolute or relative to the directory containing "
@@ -871,7 +872,7 @@ msgid ""
 "``shebang_can_run_anything`` configuration option."
 msgstr ""
 
-#: ../../../using/windows.rst:611
+#: ../../../using/windows.rst:612
 msgid ""
 "Since version 26.3 of the Python install manager, custom shebang templates "
 "may be added to your configuration file. Add the ``shebang_templates`` "
@@ -882,7 +883,7 @@ msgid ""
 "default. No other arguments are supported."
 msgstr ""
 
-#: ../../../using/windows.rst:628
+#: ../../../using/windows.rst:629
 msgid ""
 "If the substitute command is not ``py`` or ``pyw``, it will be written back "
 "into the shebang and regular handling continues. If launching arbitrary "
@@ -892,7 +893,7 @@ msgid ""
 "space in the shebang line."
 msgstr ""
 
-#: ../../../using/windows.rst:637
+#: ../../../using/windows.rst:638
 msgid ""
 "The behaviour of shebangs in the Python install manager is subtly different "
 "from the previous ``py.exe`` launcher, and the old configuration options no "
@@ -902,11 +903,11 @@ msgid ""
 "will need to use ``pymanager`` commands for installing and uninstalling."
 msgstr ""
 
-#: ../../../using/windows.rst:655
+#: ../../../using/windows.rst:656
 msgid "Advanced installation"
 msgstr ""
 
-#: ../../../using/windows.rst:657
+#: ../../../using/windows.rst:658
 msgid ""
 "For situations where an MSIX cannot be installed, such as some older "
 "administrative distribution platforms, there is an MSI available from the "
@@ -917,13 +918,13 @@ msgid ""
 "configuration."
 msgstr ""
 
-#: ../../../using/windows.rst:666
+#: ../../../using/windows.rst:667
 msgid ""
 "Windows Server 2019 is the only version of Windows that CPython supports "
 "that does not support MSIX. For Windows Server 2019, you should use the MSI."
 msgstr ""
 
-#: ../../../using/windows.rst:669
+#: ../../../using/windows.rst:670
 msgid ""
 "Be aware that the MSI package does not bundle any runtimes, and so is not "
 "suitable for installs into offline environments without also creating an "
@@ -931,7 +932,7 @@ msgid ""
 "admin-config` for information on handling these scenarios."
 msgstr ""
 
-#: ../../../using/windows.rst:674
+#: ../../../using/windows.rst:675
 msgid ""
 "Runtimes installed by the MSI are shared with those installed by the MSIX, "
 "and are all per-user only. The Python install manager does not support "
@@ -941,7 +942,7 @@ msgid ""
 "menu."
 msgstr ""
 
-#: ../../../using/windows.rst:680
+#: ../../../using/windows.rst:681
 msgid ""
 "When the MSIX is installed, but commands are not available in "
 "the :envvar:`PATH` environment variable, they can be found "
@@ -954,13 +955,13 @@ msgid ""
 "recommended."
 msgstr ""
 
-#: ../../../using/windows.rst:689
+#: ../../../using/windows.rst:690
 msgid ""
 "To programmatically install the Python install manager, it is easiest to use "
 "WinGet, which is included with all supported versions of Windows:"
 msgstr ""
 
-#: ../../../using/windows.rst:699
+#: ../../../using/windows.rst:700
 msgid ""
 "To download the Python install manager and install on another machine, the "
 "following WinGet command will download the required files from the Store to "
@@ -970,14 +971,14 @@ msgid ""
 "below."
 msgstr ""
 
-#: ../../../using/windows.rst:709
+#: ../../../using/windows.rst:710
 msgid ""
 "To programmatically install or uninstall an MSIX using only PowerShell, the "
 "`Add-AppxPackage`_ and `Remove-AppxPackage`_ PowerShell cmdlets are "
 "recommended:"
 msgstr ""
 
-#: ../../../using/windows.rst:718
+#: ../../../using/windows.rst:719
 msgid ""
 "The latest release can be downloaded and installed by Windows by passing the "
 "AppInstaller file to the Add-AppxPackage command. This installs using the "
@@ -985,7 +986,7 @@ msgid ""
 "the Store (interactively or using WinGet) is not possible."
 msgstr ""
 
-#: ../../../using/windows.rst:727
+#: ../../../using/windows.rst:728
 msgid ""
 "Other tools and APIs may also be used to provision an MSIX package for all "
 "users on a machine, but Python does not consider this a supported scenario. "
@@ -994,7 +995,7 @@ msgid ""
 "for your deployment tool."
 msgstr ""
 
-#: ../../../using/windows.rst:733
+#: ../../../using/windows.rst:734
 msgid ""
 "Regardless of the install method, users will still need to install their own "
 "copies of Python itself, as there is no way to trigger those installs "
@@ -1002,7 +1003,7 @@ msgid ""
 "Python will be available for all users to install without network access."
 msgstr ""
 
-#: ../../../using/windows.rst:738
+#: ../../../using/windows.rst:739
 msgid ""
 "Note that the MSIX downloadable from the Store and from the Python website "
 "are subtly different and cannot be installed at the same time. Wherever "
@@ -1012,11 +1013,11 @@ msgid ""
 "prevent using the Store package in this way."
 msgstr ""
 
-#: ../../../using/windows.rst:749
+#: ../../../using/windows.rst:750
 msgid "Administrative configuration"
 msgstr ""
 
-#: ../../../using/windows.rst:751
+#: ../../../using/windows.rst:752
 msgid ""
 "There are a number of options that may be useful for administrators to "
 "override configuration of the Python install manager. These can be used to "
@@ -1025,7 +1026,7 @@ msgid ""
 "below."
 msgstr ""
 
-#: ../../../using/windows.rst:756
+#: ../../../using/windows.rst:757
 msgid ""
 "Configuration options may be overridden in the registry by setting values "
 "under :file:`HKEY_LOCAL_MACHINE\\\\Software\\\\Policies\\\\Python\\"
@@ -1038,7 +1039,7 @@ msgid ""
 "``base_config`` allows users to further modify settings they may need."
 msgstr ""
 
-#: ../../../using/windows.rst:766
+#: ../../../using/windows.rst:767
 msgid ""
 "Note that most settings with environment variables support those variables "
 "because their default setting specifies the variable. If you override them, "
@@ -1050,96 +1051,96 @@ msgid ""
 "environment variable will be used instead."
 msgstr ""
 
-#: ../../../using/windows.rst:775
+#: ../../../using/windows.rst:776
 msgid ""
 "Configuration settings that are paths are interpreted as relative to the "
 "directory containing the configuration file that specified them."
 msgstr ""
 
-#: ../../../using/windows.rst:782
+#: ../../../using/windows.rst:783
 msgid "Administrative configuration options"
 msgstr ""
 
-#: ../../../using/windows.rst:789
+#: ../../../using/windows.rst:790
 msgid "``base_config``"
 msgstr ""
 
-#: ../../../using/windows.rst:790
+#: ../../../using/windows.rst:791
 msgid ""
 "The highest priority configuration file to read. Note that only the built-in "
 "configuration file and the registry can modify this setting."
 msgstr ""
 
-#: ../../../using/windows.rst:794
+#: ../../../using/windows.rst:795
 msgid "``user_config``"
 msgstr ""
 
-#: ../../../using/windows.rst:795
+#: ../../../using/windows.rst:796
 msgid "The second configuration file to read."
 msgstr ""
 
-#: ../../../using/windows.rst:797
+#: ../../../using/windows.rst:798
 msgid "``additional_config``"
 msgstr ""
 
-#: ../../../using/windows.rst:798
+#: ../../../using/windows.rst:799
 msgid "The third configuration file to read."
 msgstr ""
 
-#: ../../../using/windows.rst:800
+#: ../../../using/windows.rst:801
 msgid "``registry_override_key``"
 msgstr ""
 
-#: ../../../using/windows.rst:801
+#: ../../../using/windows.rst:802
 msgid ""
 "Registry location to check for overrides. Note that only the built-in "
 "configuration file can modify this setting."
 msgstr ""
 
-#: ../../../using/windows.rst:804
+#: ../../../using/windows.rst:805
 msgid "``bundled_dir``"
 msgstr ""
 
-#: ../../../using/windows.rst:805
+#: ../../../using/windows.rst:806
 msgid "Read-only directory containing locally cached files."
 msgstr ""
 
-#: ../../../using/windows.rst:807
+#: ../../../using/windows.rst:808
 msgid "``install.fallback_source``"
 msgstr ""
 
-#: ../../../using/windows.rst:808
+#: ../../../using/windows.rst:809
 msgid ""
 "Path or URL to an index to consult when the main index cannot be accessed."
 msgstr ""
 
-#: ../../../using/windows.rst:810
+#: ../../../using/windows.rst:811
 msgid "``install.enable_shortcut_kinds``"
 msgstr ""
 
-#: ../../../using/windows.rst:811
+#: ../../../using/windows.rst:812
 msgid ""
 "Comma-separated list of shortcut kinds to allow (for example, "
 "``\"pep514,start\"``). Enabled shortcuts may still be disabled by "
 "``disable_shortcut_kinds``."
 msgstr ""
 
-#: ../../../using/windows.rst:815
+#: ../../../using/windows.rst:816
 msgid "``install.disable_shortcut_kinds``"
 msgstr ""
 
-#: ../../../using/windows.rst:816
+#: ../../../using/windows.rst:817
 msgid ""
 "Comma-separated list of shortcut kinds to exclude (for example, "
 "``\"pep514,start\"``). Disabled shortcuts are not reactivated by "
 "``enable_shortcut_kinds``."
 msgstr ""
 
-#: ../../../using/windows.rst:820
+#: ../../../using/windows.rst:821
 msgid "``install.hard_link_entrypoints``"
 msgstr ""
 
-#: ../../../using/windows.rst:821
+#: ../../../using/windows.rst:822
 msgid ""
 "True to use hard links for global shortcuts to save disk space. If false, "
 "each shortcut executable is copied instead. After changing this setting, you "
@@ -1148,51 +1149,51 @@ msgid ""
 "systems that have issues with file links."
 msgstr ""
 
-#: ../../../using/windows.rst:828
+#: ../../../using/windows.rst:829
 msgid "``pep514_root``"
 msgstr ""
 
-#: ../../../using/windows.rst:829
+#: ../../../using/windows.rst:830
 msgid ""
 "Registry location to read and write PEP 514 entries into. By "
 "default, :file:`HKEY_CURRENT_USER\\\\Software\\\\Python`."
 msgstr ""
 
-#: ../../../using/windows.rst:832
+#: ../../../using/windows.rst:833
 msgid "``start_folder``"
 msgstr ""
 
-#: ../../../using/windows.rst:833
+#: ../../../using/windows.rst:834
 msgid ""
 "Start menu folder to write shortcuts into. By default, ``Python``. This path "
 "is relative to the user's Programs folder."
 msgstr ""
 
-#: ../../../using/windows.rst:837
+#: ../../../using/windows.rst:838
 msgid "``virtual_env``"
 msgstr ""
 
-#: ../../../using/windows.rst:838
+#: ../../../using/windows.rst:839
 msgid ""
 "Path to the active virtual environment. By default, this is "
 "``%VIRTUAL_ENV%``, but may be set empty to disable venv detection."
 msgstr ""
 
-#: ../../../using/windows.rst:842
+#: ../../../using/windows.rst:843
 msgid "``shebang_can_run_anything_silently``"
 msgstr ""
 
-#: ../../../using/windows.rst:843
+#: ../../../using/windows.rst:844
 msgid ""
 "True to suppress visible warnings when a shebang launches an application "
 "other than a Python runtime."
 msgstr ""
 
-#: ../../../using/windows.rst:846
+#: ../../../using/windows.rst:847
 msgid "``source_settings``"
 msgstr ""
 
-#: ../../../using/windows.rst:847
+#: ../../../using/windows.rst:848
 msgid ""
 "A mapping from source URL to settings specific to that index. When multiple "
 "configuration files include this section, URL settings are added or "
@@ -1200,17 +1201,17 @@ msgid ""
 "currently only for :ref:`index signatures <pymanager-index-signatures>`."
 msgstr ""
 
-#: ../../../using/windows.rst:857
+#: ../../../using/windows.rst:858
 msgid "Installing free-threaded binaries"
 msgstr ""
 
-#: ../../../using/windows.rst:861
+#: ../../../using/windows.rst:862
 msgid ""
 "Pre-built distributions of the free-threaded build are available by "
 "installing tags with the ``t`` suffix."
 msgstr ""
 
-#: ../../../using/windows.rst:870
+#: ../../../using/windows.rst:871
 msgid ""
 "This will install and register as normal. If you have no other runtimes "
 "installed, then ``python`` will launch this one. Otherwise, you will need to "
@@ -1219,11 +1220,11 @@ msgid ""
 "python_x_dot_y_t_exe_literal| commands."
 msgstr ""
 
-#: ../../../using/windows.rst:879
+#: ../../../using/windows.rst:880
 msgid "Index signatures"
 msgstr ""
 
-#: ../../../using/windows.rst:883
+#: ../../../using/windows.rst:884
 msgid ""
 "Index files may be signed to detect tampering. A signature is a catalog file "
 "at the same URL as the index with ``.cat`` added to the filename. The "
@@ -1234,7 +1235,7 @@ msgid ""
 "authority (root CA)."
 msgstr ""
 
-#: ../../../using/windows.rst:890
+#: ../../../using/windows.rst:891
 msgid ""
 "Index signatures are only downloaded and checked when the local "
 "configuration's ``source_settings`` section includes the index URL and "
@@ -1243,7 +1244,7 @@ msgid ""
 "configuration, even when false, settings in the index are ignored."
 msgstr ""
 
-#: ../../../using/windows.rst:896
+#: ../../../using/windows.rst:897
 msgid ""
 "As well as requiring a valid signature, the ``required_root_subject`` and "
 "``required_publisher_subject`` settings can further restrict acceptable "
@@ -1254,7 +1255,7 @@ msgid ""
 "publisher's country."
 msgstr ""
 
-#: ../../../using/windows.rst:904
+#: ../../../using/windows.rst:905
 msgid ""
 "Finally, the ``required_publisher_eku`` setting allows requiring that a "
 "specific Enhanced Key Usage (EKU) has been assigned to the publisher "
@@ -1264,7 +1265,7 @@ msgid ""
 "another mechanism to verify a legitimate signature."
 msgstr ""
 
-#: ../../../using/windows.rst:911
+#: ../../../using/windows.rst:912
 msgid ""
 "This is an example ``source_settings`` section from a configuration file. In "
 "this case, the publisher of the feed is uniquely identified by the "
@@ -1273,7 +1274,7 @@ msgid ""
 "www.python.org/ftp/python/index-windows.json.cat``."
 msgstr ""
 
-#: ../../../using/windows.rst:930
+#: ../../../using/windows.rst:931
 msgid ""
 "The same settings could be specified in the ``index.json`` file instead. In "
 "this case, the root and EKU are omitted, meaning that the signature must be "
@@ -1281,7 +1282,7 @@ msgid ""
 "other checks are used."
 msgstr ""
 
-#: ../../../using/windows.rst:945
+#: ../../../using/windows.rst:946
 msgid ""
 "When settings from inside a feed are used, the user is notified and the "
 "settings are shown in the log file or verbose output. It is recommended to "
@@ -1290,7 +1291,7 @@ msgid ""
 "disable verification."
 msgstr ""
 
-#: ../../../using/windows.rst:950
+#: ../../../using/windows.rst:951
 msgid ""
 "It is not possible to override the location of the signature file in the "
 "feed or through a configuration file. Administrators can provide their own "
@@ -1298,7 +1299,7 @@ msgid ""
 "admin-config`)."
 msgstr ""
 
-#: ../../../using/windows.rst:955
+#: ../../../using/windows.rst:956
 msgid ""
 "If signature validation fails, you will be notified and prompted to "
 "continue. When interactive confirmation is not allowed (for example, because "
@@ -1307,18 +1308,18 @@ msgid ""
 "disables signature checking for that feed."
 msgstr ""
 
-#: ../../../using/windows.rst:971
+#: ../../../using/windows.rst:972
 msgid "Proxy settings"
 msgstr ""
 
-#: ../../../using/windows.rst:975
+#: ../../../using/windows.rst:976
 msgid ""
 "By default, the Python install manager will use your system-wide proxy "
 "settings, including automatic authentication. For most users, this behaves "
 "the same as your browser and other applications."
 msgstr ""
 
-#: ../../../using/windows.rst:979
+#: ../../../using/windows.rst:980
 msgid ""
 "To override the settings, use the ``NO_PROXY``, ``HTTP_PROXY`` and "
 "``HTTPS_PROXY`` environment variables. These should be set in the terminal "
@@ -1327,14 +1328,14 @@ msgid ""
 "entire machine."
 msgstr ""
 
-#: ../../../using/windows.rst:985
+#: ../../../using/windows.rst:986
 msgid ""
 "Setting ``NO_PROXY`` to any non-empty value will disable the use of any "
 "proxy. Use this to bypass your system's default proxy setting and attempt to "
 "access the index server directly."
 msgstr ""
 
-#: ../../../using/windows.rst:989
+#: ../../../using/windows.rst:990
 msgid ""
 "Setting ``HTTPS_PROXY`` to a string like ``example.com:8080`` will connect "
 "to that proxy server for all HTTPS connections. For the default index, all "
@@ -1342,14 +1343,14 @@ msgid ""
 "override."
 msgstr ""
 
-#: ../../../using/windows.rst:993
+#: ../../../using/windows.rst:994
 msgid ""
 "The ``HTTP_PROXY`` variable may be needed if you are using a private index "
 "server that does not use encrypted connections, but does require the default "
 "proxy server to be overridden. It follows the same format as ``HTTPS_PROXY``."
 msgstr ""
 
-#: ../../../using/windows.rst:997
+#: ../../../using/windows.rst:998
 msgid ""
 "Credentials may be embedded in either setting, however, when ``HTTPS_PROXY`` "
 "has credentials embedded they will be used in preference to other "
@@ -1357,11 +1358,230 @@ msgid ""
 "proxy."
 msgstr ""
 
-#: ../../../using/windows.rst:1004 ../../../using/windows.rst:1016
+#: ../../../using/windows.rst:1005
+msgid "Tags and tag matching"
+msgstr ""
+
+#: ../../../using/windows.rst:1007
+msgid ""
+"Previously the behavior was very similar to what is described here, but had "
+"many more inconsistencies. We have streamlined it and ensured the behavior "
+"is well-defined, which may result in some small differences from previous "
+"versions."
+msgstr ""
+
+#: ../../../using/windows.rst:1013
+msgid ""
+"Tags identify Python runtimes that may be installed, modified, or launched "
+"by the Python install manager. They are based on :pep:`514`, with matching "
+"and ordering rules specific to the install manager. These rules do not "
+"change PEP 514's specification."
+msgstr ""
+
+#: ../../../using/windows.rst:1018
+msgid ""
+"A tag has three components: Company, Tag, and Platform. Each part is case-"
+"insensitive, but the exact comparison semantics vary."
+msgstr ""
+
+#: ../../../using/windows.rst:1025
+msgid ""
+"The Company is optional and defaults to ``PythonCore``. It may contain "
+"slashes, while the rest may not, and so the last forward slash or backslash "
+"separates it from the Tag. When omitting Company, also omit any slash. In "
+"general, Company is matched as a prefix."
+msgstr ""
+
+#: ../../../using/windows.rst:1030
+msgid ""
+"The optional Platform suffix is one of the known platform suffixes, "
+"currently ``-32``, ``-64``, or ``-arm64``. Broadly speaking, the Platform "
+"suffix behaves as part of the Tag, but it may be implied from the current "
+"configuration or system in a way that is different from the rest of the tag. "
+"It also does not parse or compare as a number."
+msgstr ""
+
+#: ../../../using/windows.rst:1036
+msgid ""
+"Runtimes are defined as having a primary tag, and offer several more tags "
+"for installation (``install-for``) and launching (``run-for``). Whether the "
+"install tags or the launch tags are considered depends on context, but both "
+"sets are used to filter to matching runtimes, from which the best option is "
+"selected using more complex logic. If a runtime doesn't have specific tags, "
+"its primary tag may be used for installation and uninstallation (but not "
+"launch - it will be unlaunchable without any ``run-for`` tags)."
+msgstr ""
+
+#: ../../../using/windows.rst:1044
+msgid ""
+"You can observe this behaviour using ``py list`` with and without the ``--"
+"one`` option (to show the \"best\" or all candidates) and with and without "
+"the ``--online``/``--source`` options (to show install matches or launch "
+"matches)."
+msgstr ""
+
+#: ../../../using/windows.rst:1048
+msgid ""
+"Tags are not version numbers, though numeric sequences are treated as "
+"version numbers. Hyphens divide the Tag into segments, where each segment is "
+"either text or a version number with a text suffix. The version number part "
+"includes those ending in ``a``, ``b``, or ``rc`` followed by a serial "
+"number, but any other text is considered a separate suffix. Without a serial "
+"number, an ``a``, ``b`` or ``rc`` suffix is also treated as text."
+msgstr ""
+
+#: ../../../using/windows.rst:1055
+msgid ""
+"Broadly, numbers are compared as numerical versions, so ``3.10`` is greater "
+"than ``3.1``, ``3.14`` is greater than ``3.14a1``, and ``3`` is equal to "
+"both ``3.0`` and ``3.0.0``. Text is compared case-insensitively, and must "
+"match, so ``2024b`` is not equivalent to ``2024.0`` because ``'b' != ''``."
+msgstr ""
+
+#: ../../../using/windows.rst:1062
+msgid ""
+"Do not interpret the depth of detail of the following few paragraphs about "
+"constraints as representing their importance. Constraints are a necessary "
+"evil, and we would prefer nobody rely on them instead of specific tags, "
+"which are much simpler to reason about for publishers and end users. "
+"Unfortunately, we are obliged to explain how our implementation handles "
+"constraints, and this is the place for that explanation."
+msgstr ""
+
+#: ../../../using/windows.rst:1069
+msgid ""
+"Constraints can select multiple tags. A matching tag will start with the "
+"same segments as the constraining tag, where text segments are equal and "
+"numeric segments are above, below, or equal, according to the constraint. "
+"The first non-equal segment determines the result: non-equal text results in "
+"failure, while a non-equal version either succeeds or fails based on the "
+"constraint. Remaining segments in the matching tag are ignored."
+msgstr ""
+
+#: ../../../using/windows.rst:1076
+msgid ""
+"When applying a constraint check to a version segment that was shorter than "
+"the constraint (e.g. ``3`` has one field and so is shorter than ``==3.14``), "
+"it is interpreted as representing any possible version. This will result in "
+"many failed constraint checks that will usually be overridden by a more "
+"specific one. For example ``3`` could represent ``3.99`` and so it is not "
+"equal to ``3.14``, but if the install is offering tags ``['3', '3.14']`` "
+"then the later tag will result in the constraint matching."
+msgstr ""
+
+#: ../../../using/windows.rst:1084
+msgid ""
+"Here are some example cases showing the different applications of "
+"constraints:"
+msgstr ""
+
+#: ../../../using/windows.rst:1086
+msgid "``>=3.13`` matches ``3.13.4`` and ``3.14``"
+msgstr ""
+
+#: ../../../using/windows.rst:1087
+msgid "``>3.13`` matches ``3.14``, but not ``3.13.4``"
+msgstr ""
+
+#: ../../../using/windows.rst:1088
+msgid "``>=3.13t`` matches ``3.14t``, while ``>=3.13`` does not"
+msgstr ""
+
+#: ../../../using/windows.rst:1089
+msgid "``>=3.13`` matches ``3.14-abc`` but not ``3.14abc``"
+msgstr ""
+
+#: ../../../using/windows.rst:1090
+msgid ""
+"``>3.13-abc-123`` matches ``3.14`` (number is higher) and ``3.13-abc-124`` "
+"(number ``124`` is higher) but not ``3.13-def-123`` (text mismatch), "
+"``3.14def`` (text ``def`` is not in the constraint), ``3.13-abc-123`` "
+"(number is not higher) or ``3.13-abc`` (not enough segments)"
+msgstr ""
+
+#: ../../../using/windows.rst:1095
+msgid "``>=3.0`` matches ``3``, but ``>3.0`` does not"
+msgstr ""
+
+#: ../../../using/windows.rst:1096
+msgid "``<4`` matches ``3``, but ``<3.12`` and ``<=3.12`` do not"
+msgstr ""
+
+#: ../../../using/windows.rst:1097
+msgid ""
+"``==3.0`` does not match ``3``, while ``==3.10`` still matches ``3.10.1``"
+msgstr ""
+
+#: ../../../using/windows.rst:1098
+msgid ""
+"``!=3.13`` rejects ``3`` (because it could be ``3.13``), but ``!=3.13t`` "
+"accepts ``3`` (different suffix)"
+msgstr ""
+
+#: ../../../using/windows.rst:1101
+msgid ""
+"The difference between hyphen-separated segments and adjacent text and "
+"numbers is subtle, but should not be relevant to most users. Publishers will "
+"choose and advertise the tags for their packages, and so should take care to "
+"choose between adjacent text or separated text. For example, the core "
+"python\\.org releases use ``3.14t`` for free-threaded builds, which should "
+"not be confused with original builds and so ``3.14t`` should not match "
+"``3.14``. However, ``3.14`` should be allowed to match with ``3.14-64`` "
+"(recalling that known platform tags are treated at text), and so the "
+"hyphenated convention is chosen instead. End users get intuitive behavior "
+"because the publisher considered the impact of their choices."
+msgstr ""
+
+#: ../../../using/windows.rst:1112
+msgid ""
+"Note that constraints are not complementary, that is, the ``>=`` constraint "
+"does not necessarily include every tag rejected by the ``<`` constraint. For "
+"example, ``3.14t`` satisfies neither ``>=3.14`` nor ``<3.14``."
+msgstr ""
+
+#: ../../../using/windows.rst:1116
+msgid ""
+"Publishers should provide tags for each way they want users to select a "
+"runtime, commonly from most specific to least specific. For example, a free-"
+"threaded runtime might offer ``3.14.4t``, ``3.14t``, and ``3t``. Include a "
+"generic tag such as ``3.14`` only if that runtime should be eligible for "
+"generic requests. Exact matches of user requested tags are preferred over "
+"partial matches, so include the tags you expect your users to use."
+msgstr ""
+
+#: ../../../using/windows.rst:1123
+msgid ""
+"The primary tag should be orderable against other runtimes from the same "
+"publisher, but should not change with in-place updates. Also be aware that "
+"operations reading an online feed assume that the feed is already ordered, "
+"and will select the first runtime that matches requested tags."
+msgstr ""
+
+#: ../../../using/windows.rst:1128
+msgid ""
+"After filtering, runtimes are ordered by their primary tag and then the best "
+"is selected. \"Best\" is very context sensitive, and may be influenced by "
+"user configuration (such as the default tag), active virtual environments, "
+"prerelease marks on a runtime's sortable version, and whether a windowless "
+"interpreter is desired (such as launching through ``pyw.exe`` instead of "
+"``py.exe``)."
+msgstr ""
+
+#: ../../../using/windows.rst:1134
+msgid ""
+"Most notably, a request containing the text field ``dev``, such as ``3-"
+"dev``, causes prereleases to be considered on equal footing with stable "
+"releases. Typically stable releases are preferred unless filtering excludes "
+"all viable options. However, this behavior only takes place after filtering, "
+"and so a runtime that does not offer a tag containing ``dev`` will not be "
+"selected as a candidate."
+msgstr ""
+
+#: ../../../using/windows.rst:1144 ../../../using/windows.rst:1156
 msgid "Troubleshooting"
 msgstr ""
 
-#: ../../../using/windows.rst:1006
+#: ../../../using/windows.rst:1146
 msgid ""
 "If your Python install manager does not seem to be working correctly, work "
 "through these tests and fixes to see if it helps. If not, report an issue at "
@@ -1369,25 +1589,25 @@ msgid ""
 "any relevant log files (written to your :file:`%TEMP%` directory by default)."
 msgstr ""
 
-#: ../../../using/windows.rst:1020
+#: ../../../using/windows.rst:1160
 msgid "Symptom"
 msgstr ""
 
-#: ../../../using/windows.rst:1021
+#: ../../../using/windows.rst:1161
 msgid "Things to try"
 msgstr ""
 
-#: ../../../using/windows.rst:1023
+#: ../../../using/windows.rst:1163
 msgid ""
 "``python`` gives me a \"command not found\" error or opens the Store app "
 "when I type it in my terminal."
 msgstr ""
 
-#: ../../../using/windows.rst:1025 ../../../using/windows.rst:1044
+#: ../../../using/windows.rst:1165 ../../../using/windows.rst:1184
 msgid "Did you :ref:`install the Python install manager <pymanager>`?"
 msgstr ""
 
-#: ../../../using/windows.rst:1028 ../../../using/windows.rst:1047
+#: ../../../using/windows.rst:1168 ../../../using/windows.rst:1187
 msgid ""
 "Click Start, open \"Manage app execution aliases\", and check that the "
 "aliases for \"Python (default)\" are enabled. If they already are, try "
@@ -1395,11 +1615,11 @@ msgid ""
 "windowed)\" and \"Python install manager\" commands may also need refreshing."
 msgstr ""
 
-#: ../../../using/windows.rst:1035
+#: ../../../using/windows.rst:1175
 msgid "Check that the ``py`` and ``pymanager`` commands work."
 msgstr ""
 
-#: ../../../using/windows.rst:1038 ../../../using/windows.rst:1054
+#: ../../../using/windows.rst:1178 ../../../using/windows.rst:1194
 msgid ""
 "Ensure your :envvar:`PATH` variable contains the entry for ``%UserProfile%"
 "\\AppData\\Local\\Microsoft\\WindowsApps``. The operating system includes "
@@ -1407,59 +1627,59 @@ msgid ""
 "will not be found."
 msgstr ""
 
-#: ../../../using/windows.rst:1043
+#: ../../../using/windows.rst:1183
 msgid ""
 "``py`` gives me a \"command not found\" error when I type it in my terminal."
 msgstr ""
 
-#: ../../../using/windows.rst:1059
+#: ../../../using/windows.rst:1199
 msgid ""
 "``py`` gives me a \"can't open file\" error when I type commands in my "
 "terminal."
 msgstr ""
 
-#: ../../../using/windows.rst:1061
+#: ../../../using/windows.rst:1201
 msgid ""
 "This usually means you have the legacy launcher installed and it has "
 "priority over the Python install manager. To remove, click Start, open "
 "\"Installed apps\", search for \"Python launcher\" and uninstall it."
 msgstr ""
 
-#: ../../../using/windows.rst:1066
+#: ../../../using/windows.rst:1206
 msgid "``python`` doesn't launch the same runtime as ``py``"
 msgstr ""
 
-#: ../../../using/windows.rst:1067
+#: ../../../using/windows.rst:1207
 msgid ""
 "Click Start, open \"Installed apps\", look for any existing Python runtimes, "
 "and either remove them or Modify and disable the :envvar:`PATH` options."
 msgstr ""
 
-#: ../../../using/windows.rst:1071
+#: ../../../using/windows.rst:1211
 msgid ""
 "Click Start, open \"Manage app execution aliases\", and check that your "
 "``python.exe`` alias is set to \"Python (default)\""
 msgstr ""
 
-#: ../../../using/windows.rst:1074
+#: ../../../using/windows.rst:1214
 msgid "``python`` and ``py`` don't launch the runtime I expect"
 msgstr ""
 
-#: ../../../using/windows.rst:1075
+#: ../../../using/windows.rst:1215
 msgid ""
 "Check your :envvar:`PYTHON_MANAGER_DEFAULT` environment variable or "
 "``default_tag`` configuration. The ``py list`` command will show your "
 "default based on these settings."
 msgstr ""
 
-#: ../../../using/windows.rst:1080
+#: ../../../using/windows.rst:1220
 msgid ""
 "Installs that are managed by the Python install manager will be chosen ahead "
 "of unmanaged installs. Use ``py install`` to install the runtime you expect, "
 "or configure your default tag."
 msgstr ""
 
-#: ../../../using/windows.rst:1086
+#: ../../../using/windows.rst:1226
 msgid ""
 "Prerelease and experimental installs that are not managed by the Python "
 "install manager may be chosen ahead of stable releases. Configure your "
@@ -1467,29 +1687,29 @@ msgid ""
 "install``."
 msgstr ""
 
-#: ../../../using/windows.rst:1091
+#: ../../../using/windows.rst:1231
 msgid ""
 "``pythonw`` or ``pyw`` don't launch the same runtime as ``python`` or ``py``"
 msgstr ""
 
-#: ../../../using/windows.rst:1092
+#: ../../../using/windows.rst:1232
 msgid ""
 "Click Start, open \"Manage app execution aliases\", and check that your "
 "``pythonw.exe`` and ``pyw.exe`` aliases are consistent with your others."
 msgstr ""
 
-#: ../../../using/windows.rst:1095
+#: ../../../using/windows.rst:1235
 msgid ""
 "``pip`` gives me a \"command not found\" error when I type it in my terminal."
 msgstr ""
 
-#: ../../../using/windows.rst:1096 ../../../using/windows.rst:1108
+#: ../../../using/windows.rst:1236 ../../../using/windows.rst:1248
 msgid ""
 "Have you activated a virtual environment? Run the "
 "``.venv\\Scripts\\activate`` script in your terminal to activate."
 msgstr ""
 
-#: ../../../using/windows.rst:1100
+#: ../../../using/windows.rst:1240
 msgid ""
 "The package may be available but missing the generated executable. We "
 "recommend using the ``python -m pip`` command instead. Running ``py install "
@@ -1499,11 +1719,11 @@ msgid ""
 "available."
 msgstr ""
 
-#: ../../../using/windows.rst:1107
+#: ../../../using/windows.rst:1247
 msgid "I installed a package with ``pip`` but its command is not found."
 msgstr ""
 
-#: ../../../using/windows.rst:1112
+#: ../../../using/windows.rst:1252
 msgid ""
 "New packages do not automatically have global shortcuts created by the "
 "Python install manager. Similarly, uninstalled packages do not have their "
@@ -1511,11 +1731,11 @@ msgid ""
 "shortcuts for newly installed packages."
 msgstr ""
 
-#: ../../../using/windows.rst:1118
+#: ../../../using/windows.rst:1258
 msgid "Typing ``script-name.py`` in the terminal opens in a new window."
 msgstr ""
 
-#: ../../../using/windows.rst:1119
+#: ../../../using/windows.rst:1259
 msgid ""
 "This is a known limitation of the operating system. Either specify ``py`` "
 "before the script name, create a batch file containing ``@py \"%~dpn0.py\" "
@@ -1523,64 +1743,64 @@ msgid ""
 "select it as the association for scripts."
 msgstr ""
 
-#: ../../../using/windows.rst:1124
+#: ../../../using/windows.rst:1264
 msgid "Drag-dropping files onto a script doesn't work"
 msgstr ""
 
-#: ../../../using/windows.rst:1125
+#: ../../../using/windows.rst:1265
 msgid ""
 "This is a known limitation of the operating system. It is supported with the "
 "`legacy launcher`_, or with the Python install manager when installed from "
 "the MSI."
 msgstr ""
 
-#: ../../../using/windows.rst:1129
+#: ../../../using/windows.rst:1269
 msgid "I have installed the Python install manager multiple times."
 msgstr ""
 
-#: ../../../using/windows.rst:1130
+#: ../../../using/windows.rst:1270
 msgid ""
 "It is possible to install from the Store or WinGet, from the MSIX on the "
 "Python website, and from the MSI, all at once. They are all compatible and "
 "will share configuration and runtimes."
 msgstr ""
 
-#: ../../../using/windows.rst:1135
+#: ../../../using/windows.rst:1275
 msgid ""
 "See the earlier :ref:`pymanager-advancedinstall` section for ways to "
 "uninstall the install manager other than the typical Installed Apps (Add and "
 "Remove Programs) settings page."
 msgstr ""
 
-#: ../../../using/windows.rst:1139
+#: ../../../using/windows.rst:1279
 msgid "My old ``py.ini`` settings no longer work."
 msgstr ""
 
-#: ../../../using/windows.rst:1140
+#: ../../../using/windows.rst:1280
 msgid ""
 "The new Python install manager no longer supports this configuration file or "
 "its settings, and so it will be ignored. See :ref:`pymanager-config` for "
 "information about configuration settings."
 msgstr ""
 
-#: ../../../using/windows.rst:1147
+#: ../../../using/windows.rst:1287
 msgid "The embeddable package"
 msgstr ""
 
-#: ../../../using/windows.rst:1151
+#: ../../../using/windows.rst:1291
 msgid ""
 "The embedded distribution is a ZIP file containing a minimal Python "
 "environment. It is intended for acting as part of another application, "
 "rather than being directly accessed by end-users."
 msgstr ""
 
-#: ../../../using/windows.rst:1155
+#: ../../../using/windows.rst:1295
 msgid ""
 "To install an embedded distribution, we recommend using ``py install`` with "
 "the ``--target`` option:"
 msgstr ""
 
-#: ../../../using/windows.rst:1162
+#: ../../../using/windows.rst:1302
 msgid ""
 "When extracted, the embedded distribution is (almost) fully isolated from "
 "the user's system, including environment variables, system registry "
@@ -1591,14 +1811,14 @@ msgid ""
 "documentation are not included."
 msgstr ""
 
-#: ../../../using/windows.rst:1169
+#: ../../../using/windows.rst:1309
 msgid ""
 "A default ``._pth`` file is included, which further restricts the default "
 "search paths (as described below in :ref:`windows_finding_modules`). This "
 "file is intended for embedders to modify as necessary."
 msgstr ""
 
-#: ../../../using/windows.rst:1173
+#: ../../../using/windows.rst:1313
 msgid ""
 "Third-party packages should be installed by the application installer "
 "alongside the embedded distribution. Using pip to manage dependencies as for "
@@ -1609,16 +1829,16 @@ msgid ""
 "compatibility with newer versions before providing updates to users."
 msgstr ""
 
-#: ../../../using/windows.rst:1181
+#: ../../../using/windows.rst:1321
 msgid ""
 "The two recommended use cases for this distribution are described below."
 msgstr ""
 
-#: ../../../using/windows.rst:1184
+#: ../../../using/windows.rst:1324
 msgid "Python application"
 msgstr ""
 
-#: ../../../using/windows.rst:1186
+#: ../../../using/windows.rst:1326
 msgid ""
 "An application written in Python does not necessarily require users to be "
 "aware of that fact. The embedded distribution may be used in this case to "
@@ -1627,7 +1847,7 @@ msgid ""
 "there are two options."
 msgstr ""
 
-#: ../../../using/windows.rst:1192
+#: ../../../using/windows.rst:1332
 msgid ""
 "Using a specialized executable as a launcher requires some coding, but "
 "provides the most transparent experience for users. With a customized "
@@ -1638,7 +1858,7 @@ msgid ""
 "line."
 msgstr ""
 
-#: ../../../using/windows.rst:1199
+#: ../../../using/windows.rst:1339
 msgid ""
 "The simpler approach is to provide a batch file or generated shortcut that "
 "directly calls the ``python.exe`` or ``pythonw.exe`` with the required "
@@ -1647,7 +1867,7 @@ msgid ""
 "from other running Python processes or file associations."
 msgstr ""
 
-#: ../../../using/windows.rst:1205
+#: ../../../using/windows.rst:1345
 msgid ""
 "With the latter approach, packages should be installed as directories "
 "alongside the Python executable to ensure they are available on the path. "
@@ -1656,11 +1876,11 @@ msgid ""
 "application."
 msgstr ""
 
-#: ../../../using/windows.rst:1211
+#: ../../../using/windows.rst:1351
 msgid "Embedding Python"
 msgstr ""
 
-#: ../../../using/windows.rst:1213
+#: ../../../using/windows.rst:1353
 msgid ""
 "Applications written in native code often require some form of scripting "
 "language, and the embedded Python distribution can be used for this purpose. "
@@ -1671,7 +1891,7 @@ msgid ""
 "interpreter."
 msgstr ""
 
-#: ../../../using/windows.rst:1220
+#: ../../../using/windows.rst:1360
 msgid ""
 "As with the application use, packages can be installed to any location as "
 "there is an opportunity to specify search paths before initializing the "
@@ -1679,11 +1899,11 @@ msgid ""
 "the embedded distribution and a regular installation."
 msgstr ""
 
-#: ../../../using/windows.rst:1229
+#: ../../../using/windows.rst:1369
 msgid "The nuget.org packages"
 msgstr ""
 
-#: ../../../using/windows.rst:1233
+#: ../../../using/windows.rst:1373
 msgid ""
 "The nuget.org package is a reduced size Python environment intended for use "
 "on continuous integration and build systems that do not have a system-wide "
@@ -1691,14 +1911,14 @@ msgid ""
 "works perfectly fine for packages containing build-time tools."
 msgstr ""
 
-#: ../../../using/windows.rst:1238
+#: ../../../using/windows.rst:1378
 msgid ""
 "Visit `nuget.org <https://www.nuget.org/>`_ for the most up-to-date "
 "information on using nuget. What follows is a summary that is sufficient for "
 "Python developers."
 msgstr ""
 
-#: ../../../using/windows.rst:1242
+#: ../../../using/windows.rst:1382
 msgid ""
 "The ``nuget.exe`` command line tool may be downloaded directly from "
 "``https://dist.nuget.org/win-x86-commandline/latest/nuget.exe``, for "
@@ -1706,7 +1926,7 @@ msgid ""
 "Python for 64-bit or 32-bit machines is installed using::"
 msgstr ""
 
-#: ../../../using/windows.rst:1250
+#: ../../../using/windows.rst:1390
 msgid ""
 "To select a particular version, add a ``-Version 3.x.y``. The output "
 "directory may be changed from ``.``, and the package will be installed into "
@@ -1716,7 +1936,7 @@ msgid ""
 "directory that contains the Python installation:"
 msgstr ""
 
-#: ../../../using/windows.rst:1267
+#: ../../../using/windows.rst:1407
 msgid ""
 "In general, nuget packages are not upgradeable, and newer versions should be "
 "installed side-by-side and referenced using the full path. Alternatively, "
@@ -1724,7 +1944,7 @@ msgid ""
 "will do this automatically if they do not preserve files between builds."
 msgstr ""
 
-#: ../../../using/windows.rst:1272
+#: ../../../using/windows.rst:1412
 msgid ""
 "Alongside the ``tools`` directory is a ``build\\native`` directory. This "
 "contains an MSBuild properties file ``python.props`` that can be used in a C+"
@@ -1732,7 +1952,7 @@ msgid ""
 "automatically use the headers and import libraries in your build."
 msgstr ""
 
-#: ../../../using/windows.rst:1277
+#: ../../../using/windows.rst:1417
 msgid ""
 "The package information pages on nuget.org are `www.nuget.org/packages/"
 "python <https://www.nuget.org/packages/python>`_ for the 64-bit version, "
@@ -1741,17 +1961,17 @@ msgid ""
 "<https://www.nuget.org/packages/pythonarm64>`_ for the ARM64 version."
 msgstr ""
 
-#: ../../../using/windows.rst:1284
+#: ../../../using/windows.rst:1424
 msgid ""
 "Resolve error ``Unable to find package 'python'`` from a misconfigured "
 "``nuget.config`` using::"
 msgstr ""
 
-#: ../../../using/windows.rst:1289
+#: ../../../using/windows.rst:1429
 msgid "Free-threaded packages"
 msgstr ""
 
-#: ../../../using/windows.rst:1293
+#: ../../../using/windows.rst:1433
 msgid ""
 "Packages containing free-threaded binaries are named `python-freethreaded "
 "<https://www.nuget.org/packages/python-freethreaded>`_ for the 64-bit "
@@ -1762,45 +1982,45 @@ msgid ""
 "``python.exe`` entry points, both of which run free-threaded."
 msgstr ""
 
-#: ../../../using/windows.rst:1304
+#: ../../../using/windows.rst:1444
 msgid "Alternative bundles"
 msgstr ""
 
-#: ../../../using/windows.rst:1306
+#: ../../../using/windows.rst:1446
 msgid ""
 "Besides the standard CPython distribution, there are modified packages "
 "including additional functionality.  The following is a list of popular "
 "versions and their key features:"
 msgstr ""
 
-#: ../../../using/windows.rst:1310
+#: ../../../using/windows.rst:1450
 msgid "`ActivePython <https://www.activestate.com/products/python/>`_"
 msgstr ""
 
-#: ../../../using/windows.rst:1311
+#: ../../../using/windows.rst:1451
 msgid "Installer with multi-platform compatibility, documentation, PyWin32"
 msgstr ""
 
-#: ../../../using/windows.rst:1313
+#: ../../../using/windows.rst:1453
 msgid "`Anaconda <https://www.anaconda.com/download/>`_"
 msgstr ""
 
-#: ../../../using/windows.rst:1314
+#: ../../../using/windows.rst:1454
 msgid ""
 "Popular scientific modules (such as numpy, scipy and pandas) and the "
 "``conda`` package manager."
 msgstr ""
 
-#: ../../../using/windows.rst:1317
+#: ../../../using/windows.rst:1457
 msgid ""
 "`Enthought Deployment Manager <https://assets.enthought.com/downloads/edm/>`_"
 msgstr ""
 
-#: ../../../using/windows.rst:1318
+#: ../../../using/windows.rst:1458
 msgid "\"The Next Generation Python Environment and Package Manager\"."
 msgstr ""
 
-#: ../../../using/windows.rst:1320
+#: ../../../using/windows.rst:1460
 msgid ""
 "Previously Enthought provided Canopy, but it `reached end of life in 2016 "
 "<https://support.enthought.com/hc/en-us/articles/360038600051-Canopy-GUI-end-"
@@ -1808,27 +2028,27 @@ msgid ""
 "Code>`_."
 msgstr ""
 
-#: ../../../using/windows.rst:1323
+#: ../../../using/windows.rst:1463
 msgid "`WinPython <https://winpython.github.io/>`_"
 msgstr ""
 
-#: ../../../using/windows.rst:1324
+#: ../../../using/windows.rst:1464
 msgid ""
 "Windows-specific distribution with prebuilt scientific packages and tools "
 "for building packages."
 msgstr ""
 
-#: ../../../using/windows.rst:1327
+#: ../../../using/windows.rst:1467
 msgid ""
 "Note that these packages may not include the latest versions of Python or "
 "other libraries, and are not maintained or supported by the core Python team."
 msgstr ""
 
-#: ../../../using/windows.rst:1332
+#: ../../../using/windows.rst:1472
 msgid "Supported Windows versions"
 msgstr ""
 
-#: ../../../using/windows.rst:1334
+#: ../../../using/windows.rst:1474
 msgid ""
 "As specified in :pep:`11`, a Python release only supports a Windows platform "
 "while Microsoft considers the platform under extended support. This means "
@@ -1837,17 +2057,17 @@ msgid ""
 "Python 3.12."
 msgstr ""
 
-#: ../../../using/windows.rst:1344
+#: ../../../using/windows.rst:1484
 msgid "Removing the MAX_PATH limitation"
 msgstr ""
 
-#: ../../../using/windows.rst:1346
+#: ../../../using/windows.rst:1486
 msgid ""
 "Windows historically has limited path lengths to 260 characters. This meant "
 "that paths longer than this would not resolve and errors would result."
 msgstr ""
 
-#: ../../../using/windows.rst:1349
+#: ../../../using/windows.rst:1489
 msgid ""
 "In the latest versions of Windows, this limitation can be expanded to over "
 "32,000 characters. Your administrator will need to activate the \"Enable "
@@ -1856,27 +2076,27 @@ msgid ""
 "``HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\FileSystem``."
 msgstr ""
 
-#: ../../../using/windows.rst:1354
+#: ../../../using/windows.rst:1494
 msgid ""
 "This allows the :func:`open` function, the :mod:`os` module and most other "
 "path functionality to accept and return paths longer than 260 characters."
 msgstr ""
 
-#: ../../../using/windows.rst:1357
+#: ../../../using/windows.rst:1497
 msgid ""
 "After changing the above option and rebooting, no further configuration is "
 "required."
 msgstr ""
 
-#: ../../../using/windows.rst:1364
+#: ../../../using/windows.rst:1504
 msgid "UTF-8 mode"
 msgstr ""
 
-#: ../../../using/windows.rst:1369
+#: ../../../using/windows.rst:1509
 msgid "Python UTF-8 mode is now enabled by default (:pep:`686`)."
 msgstr ""
 
-#: ../../../using/windows.rst:1371
+#: ../../../using/windows.rst:1511
 msgid ""
 "Windows still uses legacy encodings for the system encoding (the ANSI Code "
 "Page).  When the :ref:`Python UTF-8 Mode <utf8-mode>` is disabled, Python "
@@ -1884,13 +2104,13 @@ msgid ""
 "by :func:`locale.getencoding`."
 msgstr ""
 
-#: ../../../using/windows.rst:1376
+#: ../../../using/windows.rst:1516
 msgid ""
 "This may cause issues because UTF-8 is widely used on the internet and most "
 "Unix systems, including WSL (Windows Subsystem for Linux)."
 msgstr ""
 
-#: ../../../using/windows.rst:1379
+#: ../../../using/windows.rst:1519
 msgid ""
 "The :ref:`Python UTF-8 Mode <utf8-mode>`, enabled by default, ignores the "
 "system encoding and uses UTF-8 as the default text encoding. When "
@@ -1898,7 +2118,7 @@ msgid ""
 "encoding (the ANSI Code Page) via the \"mbcs\" codec."
 msgstr ""
 
-#: ../../../using/windows.rst:1384
+#: ../../../using/windows.rst:1524
 msgid ""
 "You can disable the :ref:`Python UTF-8 Mode <utf8-mode>` via the ``-X "
 "utf8=0`` command line option, or the ``PYTHONUTF8=0`` environment variable.  "
@@ -1906,7 +2126,7 @@ msgid ""
 "envvars` for how to modify environment variables."
 msgstr ""
 
-#: ../../../using/windows.rst:1390
+#: ../../../using/windows.rst:1530
 msgid ""
 "Adding ``PYTHONUTF8={0,1}`` to the default environment variables will affect "
 "all Python 3.7+ applications on your system. If you have any Python 3.7+ "
@@ -1915,45 +2135,45 @@ msgid ""
 "option."
 msgstr ""
 
-#: ../../../using/windows.rst:1397
+#: ../../../using/windows.rst:1537
 msgid ""
 "Even when UTF-8 mode is disabled, Python uses UTF-8 by default on Windows "
 "for:"
 msgstr ""
 
-#: ../../../using/windows.rst:1400
+#: ../../../using/windows.rst:1540
 msgid "Console I/O including standard I/O (see :pep:`528` for details)."
 msgstr ""
 
-#: ../../../using/windows.rst:1401
+#: ../../../using/windows.rst:1541
 msgid ""
 "The :term:`filesystem encoding <filesystem encoding and error handler>` "
 "(see :pep:`529` for details)."
 msgstr ""
 
-#: ../../../using/windows.rst:1408
+#: ../../../using/windows.rst:1548
 msgid "Finding modules"
 msgstr ""
 
-#: ../../../using/windows.rst:1410
+#: ../../../using/windows.rst:1550
 msgid ""
 "These notes supplement the description at :ref:`sys-path-init` with detailed "
 "Windows notes."
 msgstr ""
 
-#: ../../../using/windows.rst:1413
+#: ../../../using/windows.rst:1553
 msgid ""
 "When no ``._pth`` file is found, this is how :data:`sys.path` is populated "
 "on Windows:"
 msgstr ""
 
-#: ../../../using/windows.rst:1416
+#: ../../../using/windows.rst:1556
 msgid ""
 "An empty entry is added at the start, which corresponds to the current "
 "directory."
 msgstr ""
 
-#: ../../../using/windows.rst:1419
+#: ../../../using/windows.rst:1559
 msgid ""
 "If the environment variable :envvar:`PYTHONPATH` exists, as described "
 "in :ref:`using-on-envvars`, its entries are added next.  Note that on "
@@ -1961,7 +2181,7 @@ msgid ""
 "distinguish them from the colon used in drive identifiers (such as ``C:\\``)."
 msgstr ""
 
-#: ../../../using/windows.rst:1424
+#: ../../../using/windows.rst:1564
 msgid ""
 "Additional \"application paths\" can be added in the registry as subkeys "
 "of :samp:`\\\\SOFTWARE\\\\Python\\\\PythonCore\\\\{version}\\\\PythonPath` "
@@ -1971,7 +2191,7 @@ msgid ""
 "installers only use HKLM, so HKCU is typically empty.)"
 msgstr ""
 
-#: ../../../using/windows.rst:1431
+#: ../../../using/windows.rst:1571
 msgid ""
 "If the environment variable :envvar:`PYTHONHOME` is set, it is assumed as "
 "\"Python Home\".  Otherwise, the path of the main Python executable is used "
@@ -1982,31 +2202,31 @@ msgid ""
 "the PythonPath stored in the registry."
 msgstr ""
 
-#: ../../../using/windows.rst:1439
+#: ../../../using/windows.rst:1579
 msgid ""
 "If the Python Home cannot be located, no :envvar:`PYTHONPATH` is specified "
 "in the environment, and no registry entries can be found, a default path "
 "with relative entries is used (for example, ``.\\Lib;.\\plat-win``)."
 msgstr ""
 
-#: ../../../using/windows.rst:1443
+#: ../../../using/windows.rst:1583
 msgid ""
 "If a ``pyvenv.cfg`` file is found alongside the main executable or in the "
 "directory one level above the executable, the following variations apply:"
 msgstr ""
 
-#: ../../../using/windows.rst:1446
+#: ../../../using/windows.rst:1586
 msgid ""
 "If ``home`` is an absolute path and :envvar:`PYTHONHOME` is not set, this "
 "path is used instead of the path to the main executable when deducing the "
 "home location."
 msgstr ""
 
-#: ../../../using/windows.rst:1450
+#: ../../../using/windows.rst:1590
 msgid "The end result of all this is:"
 msgstr ""
 
-#: ../../../using/windows.rst:1452
+#: ../../../using/windows.rst:1592
 msgid ""
 "When running :file:`python.exe`, or any other .exe in the main Python "
 "directory (either an installed version, or directly from the PCbuild "
@@ -2014,7 +2234,7 @@ msgid ""
 "ignored.  Other \"application paths\" in the registry are always read."
 msgstr ""
 
-#: ../../../using/windows.rst:1457
+#: ../../../using/windows.rst:1597
 msgid ""
 "When Python is hosted in another .exe (for example, in a different directory "
 "or embedded via COM), the \"Python Home\" will not be deduced, so the core "
@@ -2022,20 +2242,20 @@ msgid ""
 "are always read."
 msgstr ""
 
-#: ../../../using/windows.rst:1461
+#: ../../../using/windows.rst:1601
 msgid ""
 "If Python can't find its home and there are no registry values (frozen .exe, "
 "some very strange installation setup) you get a path with some default, but "
 "relative, paths."
 msgstr ""
 
-#: ../../../using/windows.rst:1465
+#: ../../../using/windows.rst:1605
 msgid ""
 "For those who want to bundle Python into their application or distribution, "
 "the following advice will prevent conflicts with other installations:"
 msgstr ""
 
-#: ../../../using/windows.rst:1468
+#: ../../../using/windows.rst:1608
 msgid ""
 "Include a ``._pth`` file alongside your executable containing the "
 "directories to include. This will ignore paths listed in the registry and "
@@ -2043,20 +2263,20 @@ msgid ""
 "listed."
 msgstr ""
 
-#: ../../../using/windows.rst:1473
+#: ../../../using/windows.rst:1613
 msgid ""
 "If you are loading :file:`python3.dll` or |python_xy_dll_literal| in your "
 "own executable, explicitly set :c:member:`PyConfig.module_search_paths` "
 "before :c:func:`Py_InitializeFromConfig`."
 msgstr ""
 
-#: ../../../using/windows.rst:1477
+#: ../../../using/windows.rst:1617
 msgid ""
 "Clear and/or overwrite :envvar:`PYTHONPATH` and set :envvar:`PYTHONHOME` "
 "before launching :file:`python.exe` from your application."
 msgstr ""
 
-#: ../../../using/windows.rst:1480
+#: ../../../using/windows.rst:1620
 msgid ""
 "If you cannot use the previous suggestions (for example, you are a "
 "distribution that allows people to run :file:`python.exe` directly), ensure "
@@ -2065,7 +2285,7 @@ msgid ""
 "correctly named ZIP file will be detected instead.)"
 msgstr ""
 
-#: ../../../using/windows.rst:1486
+#: ../../../using/windows.rst:1626
 msgid ""
 "These will ensure that the files in a system-wide installation will not take "
 "precedence over the copy of the standard library bundled with your "
@@ -2075,19 +2295,19 @@ msgid ""
 "packages."
 msgstr ""
 
-#: ../../../using/windows.rst:1494
+#: ../../../using/windows.rst:1634
 msgid ""
 "Add ``._pth`` file support and remove ``applocal`` option from "
 "``pyvenv.cfg``."
 msgstr ""
 
-#: ../../../using/windows.rst:1499
+#: ../../../using/windows.rst:1639
 msgid ""
 "Add :file:`python{XX}.zip` as a potential landmark when directly adjacent to "
 "the executable."
 msgstr ""
 
-#: ../../../using/windows.rst:1504
+#: ../../../using/windows.rst:1644
 msgid ""
 "Modules specified in the registry under ``Modules`` (not ``PythonPath``) may "
 "be imported by :class:`importlib.machinery.WindowsRegistryFinder`. This "
@@ -2095,86 +2315,86 @@ msgid ""
 "explicitly added to :data:`sys.meta_path` in the future."
 msgstr ""
 
-#: ../../../using/windows.rst:1510
+#: ../../../using/windows.rst:1650
 msgid "Additional modules"
 msgstr ""
 
-#: ../../../using/windows.rst:1512
+#: ../../../using/windows.rst:1652
 msgid ""
 "Even though Python aims to be portable among all platforms, there are "
 "features that are unique to Windows.  A couple of modules, both in the "
 "standard library and external, and snippets exist to use these features."
 msgstr ""
 
-#: ../../../using/windows.rst:1516
+#: ../../../using/windows.rst:1656
 msgid ""
 "The Windows-specific standard modules are documented in :ref:`mswin-specific-"
 "services`."
 msgstr ""
 
-#: ../../../using/windows.rst:1520
+#: ../../../using/windows.rst:1660
 msgid "PyWin32"
 msgstr ""
 
-#: ../../../using/windows.rst:1522
+#: ../../../using/windows.rst:1662
 msgid ""
 "The :pypi:`PyWin32` module by Mark Hammond is a collection of modules for "
 "advanced Windows-specific support.  This includes utilities for:"
 msgstr ""
 
-#: ../../../using/windows.rst:1526
+#: ../../../using/windows.rst:1666
 msgid ""
 "`Component Object Model <https://learn.microsoft.com/windows/win32/com/"
 "component-object-model--com--portal>`_ (COM)"
 msgstr ""
 
-#: ../../../using/windows.rst:1529
+#: ../../../using/windows.rst:1669
 msgid "Win32 API calls"
 msgstr ""
 
-#: ../../../using/windows.rst:1530
+#: ../../../using/windows.rst:1670
 msgid "Registry"
 msgstr ""
 
-#: ../../../using/windows.rst:1531
+#: ../../../using/windows.rst:1671
 msgid "Event log"
 msgstr ""
 
-#: ../../../using/windows.rst:1532
+#: ../../../using/windows.rst:1672
 msgid ""
 "`Microsoft Foundation Classes <https://learn.microsoft.com/cpp/mfc/mfc-"
 "desktop-applications>`_ (MFC) user interfaces"
 msgstr ""
 
-#: ../../../using/windows.rst:1536
+#: ../../../using/windows.rst:1676
 msgid ""
 "`PythonWin <https://web.archive.org/web/20060524042422/ https://"
 "www.python.org/windows/pythonwin/>`_ is a sample MFC application shipped "
 "with PyWin32.  It is an embeddable IDE with a built-in debugger."
 msgstr ""
 
-#: ../../../using/windows.rst:1542
+#: ../../../using/windows.rst:1682
 msgid ""
 "`Win32 How Do I...? <https://timgolden.me.uk/python/win32_how_do_i.html>`_"
 msgstr ""
 
-#: ../../../using/windows.rst:1543
+#: ../../../using/windows.rst:1683
 msgid "by Tim Golden"
 msgstr ""
 
-#: ../../../using/windows.rst:1545
+#: ../../../using/windows.rst:1685
 msgid "`Python and COM <https://www.boddie.org.uk/python/COM.html>`_"
 msgstr ""
 
-#: ../../../using/windows.rst:1546
+#: ../../../using/windows.rst:1686
 msgid "by David and Paul Boddie"
 msgstr ""
 
-#: ../../../using/windows.rst:1550
+#: ../../../using/windows.rst:1690
 msgid "cx_Freeze"
 msgstr ""
 
-#: ../../../using/windows.rst:1552
+#: ../../../using/windows.rst:1692
 msgid ""
 "`cx_Freeze <https://cx-freeze.readthedocs.io/en/latest/>`_ wraps Python "
 "scripts into executable Windows programs (:file:`{*}.exe` files).  When you "
@@ -2182,11 +2402,11 @@ msgid ""
 "users to install Python."
 msgstr ""
 
-#: ../../../using/windows.rst:1559
+#: ../../../using/windows.rst:1699
 msgid "Compiling Python on Windows"
 msgstr ""
 
-#: ../../../using/windows.rst:1561
+#: ../../../using/windows.rst:1701
 msgid ""
 "If you want to compile CPython yourself, first thing you should do is get "
 "the `source <https://www.python.org/downloads/source/>`_. You can download "
@@ -2194,19 +2414,19 @@ msgid ""
 "devguide.python.org/setup/#get-the-source-code>`_."
 msgstr ""
 
-#: ../../../using/windows.rst:1566
+#: ../../../using/windows.rst:1706
 msgid ""
 "The source tree contains a build solution and project files for Microsoft "
 "Visual Studio, which is the compiler used to build the official Python "
 "releases. These files are in the :file:`PCbuild` directory."
 msgstr ""
 
-#: ../../../using/windows.rst:1570
+#: ../../../using/windows.rst:1710
 msgid ""
 "Check :file:`PCbuild/readme.txt` for general information on the build "
 "process."
 msgstr ""
 
-#: ../../../using/windows.rst:1572
+#: ../../../using/windows.rst:1712
 msgid "For extension modules, consult :ref:`building-on-windows`."
 msgstr ""
